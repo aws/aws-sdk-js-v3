@@ -1685,7 +1685,7 @@ export const de_AddRoleToDBClusterCommand = async (
   context: __SerdeContext
 ): Promise<AddRoleToDBClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddRoleToDBClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddRoleToDBClusterCommandOutput = {
@@ -1695,12 +1695,1357 @@ export const de_AddRoleToDBClusterCommand = async (
 };
 
 /**
- * deserializeAws_queryAddRoleToDBClusterCommandError
+ * deserializeAws_queryAddSourceIdentifierToSubscriptionCommand
  */
-const de_AddRoleToDBClusterCommandError = async (
+export const de_AddSourceIdentifierToSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddRoleToDBClusterCommandOutput> => {
+): Promise<AddSourceIdentifierToSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AddSourceIdentifierToSubscriptionResult(data.AddSourceIdentifierToSubscriptionResult, context);
+  const response: AddSourceIdentifierToSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryAddTagsToResourceCommand
+ */
+export const de_AddTagsToResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddTagsToResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: AddTagsToResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryApplyPendingMaintenanceActionCommand
+ */
+export const de_ApplyPendingMaintenanceActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ApplyPendingMaintenanceActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ApplyPendingMaintenanceActionResult(data.ApplyPendingMaintenanceActionResult, context);
+  const response: ApplyPendingMaintenanceActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCopyDBClusterParameterGroupCommand
+ */
+export const de_CopyDBClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyDBClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopyDBClusterParameterGroupResult(data.CopyDBClusterParameterGroupResult, context);
+  const response: CopyDBClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCopyDBClusterSnapshotCommand
+ */
+export const de_CopyDBClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyDBClusterSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopyDBClusterSnapshotResult(data.CopyDBClusterSnapshotResult, context);
+  const response: CopyDBClusterSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCopyDBParameterGroupCommand
+ */
+export const de_CopyDBParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyDBParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopyDBParameterGroupResult(data.CopyDBParameterGroupResult, context);
+  const response: CopyDBParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBClusterCommand
+ */
+export const de_CreateDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBClusterResult(data.CreateDBClusterResult, context);
+  const response: CreateDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBClusterEndpointCommand
+ */
+export const de_CreateDBClusterEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBClusterEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBClusterEndpointOutput(data.CreateDBClusterEndpointResult, context);
+  const response: CreateDBClusterEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBClusterParameterGroupCommand
+ */
+export const de_CreateDBClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBClusterParameterGroupResult(data.CreateDBClusterParameterGroupResult, context);
+  const response: CreateDBClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBClusterSnapshotCommand
+ */
+export const de_CreateDBClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBClusterSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBClusterSnapshotResult(data.CreateDBClusterSnapshotResult, context);
+  const response: CreateDBClusterSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBInstanceCommand
+ */
+export const de_CreateDBInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBInstanceResult(data.CreateDBInstanceResult, context);
+  const response: CreateDBInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBParameterGroupCommand
+ */
+export const de_CreateDBParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBParameterGroupResult(data.CreateDBParameterGroupResult, context);
+  const response: CreateDBParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateDBSubnetGroupCommand
+ */
+export const de_CreateDBSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDBSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDBSubnetGroupResult(data.CreateDBSubnetGroupResult, context);
+  const response: CreateDBSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateEventSubscriptionCommand
+ */
+export const de_CreateEventSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEventSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateEventSubscriptionResult(data.CreateEventSubscriptionResult, context);
+  const response: CreateEventSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateGlobalClusterCommand
+ */
+export const de_CreateGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateGlobalClusterResult(data.CreateGlobalClusterResult, context);
+  const response: CreateGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBClusterCommand
+ */
+export const de_DeleteDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBClusterResult(data.DeleteDBClusterResult, context);
+  const response: DeleteDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBClusterEndpointCommand
+ */
+export const de_DeleteDBClusterEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBClusterEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBClusterEndpointOutput(data.DeleteDBClusterEndpointResult, context);
+  const response: DeleteDBClusterEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBClusterParameterGroupCommand
+ */
+export const de_DeleteDBClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDBClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBClusterSnapshotCommand
+ */
+export const de_DeleteDBClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBClusterSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBClusterSnapshotResult(data.DeleteDBClusterSnapshotResult, context);
+  const response: DeleteDBClusterSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBInstanceCommand
+ */
+export const de_DeleteDBInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteDBInstanceResult(data.DeleteDBInstanceResult, context);
+  const response: DeleteDBInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBParameterGroupCommand
+ */
+export const de_DeleteDBParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDBParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteDBSubnetGroupCommand
+ */
+export const de_DeleteDBSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDBSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDBSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteEventSubscriptionCommand
+ */
+export const de_DeleteEventSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteEventSubscriptionResult(data.DeleteEventSubscriptionResult, context);
+  const response: DeleteEventSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteGlobalClusterCommand
+ */
+export const de_DeleteGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteGlobalClusterResult(data.DeleteGlobalClusterResult, context);
+  const response: DeleteGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterEndpointsCommand
+ */
+export const de_DescribeDBClusterEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterEndpointMessage(data.DescribeDBClusterEndpointsResult, context);
+  const response: DescribeDBClusterEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterParameterGroupsCommand
+ */
+export const de_DescribeDBClusterParameterGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterParameterGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterParameterGroupsMessage(data.DescribeDBClusterParameterGroupsResult, context);
+  const response: DescribeDBClusterParameterGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterParametersCommand
+ */
+export const de_DescribeDBClusterParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterParameterGroupDetails(data.DescribeDBClusterParametersResult, context);
+  const response: DescribeDBClusterParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClustersCommand
+ */
+export const de_DescribeDBClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterMessage(data.DescribeDBClustersResult, context);
+  const response: DescribeDBClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand
+ */
+export const de_DescribeDBClusterSnapshotAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDBClusterSnapshotAttributesResult(data.DescribeDBClusterSnapshotAttributesResult, context);
+  const response: DescribeDBClusterSnapshotAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBClusterSnapshotsCommand
+ */
+export const de_DescribeDBClusterSnapshotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBClusterSnapshotsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterSnapshotMessage(data.DescribeDBClusterSnapshotsResult, context);
+  const response: DescribeDBClusterSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBEngineVersionsCommand
+ */
+export const de_DescribeDBEngineVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBEngineVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBEngineVersionMessage(data.DescribeDBEngineVersionsResult, context);
+  const response: DescribeDBEngineVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBInstancesCommand
+ */
+export const de_DescribeDBInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBInstanceMessage(data.DescribeDBInstancesResult, context);
+  const response: DescribeDBInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBParameterGroupsCommand
+ */
+export const de_DescribeDBParameterGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBParameterGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBParameterGroupsMessage(data.DescribeDBParameterGroupsResult, context);
+  const response: DescribeDBParameterGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBParametersCommand
+ */
+export const de_DescribeDBParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBParameterGroupDetails(data.DescribeDBParametersResult, context);
+  const response: DescribeDBParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDBSubnetGroupsCommand
+ */
+export const de_DescribeDBSubnetGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDBSubnetGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBSubnetGroupMessage(data.DescribeDBSubnetGroupsResult, context);
+  const response: DescribeDBSubnetGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEngineDefaultClusterParametersCommand
+ */
+export const de_DescribeEngineDefaultClusterParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEngineDefaultClusterParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEngineDefaultClusterParametersResult(
+    data.DescribeEngineDefaultClusterParametersResult,
+    context
+  );
+  const response: DescribeEngineDefaultClusterParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEngineDefaultParametersCommand
+ */
+export const de_DescribeEngineDefaultParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEngineDefaultParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEngineDefaultParametersResult(data.DescribeEngineDefaultParametersResult, context);
+  const response: DescribeEngineDefaultParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEventCategoriesCommand
+ */
+export const de_DescribeEventCategoriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventCategoriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EventCategoriesMessage(data.DescribeEventCategoriesResult, context);
+  const response: DescribeEventCategoriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEventsCommand
+ */
+export const de_DescribeEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EventsMessage(data.DescribeEventsResult, context);
+  const response: DescribeEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEventSubscriptionsCommand
+ */
+export const de_DescribeEventSubscriptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventSubscriptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EventSubscriptionsMessage(data.DescribeEventSubscriptionsResult, context);
+  const response: DescribeEventSubscriptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeGlobalClustersCommand
+ */
+export const de_DescribeGlobalClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGlobalClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GlobalClustersMessage(data.DescribeGlobalClustersResult, context);
+  const response: DescribeGlobalClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand
+ */
+export const de_DescribeOrderableDBInstanceOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_OrderableDBInstanceOptionsMessage(data.DescribeOrderableDBInstanceOptionsResult, context);
+  const response: DescribeOrderableDBInstanceOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribePendingMaintenanceActionsCommand
+ */
+export const de_DescribePendingMaintenanceActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PendingMaintenanceActionsMessage(data.DescribePendingMaintenanceActionsResult, context);
+  const response: DescribePendingMaintenanceActionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeValidDBInstanceModificationsCommand
+ */
+export const de_DescribeValidDBInstanceModificationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeValidDBInstanceModificationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeValidDBInstanceModificationsResult(data.DescribeValidDBInstanceModificationsResult, context);
+  const response: DescribeValidDBInstanceModificationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryFailoverDBClusterCommand
+ */
+export const de_FailoverDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_FailoverDBClusterResult(data.FailoverDBClusterResult, context);
+  const response: FailoverDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryFailoverGlobalClusterCommand
+ */
+export const de_FailoverGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_FailoverGlobalClusterResult(data.FailoverGlobalClusterResult, context);
+  const response: FailoverGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TagListMessage(data.ListTagsForResourceResult, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBClusterCommand
+ */
+export const de_ModifyDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBClusterResult(data.ModifyDBClusterResult, context);
+  const response: ModifyDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBClusterEndpointCommand
+ */
+export const de_ModifyDBClusterEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBClusterEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBClusterEndpointOutput(data.ModifyDBClusterEndpointResult, context);
+  const response: ModifyDBClusterEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBClusterParameterGroupCommand
+ */
+export const de_ModifyDBClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterParameterGroupNameMessage(data.ModifyDBClusterParameterGroupResult, context);
+  const response: ModifyDBClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBClusterSnapshotAttributeCommand
+ */
+export const de_ModifyDBClusterSnapshotAttributeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBClusterSnapshotAttributeResult(data.ModifyDBClusterSnapshotAttributeResult, context);
+  const response: ModifyDBClusterSnapshotAttributeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBInstanceCommand
+ */
+export const de_ModifyDBInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBInstanceResult(data.ModifyDBInstanceResult, context);
+  const response: ModifyDBInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBParameterGroupCommand
+ */
+export const de_ModifyDBParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBParameterGroupNameMessage(data.ModifyDBParameterGroupResult, context);
+  const response: ModifyDBParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyDBSubnetGroupCommand
+ */
+export const de_ModifyDBSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDBSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyDBSubnetGroupResult(data.ModifyDBSubnetGroupResult, context);
+  const response: ModifyDBSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyEventSubscriptionCommand
+ */
+export const de_ModifyEventSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyEventSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyEventSubscriptionResult(data.ModifyEventSubscriptionResult, context);
+  const response: ModifyEventSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyGlobalClusterCommand
+ */
+export const de_ModifyGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyGlobalClusterResult(data.ModifyGlobalClusterResult, context);
+  const response: ModifyGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryPromoteReadReplicaDBClusterCommand
+ */
+export const de_PromoteReadReplicaDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PromoteReadReplicaDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PromoteReadReplicaDBClusterResult(data.PromoteReadReplicaDBClusterResult, context);
+  const response: PromoteReadReplicaDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRebootDBInstanceCommand
+ */
+export const de_RebootDBInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootDBInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RebootDBInstanceResult(data.RebootDBInstanceResult, context);
+  const response: RebootDBInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveFromGlobalClusterCommand
+ */
+export const de_RemoveFromGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveFromGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RemoveFromGlobalClusterResult(data.RemoveFromGlobalClusterResult, context);
+  const response: RemoveFromGlobalClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveRoleFromDBClusterCommand
+ */
+export const de_RemoveRoleFromDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveRoleFromDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveRoleFromDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand
+ */
+export const de_RemoveSourceIdentifierFromSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RemoveSourceIdentifierFromSubscriptionResult(
+    data.RemoveSourceIdentifierFromSubscriptionResult,
+    context
+  );
+  const response: RemoveSourceIdentifierFromSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveTagsFromResourceCommand
+ */
+export const de_RemoveTagsFromResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTagsFromResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveTagsFromResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryResetDBClusterParameterGroupCommand
+ */
+export const de_ResetDBClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetDBClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBClusterParameterGroupNameMessage(data.ResetDBClusterParameterGroupResult, context);
+  const response: ResetDBClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryResetDBParameterGroupCommand
+ */
+export const de_ResetDBParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetDBParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DBParameterGroupNameMessage(data.ResetDBParameterGroupResult, context);
+  const response: ResetDBParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRestoreDBClusterFromSnapshotCommand
+ */
+export const de_RestoreDBClusterFromSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreDBClusterFromSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreDBClusterFromSnapshotResult(data.RestoreDBClusterFromSnapshotResult, context);
+  const response: RestoreDBClusterFromSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRestoreDBClusterToPointInTimeCommand
+ */
+export const de_RestoreDBClusterToPointInTimeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreDBClusterToPointInTimeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreDBClusterToPointInTimeResult(data.RestoreDBClusterToPointInTimeResult, context);
+  const response: RestoreDBClusterToPointInTimeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStartDBClusterCommand
+ */
+export const de_StartDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartDBClusterResult(data.StartDBClusterResult, context);
+  const response: StartDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStopDBClusterCommand
+ */
+export const de_StopDBClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDBClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopDBClusterResult(data.StopDBClusterResult, context);
+  const response: StopDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_queryCommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1719,193 +3064,21 @@ const de_AddRoleToDBClusterCommandError = async (
     case "InvalidDBClusterStateFault":
     case "com.amazonaws.neptune#InvalidDBClusterStateFault":
       throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAddSourceIdentifierToSubscriptionCommand
- */
-export const de_AddSourceIdentifierToSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddSourceIdentifierToSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AddSourceIdentifierToSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_AddSourceIdentifierToSubscriptionResult(data.AddSourceIdentifierToSubscriptionResult, context);
-  const response: AddSourceIdentifierToSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAddSourceIdentifierToSubscriptionCommandError
- */
-const de_AddSourceIdentifierToSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddSourceIdentifierToSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "SourceNotFound":
     case "com.amazonaws.neptune#SourceNotFoundFault":
       throw await de_SourceNotFoundFaultRes(parsedOutput, context);
     case "SubscriptionNotFound":
     case "com.amazonaws.neptune#SubscriptionNotFoundFault":
       throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAddTagsToResourceCommand
- */
-export const de_AddTagsToResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AddTagsToResourceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: AddTagsToResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAddTagsToResourceCommandError
- */
-const de_AddTagsToResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     case "DBInstanceNotFound":
     case "com.amazonaws.neptune#DBInstanceNotFoundFault":
       throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
     case "DBSnapshotNotFound":
     case "com.amazonaws.neptune#DBSnapshotNotFoundFault":
       throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryApplyPendingMaintenanceActionCommand
- */
-export const de_ApplyPendingMaintenanceActionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ApplyPendingMaintenanceActionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ApplyPendingMaintenanceActionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ApplyPendingMaintenanceActionResult(data.ApplyPendingMaintenanceActionResult, context);
-  const response: ApplyPendingMaintenanceActionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryApplyPendingMaintenanceActionCommandError
- */
-const de_ApplyPendingMaintenanceActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ApplyPendingMaintenanceActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ResourceNotFoundFault":
     case "com.amazonaws.neptune#ResourceNotFoundFault":
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCopyDBClusterParameterGroupCommand
- */
-export const de_CopyDBClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CopyDBClusterParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CopyDBClusterParameterGroupResult(data.CopyDBClusterParameterGroupResult, context);
-  const response: CopyDBClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCopyDBClusterParameterGroupCommandError
- */
-const de_CopyDBClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBParameterGroupAlreadyExists":
     case "com.amazonaws.neptune#DBParameterGroupAlreadyExistsFault":
       throw await de_DBParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
@@ -1915,49 +3088,6 @@ const de_CopyDBClusterParameterGroupCommandError = async (
     case "DBParameterGroupQuotaExceeded":
     case "com.amazonaws.neptune#DBParameterGroupQuotaExceededFault":
       throw await de_DBParameterGroupQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCopyDBClusterSnapshotCommand
- */
-export const de_CopyDBClusterSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CopyDBClusterSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CopyDBClusterSnapshotResult(data.CopyDBClusterSnapshotResult, context);
-  const response: CopyDBClusterSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCopyDBClusterSnapshotCommandError
- */
-const de_CopyDBClusterSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBClusterSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBClusterSnapshotAlreadyExistsFault":
     case "com.amazonaws.neptune#DBClusterSnapshotAlreadyExistsFault":
       throw await de_DBClusterSnapshotAlreadyExistsFaultRes(parsedOutput, context);
@@ -1967,125 +3097,21 @@ const de_CopyDBClusterSnapshotCommandError = async (
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
       throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
     case "KMSKeyNotAccessibleFault":
     case "com.amazonaws.neptune#KMSKeyNotAccessibleFault":
       throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
     case "SnapshotQuotaExceeded":
     case "com.amazonaws.neptune#SnapshotQuotaExceededFault":
       throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCopyDBParameterGroupCommand
- */
-export const de_CopyDBParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CopyDBParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CopyDBParameterGroupResult(data.CopyDBParameterGroupResult, context);
-  const response: CopyDBParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCopyDBParameterGroupCommandError
- */
-const de_CopyDBParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyDBParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupAlreadyExists":
-    case "com.amazonaws.neptune#DBParameterGroupAlreadyExistsFault":
-      throw await de_DBParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBParameterGroupQuotaExceeded":
-    case "com.amazonaws.neptune#DBParameterGroupQuotaExceededFault":
-      throw await de_DBParameterGroupQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBClusterCommand
- */
-export const de_CreateDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBClusterResult(data.CreateDBClusterResult, context);
-  const response: CreateDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBClusterCommandError
- */
-const de_CreateDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBClusterAlreadyExistsFault":
     case "com.amazonaws.neptune#DBClusterAlreadyExistsFault":
       throw await de_DBClusterAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     case "DBClusterParameterGroupNotFound":
     case "com.amazonaws.neptune#DBClusterParameterGroupNotFoundFault":
       throw await de_DBClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "DBClusterQuotaExceededFault":
     case "com.amazonaws.neptune#DBClusterQuotaExceededFault":
       throw await de_DBClusterQuotaExceededFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
     case "DBSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.neptune#DBSubnetGroupDoesNotCoverEnoughAZs":
       throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
@@ -2098,9 +3124,6 @@ const de_CreateDBClusterCommandError = async (
     case "InsufficientStorageClusterCapacity":
     case "com.amazonaws.neptune#InsufficientStorageClusterCapacityFault":
       throw await de_InsufficientStorageClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
     case "InvalidDBInstanceState":
     case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
       throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
@@ -2116,244 +3139,24 @@ const de_CreateDBClusterCommandError = async (
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.neptune#InvalidVPCNetworkStateFault":
       throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.neptune#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
     case "StorageQuotaExceeded":
     case "com.amazonaws.neptune#StorageQuotaExceededFault":
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBClusterEndpointCommand
- */
-export const de_CreateDBClusterEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBClusterEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBClusterEndpointOutput(data.CreateDBClusterEndpointResult, context);
-  const response: CreateDBClusterEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBClusterEndpointCommandError
- */
-const de_CreateDBClusterEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBClusterEndpointAlreadyExistsFault":
     case "com.amazonaws.neptune#DBClusterEndpointAlreadyExistsFault":
       throw await de_DBClusterEndpointAlreadyExistsFaultRes(parsedOutput, context);
     case "DBClusterEndpointQuotaExceededFault":
     case "com.amazonaws.neptune#DBClusterEndpointQuotaExceededFault":
       throw await de_DBClusterEndpointQuotaExceededFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBClusterParameterGroupCommand
- */
-export const de_CreateDBClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBClusterParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBClusterParameterGroupResult(data.CreateDBClusterParameterGroupResult, context);
-  const response: CreateDBClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBClusterParameterGroupCommandError
- */
-const de_CreateDBClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupAlreadyExists":
-    case "com.amazonaws.neptune#DBParameterGroupAlreadyExistsFault":
-      throw await de_DBParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBParameterGroupQuotaExceeded":
-    case "com.amazonaws.neptune#DBParameterGroupQuotaExceededFault":
-      throw await de_DBParameterGroupQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBClusterSnapshotCommand
- */
-export const de_CreateDBClusterSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBClusterSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBClusterSnapshotResult(data.CreateDBClusterSnapshotResult, context);
-  const response: CreateDBClusterSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBClusterSnapshotCommandError
- */
-const de_CreateDBClusterSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBClusterSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterSnapshotAlreadyExistsFault":
-    case "com.amazonaws.neptune#DBClusterSnapshotAlreadyExistsFault":
-      throw await de_DBClusterSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidDBClusterSnapshotStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
-      throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceeded":
-    case "com.amazonaws.neptune#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBInstanceCommand
- */
-export const de_CreateDBInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBInstanceResult(data.CreateDBInstanceResult, context);
-  const response: CreateDBInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBInstanceCommandError
- */
-const de_CreateDBInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AuthorizationNotFound":
     case "com.amazonaws.neptune#AuthorizationNotFoundFault":
       throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     case "DBInstanceAlreadyExists":
     case "com.amazonaws.neptune#DBInstanceAlreadyExistsFault":
       throw await de_DBInstanceAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "DBSecurityGroupNotFound":
     case "com.amazonaws.neptune#DBSecurityGroupNotFoundFault":
       throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.neptune#DBSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
     case "DomainNotFoundFault":
     case "com.amazonaws.neptune#DomainNotFoundFault":
       throw await de_DomainNotFoundFaultRes(parsedOutput, context);
@@ -2363,180 +3166,24 @@ const de_CreateDBInstanceCommandError = async (
     case "InsufficientDBInstanceCapacity":
     case "com.amazonaws.neptune#InsufficientDBInstanceCapacityFault":
       throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.neptune#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.neptune#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.neptune#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
     case "OptionGroupNotFoundFault":
     case "com.amazonaws.neptune#OptionGroupNotFoundFault":
       throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
     case "ProvisionedIopsNotAvailableInAZFault":
     case "com.amazonaws.neptune#ProvisionedIopsNotAvailableInAZFault":
       throw await de_ProvisionedIopsNotAvailableInAZFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.neptune#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
     case "StorageTypeNotSupported":
     case "com.amazonaws.neptune#StorageTypeNotSupportedFault":
       throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBParameterGroupCommand
- */
-export const de_CreateDBParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBParameterGroupResult(data.CreateDBParameterGroupResult, context);
-  const response: CreateDBParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBParameterGroupCommandError
- */
-const de_CreateDBParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupAlreadyExists":
-    case "com.amazonaws.neptune#DBParameterGroupAlreadyExistsFault":
-      throw await de_DBParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBParameterGroupQuotaExceeded":
-    case "com.amazonaws.neptune#DBParameterGroupQuotaExceededFault":
-      throw await de_DBParameterGroupQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateDBSubnetGroupCommand
- */
-export const de_CreateDBSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDBSubnetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDBSubnetGroupResult(data.CreateDBSubnetGroupResult, context);
-  const response: CreateDBSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateDBSubnetGroupCommandError
- */
-const de_CreateDBSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDBSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBSubnetGroupAlreadyExists":
     case "com.amazonaws.neptune#DBSubnetGroupAlreadyExistsFault":
       throw await de_DBSubnetGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.neptune#DBSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
     case "DBSubnetGroupQuotaExceeded":
     case "com.amazonaws.neptune#DBSubnetGroupQuotaExceededFault":
       throw await de_DBSubnetGroupQuotaExceededFaultRes(parsedOutput, context);
     case "DBSubnetQuotaExceededFault":
     case "com.amazonaws.neptune#DBSubnetQuotaExceededFault":
       throw await de_DBSubnetQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.neptune#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateEventSubscriptionCommand
- */
-export const de_CreateEventSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateEventSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateEventSubscriptionResult(data.CreateEventSubscriptionResult, context);
-  const response: CreateEventSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateEventSubscriptionCommandError
- */
-const de_CreateEventSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "EventSubscriptionQuotaExceeded":
     case "com.amazonaws.neptune#EventSubscriptionQuotaExceededFault":
       throw await de_EventSubscriptionQuotaExceededFaultRes(parsedOutput, context);
@@ -2549,2815 +3196,70 @@ const de_CreateEventSubscriptionCommandError = async (
     case "SNSTopicArnNotFound":
     case "com.amazonaws.neptune#SNSTopicArnNotFoundFault":
       throw await de_SNSTopicArnNotFoundFaultRes(parsedOutput, context);
-    case "SourceNotFound":
-    case "com.amazonaws.neptune#SourceNotFoundFault":
-      throw await de_SourceNotFoundFaultRes(parsedOutput, context);
     case "SubscriptionAlreadyExist":
     case "com.amazonaws.neptune#SubscriptionAlreadyExistFault":
       throw await de_SubscriptionAlreadyExistFaultRes(parsedOutput, context);
     case "SubscriptionCategoryNotFound":
     case "com.amazonaws.neptune#SubscriptionCategoryNotFoundFault":
       throw await de_SubscriptionCategoryNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateGlobalClusterCommand
- */
-export const de_CreateGlobalClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateGlobalClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateGlobalClusterResult(data.CreateGlobalClusterResult, context);
-  const response: CreateGlobalClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateGlobalClusterCommandError
- */
-const de_CreateGlobalClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGlobalClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     case "GlobalClusterAlreadyExistsFault":
     case "com.amazonaws.neptune#GlobalClusterAlreadyExistsFault":
       throw await de_GlobalClusterAlreadyExistsFaultRes(parsedOutput, context);
     case "GlobalClusterQuotaExceededFault":
     case "com.amazonaws.neptune#GlobalClusterQuotaExceededFault":
       throw await de_GlobalClusterQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterCommand
- */
-export const de_DeleteDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteDBClusterResult(data.DeleteDBClusterResult, context);
-  const response: DeleteDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterCommandError
- */
-const de_DeleteDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterSnapshotAlreadyExistsFault":
-    case "com.amazonaws.neptune#DBClusterSnapshotAlreadyExistsFault":
-      throw await de_DBClusterSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidDBClusterSnapshotStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
-      throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceeded":
-    case "com.amazonaws.neptune#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterEndpointCommand
- */
-export const de_DeleteDBClusterEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBClusterEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteDBClusterEndpointOutput(data.DeleteDBClusterEndpointResult, context);
-  const response: DeleteDBClusterEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterEndpointCommandError
- */
-const de_DeleteDBClusterEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DBClusterEndpointNotFoundFault":
     case "com.amazonaws.neptune#DBClusterEndpointNotFoundFault":
       throw await de_DBClusterEndpointNotFoundFaultRes(parsedOutput, context);
     case "InvalidDBClusterEndpointStateFault":
     case "com.amazonaws.neptune#InvalidDBClusterEndpointStateFault":
       throw await de_InvalidDBClusterEndpointStateFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterParameterGroupCommand
- */
-export const de_DeleteDBClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBClusterParameterGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteDBClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterParameterGroupCommandError
- */
-const de_DeleteDBClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "InvalidDBParameterGroupState":
     case "com.amazonaws.neptune#InvalidDBParameterGroupStateFault":
       throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterSnapshotCommand
- */
-export const de_DeleteDBClusterSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBClusterSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteDBClusterSnapshotResult(data.DeleteDBClusterSnapshotResult, context);
-  const response: DeleteDBClusterSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBClusterSnapshotCommandError
- */
-const de_DeleteDBClusterSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBClusterSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterSnapshotStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
-      throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBInstanceCommand
- */
-export const de_DeleteDBInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteDBInstanceResult(data.DeleteDBInstanceResult, context);
-  const response: DeleteDBInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBInstanceCommandError
- */
-const de_DeleteDBInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
     case "DBSnapshotAlreadyExists":
     case "com.amazonaws.neptune#DBSnapshotAlreadyExistsFault":
       throw await de_DBSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceeded":
-    case "com.amazonaws.neptune#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBParameterGroupCommand
- */
-export const de_DeleteDBParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBParameterGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteDBParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBParameterGroupCommandError
- */
-const de_DeleteDBParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBParameterGroupState":
-    case "com.amazonaws.neptune#InvalidDBParameterGroupStateFault":
-      throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteDBSubnetGroupCommand
- */
-export const de_DeleteDBSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDBSubnetGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteDBSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteDBSubnetGroupCommandError
- */
-const de_DeleteDBSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDBSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBSubnetGroupStateFault":
-    case "com.amazonaws.neptune#InvalidDBSubnetGroupStateFault":
-      throw await de_InvalidDBSubnetGroupStateFaultRes(parsedOutput, context);
     case "InvalidDBSubnetStateFault":
     case "com.amazonaws.neptune#InvalidDBSubnetStateFault":
       throw await de_InvalidDBSubnetStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteEventSubscriptionCommand
- */
-export const de_DeleteEventSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteEventSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteEventSubscriptionResult(data.DeleteEventSubscriptionResult, context);
-  const response: DeleteEventSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteEventSubscriptionCommandError
- */
-const de_DeleteEventSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidEventSubscriptionState":
     case "com.amazonaws.neptune#InvalidEventSubscriptionStateFault":
       throw await de_InvalidEventSubscriptionStateFaultRes(parsedOutput, context);
-    case "SubscriptionNotFound":
-    case "com.amazonaws.neptune#SubscriptionNotFoundFault":
-      throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteGlobalClusterCommand
- */
-export const de_DeleteGlobalClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteGlobalClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteGlobalClusterResult(data.DeleteGlobalClusterResult, context);
-  const response: DeleteGlobalClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteGlobalClusterCommandError
- */
-const de_DeleteGlobalClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGlobalClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalClusterNotFoundFault":
-    case "com.amazonaws.neptune#GlobalClusterNotFoundFault":
-      throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidGlobalClusterStateFault":
-    case "com.amazonaws.neptune#InvalidGlobalClusterStateFault":
-      throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterEndpointsCommand
- */
-export const de_DescribeDBClusterEndpointsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterEndpointsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClusterEndpointsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterEndpointMessage(data.DescribeDBClusterEndpointsResult, context);
-  const response: DescribeDBClusterEndpointsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterEndpointsCommandError
- */
-const de_DescribeDBClusterEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterParameterGroupsCommand
- */
-export const de_DescribeDBClusterParameterGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterParameterGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClusterParameterGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterParameterGroupsMessage(data.DescribeDBClusterParameterGroupsResult, context);
-  const response: DescribeDBClusterParameterGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterParameterGroupsCommandError
- */
-const de_DescribeDBClusterParameterGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterParameterGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterParametersCommand
- */
-export const de_DescribeDBClusterParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClusterParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterParameterGroupDetails(data.DescribeDBClusterParametersResult, context);
-  const response: DescribeDBClusterParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterParametersCommandError
- */
-const de_DescribeDBClusterParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClustersCommand
- */
-export const de_DescribeDBClustersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClustersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClustersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterMessage(data.DescribeDBClustersResult, context);
-  const response: DescribeDBClustersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClustersCommandError
- */
-const de_DescribeDBClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand
- */
-export const de_DescribeDBClusterSnapshotAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClusterSnapshotAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDBClusterSnapshotAttributesResult(data.DescribeDBClusterSnapshotAttributesResult, context);
-  const response: DescribeDBClusterSnapshotAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterSnapshotAttributesCommandError
- */
-const de_DescribeDBClusterSnapshotAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterSnapshotAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterSnapshotsCommand
- */
-export const de_DescribeDBClusterSnapshotsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterSnapshotsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBClusterSnapshotsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterSnapshotMessage(data.DescribeDBClusterSnapshotsResult, context);
-  const response: DescribeDBClusterSnapshotsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBClusterSnapshotsCommandError
- */
-const de_DescribeDBClusterSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBClusterSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBEngineVersionsCommand
- */
-export const de_DescribeDBEngineVersionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBEngineVersionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBEngineVersionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBEngineVersionMessage(data.DescribeDBEngineVersionsResult, context);
-  const response: DescribeDBEngineVersionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBEngineVersionsCommandError
- */
-const de_DescribeDBEngineVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBEngineVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeDBInstancesCommand
- */
-export const de_DescribeDBInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBInstancesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBInstancesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBInstanceMessage(data.DescribeDBInstancesResult, context);
-  const response: DescribeDBInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBInstancesCommandError
- */
-const de_DescribeDBInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBParameterGroupsCommand
- */
-export const de_DescribeDBParameterGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBParameterGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBParameterGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBParameterGroupsMessage(data.DescribeDBParameterGroupsResult, context);
-  const response: DescribeDBParameterGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBParameterGroupsCommandError
- */
-const de_DescribeDBParameterGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBParameterGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBParametersCommand
- */
-export const de_DescribeDBParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBParameterGroupDetails(data.DescribeDBParametersResult, context);
-  const response: DescribeDBParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBParametersCommandError
- */
-const de_DescribeDBParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDBSubnetGroupsCommand
- */
-export const de_DescribeDBSubnetGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBSubnetGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDBSubnetGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBSubnetGroupMessage(data.DescribeDBSubnetGroupsResult, context);
-  const response: DescribeDBSubnetGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDBSubnetGroupsCommandError
- */
-const de_DescribeDBSubnetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDBSubnetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeEngineDefaultClusterParametersCommand
- */
-export const de_DescribeEngineDefaultClusterParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngineDefaultClusterParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEngineDefaultClusterParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEngineDefaultClusterParametersResult(
-    data.DescribeEngineDefaultClusterParametersResult,
-    context
-  );
-  const response: DescribeEngineDefaultClusterParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEngineDefaultClusterParametersCommandError
- */
-const de_DescribeEngineDefaultClusterParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngineDefaultClusterParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeEngineDefaultParametersCommand
- */
-export const de_DescribeEngineDefaultParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngineDefaultParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEngineDefaultParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEngineDefaultParametersResult(data.DescribeEngineDefaultParametersResult, context);
-  const response: DescribeEngineDefaultParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEngineDefaultParametersCommandError
- */
-const de_DescribeEngineDefaultParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngineDefaultParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeEventCategoriesCommand
- */
-export const de_DescribeEventCategoriesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventCategoriesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventCategoriesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EventCategoriesMessage(data.DescribeEventCategoriesResult, context);
-  const response: DescribeEventCategoriesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEventCategoriesCommandError
- */
-const de_DescribeEventCategoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventCategoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeEventsCommand
- */
-export const de_DescribeEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EventsMessage(data.DescribeEventsResult, context);
-  const response: DescribeEventsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEventsCommandError
- */
-const de_DescribeEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeEventSubscriptionsCommand
- */
-export const de_DescribeEventSubscriptionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventSubscriptionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventSubscriptionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EventSubscriptionsMessage(data.DescribeEventSubscriptionsResult, context);
-  const response: DescribeEventSubscriptionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEventSubscriptionsCommandError
- */
-const de_DescribeEventSubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventSubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "SubscriptionNotFound":
-    case "com.amazonaws.neptune#SubscriptionNotFoundFault":
-      throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeGlobalClustersCommand
- */
-export const de_DescribeGlobalClustersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGlobalClustersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeGlobalClustersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GlobalClustersMessage(data.DescribeGlobalClustersResult, context);
-  const response: DescribeGlobalClustersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeGlobalClustersCommandError
- */
-const de_DescribeGlobalClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGlobalClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalClusterNotFoundFault":
-    case "com.amazonaws.neptune#GlobalClusterNotFoundFault":
-      throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand
- */
-export const de_DescribeOrderableDBInstanceOptionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeOrderableDBInstanceOptionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_OrderableDBInstanceOptionsMessage(data.DescribeOrderableDBInstanceOptionsResult, context);
-  const response: DescribeOrderableDBInstanceOptionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeOrderableDBInstanceOptionsCommandError
- */
-const de_DescribeOrderableDBInstanceOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrderableDBInstanceOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribePendingMaintenanceActionsCommand
- */
-export const de_DescribePendingMaintenanceActionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribePendingMaintenanceActionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PendingMaintenanceActionsMessage(data.DescribePendingMaintenanceActionsResult, context);
-  const response: DescribePendingMaintenanceActionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribePendingMaintenanceActionsCommandError
- */
-const de_DescribePendingMaintenanceActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.neptune#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeValidDBInstanceModificationsCommand
- */
-export const de_DescribeValidDBInstanceModificationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeValidDBInstanceModificationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeValidDBInstanceModificationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeValidDBInstanceModificationsResult(data.DescribeValidDBInstanceModificationsResult, context);
-  const response: DescribeValidDBInstanceModificationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeValidDBInstanceModificationsCommandError
- */
-const de_DescribeValidDBInstanceModificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeValidDBInstanceModificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryFailoverDBClusterCommand
- */
-export const de_FailoverDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_FailoverDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_FailoverDBClusterResult(data.FailoverDBClusterResult, context);
-  const response: FailoverDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryFailoverDBClusterCommandError
- */
-const de_FailoverDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryFailoverGlobalClusterCommand
- */
-export const de_FailoverGlobalClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_FailoverGlobalClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_FailoverGlobalClusterResult(data.FailoverGlobalClusterResult, context);
-  const response: FailoverGlobalClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryFailoverGlobalClusterCommandError
- */
-const de_FailoverGlobalClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverGlobalClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "GlobalClusterNotFoundFault":
-    case "com.amazonaws.neptune#GlobalClusterNotFoundFault":
-      throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidGlobalClusterStateFault":
-    case "com.amazonaws.neptune#InvalidGlobalClusterStateFault":
-      throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_TagListMessage(data.ListTagsForResourceResult, context);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.neptune#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBClusterCommand
- */
-export const de_ModifyDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBClusterResult(data.ModifyDBClusterResult, context);
-  const response: ModifyDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBClusterCommandError
- */
-const de_ModifyDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterAlreadyExistsFault":
-    case "com.amazonaws.neptune#DBClusterAlreadyExistsFault":
-      throw await de_DBClusterAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBClusterParameterGroupNotFoundFault":
-      throw await de_DBClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
     case "InvalidDBSecurityGroupState":
     case "com.amazonaws.neptune#InvalidDBSecurityGroupStateFault":
       throw await de_InvalidDBSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidDBSubnetGroupStateFault":
-    case "com.amazonaws.neptune#InvalidDBSubnetGroupStateFault":
-      throw await de_InvalidDBSubnetGroupStateFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.neptune#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.neptune#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.neptune#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    case "StorageTypeNotSupported":
-    case "com.amazonaws.neptune#StorageTypeNotSupportedFault":
-      throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBClusterEndpointCommand
- */
-export const de_ModifyDBClusterEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBClusterEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBClusterEndpointOutput(data.ModifyDBClusterEndpointResult, context);
-  const response: ModifyDBClusterEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBClusterEndpointCommandError
- */
-const de_ModifyDBClusterEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterEndpointNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterEndpointNotFoundFault":
-      throw await de_DBClusterEndpointNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterEndpointStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterEndpointStateFault":
-      throw await de_InvalidDBClusterEndpointStateFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBClusterParameterGroupCommand
- */
-export const de_ModifyDBClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBClusterParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterParameterGroupNameMessage(data.ModifyDBClusterParameterGroupResult, context);
-  const response: ModifyDBClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBClusterParameterGroupCommandError
- */
-const de_ModifyDBClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBParameterGroupState":
-    case "com.amazonaws.neptune#InvalidDBParameterGroupStateFault":
-      throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBClusterSnapshotAttributeCommand
- */
-export const de_ModifyDBClusterSnapshotAttributeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBClusterSnapshotAttributeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBClusterSnapshotAttributeResult(data.ModifyDBClusterSnapshotAttributeResult, context);
-  const response: ModifyDBClusterSnapshotAttributeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBClusterSnapshotAttributeCommandError
- */
-const de_ModifyDBClusterSnapshotAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBClusterSnapshotAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterSnapshotStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
-      throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
     case "SharedSnapshotQuotaExceeded":
     case "com.amazonaws.neptune#SharedSnapshotQuotaExceededFault":
       throw await de_SharedSnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBInstanceCommand
- */
-export const de_ModifyDBInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBInstanceResult(data.ModifyDBInstanceResult, context);
-  const response: ModifyDBInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBInstanceCommandError
- */
-const de_ModifyDBInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationNotFound":
-    case "com.amazonaws.neptune#AuthorizationNotFoundFault":
-      throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
     case "CertificateNotFound":
     case "com.amazonaws.neptune#CertificateNotFoundFault":
       throw await de_CertificateNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceAlreadyExists":
-    case "com.amazonaws.neptune#DBInstanceAlreadyExistsFault":
-      throw await de_DBInstanceAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSecurityGroupNotFound":
-    case "com.amazonaws.neptune#DBSecurityGroupNotFoundFault":
-      throw await de_DBSecurityGroupNotFoundFaultRes(parsedOutput, context);
     case "DBUpgradeDependencyFailure":
     case "com.amazonaws.neptune#DBUpgradeDependencyFailureFault":
       throw await de_DBUpgradeDependencyFailureFaultRes(parsedOutput, context);
-    case "DomainNotFoundFault":
-    case "com.amazonaws.neptune#DomainNotFoundFault":
-      throw await de_DomainNotFoundFaultRes(parsedOutput, context);
-    case "InsufficientDBInstanceCapacity":
-    case "com.amazonaws.neptune#InsufficientDBInstanceCapacityFault":
-      throw await de_InsufficientDBInstanceCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    case "InvalidDBSecurityGroupState":
-    case "com.amazonaws.neptune#InvalidDBSecurityGroupStateFault":
-      throw await de_InvalidDBSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.neptune#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.neptune#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    case "ProvisionedIopsNotAvailableInAZFault":
-    case "com.amazonaws.neptune#ProvisionedIopsNotAvailableInAZFault":
-      throw await de_ProvisionedIopsNotAvailableInAZFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.neptune#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    case "StorageTypeNotSupported":
-    case "com.amazonaws.neptune#StorageTypeNotSupportedFault":
-      throw await de_StorageTypeNotSupportedFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBParameterGroupCommand
- */
-export const de_ModifyDBParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBParameterGroupNameMessage(data.ModifyDBParameterGroupResult, context);
-  const response: ModifyDBParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBParameterGroupCommandError
- */
-const de_ModifyDBParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBParameterGroupState":
-    case "com.amazonaws.neptune#InvalidDBParameterGroupStateFault":
-      throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyDBSubnetGroupCommand
- */
-export const de_ModifyDBSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDBSubnetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyDBSubnetGroupResult(data.ModifyDBSubnetGroupResult, context);
-  const response: ModifyDBSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyDBSubnetGroupCommandError
- */
-const de_ModifyDBSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDBSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.neptune#DBSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_DBSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetQuotaExceededFault":
-    case "com.amazonaws.neptune#DBSubnetQuotaExceededFault":
-      throw await de_DBSubnetQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.neptune#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
     case "SubnetAlreadyInUse":
     case "com.amazonaws.neptune#SubnetAlreadyInUse":
       throw await de_SubnetAlreadyInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyEventSubscriptionCommand
- */
-export const de_ModifyEventSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyEventSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyEventSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyEventSubscriptionResult(data.ModifyEventSubscriptionResult, context);
-  const response: ModifyEventSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyEventSubscriptionCommandError
- */
-const de_ModifyEventSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyEventSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EventSubscriptionQuotaExceeded":
-    case "com.amazonaws.neptune#EventSubscriptionQuotaExceededFault":
-      throw await de_EventSubscriptionQuotaExceededFaultRes(parsedOutput, context);
-    case "SNSInvalidTopic":
-    case "com.amazonaws.neptune#SNSInvalidTopicFault":
-      throw await de_SNSInvalidTopicFaultRes(parsedOutput, context);
-    case "SNSNoAuthorization":
-    case "com.amazonaws.neptune#SNSNoAuthorizationFault":
-      throw await de_SNSNoAuthorizationFaultRes(parsedOutput, context);
-    case "SNSTopicArnNotFound":
-    case "com.amazonaws.neptune#SNSTopicArnNotFoundFault":
-      throw await de_SNSTopicArnNotFoundFaultRes(parsedOutput, context);
-    case "SubscriptionCategoryNotFound":
-    case "com.amazonaws.neptune#SubscriptionCategoryNotFoundFault":
-      throw await de_SubscriptionCategoryNotFoundFaultRes(parsedOutput, context);
-    case "SubscriptionNotFound":
-    case "com.amazonaws.neptune#SubscriptionNotFoundFault":
-      throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyGlobalClusterCommand
- */
-export const de_ModifyGlobalClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyGlobalClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyGlobalClusterResult(data.ModifyGlobalClusterResult, context);
-  const response: ModifyGlobalClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyGlobalClusterCommandError
- */
-const de_ModifyGlobalClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyGlobalClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalClusterNotFoundFault":
-    case "com.amazonaws.neptune#GlobalClusterNotFoundFault":
-      throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidGlobalClusterStateFault":
-    case "com.amazonaws.neptune#InvalidGlobalClusterStateFault":
-      throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryPromoteReadReplicaDBClusterCommand
- */
-export const de_PromoteReadReplicaDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PromoteReadReplicaDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PromoteReadReplicaDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PromoteReadReplicaDBClusterResult(data.PromoteReadReplicaDBClusterResult, context);
-  const response: PromoteReadReplicaDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryPromoteReadReplicaDBClusterCommandError
- */
-const de_PromoteReadReplicaDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PromoteReadReplicaDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRebootDBInstanceCommand
- */
-export const de_RebootDBInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootDBInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RebootDBInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RebootDBInstanceResult(data.RebootDBInstanceResult, context);
-  const response: RebootDBInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRebootDBInstanceCommandError
- */
-const de_RebootDBInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootDBInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBInstanceNotFound":
-    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemoveFromGlobalClusterCommand
- */
-export const de_RemoveFromGlobalClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveFromGlobalClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveFromGlobalClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RemoveFromGlobalClusterResult(data.RemoveFromGlobalClusterResult, context);
-  const response: RemoveFromGlobalClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemoveFromGlobalClusterCommandError
- */
-const de_RemoveFromGlobalClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveFromGlobalClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "GlobalClusterNotFoundFault":
-    case "com.amazonaws.neptune#GlobalClusterNotFoundFault":
-      throw await de_GlobalClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidGlobalClusterStateFault":
-    case "com.amazonaws.neptune#InvalidGlobalClusterStateFault":
-      throw await de_InvalidGlobalClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemoveRoleFromDBClusterCommand
- */
-export const de_RemoveRoleFromDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveRoleFromDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveRoleFromDBClusterCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RemoveRoleFromDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemoveRoleFromDBClusterCommandError
- */
-const de_RemoveRoleFromDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveRoleFromDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
     case "DBClusterRoleNotFound":
     case "com.amazonaws.neptune#DBClusterRoleNotFoundFault":
       throw await de_DBClusterRoleNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand
- */
-export const de_RemoveSourceIdentifierFromSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveSourceIdentifierFromSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RemoveSourceIdentifierFromSubscriptionResult(
-    data.RemoveSourceIdentifierFromSubscriptionResult,
-    context
-  );
-  const response: RemoveSourceIdentifierFromSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommandError
- */
-const de_RemoveSourceIdentifierFromSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveSourceIdentifierFromSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "SourceNotFound":
-    case "com.amazonaws.neptune#SourceNotFoundFault":
-      throw await de_SourceNotFoundFaultRes(parsedOutput, context);
-    case "SubscriptionNotFound":
-    case "com.amazonaws.neptune#SubscriptionNotFoundFault":
-      throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemoveTagsFromResourceCommand
- */
-export const de_RemoveTagsFromResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveTagsFromResourceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RemoveTagsFromResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemoveTagsFromResourceCommandError
- */
-const de_RemoveTagsFromResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBInstanceNotFound":
-    case "com.amazonaws.neptune#DBInstanceNotFoundFault":
-      throw await de_DBInstanceNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.neptune#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryResetDBClusterParameterGroupCommand
- */
-export const de_ResetDBClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetDBClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResetDBClusterParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBClusterParameterGroupNameMessage(data.ResetDBClusterParameterGroupResult, context);
-  const response: ResetDBClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryResetDBClusterParameterGroupCommandError
- */
-const de_ResetDBClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetDBClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBParameterGroupState":
-    case "com.amazonaws.neptune#InvalidDBParameterGroupStateFault":
-      throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryResetDBParameterGroupCommand
- */
-export const de_ResetDBParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetDBParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResetDBParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DBParameterGroupNameMessage(data.ResetDBParameterGroupResult, context);
-  const response: ResetDBParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryResetDBParameterGroupCommandError
- */
-const de_ResetDBParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetDBParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBParameterGroupNotFoundFault":
-      throw await de_DBParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBParameterGroupState":
-    case "com.amazonaws.neptune#InvalidDBParameterGroupStateFault":
-      throw await de_InvalidDBParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRestoreDBClusterFromSnapshotCommand
- */
-export const de_RestoreDBClusterFromSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBClusterFromSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreDBClusterFromSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreDBClusterFromSnapshotResult(data.RestoreDBClusterFromSnapshotResult, context);
-  const response: RestoreDBClusterFromSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRestoreDBClusterFromSnapshotCommandError
- */
-const de_RestoreDBClusterFromSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBClusterFromSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterAlreadyExistsFault":
-    case "com.amazonaws.neptune#DBClusterAlreadyExistsFault":
-      throw await de_DBClusterAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBClusterParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBClusterParameterGroupNotFoundFault":
-      throw await de_DBClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterQuotaExceededFault":
-    case "com.amazonaws.neptune#DBClusterQuotaExceededFault":
-      throw await de_DBClusterQuotaExceededFaultRes(parsedOutput, context);
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "DBSnapshotNotFound":
-    case "com.amazonaws.neptune#DBSnapshotNotFoundFault":
-      throw await de_DBSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
     case "InsufficientDBClusterCapacityFault":
     case "com.amazonaws.neptune#InsufficientDBClusterCapacityFault":
       throw await de_InsufficientDBClusterCapacityFaultRes(parsedOutput, context);
-    case "InsufficientStorageClusterCapacity":
-    case "com.amazonaws.neptune#InsufficientStorageClusterCapacityFault":
-      throw await de_InsufficientStorageClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterSnapshotStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
-      throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
     case "InvalidDBSnapshotState":
     case "com.amazonaws.neptune#InvalidDBSnapshotStateFault":
       throw await de_InvalidDBSnapshotStateFaultRes(parsedOutput, context);
     case "InvalidRestoreFault":
     case "com.amazonaws.neptune#InvalidRestoreFault":
       throw await de_InvalidRestoreFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.neptune#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.neptune#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.neptune#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.neptune#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.neptune#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRestoreDBClusterToPointInTimeCommand
- */
-export const de_RestoreDBClusterToPointInTimeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBClusterToPointInTimeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreDBClusterToPointInTimeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreDBClusterToPointInTimeResult(data.RestoreDBClusterToPointInTimeResult, context);
-  const response: RestoreDBClusterToPointInTimeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRestoreDBClusterToPointInTimeCommandError
- */
-const de_RestoreDBClusterToPointInTimeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDBClusterToPointInTimeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterAlreadyExistsFault":
-    case "com.amazonaws.neptune#DBClusterAlreadyExistsFault":
-      throw await de_DBClusterAlreadyExistsFaultRes(parsedOutput, context);
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterParameterGroupNotFound":
-    case "com.amazonaws.neptune#DBClusterParameterGroupNotFoundFault":
-      throw await de_DBClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "DBClusterQuotaExceededFault":
-    case "com.amazonaws.neptune#DBClusterQuotaExceededFault":
-      throw await de_DBClusterQuotaExceededFaultRes(parsedOutput, context);
-    case "DBClusterSnapshotNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterSnapshotNotFoundFault":
-      throw await de_DBClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "DBSubnetGroupNotFoundFault":
-    case "com.amazonaws.neptune#DBSubnetGroupNotFoundFault":
-      throw await de_DBSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "InsufficientDBClusterCapacityFault":
-    case "com.amazonaws.neptune#InsufficientDBClusterCapacityFault":
-      throw await de_InsufficientDBClusterCapacityFaultRes(parsedOutput, context);
-    case "InsufficientStorageClusterCapacity":
-    case "com.amazonaws.neptune#InsufficientStorageClusterCapacityFault":
-      throw await de_InsufficientStorageClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidDBClusterSnapshotStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterSnapshotStateFault":
-      throw await de_InvalidDBClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBSnapshotState":
-    case "com.amazonaws.neptune#InvalidDBSnapshotStateFault":
-      throw await de_InvalidDBSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidRestoreFault":
-    case "com.amazonaws.neptune#InvalidRestoreFault":
-      throw await de_InvalidRestoreFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.neptune#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.neptune#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.neptune#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "OptionGroupNotFoundFault":
-    case "com.amazonaws.neptune#OptionGroupNotFoundFault":
-      throw await de_OptionGroupNotFoundFaultRes(parsedOutput, context);
-    case "StorageQuotaExceeded":
-    case "com.amazonaws.neptune#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryStartDBClusterCommand
- */
-export const de_StartDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartDBClusterResult(data.StartDBClusterResult, context);
-  const response: StartDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryStartDBClusterCommandError
- */
-const de_StartDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryStopDBClusterCommand
- */
-export const de_StopDBClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDBClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopDBClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StopDBClusterResult(data.StopDBClusterResult, context);
-  const response: StopDBClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryStopDBClusterCommandError
- */
-const de_StopDBClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDBClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DBClusterNotFoundFault":
-    case "com.amazonaws.neptune#DBClusterNotFoundFault":
-      throw await de_DBClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidDBClusterStateFault":
-    case "com.amazonaws.neptune#InvalidDBClusterStateFault":
-      throw await de_InvalidDBClusterStateFaultRes(parsedOutput, context);
-    case "InvalidDBInstanceState":
-    case "com.amazonaws.neptune#InvalidDBInstanceStateFault":
-      throw await de_InvalidDBInstanceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

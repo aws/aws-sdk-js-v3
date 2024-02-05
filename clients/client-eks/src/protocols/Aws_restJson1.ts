@@ -1467,7 +1467,7 @@ export const de_AssociateAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<AssociateAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1483,41 +1483,6 @@ export const de_AssociateAccessPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssociateAccessPolicyCommandError
- */
-const de_AssociateAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AssociateEncryptionConfigCommand
  */
 export const de_AssociateEncryptionConfigCommand = async (
@@ -1525,7 +1490,7 @@ export const de_AssociateEncryptionConfigCommand = async (
   context: __SerdeContext
 ): Promise<AssociateEncryptionConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateEncryptionConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1539,47 +1504,6 @@ export const de_AssociateEncryptionConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssociateEncryptionConfigCommandError
- */
-const de_AssociateEncryptionConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateEncryptionConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AssociateIdentityProviderConfigCommand
  */
 export const de_AssociateIdentityProviderConfigCommand = async (
@@ -1587,7 +1511,7 @@ export const de_AssociateIdentityProviderConfigCommand = async (
   context: __SerdeContext
 ): Promise<AssociateIdentityProviderConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateIdentityProviderConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1602,47 +1526,6 @@ export const de_AssociateIdentityProviderConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssociateIdentityProviderConfigCommandError
- */
-const de_AssociateIdentityProviderConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateIdentityProviderConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAccessEntryCommand
  */
 export const de_CreateAccessEntryCommand = async (
@@ -1650,7 +1533,7 @@ export const de_CreateAccessEntryCommand = async (
   context: __SerdeContext
 ): Promise<CreateAccessEntryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAccessEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1661,47 +1544,6 @@ export const de_CreateAccessEntryCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateAccessEntryCommandError
- */
-const de_CreateAccessEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAccessEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.eks#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1712,7 +1554,7 @@ export const de_CreateAddonCommand = async (
   context: __SerdeContext
 ): Promise<CreateAddonCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAddonCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1723,47 +1565,6 @@ export const de_CreateAddonCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateAddonCommandError
- */
-const de_CreateAddonCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAddonCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1774,7 +1575,7 @@ export const de_CreateClusterCommand = async (
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1788,50 +1589,6 @@ export const de_CreateClusterCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateClusterCommandError
- */
-const de_CreateClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.eks#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnsupportedAvailabilityZoneException":
-    case "com.amazonaws.eks#UnsupportedAvailabilityZoneException":
-      throw await de_UnsupportedAvailabilityZoneExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateEksAnywhereSubscriptionCommand
  */
 export const de_CreateEksAnywhereSubscriptionCommand = async (
@@ -1839,7 +1596,7 @@ export const de_CreateEksAnywhereSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<CreateEksAnywhereSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateEksAnywhereSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1853,44 +1610,6 @@ export const de_CreateEksAnywhereSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateEksAnywhereSubscriptionCommandError
- */
-const de_CreateEksAnywhereSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEksAnywhereSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.eks#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFargateProfileCommand
  */
 export const de_CreateFargateProfileCommand = async (
@@ -1898,7 +1617,7 @@ export const de_CreateFargateProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateFargateProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateFargateProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1912,47 +1631,6 @@ export const de_CreateFargateProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFargateProfileCommandError
- */
-const de_CreateFargateProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFargateProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.eks#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedAvailabilityZoneException":
-    case "com.amazonaws.eks#UnsupportedAvailabilityZoneException":
-      throw await de_UnsupportedAvailabilityZoneExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateNodegroupCommand
  */
 export const de_CreateNodegroupCommand = async (
@@ -1960,7 +1638,7 @@ export const de_CreateNodegroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateNodegroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateNodegroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1974,50 +1652,6 @@ export const de_CreateNodegroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateNodegroupCommandError
- */
-const de_CreateNodegroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNodegroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.eks#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreatePodIdentityAssociationCommand
  */
 export const de_CreatePodIdentityAssociationCommand = async (
@@ -2025,7 +1659,7 @@ export const de_CreatePodIdentityAssociationCommand = async (
   context: __SerdeContext
 ): Promise<CreatePodIdentityAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreatePodIdentityAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2039,47 +1673,6 @@ export const de_CreatePodIdentityAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreatePodIdentityAssociationCommandError
- */
-const de_CreatePodIdentityAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePodIdentityAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.eks#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAccessEntryCommand
  */
 export const de_DeleteAccessEntryCommand = async (
@@ -2087,45 +1680,13 @@ export const de_DeleteAccessEntryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccessEntryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteAccessEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAccessEntryCommandError
- */
-const de_DeleteAccessEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccessEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2136,7 +1697,7 @@ export const de_DeleteAddonCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAddonCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteAddonCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2150,44 +1711,6 @@ export const de_DeleteAddonCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteAddonCommandError
- */
-const de_DeleteAddonCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAddonCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteClusterCommand
  */
 export const de_DeleteClusterCommand = async (
@@ -2195,7 +1718,7 @@ export const de_DeleteClusterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2209,44 +1732,6 @@ export const de_DeleteClusterCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteClusterCommandError
- */
-const de_DeleteClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteEksAnywhereSubscriptionCommand
  */
 export const de_DeleteEksAnywhereSubscriptionCommand = async (
@@ -2254,7 +1739,7 @@ export const de_DeleteEksAnywhereSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEksAnywhereSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteEksAnywhereSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2268,41 +1753,6 @@ export const de_DeleteEksAnywhereSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteEksAnywhereSubscriptionCommandError
- */
-const de_DeleteEksAnywhereSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEksAnywhereSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteFargateProfileCommand
  */
 export const de_DeleteFargateProfileCommand = async (
@@ -2310,7 +1760,7 @@ export const de_DeleteFargateProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFargateProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteFargateProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2324,41 +1774,6 @@ export const de_DeleteFargateProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteFargateProfileCommandError
- */
-const de_DeleteFargateProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFargateProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteNodegroupCommand
  */
 export const de_DeleteNodegroupCommand = async (
@@ -2366,7 +1781,7 @@ export const de_DeleteNodegroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNodegroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteNodegroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2380,47 +1795,6 @@ export const de_DeleteNodegroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteNodegroupCommandError
- */
-const de_DeleteNodegroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNodegroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeletePodIdentityAssociationCommand
  */
 export const de_DeletePodIdentityAssociationCommand = async (
@@ -2428,7 +1802,7 @@ export const de_DeletePodIdentityAssociationCommand = async (
   context: __SerdeContext
 ): Promise<DeletePodIdentityAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeletePodIdentityAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2442,41 +1816,6 @@ export const de_DeletePodIdentityAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeletePodIdentityAssociationCommandError
- */
-const de_DeletePodIdentityAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePodIdentityAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeregisterClusterCommand
  */
 export const de_DeregisterClusterCommand = async (
@@ -2484,7 +1823,7 @@ export const de_DeregisterClusterCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterClusterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeregisterClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2498,47 +1837,6 @@ export const de_DeregisterClusterCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeregisterClusterCommandError
- */
-const de_DeregisterClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.eks#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAccessEntryCommand
  */
 export const de_DescribeAccessEntryCommand = async (
@@ -2546,7 +1844,7 @@ export const de_DescribeAccessEntryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccessEntryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAccessEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2560,38 +1858,6 @@ export const de_DescribeAccessEntryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAccessEntryCommandError
- */
-const de_DescribeAccessEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccessEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAddonCommand
  */
 export const de_DescribeAddonCommand = async (
@@ -2599,7 +1865,7 @@ export const de_DescribeAddonCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAddonCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAddonCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2613,44 +1879,6 @@ export const de_DescribeAddonCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAddonCommandError
- */
-const de_DescribeAddonCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAddonCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAddonConfigurationCommand
  */
 export const de_DescribeAddonConfigurationCommand = async (
@@ -2658,7 +1886,7 @@ export const de_DescribeAddonConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAddonConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAddonConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2674,38 +1902,6 @@ export const de_DescribeAddonConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAddonConfigurationCommandError
- */
-const de_DescribeAddonConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAddonConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAddonVersionsCommand
  */
 export const de_DescribeAddonVersionsCommand = async (
@@ -2713,7 +1909,7 @@ export const de_DescribeAddonVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAddonVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAddonVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2728,38 +1924,6 @@ export const de_DescribeAddonVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAddonVersionsCommandError
- */
-const de_DescribeAddonVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAddonVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeClusterCommand
  */
 export const de_DescribeClusterCommand = async (
@@ -2767,7 +1931,7 @@ export const de_DescribeClusterCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2781,41 +1945,6 @@ export const de_DescribeClusterCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeClusterCommandError
- */
-const de_DescribeClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeEksAnywhereSubscriptionCommand
  */
 export const de_DescribeEksAnywhereSubscriptionCommand = async (
@@ -2823,7 +1952,7 @@ export const de_DescribeEksAnywhereSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEksAnywhereSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeEksAnywhereSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2837,41 +1966,6 @@ export const de_DescribeEksAnywhereSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeEksAnywhereSubscriptionCommandError
- */
-const de_DescribeEksAnywhereSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEksAnywhereSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeFargateProfileCommand
  */
 export const de_DescribeFargateProfileCommand = async (
@@ -2879,7 +1973,7 @@ export const de_DescribeFargateProfileCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFargateProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeFargateProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2893,41 +1987,6 @@ export const de_DescribeFargateProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeFargateProfileCommandError
- */
-const de_DescribeFargateProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFargateProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeIdentityProviderConfigCommand
  */
 export const de_DescribeIdentityProviderConfigCommand = async (
@@ -2935,7 +1994,7 @@ export const de_DescribeIdentityProviderConfigCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIdentityProviderConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeIdentityProviderConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2949,44 +2008,6 @@ export const de_DescribeIdentityProviderConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeIdentityProviderConfigCommandError
- */
-const de_DescribeIdentityProviderConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIdentityProviderConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeInsightCommand
  */
 export const de_DescribeInsightCommand = async (
@@ -2994,7 +2015,7 @@ export const de_DescribeInsightCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInsightCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeInsightCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3008,41 +2029,6 @@ export const de_DescribeInsightCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeInsightCommandError
- */
-const de_DescribeInsightCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInsightCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeNodegroupCommand
  */
 export const de_DescribeNodegroupCommand = async (
@@ -3050,7 +2036,7 @@ export const de_DescribeNodegroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNodegroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeNodegroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3064,44 +2050,6 @@ export const de_DescribeNodegroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeNodegroupCommandError
- */
-const de_DescribeNodegroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNodegroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribePodIdentityAssociationCommand
  */
 export const de_DescribePodIdentityAssociationCommand = async (
@@ -3109,7 +2057,7 @@ export const de_DescribePodIdentityAssociationCommand = async (
   context: __SerdeContext
 ): Promise<DescribePodIdentityAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribePodIdentityAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3123,41 +2071,6 @@ export const de_DescribePodIdentityAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribePodIdentityAssociationCommandError
- */
-const de_DescribePodIdentityAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePodIdentityAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeUpdateCommand
  */
 export const de_DescribeUpdateCommand = async (
@@ -3165,7 +2078,7 @@ export const de_DescribeUpdateCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUpdateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeUpdateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3176,41 +2089,6 @@ export const de_DescribeUpdateCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DescribeUpdateCommandError
- */
-const de_DescribeUpdateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUpdateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3221,45 +2099,13 @@ export const de_DisassociateAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateAccessPolicyCommandError
- */
-const de_DisassociateAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3270,7 +2116,7 @@ export const de_DisassociateIdentityProviderConfigCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateIdentityProviderConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateIdentityProviderConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3284,47 +2130,6 @@ export const de_DisassociateIdentityProviderConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DisassociateIdentityProviderConfigCommandError
- */
-const de_DisassociateIdentityProviderConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateIdentityProviderConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAccessEntriesCommand
  */
 export const de_ListAccessEntriesCommand = async (
@@ -3332,7 +2137,7 @@ export const de_ListAccessEntriesCommand = async (
   context: __SerdeContext
 ): Promise<ListAccessEntriesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAccessEntriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3347,41 +2152,6 @@ export const de_ListAccessEntriesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAccessEntriesCommandError
- */
-const de_ListAccessEntriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccessEntriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAccessPoliciesCommand
  */
 export const de_ListAccessPoliciesCommand = async (
@@ -3389,7 +2159,7 @@ export const de_ListAccessPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListAccessPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAccessPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3404,32 +2174,6 @@ export const de_ListAccessPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAccessPoliciesCommandError
- */
-const de_ListAccessPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccessPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAddonsCommand
  */
 export const de_ListAddonsCommand = async (
@@ -3437,7 +2181,7 @@ export const de_ListAddonsCommand = async (
   context: __SerdeContext
 ): Promise<ListAddonsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAddonsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3452,44 +2196,6 @@ export const de_ListAddonsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAddonsCommandError
- */
-const de_ListAddonsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAddonsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssociatedAccessPoliciesCommand
  */
 export const de_ListAssociatedAccessPoliciesCommand = async (
@@ -3497,7 +2203,7 @@ export const de_ListAssociatedAccessPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListAssociatedAccessPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssociatedAccessPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3514,38 +2220,6 @@ export const de_ListAssociatedAccessPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssociatedAccessPoliciesCommandError
- */
-const de_ListAssociatedAccessPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssociatedAccessPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListClustersCommand
  */
 export const de_ListClustersCommand = async (
@@ -3553,7 +2227,7 @@ export const de_ListClustersCommand = async (
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListClustersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3568,41 +2242,6 @@ export const de_ListClustersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListClustersCommandError
- */
-const de_ListClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListEksAnywhereSubscriptionsCommand
  */
 export const de_ListEksAnywhereSubscriptionsCommand = async (
@@ -3610,7 +2249,7 @@ export const de_ListEksAnywhereSubscriptionsCommand = async (
   context: __SerdeContext
 ): Promise<ListEksAnywhereSubscriptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEksAnywhereSubscriptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3625,41 +2264,6 @@ export const de_ListEksAnywhereSubscriptionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListEksAnywhereSubscriptionsCommandError
- */
-const de_ListEksAnywhereSubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEksAnywhereSubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFargateProfilesCommand
  */
 export const de_ListFargateProfilesCommand = async (
@@ -3667,7 +2271,7 @@ export const de_ListFargateProfilesCommand = async (
   context: __SerdeContext
 ): Promise<ListFargateProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFargateProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3682,41 +2286,6 @@ export const de_ListFargateProfilesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFargateProfilesCommandError
- */
-const de_ListFargateProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFargateProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIdentityProviderConfigsCommand
  */
 export const de_ListIdentityProviderConfigsCommand = async (
@@ -3724,7 +2293,7 @@ export const de_ListIdentityProviderConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListIdentityProviderConfigsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIdentityProviderConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3739,44 +2308,6 @@ export const de_ListIdentityProviderConfigsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIdentityProviderConfigsCommandError
- */
-const de_ListIdentityProviderConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIdentityProviderConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListInsightsCommand
  */
 export const de_ListInsightsCommand = async (
@@ -3784,7 +2315,7 @@ export const de_ListInsightsCommand = async (
   context: __SerdeContext
 ): Promise<ListInsightsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListInsightsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3799,41 +2330,6 @@ export const de_ListInsightsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListInsightsCommandError
- */
-const de_ListInsightsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInsightsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListNodegroupsCommand
  */
 export const de_ListNodegroupsCommand = async (
@@ -3841,7 +2337,7 @@ export const de_ListNodegroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListNodegroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListNodegroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3856,44 +2352,6 @@ export const de_ListNodegroupsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListNodegroupsCommandError
- */
-const de_ListNodegroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNodegroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPodIdentityAssociationsCommand
  */
 export const de_ListPodIdentityAssociationsCommand = async (
@@ -3901,7 +2359,7 @@ export const de_ListPodIdentityAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListPodIdentityAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPodIdentityAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3916,41 +2374,6 @@ export const de_ListPodIdentityAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPodIdentityAssociationsCommandError
- */
-const de_ListPodIdentityAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPodIdentityAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3958,7 +2381,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3972,35 +2395,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.eks#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.eks#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListUpdatesCommand
  */
 export const de_ListUpdatesCommand = async (
@@ -4008,7 +2402,7 @@ export const de_ListUpdatesCommand = async (
   context: __SerdeContext
 ): Promise<ListUpdatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListUpdatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4023,41 +2417,6 @@ export const de_ListUpdatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListUpdatesCommandError
- */
-const de_ListUpdatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUpdatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RegisterClusterCommand
  */
 export const de_RegisterClusterCommand = async (
@@ -4065,7 +2424,7 @@ export const de_RegisterClusterCommand = async (
   context: __SerdeContext
 ): Promise<RegisterClusterCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RegisterClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4079,53 +2438,6 @@ export const de_RegisterClusterCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RegisterClusterCommandError
- */
-const de_RegisterClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.eks#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.eks#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourcePropagationDelayException":
-    case "com.amazonaws.eks#ResourcePropagationDelayException":
-      throw await de_ResourcePropagationDelayExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.eks#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -4133,42 +2445,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.eks#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.eks#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4179,42 +2462,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.eks#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.eks#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4225,7 +2479,7 @@ export const de_UpdateAccessEntryCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccessEntryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAccessEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4239,41 +2493,6 @@ export const de_UpdateAccessEntryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAccessEntryCommandError
- */
-const de_UpdateAccessEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccessEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateAddonCommand
  */
 export const de_UpdateAddonCommand = async (
@@ -4281,7 +2500,7 @@ export const de_UpdateAddonCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAddonCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAddonCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4292,47 +2511,6 @@ export const de_UpdateAddonCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateAddonCommandError
- */
-const de_UpdateAddonCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAddonCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4343,7 +2521,7 @@ export const de_UpdateClusterConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateClusterConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateClusterConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4354,47 +2532,6 @@ export const de_UpdateClusterConfigCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateClusterConfigCommandError
- */
-const de_UpdateClusterConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateClusterConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4405,7 +2542,7 @@ export const de_UpdateClusterVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateClusterVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateClusterVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4419,47 +2556,6 @@ export const de_UpdateClusterVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateClusterVersionCommandError
- */
-const de_UpdateClusterVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateClusterVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateEksAnywhereSubscriptionCommand
  */
 export const de_UpdateEksAnywhereSubscriptionCommand = async (
@@ -4467,7 +2563,7 @@ export const de_UpdateEksAnywhereSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEksAnywhereSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateEksAnywhereSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4481,44 +2577,6 @@ export const de_UpdateEksAnywhereSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateEksAnywhereSubscriptionCommandError
- */
-const de_UpdateEksAnywhereSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEksAnywhereSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateNodegroupConfigCommand
  */
 export const de_UpdateNodegroupConfigCommand = async (
@@ -4526,7 +2584,7 @@ export const de_UpdateNodegroupConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNodegroupConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateNodegroupConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4537,47 +2595,6 @@ export const de_UpdateNodegroupConfigCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateNodegroupConfigCommandError
- */
-const de_UpdateNodegroupConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNodegroupConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4588,7 +2605,7 @@ export const de_UpdateNodegroupVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNodegroupVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateNodegroupVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4602,47 +2619,6 @@ export const de_UpdateNodegroupVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateNodegroupVersionCommandError
- */
-const de_UpdateNodegroupVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNodegroupVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.eks#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.eks#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.eks#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.eks#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.eks#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.eks#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdatePodIdentityAssociationCommand
  */
 export const de_UpdatePodIdentityAssociationCommand = async (
@@ -4650,7 +2626,7 @@ export const de_UpdatePodIdentityAssociationCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePodIdentityAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdatePodIdentityAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4664,12 +2640,9 @@ export const de_UpdatePodIdentityAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdatePodIdentityAssociationCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdatePodIdentityAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePodIdentityAssociationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4688,13 +2661,40 @@ const de_UpdatePodIdentityAssociationCommandError = async (
     case "ServerException":
     case "com.amazonaws.eks#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.eks#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.eks#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.eks#ResourceLimitExceededException":
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.eks#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "UnsupportedAvailabilityZoneException":
+    case "com.amazonaws.eks#UnsupportedAvailabilityZoneException":
+      throw await de_UnsupportedAvailabilityZoneExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.eks#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.eks#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.eks#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ResourcePropagationDelayException":
+    case "com.amazonaws.eks#ResourcePropagationDelayException":
+      throw await de_ResourcePropagationDelayExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -2995,7 +2995,7 @@ export const de_CreateAppCommand = async (
   context: __SerdeContext
 ): Promise<CreateAppCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3003,50 +3003,6 @@ export const de_CreateAppCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationResponse = de_ApplicationResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateAppCommandError
- */
-const de_CreateAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3057,7 +3013,7 @@ export const de_CreateCampaignCommand = async (
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3065,50 +3021,6 @@ export const de_CreateCampaignCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = de_CampaignResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateCampaignCommandError
- */
-const de_CreateCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3119,7 +3031,7 @@ export const de_CreateEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateEmailTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3127,44 +3039,6 @@ export const de_CreateEmailTemplateCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CreateTemplateMessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateEmailTemplateCommandError
- */
-const de_CreateEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3175,7 +3049,7 @@ export const de_CreateExportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateExportJobCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3183,50 +3057,6 @@ export const de_CreateExportJobCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ExportJobResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateExportJobCommandError
- */
-const de_CreateExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3237,7 +3067,7 @@ export const de_CreateImportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateImportJobCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3245,50 +3075,6 @@ export const de_CreateImportJobCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ImportJobResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateImportJobCommandError
- */
-const de_CreateImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3299,7 +3085,7 @@ export const de_CreateInAppTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateInAppTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateInAppTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3310,44 +3096,6 @@ export const de_CreateInAppTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateInAppTemplateCommandError
- */
-const de_CreateInAppTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInAppTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateJourneyCommand
  */
 export const de_CreateJourneyCommand = async (
@@ -3355,7 +3103,7 @@ export const de_CreateJourneyCommand = async (
   context: __SerdeContext
 ): Promise<CreateJourneyCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateJourneyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3363,50 +3111,6 @@ export const de_CreateJourneyCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = de_JourneyResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateJourneyCommandError
- */
-const de_CreateJourneyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateJourneyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3417,7 +3121,7 @@ export const de_CreatePushTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreatePushTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreatePushTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3425,44 +3129,6 @@ export const de_CreatePushTemplateCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CreateTemplateMessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreatePushTemplateCommandError
- */
-const de_CreatePushTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePushTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3473,7 +3139,7 @@ export const de_CreateRecommenderConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateRecommenderConfigurationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateRecommenderConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3481,50 +3147,6 @@ export const de_CreateRecommenderConfigurationCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.RecommenderConfigurationResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateRecommenderConfigurationCommandError
- */
-const de_CreateRecommenderConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRecommenderConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3535,7 +3157,7 @@ export const de_CreateSegmentCommand = async (
   context: __SerdeContext
 ): Promise<CreateSegmentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateSegmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3543,50 +3165,6 @@ export const de_CreateSegmentCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = de_SegmentResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateSegmentCommandError
- */
-const de_CreateSegmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSegmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3597,7 +3175,7 @@ export const de_CreateSmsTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateSmsTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateSmsTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3605,44 +3183,6 @@ export const de_CreateSmsTemplateCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CreateTemplateMessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateSmsTemplateCommandError
- */
-const de_CreateSmsTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSmsTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3653,7 +3193,7 @@ export const de_CreateVoiceTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateVoiceTemplateCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateVoiceTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3664,44 +3204,6 @@ export const de_CreateVoiceTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateVoiceTemplateCommandError
- */
-const de_CreateVoiceTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVoiceTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAdmChannelCommand
  */
 export const de_DeleteAdmChannelCommand = async (
@@ -3709,7 +3211,7 @@ export const de_DeleteAdmChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAdmChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteAdmChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3717,50 +3219,6 @@ export const de_DeleteAdmChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ADMChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAdmChannelCommandError
- */
-const de_DeleteAdmChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAdmChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3771,7 +3229,7 @@ export const de_DeleteApnsChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApnsChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteApnsChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3779,50 +3237,6 @@ export const de_DeleteApnsChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteApnsChannelCommandError
- */
-const de_DeleteApnsChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApnsChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3833,7 +3247,7 @@ export const de_DeleteApnsSandboxChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApnsSandboxChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteApnsSandboxChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3841,50 +3255,6 @@ export const de_DeleteApnsSandboxChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSSandboxChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteApnsSandboxChannelCommandError
- */
-const de_DeleteApnsSandboxChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApnsSandboxChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3895,7 +3265,7 @@ export const de_DeleteApnsVoipChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApnsVoipChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteApnsVoipChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3903,50 +3273,6 @@ export const de_DeleteApnsVoipChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteApnsVoipChannelCommandError
- */
-const de_DeleteApnsVoipChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApnsVoipChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3957,7 +3283,7 @@ export const de_DeleteApnsVoipSandboxChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApnsVoipSandboxChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteApnsVoipSandboxChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3965,50 +3291,6 @@ export const de_DeleteApnsVoipSandboxChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipSandboxChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteApnsVoipSandboxChannelCommandError
- */
-const de_DeleteApnsVoipSandboxChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApnsVoipSandboxChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4019,7 +3301,7 @@ export const de_DeleteAppCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4027,50 +3309,6 @@ export const de_DeleteAppCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationResponse = de_ApplicationResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAppCommandError
- */
-const de_DeleteAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4081,7 +3319,7 @@ export const de_DeleteBaiduChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBaiduChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBaiduChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4089,50 +3327,6 @@ export const de_DeleteBaiduChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.BaiduChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteBaiduChannelCommandError
- */
-const de_DeleteBaiduChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBaiduChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4143,7 +3337,7 @@ export const de_DeleteCampaignCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4151,50 +3345,6 @@ export const de_DeleteCampaignCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = de_CampaignResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteCampaignCommandError
- */
-const de_DeleteCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4205,7 +3355,7 @@ export const de_DeleteEmailChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEmailChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteEmailChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4213,50 +3363,6 @@ export const de_DeleteEmailChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EmailChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteEmailChannelCommandError
- */
-const de_DeleteEmailChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEmailChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4267,7 +3373,7 @@ export const de_DeleteEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEmailTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4275,50 +3381,6 @@ export const de_DeleteEmailTemplateCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteEmailTemplateCommandError
- */
-const de_DeleteEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4329,7 +3391,7 @@ export const de_DeleteEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEndpointCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4337,50 +3399,6 @@ export const de_DeleteEndpointCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EndpointResponse = de_EndpointResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteEndpointCommandError
- */
-const de_DeleteEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4391,7 +3409,7 @@ export const de_DeleteEventStreamCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEventStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteEventStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4399,50 +3417,6 @@ export const de_DeleteEventStreamCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EventStream = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteEventStreamCommandError
- */
-const de_DeleteEventStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4453,7 +3427,7 @@ export const de_DeleteGcmChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGcmChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteGcmChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4461,50 +3435,6 @@ export const de_DeleteGcmChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.GCMChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteGcmChannelCommandError
- */
-const de_DeleteGcmChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGcmChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4515,7 +3445,7 @@ export const de_DeleteInAppTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInAppTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteInAppTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4523,50 +3453,6 @@ export const de_DeleteInAppTemplateCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteInAppTemplateCommandError
- */
-const de_DeleteInAppTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInAppTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4577,7 +3463,7 @@ export const de_DeleteJourneyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteJourneyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteJourneyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4585,50 +3471,6 @@ export const de_DeleteJourneyCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = de_JourneyResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteJourneyCommandError
- */
-const de_DeleteJourneyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteJourneyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4639,7 +3481,7 @@ export const de_DeletePushTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeletePushTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeletePushTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4647,50 +3489,6 @@ export const de_DeletePushTemplateCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeletePushTemplateCommandError
- */
-const de_DeletePushTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePushTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4701,7 +3499,7 @@ export const de_DeleteRecommenderConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRecommenderConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteRecommenderConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4709,50 +3507,6 @@ export const de_DeleteRecommenderConfigurationCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.RecommenderConfigurationResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRecommenderConfigurationCommandError
- */
-const de_DeleteRecommenderConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRecommenderConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4763,7 +3517,7 @@ export const de_DeleteSegmentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSegmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSegmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4771,50 +3525,6 @@ export const de_DeleteSegmentCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = de_SegmentResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteSegmentCommandError
- */
-const de_DeleteSegmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSegmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4825,7 +3535,7 @@ export const de_DeleteSmsChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSmsChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSmsChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4833,50 +3543,6 @@ export const de_DeleteSmsChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SMSChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteSmsChannelCommandError
- */
-const de_DeleteSmsChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSmsChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4887,7 +3553,7 @@ export const de_DeleteSmsTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSmsTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteSmsTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4895,50 +3561,6 @@ export const de_DeleteSmsTemplateCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteSmsTemplateCommandError
- */
-const de_DeleteSmsTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSmsTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4949,7 +3571,7 @@ export const de_DeleteUserEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserEndpointsCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteUserEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4957,50 +3579,6 @@ export const de_DeleteUserEndpointsCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EndpointsResponse = de_EndpointsResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteUserEndpointsCommandError
- */
-const de_DeleteUserEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5011,7 +3589,7 @@ export const de_DeleteVoiceChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVoiceChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteVoiceChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5019,50 +3597,6 @@ export const de_DeleteVoiceChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.VoiceChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteVoiceChannelCommandError
- */
-const de_DeleteVoiceChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVoiceChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5073,7 +3607,7 @@ export const de_DeleteVoiceTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVoiceTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteVoiceTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5081,50 +3615,6 @@ export const de_DeleteVoiceTemplateCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteVoiceTemplateCommandError
- */
-const de_DeleteVoiceTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVoiceTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5135,7 +3625,7 @@ export const de_GetAdmChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetAdmChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAdmChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5143,50 +3633,6 @@ export const de_GetAdmChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ADMChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetAdmChannelCommandError
- */
-const de_GetAdmChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAdmChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5197,7 +3643,7 @@ export const de_GetApnsChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetApnsChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApnsChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5205,50 +3651,6 @@ export const de_GetApnsChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetApnsChannelCommandError
- */
-const de_GetApnsChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApnsChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5259,7 +3661,7 @@ export const de_GetApnsSandboxChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetApnsSandboxChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApnsSandboxChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5267,50 +3669,6 @@ export const de_GetApnsSandboxChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSSandboxChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetApnsSandboxChannelCommandError
- */
-const de_GetApnsSandboxChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApnsSandboxChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5321,7 +3679,7 @@ export const de_GetApnsVoipChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetApnsVoipChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApnsVoipChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5329,50 +3687,6 @@ export const de_GetApnsVoipChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetApnsVoipChannelCommandError
- */
-const de_GetApnsVoipChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApnsVoipChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5383,7 +3697,7 @@ export const de_GetApnsVoipSandboxChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetApnsVoipSandboxChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApnsVoipSandboxChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5391,50 +3705,6 @@ export const de_GetApnsVoipSandboxChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.APNSVoipSandboxChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetApnsVoipSandboxChannelCommandError
- */
-const de_GetApnsVoipSandboxChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApnsVoipSandboxChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5445,7 +3715,7 @@ export const de_GetAppCommand = async (
   context: __SerdeContext
 ): Promise<GetAppCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5456,47 +3726,6 @@ export const de_GetAppCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAppCommandError
- */
-const de_GetAppCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetApplicationDateRangeKpiCommand
  */
 export const de_GetApplicationDateRangeKpiCommand = async (
@@ -5504,7 +3733,7 @@ export const de_GetApplicationDateRangeKpiCommand = async (
   context: __SerdeContext
 ): Promise<GetApplicationDateRangeKpiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApplicationDateRangeKpiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5515,50 +3744,6 @@ export const de_GetApplicationDateRangeKpiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApplicationDateRangeKpiCommandError
- */
-const de_GetApplicationDateRangeKpiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApplicationDateRangeKpiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetApplicationSettingsCommand
  */
 export const de_GetApplicationSettingsCommand = async (
@@ -5566,7 +3751,7 @@ export const de_GetApplicationSettingsCommand = async (
   context: __SerdeContext
 ): Promise<GetApplicationSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApplicationSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5574,50 +3759,6 @@ export const de_GetApplicationSettingsCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ApplicationSettingsResource = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetApplicationSettingsCommandError
- */
-const de_GetApplicationSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApplicationSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5628,7 +3769,7 @@ export const de_GetAppsCommand = async (
   context: __SerdeContext
 ): Promise<GetAppsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAppsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5639,50 +3780,6 @@ export const de_GetAppsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAppsCommandError
- */
-const de_GetAppsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAppsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBaiduChannelCommand
  */
 export const de_GetBaiduChannelCommand = async (
@@ -5690,7 +3787,7 @@ export const de_GetBaiduChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetBaiduChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBaiduChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5698,50 +3795,6 @@ export const de_GetBaiduChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.BaiduChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetBaiduChannelCommandError
- */
-const de_GetBaiduChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBaiduChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5752,7 +3805,7 @@ export const de_GetCampaignCommand = async (
   context: __SerdeContext
 ): Promise<GetCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5760,50 +3813,6 @@ export const de_GetCampaignCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = de_CampaignResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetCampaignCommandError
- */
-const de_GetCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5814,7 +3823,7 @@ export const de_GetCampaignActivitiesCommand = async (
   context: __SerdeContext
 ): Promise<GetCampaignActivitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCampaignActivitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5825,50 +3834,6 @@ export const de_GetCampaignActivitiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCampaignActivitiesCommandError
- */
-const de_GetCampaignActivitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCampaignActivitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetCampaignDateRangeKpiCommand
  */
 export const de_GetCampaignDateRangeKpiCommand = async (
@@ -5876,7 +3841,7 @@ export const de_GetCampaignDateRangeKpiCommand = async (
   context: __SerdeContext
 ): Promise<GetCampaignDateRangeKpiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCampaignDateRangeKpiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5887,50 +3852,6 @@ export const de_GetCampaignDateRangeKpiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCampaignDateRangeKpiCommandError
- */
-const de_GetCampaignDateRangeKpiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCampaignDateRangeKpiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetCampaignsCommand
  */
 export const de_GetCampaignsCommand = async (
@@ -5938,7 +3859,7 @@ export const de_GetCampaignsCommand = async (
   context: __SerdeContext
 ): Promise<GetCampaignsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCampaignsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5946,50 +3867,6 @@ export const de_GetCampaignsCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignsResponse = de_CampaignsResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetCampaignsCommandError
- */
-const de_GetCampaignsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCampaignsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6000,7 +3877,7 @@ export const de_GetCampaignVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetCampaignVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCampaignVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6008,50 +3885,6 @@ export const de_GetCampaignVersionCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.CampaignResponse = de_CampaignResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetCampaignVersionCommandError
- */
-const de_GetCampaignVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCampaignVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6062,7 +3895,7 @@ export const de_GetCampaignVersionsCommand = async (
   context: __SerdeContext
 ): Promise<GetCampaignVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCampaignVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6073,50 +3906,6 @@ export const de_GetCampaignVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCampaignVersionsCommandError
- */
-const de_GetCampaignVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCampaignVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetChannelsCommand
  */
 export const de_GetChannelsCommand = async (
@@ -6124,7 +3913,7 @@ export const de_GetChannelsCommand = async (
   context: __SerdeContext
 ): Promise<GetChannelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetChannelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6135,50 +3924,6 @@ export const de_GetChannelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetChannelsCommandError
- */
-const de_GetChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEmailChannelCommand
  */
 export const de_GetEmailChannelCommand = async (
@@ -6186,7 +3931,7 @@ export const de_GetEmailChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetEmailChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEmailChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6194,50 +3939,6 @@ export const de_GetEmailChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EmailChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetEmailChannelCommandError
- */
-const de_GetEmailChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEmailChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6248,7 +3949,7 @@ export const de_GetEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetEmailTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6259,50 +3960,6 @@ export const de_GetEmailTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEmailTemplateCommandError
- */
-const de_GetEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEndpointCommand
  */
 export const de_GetEndpointCommand = async (
@@ -6310,7 +3967,7 @@ export const de_GetEndpointCommand = async (
   context: __SerdeContext
 ): Promise<GetEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6321,50 +3978,6 @@ export const de_GetEndpointCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEndpointCommandError
- */
-const de_GetEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEventStreamCommand
  */
 export const de_GetEventStreamCommand = async (
@@ -6372,7 +3985,7 @@ export const de_GetEventStreamCommand = async (
   context: __SerdeContext
 ): Promise<GetEventStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEventStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6380,50 +3993,6 @@ export const de_GetEventStreamCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.EventStream = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetEventStreamCommandError
- */
-const de_GetEventStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEventStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6434,7 +4003,7 @@ export const de_GetExportJobCommand = async (
   context: __SerdeContext
 ): Promise<GetExportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6445,50 +4014,6 @@ export const de_GetExportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetExportJobCommandError
- */
-const de_GetExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetExportJobsCommand
  */
 export const de_GetExportJobsCommand = async (
@@ -6496,7 +4021,7 @@ export const de_GetExportJobsCommand = async (
   context: __SerdeContext
 ): Promise<GetExportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetExportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6504,50 +4029,6 @@ export const de_GetExportJobsCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ExportJobsResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetExportJobsCommandError
- */
-const de_GetExportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6558,7 +4039,7 @@ export const de_GetGcmChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetGcmChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGcmChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6566,50 +4047,6 @@ export const de_GetGcmChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.GCMChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetGcmChannelCommandError
- */
-const de_GetGcmChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGcmChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6620,7 +4057,7 @@ export const de_GetImportJobCommand = async (
   context: __SerdeContext
 ): Promise<GetImportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6631,50 +4068,6 @@ export const de_GetImportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetImportJobCommandError
- */
-const de_GetImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetImportJobsCommand
  */
 export const de_GetImportJobsCommand = async (
@@ -6682,7 +4075,7 @@ export const de_GetImportJobsCommand = async (
   context: __SerdeContext
 ): Promise<GetImportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetImportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6690,50 +4083,6 @@ export const de_GetImportJobsCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.ImportJobsResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetImportJobsCommandError
- */
-const de_GetImportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6744,7 +4093,7 @@ export const de_GetInAppMessagesCommand = async (
   context: __SerdeContext
 ): Promise<GetInAppMessagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetInAppMessagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6755,50 +4104,6 @@ export const de_GetInAppMessagesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetInAppMessagesCommandError
- */
-const de_GetInAppMessagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInAppMessagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetInAppTemplateCommand
  */
 export const de_GetInAppTemplateCommand = async (
@@ -6806,7 +4111,7 @@ export const de_GetInAppTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetInAppTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetInAppTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6817,50 +4122,6 @@ export const de_GetInAppTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetInAppTemplateCommandError
- */
-const de_GetInAppTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInAppTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetJourneyCommand
  */
 export const de_GetJourneyCommand = async (
@@ -6868,7 +4129,7 @@ export const de_GetJourneyCommand = async (
   context: __SerdeContext
 ): Promise<GetJourneyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetJourneyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6876,50 +4137,6 @@ export const de_GetJourneyCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = de_JourneyResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetJourneyCommandError
- */
-const de_GetJourneyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJourneyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6930,7 +4147,7 @@ export const de_GetJourneyDateRangeKpiCommand = async (
   context: __SerdeContext
 ): Promise<GetJourneyDateRangeKpiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetJourneyDateRangeKpiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6941,50 +4158,6 @@ export const de_GetJourneyDateRangeKpiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetJourneyDateRangeKpiCommandError
- */
-const de_GetJourneyDateRangeKpiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJourneyDateRangeKpiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommand
  */
 export const de_GetJourneyExecutionActivityMetricsCommand = async (
@@ -6992,7 +4165,7 @@ export const de_GetJourneyExecutionActivityMetricsCommand = async (
   context: __SerdeContext
 ): Promise<GetJourneyExecutionActivityMetricsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetJourneyExecutionActivityMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7003,50 +4176,6 @@ export const de_GetJourneyExecutionActivityMetricsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommandError
- */
-const de_GetJourneyExecutionActivityMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJourneyExecutionActivityMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetJourneyExecutionMetricsCommand
  */
 export const de_GetJourneyExecutionMetricsCommand = async (
@@ -7054,7 +4183,7 @@ export const de_GetJourneyExecutionMetricsCommand = async (
   context: __SerdeContext
 ): Promise<GetJourneyExecutionMetricsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetJourneyExecutionMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7065,50 +4194,6 @@ export const de_GetJourneyExecutionMetricsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetJourneyExecutionMetricsCommandError
- */
-const de_GetJourneyExecutionMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJourneyExecutionMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetJourneyRunExecutionActivityMetricsCommand
  */
 export const de_GetJourneyRunExecutionActivityMetricsCommand = async (
@@ -7116,7 +4201,7 @@ export const de_GetJourneyRunExecutionActivityMetricsCommand = async (
   context: __SerdeContext
 ): Promise<GetJourneyRunExecutionActivityMetricsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetJourneyRunExecutionActivityMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7127,50 +4212,6 @@ export const de_GetJourneyRunExecutionActivityMetricsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetJourneyRunExecutionActivityMetricsCommandError
- */
-const de_GetJourneyRunExecutionActivityMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJourneyRunExecutionActivityMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetJourneyRunExecutionMetricsCommand
  */
 export const de_GetJourneyRunExecutionMetricsCommand = async (
@@ -7178,7 +4219,7 @@ export const de_GetJourneyRunExecutionMetricsCommand = async (
   context: __SerdeContext
 ): Promise<GetJourneyRunExecutionMetricsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetJourneyRunExecutionMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7189,50 +4230,6 @@ export const de_GetJourneyRunExecutionMetricsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetJourneyRunExecutionMetricsCommandError
- */
-const de_GetJourneyRunExecutionMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJourneyRunExecutionMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetJourneyRunsCommand
  */
 export const de_GetJourneyRunsCommand = async (
@@ -7240,7 +4237,7 @@ export const de_GetJourneyRunsCommand = async (
   context: __SerdeContext
 ): Promise<GetJourneyRunsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetJourneyRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7251,50 +4248,6 @@ export const de_GetJourneyRunsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetJourneyRunsCommandError
- */
-const de_GetJourneyRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJourneyRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetPushTemplateCommand
  */
 export const de_GetPushTemplateCommand = async (
@@ -7302,7 +4255,7 @@ export const de_GetPushTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetPushTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetPushTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7313,50 +4266,6 @@ export const de_GetPushTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetPushTemplateCommandError
- */
-const de_GetPushTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPushTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRecommenderConfigurationCommand
  */
 export const de_GetRecommenderConfigurationCommand = async (
@@ -7364,7 +4273,7 @@ export const de_GetRecommenderConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetRecommenderConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRecommenderConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7372,50 +4281,6 @@ export const de_GetRecommenderConfigurationCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.RecommenderConfigurationResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetRecommenderConfigurationCommandError
- */
-const de_GetRecommenderConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecommenderConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7426,7 +4291,7 @@ export const de_GetRecommenderConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<GetRecommenderConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRecommenderConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7437,50 +4302,6 @@ export const de_GetRecommenderConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRecommenderConfigurationsCommandError
- */
-const de_GetRecommenderConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecommenderConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSegmentCommand
  */
 export const de_GetSegmentCommand = async (
@@ -7488,7 +4309,7 @@ export const de_GetSegmentCommand = async (
   context: __SerdeContext
 ): Promise<GetSegmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSegmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7496,50 +4317,6 @@ export const de_GetSegmentCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = de_SegmentResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetSegmentCommandError
- */
-const de_GetSegmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSegmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7550,7 +4327,7 @@ export const de_GetSegmentExportJobsCommand = async (
   context: __SerdeContext
 ): Promise<GetSegmentExportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSegmentExportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7561,50 +4338,6 @@ export const de_GetSegmentExportJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSegmentExportJobsCommandError
- */
-const de_GetSegmentExportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSegmentExportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSegmentImportJobsCommand
  */
 export const de_GetSegmentImportJobsCommand = async (
@@ -7612,7 +4345,7 @@ export const de_GetSegmentImportJobsCommand = async (
   context: __SerdeContext
 ): Promise<GetSegmentImportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSegmentImportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7623,50 +4356,6 @@ export const de_GetSegmentImportJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSegmentImportJobsCommandError
- */
-const de_GetSegmentImportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSegmentImportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSegmentsCommand
  */
 export const de_GetSegmentsCommand = async (
@@ -7674,7 +4363,7 @@ export const de_GetSegmentsCommand = async (
   context: __SerdeContext
 ): Promise<GetSegmentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSegmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7682,50 +4371,6 @@ export const de_GetSegmentsCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentsResponse = de_SegmentsResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetSegmentsCommandError
- */
-const de_GetSegmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSegmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7736,7 +4381,7 @@ export const de_GetSegmentVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetSegmentVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSegmentVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7744,50 +4389,6 @@ export const de_GetSegmentVersionCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SegmentResponse = de_SegmentResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetSegmentVersionCommandError
- */
-const de_GetSegmentVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSegmentVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7798,7 +4399,7 @@ export const de_GetSegmentVersionsCommand = async (
   context: __SerdeContext
 ): Promise<GetSegmentVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSegmentVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7809,50 +4410,6 @@ export const de_GetSegmentVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSegmentVersionsCommandError
- */
-const de_GetSegmentVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSegmentVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSmsChannelCommand
  */
 export const de_GetSmsChannelCommand = async (
@@ -7860,7 +4417,7 @@ export const de_GetSmsChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetSmsChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSmsChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7868,50 +4425,6 @@ export const de_GetSmsChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.SMSChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetSmsChannelCommandError
- */
-const de_GetSmsChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSmsChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7922,7 +4435,7 @@ export const de_GetSmsTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetSmsTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSmsTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7933,50 +4446,6 @@ export const de_GetSmsTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSmsTemplateCommandError
- */
-const de_GetSmsTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSmsTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetUserEndpointsCommand
  */
 export const de_GetUserEndpointsCommand = async (
@@ -7984,7 +4453,7 @@ export const de_GetUserEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<GetUserEndpointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetUserEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7995,50 +4464,6 @@ export const de_GetUserEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetUserEndpointsCommandError
- */
-const de_GetUserEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUserEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetVoiceChannelCommand
  */
 export const de_GetVoiceChannelCommand = async (
@@ -8046,7 +4471,7 @@ export const de_GetVoiceChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetVoiceChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetVoiceChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8054,50 +4479,6 @@ export const de_GetVoiceChannelCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.VoiceChannelResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetVoiceChannelCommandError
- */
-const de_GetVoiceChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVoiceChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -8108,7 +4489,7 @@ export const de_GetVoiceTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetVoiceTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetVoiceTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8119,50 +4500,6 @@ export const de_GetVoiceTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetVoiceTemplateCommandError
- */
-const de_GetVoiceTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVoiceTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListJourneysCommand
  */
 export const de_ListJourneysCommand = async (
@@ -8170,7 +4507,7 @@ export const de_ListJourneysCommand = async (
   context: __SerdeContext
 ): Promise<ListJourneysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListJourneysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8181,50 +4518,6 @@ export const de_ListJourneysCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListJourneysCommandError
- */
-const de_ListJourneysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListJourneysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -8232,7 +4525,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8243,26 +4536,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restJson1ListTemplatesCommand
  */
 export const de_ListTemplatesCommand = async (
@@ -8270,7 +4543,7 @@ export const de_ListTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8281,44 +4554,6 @@ export const de_ListTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTemplatesCommandError
- */
-const de_ListTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTemplateVersionsCommand
  */
 export const de_ListTemplateVersionsCommand = async (
@@ -8326,7 +4561,7 @@ export const de_ListTemplateVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTemplateVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTemplateVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8337,50 +4572,6 @@ export const de_ListTemplateVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTemplateVersionsCommandError
- */
-const de_ListTemplateVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTemplateVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PhoneNumberValidateCommand
  */
 export const de_PhoneNumberValidateCommand = async (
@@ -8388,7 +4579,7 @@ export const de_PhoneNumberValidateCommand = async (
   context: __SerdeContext
 ): Promise<PhoneNumberValidateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PhoneNumberValidateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8399,50 +4590,6 @@ export const de_PhoneNumberValidateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PhoneNumberValidateCommandError
- */
-const de_PhoneNumberValidateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PhoneNumberValidateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutEventsCommand
  */
 export const de_PutEventsCommand = async (
@@ -8450,7 +4597,7 @@ export const de_PutEventsCommand = async (
   context: __SerdeContext
 ): Promise<PutEventsCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_PutEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8461,50 +4608,6 @@ export const de_PutEventsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutEventsCommandError
- */
-const de_PutEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutEventStreamCommand
  */
 export const de_PutEventStreamCommand = async (
@@ -8512,7 +4615,7 @@ export const de_PutEventStreamCommand = async (
   context: __SerdeContext
 ): Promise<PutEventStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutEventStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8523,50 +4626,6 @@ export const de_PutEventStreamCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutEventStreamCommandError
- */
-const de_PutEventStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEventStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RemoveAttributesCommand
  */
 export const de_RemoveAttributesCommand = async (
@@ -8574,7 +4633,7 @@ export const de_RemoveAttributesCommand = async (
   context: __SerdeContext
 ): Promise<RemoveAttributesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RemoveAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8585,50 +4644,6 @@ export const de_RemoveAttributesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RemoveAttributesCommandError
- */
-const de_RemoveAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SendMessagesCommand
  */
 export const de_SendMessagesCommand = async (
@@ -8636,7 +4651,7 @@ export const de_SendMessagesCommand = async (
   context: __SerdeContext
 ): Promise<SendMessagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SendMessagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8644,50 +4659,6 @@ export const de_SendMessagesCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageResponse = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1SendMessagesCommandError
- */
-const de_SendMessagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendMessagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -8698,7 +4669,7 @@ export const de_SendOTPMessageCommand = async (
   context: __SerdeContext
 ): Promise<SendOTPMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SendOTPMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8709,50 +4680,6 @@ export const de_SendOTPMessageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SendOTPMessageCommandError
- */
-const de_SendOTPMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendOTPMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SendUsersMessagesCommand
  */
 export const de_SendUsersMessagesCommand = async (
@@ -8760,7 +4687,7 @@ export const de_SendUsersMessagesCommand = async (
   context: __SerdeContext
 ): Promise<SendUsersMessagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SendUsersMessagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8771,50 +4698,6 @@ export const de_SendUsersMessagesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SendUsersMessagesCommandError
- */
-const de_SendUsersMessagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendUsersMessagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -8822,33 +4705,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -8859,33 +4722,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -8896,7 +4739,7 @@ export const de_UpdateAdmChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAdmChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAdmChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8907,50 +4750,6 @@ export const de_UpdateAdmChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAdmChannelCommandError
- */
-const de_UpdateAdmChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAdmChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateApnsChannelCommand
  */
 export const de_UpdateApnsChannelCommand = async (
@@ -8958,7 +4757,7 @@ export const de_UpdateApnsChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApnsChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApnsChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8969,50 +4768,6 @@ export const de_UpdateApnsChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApnsChannelCommandError
- */
-const de_UpdateApnsChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApnsChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateApnsSandboxChannelCommand
  */
 export const de_UpdateApnsSandboxChannelCommand = async (
@@ -9020,7 +4775,7 @@ export const de_UpdateApnsSandboxChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApnsSandboxChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApnsSandboxChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9031,50 +4786,6 @@ export const de_UpdateApnsSandboxChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApnsSandboxChannelCommandError
- */
-const de_UpdateApnsSandboxChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApnsSandboxChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateApnsVoipChannelCommand
  */
 export const de_UpdateApnsVoipChannelCommand = async (
@@ -9082,7 +4793,7 @@ export const de_UpdateApnsVoipChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApnsVoipChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApnsVoipChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9093,50 +4804,6 @@ export const de_UpdateApnsVoipChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApnsVoipChannelCommandError
- */
-const de_UpdateApnsVoipChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApnsVoipChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommand
  */
 export const de_UpdateApnsVoipSandboxChannelCommand = async (
@@ -9144,7 +4811,7 @@ export const de_UpdateApnsVoipSandboxChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApnsVoipSandboxChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApnsVoipSandboxChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9155,50 +4822,6 @@ export const de_UpdateApnsVoipSandboxChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommandError
- */
-const de_UpdateApnsVoipSandboxChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApnsVoipSandboxChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateApplicationSettingsCommand
  */
 export const de_UpdateApplicationSettingsCommand = async (
@@ -9206,7 +4829,7 @@ export const de_UpdateApplicationSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApplicationSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9217,50 +4840,6 @@ export const de_UpdateApplicationSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApplicationSettingsCommandError
- */
-const de_UpdateApplicationSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateBaiduChannelCommand
  */
 export const de_UpdateBaiduChannelCommand = async (
@@ -9268,7 +4847,7 @@ export const de_UpdateBaiduChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBaiduChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateBaiduChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9279,50 +4858,6 @@ export const de_UpdateBaiduChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateBaiduChannelCommandError
- */
-const de_UpdateBaiduChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBaiduChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateCampaignCommand
  */
 export const de_UpdateCampaignCommand = async (
@@ -9330,7 +4865,7 @@ export const de_UpdateCampaignCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCampaignCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9341,50 +4876,6 @@ export const de_UpdateCampaignCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateCampaignCommandError
- */
-const de_UpdateCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateEmailChannelCommand
  */
 export const de_UpdateEmailChannelCommand = async (
@@ -9392,7 +4883,7 @@ export const de_UpdateEmailChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEmailChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateEmailChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9403,50 +4894,6 @@ export const de_UpdateEmailChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateEmailChannelCommandError
- */
-const de_UpdateEmailChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEmailChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateEmailTemplateCommand
  */
 export const de_UpdateEmailTemplateCommand = async (
@@ -9454,7 +4901,7 @@ export const de_UpdateEmailTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEmailTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateEmailTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9462,50 +4909,6 @@ export const de_UpdateEmailTemplateCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateEmailTemplateCommandError
- */
-const de_UpdateEmailTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEmailTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9516,7 +4919,7 @@ export const de_UpdateEndpointCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEndpointCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9524,50 +4927,6 @@ export const de_UpdateEndpointCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateEndpointCommandError
- */
-const de_UpdateEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9578,7 +4937,7 @@ export const de_UpdateEndpointsBatchCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEndpointsBatchCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateEndpointsBatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9586,50 +4945,6 @@ export const de_UpdateEndpointsBatchCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateEndpointsBatchCommandError
- */
-const de_UpdateEndpointsBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEndpointsBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9640,7 +4955,7 @@ export const de_UpdateGcmChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGcmChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateGcmChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9651,50 +4966,6 @@ export const de_UpdateGcmChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateGcmChannelCommandError
- */
-const de_UpdateGcmChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGcmChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateInAppTemplateCommand
  */
 export const de_UpdateInAppTemplateCommand = async (
@@ -9702,7 +4973,7 @@ export const de_UpdateInAppTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInAppTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateInAppTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9710,50 +4981,6 @@ export const de_UpdateInAppTemplateCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateInAppTemplateCommandError
- */
-const de_UpdateInAppTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInAppTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9764,7 +4991,7 @@ export const de_UpdateJourneyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateJourneyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateJourneyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9772,53 +4999,6 @@ export const de_UpdateJourneyCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.JourneyResponse = de_JourneyResponse(data, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateJourneyCommandError
- */
-const de_UpdateJourneyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateJourneyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.pinpoint#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9829,7 +5009,7 @@ export const de_UpdateJourneyStateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateJourneyStateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateJourneyStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9840,50 +5020,6 @@ export const de_UpdateJourneyStateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateJourneyStateCommandError
- */
-const de_UpdateJourneyStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateJourneyStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdatePushTemplateCommand
  */
 export const de_UpdatePushTemplateCommand = async (
@@ -9891,7 +5027,7 @@ export const de_UpdatePushTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePushTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdatePushTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9899,50 +5035,6 @@ export const de_UpdatePushTemplateCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdatePushTemplateCommandError
- */
-const de_UpdatePushTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePushTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9953,7 +5045,7 @@ export const de_UpdateRecommenderConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRecommenderConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRecommenderConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -9964,50 +5056,6 @@ export const de_UpdateRecommenderConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRecommenderConfigurationCommandError
- */
-const de_UpdateRecommenderConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRecommenderConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSegmentCommand
  */
 export const de_UpdateSegmentCommand = async (
@@ -10015,7 +5063,7 @@ export const de_UpdateSegmentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSegmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSegmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10026,50 +5074,6 @@ export const de_UpdateSegmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSegmentCommandError
- */
-const de_UpdateSegmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSegmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSmsChannelCommand
  */
 export const de_UpdateSmsChannelCommand = async (
@@ -10077,7 +5081,7 @@ export const de_UpdateSmsChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSmsChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSmsChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10088,50 +5092,6 @@ export const de_UpdateSmsChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSmsChannelCommandError
- */
-const de_UpdateSmsChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSmsChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSmsTemplateCommand
  */
 export const de_UpdateSmsTemplateCommand = async (
@@ -10139,7 +5099,7 @@ export const de_UpdateSmsTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSmsTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateSmsTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10147,50 +5107,6 @@ export const de_UpdateSmsTemplateCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateSmsTemplateCommandError
- */
-const de_UpdateSmsTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSmsTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10201,7 +5117,7 @@ export const de_UpdateTemplateActiveVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTemplateActiveVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTemplateActiveVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10209,50 +5125,6 @@ export const de_UpdateTemplateActiveVersionCommand = async (
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.MessageBody = _json(data);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateTemplateActiveVersionCommandError
- */
-const de_UpdateTemplateActiveVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTemplateActiveVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10263,7 +5135,7 @@ export const de_UpdateVoiceChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVoiceChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateVoiceChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10274,50 +5146,6 @@ export const de_UpdateVoiceChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateVoiceChannelCommandError
- */
-const de_UpdateVoiceChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVoiceChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateVoiceTemplateCommand
  */
 export const de_UpdateVoiceTemplateCommand = async (
@@ -10325,7 +5153,7 @@ export const de_UpdateVoiceTemplateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVoiceTemplateCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateVoiceTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10336,50 +5164,6 @@ export const de_UpdateVoiceTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateVoiceTemplateCommandError
- */
-const de_UpdateVoiceTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVoiceTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.pinpoint#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.pinpoint#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.pinpoint#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    case "MethodNotAllowedException":
-    case "com.amazonaws.pinpoint#MethodNotAllowedException":
-      throw await de_MethodNotAllowedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.pinpoint#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "PayloadTooLargeException":
-    case "com.amazonaws.pinpoint#PayloadTooLargeException":
-      throw await de_PayloadTooLargeExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.pinpoint#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1VerifyOTPMessageCommand
  */
 export const de_VerifyOTPMessageCommand = async (
@@ -10387,7 +5171,7 @@ export const de_VerifyOTPMessageCommand = async (
   context: __SerdeContext
 ): Promise<VerifyOTPMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_VerifyOTPMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -10398,12 +5182,9 @@ export const de_VerifyOTPMessageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1VerifyOTPMessageCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_VerifyOTPMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyOTPMessageCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -10431,13 +5212,16 @@ const de_VerifyOTPMessageCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.pinpoint#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.pinpoint#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

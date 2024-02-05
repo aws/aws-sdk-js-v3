@@ -1831,7 +1831,7 @@ export const de_AddTagsToResourceCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsToResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1844,77 +1844,6 @@ export const de_AddTagsToResourceCommand = async (
 };
 
 /**
- * deserializeAws_queryAddTagsToResourceCommandError
- */
-const de_AddTagsToResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheClusterNotFound":
-    case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
-    case "CacheParameterGroupNotFound":
-    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "CacheSecurityGroupNotFound":
-    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "CacheSubnetGroupNotFoundFault":
-    case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidARN":
-    case "com.amazonaws.elasticache#InvalidARNFault":
-      throw await de_InvalidARNFaultRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidServerlessCacheSnapshotStateFault":
-    case "com.amazonaws.elasticache#InvalidServerlessCacheSnapshotStateFault":
-      throw await de_InvalidServerlessCacheSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidServerlessCacheStateFault":
-    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
-      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "ReservedCacheNodeNotFound":
-    case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
-      throw await de_ReservedCacheNodeNotFoundFaultRes(parsedOutput, context);
-    case "ServerlessCacheNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
-      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
-    case "ServerlessCacheSnapshotNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
-      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotNotFoundFault":
-    case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    case "UserGroupNotFound":
-    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
-    case "UserNotFound":
-    case "com.amazonaws.elasticache#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand
  */
 export const de_AuthorizeCacheSecurityGroupIngressCommand = async (
@@ -1922,7 +1851,7 @@ export const de_AuthorizeCacheSecurityGroupIngressCommand = async (
   context: __SerdeContext
 ): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AuthorizeCacheSecurityGroupIngressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1935,44 +1864,6 @@ export const de_AuthorizeCacheSecurityGroupIngressCommand = async (
 };
 
 /**
- * deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandError
- */
-const de_AuthorizeCacheSecurityGroupIngressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationAlreadyExists":
-    case "com.amazonaws.elasticache#AuthorizationAlreadyExistsFault":
-      throw await de_AuthorizationAlreadyExistsFaultRes(parsedOutput, context);
-    case "CacheSecurityGroupNotFound":
-    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidCacheSecurityGroupState":
-    case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      throw await de_InvalidCacheSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryBatchApplyUpdateActionCommand
  */
 export const de_BatchApplyUpdateActionCommand = async (
@@ -1980,7 +1871,7 @@ export const de_BatchApplyUpdateActionCommand = async (
   context: __SerdeContext
 ): Promise<BatchApplyUpdateActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchApplyUpdateActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1993,35 +1884,6 @@ export const de_BatchApplyUpdateActionCommand = async (
 };
 
 /**
- * deserializeAws_queryBatchApplyUpdateActionCommandError
- */
-const de_BatchApplyUpdateActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchApplyUpdateActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUpdateNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceUpdateNotFoundFault":
-      throw await de_ServiceUpdateNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryBatchStopUpdateActionCommand
  */
 export const de_BatchStopUpdateActionCommand = async (
@@ -2029,7 +1891,7 @@ export const de_BatchStopUpdateActionCommand = async (
   context: __SerdeContext
 ): Promise<BatchStopUpdateActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchStopUpdateActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2042,35 +1904,6 @@ export const de_BatchStopUpdateActionCommand = async (
 };
 
 /**
- * deserializeAws_queryBatchStopUpdateActionCommandError
- */
-const de_BatchStopUpdateActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchStopUpdateActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUpdateNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceUpdateNotFoundFault":
-      throw await de_ServiceUpdateNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCompleteMigrationCommand
  */
 export const de_CompleteMigrationCommand = async (
@@ -2078,7 +1911,7 @@ export const de_CompleteMigrationCommand = async (
   context: __SerdeContext
 ): Promise<CompleteMigrationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CompleteMigrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2091,38 +1924,6 @@ export const de_CompleteMigrationCommand = async (
 };
 
 /**
- * deserializeAws_queryCompleteMigrationCommandError
- */
-const de_CompleteMigrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CompleteMigrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotUnderMigrationFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotUnderMigrationFault":
-      throw await de_ReplicationGroupNotUnderMigrationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCopyServerlessCacheSnapshotCommand
  */
 export const de_CopyServerlessCacheSnapshotCommand = async (
@@ -2130,7 +1931,7 @@ export const de_CopyServerlessCacheSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CopyServerlessCacheSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CopyServerlessCacheSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2143,53 +1944,6 @@ export const de_CopyServerlessCacheSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_queryCopyServerlessCacheSnapshotCommandError
- */
-const de_CopyServerlessCacheSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyServerlessCacheSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidServerlessCacheSnapshotStateFault":
-    case "com.amazonaws.elasticache#InvalidServerlessCacheSnapshotStateFault":
-      throw await de_InvalidServerlessCacheSnapshotStateFaultRes(parsedOutput, context);
-    case "ServerlessCacheSnapshotAlreadyExistsFault":
-    case "com.amazonaws.elasticache#ServerlessCacheSnapshotAlreadyExistsFault":
-      throw await de_ServerlessCacheSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "ServerlessCacheSnapshotNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
-      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "ServerlessCacheSnapshotQuotaExceededFault":
-    case "com.amazonaws.elasticache#ServerlessCacheSnapshotQuotaExceededFault":
-      throw await de_ServerlessCacheSnapshotQuotaExceededFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCopySnapshotCommand
  */
 export const de_CopySnapshotCommand = async (
@@ -2197,7 +1951,7 @@ export const de_CopySnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CopySnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CopySnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2210,50 +1964,6 @@ export const de_CopySnapshotCommand = async (
 };
 
 /**
- * deserializeAws_queryCopySnapshotCommandError
- */
-const de_CopySnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopySnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidSnapshotState":
-    case "com.amazonaws.elasticache#InvalidSnapshotStateFault":
-      throw await de_InvalidSnapshotStateFaultRes(parsedOutput, context);
-    case "SnapshotAlreadyExistsFault":
-    case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
-      throw await de_SnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "SnapshotNotFoundFault":
-    case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
-    case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateCacheClusterCommand
  */
 export const de_CreateCacheClusterCommand = async (
@@ -2261,7 +1971,7 @@ export const de_CreateCacheClusterCommand = async (
   context: __SerdeContext
 ): Promise<CreateCacheClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCacheClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2274,71 +1984,6 @@ export const de_CreateCacheClusterCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateCacheClusterCommandError
- */
-const de_CreateCacheClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCacheClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheClusterAlreadyExists":
-    case "com.amazonaws.elasticache#CacheClusterAlreadyExistsFault":
-      throw await de_CacheClusterAlreadyExistsFaultRes(parsedOutput, context);
-    case "CacheParameterGroupNotFound":
-    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "CacheSecurityGroupNotFound":
-    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "CacheSubnetGroupNotFoundFault":
-    case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "ClusterQuotaForCustomerExceeded":
-    case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
-      throw await de_ClusterQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "InsufficientCacheClusterCapacity":
-    case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "NodeQuotaForClusterExceeded":
-    case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
-      throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
-    case "NodeQuotaForCustomerExceeded":
-    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateCacheParameterGroupCommand
  */
 export const de_CreateCacheParameterGroupCommand = async (
@@ -2346,7 +1991,7 @@ export const de_CreateCacheParameterGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateCacheParameterGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCacheParameterGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2359,47 +2004,6 @@ export const de_CreateCacheParameterGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateCacheParameterGroupCommandError
- */
-const de_CreateCacheParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCacheParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheParameterGroupAlreadyExists":
-    case "com.amazonaws.elasticache#CacheParameterGroupAlreadyExistsFault":
-      throw await de_CacheParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "CacheParameterGroupQuotaExceeded":
-    case "com.amazonaws.elasticache#CacheParameterGroupQuotaExceededFault":
-      throw await de_CacheParameterGroupQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidCacheParameterGroupState":
-    case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
-      throw await de_InvalidCacheParameterGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateCacheSecurityGroupCommand
  */
 export const de_CreateCacheSecurityGroupCommand = async (
@@ -2407,7 +2011,7 @@ export const de_CreateCacheSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateCacheSecurityGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCacheSecurityGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2420,44 +2024,6 @@ export const de_CreateCacheSecurityGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateCacheSecurityGroupCommandError
- */
-const de_CreateCacheSecurityGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCacheSecurityGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheSecurityGroupAlreadyExists":
-    case "com.amazonaws.elasticache#CacheSecurityGroupAlreadyExistsFault":
-      throw await de_CacheSecurityGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "QuotaExceeded.CacheSecurityGroup":
-    case "com.amazonaws.elasticache#CacheSecurityGroupQuotaExceededFault":
-      throw await de_CacheSecurityGroupQuotaExceededFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateCacheSubnetGroupCommand
  */
 export const de_CreateCacheSubnetGroupCommand = async (
@@ -2465,7 +2031,7 @@ export const de_CreateCacheSubnetGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateCacheSubnetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCacheSubnetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2478,47 +2044,6 @@ export const de_CreateCacheSubnetGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateCacheSubnetGroupCommandError
- */
-const de_CreateCacheSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCacheSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheSubnetGroupAlreadyExists":
-    case "com.amazonaws.elasticache#CacheSubnetGroupAlreadyExistsFault":
-      throw await de_CacheSubnetGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "CacheSubnetGroupQuotaExceeded":
-    case "com.amazonaws.elasticache#CacheSubnetGroupQuotaExceededFault":
-      throw await de_CacheSubnetGroupQuotaExceededFaultRes(parsedOutput, context);
-    case "CacheSubnetQuotaExceededFault":
-    case "com.amazonaws.elasticache#CacheSubnetQuotaExceededFault":
-      throw await de_CacheSubnetQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.elasticache#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "SubnetNotAllowedFault":
-    case "com.amazonaws.elasticache#SubnetNotAllowedFault":
-      throw await de_SubnetNotAllowedFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateGlobalReplicationGroupCommand
  */
 export const de_CreateGlobalReplicationGroupCommand = async (
@@ -2526,7 +2051,7 @@ export const de_CreateGlobalReplicationGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGlobalReplicationGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2539,44 +2064,6 @@ export const de_CreateGlobalReplicationGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateGlobalReplicationGroupCommandError
- */
-const de_CreateGlobalReplicationGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGlobalReplicationGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalReplicationGroupAlreadyExistsFault":
-    case "com.amazonaws.elasticache#GlobalReplicationGroupAlreadyExistsFault":
-      throw await de_GlobalReplicationGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateReplicationGroupCommand
  */
 export const de_CreateReplicationGroupCommand = async (
@@ -2584,7 +2071,7 @@ export const de_CreateReplicationGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReplicationGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2597,86 +2084,6 @@ export const de_CreateReplicationGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateReplicationGroupCommandError
- */
-const de_CreateReplicationGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReplicationGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheClusterNotFound":
-    case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
-    case "CacheParameterGroupNotFound":
-    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "CacheSecurityGroupNotFound":
-    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "CacheSubnetGroupNotFoundFault":
-    case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "ClusterQuotaForCustomerExceeded":
-    case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
-      throw await de_ClusterQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "GlobalReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "InsufficientCacheClusterCapacity":
-    case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidCacheClusterState":
-    case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidUserGroupState":
-    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "NodeGroupsPerReplicationGroupQuotaExceeded":
-    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      throw await de_NodeGroupsPerReplicationGroupQuotaExceededFaultRes(parsedOutput, context);
-    case "NodeQuotaForClusterExceeded":
-    case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
-      throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
-    case "NodeQuotaForCustomerExceeded":
-    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "ReplicationGroupAlreadyExists":
-    case "com.amazonaws.elasticache#ReplicationGroupAlreadyExistsFault":
-      throw await de_ReplicationGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    case "UserGroupNotFound":
-    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateServerlessCacheCommand
  */
 export const de_CreateServerlessCacheCommand = async (
@@ -2684,7 +2091,7 @@ export const de_CreateServerlessCacheCommand = async (
   context: __SerdeContext
 ): Promise<CreateServerlessCacheCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateServerlessCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2697,62 +2104,6 @@ export const de_CreateServerlessCacheCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateServerlessCacheCommandError
- */
-const de_CreateServerlessCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServerlessCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidCredentialsException":
-    case "com.amazonaws.elasticache#InvalidCredentialsException":
-      throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidServerlessCacheStateFault":
-    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
-      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
-    case "InvalidUserGroupState":
-    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
-    case "ServerlessCacheAlreadyExistsFault":
-    case "com.amazonaws.elasticache#ServerlessCacheAlreadyExistsFault":
-      throw await de_ServerlessCacheAlreadyExistsFaultRes(parsedOutput, context);
-    case "ServerlessCacheNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
-      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
-    case "ServerlessCacheQuotaForCustomerExceededFault":
-    case "com.amazonaws.elasticache#ServerlessCacheQuotaForCustomerExceededFault":
-      throw await de_ServerlessCacheQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    case "UserGroupNotFound":
-    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateServerlessCacheSnapshotCommand
  */
 export const de_CreateServerlessCacheSnapshotCommand = async (
@@ -2760,7 +2111,7 @@ export const de_CreateServerlessCacheSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateServerlessCacheSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateServerlessCacheSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2773,53 +2124,6 @@ export const de_CreateServerlessCacheSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateServerlessCacheSnapshotCommandError
- */
-const de_CreateServerlessCacheSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServerlessCacheSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidServerlessCacheStateFault":
-    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
-      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
-    case "ServerlessCacheNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
-      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
-    case "ServerlessCacheSnapshotAlreadyExistsFault":
-    case "com.amazonaws.elasticache#ServerlessCacheSnapshotAlreadyExistsFault":
-      throw await de_ServerlessCacheSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "ServerlessCacheSnapshotQuotaExceededFault":
-    case "com.amazonaws.elasticache#ServerlessCacheSnapshotQuotaExceededFault":
-      throw await de_ServerlessCacheSnapshotQuotaExceededFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateSnapshotCommand
  */
 export const de_CreateSnapshotCommand = async (
@@ -2827,7 +2131,7 @@ export const de_CreateSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2840,59 +2144,6 @@ export const de_CreateSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateSnapshotCommandError
- */
-const de_CreateSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheClusterNotFound":
-    case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidCacheClusterState":
-    case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotAlreadyExistsFault":
-    case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
-      throw await de_SnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "SnapshotFeatureNotSupportedFault":
-    case "com.amazonaws.elasticache#SnapshotFeatureNotSupportedFault":
-      throw await de_SnapshotFeatureNotSupportedFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
-    case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateUserCommand
  */
 export const de_CreateUserCommand = async (
@@ -2900,7 +2151,7 @@ export const de_CreateUserCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2913,50 +2164,6 @@ export const de_CreateUserCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateUserCommandError
- */
-const de_CreateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateUserName":
-    case "com.amazonaws.elasticache#DuplicateUserNameFault":
-      throw await de_DuplicateUserNameFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    case "UserAlreadyExists":
-    case "com.amazonaws.elasticache#UserAlreadyExistsFault":
-      throw await de_UserAlreadyExistsFaultRes(parsedOutput, context);
-    case "UserQuotaExceeded":
-    case "com.amazonaws.elasticache#UserQuotaExceededFault":
-      throw await de_UserQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateUserGroupCommand
  */
 export const de_CreateUserGroupCommand = async (
@@ -2964,7 +2171,7 @@ export const de_CreateUserGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2977,53 +2184,6 @@ export const de_CreateUserGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateUserGroupCommandError
- */
-const de_CreateUserGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DefaultUserRequired":
-    case "com.amazonaws.elasticache#DefaultUserRequired":
-      throw await de_DefaultUserRequiredRes(parsedOutput, context);
-    case "DuplicateUserName":
-    case "com.amazonaws.elasticache#DuplicateUserNameFault":
-      throw await de_DuplicateUserNameFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    case "UserGroupAlreadyExists":
-    case "com.amazonaws.elasticache#UserGroupAlreadyExistsFault":
-      throw await de_UserGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "UserGroupQuotaExceeded":
-    case "com.amazonaws.elasticache#UserGroupQuotaExceededFault":
-      throw await de_UserGroupQuotaExceededFaultRes(parsedOutput, context);
-    case "UserNotFound":
-    case "com.amazonaws.elasticache#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand
  */
 export const de_DecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
@@ -3031,7 +2191,7 @@ export const de_DecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
   context: __SerdeContext
 ): Promise<DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DecreaseNodeGroupsInGlobalReplicationGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3047,41 +2207,6 @@ export const de_DecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommandError
- */
-const de_DecreaseNodeGroupsInGlobalReplicationGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDecreaseReplicaCountCommand
  */
 export const de_DecreaseReplicaCountCommand = async (
@@ -3089,7 +2214,7 @@ export const de_DecreaseReplicaCountCommand = async (
   context: __SerdeContext
 ): Promise<DecreaseReplicaCountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DecreaseReplicaCountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3102,65 +2227,6 @@ export const de_DecreaseReplicaCountCommand = async (
 };
 
 /**
- * deserializeAws_queryDecreaseReplicaCountCommandError
- */
-const de_DecreaseReplicaCountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DecreaseReplicaCountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterQuotaForCustomerExceeded":
-    case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
-      throw await de_ClusterQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "InsufficientCacheClusterCapacity":
-    case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidCacheClusterState":
-    case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "NoOperationFault":
-    case "com.amazonaws.elasticache#NoOperationFault":
-      throw await de_NoOperationFaultRes(parsedOutput, context);
-    case "NodeGroupsPerReplicationGroupQuotaExceeded":
-    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      throw await de_NodeGroupsPerReplicationGroupQuotaExceededFaultRes(parsedOutput, context);
-    case "NodeQuotaForCustomerExceeded":
-    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteCacheClusterCommand
  */
 export const de_DeleteCacheClusterCommand = async (
@@ -3168,7 +2234,7 @@ export const de_DeleteCacheClusterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCacheClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCacheClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3181,50 +2247,6 @@ export const de_DeleteCacheClusterCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteCacheClusterCommandError
- */
-const de_DeleteCacheClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCacheClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheClusterNotFound":
-    case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidCacheClusterState":
-    case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "SnapshotAlreadyExistsFault":
-    case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
-      throw await de_SnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "SnapshotFeatureNotSupportedFault":
-    case "com.amazonaws.elasticache#SnapshotFeatureNotSupportedFault":
-      throw await de_SnapshotFeatureNotSupportedFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
-    case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteCacheParameterGroupCommand
  */
 export const de_DeleteCacheParameterGroupCommand = async (
@@ -3232,48 +2254,13 @@ export const de_DeleteCacheParameterGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCacheParameterGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCacheParameterGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCacheParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteCacheParameterGroupCommandError
- */
-const de_DeleteCacheParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCacheParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheParameterGroupNotFound":
-    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidCacheParameterGroupState":
-    case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
-      throw await de_InvalidCacheParameterGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3284,48 +2271,13 @@ export const de_DeleteCacheSecurityGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCacheSecurityGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCacheSecurityGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCacheSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteCacheSecurityGroupCommandError
- */
-const de_DeleteCacheSecurityGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCacheSecurityGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheSecurityGroupNotFound":
-    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidCacheSecurityGroupState":
-    case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      throw await de_InvalidCacheSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3336,42 +2288,13 @@ export const de_DeleteCacheSubnetGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCacheSubnetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCacheSubnetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCacheSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteCacheSubnetGroupCommandError
- */
-const de_DeleteCacheSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCacheSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheSubnetGroupInUse":
-    case "com.amazonaws.elasticache#CacheSubnetGroupInUse":
-      throw await de_CacheSubnetGroupInUseRes(parsedOutput, context);
-    case "CacheSubnetGroupNotFoundFault":
-    case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3382,7 +2305,7 @@ export const de_DeleteGlobalReplicationGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteGlobalReplicationGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3395,38 +2318,6 @@ export const de_DeleteGlobalReplicationGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteGlobalReplicationGroupCommandError
- */
-const de_DeleteGlobalReplicationGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGlobalReplicationGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteReplicationGroupCommand
  */
 export const de_DeleteReplicationGroupCommand = async (
@@ -3434,7 +2325,7 @@ export const de_DeleteReplicationGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReplicationGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3447,50 +2338,6 @@ export const de_DeleteReplicationGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteReplicationGroupCommandError
- */
-const de_DeleteReplicationGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReplicationGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotAlreadyExistsFault":
-    case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
-      throw await de_SnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "SnapshotFeatureNotSupportedFault":
-    case "com.amazonaws.elasticache#SnapshotFeatureNotSupportedFault":
-      throw await de_SnapshotFeatureNotSupportedFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
-    case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteServerlessCacheCommand
  */
 export const de_DeleteServerlessCacheCommand = async (
@@ -3498,7 +2345,7 @@ export const de_DeleteServerlessCacheCommand = async (
   context: __SerdeContext
 ): Promise<DeleteServerlessCacheCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteServerlessCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3511,50 +2358,6 @@ export const de_DeleteServerlessCacheCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteServerlessCacheCommandError
- */
-const de_DeleteServerlessCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServerlessCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidCredentialsException":
-    case "com.amazonaws.elasticache#InvalidCredentialsException":
-      throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidServerlessCacheStateFault":
-    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
-      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
-    case "ServerlessCacheNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
-      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
-    case "ServerlessCacheSnapshotAlreadyExistsFault":
-    case "com.amazonaws.elasticache#ServerlessCacheSnapshotAlreadyExistsFault":
-      throw await de_ServerlessCacheSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteServerlessCacheSnapshotCommand
  */
 export const de_DeleteServerlessCacheSnapshotCommand = async (
@@ -3562,7 +2365,7 @@ export const de_DeleteServerlessCacheSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteServerlessCacheSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteServerlessCacheSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3575,41 +2378,6 @@ export const de_DeleteServerlessCacheSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteServerlessCacheSnapshotCommandError
- */
-const de_DeleteServerlessCacheSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServerlessCacheSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidServerlessCacheSnapshotStateFault":
-    case "com.amazonaws.elasticache#InvalidServerlessCacheSnapshotStateFault":
-      throw await de_InvalidServerlessCacheSnapshotStateFaultRes(parsedOutput, context);
-    case "ServerlessCacheSnapshotNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
-      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteSnapshotCommand
  */
 export const de_DeleteSnapshotCommand = async (
@@ -3617,7 +2385,7 @@ export const de_DeleteSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3630,41 +2398,6 @@ export const de_DeleteSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteSnapshotCommandError
- */
-const de_DeleteSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidSnapshotState":
-    case "com.amazonaws.elasticache#InvalidSnapshotStateFault":
-      throw await de_InvalidSnapshotStateFaultRes(parsedOutput, context);
-    case "SnapshotNotFoundFault":
-    case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteUserCommand
  */
 export const de_DeleteUserCommand = async (
@@ -3672,7 +2405,7 @@ export const de_DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3685,44 +2418,6 @@ export const de_DeleteUserCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteUserCommandError
- */
-const de_DeleteUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DefaultUserAssociatedToUserGroup":
-    case "com.amazonaws.elasticache#DefaultUserAssociatedToUserGroupFault":
-      throw await de_DefaultUserAssociatedToUserGroupFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidUserState":
-    case "com.amazonaws.elasticache#InvalidUserStateFault":
-      throw await de_InvalidUserStateFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "UserNotFound":
-    case "com.amazonaws.elasticache#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteUserGroupCommand
  */
 export const de_DeleteUserGroupCommand = async (
@@ -3730,7 +2425,7 @@ export const de_DeleteUserGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3743,41 +2438,6 @@ export const de_DeleteUserGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteUserGroupCommandError
- */
-const de_DeleteUserGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidUserGroupState":
-    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "UserGroupNotFound":
-    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeCacheClustersCommand
  */
 export const de_DescribeCacheClustersCommand = async (
@@ -3785,7 +2445,7 @@ export const de_DescribeCacheClustersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCacheClustersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCacheClustersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3798,38 +2458,6 @@ export const de_DescribeCacheClustersCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeCacheClustersCommandError
- */
-const de_DescribeCacheClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCacheClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheClusterNotFound":
-    case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeCacheEngineVersionsCommand
  */
 export const de_DescribeCacheEngineVersionsCommand = async (
@@ -3837,7 +2465,7 @@ export const de_DescribeCacheEngineVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCacheEngineVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCacheEngineVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3850,26 +2478,6 @@ export const de_DescribeCacheEngineVersionsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeCacheEngineVersionsCommandError
- */
-const de_DescribeCacheEngineVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCacheEngineVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeCacheParameterGroupsCommand
  */
 export const de_DescribeCacheParameterGroupsCommand = async (
@@ -3877,7 +2485,7 @@ export const de_DescribeCacheParameterGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCacheParameterGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCacheParameterGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3890,38 +2498,6 @@ export const de_DescribeCacheParameterGroupsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeCacheParameterGroupsCommandError
- */
-const de_DescribeCacheParameterGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCacheParameterGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheParameterGroupNotFound":
-    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeCacheParametersCommand
  */
 export const de_DescribeCacheParametersCommand = async (
@@ -3929,7 +2505,7 @@ export const de_DescribeCacheParametersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCacheParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCacheParametersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3942,38 +2518,6 @@ export const de_DescribeCacheParametersCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeCacheParametersCommandError
- */
-const de_DescribeCacheParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCacheParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheParameterGroupNotFound":
-    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeCacheSecurityGroupsCommand
  */
 export const de_DescribeCacheSecurityGroupsCommand = async (
@@ -3981,7 +2525,7 @@ export const de_DescribeCacheSecurityGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCacheSecurityGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCacheSecurityGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3994,38 +2538,6 @@ export const de_DescribeCacheSecurityGroupsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeCacheSecurityGroupsCommandError
- */
-const de_DescribeCacheSecurityGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCacheSecurityGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheSecurityGroupNotFound":
-    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeCacheSubnetGroupsCommand
  */
 export const de_DescribeCacheSubnetGroupsCommand = async (
@@ -4033,7 +2545,7 @@ export const de_DescribeCacheSubnetGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCacheSubnetGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCacheSubnetGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4046,32 +2558,6 @@ export const de_DescribeCacheSubnetGroupsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeCacheSubnetGroupsCommandError
- */
-const de_DescribeCacheSubnetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCacheSubnetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheSubnetGroupNotFoundFault":
-    case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeEngineDefaultParametersCommand
  */
 export const de_DescribeEngineDefaultParametersCommand = async (
@@ -4079,7 +2565,7 @@ export const de_DescribeEngineDefaultParametersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEngineDefaultParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEngineDefaultParametersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4092,35 +2578,6 @@ export const de_DescribeEngineDefaultParametersCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeEngineDefaultParametersCommandError
- */
-const de_DescribeEngineDefaultParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngineDefaultParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeEventsCommand
  */
 export const de_DescribeEventsCommand = async (
@@ -4128,7 +2585,7 @@ export const de_DescribeEventsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4141,35 +2598,6 @@ export const de_DescribeEventsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeEventsCommandError
- */
-const de_DescribeEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeGlobalReplicationGroupsCommand
  */
 export const de_DescribeGlobalReplicationGroupsCommand = async (
@@ -4177,7 +2605,7 @@ export const de_DescribeGlobalReplicationGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGlobalReplicationGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeGlobalReplicationGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4190,38 +2618,6 @@ export const de_DescribeGlobalReplicationGroupsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeGlobalReplicationGroupsCommandError
- */
-const de_DescribeGlobalReplicationGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGlobalReplicationGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeReplicationGroupsCommand
  */
 export const de_DescribeReplicationGroupsCommand = async (
@@ -4229,7 +2625,7 @@ export const de_DescribeReplicationGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplicationGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReplicationGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4242,38 +2638,6 @@ export const de_DescribeReplicationGroupsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeReplicationGroupsCommandError
- */
-const de_DescribeReplicationGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeReservedCacheNodesCommand
  */
 export const de_DescribeReservedCacheNodesCommand = async (
@@ -4281,7 +2645,7 @@ export const de_DescribeReservedCacheNodesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReservedCacheNodesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReservedCacheNodesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4294,38 +2658,6 @@ export const de_DescribeReservedCacheNodesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeReservedCacheNodesCommandError
- */
-const de_DescribeReservedCacheNodesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedCacheNodesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ReservedCacheNodeNotFound":
-    case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
-      throw await de_ReservedCacheNodeNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand
  */
 export const de_DescribeReservedCacheNodesOfferingsCommand = async (
@@ -4333,7 +2665,7 @@ export const de_DescribeReservedCacheNodesOfferingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReservedCacheNodesOfferingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4346,38 +2678,6 @@ export const de_DescribeReservedCacheNodesOfferingsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandError
- */
-const de_DescribeReservedCacheNodesOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ReservedCacheNodesOfferingNotFound":
-    case "com.amazonaws.elasticache#ReservedCacheNodesOfferingNotFoundFault":
-      throw await de_ReservedCacheNodesOfferingNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeServerlessCachesCommand
  */
 export const de_DescribeServerlessCachesCommand = async (
@@ -4385,7 +2685,7 @@ export const de_DescribeServerlessCachesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeServerlessCachesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeServerlessCachesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4398,38 +2698,6 @@ export const de_DescribeServerlessCachesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeServerlessCachesCommandError
- */
-const de_DescribeServerlessCachesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServerlessCachesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerlessCacheNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
-      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeServerlessCacheSnapshotsCommand
  */
 export const de_DescribeServerlessCacheSnapshotsCommand = async (
@@ -4437,7 +2705,7 @@ export const de_DescribeServerlessCacheSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeServerlessCacheSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeServerlessCacheSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4450,41 +2718,6 @@ export const de_DescribeServerlessCacheSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeServerlessCacheSnapshotsCommandError
- */
-const de_DescribeServerlessCacheSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServerlessCacheSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerlessCacheNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
-      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
-    case "ServerlessCacheSnapshotNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
-      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeServiceUpdatesCommand
  */
 export const de_DescribeServiceUpdatesCommand = async (
@@ -4492,7 +2725,7 @@ export const de_DescribeServiceUpdatesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeServiceUpdatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeServiceUpdatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4505,38 +2738,6 @@ export const de_DescribeServiceUpdatesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeServiceUpdatesCommandError
- */
-const de_DescribeServiceUpdatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServiceUpdatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUpdateNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceUpdateNotFoundFault":
-      throw await de_ServiceUpdateNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeSnapshotsCommand
  */
 export const de_DescribeSnapshotsCommand = async (
@@ -4544,7 +2745,7 @@ export const de_DescribeSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4557,41 +2758,6 @@ export const de_DescribeSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeSnapshotsCommandError
- */
-const de_DescribeSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheClusterNotFound":
-    case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "SnapshotNotFoundFault":
-    case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeUpdateActionsCommand
  */
 export const de_DescribeUpdateActionsCommand = async (
@@ -4599,7 +2765,7 @@ export const de_DescribeUpdateActionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUpdateActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUpdateActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4612,35 +2778,6 @@ export const de_DescribeUpdateActionsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeUpdateActionsCommandError
- */
-const de_DescribeUpdateActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUpdateActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeUserGroupsCommand
  */
 export const de_DescribeUserGroupsCommand = async (
@@ -4648,7 +2785,7 @@ export const de_DescribeUserGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUserGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUserGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4661,38 +2798,6 @@ export const de_DescribeUserGroupsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeUserGroupsCommandError
- */
-const de_DescribeUserGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUserGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "UserGroupNotFound":
-    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeUsersCommand
  */
 export const de_DescribeUsersCommand = async (
@@ -4700,7 +2805,7 @@ export const de_DescribeUsersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUsersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4713,38 +2818,6 @@ export const de_DescribeUsersCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeUsersCommandError
- */
-const de_DescribeUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "UserNotFound":
-    case "com.amazonaws.elasticache#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDisassociateGlobalReplicationGroupCommand
  */
 export const de_DisassociateGlobalReplicationGroupCommand = async (
@@ -4752,7 +2825,7 @@ export const de_DisassociateGlobalReplicationGroupCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateGlobalReplicationGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4765,41 +2838,6 @@ export const de_DisassociateGlobalReplicationGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryDisassociateGlobalReplicationGroupCommandError
- */
-const de_DisassociateGlobalReplicationGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateGlobalReplicationGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryExportServerlessCacheSnapshotCommand
  */
 export const de_ExportServerlessCacheSnapshotCommand = async (
@@ -4807,7 +2845,7 @@ export const de_ExportServerlessCacheSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<ExportServerlessCacheSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportServerlessCacheSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4820,41 +2858,6 @@ export const de_ExportServerlessCacheSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_queryExportServerlessCacheSnapshotCommandError
- */
-const de_ExportServerlessCacheSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportServerlessCacheSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidServerlessCacheSnapshotStateFault":
-    case "com.amazonaws.elasticache#InvalidServerlessCacheSnapshotStateFault":
-      throw await de_InvalidServerlessCacheSnapshotStateFaultRes(parsedOutput, context);
-    case "ServerlessCacheSnapshotNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
-      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryFailoverGlobalReplicationGroupCommand
  */
 export const de_FailoverGlobalReplicationGroupCommand = async (
@@ -4862,7 +2865,7 @@ export const de_FailoverGlobalReplicationGroupCommand = async (
   context: __SerdeContext
 ): Promise<FailoverGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_FailoverGlobalReplicationGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4875,41 +2878,6 @@ export const de_FailoverGlobalReplicationGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryFailoverGlobalReplicationGroupCommandError
- */
-const de_FailoverGlobalReplicationGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverGlobalReplicationGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand
  */
 export const de_IncreaseNodeGroupsInGlobalReplicationGroupCommand = async (
@@ -4917,7 +2885,7 @@ export const de_IncreaseNodeGroupsInGlobalReplicationGroupCommand = async (
   context: __SerdeContext
 ): Promise<IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_IncreaseNodeGroupsInGlobalReplicationGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4933,38 +2901,6 @@ export const de_IncreaseNodeGroupsInGlobalReplicationGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommandError
- */
-const de_IncreaseNodeGroupsInGlobalReplicationGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryIncreaseReplicaCountCommand
  */
 export const de_IncreaseReplicaCountCommand = async (
@@ -4972,7 +2908,7 @@ export const de_IncreaseReplicaCountCommand = async (
   context: __SerdeContext
 ): Promise<IncreaseReplicaCountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_IncreaseReplicaCountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4985,65 +2921,6 @@ export const de_IncreaseReplicaCountCommand = async (
 };
 
 /**
- * deserializeAws_queryIncreaseReplicaCountCommandError
- */
-const de_IncreaseReplicaCountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<IncreaseReplicaCountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterQuotaForCustomerExceeded":
-    case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
-      throw await de_ClusterQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "InsufficientCacheClusterCapacity":
-    case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidCacheClusterState":
-    case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
-    case "InvalidKMSKeyFault":
-    case "com.amazonaws.elasticache#InvalidKMSKeyFault":
-      throw await de_InvalidKMSKeyFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "NoOperationFault":
-    case "com.amazonaws.elasticache#NoOperationFault":
-      throw await de_NoOperationFaultRes(parsedOutput, context);
-    case "NodeGroupsPerReplicationGroupQuotaExceeded":
-    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      throw await de_NodeGroupsPerReplicationGroupQuotaExceededFaultRes(parsedOutput, context);
-    case "NodeQuotaForCustomerExceeded":
-    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListAllowedNodeTypeModificationsCommand
  */
 export const de_ListAllowedNodeTypeModificationsCommand = async (
@@ -5051,7 +2928,7 @@ export const de_ListAllowedNodeTypeModificationsCommand = async (
   context: __SerdeContext
 ): Promise<ListAllowedNodeTypeModificationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAllowedNodeTypeModificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5064,41 +2941,6 @@ export const de_ListAllowedNodeTypeModificationsCommand = async (
 };
 
 /**
- * deserializeAws_queryListAllowedNodeTypeModificationsCommandError
- */
-const de_ListAllowedNodeTypeModificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAllowedNodeTypeModificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheClusterNotFound":
-    case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -5106,7 +2948,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5119,74 +2961,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_queryListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheClusterNotFound":
-    case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
-    case "CacheParameterGroupNotFound":
-    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "CacheSecurityGroupNotFound":
-    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "CacheSubnetGroupNotFoundFault":
-    case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidARN":
-    case "com.amazonaws.elasticache#InvalidARNFault":
-      throw await de_InvalidARNFaultRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidServerlessCacheSnapshotStateFault":
-    case "com.amazonaws.elasticache#InvalidServerlessCacheSnapshotStateFault":
-      throw await de_InvalidServerlessCacheSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidServerlessCacheStateFault":
-    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
-      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "ReservedCacheNodeNotFound":
-    case "com.amazonaws.elasticache#ReservedCacheNodeNotFoundFault":
-      throw await de_ReservedCacheNodeNotFoundFaultRes(parsedOutput, context);
-    case "ServerlessCacheNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
-      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
-    case "ServerlessCacheSnapshotNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheSnapshotNotFoundFault":
-      throw await de_ServerlessCacheSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotNotFoundFault":
-    case "com.amazonaws.elasticache#SnapshotNotFoundFault":
-      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
-    case "UserGroupNotFound":
-    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
-    case "UserNotFound":
-    case "com.amazonaws.elasticache#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryModifyCacheClusterCommand
  */
 export const de_ModifyCacheClusterCommand = async (
@@ -5194,7 +2968,7 @@ export const de_ModifyCacheClusterCommand = async (
   context: __SerdeContext
 ): Promise<ModifyCacheClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyCacheClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5207,62 +2981,6 @@ export const de_ModifyCacheClusterCommand = async (
 };
 
 /**
- * deserializeAws_queryModifyCacheClusterCommandError
- */
-const de_ModifyCacheClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCacheClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheClusterNotFound":
-    case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
-    case "CacheParameterGroupNotFound":
-    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "CacheSecurityGroupNotFound":
-    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "InsufficientCacheClusterCapacity":
-    case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidCacheClusterState":
-    case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
-    case "InvalidCacheSecurityGroupState":
-    case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      throw await de_InvalidCacheSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "NodeQuotaForClusterExceeded":
-    case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
-      throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
-    case "NodeQuotaForCustomerExceeded":
-    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryModifyCacheParameterGroupCommand
  */
 export const de_ModifyCacheParameterGroupCommand = async (
@@ -5270,7 +2988,7 @@ export const de_ModifyCacheParameterGroupCommand = async (
   context: __SerdeContext
 ): Promise<ModifyCacheParameterGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyCacheParameterGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5283,44 +3001,6 @@ export const de_ModifyCacheParameterGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryModifyCacheParameterGroupCommandError
- */
-const de_ModifyCacheParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCacheParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheParameterGroupNotFound":
-    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidCacheParameterGroupState":
-    case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
-      throw await de_InvalidCacheParameterGroupStateFaultRes(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryModifyCacheSubnetGroupCommand
  */
 export const de_ModifyCacheSubnetGroupCommand = async (
@@ -5328,7 +3008,7 @@ export const de_ModifyCacheSubnetGroupCommand = async (
   context: __SerdeContext
 ): Promise<ModifyCacheSubnetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyCacheSubnetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5341,44 +3021,6 @@ export const de_ModifyCacheSubnetGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryModifyCacheSubnetGroupCommandError
- */
-const de_ModifyCacheSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCacheSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheSubnetGroupNotFoundFault":
-    case "com.amazonaws.elasticache#CacheSubnetGroupNotFoundFault":
-      throw await de_CacheSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "CacheSubnetQuotaExceededFault":
-    case "com.amazonaws.elasticache#CacheSubnetQuotaExceededFault":
-      throw await de_CacheSubnetQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.elasticache#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "SubnetInUse":
-    case "com.amazonaws.elasticache#SubnetInUse":
-      throw await de_SubnetInUseRes(parsedOutput, context);
-    case "SubnetNotAllowedFault":
-    case "com.amazonaws.elasticache#SubnetNotAllowedFault":
-      throw await de_SubnetNotAllowedFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryModifyGlobalReplicationGroupCommand
  */
 export const de_ModifyGlobalReplicationGroupCommand = async (
@@ -5386,7 +3028,7 @@ export const de_ModifyGlobalReplicationGroupCommand = async (
   context: __SerdeContext
 ): Promise<ModifyGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyGlobalReplicationGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5399,38 +3041,6 @@ export const de_ModifyGlobalReplicationGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryModifyGlobalReplicationGroupCommandError
- */
-const de_ModifyGlobalReplicationGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyGlobalReplicationGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryModifyReplicationGroupCommand
  */
 export const de_ModifyReplicationGroupCommand = async (
@@ -5438,7 +3048,7 @@ export const de_ModifyReplicationGroupCommand = async (
   context: __SerdeContext
 ): Promise<ModifyReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyReplicationGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5451,77 +3061,6 @@ export const de_ModifyReplicationGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryModifyReplicationGroupCommandError
- */
-const de_ModifyReplicationGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyReplicationGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheClusterNotFound":
-    case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
-    case "CacheParameterGroupNotFound":
-    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "CacheSecurityGroupNotFound":
-    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "InsufficientCacheClusterCapacity":
-    case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidCacheClusterState":
-    case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
-    case "InvalidCacheSecurityGroupState":
-    case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
-      throw await de_InvalidCacheSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidKMSKeyFault":
-    case "com.amazonaws.elasticache#InvalidKMSKeyFault":
-      throw await de_InvalidKMSKeyFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidUserGroupState":
-    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "NodeQuotaForClusterExceeded":
-    case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
-      throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
-    case "NodeQuotaForCustomerExceeded":
-    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "UserGroupNotFound":
-    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryModifyReplicationGroupShardConfigurationCommand
  */
 export const de_ModifyReplicationGroupShardConfigurationCommand = async (
@@ -5529,7 +3068,7 @@ export const de_ModifyReplicationGroupShardConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyReplicationGroupShardConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5545,59 +3084,6 @@ export const de_ModifyReplicationGroupShardConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_queryModifyReplicationGroupShardConfigurationCommandError
- */
-const de_ModifyReplicationGroupShardConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientCacheClusterCapacity":
-    case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
-      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidCacheClusterState":
-    case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
-    case "InvalidKMSKeyFault":
-    case "com.amazonaws.elasticache#InvalidKMSKeyFault":
-      throw await de_InvalidKMSKeyFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "NodeGroupsPerReplicationGroupQuotaExceeded":
-    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
-      throw await de_NodeGroupsPerReplicationGroupQuotaExceededFaultRes(parsedOutput, context);
-    case "NodeQuotaForCustomerExceeded":
-    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
-      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryModifyServerlessCacheCommand
  */
 export const de_ModifyServerlessCacheCommand = async (
@@ -5605,7 +3091,7 @@ export const de_ModifyServerlessCacheCommand = async (
   context: __SerdeContext
 ): Promise<ModifyServerlessCacheCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyServerlessCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5618,53 +3104,6 @@ export const de_ModifyServerlessCacheCommand = async (
 };
 
 /**
- * deserializeAws_queryModifyServerlessCacheCommandError
- */
-const de_ModifyServerlessCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyServerlessCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidCredentialsException":
-    case "com.amazonaws.elasticache#InvalidCredentialsException":
-      throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidServerlessCacheStateFault":
-    case "com.amazonaws.elasticache#InvalidServerlessCacheStateFault":
-      throw await de_InvalidServerlessCacheStateFaultRes(parsedOutput, context);
-    case "InvalidUserGroupState":
-    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
-    case "ServerlessCacheNotFoundFault":
-    case "com.amazonaws.elasticache#ServerlessCacheNotFoundFault":
-      throw await de_ServerlessCacheNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "UserGroupNotFound":
-    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryModifyUserCommand
  */
 export const de_ModifyUserCommand = async (
@@ -5672,7 +3111,7 @@ export const de_ModifyUserCommand = async (
   context: __SerdeContext
 ): Promise<ModifyUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5685,44 +3124,6 @@ export const de_ModifyUserCommand = async (
 };
 
 /**
- * deserializeAws_queryModifyUserCommandError
- */
-const de_ModifyUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidUserState":
-    case "com.amazonaws.elasticache#InvalidUserStateFault":
-      throw await de_InvalidUserStateFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "UserNotFound":
-    case "com.amazonaws.elasticache#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryModifyUserGroupCommand
  */
 export const de_ModifyUserGroupCommand = async (
@@ -5730,7 +3131,7 @@ export const de_ModifyUserGroupCommand = async (
   context: __SerdeContext
 ): Promise<ModifyUserGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyUserGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5743,53 +3144,6 @@ export const de_ModifyUserGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryModifyUserGroupCommandError
- */
-const de_ModifyUserGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyUserGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DefaultUserRequired":
-    case "com.amazonaws.elasticache#DefaultUserRequired":
-      throw await de_DefaultUserRequiredRes(parsedOutput, context);
-    case "DuplicateUserName":
-    case "com.amazonaws.elasticache#DuplicateUserNameFault":
-      throw await de_DuplicateUserNameFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidUserGroupState":
-    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
-      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "UserGroupNotFound":
-    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
-      throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
-    case "UserNotFound":
-    case "com.amazonaws.elasticache#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand
  */
 export const de_PurchaseReservedCacheNodesOfferingCommand = async (
@@ -5797,7 +3151,7 @@ export const de_PurchaseReservedCacheNodesOfferingCommand = async (
   context: __SerdeContext
 ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PurchaseReservedCacheNodesOfferingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5810,47 +3164,6 @@ export const de_PurchaseReservedCacheNodesOfferingCommand = async (
 };
 
 /**
- * deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandError
- */
-const de_PurchaseReservedCacheNodesOfferingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ReservedCacheNodeAlreadyExists":
-    case "com.amazonaws.elasticache#ReservedCacheNodeAlreadyExistsFault":
-      throw await de_ReservedCacheNodeAlreadyExistsFaultRes(parsedOutput, context);
-    case "ReservedCacheNodeQuotaExceeded":
-    case "com.amazonaws.elasticache#ReservedCacheNodeQuotaExceededFault":
-      throw await de_ReservedCacheNodeQuotaExceededFaultRes(parsedOutput, context);
-    case "ReservedCacheNodesOfferingNotFound":
-    case "com.amazonaws.elasticache#ReservedCacheNodesOfferingNotFoundFault":
-      throw await de_ReservedCacheNodesOfferingNotFoundFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand
  */
 export const de_RebalanceSlotsInGlobalReplicationGroupCommand = async (
@@ -5858,7 +3171,7 @@ export const de_RebalanceSlotsInGlobalReplicationGroupCommand = async (
   context: __SerdeContext
 ): Promise<RebalanceSlotsInGlobalReplicationGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RebalanceSlotsInGlobalReplicationGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5874,38 +3187,6 @@ export const de_RebalanceSlotsInGlobalReplicationGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommandError
- */
-const de_RebalanceSlotsInGlobalReplicationGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebalanceSlotsInGlobalReplicationGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
-      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryRebootCacheClusterCommand
  */
 export const de_RebootCacheClusterCommand = async (
@@ -5913,7 +3194,7 @@ export const de_RebootCacheClusterCommand = async (
   context: __SerdeContext
 ): Promise<RebootCacheClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RebootCacheClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5926,35 +3207,6 @@ export const de_RebootCacheClusterCommand = async (
 };
 
 /**
- * deserializeAws_queryRebootCacheClusterCommandError
- */
-const de_RebootCacheClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootCacheClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheClusterNotFound":
-    case "com.amazonaws.elasticache#CacheClusterNotFoundFault":
-      throw await de_CacheClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidCacheClusterState":
-    case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
-      throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryRemoveTagsFromResourceCommand
  */
 export const de_RemoveTagsFromResourceCommand = async (
@@ -5962,7 +3214,7 @@ export const de_RemoveTagsFromResourceCommand = async (
   context: __SerdeContext
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveTagsFromResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5975,12 +3227,109 @@ export const de_RemoveTagsFromResourceCommand = async (
 };
 
 /**
- * deserializeAws_queryRemoveTagsFromResourceCommandError
+ * deserializeAws_queryResetCacheParameterGroupCommand
  */
-const de_RemoveTagsFromResourceCommandError = async (
+export const de_ResetCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
+): Promise<ResetCacheParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CacheParameterGroupNameMessage(data.ResetCacheParameterGroupResult, context);
+  const response: ResetCacheParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRevokeCacheSecurityGroupIngressCommand
+ */
+export const de_RevokeCacheSecurityGroupIngressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeCacheSecurityGroupIngressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RevokeCacheSecurityGroupIngressResult(data.RevokeCacheSecurityGroupIngressResult, context);
+  const response: RevokeCacheSecurityGroupIngressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryStartMigrationCommand
+ */
+export const de_StartMigrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMigrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartMigrationResponse(data.StartMigrationResult, context);
+  const response: StartMigrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryTestFailoverCommand
+ */
+export const de_TestFailoverCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestFailoverCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TestFailoverResult(data.TestFailoverResult, context);
+  const response: TestFailoverCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryTestMigrationCommand
+ */
+export const de_TestMigrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestMigrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TestMigrationResponse(data.TestMigrationResult, context);
+  const response: TestMigrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_queryCommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6026,122 +3375,18 @@ const de_RemoveTagsFromResourceCommandError = async (
     case "SnapshotNotFoundFault":
     case "com.amazonaws.elasticache#SnapshotNotFoundFault":
       throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
-    case "TagNotFound":
-    case "com.amazonaws.elasticache#TagNotFoundFault":
-      throw await de_TagNotFoundFaultRes(parsedOutput, context);
+    case "TagQuotaPerResourceExceeded":
+    case "com.amazonaws.elasticache#TagQuotaPerResourceExceeded":
+      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     case "UserGroupNotFound":
     case "com.amazonaws.elasticache#UserGroupNotFoundFault":
       throw await de_UserGroupNotFoundFaultRes(parsedOutput, context);
     case "UserNotFound":
     case "com.amazonaws.elasticache#UserNotFoundFault":
       throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryResetCacheParameterGroupCommand
- */
-export const de_ResetCacheParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetCacheParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResetCacheParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CacheParameterGroupNameMessage(data.ResetCacheParameterGroupResult, context);
-  const response: ResetCacheParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryResetCacheParameterGroupCommandError
- */
-const de_ResetCacheParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetCacheParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CacheParameterGroupNotFound":
-    case "com.amazonaws.elasticache#CacheParameterGroupNotFoundFault":
-      throw await de_CacheParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidCacheParameterGroupState":
-    case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
-      throw await de_InvalidCacheParameterGroupStateFaultRes(parsedOutput, context);
-    case "InvalidGlobalReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
-      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRevokeCacheSecurityGroupIngressCommand
- */
-export const de_RevokeCacheSecurityGroupIngressCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeCacheSecurityGroupIngressCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RevokeCacheSecurityGroupIngressCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RevokeCacheSecurityGroupIngressResult(data.RevokeCacheSecurityGroupIngressResult, context);
-  const response: RevokeCacheSecurityGroupIngressCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError
- */
-const de_RevokeCacheSecurityGroupIngressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeCacheSecurityGroupIngressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationNotFound":
-    case "com.amazonaws.elasticache#AuthorizationNotFoundFault":
-      throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
-    case "CacheSecurityGroupNotFound":
-    case "com.amazonaws.elasticache#CacheSecurityGroupNotFoundFault":
-      throw await de_CacheSecurityGroupNotFoundFaultRes(parsedOutput, context);
+    case "AuthorizationAlreadyExists":
+    case "com.amazonaws.elasticache#AuthorizationAlreadyExistsFault":
+      throw await de_AuthorizationAlreadyExistsFaultRes(parsedOutput, context);
     case "InvalidCacheSecurityGroupState":
     case "com.amazonaws.elasticache#InvalidCacheSecurityGroupStateFault":
       throw await de_InvalidCacheSecurityGroupStateFaultRes(parsedOutput, context);
@@ -6151,128 +3396,171 @@ const de_RevokeCacheSecurityGroupIngressCommandError = async (
     case "InvalidParameterValue":
     case "com.amazonaws.elasticache#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryStartMigrationCommand
- */
-export const de_StartMigrationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMigrationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartMigrationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartMigrationResponse(data.StartMigrationResult, context);
-  const response: StartMigrationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryStartMigrationCommandError
- */
-const de_StartMigrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMigrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "ReplicationGroupAlreadyUnderMigrationFault":
-    case "com.amazonaws.elasticache#ReplicationGroupAlreadyUnderMigrationFault":
-      throw await de_ReplicationGroupAlreadyUnderMigrationFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryTestFailoverCommand
- */
-export const de_TestFailoverCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestFailoverCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TestFailoverCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_TestFailoverResult(data.TestFailoverResult, context);
-  const response: TestFailoverCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryTestFailoverCommandError
- */
-const de_TestFailoverCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestFailoverCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "APICallRateForCustomerExceeded":
-    case "com.amazonaws.elasticache#APICallRateForCustomerExceededFault":
-      throw await de_APICallRateForCustomerExceededFaultRes(parsedOutput, context);
+    case "ServiceUpdateNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceUpdateNotFoundFault":
+      throw await de_ServiceUpdateNotFoundFaultRes(parsedOutput, context);
+    case "ReplicationGroupNotUnderMigrationFault":
+    case "com.amazonaws.elasticache#ReplicationGroupNotUnderMigrationFault":
+      throw await de_ReplicationGroupNotUnderMigrationFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotAlreadyExistsFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotAlreadyExistsFault":
+      throw await de_ServerlessCacheSnapshotAlreadyExistsFaultRes(parsedOutput, context);
+    case "ServerlessCacheSnapshotQuotaExceededFault":
+    case "com.amazonaws.elasticache#ServerlessCacheSnapshotQuotaExceededFault":
+      throw await de_ServerlessCacheSnapshotQuotaExceededFaultRes(parsedOutput, context);
+    case "ServiceLinkedRoleNotFoundFault":
+    case "com.amazonaws.elasticache#ServiceLinkedRoleNotFoundFault":
+      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
+    case "InvalidSnapshotState":
+    case "com.amazonaws.elasticache#InvalidSnapshotStateFault":
+      throw await de_InvalidSnapshotStateFaultRes(parsedOutput, context);
+    case "SnapshotAlreadyExistsFault":
+    case "com.amazonaws.elasticache#SnapshotAlreadyExistsFault":
+      throw await de_SnapshotAlreadyExistsFaultRes(parsedOutput, context);
+    case "SnapshotQuotaExceededFault":
+    case "com.amazonaws.elasticache#SnapshotQuotaExceededFault":
+      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
+    case "CacheClusterAlreadyExists":
+    case "com.amazonaws.elasticache#CacheClusterAlreadyExistsFault":
+      throw await de_CacheClusterAlreadyExistsFaultRes(parsedOutput, context);
+    case "ClusterQuotaForCustomerExceeded":
+    case "com.amazonaws.elasticache#ClusterQuotaForCustomerExceededFault":
+      throw await de_ClusterQuotaForCustomerExceededFaultRes(parsedOutput, context);
+    case "InsufficientCacheClusterCapacity":
+    case "com.amazonaws.elasticache#InsufficientCacheClusterCapacityFault":
+      throw await de_InsufficientCacheClusterCapacityFaultRes(parsedOutput, context);
+    case "InvalidVPCNetworkStateFault":
+    case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
+      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
+    case "NodeQuotaForClusterExceeded":
+    case "com.amazonaws.elasticache#NodeQuotaForClusterExceededFault":
+      throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
+    case "NodeQuotaForCustomerExceeded":
+    case "com.amazonaws.elasticache#NodeQuotaForCustomerExceededFault":
+      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
+    case "CacheParameterGroupAlreadyExists":
+    case "com.amazonaws.elasticache#CacheParameterGroupAlreadyExistsFault":
+      throw await de_CacheParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "CacheParameterGroupQuotaExceeded":
+    case "com.amazonaws.elasticache#CacheParameterGroupQuotaExceededFault":
+      throw await de_CacheParameterGroupQuotaExceededFaultRes(parsedOutput, context);
+    case "InvalidCacheParameterGroupState":
+    case "com.amazonaws.elasticache#InvalidCacheParameterGroupStateFault":
+      throw await de_InvalidCacheParameterGroupStateFaultRes(parsedOutput, context);
+    case "CacheSecurityGroupAlreadyExists":
+    case "com.amazonaws.elasticache#CacheSecurityGroupAlreadyExistsFault":
+      throw await de_CacheSecurityGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "QuotaExceeded.CacheSecurityGroup":
+    case "com.amazonaws.elasticache#CacheSecurityGroupQuotaExceededFault":
+      throw await de_CacheSecurityGroupQuotaExceededFaultRes(parsedOutput, context);
+    case "CacheSubnetGroupAlreadyExists":
+    case "com.amazonaws.elasticache#CacheSubnetGroupAlreadyExistsFault":
+      throw await de_CacheSubnetGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "CacheSubnetGroupQuotaExceeded":
+    case "com.amazonaws.elasticache#CacheSubnetGroupQuotaExceededFault":
+      throw await de_CacheSubnetGroupQuotaExceededFaultRes(parsedOutput, context);
+    case "CacheSubnetQuotaExceededFault":
+    case "com.amazonaws.elasticache#CacheSubnetQuotaExceededFault":
+      throw await de_CacheSubnetQuotaExceededFaultRes(parsedOutput, context);
+    case "InvalidSubnet":
+    case "com.amazonaws.elasticache#InvalidSubnet":
+      throw await de_InvalidSubnetRes(parsedOutput, context);
+    case "SubnetNotAllowedFault":
+    case "com.amazonaws.elasticache#SubnetNotAllowedFault":
+      throw await de_SubnetNotAllowedFaultRes(parsedOutput, context);
+    case "GlobalReplicationGroupAlreadyExistsFault":
+    case "com.amazonaws.elasticache#GlobalReplicationGroupAlreadyExistsFault":
+      throw await de_GlobalReplicationGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "GlobalReplicationGroupNotFoundFault":
+    case "com.amazonaws.elasticache#GlobalReplicationGroupNotFoundFault":
+      throw await de_GlobalReplicationGroupNotFoundFaultRes(parsedOutput, context);
     case "InvalidCacheClusterState":
     case "com.amazonaws.elasticache#InvalidCacheClusterStateFault":
       throw await de_InvalidCacheClusterStateFaultRes(parsedOutput, context);
+    case "InvalidGlobalReplicationGroupState":
+    case "com.amazonaws.elasticache#InvalidGlobalReplicationGroupStateFault":
+      throw await de_InvalidGlobalReplicationGroupStateFaultRes(parsedOutput, context);
+    case "InvalidUserGroupState":
+    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
+      throw await de_InvalidUserGroupStateFaultRes(parsedOutput, context);
+    case "NodeGroupsPerReplicationGroupQuotaExceeded":
+    case "com.amazonaws.elasticache#NodeGroupsPerReplicationGroupQuotaExceededFault":
+      throw await de_NodeGroupsPerReplicationGroupQuotaExceededFaultRes(parsedOutput, context);
+    case "ReplicationGroupAlreadyExists":
+    case "com.amazonaws.elasticache#ReplicationGroupAlreadyExistsFault":
+      throw await de_ReplicationGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "InvalidCredentialsException":
+    case "com.amazonaws.elasticache#InvalidCredentialsException":
+      throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
+    case "ServerlessCacheAlreadyExistsFault":
+    case "com.amazonaws.elasticache#ServerlessCacheAlreadyExistsFault":
+      throw await de_ServerlessCacheAlreadyExistsFaultRes(parsedOutput, context);
+    case "ServerlessCacheQuotaForCustomerExceededFault":
+    case "com.amazonaws.elasticache#ServerlessCacheQuotaForCustomerExceededFault":
+      throw await de_ServerlessCacheQuotaForCustomerExceededFaultRes(parsedOutput, context);
+    case "SnapshotFeatureNotSupportedFault":
+    case "com.amazonaws.elasticache#SnapshotFeatureNotSupportedFault":
+      throw await de_SnapshotFeatureNotSupportedFaultRes(parsedOutput, context);
+    case "DuplicateUserName":
+    case "com.amazonaws.elasticache#DuplicateUserNameFault":
+      throw await de_DuplicateUserNameFaultRes(parsedOutput, context);
+    case "UserAlreadyExists":
+    case "com.amazonaws.elasticache#UserAlreadyExistsFault":
+      throw await de_UserAlreadyExistsFaultRes(parsedOutput, context);
+    case "UserQuotaExceeded":
+    case "com.amazonaws.elasticache#UserQuotaExceededFault":
+      throw await de_UserQuotaExceededFaultRes(parsedOutput, context);
+    case "DefaultUserRequired":
+    case "com.amazonaws.elasticache#DefaultUserRequired":
+      throw await de_DefaultUserRequiredRes(parsedOutput, context);
+    case "UserGroupAlreadyExists":
+    case "com.amazonaws.elasticache#UserGroupAlreadyExistsFault":
+      throw await de_UserGroupAlreadyExistsFaultRes(parsedOutput, context);
+    case "UserGroupQuotaExceeded":
+    case "com.amazonaws.elasticache#UserGroupQuotaExceededFault":
+      throw await de_UserGroupQuotaExceededFaultRes(parsedOutput, context);
+    case "NoOperationFault":
+    case "com.amazonaws.elasticache#NoOperationFault":
+      throw await de_NoOperationFaultRes(parsedOutput, context);
+    case "CacheSubnetGroupInUse":
+    case "com.amazonaws.elasticache#CacheSubnetGroupInUse":
+      throw await de_CacheSubnetGroupInUseRes(parsedOutput, context);
+    case "DefaultUserAssociatedToUserGroup":
+    case "com.amazonaws.elasticache#DefaultUserAssociatedToUserGroupFault":
+      throw await de_DefaultUserAssociatedToUserGroupFaultRes(parsedOutput, context);
+    case "InvalidUserState":
+    case "com.amazonaws.elasticache#InvalidUserStateFault":
+      throw await de_InvalidUserStateFaultRes(parsedOutput, context);
+    case "ReservedCacheNodesOfferingNotFound":
+    case "com.amazonaws.elasticache#ReservedCacheNodesOfferingNotFoundFault":
+      throw await de_ReservedCacheNodesOfferingNotFoundFaultRes(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.elasticache#InvalidKMSKeyFault":
       throw await de_InvalidKMSKeyFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
+    case "SubnetInUse":
+    case "com.amazonaws.elasticache#SubnetInUse":
+      throw await de_SubnetInUseRes(parsedOutput, context);
+    case "ReservedCacheNodeAlreadyExists":
+    case "com.amazonaws.elasticache#ReservedCacheNodeAlreadyExistsFault":
+      throw await de_ReservedCacheNodeAlreadyExistsFaultRes(parsedOutput, context);
+    case "ReservedCacheNodeQuotaExceeded":
+    case "com.amazonaws.elasticache#ReservedCacheNodeQuotaExceededFault":
+      throw await de_ReservedCacheNodeQuotaExceededFaultRes(parsedOutput, context);
+    case "TagNotFound":
+    case "com.amazonaws.elasticache#TagNotFoundFault":
+      throw await de_TagNotFoundFaultRes(parsedOutput, context);
+    case "AuthorizationNotFound":
+    case "com.amazonaws.elasticache#AuthorizationNotFoundFault":
+      throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
+    case "ReplicationGroupAlreadyUnderMigrationFault":
+    case "com.amazonaws.elasticache#ReplicationGroupAlreadyUnderMigrationFault":
+      throw await de_ReplicationGroupAlreadyUnderMigrationFaultRes(parsedOutput, context);
+    case "APICallRateForCustomerExceeded":
+    case "com.amazonaws.elasticache#APICallRateForCustomerExceededFault":
+      throw await de_APICallRateForCustomerExceededFaultRes(parsedOutput, context);
     case "NodeGroupNotFoundFault":
     case "com.amazonaws.elasticache#NodeGroupNotFoundFault":
       throw await de_NodeGroupNotFoundFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
     case "TestFailoverNotAvailableFault":
     case "com.amazonaws.elasticache#TestFailoverNotAvailableFault":
       throw await de_TestFailoverNotAvailableFaultRes(parsedOutput, context);
@@ -6282,62 +3570,7 @@ const de_TestFailoverCommandError = async (
         output,
         parsedBody: parsedBody.Error,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryTestMigrationCommand
- */
-export const de_TestMigrationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestMigrationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TestMigrationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_TestMigrationResponse(data.TestMigrationResult, context);
-  const response: TestMigrationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryTestMigrationCommandError
- */
-const de_TestMigrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestMigrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.elasticache#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidReplicationGroupState":
-    case "com.amazonaws.elasticache#InvalidReplicationGroupStateFault":
-      throw await de_InvalidReplicationGroupStateFaultRes(parsedOutput, context);
-    case "ReplicationGroupAlreadyUnderMigrationFault":
-    case "com.amazonaws.elasticache#ReplicationGroupAlreadyUnderMigrationFault":
-      throw await de_ReplicationGroupAlreadyUnderMigrationFaultRes(parsedOutput, context);
-    case "ReplicationGroupNotFoundFault":
-    case "com.amazonaws.elasticache#ReplicationGroupNotFoundFault":
-      throw await de_ReplicationGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

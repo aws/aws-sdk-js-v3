@@ -323,7 +323,7 @@ export const de_AddAttachmentsToSetCommand = async (
   context: __SerdeContext
 ): Promise<AddAttachmentsToSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddAttachmentsToSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -336,12 +336,309 @@ export const de_AddAttachmentsToSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddAttachmentsToSetCommandError
+ * deserializeAws_json1_1AddCommunicationToCaseCommand
  */
-const de_AddAttachmentsToSetCommandError = async (
+export const de_AddCommunicationToCaseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddAttachmentsToSetCommandOutput> => {
+): Promise<AddCommunicationToCaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AddCommunicationToCaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateCaseCommand
+ */
+export const de_CreateCaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateCaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAttachmentCommand
+ */
+export const de_DescribeAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAttachmentResponse(data, context);
+  const response: DescribeAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCasesCommand
+ */
+export const de_DescribeCasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeCasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCommunicationsCommand
+ */
+export const de_DescribeCommunicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCommunicationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeCommunicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCreateCaseOptionsCommand
+ */
+export const de_DescribeCreateCaseOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCreateCaseOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeCreateCaseOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeServicesCommand
+ */
+export const de_DescribeServicesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServicesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeServicesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSeverityLevelsCommand
+ */
+export const de_DescribeSeverityLevelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSeverityLevelsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeSeverityLevelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSupportedLanguagesCommand
+ */
+export const de_DescribeSupportedLanguagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSupportedLanguagesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeSupportedLanguagesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand
+ */
+export const de_DescribeTrustedAdvisorCheckRefreshStatusesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand
+ */
+export const de_DescribeTrustedAdvisorCheckResultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTrustedAdvisorCheckResultResponse(data, context);
+  const response: DescribeTrustedAdvisorCheckResultCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand
+ */
+export const de_DescribeTrustedAdvisorChecksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustedAdvisorChecksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTrustedAdvisorChecksResponse(data, context);
+  const response: DescribeTrustedAdvisorChecksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand
+ */
+export const de_DescribeTrustedAdvisorCheckSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTrustedAdvisorCheckSummariesResponse(data, context);
+  const response: DescribeTrustedAdvisorCheckSummariesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand
+ */
+export const de_RefreshTrustedAdvisorCheckCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RefreshTrustedAdvisorCheckCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RefreshTrustedAdvisorCheckCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ResolveCaseCommand
+ */
+export const de_ResolveCaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResolveCaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ResolveCaseCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -363,312 +660,18 @@ const de_AddAttachmentsToSetCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.support#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1AddCommunicationToCaseCommand
- */
-export const de_AddCommunicationToCaseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddCommunicationToCaseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AddCommunicationToCaseCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: AddCommunicationToCaseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1AddCommunicationToCaseCommandError
- */
-const de_AddCommunicationToCaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddCommunicationToCaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AttachmentSetExpired":
-    case "com.amazonaws.support#AttachmentSetExpired":
-      throw await de_AttachmentSetExpiredRes(parsedOutput, context);
-    case "AttachmentSetIdNotFound":
-    case "com.amazonaws.support#AttachmentSetIdNotFound":
-      throw await de_AttachmentSetIdNotFoundRes(parsedOutput, context);
     case "CaseIdNotFound":
     case "com.amazonaws.support#CaseIdNotFound":
       throw await de_CaseIdNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateCaseCommand
- */
-export const de_CreateCaseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCaseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateCaseCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateCaseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateCaseCommandError
- */
-const de_CreateCaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AttachmentSetExpired":
-    case "com.amazonaws.support#AttachmentSetExpired":
-      throw await de_AttachmentSetExpiredRes(parsedOutput, context);
-    case "AttachmentSetIdNotFound":
-    case "com.amazonaws.support#AttachmentSetIdNotFound":
-      throw await de_AttachmentSetIdNotFoundRes(parsedOutput, context);
     case "CaseCreationLimitExceeded":
     case "com.amazonaws.support#CaseCreationLimitExceeded":
       throw await de_CaseCreationLimitExceededRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeAttachmentCommand
- */
-export const de_DescribeAttachmentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAttachmentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAttachmentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAttachmentResponse(data, context);
-  const response: DescribeAttachmentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeAttachmentCommandError
- */
-const de_DescribeAttachmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAttachmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AttachmentIdNotFound":
     case "com.amazonaws.support#AttachmentIdNotFound":
       throw await de_AttachmentIdNotFoundRes(parsedOutput, context);
     case "DescribeAttachmentLimitExceeded":
     case "com.amazonaws.support#DescribeAttachmentLimitExceeded":
       throw await de_DescribeAttachmentLimitExceededRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeCasesCommand
- */
-export const de_DescribeCasesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCasesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCasesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeCasesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeCasesCommandError
- */
-const de_DescribeCasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CaseIdNotFound":
-    case "com.amazonaws.support#CaseIdNotFound":
-      throw await de_CaseIdNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeCommunicationsCommand
- */
-export const de_DescribeCommunicationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCommunicationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCommunicationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeCommunicationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeCommunicationsCommandError
- */
-const de_DescribeCommunicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCommunicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CaseIdNotFound":
-    case "com.amazonaws.support#CaseIdNotFound":
-      throw await de_CaseIdNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeCreateCaseOptionsCommand
- */
-export const de_DescribeCreateCaseOptionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCreateCaseOptionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCreateCaseOptionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeCreateCaseOptionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeCreateCaseOptionsCommandError
- */
-const de_DescribeCreateCaseOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCreateCaseOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.support#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -678,439 +681,7 @@ const de_DescribeCreateCaseOptionsCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeServicesCommand
- */
-export const de_DescribeServicesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServicesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeServicesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeServicesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeServicesCommandError
- */
-const de_DescribeServicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeSeverityLevelsCommand
- */
-export const de_DescribeSeverityLevelsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSeverityLevelsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSeverityLevelsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeSeverityLevelsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeSeverityLevelsCommandError
- */
-const de_DescribeSeverityLevelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSeverityLevelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeSupportedLanguagesCommand
- */
-export const de_DescribeSupportedLanguagesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSupportedLanguagesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSupportedLanguagesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeSupportedLanguagesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeSupportedLanguagesCommandError
- */
-const de_DescribeSupportedLanguagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSupportedLanguagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.support#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommand
- */
-export const de_DescribeTrustedAdvisorCheckRefreshStatusesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTrustedAdvisorCheckRefreshStatusesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesCommandError
- */
-const de_DescribeTrustedAdvisorCheckRefreshStatusesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.support#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommand
- */
-export const de_DescribeTrustedAdvisorCheckResultCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTrustedAdvisorCheckResultCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTrustedAdvisorCheckResultResponse(data, context);
-  const response: DescribeTrustedAdvisorCheckResultCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTrustedAdvisorCheckResultCommandError
- */
-const de_DescribeTrustedAdvisorCheckResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustedAdvisorCheckResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.support#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand
- */
-export const de_DescribeTrustedAdvisorChecksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustedAdvisorChecksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTrustedAdvisorChecksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTrustedAdvisorChecksResponse(data, context);
-  const response: DescribeTrustedAdvisorChecksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTrustedAdvisorChecksCommandError
- */
-const de_DescribeTrustedAdvisorChecksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustedAdvisorChecksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.support#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand
- */
-export const de_DescribeTrustedAdvisorCheckSummariesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTrustedAdvisorCheckSummariesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTrustedAdvisorCheckSummariesResponse(data, context);
-  const response: DescribeTrustedAdvisorCheckSummariesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommandError
- */
-const de_DescribeTrustedAdvisorCheckSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustedAdvisorCheckSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.support#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RefreshTrustedAdvisorCheckCommand
- */
-export const de_RefreshTrustedAdvisorCheckCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RefreshTrustedAdvisorCheckCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RefreshTrustedAdvisorCheckCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RefreshTrustedAdvisorCheckCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RefreshTrustedAdvisorCheckCommandError
- */
-const de_RefreshTrustedAdvisorCheckCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RefreshTrustedAdvisorCheckCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ResolveCaseCommand
- */
-export const de_ResolveCaseCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResolveCaseCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResolveCaseCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ResolveCaseCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ResolveCaseCommandError
- */
-const de_ResolveCaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResolveCaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CaseIdNotFound":
-    case "com.amazonaws.support#CaseIdNotFound":
-      throw await de_CaseIdNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.support#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

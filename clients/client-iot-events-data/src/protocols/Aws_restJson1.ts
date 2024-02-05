@@ -334,7 +334,7 @@ export const de_BatchAcknowledgeAlarmCommand = async (
   context: __SerdeContext
 ): Promise<BatchAcknowledgeAlarmCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_BatchAcknowledgeAlarmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -348,41 +348,6 @@ export const de_BatchAcknowledgeAlarmCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchAcknowledgeAlarmCommandError
- */
-const de_BatchAcknowledgeAlarmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchAcknowledgeAlarmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.ioteventsdata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ioteventsdata#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ioteventsdata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchDeleteDetectorCommand
  */
 export const de_BatchDeleteDetectorCommand = async (
@@ -390,7 +355,7 @@ export const de_BatchDeleteDetectorCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteDetectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchDeleteDetectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -404,41 +369,6 @@ export const de_BatchDeleteDetectorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchDeleteDetectorCommandError
- */
-const de_BatchDeleteDetectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteDetectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.ioteventsdata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ioteventsdata#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ioteventsdata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchDisableAlarmCommand
  */
 export const de_BatchDisableAlarmCommand = async (
@@ -446,7 +376,7 @@ export const de_BatchDisableAlarmCommand = async (
   context: __SerdeContext
 ): Promise<BatchDisableAlarmCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_BatchDisableAlarmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -457,41 +387,6 @@ export const de_BatchDisableAlarmCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1BatchDisableAlarmCommandError
- */
-const de_BatchDisableAlarmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDisableAlarmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.ioteventsdata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ioteventsdata#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ioteventsdata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -502,7 +397,7 @@ export const de_BatchEnableAlarmCommand = async (
   context: __SerdeContext
 ): Promise<BatchEnableAlarmCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_BatchEnableAlarmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -516,41 +411,6 @@ export const de_BatchEnableAlarmCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchEnableAlarmCommandError
- */
-const de_BatchEnableAlarmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchEnableAlarmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.ioteventsdata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ioteventsdata#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ioteventsdata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchPutMessageCommand
  */
 export const de_BatchPutMessageCommand = async (
@@ -558,7 +418,7 @@ export const de_BatchPutMessageCommand = async (
   context: __SerdeContext
 ): Promise<BatchPutMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchPutMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -572,41 +432,6 @@ export const de_BatchPutMessageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchPutMessageCommandError
- */
-const de_BatchPutMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchPutMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.ioteventsdata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ioteventsdata#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ioteventsdata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchResetAlarmCommand
  */
 export const de_BatchResetAlarmCommand = async (
@@ -614,7 +439,7 @@ export const de_BatchResetAlarmCommand = async (
   context: __SerdeContext
 ): Promise<BatchResetAlarmCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_BatchResetAlarmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -625,41 +450,6 @@ export const de_BatchResetAlarmCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1BatchResetAlarmCommandError
- */
-const de_BatchResetAlarmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchResetAlarmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.ioteventsdata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ioteventsdata#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ioteventsdata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -670,7 +460,7 @@ export const de_BatchSnoozeAlarmCommand = async (
   context: __SerdeContext
 ): Promise<BatchSnoozeAlarmCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_BatchSnoozeAlarmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -684,41 +474,6 @@ export const de_BatchSnoozeAlarmCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchSnoozeAlarmCommandError
- */
-const de_BatchSnoozeAlarmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchSnoozeAlarmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.ioteventsdata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ioteventsdata#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ioteventsdata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchUpdateDetectorCommand
  */
 export const de_BatchUpdateDetectorCommand = async (
@@ -726,7 +481,7 @@ export const de_BatchUpdateDetectorCommand = async (
   context: __SerdeContext
 ): Promise<BatchUpdateDetectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchUpdateDetectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -740,41 +495,6 @@ export const de_BatchUpdateDetectorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchUpdateDetectorCommandError
- */
-const de_BatchUpdateDetectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchUpdateDetectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.ioteventsdata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ioteventsdata#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ioteventsdata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeAlarmCommand
  */
 export const de_DescribeAlarmCommand = async (
@@ -782,7 +502,7 @@ export const de_DescribeAlarmCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAlarmCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeAlarmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -796,44 +516,6 @@ export const de_DescribeAlarmCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeAlarmCommandError
- */
-const de_DescribeAlarmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAlarmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.ioteventsdata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ioteventsdata#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ioteventsdata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ioteventsdata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDetectorCommand
  */
 export const de_DescribeDetectorCommand = async (
@@ -841,7 +523,7 @@ export const de_DescribeDetectorCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDetectorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDetectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -855,44 +537,6 @@ export const de_DescribeDetectorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDetectorCommandError
- */
-const de_DescribeDetectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDetectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.ioteventsdata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ioteventsdata#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ioteventsdata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ioteventsdata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAlarmsCommand
  */
 export const de_ListAlarmsCommand = async (
@@ -900,7 +544,7 @@ export const de_ListAlarmsCommand = async (
   context: __SerdeContext
 ): Promise<ListAlarmsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAlarmsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -915,44 +559,6 @@ export const de_ListAlarmsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAlarmsCommandError
- */
-const de_ListAlarmsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAlarmsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalFailureException":
-    case "com.amazonaws.ioteventsdata#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.ioteventsdata#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ioteventsdata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ioteventsdata#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDetectorsCommand
  */
 export const de_ListDetectorsCommand = async (
@@ -960,7 +566,7 @@ export const de_ListDetectorsCommand = async (
   context: __SerdeContext
 ): Promise<ListDetectorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDetectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -975,12 +581,9 @@ export const de_ListDetectorsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDetectorsCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_ListDetectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDetectorsCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -993,22 +596,22 @@ const de_ListDetectorsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.ioteventsdata#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ioteventsdata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.ioteventsdata#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ioteventsdata#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ioteventsdata#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

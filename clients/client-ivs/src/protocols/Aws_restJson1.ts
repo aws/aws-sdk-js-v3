@@ -952,7 +952,7 @@ export const de_BatchGetChannelCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -967,26 +967,6 @@ export const de_BatchGetChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetChannelCommandError
- */
-const de_BatchGetChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restJson1BatchGetStreamKeyCommand
  */
 export const de_BatchGetStreamKeyCommand = async (
@@ -994,7 +974,7 @@ export const de_BatchGetStreamKeyCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetStreamKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetStreamKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1009,26 +989,6 @@ export const de_BatchGetStreamKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetStreamKeyCommandError
- */
-const de_BatchGetStreamKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetStreamKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restJson1BatchStartViewerSessionRevocationCommand
  */
 export const de_BatchStartViewerSessionRevocationCommand = async (
@@ -1036,7 +996,7 @@ export const de_BatchStartViewerSessionRevocationCommand = async (
   context: __SerdeContext
 ): Promise<BatchStartViewerSessionRevocationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchStartViewerSessionRevocationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1050,41 +1010,6 @@ export const de_BatchStartViewerSessionRevocationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchStartViewerSessionRevocationCommandError
- */
-const de_BatchStartViewerSessionRevocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchStartViewerSessionRevocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ivs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateChannelCommand
  */
 export const de_CreateChannelCommand = async (
@@ -1092,7 +1017,7 @@ export const de_CreateChannelCommand = async (
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1107,44 +1032,6 @@ export const de_CreateChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateChannelCommandError
- */
-const de_CreateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ivs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreatePlaybackRestrictionPolicyCommand
  */
 export const de_CreatePlaybackRestrictionPolicyCommand = async (
@@ -1152,7 +1039,7 @@ export const de_CreatePlaybackRestrictionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreatePlaybackRestrictionPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreatePlaybackRestrictionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1166,44 +1053,6 @@ export const de_CreatePlaybackRestrictionPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreatePlaybackRestrictionPolicyCommandError
- */
-const de_CreatePlaybackRestrictionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePlaybackRestrictionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ivs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ivs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateRecordingConfigurationCommand
  */
 export const de_CreateRecordingConfigurationCommand = async (
@@ -1211,7 +1060,7 @@ export const de_CreateRecordingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateRecordingConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateRecordingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1225,47 +1074,6 @@ export const de_CreateRecordingConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateRecordingConfigurationCommandError
- */
-const de_CreateRecordingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRecordingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ivs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ivs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ivs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateStreamKeyCommand
  */
 export const de_CreateStreamKeyCommand = async (
@@ -1273,7 +1081,7 @@ export const de_CreateStreamKeyCommand = async (
   context: __SerdeContext
 ): Promise<CreateStreamKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateStreamKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1287,44 +1095,6 @@ export const de_CreateStreamKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateStreamKeyCommandError
- */
-const de_CreateStreamKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStreamKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ivs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteChannelCommand
  */
 export const de_DeleteChannelCommand = async (
@@ -1332,51 +1102,13 @@ export const de_DeleteChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteChannelCommandError
- */
-const de_DeleteChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ivs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1387,48 +1119,13 @@ export const de_DeletePlaybackKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<DeletePlaybackKeyPairCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeletePlaybackKeyPairCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeletePlaybackKeyPairCommandError
- */
-const de_DeletePlaybackKeyPairCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePlaybackKeyPairCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1439,51 +1136,13 @@ export const de_DeletePlaybackRestrictionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeletePlaybackRestrictionPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeletePlaybackRestrictionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeletePlaybackRestrictionPolicyCommandError
- */
-const de_DeletePlaybackRestrictionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePlaybackRestrictionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ivs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1494,51 +1153,13 @@ export const de_DeleteRecordingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRecordingConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteRecordingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRecordingConfigurationCommandError
- */
-const de_DeleteRecordingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRecordingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ivs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ivs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1549,48 +1170,13 @@ export const de_DeleteStreamKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStreamKeyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteStreamKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteStreamKeyCommandError
- */
-const de_DeleteStreamKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStreamKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1601,7 +1187,7 @@ export const de_GetChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1615,38 +1201,6 @@ export const de_GetChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetChannelCommandError
- */
-const de_GetChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetPlaybackKeyPairCommand
  */
 export const de_GetPlaybackKeyPairCommand = async (
@@ -1654,7 +1208,7 @@ export const de_GetPlaybackKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<GetPlaybackKeyPairCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetPlaybackKeyPairCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1668,38 +1222,6 @@ export const de_GetPlaybackKeyPairCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetPlaybackKeyPairCommandError
- */
-const de_GetPlaybackKeyPairCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPlaybackKeyPairCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetPlaybackRestrictionPolicyCommand
  */
 export const de_GetPlaybackRestrictionPolicyCommand = async (
@@ -1707,7 +1229,7 @@ export const de_GetPlaybackRestrictionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetPlaybackRestrictionPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetPlaybackRestrictionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1721,41 +1243,6 @@ export const de_GetPlaybackRestrictionPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetPlaybackRestrictionPolicyCommandError
- */
-const de_GetPlaybackRestrictionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPlaybackRestrictionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRecordingConfigurationCommand
  */
 export const de_GetRecordingConfigurationCommand = async (
@@ -1763,7 +1250,7 @@ export const de_GetRecordingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetRecordingConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRecordingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1777,41 +1264,6 @@ export const de_GetRecordingConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRecordingConfigurationCommandError
- */
-const de_GetRecordingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecordingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ivs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetStreamCommand
  */
 export const de_GetStreamCommand = async (
@@ -1819,7 +1271,7 @@ export const de_GetStreamCommand = async (
   context: __SerdeContext
 ): Promise<GetStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1833,41 +1285,6 @@ export const de_GetStreamCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetStreamCommandError
- */
-const de_GetStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ChannelNotBroadcasting":
-    case "com.amazonaws.ivs#ChannelNotBroadcasting":
-      throw await de_ChannelNotBroadcastingRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetStreamKeyCommand
  */
 export const de_GetStreamKeyCommand = async (
@@ -1875,7 +1292,7 @@ export const de_GetStreamKeyCommand = async (
   context: __SerdeContext
 ): Promise<GetStreamKeyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetStreamKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1889,38 +1306,6 @@ export const de_GetStreamKeyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetStreamKeyCommandError
- */
-const de_GetStreamKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStreamKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetStreamSessionCommand
  */
 export const de_GetStreamSessionCommand = async (
@@ -1928,7 +1313,7 @@ export const de_GetStreamSessionCommand = async (
   context: __SerdeContext
 ): Promise<GetStreamSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetStreamSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1942,38 +1327,6 @@ export const de_GetStreamSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetStreamSessionCommandError
- */
-const de_GetStreamSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStreamSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ImportPlaybackKeyPairCommand
  */
 export const de_ImportPlaybackKeyPairCommand = async (
@@ -1981,7 +1334,7 @@ export const de_ImportPlaybackKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<ImportPlaybackKeyPairCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ImportPlaybackKeyPairCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1995,44 +1348,6 @@ export const de_ImportPlaybackKeyPairCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ImportPlaybackKeyPairCommandError
- */
-const de_ImportPlaybackKeyPairCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportPlaybackKeyPairCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ivs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ivs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelsCommand
  */
 export const de_ListChannelsCommand = async (
@@ -2040,7 +1355,7 @@ export const de_ListChannelsCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2055,38 +1370,6 @@ export const de_ListChannelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelsCommandError
- */
-const de_ListChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ivs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPlaybackKeyPairsCommand
  */
 export const de_ListPlaybackKeyPairsCommand = async (
@@ -2094,7 +1377,7 @@ export const de_ListPlaybackKeyPairsCommand = async (
   context: __SerdeContext
 ): Promise<ListPlaybackKeyPairsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPlaybackKeyPairsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2109,35 +1392,6 @@ export const de_ListPlaybackKeyPairsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPlaybackKeyPairsCommandError
- */
-const de_ListPlaybackKeyPairsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPlaybackKeyPairsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPlaybackRestrictionPoliciesCommand
  */
 export const de_ListPlaybackRestrictionPoliciesCommand = async (
@@ -2145,7 +1399,7 @@ export const de_ListPlaybackRestrictionPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListPlaybackRestrictionPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPlaybackRestrictionPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2160,41 +1414,6 @@ export const de_ListPlaybackRestrictionPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPlaybackRestrictionPoliciesCommandError
- */
-const de_ListPlaybackRestrictionPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPlaybackRestrictionPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ivs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRecordingConfigurationsCommand
  */
 export const de_ListRecordingConfigurationsCommand = async (
@@ -2202,7 +1421,7 @@ export const de_ListRecordingConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListRecordingConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRecordingConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2217,38 +1436,6 @@ export const de_ListRecordingConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRecordingConfigurationsCommandError
- */
-const de_ListRecordingConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecordingConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ivs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListStreamKeysCommand
  */
 export const de_ListStreamKeysCommand = async (
@@ -2256,7 +1443,7 @@ export const de_ListStreamKeysCommand = async (
   context: __SerdeContext
 ): Promise<ListStreamKeysCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListStreamKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2271,38 +1458,6 @@ export const de_ListStreamKeysCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListStreamKeysCommandError
- */
-const de_ListStreamKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStreamKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListStreamsCommand
  */
 export const de_ListStreamsCommand = async (
@@ -2310,7 +1465,7 @@ export const de_ListStreamsCommand = async (
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListStreamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2325,35 +1480,6 @@ export const de_ListStreamsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListStreamsCommandError
- */
-const de_ListStreamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStreamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListStreamSessionsCommand
  */
 export const de_ListStreamSessionsCommand = async (
@@ -2361,7 +1487,7 @@ export const de_ListStreamSessionsCommand = async (
   context: __SerdeContext
 ): Promise<ListStreamSessionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListStreamSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2376,38 +1502,6 @@ export const de_ListStreamSessionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListStreamSessionsCommandError
- */
-const de_ListStreamSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStreamSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2415,7 +1509,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2429,38 +1523,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ivs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutMetadataCommand
  */
 export const de_PutMetadataCommand = async (
@@ -2468,51 +1530,13 @@ export const de_PutMetadataCommand = async (
   context: __SerdeContext
 ): Promise<PutMetadataCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_PutMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutMetadataCommandError
- */
-const de_PutMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ChannelNotBroadcasting":
-    case "com.amazonaws.ivs#ChannelNotBroadcasting":
-      throw await de_ChannelNotBroadcastingRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ivs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2523,54 +1547,13 @@ export const de_StartViewerSessionRevocationCommand = async (
   context: __SerdeContext
 ): Promise<StartViewerSessionRevocationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartViewerSessionRevocationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StartViewerSessionRevocationCommandError
- */
-const de_StartViewerSessionRevocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartViewerSessionRevocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ivs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ivs#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2581,51 +1564,13 @@ export const de_StopStreamCommand = async (
   context: __SerdeContext
 ): Promise<StopStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StopStreamCommandError
- */
-const de_StopStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ChannelNotBroadcasting":
-    case "com.amazonaws.ivs#ChannelNotBroadcasting":
-      throw await de_ChannelNotBroadcastingRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "StreamUnavailable":
-    case "com.amazonaws.ivs#StreamUnavailable":
-      throw await de_StreamUnavailableRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2636,45 +1581,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ivs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2685,45 +1598,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.ivs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2734,7 +1615,7 @@ export const de_UpdateChannelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2748,44 +1629,6 @@ export const de_UpdateChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateChannelCommandError
- */
-const de_UpdateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ivs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ivs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "PendingVerification":
-    case "com.amazonaws.ivs#PendingVerification":
-      throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ivs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdatePlaybackRestrictionPolicyCommand
  */
 export const de_UpdatePlaybackRestrictionPolicyCommand = async (
@@ -2793,7 +1636,7 @@ export const de_UpdatePlaybackRestrictionPolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePlaybackRestrictionPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdatePlaybackRestrictionPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2807,12 +1650,9 @@ export const de_UpdatePlaybackRestrictionPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdatePlaybackRestrictionPolicyCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdatePlaybackRestrictionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePlaybackRestrictionPolicyCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2822,25 +1662,40 @@ const de_UpdatePlaybackRestrictionPolicyCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ivs#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ivs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "PendingVerification":
     case "com.amazonaws.ivs#PendingVerification":
       throw await de_PendingVerificationRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ivs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ivs#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.ivs#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivs#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ivs#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ivs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ivs#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ChannelNotBroadcasting":
+    case "com.amazonaws.ivs#ChannelNotBroadcasting":
+      throw await de_ChannelNotBroadcastingRes(parsedOutput, context);
+    case "StreamUnavailable":
+    case "com.amazonaws.ivs#StreamUnavailable":
+      throw await de_StreamUnavailableRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

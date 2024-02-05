@@ -593,7 +593,7 @@ export const de_GetApplicationComponentDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetApplicationComponentDetailsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApplicationComponentDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -610,38 +610,6 @@ export const de_GetApplicationComponentDetailsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApplicationComponentDetailsCommandError
- */
-const de_GetApplicationComponentDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApplicationComponentDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhubstrategy#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetApplicationComponentStrategiesCommand
  */
 export const de_GetApplicationComponentStrategiesCommand = async (
@@ -649,7 +617,7 @@ export const de_GetApplicationComponentStrategiesCommand = async (
   context: __SerdeContext
 ): Promise<GetApplicationComponentStrategiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApplicationComponentStrategiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -663,38 +631,6 @@ export const de_GetApplicationComponentStrategiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApplicationComponentStrategiesCommandError
- */
-const de_GetApplicationComponentStrategiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApplicationComponentStrategiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhubstrategy#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAssessmentCommand
  */
 export const de_GetAssessmentCommand = async (
@@ -702,7 +638,7 @@ export const de_GetAssessmentCommand = async (
   context: __SerdeContext
 ): Promise<GetAssessmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAssessmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -718,41 +654,6 @@ export const de_GetAssessmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAssessmentCommandError
- */
-const de_GetAssessmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssessmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhubstrategy#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetImportFileTaskCommand
  */
 export const de_GetImportFileTaskCommand = async (
@@ -760,7 +661,7 @@ export const de_GetImportFileTaskCommand = async (
   context: __SerdeContext
 ): Promise<GetImportFileTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetImportFileTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -784,44 +685,6 @@ export const de_GetImportFileTaskCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetImportFileTaskCommandError
- */
-const de_GetImportFileTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImportFileTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhubstrategy#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetLatestAssessmentIdCommand
  */
 export const de_GetLatestAssessmentIdCommand = async (
@@ -829,7 +692,7 @@ export const de_GetLatestAssessmentIdCommand = async (
   context: __SerdeContext
 ): Promise<GetLatestAssessmentIdCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLatestAssessmentIdCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -843,41 +706,6 @@ export const de_GetLatestAssessmentIdCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetLatestAssessmentIdCommandError
- */
-const de_GetLatestAssessmentIdCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLatestAssessmentIdCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DependencyException":
-    case "com.amazonaws.migrationhubstrategy#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetPortfolioPreferencesCommand
  */
 export const de_GetPortfolioPreferencesCommand = async (
@@ -885,7 +713,7 @@ export const de_GetPortfolioPreferencesCommand = async (
   context: __SerdeContext
 ): Promise<GetPortfolioPreferencesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetPortfolioPreferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -902,41 +730,6 @@ export const de_GetPortfolioPreferencesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetPortfolioPreferencesCommandError
- */
-const de_GetPortfolioPreferencesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPortfolioPreferencesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhubstrategy#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetPortfolioSummaryCommand
  */
 export const de_GetPortfolioSummaryCommand = async (
@@ -944,7 +737,7 @@ export const de_GetPortfolioSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetPortfolioSummaryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetPortfolioSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -958,38 +751,6 @@ export const de_GetPortfolioSummaryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetPortfolioSummaryCommandError
- */
-const de_GetPortfolioSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPortfolioSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRecommendationReportDetailsCommand
  */
 export const de_GetRecommendationReportDetailsCommand = async (
@@ -997,7 +758,7 @@ export const de_GetRecommendationReportDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetRecommendationReportDetailsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRecommendationReportDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1012,44 +773,6 @@ export const de_GetRecommendationReportDetailsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRecommendationReportDetailsCommandError
- */
-const de_GetRecommendationReportDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecommendationReportDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhubstrategy#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetServerDetailsCommand
  */
 export const de_GetServerDetailsCommand = async (
@@ -1057,7 +780,7 @@ export const de_GetServerDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetServerDetailsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetServerDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1073,44 +796,6 @@ export const de_GetServerDetailsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetServerDetailsCommandError
- */
-const de_GetServerDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServerDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhubstrategy#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetServerStrategiesCommand
  */
 export const de_GetServerStrategiesCommand = async (
@@ -1118,7 +803,7 @@ export const de_GetServerStrategiesCommand = async (
   context: __SerdeContext
 ): Promise<GetServerStrategiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetServerStrategiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1132,44 +817,6 @@ export const de_GetServerStrategiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetServerStrategiesCommandError
- */
-const de_GetServerStrategiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServerStrategiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhubstrategy#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAnalyzableServersCommand
  */
 export const de_ListAnalyzableServersCommand = async (
@@ -1177,7 +824,7 @@ export const de_ListAnalyzableServersCommand = async (
   context: __SerdeContext
 ): Promise<ListAnalyzableServersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAnalyzableServersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1192,41 +839,6 @@ export const de_ListAnalyzableServersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAnalyzableServersCommandError
- */
-const de_ListAnalyzableServersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAnalyzableServersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListApplicationComponentsCommand
  */
 export const de_ListApplicationComponentsCommand = async (
@@ -1234,7 +846,7 @@ export const de_ListApplicationComponentsCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationComponentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListApplicationComponentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1249,41 +861,6 @@ export const de_ListApplicationComponentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListApplicationComponentsCommandError
- */
-const de_ListApplicationComponentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationComponentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceLinkedRoleLockClientException":
-    case "com.amazonaws.migrationhubstrategy#ServiceLinkedRoleLockClientException":
-      throw await de_ServiceLinkedRoleLockClientExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListCollectorsCommand
  */
 export const de_ListCollectorsCommand = async (
@@ -1291,7 +868,7 @@ export const de_ListCollectorsCommand = async (
   context: __SerdeContext
 ): Promise<ListCollectorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCollectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1306,41 +883,6 @@ export const de_ListCollectorsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCollectorsCommandError
- */
-const de_ListCollectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCollectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImportFileTaskCommand
  */
 export const de_ListImportFileTaskCommand = async (
@@ -1348,7 +890,7 @@ export const de_ListImportFileTaskCommand = async (
   context: __SerdeContext
 ): Promise<ListImportFileTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImportFileTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1363,41 +905,6 @@ export const de_ListImportFileTaskCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImportFileTaskCommandError
- */
-const de_ListImportFileTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImportFileTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListServersCommand
  */
 export const de_ListServersCommand = async (
@@ -1405,7 +912,7 @@ export const de_ListServersCommand = async (
   context: __SerdeContext
 ): Promise<ListServersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListServersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1420,41 +927,6 @@ export const de_ListServersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListServersCommandError
- */
-const de_ListServersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutPortfolioPreferencesCommand
  */
 export const de_PutPortfolioPreferencesCommand = async (
@@ -1462,51 +934,13 @@ export const de_PutPortfolioPreferencesCommand = async (
   context: __SerdeContext
 ): Promise<PutPortfolioPreferencesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutPortfolioPreferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutPortfolioPreferencesCommandError
- */
-const de_PutPortfolioPreferencesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutPortfolioPreferencesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.migrationhubstrategy#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1517,7 +951,7 @@ export const de_StartAssessmentCommand = async (
   context: __SerdeContext
 ): Promise<StartAssessmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartAssessmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1531,41 +965,6 @@ export const de_StartAssessmentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartAssessmentCommandError
- */
-const de_StartAssessmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAssessmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.migrationhubstrategy#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartImportFileTaskCommand
  */
 export const de_StartImportFileTaskCommand = async (
@@ -1573,7 +972,7 @@ export const de_StartImportFileTaskCommand = async (
   context: __SerdeContext
 ): Promise<StartImportFileTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartImportFileTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1584,44 +983,6 @@ export const de_StartImportFileTaskCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StartImportFileTaskCommandError
- */
-const de_StartImportFileTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartImportFileTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.migrationhubstrategy#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1632,7 +993,7 @@ export const de_StartRecommendationReportGenerationCommand = async (
   context: __SerdeContext
 ): Promise<StartRecommendationReportGenerationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartRecommendationReportGenerationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1646,44 +1007,6 @@ export const de_StartRecommendationReportGenerationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartRecommendationReportGenerationCommandError
- */
-const de_StartRecommendationReportGenerationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartRecommendationReportGenerationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.migrationhubstrategy#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StopAssessmentCommand
  */
 export const de_StopAssessmentCommand = async (
@@ -1691,48 +1014,13 @@ export const de_StopAssessmentCommand = async (
   context: __SerdeContext
 ): Promise<StopAssessmentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopAssessmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StopAssessmentCommandError
- */
-const de_StopAssessmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopAssessmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1743,48 +1031,13 @@ export const de_UpdateApplicationComponentConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationComponentConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApplicationComponentConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateApplicationComponentConfigCommandError
- */
-const de_UpdateApplicationComponentConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationComponentConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.migrationhubstrategy#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhubstrategy#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubstrategy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.migrationhubstrategy#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1795,7 +1048,7 @@ export const de_UpdateServerConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateServerConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateServerConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1805,12 +1058,9 @@ export const de_UpdateServerConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateServerConfigCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateServerConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServerConfigCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1826,16 +1076,31 @@ const de_UpdateServerConfigCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.migrationhubstrategy#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.migrationhubstrategy#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.migrationhubstrategy#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "DependencyException":
+    case "com.amazonaws.migrationhubstrategy#DependencyException":
+      throw await de_DependencyExceptionRes(parsedOutput, context);
+    case "ServiceLinkedRoleLockClientException":
+    case "com.amazonaws.migrationhubstrategy#ServiceLinkedRoleLockClientException":
+      throw await de_ServiceLinkedRoleLockClientExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.migrationhubstrategy#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.migrationhubstrategy#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

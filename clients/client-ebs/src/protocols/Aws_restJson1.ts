@@ -194,7 +194,7 @@ export const de_CompleteSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CompleteSnapshotCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CompleteSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -208,47 +208,6 @@ export const de_CompleteSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CompleteSnapshotCommandError
- */
-const de_CompleteSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CompleteSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ebs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ebs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "RequestThrottledException":
-    case "com.amazonaws.ebs#RequestThrottledException":
-      throw await de_RequestThrottledExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ebs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ebs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ebs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSnapshotBlockCommand
  */
 export const de_GetSnapshotBlockCommand = async (
@@ -256,7 +215,7 @@ export const de_GetSnapshotBlockCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetSnapshotBlockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSnapshotBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -271,47 +230,6 @@ export const de_GetSnapshotBlockCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSnapshotBlockCommandError
- */
-const de_GetSnapshotBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSnapshotBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ebs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ebs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "RequestThrottledException":
-    case "com.amazonaws.ebs#RequestThrottledException":
-      throw await de_RequestThrottledExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ebs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ebs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ebs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChangedBlocksCommand
  */
 export const de_ListChangedBlocksCommand = async (
@@ -319,7 +237,7 @@ export const de_ListChangedBlocksCommand = async (
   context: __SerdeContext
 ): Promise<ListChangedBlocksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChangedBlocksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -337,47 +255,6 @@ export const de_ListChangedBlocksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChangedBlocksCommandError
- */
-const de_ListChangedBlocksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChangedBlocksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ebs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ebs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "RequestThrottledException":
-    case "com.amazonaws.ebs#RequestThrottledException":
-      throw await de_RequestThrottledExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ebs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ebs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ebs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSnapshotBlocksCommand
  */
 export const de_ListSnapshotBlocksCommand = async (
@@ -385,7 +262,7 @@ export const de_ListSnapshotBlocksCommand = async (
   context: __SerdeContext
 ): Promise<ListSnapshotBlocksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSnapshotBlocksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -403,47 +280,6 @@ export const de_ListSnapshotBlocksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSnapshotBlocksCommandError
- */
-const de_ListSnapshotBlocksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSnapshotBlocksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ebs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ebs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "RequestThrottledException":
-    case "com.amazonaws.ebs#RequestThrottledException":
-      throw await de_RequestThrottledExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ebs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ebs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ebs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutSnapshotBlockCommand
  */
 export const de_PutSnapshotBlockCommand = async (
@@ -451,7 +287,7 @@ export const de_PutSnapshotBlockCommand = async (
   context: __SerdeContext
 ): Promise<PutSnapshotBlockCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_PutSnapshotBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -463,47 +299,6 @@ export const de_PutSnapshotBlockCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutSnapshotBlockCommandError
- */
-const de_PutSnapshotBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutSnapshotBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.ebs#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.ebs#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "RequestThrottledException":
-    case "com.amazonaws.ebs#RequestThrottledException":
-      throw await de_RequestThrottledExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.ebs#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.ebs#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.ebs#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartSnapshotCommand
  */
 export const de_StartSnapshotCommand = async (
@@ -511,7 +306,7 @@ export const de_StartSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<StartSnapshotCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_StartSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -535,12 +330,9 @@ export const de_StartSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartSnapshotCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_StartSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSnapshotCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -550,12 +342,6 @@ const de_StartSnapshotCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ebs#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConcurrentLimitExceededException":
-    case "com.amazonaws.ebs#ConcurrentLimitExceededException":
-      throw await de_ConcurrentLimitExceededExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.ebs#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ebs#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -571,13 +357,19 @@ const de_StartSnapshotCommandError = async (
     case "ValidationException":
     case "com.amazonaws.ebs#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConcurrentLimitExceededException":
+    case "com.amazonaws.ebs#ConcurrentLimitExceededException":
+      throw await de_ConcurrentLimitExceededExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ebs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

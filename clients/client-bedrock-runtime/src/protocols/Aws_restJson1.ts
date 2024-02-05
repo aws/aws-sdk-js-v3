@@ -92,7 +92,7 @@ export const de_InvokeModelCommand = async (
   context: __SerdeContext
 ): Promise<InvokeModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_InvokeModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -104,56 +104,6 @@ export const de_InvokeModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1InvokeModelCommandError
- */
-const de_InvokeModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InvokeModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.bedrockruntime#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.bedrockruntime#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ModelErrorException":
-    case "com.amazonaws.bedrockruntime#ModelErrorException":
-      throw await de_ModelErrorExceptionRes(parsedOutput, context);
-    case "ModelNotReadyException":
-    case "com.amazonaws.bedrockruntime#ModelNotReadyException":
-      throw await de_ModelNotReadyExceptionRes(parsedOutput, context);
-    case "ModelTimeoutException":
-    case "com.amazonaws.bedrockruntime#ModelTimeoutException":
-      throw await de_ModelTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.bedrockruntime#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.bedrockruntime#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.bedrockruntime#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.bedrockruntime#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1InvokeModelWithResponseStreamCommand
  */
 export const de_InvokeModelWithResponseStreamCommand = async (
@@ -161,7 +111,7 @@ export const de_InvokeModelWithResponseStreamCommand = async (
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<InvokeModelWithResponseStreamCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_InvokeModelWithResponseStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -173,12 +123,9 @@ export const de_InvokeModelWithResponseStreamCommand = async (
 };
 
 /**
- * deserializeAws_restJson1InvokeModelWithResponseStreamCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_InvokeModelWithResponseStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InvokeModelWithResponseStreamCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -197,9 +144,6 @@ const de_InvokeModelWithResponseStreamCommandError = async (
     case "ModelNotReadyException":
     case "com.amazonaws.bedrockruntime#ModelNotReadyException":
       throw await de_ModelNotReadyExceptionRes(parsedOutput, context);
-    case "ModelStreamErrorException":
-    case "com.amazonaws.bedrockruntime#ModelStreamErrorException":
-      throw await de_ModelStreamErrorExceptionRes(parsedOutput, context);
     case "ModelTimeoutException":
     case "com.amazonaws.bedrockruntime#ModelTimeoutException":
       throw await de_ModelTimeoutExceptionRes(parsedOutput, context);
@@ -215,13 +159,16 @@ const de_InvokeModelWithResponseStreamCommandError = async (
     case "ValidationException":
     case "com.amazonaws.bedrockruntime#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ModelStreamErrorException":
+    case "com.amazonaws.bedrockruntime#ModelStreamErrorException":
+      throw await de_ModelStreamErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

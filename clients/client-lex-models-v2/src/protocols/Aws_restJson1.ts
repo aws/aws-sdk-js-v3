@@ -2730,7 +2730,7 @@ export const de_BatchCreateCustomVocabularyItemCommand = async (
   context: __SerdeContext
 ): Promise<BatchCreateCustomVocabularyItemCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchCreateCustomVocabularyItemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2745,44 +2745,6 @@ export const de_BatchCreateCustomVocabularyItemCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1BatchCreateCustomVocabularyItemCommandError
- */
-const de_BatchCreateCustomVocabularyItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchCreateCustomVocabularyItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2793,7 +2755,7 @@ export const de_BatchDeleteCustomVocabularyItemCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteCustomVocabularyItemCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchDeleteCustomVocabularyItemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2808,44 +2770,6 @@ export const de_BatchDeleteCustomVocabularyItemCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1BatchDeleteCustomVocabularyItemCommandError
- */
-const de_BatchDeleteCustomVocabularyItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteCustomVocabularyItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2856,7 +2780,7 @@ export const de_BatchUpdateCustomVocabularyItemCommand = async (
   context: __SerdeContext
 ): Promise<BatchUpdateCustomVocabularyItemCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchUpdateCustomVocabularyItemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2874,44 +2798,6 @@ export const de_BatchUpdateCustomVocabularyItemCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchUpdateCustomVocabularyItemCommandError
- */
-const de_BatchUpdateCustomVocabularyItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchUpdateCustomVocabularyItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BuildBotLocaleCommand
  */
 export const de_BuildBotLocaleCommand = async (
@@ -2919,7 +2805,7 @@ export const de_BuildBotLocaleCommand = async (
   context: __SerdeContext
 ): Promise<BuildBotLocaleCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_BuildBotLocaleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2937,47 +2823,6 @@ export const de_BuildBotLocaleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BuildBotLocaleCommandError
- */
-const de_BuildBotLocaleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BuildBotLocaleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateBotCommand
  */
 export const de_CreateBotCommand = async (
@@ -2985,7 +2830,7 @@ export const de_CreateBotCommand = async (
   context: __SerdeContext
 ): Promise<CreateBotCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateBotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3010,47 +2855,6 @@ export const de_CreateBotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBotCommandError
- */
-const de_CreateBotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateBotAliasCommand
  */
 export const de_CreateBotAliasCommand = async (
@@ -3058,7 +2862,7 @@ export const de_CreateBotAliasCommand = async (
   context: __SerdeContext
 ): Promise<CreateBotAliasCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateBotAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3082,47 +2886,6 @@ export const de_CreateBotAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBotAliasCommandError
- */
-const de_CreateBotAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBotAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateBotLocaleCommand
  */
 export const de_CreateBotLocaleCommand = async (
@@ -3130,7 +2893,7 @@ export const de_CreateBotLocaleCommand = async (
   context: __SerdeContext
 ): Promise<CreateBotLocaleCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateBotLocaleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3153,47 +2916,6 @@ export const de_CreateBotLocaleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBotLocaleCommandError
- */
-const de_CreateBotLocaleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBotLocaleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateBotVersionCommand
  */
 export const de_CreateBotVersionCommand = async (
@@ -3201,7 +2923,7 @@ export const de_CreateBotVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateBotVersionCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateBotVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3220,47 +2942,6 @@ export const de_CreateBotVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBotVersionCommandError
- */
-const de_CreateBotVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBotVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateExportCommand
  */
 export const de_CreateExportCommand = async (
@@ -3268,7 +2949,7 @@ export const de_CreateExportCommand = async (
   context: __SerdeContext
 ): Promise<CreateExportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateExportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3286,47 +2967,6 @@ export const de_CreateExportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateExportCommandError
- */
-const de_CreateExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateIntentCommand
  */
 export const de_CreateIntentCommand = async (
@@ -3334,7 +2974,7 @@ export const de_CreateIntentCommand = async (
   context: __SerdeContext
 ): Promise<CreateIntentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateIntentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3364,47 +3004,6 @@ export const de_CreateIntentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateIntentCommandError
- */
-const de_CreateIntentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIntentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateResourcePolicyCommand
  */
 export const de_CreateResourcePolicyCommand = async (
@@ -3412,7 +3011,7 @@ export const de_CreateResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateResourcePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3424,47 +3023,6 @@ export const de_CreateResourcePolicyCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateResourcePolicyCommandError
- */
-const de_CreateResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3475,7 +3033,7 @@ export const de_CreateResourcePolicyStatementCommand = async (
   context: __SerdeContext
 ): Promise<CreateResourcePolicyStatementCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateResourcePolicyStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3490,50 +3048,6 @@ export const de_CreateResourcePolicyStatementCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateResourcePolicyStatementCommandError
- */
-const de_CreateResourcePolicyStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResourcePolicyStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSlotCommand
  */
 export const de_CreateSlotCommand = async (
@@ -3541,7 +3055,7 @@ export const de_CreateSlotCommand = async (
   context: __SerdeContext
 ): Promise<CreateSlotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSlotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3567,47 +3081,6 @@ export const de_CreateSlotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSlotCommandError
- */
-const de_CreateSlotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSlotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSlotTypeCommand
  */
 export const de_CreateSlotTypeCommand = async (
@@ -3615,7 +3088,7 @@ export const de_CreateSlotTypeCommand = async (
   context: __SerdeContext
 ): Promise<CreateSlotTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSlotTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3640,47 +3113,6 @@ export const de_CreateSlotTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSlotTypeCommandError
- */
-const de_CreateSlotTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSlotTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateTestSetDiscrepancyReportCommand
  */
 export const de_CreateTestSetDiscrepancyReportCommand = async (
@@ -3688,7 +3120,7 @@ export const de_CreateTestSetDiscrepancyReportCommand = async (
   context: __SerdeContext
 ): Promise<CreateTestSetDiscrepancyReportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_CreateTestSetDiscrepancyReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3705,47 +3137,6 @@ export const de_CreateTestSetDiscrepancyReportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateTestSetDiscrepancyReportCommandError
- */
-const de_CreateTestSetDiscrepancyReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTestSetDiscrepancyReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateUploadUrlCommand
  */
 export const de_CreateUploadUrlCommand = async (
@@ -3753,7 +3144,7 @@ export const de_CreateUploadUrlCommand = async (
   context: __SerdeContext
 ): Promise<CreateUploadUrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateUploadUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3768,44 +3159,6 @@ export const de_CreateUploadUrlCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateUploadUrlCommandError
- */
-const de_CreateUploadUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUploadUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteBotCommand
  */
 export const de_DeleteBotCommand = async (
@@ -3813,7 +3166,7 @@ export const de_DeleteBotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBotCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteBotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3828,47 +3181,6 @@ export const de_DeleteBotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteBotCommandError
- */
-const de_DeleteBotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteBotAliasCommand
  */
 export const de_DeleteBotAliasCommand = async (
@@ -3876,7 +3188,7 @@ export const de_DeleteBotAliasCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBotAliasCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteBotAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3892,47 +3204,6 @@ export const de_DeleteBotAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteBotAliasCommandError
- */
-const de_DeleteBotAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBotAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteBotLocaleCommand
  */
 export const de_DeleteBotLocaleCommand = async (
@@ -3940,7 +3211,7 @@ export const de_DeleteBotLocaleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBotLocaleCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteBotLocaleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3957,47 +3228,6 @@ export const de_DeleteBotLocaleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteBotLocaleCommandError
- */
-const de_DeleteBotLocaleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBotLocaleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteBotVersionCommand
  */
 export const de_DeleteBotVersionCommand = async (
@@ -4005,7 +3235,7 @@ export const de_DeleteBotVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBotVersionCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteBotVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4021,47 +3251,6 @@ export const de_DeleteBotVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteBotVersionCommandError
- */
-const de_DeleteBotVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBotVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteCustomVocabularyCommand
  */
 export const de_DeleteCustomVocabularyCommand = async (
@@ -4069,7 +3258,7 @@ export const de_DeleteCustomVocabularyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCustomVocabularyCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteCustomVocabularyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4086,47 +3275,6 @@ export const de_DeleteCustomVocabularyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteCustomVocabularyCommandError
- */
-const de_DeleteCustomVocabularyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomVocabularyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteExportCommand
  */
 export const de_DeleteExportCommand = async (
@@ -4134,7 +3282,7 @@ export const de_DeleteExportCommand = async (
   context: __SerdeContext
 ): Promise<DeleteExportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteExportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4149,44 +3297,6 @@ export const de_DeleteExportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteExportCommandError
- */
-const de_DeleteExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteImportCommand
  */
 export const de_DeleteImportCommand = async (
@@ -4194,7 +3304,7 @@ export const de_DeleteImportCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteImportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4209,44 +3319,6 @@ export const de_DeleteImportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteImportCommandError
- */
-const de_DeleteImportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteImportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteIntentCommand
  */
 export const de_DeleteIntentCommand = async (
@@ -4254,54 +3326,13 @@ export const de_DeleteIntentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIntentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteIntentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteIntentCommandError
- */
-const de_DeleteIntentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIntentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4312,7 +3343,7 @@ export const de_DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4324,41 +3355,6 @@ export const de_DeleteResourcePolicyCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4369,7 +3365,7 @@ export const de_DeleteResourcePolicyStatementCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyStatementCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteResourcePolicyStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4384,41 +3380,6 @@ export const de_DeleteResourcePolicyStatementCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteResourcePolicyStatementCommandError
- */
-const de_DeleteResourcePolicyStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteSlotCommand
  */
 export const de_DeleteSlotCommand = async (
@@ -4426,54 +3387,13 @@ export const de_DeleteSlotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSlotCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteSlotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteSlotCommandError
- */
-const de_DeleteSlotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSlotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4484,54 +3404,13 @@ export const de_DeleteSlotTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSlotTypeCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteSlotTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteSlotTypeCommandError
- */
-const de_DeleteSlotTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSlotTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4542,54 +3421,13 @@ export const de_DeleteTestSetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTestSetCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteTestSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteTestSetCommandError
- */
-const de_DeleteTestSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTestSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4600,45 +3438,13 @@ export const de_DeleteUtterancesCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUtterancesCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteUtterancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteUtterancesCommandError
- */
-const de_DeleteUtterancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUtterancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4649,7 +3455,7 @@ export const de_DescribeBotCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeBotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4674,44 +3480,6 @@ export const de_DescribeBotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeBotCommandError
- */
-const de_DescribeBotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeBotAliasCommand
  */
 export const de_DescribeBotAliasCommand = async (
@@ -4719,7 +3487,7 @@ export const de_DescribeBotAliasCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBotAliasCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeBotAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4745,44 +3513,6 @@ export const de_DescribeBotAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeBotAliasCommandError
- */
-const de_DescribeBotAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBotAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeBotLocaleCommand
  */
 export const de_DescribeBotLocaleCommand = async (
@@ -4790,7 +3520,7 @@ export const de_DescribeBotLocaleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBotLocaleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeBotLocaleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4820,44 +3550,6 @@ export const de_DescribeBotLocaleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeBotLocaleCommandError
- */
-const de_DescribeBotLocaleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBotLocaleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeBotRecommendationCommand
  */
 export const de_DescribeBotRecommendationCommand = async (
@@ -4865,7 +3557,7 @@ export const de_DescribeBotRecommendationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBotRecommendationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeBotRecommendationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4889,41 +3581,6 @@ export const de_DescribeBotRecommendationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeBotRecommendationCommandError
- */
-const de_DescribeBotRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBotRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeBotResourceGenerationCommand
  */
 export const de_DescribeBotResourceGenerationCommand = async (
@@ -4931,7 +3588,7 @@ export const de_DescribeBotResourceGenerationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBotResourceGenerationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeBotResourceGenerationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4955,41 +3612,6 @@ export const de_DescribeBotResourceGenerationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeBotResourceGenerationCommandError
- */
-const de_DescribeBotResourceGenerationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBotResourceGenerationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeBotVersionCommand
  */
 export const de_DescribeBotVersionCommand = async (
@@ -4997,7 +3619,7 @@ export const de_DescribeBotVersionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBotVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeBotVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5023,44 +3645,6 @@ export const de_DescribeBotVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeBotVersionCommandError
- */
-const de_DescribeBotVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBotVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeCustomVocabularyMetadataCommand
  */
 export const de_DescribeCustomVocabularyMetadataCommand = async (
@@ -5068,7 +3652,7 @@ export const de_DescribeCustomVocabularyMetadataCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCustomVocabularyMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeCustomVocabularyMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5087,44 +3671,6 @@ export const de_DescribeCustomVocabularyMetadataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeCustomVocabularyMetadataCommandError
- */
-const de_DescribeCustomVocabularyMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomVocabularyMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeExportCommand
  */
 export const de_DescribeExportCommand = async (
@@ -5132,7 +3678,7 @@ export const de_DescribeExportCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeExportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5153,41 +3699,6 @@ export const de_DescribeExportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeExportCommandError
- */
-const de_DescribeExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeImportCommand
  */
 export const de_DescribeImportCommand = async (
@@ -5195,7 +3706,7 @@ export const de_DescribeImportCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeImportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5217,41 +3728,6 @@ export const de_DescribeImportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeImportCommandError
- */
-const de_DescribeImportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeIntentCommand
  */
 export const de_DescribeIntentCommand = async (
@@ -5259,7 +3735,7 @@ export const de_DescribeIntentCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIntentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeIntentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5291,44 +3767,6 @@ export const de_DescribeIntentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeIntentCommandError
- */
-const de_DescribeIntentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIntentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeResourcePolicyCommand
  */
 export const de_DescribeResourcePolicyCommand = async (
@@ -5336,7 +3774,7 @@ export const de_DescribeResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DescribeResourcePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5352,38 +3790,6 @@ export const de_DescribeResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeResourcePolicyCommandError
- */
-const de_DescribeResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeSlotCommand
  */
 export const de_DescribeSlotCommand = async (
@@ -5391,7 +3797,7 @@ export const de_DescribeSlotCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSlotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeSlotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5418,44 +3824,6 @@ export const de_DescribeSlotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeSlotCommandError
- */
-const de_DescribeSlotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSlotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeSlotTypeCommand
  */
 export const de_DescribeSlotTypeCommand = async (
@@ -5463,7 +3831,7 @@ export const de_DescribeSlotTypeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSlotTypeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeSlotTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5489,44 +3857,6 @@ export const de_DescribeSlotTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeSlotTypeCommandError
- */
-const de_DescribeSlotTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSlotTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTestExecutionCommand
  */
 export const de_DescribeTestExecutionCommand = async (
@@ -5534,7 +3864,7 @@ export const de_DescribeTestExecutionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTestExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTestExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5557,44 +3887,6 @@ export const de_DescribeTestExecutionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTestExecutionCommandError
- */
-const de_DescribeTestExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTestExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTestSetCommand
  */
 export const de_DescribeTestSetCommand = async (
@@ -5602,7 +3894,7 @@ export const de_DescribeTestSetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTestSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTestSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5625,44 +3917,6 @@ export const de_DescribeTestSetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTestSetCommandError
- */
-const de_DescribeTestSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTestSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTestSetDiscrepancyReportCommand
  */
 export const de_DescribeTestSetDiscrepancyReportCommand = async (
@@ -5670,7 +3924,7 @@ export const de_DescribeTestSetDiscrepancyReportCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTestSetDiscrepancyReportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTestSetDiscrepancyReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5692,44 +3946,6 @@ export const de_DescribeTestSetDiscrepancyReportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTestSetDiscrepancyReportCommandError
- */
-const de_DescribeTestSetDiscrepancyReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTestSetDiscrepancyReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeTestSetGenerationCommand
  */
 export const de_DescribeTestSetGenerationCommand = async (
@@ -5737,7 +3953,7 @@ export const de_DescribeTestSetGenerationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTestSetGenerationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeTestSetGenerationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5761,44 +3977,6 @@ export const de_DescribeTestSetGenerationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeTestSetGenerationCommandError
- */
-const de_DescribeTestSetGenerationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTestSetGenerationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GenerateBotElementCommand
  */
 export const de_GenerateBotElementCommand = async (
@@ -5806,7 +3984,7 @@ export const de_GenerateBotElementCommand = async (
   context: __SerdeContext
 ): Promise<GenerateBotElementCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_GenerateBotElementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5824,50 +4002,6 @@ export const de_GenerateBotElementCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GenerateBotElementCommandError
- */
-const de_GenerateBotElementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateBotElementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTestExecutionArtifactsUrlCommand
  */
 export const de_GetTestExecutionArtifactsUrlCommand = async (
@@ -5875,7 +4009,7 @@ export const de_GetTestExecutionArtifactsUrlCommand = async (
   context: __SerdeContext
 ): Promise<GetTestExecutionArtifactsUrlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTestExecutionArtifactsUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5890,44 +4024,6 @@ export const de_GetTestExecutionArtifactsUrlCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTestExecutionArtifactsUrlCommandError
- */
-const de_GetTestExecutionArtifactsUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTestExecutionArtifactsUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAggregatedUtterancesCommand
  */
 export const de_ListAggregatedUtterancesCommand = async (
@@ -5935,7 +4031,7 @@ export const de_ListAggregatedUtterancesCommand = async (
   context: __SerdeContext
 ): Promise<ListAggregatedUtterancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAggregatedUtterancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5958,41 +4054,6 @@ export const de_ListAggregatedUtterancesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAggregatedUtterancesCommandError
- */
-const de_ListAggregatedUtterancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAggregatedUtterancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBotAliasesCommand
  */
 export const de_ListBotAliasesCommand = async (
@@ -6000,7 +4061,7 @@ export const de_ListBotAliasesCommand = async (
   context: __SerdeContext
 ): Promise<ListBotAliasesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBotAliasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6016,41 +4077,6 @@ export const de_ListBotAliasesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBotAliasesCommandError
- */
-const de_ListBotAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBotAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBotLocalesCommand
  */
 export const de_ListBotLocalesCommand = async (
@@ -6058,7 +4084,7 @@ export const de_ListBotLocalesCommand = async (
   context: __SerdeContext
 ): Promise<ListBotLocalesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBotLocalesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6075,41 +4101,6 @@ export const de_ListBotLocalesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBotLocalesCommandError
- */
-const de_ListBotLocalesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBotLocalesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBotRecommendationsCommand
  */
 export const de_ListBotRecommendationsCommand = async (
@@ -6117,7 +4108,7 @@ export const de_ListBotRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<ListBotRecommendationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBotRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6135,41 +4126,6 @@ export const de_ListBotRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBotRecommendationsCommandError
- */
-const de_ListBotRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBotRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBotResourceGenerationsCommand
  */
 export const de_ListBotResourceGenerationsCommand = async (
@@ -6177,7 +4133,7 @@ export const de_ListBotResourceGenerationsCommand = async (
   context: __SerdeContext
 ): Promise<ListBotResourceGenerationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBotResourceGenerationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6195,41 +4151,6 @@ export const de_ListBotResourceGenerationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBotResourceGenerationsCommandError
- */
-const de_ListBotResourceGenerationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBotResourceGenerationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBotsCommand
  */
 export const de_ListBotsCommand = async (
@@ -6237,7 +4158,7 @@ export const de_ListBotsCommand = async (
   context: __SerdeContext
 ): Promise<ListBotsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6252,41 +4173,6 @@ export const de_ListBotsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBotsCommandError
- */
-const de_ListBotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBotVersionsCommand
  */
 export const de_ListBotVersionsCommand = async (
@@ -6294,7 +4180,7 @@ export const de_ListBotVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListBotVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBotVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6310,41 +4196,6 @@ export const de_ListBotVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBotVersionsCommandError
- */
-const de_ListBotVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBotVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBuiltInIntentsCommand
  */
 export const de_ListBuiltInIntentsCommand = async (
@@ -6352,7 +4203,7 @@ export const de_ListBuiltInIntentsCommand = async (
   context: __SerdeContext
 ): Promise<ListBuiltInIntentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBuiltInIntentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6368,41 +4219,6 @@ export const de_ListBuiltInIntentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBuiltInIntentsCommandError
- */
-const de_ListBuiltInIntentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBuiltInIntentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBuiltInSlotTypesCommand
  */
 export const de_ListBuiltInSlotTypesCommand = async (
@@ -6410,7 +4226,7 @@ export const de_ListBuiltInSlotTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListBuiltInSlotTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBuiltInSlotTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6426,41 +4242,6 @@ export const de_ListBuiltInSlotTypesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBuiltInSlotTypesCommandError
- */
-const de_ListBuiltInSlotTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBuiltInSlotTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListCustomVocabularyItemsCommand
  */
 export const de_ListCustomVocabularyItemsCommand = async (
@@ -6468,7 +4249,7 @@ export const de_ListCustomVocabularyItemsCommand = async (
   context: __SerdeContext
 ): Promise<ListCustomVocabularyItemsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCustomVocabularyItemsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6486,44 +4267,6 @@ export const de_ListCustomVocabularyItemsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCustomVocabularyItemsCommandError
- */
-const de_ListCustomVocabularyItemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomVocabularyItemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListExportsCommand
  */
 export const de_ListExportsCommand = async (
@@ -6531,7 +4274,7 @@ export const de_ListExportsCommand = async (
   context: __SerdeContext
 ): Promise<ListExportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListExportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6549,38 +4292,6 @@ export const de_ListExportsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListExportsCommandError
- */
-const de_ListExportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImportsCommand
  */
 export const de_ListImportsCommand = async (
@@ -6588,7 +4299,7 @@ export const de_ListImportsCommand = async (
   context: __SerdeContext
 ): Promise<ListImportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6606,38 +4317,6 @@ export const de_ListImportsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImportsCommandError
- */
-const de_ListImportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIntentMetricsCommand
  */
 export const de_ListIntentMetricsCommand = async (
@@ -6645,7 +4324,7 @@ export const de_ListIntentMetricsCommand = async (
   context: __SerdeContext
 ): Promise<ListIntentMetricsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIntentMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6661,44 +4340,6 @@ export const de_ListIntentMetricsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIntentMetricsCommandError
- */
-const de_ListIntentMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIntentMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIntentPathsCommand
  */
 export const de_ListIntentPathsCommand = async (
@@ -6706,7 +4347,7 @@ export const de_ListIntentPathsCommand = async (
   context: __SerdeContext
 ): Promise<ListIntentPathsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIntentPathsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6720,44 +4361,6 @@ export const de_ListIntentPathsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIntentPathsCommandError
- */
-const de_ListIntentPathsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIntentPathsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIntentsCommand
  */
 export const de_ListIntentsCommand = async (
@@ -6765,7 +4368,7 @@ export const de_ListIntentsCommand = async (
   context: __SerdeContext
 ): Promise<ListIntentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIntentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6783,41 +4386,6 @@ export const de_ListIntentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIntentsCommandError
- */
-const de_ListIntentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIntentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListIntentStageMetricsCommand
  */
 export const de_ListIntentStageMetricsCommand = async (
@@ -6825,7 +4393,7 @@ export const de_ListIntentStageMetricsCommand = async (
   context: __SerdeContext
 ): Promise<ListIntentStageMetricsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListIntentStageMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6841,44 +4409,6 @@ export const de_ListIntentStageMetricsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListIntentStageMetricsCommandError
- */
-const de_ListIntentStageMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIntentStageMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRecommendedIntentsCommand
  */
 export const de_ListRecommendedIntentsCommand = async (
@@ -6886,7 +4416,7 @@ export const de_ListRecommendedIntentsCommand = async (
   context: __SerdeContext
 ): Promise<ListRecommendedIntentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRecommendedIntentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6905,44 +4435,6 @@ export const de_ListRecommendedIntentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRecommendedIntentsCommandError
- */
-const de_ListRecommendedIntentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecommendedIntentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSessionAnalyticsDataCommand
  */
 export const de_ListSessionAnalyticsDataCommand = async (
@@ -6950,7 +4442,7 @@ export const de_ListSessionAnalyticsDataCommand = async (
   context: __SerdeContext
 ): Promise<ListSessionAnalyticsDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSessionAnalyticsDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6966,44 +4458,6 @@ export const de_ListSessionAnalyticsDataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSessionAnalyticsDataCommandError
- */
-const de_ListSessionAnalyticsDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSessionAnalyticsDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSessionMetricsCommand
  */
 export const de_ListSessionMetricsCommand = async (
@@ -7011,7 +4465,7 @@ export const de_ListSessionMetricsCommand = async (
   context: __SerdeContext
 ): Promise<ListSessionMetricsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSessionMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7027,44 +4481,6 @@ export const de_ListSessionMetricsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSessionMetricsCommandError
- */
-const de_ListSessionMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSessionMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSlotsCommand
  */
 export const de_ListSlotsCommand = async (
@@ -7072,7 +4488,7 @@ export const de_ListSlotsCommand = async (
   context: __SerdeContext
 ): Promise<ListSlotsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSlotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7091,41 +4507,6 @@ export const de_ListSlotsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSlotsCommandError
- */
-const de_ListSlotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSlotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSlotTypesCommand
  */
 export const de_ListSlotTypesCommand = async (
@@ -7133,7 +4514,7 @@ export const de_ListSlotTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListSlotTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSlotTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7151,41 +4532,6 @@ export const de_ListSlotTypesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSlotTypesCommandError
- */
-const de_ListSlotTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSlotTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -7193,7 +4539,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7207,41 +4553,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTestExecutionResultItemsCommand
  */
 export const de_ListTestExecutionResultItemsCommand = async (
@@ -7249,7 +4560,7 @@ export const de_ListTestExecutionResultItemsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestExecutionResultItemsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTestExecutionResultItemsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7264,44 +4575,6 @@ export const de_ListTestExecutionResultItemsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTestExecutionResultItemsCommandError
- */
-const de_ListTestExecutionResultItemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTestExecutionResultItemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTestExecutionsCommand
  */
 export const de_ListTestExecutionsCommand = async (
@@ -7309,7 +4582,7 @@ export const de_ListTestExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestExecutionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTestExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7324,41 +4597,6 @@ export const de_ListTestExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTestExecutionsCommandError
- */
-const de_ListTestExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTestExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTestSetRecordsCommand
  */
 export const de_ListTestSetRecordsCommand = async (
@@ -7366,7 +4604,7 @@ export const de_ListTestSetRecordsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestSetRecordsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTestSetRecordsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7381,44 +4619,6 @@ export const de_ListTestSetRecordsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTestSetRecordsCommandError
- */
-const de_ListTestSetRecordsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTestSetRecordsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTestSetsCommand
  */
 export const de_ListTestSetsCommand = async (
@@ -7426,7 +4626,7 @@ export const de_ListTestSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListTestSetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTestSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7441,41 +4641,6 @@ export const de_ListTestSetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTestSetsCommandError
- */
-const de_ListTestSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTestSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListUtteranceAnalyticsDataCommand
  */
 export const de_ListUtteranceAnalyticsDataCommand = async (
@@ -7483,7 +4648,7 @@ export const de_ListUtteranceAnalyticsDataCommand = async (
   context: __SerdeContext
 ): Promise<ListUtteranceAnalyticsDataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListUtteranceAnalyticsDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7499,44 +4664,6 @@ export const de_ListUtteranceAnalyticsDataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListUtteranceAnalyticsDataCommandError
- */
-const de_ListUtteranceAnalyticsDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUtteranceAnalyticsDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListUtteranceMetricsCommand
  */
 export const de_ListUtteranceMetricsCommand = async (
@@ -7544,7 +4671,7 @@ export const de_ListUtteranceMetricsCommand = async (
   context: __SerdeContext
 ): Promise<ListUtteranceMetricsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListUtteranceMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7560,44 +4687,6 @@ export const de_ListUtteranceMetricsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListUtteranceMetricsCommandError
- */
-const de_ListUtteranceMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUtteranceMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SearchAssociatedTranscriptsCommand
  */
 export const de_SearchAssociatedTranscriptsCommand = async (
@@ -7605,7 +4694,7 @@ export const de_SearchAssociatedTranscriptsCommand = async (
   context: __SerdeContext
 ): Promise<SearchAssociatedTranscriptsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchAssociatedTranscriptsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7625,44 +4714,6 @@ export const de_SearchAssociatedTranscriptsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchAssociatedTranscriptsCommandError
- */
-const de_SearchAssociatedTranscriptsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchAssociatedTranscriptsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartBotRecommendationCommand
  */
 export const de_StartBotRecommendationCommand = async (
@@ -7670,7 +4721,7 @@ export const de_StartBotRecommendationCommand = async (
   context: __SerdeContext
 ): Promise<StartBotRecommendationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StartBotRecommendationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7691,50 +4742,6 @@ export const de_StartBotRecommendationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartBotRecommendationCommandError
- */
-const de_StartBotRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartBotRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartBotResourceGenerationCommand
  */
 export const de_StartBotResourceGenerationCommand = async (
@@ -7742,7 +4749,7 @@ export const de_StartBotResourceGenerationCommand = async (
   context: __SerdeContext
 ): Promise<StartBotResourceGenerationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StartBotResourceGenerationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7762,47 +4769,6 @@ export const de_StartBotResourceGenerationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartBotResourceGenerationCommandError
- */
-const de_StartBotResourceGenerationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartBotResourceGenerationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartImportCommand
  */
 export const de_StartImportCommand = async (
@@ -7810,7 +4776,7 @@ export const de_StartImportCommand = async (
   context: __SerdeContext
 ): Promise<StartImportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StartImportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7828,47 +4794,6 @@ export const de_StartImportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartImportCommandError
- */
-const de_StartImportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartImportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartTestExecutionCommand
  */
 export const de_StartTestExecutionCommand = async (
@@ -7876,7 +4801,7 @@ export const de_StartTestExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StartTestExecutionCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StartTestExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7895,47 +4820,6 @@ export const de_StartTestExecutionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartTestExecutionCommandError
- */
-const de_StartTestExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTestExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartTestSetGenerationCommand
  */
 export const de_StartTestSetGenerationCommand = async (
@@ -7943,7 +4827,7 @@ export const de_StartTestSetGenerationCommand = async (
   context: __SerdeContext
 ): Promise<StartTestSetGenerationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StartTestSetGenerationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7965,47 +4849,6 @@ export const de_StartTestSetGenerationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartTestSetGenerationCommandError
- */
-const de_StartTestSetGenerationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTestSetGenerationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StopBotRecommendationCommand
  */
 export const de_StopBotRecommendationCommand = async (
@@ -8013,7 +4856,7 @@ export const de_StopBotRecommendationCommand = async (
   context: __SerdeContext
 ): Promise<StopBotRecommendationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_StopBotRecommendationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8031,50 +4874,6 @@ export const de_StopBotRecommendationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StopBotRecommendationCommandError
- */
-const de_StopBotRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopBotRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -8082,48 +4881,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -8134,48 +4898,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -8186,7 +4915,7 @@ export const de_UpdateBotCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBotCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateBotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8210,47 +4939,6 @@ export const de_UpdateBotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateBotCommandError
- */
-const de_UpdateBotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateBotAliasCommand
  */
 export const de_UpdateBotAliasCommand = async (
@@ -8258,7 +4946,7 @@ export const de_UpdateBotAliasCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBotAliasCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateBotAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8282,47 +4970,6 @@ export const de_UpdateBotAliasCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateBotAliasCommandError
- */
-const de_UpdateBotAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBotAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateBotLocaleCommand
  */
 export const de_UpdateBotLocaleCommand = async (
@@ -8330,7 +4977,7 @@ export const de_UpdateBotLocaleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBotLocaleCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateBotLocaleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8356,47 +5003,6 @@ export const de_UpdateBotLocaleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateBotLocaleCommandError
- */
-const de_UpdateBotLocaleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBotLocaleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateBotRecommendationCommand
  */
 export const de_UpdateBotRecommendationCommand = async (
@@ -8404,7 +5010,7 @@ export const de_UpdateBotRecommendationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBotRecommendationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateBotRecommendationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8426,50 +5032,6 @@ export const de_UpdateBotRecommendationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateBotRecommendationCommandError
- */
-const de_UpdateBotRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBotRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateExportCommand
  */
 export const de_UpdateExportCommand = async (
@@ -8477,7 +5039,7 @@ export const de_UpdateExportCommand = async (
   context: __SerdeContext
 ): Promise<UpdateExportCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateExportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8496,47 +5058,6 @@ export const de_UpdateExportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateExportCommandError
- */
-const de_UpdateExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateIntentCommand
  */
 export const de_UpdateIntentCommand = async (
@@ -8544,7 +5065,7 @@ export const de_UpdateIntentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateIntentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateIntentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8576,47 +5097,6 @@ export const de_UpdateIntentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateIntentCommandError
- */
-const de_UpdateIntentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateIntentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateResourcePolicyCommand
  */
 export const de_UpdateResourcePolicyCommand = async (
@@ -8624,7 +5104,7 @@ export const de_UpdateResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateResourcePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8639,47 +5119,6 @@ export const de_UpdateResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateResourcePolicyCommandError
- */
-const de_UpdateResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSlotCommand
  */
 export const de_UpdateSlotCommand = async (
@@ -8687,7 +5126,7 @@ export const de_UpdateSlotCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSlotCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSlotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8714,47 +5153,6 @@ export const de_UpdateSlotCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSlotCommandError
- */
-const de_UpdateSlotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSlotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSlotTypeCommand
  */
 export const de_UpdateSlotTypeCommand = async (
@@ -8762,7 +5160,7 @@ export const de_UpdateSlotTypeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSlotTypeCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_UpdateSlotTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8788,47 +5186,6 @@ export const de_UpdateSlotTypeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSlotTypeCommandError
- */
-const de_UpdateSlotTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSlotTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexmodelsv2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexmodelsv2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexmodelsv2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateTestSetCommand
  */
 export const de_UpdateTestSetCommand = async (
@@ -8836,7 +5193,7 @@ export const de_UpdateTestSetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTestSetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateTestSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -8859,27 +5216,21 @@ export const de_UpdateTestSetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateTestSetCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateTestSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTestSetCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.lexmodelsv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexmodelsv2#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "PreconditionFailedException":
-    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
-      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.lexmodelsv2#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.lexmodelsv2#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -8889,13 +5240,19 @@ const de_UpdateTestSetCommandError = async (
     case "ValidationException":
     case "com.amazonaws.lexmodelsv2#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.lexmodelsv2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "PreconditionFailedException":
+    case "com.amazonaws.lexmodelsv2#PreconditionFailedException":
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

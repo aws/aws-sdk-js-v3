@@ -571,7 +571,7 @@ export const de_AddWorkloadCommand = async (
   context: __SerdeContext
 ): Promise<AddWorkloadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddWorkloadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -584,41 +584,6 @@ export const de_AddWorkloadCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddWorkloadCommandError
- */
-const de_AddWorkloadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddWorkloadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.applicationinsights#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateApplicationCommand
  */
 export const de_CreateApplicationCommand = async (
@@ -626,7 +591,7 @@ export const de_CreateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -639,47 +604,6 @@ export const de_CreateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateApplicationCommandError
- */
-const de_CreateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.applicationinsights#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.applicationinsights#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagsAlreadyExistException":
-    case "com.amazonaws.applicationinsights#TagsAlreadyExistException":
-      throw await de_TagsAlreadyExistExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateComponentCommand
  */
 export const de_CreateComponentCommand = async (
@@ -687,7 +611,7 @@ export const de_CreateComponentCommand = async (
   context: __SerdeContext
 ): Promise<CreateComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -700,41 +624,6 @@ export const de_CreateComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateComponentCommandError
- */
-const de_CreateComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.applicationinsights#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLogPatternCommand
  */
 export const de_CreateLogPatternCommand = async (
@@ -742,7 +631,7 @@ export const de_CreateLogPatternCommand = async (
   context: __SerdeContext
 ): Promise<CreateLogPatternCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLogPatternCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -755,41 +644,6 @@ export const de_CreateLogPatternCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLogPatternCommandError
- */
-const de_CreateLogPatternCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLogPatternCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.applicationinsights#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteApplicationCommand
  */
 export const de_DeleteApplicationCommand = async (
@@ -797,7 +651,7 @@ export const de_DeleteApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -810,41 +664,6 @@ export const de_DeleteApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteApplicationCommandError
- */
-const de_DeleteApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.applicationinsights#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteComponentCommand
  */
 export const de_DeleteComponentCommand = async (
@@ -852,7 +671,7 @@ export const de_DeleteComponentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -865,38 +684,6 @@ export const de_DeleteComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteComponentCommandError
- */
-const de_DeleteComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteLogPatternCommand
  */
 export const de_DeleteLogPatternCommand = async (
@@ -904,7 +691,7 @@ export const de_DeleteLogPatternCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLogPatternCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLogPatternCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -917,41 +704,6 @@ export const de_DeleteLogPatternCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteLogPatternCommandError
- */
-const de_DeleteLogPatternCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLogPatternCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.applicationinsights#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeApplicationCommand
  */
 export const de_DescribeApplicationCommand = async (
@@ -959,7 +711,7 @@ export const de_DescribeApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -972,38 +724,6 @@ export const de_DescribeApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeApplicationCommandError
- */
-const de_DescribeApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeComponentCommand
  */
 export const de_DescribeComponentCommand = async (
@@ -1011,7 +731,7 @@ export const de_DescribeComponentCommand = async (
   context: __SerdeContext
 ): Promise<DescribeComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1024,38 +744,6 @@ export const de_DescribeComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeComponentCommandError
- */
-const de_DescribeComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeComponentConfigurationCommand
  */
 export const de_DescribeComponentConfigurationCommand = async (
@@ -1063,7 +751,7 @@ export const de_DescribeComponentConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeComponentConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeComponentConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1076,38 +764,6 @@ export const de_DescribeComponentConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeComponentConfigurationCommandError
- */
-const de_DescribeComponentConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeComponentConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommand
  */
 export const de_DescribeComponentConfigurationRecommendationCommand = async (
@@ -1115,7 +771,7 @@ export const de_DescribeComponentConfigurationRecommendationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeComponentConfigurationRecommendationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeComponentConfigurationRecommendationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1128,38 +784,6 @@ export const de_DescribeComponentConfigurationRecommendationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommandError
- */
-const de_DescribeComponentConfigurationRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeComponentConfigurationRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLogPatternCommand
  */
 export const de_DescribeLogPatternCommand = async (
@@ -1167,7 +791,7 @@ export const de_DescribeLogPatternCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLogPatternCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLogPatternCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1180,38 +804,6 @@ export const de_DescribeLogPatternCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLogPatternCommandError
- */
-const de_DescribeLogPatternCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLogPatternCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeObservationCommand
  */
 export const de_DescribeObservationCommand = async (
@@ -1219,7 +811,7 @@ export const de_DescribeObservationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeObservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeObservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1232,38 +824,6 @@ export const de_DescribeObservationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeObservationCommandError
- */
-const de_DescribeObservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeObservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProblemCommand
  */
 export const de_DescribeProblemCommand = async (
@@ -1271,7 +831,7 @@ export const de_DescribeProblemCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProblemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProblemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1284,38 +844,6 @@ export const de_DescribeProblemCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProblemCommandError
- */
-const de_DescribeProblemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProblemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProblemObservationsCommand
  */
 export const de_DescribeProblemObservationsCommand = async (
@@ -1323,7 +851,7 @@ export const de_DescribeProblemObservationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProblemObservationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProblemObservationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1336,38 +864,6 @@ export const de_DescribeProblemObservationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProblemObservationsCommandError
- */
-const de_DescribeProblemObservationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProblemObservationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeWorkloadCommand
  */
 export const de_DescribeWorkloadCommand = async (
@@ -1375,7 +871,7 @@ export const de_DescribeWorkloadCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkloadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkloadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1388,38 +884,6 @@ export const de_DescribeWorkloadCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeWorkloadCommandError
- */
-const de_DescribeWorkloadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkloadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListApplicationsCommand
  */
 export const de_ListApplicationsCommand = async (
@@ -1427,7 +891,7 @@ export const de_ListApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1440,35 +904,6 @@ export const de_ListApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListApplicationsCommandError
- */
-const de_ListApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListComponentsCommand
  */
 export const de_ListComponentsCommand = async (
@@ -1476,7 +911,7 @@ export const de_ListComponentsCommand = async (
   context: __SerdeContext
 ): Promise<ListComponentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListComponentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1489,38 +924,6 @@ export const de_ListComponentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListComponentsCommandError
- */
-const de_ListComponentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListComponentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListConfigurationHistoryCommand
  */
 export const de_ListConfigurationHistoryCommand = async (
@@ -1528,7 +931,7 @@ export const de_ListConfigurationHistoryCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListConfigurationHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1541,38 +944,6 @@ export const de_ListConfigurationHistoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListConfigurationHistoryCommandError
- */
-const de_ListConfigurationHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConfigurationHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLogPatternsCommand
  */
 export const de_ListLogPatternsCommand = async (
@@ -1580,7 +951,7 @@ export const de_ListLogPatternsCommand = async (
   context: __SerdeContext
 ): Promise<ListLogPatternsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLogPatternsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1593,38 +964,6 @@ export const de_ListLogPatternsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLogPatternsCommandError
- */
-const de_ListLogPatternsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLogPatternsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLogPatternSetsCommand
  */
 export const de_ListLogPatternSetsCommand = async (
@@ -1632,7 +971,7 @@ export const de_ListLogPatternSetsCommand = async (
   context: __SerdeContext
 ): Promise<ListLogPatternSetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLogPatternSetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1645,38 +984,6 @@ export const de_ListLogPatternSetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLogPatternSetsCommandError
- */
-const de_ListLogPatternSetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLogPatternSetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListProblemsCommand
  */
 export const de_ListProblemsCommand = async (
@@ -1684,7 +991,7 @@ export const de_ListProblemsCommand = async (
   context: __SerdeContext
 ): Promise<ListProblemsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListProblemsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1697,38 +1004,6 @@ export const de_ListProblemsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListProblemsCommandError
- */
-const de_ListProblemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProblemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1736,7 +1011,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1749,35 +1024,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListWorkloadsCommand
  */
 export const de_ListWorkloadsCommand = async (
@@ -1785,7 +1031,7 @@ export const de_ListWorkloadsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkloadsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListWorkloadsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1798,38 +1044,6 @@ export const de_ListWorkloadsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListWorkloadsCommandError
- */
-const de_ListWorkloadsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkloadsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RemoveWorkloadCommand
  */
 export const de_RemoveWorkloadCommand = async (
@@ -1837,7 +1051,7 @@ export const de_RemoveWorkloadCommand = async (
   context: __SerdeContext
 ): Promise<RemoveWorkloadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveWorkloadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1850,38 +1064,6 @@ export const de_RemoveWorkloadCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveWorkloadCommandError
- */
-const de_RemoveWorkloadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveWorkloadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1889,7 +1071,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1902,38 +1084,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.applicationinsights#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -1941,7 +1091,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1954,35 +1104,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateApplicationCommand
  */
 export const de_UpdateApplicationCommand = async (
@@ -1990,7 +1111,7 @@ export const de_UpdateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2003,38 +1124,6 @@ export const de_UpdateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateApplicationCommandError
- */
-const de_UpdateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateComponentCommand
  */
 export const de_UpdateComponentCommand = async (
@@ -2042,7 +1131,7 @@ export const de_UpdateComponentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateComponentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2055,41 +1144,6 @@ export const de_UpdateComponentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateComponentCommandError
- */
-const de_UpdateComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.applicationinsights#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateComponentConfigurationCommand
  */
 export const de_UpdateComponentConfigurationCommand = async (
@@ -2097,7 +1151,7 @@ export const de_UpdateComponentConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateComponentConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateComponentConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2110,41 +1164,6 @@ export const de_UpdateComponentConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateComponentConfigurationCommandError
- */
-const de_UpdateComponentConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateComponentConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.applicationinsights#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateLogPatternCommand
  */
 export const de_UpdateLogPatternCommand = async (
@@ -2152,7 +1171,7 @@ export const de_UpdateLogPatternCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLogPatternCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateLogPatternCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2165,12 +1184,49 @@ export const de_UpdateLogPatternCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateLogPatternCommandError
+ * deserializeAws_json1_1UpdateProblemCommand
  */
-const de_UpdateLogPatternCommandError = async (
+export const de_UpdateProblemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateLogPatternCommandOutput> => {
+): Promise<UpdateProblemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateProblemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateWorkloadCommand
+ */
+export const de_UpdateWorkloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkloadCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateWorkloadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2189,117 +1245,25 @@ const de_UpdateLogPatternCommandError = async (
     case "ValidationException":
     case "com.amazonaws.applicationinsights#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.applicationinsights#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "TagsAlreadyExistException":
+    case "com.amazonaws.applicationinsights#TagsAlreadyExistException":
+      throw await de_TagsAlreadyExistExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.applicationinsights#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.applicationinsights#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateProblemCommand
- */
-export const de_UpdateProblemCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProblemCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateProblemCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateProblemCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateProblemCommandError
- */
-const de_UpdateProblemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProblemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateWorkloadCommand
- */
-export const de_UpdateWorkloadCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkloadCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateWorkloadCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateWorkloadCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateWorkloadCommandError
- */
-const de_UpdateWorkloadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkloadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.applicationinsights#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationinsights#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.applicationinsights#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -162,7 +162,7 @@ export const de_DescribeReportCreationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReportCreationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReportCreationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -175,41 +175,6 @@ export const de_DescribeReportCreationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReportCreationCommandError
- */
-const de_DescribeReportCreationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReportCreationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConstraintViolationException":
-    case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetComplianceSummaryCommand
  */
 export const de_GetComplianceSummaryCommand = async (
@@ -217,7 +182,7 @@ export const de_GetComplianceSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetComplianceSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetComplianceSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -230,41 +195,6 @@ export const de_GetComplianceSummaryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetComplianceSummaryCommandError
- */
-const de_GetComplianceSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetComplianceSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConstraintViolationException":
-    case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourcesCommand
  */
 export const de_GetResourcesCommand = async (
@@ -272,7 +202,7 @@ export const de_GetResourcesCommand = async (
   context: __SerdeContext
 ): Promise<GetResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -285,41 +215,6 @@ export const de_GetResourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourcesCommandError
- */
-const de_GetResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "PaginationTokenExpiredException":
-    case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
-      throw await de_PaginationTokenExpiredExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTagKeysCommand
  */
 export const de_GetTagKeysCommand = async (
@@ -327,7 +222,7 @@ export const de_GetTagKeysCommand = async (
   context: __SerdeContext
 ): Promise<GetTagKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTagKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -340,41 +235,6 @@ export const de_GetTagKeysCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTagKeysCommandError
- */
-const de_GetTagKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTagKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "PaginationTokenExpiredException":
-    case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
-      throw await de_PaginationTokenExpiredExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTagValuesCommand
  */
 export const de_GetTagValuesCommand = async (
@@ -382,7 +242,7 @@ export const de_GetTagValuesCommand = async (
   context: __SerdeContext
 ): Promise<GetTagValuesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTagValuesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -395,41 +255,6 @@ export const de_GetTagValuesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTagValuesCommandError
- */
-const de_GetTagValuesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTagValuesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "PaginationTokenExpiredException":
-    case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
-      throw await de_PaginationTokenExpiredExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartReportCreationCommand
  */
 export const de_StartReportCreationCommand = async (
@@ -437,7 +262,7 @@ export const de_StartReportCreationCommand = async (
   context: __SerdeContext
 ): Promise<StartReportCreationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartReportCreationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -450,44 +275,6 @@ export const de_StartReportCreationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartReportCreationCommandError
- */
-const de_StartReportCreationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReportCreationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.resourcegroupstaggingapi#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConstraintViolationException":
-    case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
-      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourcesCommand
  */
 export const de_TagResourcesCommand = async (
@@ -495,7 +282,7 @@ export const de_TagResourcesCommand = async (
   context: __SerdeContext
 ): Promise<TagResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -508,38 +295,6 @@ export const de_TagResourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourcesCommandError
- */
-const de_TagResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.resourcegroupstaggingapi#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottledException":
-    case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourcesCommand
  */
 export const de_UntagResourcesCommand = async (
@@ -547,7 +302,7 @@ export const de_UntagResourcesCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -560,18 +315,18 @@ export const de_UntagResourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourcesCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UntagResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourcesCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConstraintViolationException":
+    case "com.amazonaws.resourcegroupstaggingapi#ConstraintViolationException":
+      throw await de_ConstraintViolationExceptionRes(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.resourcegroupstaggingapi#InternalServiceException":
       throw await de_InternalServiceExceptionRes(parsedOutput, context);
@@ -581,13 +336,19 @@ const de_UntagResourcesCommandError = async (
     case "ThrottledException":
     case "com.amazonaws.resourcegroupstaggingapi#ThrottledException":
       throw await de_ThrottledExceptionRes(parsedOutput, context);
+    case "PaginationTokenExpiredException":
+    case "com.amazonaws.resourcegroupstaggingapi#PaginationTokenExpiredException":
+      throw await de_PaginationTokenExpiredExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.resourcegroupstaggingapi#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -1348,7 +1348,7 @@ export const de_AssociateAppBlockBuilderAppBlockCommand = async (
   context: __SerdeContext
 ): Promise<AssociateAppBlockBuilderAppBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateAppBlockBuilderAppBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1361,44 +1361,6 @@ export const de_AssociateAppBlockBuilderAppBlockCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateAppBlockBuilderAppBlockCommandError
- */
-const de_AssociateAppBlockBuilderAppBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateAppBlockBuilderAppBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateApplicationFleetCommand
  */
 export const de_AssociateApplicationFleetCommand = async (
@@ -1406,7 +1368,7 @@ export const de_AssociateApplicationFleetCommand = async (
   context: __SerdeContext
 ): Promise<AssociateApplicationFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateApplicationFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1419,44 +1381,6 @@ export const de_AssociateApplicationFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateApplicationFleetCommandError
- */
-const de_AssociateApplicationFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateApplicationFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateApplicationToEntitlementCommand
  */
 export const de_AssociateApplicationToEntitlementCommand = async (
@@ -1464,7 +1388,7 @@ export const de_AssociateApplicationToEntitlementCommand = async (
   context: __SerdeContext
 ): Promise<AssociateApplicationToEntitlementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateApplicationToEntitlementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1477,41 +1401,6 @@ export const de_AssociateApplicationToEntitlementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateApplicationToEntitlementCommandError
- */
-const de_AssociateApplicationToEntitlementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateApplicationToEntitlementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntitlementNotFoundException":
-    case "com.amazonaws.appstream#EntitlementNotFoundException":
-      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateFleetCommand
  */
 export const de_AssociateFleetCommand = async (
@@ -1519,7 +1408,7 @@ export const de_AssociateFleetCommand = async (
   context: __SerdeContext
 ): Promise<AssociateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1532,47 +1421,6 @@ export const de_AssociateFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateFleetCommandError
- */
-const de_AssociateFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "IncompatibleImageException":
-    case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchAssociateUserStackCommand
  */
 export const de_BatchAssociateUserStackCommand = async (
@@ -1580,7 +1428,7 @@ export const de_BatchAssociateUserStackCommand = async (
   context: __SerdeContext
 ): Promise<BatchAssociateUserStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchAssociateUserStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1593,35 +1441,6 @@ export const de_BatchAssociateUserStackCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchAssociateUserStackCommandError
- */
-const de_BatchAssociateUserStackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchAssociateUserStackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDisassociateUserStackCommand
  */
 export const de_BatchDisassociateUserStackCommand = async (
@@ -1629,7 +1448,7 @@ export const de_BatchDisassociateUserStackCommand = async (
   context: __SerdeContext
 ): Promise<BatchDisassociateUserStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDisassociateUserStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1642,35 +1461,6 @@ export const de_BatchDisassociateUserStackCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDisassociateUserStackCommandError
- */
-const de_BatchDisassociateUserStackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDisassociateUserStackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CopyImageCommand
  */
 export const de_CopyImageCommand = async (
@@ -1678,7 +1468,7 @@ export const de_CopyImageCommand = async (
   context: __SerdeContext
 ): Promise<CopyImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CopyImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1691,47 +1481,6 @@ export const de_CopyImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CopyImageCommandError
- */
-const de_CopyImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IncompatibleImageException":
-    case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotAvailableException":
-    case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAppBlockCommand
  */
 export const de_CreateAppBlockCommand = async (
@@ -1739,7 +1488,7 @@ export const de_CreateAppBlockCommand = async (
   context: __SerdeContext
 ): Promise<CreateAppBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAppBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1752,41 +1501,6 @@ export const de_CreateAppBlockCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAppBlockCommandError
- */
-const de_CreateAppBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAppBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAppBlockBuilderCommand
  */
 export const de_CreateAppBlockBuilderCommand = async (
@@ -1794,7 +1508,7 @@ export const de_CreateAppBlockBuilderCommand = async (
   context: __SerdeContext
 ): Promise<CreateAppBlockBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAppBlockBuilderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1807,59 +1521,6 @@ export const de_CreateAppBlockBuilderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAppBlockBuilderCommandError
- */
-const de_CreateAppBlockBuilderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAppBlockBuilderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.appstream#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "RequestLimitExceededException":
-    case "com.amazonaws.appstream#RequestLimitExceededException":
-      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotAvailableException":
-    case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAppBlockBuilderStreamingURLCommand
  */
 export const de_CreateAppBlockBuilderStreamingURLCommand = async (
@@ -1867,7 +1528,7 @@ export const de_CreateAppBlockBuilderStreamingURLCommand = async (
   context: __SerdeContext
 ): Promise<CreateAppBlockBuilderStreamingURLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAppBlockBuilderStreamingURLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1880,35 +1541,6 @@ export const de_CreateAppBlockBuilderStreamingURLCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAppBlockBuilderStreamingURLCommandError
- */
-const de_CreateAppBlockBuilderStreamingURLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAppBlockBuilderStreamingURLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateApplicationCommand
  */
 export const de_CreateApplicationCommand = async (
@@ -1916,7 +1548,7 @@ export const de_CreateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1929,44 +1561,6 @@ export const de_CreateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateApplicationCommandError
- */
-const de_CreateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDirectoryConfigCommand
  */
 export const de_CreateDirectoryConfigCommand = async (
@@ -1974,7 +1568,7 @@ export const de_CreateDirectoryConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateDirectoryConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDirectoryConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1987,47 +1581,6 @@ export const de_CreateDirectoryConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDirectoryConfigCommandError
- */
-const de_CreateDirectoryConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDirectoryConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.appstream#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateEntitlementCommand
  */
 export const de_CreateEntitlementCommand = async (
@@ -2035,7 +1588,7 @@ export const de_CreateEntitlementCommand = async (
   context: __SerdeContext
 ): Promise<CreateEntitlementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEntitlementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2048,41 +1601,6 @@ export const de_CreateEntitlementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateEntitlementCommandError
- */
-const de_CreateEntitlementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEntitlementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntitlementAlreadyExistsException":
-    case "com.amazonaws.appstream#EntitlementAlreadyExistsException":
-      throw await de_EntitlementAlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFleetCommand
  */
 export const de_CreateFleetCommand = async (
@@ -2090,7 +1608,7 @@ export const de_CreateFleetCommand = async (
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2103,62 +1621,6 @@ export const de_CreateFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFleetCommandError
- */
-const de_CreateFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "IncompatibleImageException":
-    case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.appstream#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "RequestLimitExceededException":
-    case "com.amazonaws.appstream#RequestLimitExceededException":
-      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotAvailableException":
-    case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateImageBuilderCommand
  */
 export const de_CreateImageBuilderCommand = async (
@@ -2166,7 +1628,7 @@ export const de_CreateImageBuilderCommand = async (
   context: __SerdeContext
 ): Promise<CreateImageBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateImageBuilderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2179,62 +1641,6 @@ export const de_CreateImageBuilderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateImageBuilderCommandError
- */
-const de_CreateImageBuilderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateImageBuilderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "IncompatibleImageException":
-    case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.appstream#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "RequestLimitExceededException":
-    case "com.amazonaws.appstream#RequestLimitExceededException":
-      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotAvailableException":
-    case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateImageBuilderStreamingURLCommand
  */
 export const de_CreateImageBuilderStreamingURLCommand = async (
@@ -2242,7 +1648,7 @@ export const de_CreateImageBuilderStreamingURLCommand = async (
   context: __SerdeContext
 ): Promise<CreateImageBuilderStreamingURLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateImageBuilderStreamingURLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2255,35 +1661,6 @@ export const de_CreateImageBuilderStreamingURLCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError
- */
-const de_CreateImageBuilderStreamingURLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateImageBuilderStreamingURLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateStackCommand
  */
 export const de_CreateStackCommand = async (
@@ -2291,7 +1668,7 @@ export const de_CreateStackCommand = async (
   context: __SerdeContext
 ): Promise<CreateStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2304,53 +1681,6 @@ export const de_CreateStackCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateStackCommandError
- */
-const de_CreateStackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.appstream#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateStreamingURLCommand
  */
 export const de_CreateStreamingURLCommand = async (
@@ -2358,7 +1688,7 @@ export const de_CreateStreamingURLCommand = async (
   context: __SerdeContext
 ): Promise<CreateStreamingURLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStreamingURLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2371,41 +1701,6 @@ export const de_CreateStreamingURLCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateStreamingURLCommandError
- */
-const de_CreateStreamingURLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStreamingURLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotAvailableException":
-    case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUpdatedImageCommand
  */
 export const de_CreateUpdatedImageCommand = async (
@@ -2413,7 +1708,7 @@ export const de_CreateUpdatedImageCommand = async (
   context: __SerdeContext
 ): Promise<CreateUpdatedImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUpdatedImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2426,50 +1721,6 @@ export const de_CreateUpdatedImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUpdatedImageCommandError
- */
-const de_CreateUpdatedImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUpdatedImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "IncompatibleImageException":
-    case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUsageReportSubscriptionCommand
  */
 export const de_CreateUsageReportSubscriptionCommand = async (
@@ -2477,7 +1728,7 @@ export const de_CreateUsageReportSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<CreateUsageReportSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUsageReportSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2490,38 +1741,6 @@ export const de_CreateUsageReportSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUsageReportSubscriptionCommandError
- */
-const de_CreateUsageReportSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUsageReportSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.appstream#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUserCommand
  */
 export const de_CreateUserCommand = async (
@@ -2529,7 +1748,7 @@ export const de_CreateUserCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2542,44 +1761,6 @@ export const de_CreateUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUserCommandError
- */
-const de_CreateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAppBlockCommand
  */
 export const de_DeleteAppBlockCommand = async (
@@ -2587,7 +1768,7 @@ export const de_DeleteAppBlockCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAppBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2600,38 +1781,6 @@ export const de_DeleteAppBlockCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAppBlockCommandError
- */
-const de_DeleteAppBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAppBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appstream#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAppBlockBuilderCommand
  */
 export const de_DeleteAppBlockBuilderCommand = async (
@@ -2639,7 +1788,7 @@ export const de_DeleteAppBlockBuilderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppBlockBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAppBlockBuilderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2652,41 +1801,6 @@ export const de_DeleteAppBlockBuilderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAppBlockBuilderCommandError
- */
-const de_DeleteAppBlockBuilderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAppBlockBuilderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appstream#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteApplicationCommand
  */
 export const de_DeleteApplicationCommand = async (
@@ -2694,7 +1808,7 @@ export const de_DeleteApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2707,41 +1821,6 @@ export const de_DeleteApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteApplicationCommandError
- */
-const de_DeleteApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appstream#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDirectoryConfigCommand
  */
 export const de_DeleteDirectoryConfigCommand = async (
@@ -2749,7 +1828,7 @@ export const de_DeleteDirectoryConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDirectoryConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDirectoryConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2762,35 +1841,6 @@ export const de_DeleteDirectoryConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDirectoryConfigCommandError
- */
-const de_DeleteDirectoryConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDirectoryConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUseException":
-    case "com.amazonaws.appstream#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteEntitlementCommand
  */
 export const de_DeleteEntitlementCommand = async (
@@ -2798,7 +1848,7 @@ export const de_DeleteEntitlementCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEntitlementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEntitlementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2811,41 +1861,6 @@ export const de_DeleteEntitlementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteEntitlementCommandError
- */
-const de_DeleteEntitlementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEntitlementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntitlementNotFoundException":
-    case "com.amazonaws.appstream#EntitlementNotFoundException":
-      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteFleetCommand
  */
 export const de_DeleteFleetCommand = async (
@@ -2853,7 +1868,7 @@ export const de_DeleteFleetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2866,38 +1881,6 @@ export const de_DeleteFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteFleetCommandError
- */
-const de_DeleteFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appstream#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteImageCommand
  */
 export const de_DeleteImageCommand = async (
@@ -2905,7 +1888,7 @@ export const de_DeleteImageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2918,41 +1901,6 @@ export const de_DeleteImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteImageCommandError
- */
-const de_DeleteImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appstream#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteImageBuilderCommand
  */
 export const de_DeleteImageBuilderCommand = async (
@@ -2960,7 +1908,7 @@ export const de_DeleteImageBuilderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImageBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteImageBuilderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2973,38 +1921,6 @@ export const de_DeleteImageBuilderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteImageBuilderCommandError
- */
-const de_DeleteImageBuilderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteImageBuilderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteImagePermissionsCommand
  */
 export const de_DeleteImagePermissionsCommand = async (
@@ -3012,7 +1928,7 @@ export const de_DeleteImagePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImagePermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteImagePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3025,35 +1941,6 @@ export const de_DeleteImagePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteImagePermissionsCommandError
- */
-const de_DeleteImagePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteImagePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotAvailableException":
-    case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteStackCommand
  */
 export const de_DeleteStackCommand = async (
@@ -3061,7 +1948,7 @@ export const de_DeleteStackCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3074,41 +1961,6 @@ export const de_DeleteStackCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteStackCommandError
- */
-const de_DeleteStackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appstream#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteUsageReportSubscriptionCommand
  */
 export const de_DeleteUsageReportSubscriptionCommand = async (
@@ -3116,7 +1968,7 @@ export const de_DeleteUsageReportSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUsageReportSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUsageReportSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3129,35 +1981,6 @@ export const de_DeleteUsageReportSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError
- */
-const de_DeleteUsageReportSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUsageReportSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteUserCommand
  */
 export const de_DeleteUserCommand = async (
@@ -3165,7 +1988,7 @@ export const de_DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3178,32 +2001,6 @@ export const de_DeleteUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteUserCommandError
- */
-const de_DeleteUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAppBlockBuilderAppBlockAssociationsCommand
  */
 export const de_DescribeAppBlockBuilderAppBlockAssociationsCommand = async (
@@ -3211,7 +2008,7 @@ export const de_DescribeAppBlockBuilderAppBlockAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAppBlockBuilderAppBlockAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAppBlockBuilderAppBlockAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3224,35 +2021,6 @@ export const de_DescribeAppBlockBuilderAppBlockAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAppBlockBuilderAppBlockAssociationsCommandError
- */
-const de_DescribeAppBlockBuilderAppBlockAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAppBlockBuilderAppBlockAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAppBlockBuildersCommand
  */
 export const de_DescribeAppBlockBuildersCommand = async (
@@ -3260,7 +2028,7 @@ export const de_DescribeAppBlockBuildersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAppBlockBuildersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAppBlockBuildersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3273,35 +2041,6 @@ export const de_DescribeAppBlockBuildersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAppBlockBuildersCommandError
- */
-const de_DescribeAppBlockBuildersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAppBlockBuildersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAppBlocksCommand
  */
 export const de_DescribeAppBlocksCommand = async (
@@ -3309,7 +2048,7 @@ export const de_DescribeAppBlocksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAppBlocksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAppBlocksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3322,35 +2061,6 @@ export const de_DescribeAppBlocksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAppBlocksCommandError
- */
-const de_DescribeAppBlocksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAppBlocksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeApplicationFleetAssociationsCommand
  */
 export const de_DescribeApplicationFleetAssociationsCommand = async (
@@ -3358,7 +2068,7 @@ export const de_DescribeApplicationFleetAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationFleetAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeApplicationFleetAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3371,35 +2081,6 @@ export const de_DescribeApplicationFleetAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeApplicationFleetAssociationsCommandError
- */
-const de_DescribeApplicationFleetAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationFleetAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeApplicationsCommand
  */
 export const de_DescribeApplicationsCommand = async (
@@ -3407,7 +2088,7 @@ export const de_DescribeApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3420,35 +2101,6 @@ export const de_DescribeApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeApplicationsCommandError
- */
-const de_DescribeApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDirectoryConfigsCommand
  */
 export const de_DescribeDirectoryConfigsCommand = async (
@@ -3456,7 +2108,7 @@ export const de_DescribeDirectoryConfigsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDirectoryConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDirectoryConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3469,32 +2121,6 @@ export const de_DescribeDirectoryConfigsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDirectoryConfigsCommandError
- */
-const de_DescribeDirectoryConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDirectoryConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEntitlementsCommand
  */
 export const de_DescribeEntitlementsCommand = async (
@@ -3502,7 +2128,7 @@ export const de_DescribeEntitlementsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEntitlementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEntitlementsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3515,38 +2141,6 @@ export const de_DescribeEntitlementsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEntitlementsCommandError
- */
-const de_DescribeEntitlementsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEntitlementsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntitlementNotFoundException":
-    case "com.amazonaws.appstream#EntitlementNotFoundException":
-      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetsCommand
  */
 export const de_DescribeFleetsCommand = async (
@@ -3554,7 +2148,7 @@ export const de_DescribeFleetsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3567,32 +2161,6 @@ export const de_DescribeFleetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetsCommandError
- */
-const de_DescribeFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeImageBuildersCommand
  */
 export const de_DescribeImageBuildersCommand = async (
@@ -3600,7 +2168,7 @@ export const de_DescribeImageBuildersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImageBuildersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImageBuildersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3613,32 +2181,6 @@ export const de_DescribeImageBuildersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeImageBuildersCommandError
- */
-const de_DescribeImageBuildersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImageBuildersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeImagePermissionsCommand
  */
 export const de_DescribeImagePermissionsCommand = async (
@@ -3646,7 +2188,7 @@ export const de_DescribeImagePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImagePermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImagePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3659,32 +2201,6 @@ export const de_DescribeImagePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeImagePermissionsCommandError
- */
-const de_DescribeImagePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImagePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeImagesCommand
  */
 export const de_DescribeImagesCommand = async (
@@ -3692,7 +2208,7 @@ export const de_DescribeImagesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3705,35 +2221,6 @@ export const de_DescribeImagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeImagesCommandError
- */
-const de_DescribeImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSessionsCommand
  */
 export const de_DescribeSessionsCommand = async (
@@ -3741,7 +2228,7 @@ export const de_DescribeSessionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSessionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3754,32 +2241,6 @@ export const de_DescribeSessionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSessionsCommandError
- */
-const de_DescribeSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeStacksCommand
  */
 export const de_DescribeStacksCommand = async (
@@ -3787,7 +2248,7 @@ export const de_DescribeStacksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStacksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStacksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3800,32 +2261,6 @@ export const de_DescribeStacksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeStacksCommandError
- */
-const de_DescribeStacksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStacksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeUsageReportSubscriptionsCommand
  */
 export const de_DescribeUsageReportSubscriptionsCommand = async (
@@ -3833,7 +2268,7 @@ export const de_DescribeUsageReportSubscriptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUsageReportSubscriptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUsageReportSubscriptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3846,35 +2281,6 @@ export const de_DescribeUsageReportSubscriptionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError
- */
-const de_DescribeUsageReportSubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUsageReportSubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeUsersCommand
  */
 export const de_DescribeUsersCommand = async (
@@ -3882,7 +2288,7 @@ export const de_DescribeUsersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUsersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3895,38 +2301,6 @@ export const de_DescribeUsersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeUsersCommandError
- */
-const de_DescribeUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeUserStackAssociationsCommand
  */
 export const de_DescribeUserStackAssociationsCommand = async (
@@ -3934,7 +2308,7 @@ export const de_DescribeUserStackAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUserStackAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUserStackAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3947,35 +2321,6 @@ export const de_DescribeUserStackAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeUserStackAssociationsCommandError
- */
-const de_DescribeUserStackAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUserStackAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableUserCommand
  */
 export const de_DisableUserCommand = async (
@@ -3983,7 +2328,7 @@ export const de_DisableUserCommand = async (
   context: __SerdeContext
 ): Promise<DisableUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3996,32 +2341,6 @@ export const de_DisableUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableUserCommandError
- */
-const de_DisableUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateAppBlockBuilderAppBlockCommand
  */
 export const de_DisassociateAppBlockBuilderAppBlockCommand = async (
@@ -4029,7 +2348,7 @@ export const de_DisassociateAppBlockBuilderAppBlockCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateAppBlockBuilderAppBlockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateAppBlockBuilderAppBlockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4042,41 +2361,6 @@ export const de_DisassociateAppBlockBuilderAppBlockCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateAppBlockBuilderAppBlockCommandError
- */
-const de_DisassociateAppBlockBuilderAppBlockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateAppBlockBuilderAppBlockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateApplicationFleetCommand
  */
 export const de_DisassociateApplicationFleetCommand = async (
@@ -4084,7 +2368,7 @@ export const de_DisassociateApplicationFleetCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateApplicationFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateApplicationFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4097,38 +2381,6 @@ export const de_DisassociateApplicationFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateApplicationFleetCommandError
- */
-const de_DisassociateApplicationFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateApplicationFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateApplicationFromEntitlementCommand
  */
 export const de_DisassociateApplicationFromEntitlementCommand = async (
@@ -4136,7 +2388,7 @@ export const de_DisassociateApplicationFromEntitlementCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateApplicationFromEntitlementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateApplicationFromEntitlementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4149,38 +2401,6 @@ export const de_DisassociateApplicationFromEntitlementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateApplicationFromEntitlementCommandError
- */
-const de_DisassociateApplicationFromEntitlementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateApplicationFromEntitlementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntitlementNotFoundException":
-    case "com.amazonaws.appstream#EntitlementNotFoundException":
-      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateFleetCommand
  */
 export const de_DisassociateFleetCommand = async (
@@ -4188,7 +2408,7 @@ export const de_DisassociateFleetCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4201,41 +2421,6 @@ export const de_DisassociateFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateFleetCommandError
- */
-const de_DisassociateFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appstream#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EnableUserCommand
  */
 export const de_EnableUserCommand = async (
@@ -4243,7 +2428,7 @@ export const de_EnableUserCommand = async (
   context: __SerdeContext
 ): Promise<EnableUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4256,35 +2441,6 @@ export const de_EnableUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableUserCommandError
- */
-const de_EnableUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ExpireSessionCommand
  */
 export const de_ExpireSessionCommand = async (
@@ -4292,7 +2448,7 @@ export const de_ExpireSessionCommand = async (
   context: __SerdeContext
 ): Promise<ExpireSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExpireSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4305,26 +2461,6 @@ export const de_ExpireSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ExpireSessionCommandError
- */
-const de_ExpireSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExpireSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListAssociatedFleetsCommand
  */
 export const de_ListAssociatedFleetsCommand = async (
@@ -4332,7 +2468,7 @@ export const de_ListAssociatedFleetsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssociatedFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAssociatedFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4345,26 +2481,6 @@ export const de_ListAssociatedFleetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAssociatedFleetsCommandError
- */
-const de_ListAssociatedFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssociatedFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListAssociatedStacksCommand
  */
 export const de_ListAssociatedStacksCommand = async (
@@ -4372,7 +2488,7 @@ export const de_ListAssociatedStacksCommand = async (
   context: __SerdeContext
 ): Promise<ListAssociatedStacksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAssociatedStacksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4385,26 +2501,6 @@ export const de_ListAssociatedStacksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAssociatedStacksCommandError
- */
-const de_ListAssociatedStacksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssociatedStacksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListEntitledApplicationsCommand
  */
 export const de_ListEntitledApplicationsCommand = async (
@@ -4412,7 +2508,7 @@ export const de_ListEntitledApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<ListEntitledApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEntitledApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4425,38 +2521,6 @@ export const de_ListEntitledApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEntitledApplicationsCommandError
- */
-const de_ListEntitledApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEntitledApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntitlementNotFoundException":
-    case "com.amazonaws.appstream#EntitlementNotFoundException":
-      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -4464,7 +2528,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4477,32 +2541,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartAppBlockBuilderCommand
  */
 export const de_StartAppBlockBuilderCommand = async (
@@ -4510,7 +2548,7 @@ export const de_StartAppBlockBuilderCommand = async (
   context: __SerdeContext
 ): Promise<StartAppBlockBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartAppBlockBuilderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4523,50 +2561,6 @@ export const de_StartAppBlockBuilderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartAppBlockBuilderCommandError
- */
-const de_StartAppBlockBuilderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAppBlockBuilderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "RequestLimitExceededException":
-    case "com.amazonaws.appstream#RequestLimitExceededException":
-      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotAvailableException":
-    case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartFleetCommand
  */
 export const de_StartFleetCommand = async (
@@ -4574,7 +2568,7 @@ export const de_StartFleetCommand = async (
   context: __SerdeContext
 ): Promise<StartFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4587,53 +2581,6 @@ export const de_StartFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartFleetCommandError
- */
-const de_StartFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.appstream#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "RequestLimitExceededException":
-    case "com.amazonaws.appstream#RequestLimitExceededException":
-      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotAvailableException":
-    case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartImageBuilderCommand
  */
 export const de_StartImageBuilderCommand = async (
@@ -4641,7 +2588,7 @@ export const de_StartImageBuilderCommand = async (
   context: __SerdeContext
 ): Promise<StartImageBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartImageBuilderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4654,44 +2601,6 @@ export const de_StartImageBuilderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartImageBuilderCommandError
- */
-const de_StartImageBuilderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartImageBuilderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "IncompatibleImageException":
-    case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "ResourceNotAvailableException":
-    case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopAppBlockBuilderCommand
  */
 export const de_StopAppBlockBuilderCommand = async (
@@ -4699,7 +2608,7 @@ export const de_StopAppBlockBuilderCommand = async (
   context: __SerdeContext
 ): Promise<StopAppBlockBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopAppBlockBuilderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4712,38 +2621,6 @@ export const de_StopAppBlockBuilderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopAppBlockBuilderCommandError
- */
-const de_StopAppBlockBuilderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopAppBlockBuilderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopFleetCommand
  */
 export const de_StopFleetCommand = async (
@@ -4751,7 +2628,7 @@ export const de_StopFleetCommand = async (
   context: __SerdeContext
 ): Promise<StopFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4764,35 +2641,6 @@ export const de_StopFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopFleetCommandError
- */
-const de_StopFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopImageBuilderCommand
  */
 export const de_StopImageBuilderCommand = async (
@@ -4800,7 +2648,7 @@ export const de_StopImageBuilderCommand = async (
   context: __SerdeContext
 ): Promise<StopImageBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopImageBuilderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4813,38 +2661,6 @@ export const de_StopImageBuilderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopImageBuilderCommandError
- */
-const de_StopImageBuilderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopImageBuilderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -4852,7 +2668,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4865,38 +2681,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -4904,7 +2688,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4917,32 +2701,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateAppBlockBuilderCommand
  */
 export const de_UpdateAppBlockBuilderCommand = async (
@@ -4950,7 +2708,7 @@ export const de_UpdateAppBlockBuilderCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAppBlockBuilderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAppBlockBuilderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4963,59 +2721,6 @@ export const de_UpdateAppBlockBuilderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAppBlockBuilderCommandError
- */
-const de_UpdateAppBlockBuilderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAppBlockBuilderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.appstream#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "RequestLimitExceededException":
-    case "com.amazonaws.appstream#RequestLimitExceededException":
-      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appstream#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotAvailableException":
-    case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateApplicationCommand
  */
 export const de_UpdateApplicationCommand = async (
@@ -5023,7 +2728,7 @@ export const de_UpdateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5036,38 +2741,6 @@ export const de_UpdateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateApplicationCommandError
- */
-const de_UpdateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDirectoryConfigCommand
  */
 export const de_UpdateDirectoryConfigCommand = async (
@@ -5075,7 +2748,7 @@ export const de_UpdateDirectoryConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDirectoryConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDirectoryConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5088,44 +2761,6 @@ export const de_UpdateDirectoryConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDirectoryConfigCommandError
- */
-const de_UpdateDirectoryConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDirectoryConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.appstream#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appstream#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateEntitlementCommand
  */
 export const de_UpdateEntitlementCommand = async (
@@ -5133,7 +2768,7 @@ export const de_UpdateEntitlementCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEntitlementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateEntitlementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5146,41 +2781,6 @@ export const de_UpdateEntitlementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateEntitlementCommandError
- */
-const de_UpdateEntitlementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEntitlementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntitlementNotFoundException":
-    case "com.amazonaws.appstream#EntitlementNotFoundException":
-      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateFleetCommand
  */
 export const de_UpdateFleetCommand = async (
@@ -5188,7 +2788,7 @@ export const de_UpdateFleetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5201,62 +2801,6 @@ export const de_UpdateFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateFleetCommandError
- */
-const de_UpdateFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.appstream#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "IncompatibleImageException":
-    case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.appstream#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.appstream#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.appstream#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "RequestLimitExceededException":
-    case "com.amazonaws.appstream#RequestLimitExceededException":
-      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appstream#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotAvailableException":
-    case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateImagePermissionsCommand
  */
 export const de_UpdateImagePermissionsCommand = async (
@@ -5264,7 +2808,7 @@ export const de_UpdateImagePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateImagePermissionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateImagePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5277,38 +2821,6 @@ export const de_UpdateImagePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateImagePermissionsCommandError
- */
-const de_UpdateImagePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateImagePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.appstream#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotAvailableException":
-    case "com.amazonaws.appstream#ResourceNotAvailableException":
-      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.appstream#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateStackCommand
  */
 export const de_UpdateStackCommand = async (
@@ -5316,7 +2828,7 @@ export const de_UpdateStackCommand = async (
   context: __SerdeContext
 ): Promise<UpdateStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5329,12 +2841,9 @@ export const de_UpdateStackCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateStackCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateStackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStackCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5344,37 +2853,52 @@ const de_UpdateStackCommandError = async (
     case "ConcurrentModificationException":
     case "com.amazonaws.appstream#ConcurrentModificationException":
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "IncompatibleImageException":
-    case "com.amazonaws.appstream#IncompatibleImageException":
-      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
-    case "InvalidAccountStatusException":
-    case "com.amazonaws.appstream#InvalidAccountStatusException":
-      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.appstream#InvalidParameterCombinationException":
       throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.appstream#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.appstream#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.appstream#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "EntitlementNotFoundException":
+    case "com.amazonaws.appstream#EntitlementNotFoundException":
+      throw await de_EntitlementNotFoundExceptionRes(parsedOutput, context);
+    case "IncompatibleImageException":
+    case "com.amazonaws.appstream#IncompatibleImageException":
+      throw await de_IncompatibleImageExceptionRes(parsedOutput, context);
+    case "InvalidAccountStatusException":
+    case "com.amazonaws.appstream#InvalidAccountStatusException":
+      throw await de_InvalidAccountStatusExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.appstream#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotAvailableException":
+    case "com.amazonaws.appstream#ResourceNotAvailableException":
+      throw await de_ResourceNotAvailableExceptionRes(parsedOutput, context);
+    case "InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
+    case "RequestLimitExceededException":
+    case "com.amazonaws.appstream#RequestLimitExceededException":
+      throw await de_RequestLimitExceededExceptionRes(parsedOutput, context);
+    case "EntitlementAlreadyExistsException":
+    case "com.amazonaws.appstream#EntitlementAlreadyExistsException":
+      throw await de_EntitlementAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.appstream#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

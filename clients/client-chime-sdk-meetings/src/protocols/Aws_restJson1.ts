@@ -461,7 +461,7 @@ export const de_BatchCreateAttendeeCommand = async (
   context: __SerdeContext
 ): Promise<BatchCreateAttendeeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchCreateAttendeeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -473,56 +473,6 @@ export const de_BatchCreateAttendeeCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1BatchCreateAttendeeCommandError
- */
-const de_BatchCreateAttendeeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchCreateAttendeeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.chimesdkmeetings#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -533,60 +483,13 @@ export const de_BatchUpdateAttendeeCapabilitiesExceptCommand = async (
   context: __SerdeContext
 ): Promise<BatchUpdateAttendeeCapabilitiesExceptCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchUpdateAttendeeCapabilitiesExceptCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1BatchUpdateAttendeeCapabilitiesExceptCommandError
- */
-const de_BatchUpdateAttendeeCapabilitiesExceptCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchUpdateAttendeeCapabilitiesExceptCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmeetings#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -597,7 +500,7 @@ export const de_CreateAttendeeCommand = async (
   context: __SerdeContext
 ): Promise<CreateAttendeeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAttendeeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -611,56 +514,6 @@ export const de_CreateAttendeeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAttendeeCommandError
- */
-const de_CreateAttendeeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAttendeeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.chimesdkmeetings#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMeetingCommand
  */
 export const de_CreateMeetingCommand = async (
@@ -668,7 +521,7 @@ export const de_CreateMeetingCommand = async (
   context: __SerdeContext
 ): Promise<CreateMeetingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateMeetingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -682,53 +535,6 @@ export const de_CreateMeetingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMeetingCommandError
- */
-const de_CreateMeetingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMeetingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmeetings#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMeetingWithAttendeesCommand
  */
 export const de_CreateMeetingWithAttendeesCommand = async (
@@ -736,7 +542,7 @@ export const de_CreateMeetingWithAttendeesCommand = async (
   context: __SerdeContext
 ): Promise<CreateMeetingWithAttendeesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateMeetingWithAttendeesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -752,53 +558,6 @@ export const de_CreateMeetingWithAttendeesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMeetingWithAttendeesCommandError
- */
-const de_CreateMeetingWithAttendeesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMeetingWithAttendeesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmeetings#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAttendeeCommand
  */
 export const de_DeleteAttendeeCommand = async (
@@ -806,57 +565,13 @@ export const de_DeleteAttendeeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAttendeeCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteAttendeeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAttendeeCommandError
- */
-const de_DeleteAttendeeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAttendeeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -867,57 +582,13 @@ export const de_DeleteMeetingCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMeetingCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteMeetingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteMeetingCommandError
- */
-const de_DeleteMeetingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMeetingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -928,7 +599,7 @@ export const de_GetAttendeeCommand = async (
   context: __SerdeContext
 ): Promise<GetAttendeeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAttendeeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -942,50 +613,6 @@ export const de_GetAttendeeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAttendeeCommandError
- */
-const de_GetAttendeeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAttendeeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMeetingCommand
  */
 export const de_GetMeetingCommand = async (
@@ -993,7 +620,7 @@ export const de_GetMeetingCommand = async (
   context: __SerdeContext
 ): Promise<GetMeetingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMeetingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1007,50 +634,6 @@ export const de_GetMeetingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMeetingCommandError
- */
-const de_GetMeetingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMeetingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAttendeesCommand
  */
 export const de_ListAttendeesCommand = async (
@@ -1058,7 +641,7 @@ export const de_ListAttendeesCommand = async (
   context: __SerdeContext
 ): Promise<ListAttendeesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAttendeesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1073,50 +656,6 @@ export const de_ListAttendeesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAttendeesCommandError
- */
-const de_ListAttendeesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAttendeesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1124,7 +663,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1138,53 +677,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartMeetingTranscriptionCommand
  */
 export const de_StartMeetingTranscriptionCommand = async (
@@ -1192,63 +684,13 @@ export const de_StartMeetingTranscriptionCommand = async (
   context: __SerdeContext
 ): Promise<StartMeetingTranscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartMeetingTranscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StartMeetingTranscriptionCommandError
- */
-const de_StartMeetingTranscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMeetingTranscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.chimesdkmeetings#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1259,60 +701,13 @@ export const de_StopMeetingTranscriptionCommand = async (
   context: __SerdeContext
 ): Promise<StopMeetingTranscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopMeetingTranscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StopMeetingTranscriptionCommandError
- */
-const de_StopMeetingTranscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopMeetingTranscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmeetings#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnprocessableEntityException":
-    case "com.amazonaws.chimesdkmeetings#UnprocessableEntityException":
-      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1323,63 +718,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.chimesdkmeetings#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1390,60 +735,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmeetings#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmeetings#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.chimesdkmeetings#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmeetings#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmeetings#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.chimesdkmeetings#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1454,7 +752,7 @@ export const de_UpdateAttendeeCapabilitiesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAttendeeCapabilitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAttendeeCapabilitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1468,12 +766,9 @@ export const de_UpdateAttendeeCapabilitiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAttendeeCapabilitiesCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateAttendeeCapabilitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAttendeeCapabilitiesCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1483,12 +778,12 @@ const de_UpdateAttendeeCapabilitiesCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.chimesdkmeetings#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmeetings#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.chimesdkmeetings#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.chimesdkmeetings#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmeetings#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
@@ -1504,13 +799,25 @@ const de_UpdateAttendeeCapabilitiesCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.chimesdkmeetings#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.chimesdkmeetings#UnprocessableEntityException":
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.chimesdkmeetings#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.chimesdkmeetings#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.chimesdkmeetings#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

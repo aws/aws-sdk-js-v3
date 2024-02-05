@@ -531,7 +531,7 @@ export const de_DeleteRecommendationPreferencesCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRecommendationPreferencesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRecommendationPreferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -544,53 +544,6 @@ export const de_DeleteRecommendationPreferencesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteRecommendationPreferencesCommandError
- */
-const de_DeleteRecommendationPreferencesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRecommendationPreferencesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeRecommendationExportJobsCommand
  */
 export const de_DescribeRecommendationExportJobsCommand = async (
@@ -598,7 +551,7 @@ export const de_DescribeRecommendationExportJobsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRecommendationExportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRecommendationExportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -611,53 +564,6 @@ export const de_DescribeRecommendationExportJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeRecommendationExportJobsCommandError
- */
-const de_DescribeRecommendationExportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRecommendationExportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ExportAutoScalingGroupRecommendationsCommand
  */
 export const de_ExportAutoScalingGroupRecommendationsCommand = async (
@@ -665,7 +571,7 @@ export const de_ExportAutoScalingGroupRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<ExportAutoScalingGroupRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportAutoScalingGroupRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -678,53 +584,6 @@ export const de_ExportAutoScalingGroupRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ExportAutoScalingGroupRecommendationsCommandError
- */
-const de_ExportAutoScalingGroupRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportAutoScalingGroupRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.computeoptimizer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ExportEBSVolumeRecommendationsCommand
  */
 export const de_ExportEBSVolumeRecommendationsCommand = async (
@@ -732,7 +591,7 @@ export const de_ExportEBSVolumeRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<ExportEBSVolumeRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportEBSVolumeRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -745,53 +604,6 @@ export const de_ExportEBSVolumeRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ExportEBSVolumeRecommendationsCommandError
- */
-const de_ExportEBSVolumeRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportEBSVolumeRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.computeoptimizer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ExportEC2InstanceRecommendationsCommand
  */
 export const de_ExportEC2InstanceRecommendationsCommand = async (
@@ -799,7 +611,7 @@ export const de_ExportEC2InstanceRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<ExportEC2InstanceRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportEC2InstanceRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -812,53 +624,6 @@ export const de_ExportEC2InstanceRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ExportEC2InstanceRecommendationsCommandError
- */
-const de_ExportEC2InstanceRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportEC2InstanceRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.computeoptimizer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ExportECSServiceRecommendationsCommand
  */
 export const de_ExportECSServiceRecommendationsCommand = async (
@@ -866,7 +631,7 @@ export const de_ExportECSServiceRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<ExportECSServiceRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportECSServiceRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -879,53 +644,6 @@ export const de_ExportECSServiceRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ExportECSServiceRecommendationsCommandError
- */
-const de_ExportECSServiceRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportECSServiceRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.computeoptimizer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ExportLambdaFunctionRecommendationsCommand
  */
 export const de_ExportLambdaFunctionRecommendationsCommand = async (
@@ -933,7 +651,7 @@ export const de_ExportLambdaFunctionRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<ExportLambdaFunctionRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportLambdaFunctionRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -946,53 +664,6 @@ export const de_ExportLambdaFunctionRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ExportLambdaFunctionRecommendationsCommandError
- */
-const de_ExportLambdaFunctionRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportLambdaFunctionRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.computeoptimizer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ExportLicenseRecommendationsCommand
  */
 export const de_ExportLicenseRecommendationsCommand = async (
@@ -1000,7 +671,7 @@ export const de_ExportLicenseRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<ExportLicenseRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportLicenseRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1013,53 +684,6 @@ export const de_ExportLicenseRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ExportLicenseRecommendationsCommandError
- */
-const de_ExportLicenseRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportLicenseRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.computeoptimizer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommand
  */
 export const de_GetAutoScalingGroupRecommendationsCommand = async (
@@ -1067,7 +691,7 @@ export const de_GetAutoScalingGroupRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<GetAutoScalingGroupRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAutoScalingGroupRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1080,53 +704,6 @@ export const de_GetAutoScalingGroupRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommandError
- */
-const de_GetAutoScalingGroupRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAutoScalingGroupRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetEBSVolumeRecommendationsCommand
  */
 export const de_GetEBSVolumeRecommendationsCommand = async (
@@ -1134,7 +711,7 @@ export const de_GetEBSVolumeRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<GetEBSVolumeRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEBSVolumeRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1147,53 +724,6 @@ export const de_GetEBSVolumeRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetEBSVolumeRecommendationsCommandError
- */
-const de_GetEBSVolumeRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEBSVolumeRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetEC2InstanceRecommendationsCommand
  */
 export const de_GetEC2InstanceRecommendationsCommand = async (
@@ -1201,7 +731,7 @@ export const de_GetEC2InstanceRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<GetEC2InstanceRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEC2InstanceRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1214,53 +744,6 @@ export const de_GetEC2InstanceRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetEC2InstanceRecommendationsCommandError
- */
-const de_GetEC2InstanceRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEC2InstanceRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand
  */
 export const de_GetEC2RecommendationProjectedMetricsCommand = async (
@@ -1268,7 +751,7 @@ export const de_GetEC2RecommendationProjectedMetricsCommand = async (
   context: __SerdeContext
 ): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEC2RecommendationProjectedMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1281,53 +764,6 @@ export const de_GetEC2RecommendationProjectedMetricsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommandError
- */
-const de_GetEC2RecommendationProjectedMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEC2RecommendationProjectedMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommand
  */
 export const de_GetECSServiceRecommendationProjectedMetricsCommand = async (
@@ -1335,7 +771,7 @@ export const de_GetECSServiceRecommendationProjectedMetricsCommand = async (
   context: __SerdeContext
 ): Promise<GetECSServiceRecommendationProjectedMetricsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetECSServiceRecommendationProjectedMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1348,53 +784,6 @@ export const de_GetECSServiceRecommendationProjectedMetricsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetECSServiceRecommendationProjectedMetricsCommandError
- */
-const de_GetECSServiceRecommendationProjectedMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetECSServiceRecommendationProjectedMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetECSServiceRecommendationsCommand
  */
 export const de_GetECSServiceRecommendationsCommand = async (
@@ -1402,7 +791,7 @@ export const de_GetECSServiceRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<GetECSServiceRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetECSServiceRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1415,53 +804,6 @@ export const de_GetECSServiceRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetECSServiceRecommendationsCommandError
- */
-const de_GetECSServiceRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetECSServiceRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetEffectiveRecommendationPreferencesCommand
  */
 export const de_GetEffectiveRecommendationPreferencesCommand = async (
@@ -1469,7 +811,7 @@ export const de_GetEffectiveRecommendationPreferencesCommand = async (
   context: __SerdeContext
 ): Promise<GetEffectiveRecommendationPreferencesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEffectiveRecommendationPreferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1482,53 +824,6 @@ export const de_GetEffectiveRecommendationPreferencesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetEffectiveRecommendationPreferencesCommandError
- */
-const de_GetEffectiveRecommendationPreferencesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEffectiveRecommendationPreferencesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetEnrollmentStatusCommand
  */
 export const de_GetEnrollmentStatusCommand = async (
@@ -1536,7 +831,7 @@ export const de_GetEnrollmentStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetEnrollmentStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEnrollmentStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1549,47 +844,6 @@ export const de_GetEnrollmentStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetEnrollmentStatusCommandError
- */
-const de_GetEnrollmentStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEnrollmentStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetEnrollmentStatusesForOrganizationCommand
  */
 export const de_GetEnrollmentStatusesForOrganizationCommand = async (
@@ -1597,7 +851,7 @@ export const de_GetEnrollmentStatusesForOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<GetEnrollmentStatusesForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEnrollmentStatusesForOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1610,47 +864,6 @@ export const de_GetEnrollmentStatusesForOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetEnrollmentStatusesForOrganizationCommandError
- */
-const de_GetEnrollmentStatusesForOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEnrollmentStatusesForOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetLambdaFunctionRecommendationsCommand
  */
 export const de_GetLambdaFunctionRecommendationsCommand = async (
@@ -1658,7 +871,7 @@ export const de_GetLambdaFunctionRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<GetLambdaFunctionRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLambdaFunctionRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1671,53 +884,6 @@ export const de_GetLambdaFunctionRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetLambdaFunctionRecommendationsCommandError
- */
-const de_GetLambdaFunctionRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLambdaFunctionRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.computeoptimizer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetLicenseRecommendationsCommand
  */
 export const de_GetLicenseRecommendationsCommand = async (
@@ -1725,7 +891,7 @@ export const de_GetLicenseRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<GetLicenseRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLicenseRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1738,53 +904,6 @@ export const de_GetLicenseRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetLicenseRecommendationsCommandError
- */
-const de_GetLicenseRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLicenseRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetRecommendationPreferencesCommand
  */
 export const de_GetRecommendationPreferencesCommand = async (
@@ -1792,7 +911,7 @@ export const de_GetRecommendationPreferencesCommand = async (
   context: __SerdeContext
 ): Promise<GetRecommendationPreferencesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRecommendationPreferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1805,53 +924,6 @@ export const de_GetRecommendationPreferencesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetRecommendationPreferencesCommandError
- */
-const de_GetRecommendationPreferencesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecommendationPreferencesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.computeoptimizer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetRecommendationSummariesCommand
  */
 export const de_GetRecommendationSummariesCommand = async (
@@ -1859,7 +931,7 @@ export const de_GetRecommendationSummariesCommand = async (
   context: __SerdeContext
 ): Promise<GetRecommendationSummariesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRecommendationSummariesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1872,50 +944,6 @@ export const de_GetRecommendationSummariesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetRecommendationSummariesCommandError
- */
-const de_GetRecommendationSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecommendationSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "OptInRequiredException":
-    case "com.amazonaws.computeoptimizer#OptInRequiredException":
-      throw await de_OptInRequiredExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PutRecommendationPreferencesCommand
  */
 export const de_PutRecommendationPreferencesCommand = async (
@@ -1923,7 +951,7 @@ export const de_PutRecommendationPreferencesCommand = async (
   context: __SerdeContext
 ): Promise<PutRecommendationPreferencesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRecommendationPreferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1936,12 +964,29 @@ export const de_PutRecommendationPreferencesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PutRecommendationPreferencesCommandError
+ * deserializeAws_json1_0UpdateEnrollmentStatusCommand
  */
-const de_PutRecommendationPreferencesCommandError = async (
+export const de_UpdateEnrollmentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutRecommendationPreferencesCommandOutput> => {
+): Promise<UpdateEnrollmentStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateEnrollmentStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_0CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1972,74 +1017,16 @@ const de_PutRecommendationPreferencesCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.computeoptimizer#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.computeoptimizer#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UpdateEnrollmentStatusCommand
- */
-export const de_UpdateEnrollmentStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEnrollmentStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateEnrollmentStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateEnrollmentStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UpdateEnrollmentStatusCommandError
- */
-const de_UpdateEnrollmentStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEnrollmentStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.computeoptimizer#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.computeoptimizer#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.computeoptimizer#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingAuthenticationToken":
-    case "com.amazonaws.computeoptimizer#MissingAuthenticationToken":
-      throw await de_MissingAuthenticationTokenRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.computeoptimizer#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.computeoptimizer#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

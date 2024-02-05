@@ -708,7 +708,7 @@ export const de_AssociateCustomDomainCommand = async (
   context: __SerdeContext
 ): Promise<AssociateCustomDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateCustomDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -721,38 +721,6 @@ export const de_AssociateCustomDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_0AssociateCustomDomainCommandError
- */
-const de_AssociateCustomDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateCustomDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.apprunner#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateAutoScalingConfigurationCommand
  */
 export const de_CreateAutoScalingConfigurationCommand = async (
@@ -760,7 +728,7 @@ export const de_CreateAutoScalingConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateAutoScalingConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAutoScalingConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -773,38 +741,6 @@ export const de_CreateAutoScalingConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateAutoScalingConfigurationCommandError
- */
-const de_CreateAutoScalingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAutoScalingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.apprunner#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateConnectionCommand
  */
 export const de_CreateConnectionCommand = async (
@@ -812,7 +748,7 @@ export const de_CreateConnectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -825,38 +761,6 @@ export const de_CreateConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateConnectionCommandError
- */
-const de_CreateConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.apprunner#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateObservabilityConfigurationCommand
  */
 export const de_CreateObservabilityConfigurationCommand = async (
@@ -864,7 +768,7 @@ export const de_CreateObservabilityConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateObservabilityConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateObservabilityConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -877,38 +781,6 @@ export const de_CreateObservabilityConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateObservabilityConfigurationCommandError
- */
-const de_CreateObservabilityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateObservabilityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.apprunner#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateServiceCommand
  */
 export const de_CreateServiceCommand = async (
@@ -916,7 +788,7 @@ export const de_CreateServiceCommand = async (
   context: __SerdeContext
 ): Promise<CreateServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateServiceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -929,38 +801,6 @@ export const de_CreateServiceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateServiceCommandError
- */
-const de_CreateServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.apprunner#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateVpcConnectorCommand
  */
 export const de_CreateVpcConnectorCommand = async (
@@ -968,7 +808,7 @@ export const de_CreateVpcConnectorCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpcConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -981,38 +821,6 @@ export const de_CreateVpcConnectorCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateVpcConnectorCommandError
- */
-const de_CreateVpcConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpcConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.apprunner#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateVpcIngressConnectionCommand
  */
 export const de_CreateVpcIngressConnectionCommand = async (
@@ -1020,7 +828,7 @@ export const de_CreateVpcIngressConnectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcIngressConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpcIngressConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1033,12 +841,609 @@ export const de_CreateVpcIngressConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateVpcIngressConnectionCommandError
+ * deserializeAws_json1_0DeleteAutoScalingConfigurationCommand
  */
-const de_CreateVpcIngressConnectionCommandError = async (
+export const de_DeleteAutoScalingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateVpcIngressConnectionCommandOutput> => {
+): Promise<DeleteAutoScalingConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteAutoScalingConfigurationResponse(data, context);
+  const response: DeleteAutoScalingConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteConnectionCommand
+ */
+export const de_DeleteConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteConnectionResponse(data, context);
+  const response: DeleteConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteObservabilityConfigurationCommand
+ */
+export const de_DeleteObservabilityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteObservabilityConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteObservabilityConfigurationResponse(data, context);
+  const response: DeleteObservabilityConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteServiceCommand
+ */
+export const de_DeleteServiceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteServiceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteServiceResponse(data, context);
+  const response: DeleteServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteVpcConnectorCommand
+ */
+export const de_DeleteVpcConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcConnectorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteVpcConnectorResponse(data, context);
+  const response: DeleteVpcConnectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteVpcIngressConnectionCommand
+ */
+export const de_DeleteVpcIngressConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcIngressConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteVpcIngressConnectionResponse(data, context);
+  const response: DeleteVpcIngressConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeAutoScalingConfigurationCommand
+ */
+export const de_DescribeAutoScalingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAutoScalingConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAutoScalingConfigurationResponse(data, context);
+  const response: DescribeAutoScalingConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeCustomDomainsCommand
+ */
+export const de_DescribeCustomDomainsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomDomainsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeCustomDomainsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeObservabilityConfigurationCommand
+ */
+export const de_DescribeObservabilityConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeObservabilityConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeObservabilityConfigurationResponse(data, context);
+  const response: DescribeObservabilityConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeServiceCommand
+ */
+export const de_DescribeServiceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServiceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeServiceResponse(data, context);
+  const response: DescribeServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeVpcConnectorCommand
+ */
+export const de_DescribeVpcConnectorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVpcConnectorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeVpcConnectorResponse(data, context);
+  const response: DescribeVpcConnectorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DescribeVpcIngressConnectionCommand
+ */
+export const de_DescribeVpcIngressConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVpcIngressConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeVpcIngressConnectionResponse(data, context);
+  const response: DescribeVpcIngressConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DisassociateCustomDomainCommand
+ */
+export const de_DisassociateCustomDomainCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateCustomDomainCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateCustomDomainCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListAutoScalingConfigurationsCommand
+ */
+export const de_ListAutoScalingConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAutoScalingConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAutoScalingConfigurationsResponse(data, context);
+  const response: ListAutoScalingConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListConnectionsCommand
+ */
+export const de_ListConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListConnectionsResponse(data, context);
+  const response: ListConnectionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListObservabilityConfigurationsCommand
+ */
+export const de_ListObservabilityConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListObservabilityConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListObservabilityConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListOperationsCommand
+ */
+export const de_ListOperationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOperationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListOperationsResponse(data, context);
+  const response: ListOperationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListServicesCommand
+ */
+export const de_ListServicesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServicesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListServicesResponse(data, context);
+  const response: ListServicesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListServicesForAutoScalingConfigurationCommand
+ */
+export const de_ListServicesForAutoScalingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServicesForAutoScalingConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListServicesForAutoScalingConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListVpcConnectorsCommand
+ */
+export const de_ListVpcConnectorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVpcConnectorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListVpcConnectorsResponse(data, context);
+  const response: ListVpcConnectorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListVpcIngressConnectionsCommand
+ */
+export const de_ListVpcIngressConnectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVpcIngressConnectionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListVpcIngressConnectionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0PauseServiceCommand
+ */
+export const de_PauseServiceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PauseServiceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PauseServiceResponse(data, context);
+  const response: PauseServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ResumeServiceCommand
+ */
+export const de_ResumeServiceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeServiceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ResumeServiceResponse(data, context);
+  const response: ResumeServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0StartDeploymentCommand
+ */
+export const de_StartDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateDefaultAutoScalingConfigurationCommand
+ */
+export const de_UpdateDefaultAutoScalingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDefaultAutoScalingConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateDefaultAutoScalingConfigurationResponse(data, context);
+  const response: UpdateDefaultAutoScalingConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateServiceCommand
+ */
+export const de_UpdateServiceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServiceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateServiceResponse(data, context);
+  const response: UpdateServiceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateVpcIngressConnectionCommand
+ */
+export const de_UpdateVpcIngressConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVpcIngressConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateVpcIngressConnectionResponse(data, context);
+  const response: UpdateVpcIngressConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_0CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1057,55 +1462,6 @@ const de_CreateVpcIngressConnectionCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.apprunner#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteAutoScalingConfigurationCommand
- */
-export const de_DeleteAutoScalingConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAutoScalingConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteAutoScalingConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteAutoScalingConfigurationResponse(data, context);
-  const response: DeleteAutoScalingConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteAutoScalingConfigurationCommandError
- */
-const de_DeleteAutoScalingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAutoScalingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.apprunner#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -1115,1527 +1471,7 @@ const de_DeleteAutoScalingConfigurationCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteConnectionCommand
- */
-export const de_DeleteConnectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteConnectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteConnectionResponse(data, context);
-  const response: DeleteConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteConnectionCommandError
- */
-const de_DeleteConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteObservabilityConfigurationCommand
- */
-export const de_DeleteObservabilityConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteObservabilityConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteObservabilityConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteObservabilityConfigurationResponse(data, context);
-  const response: DeleteObservabilityConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteObservabilityConfigurationCommandError
- */
-const de_DeleteObservabilityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteObservabilityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteServiceCommand
- */
-export const de_DeleteServiceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServiceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteServiceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteServiceResponse(data, context);
-  const response: DeleteServiceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteServiceCommandError
- */
-const de_DeleteServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.apprunner#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteVpcConnectorCommand
- */
-export const de_DeleteVpcConnectorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcConnectorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteVpcConnectorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteVpcConnectorResponse(data, context);
-  const response: DeleteVpcConnectorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteVpcConnectorCommandError
- */
-const de_DeleteVpcConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DeleteVpcIngressConnectionCommand
- */
-export const de_DeleteVpcIngressConnectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcIngressConnectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteVpcIngressConnectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteVpcIngressConnectionResponse(data, context);
-  const response: DeleteVpcIngressConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DeleteVpcIngressConnectionCommandError
- */
-const de_DeleteVpcIngressConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcIngressConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.apprunner#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeAutoScalingConfigurationCommand
- */
-export const de_DescribeAutoScalingConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutoScalingConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAutoScalingConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAutoScalingConfigurationResponse(data, context);
-  const response: DescribeAutoScalingConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeAutoScalingConfigurationCommandError
- */
-const de_DescribeAutoScalingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutoScalingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeCustomDomainsCommand
- */
-export const de_DescribeCustomDomainsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomDomainsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCustomDomainsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeCustomDomainsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeCustomDomainsCommandError
- */
-const de_DescribeCustomDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeObservabilityConfigurationCommand
- */
-export const de_DescribeObservabilityConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeObservabilityConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeObservabilityConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeObservabilityConfigurationResponse(data, context);
-  const response: DescribeObservabilityConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeObservabilityConfigurationCommandError
- */
-const de_DescribeObservabilityConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeObservabilityConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeServiceCommand
- */
-export const de_DescribeServiceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServiceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeServiceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeServiceResponse(data, context);
-  const response: DescribeServiceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeServiceCommandError
- */
-const de_DescribeServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeVpcConnectorCommand
- */
-export const de_DescribeVpcConnectorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcConnectorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeVpcConnectorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeVpcConnectorResponse(data, context);
-  const response: DescribeVpcConnectorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeVpcConnectorCommandError
- */
-const de_DescribeVpcConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DescribeVpcIngressConnectionCommand
- */
-export const de_DescribeVpcIngressConnectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcIngressConnectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeVpcIngressConnectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeVpcIngressConnectionResponse(data, context);
-  const response: DescribeVpcIngressConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DescribeVpcIngressConnectionCommandError
- */
-const de_DescribeVpcIngressConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcIngressConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0DisassociateCustomDomainCommand
- */
-export const de_DisassociateCustomDomainCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateCustomDomainCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisassociateCustomDomainCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DisassociateCustomDomainCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0DisassociateCustomDomainCommandError
- */
-const de_DisassociateCustomDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateCustomDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.apprunner#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListAutoScalingConfigurationsCommand
- */
-export const de_ListAutoScalingConfigurationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAutoScalingConfigurationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAutoScalingConfigurationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListAutoScalingConfigurationsResponse(data, context);
-  const response: ListAutoScalingConfigurationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListAutoScalingConfigurationsCommandError
- */
-const de_ListAutoScalingConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAutoScalingConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListConnectionsCommand
- */
-export const de_ListConnectionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConnectionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListConnectionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListConnectionsResponse(data, context);
-  const response: ListConnectionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListConnectionsCommandError
- */
-const de_ListConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListObservabilityConfigurationsCommand
- */
-export const de_ListObservabilityConfigurationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListObservabilityConfigurationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListObservabilityConfigurationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListObservabilityConfigurationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListObservabilityConfigurationsCommandError
- */
-const de_ListObservabilityConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListObservabilityConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListOperationsCommand
- */
-export const de_ListOperationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOperationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListOperationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListOperationsResponse(data, context);
-  const response: ListOperationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListOperationsCommandError
- */
-const de_ListOperationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOperationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListServicesCommand
- */
-export const de_ListServicesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListServicesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListServicesResponse(data, context);
-  const response: ListServicesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListServicesCommandError
- */
-const de_ListServicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListServicesForAutoScalingConfigurationCommand
- */
-export const de_ListServicesForAutoScalingConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicesForAutoScalingConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListServicesForAutoScalingConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListServicesForAutoScalingConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListServicesForAutoScalingConfigurationCommandError
- */
-const de_ListServicesForAutoScalingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServicesForAutoScalingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.apprunner#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListVpcConnectorsCommand
- */
-export const de_ListVpcConnectorsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVpcConnectorsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListVpcConnectorsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListVpcConnectorsResponse(data, context);
-  const response: ListVpcConnectorsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListVpcConnectorsCommandError
- */
-const de_ListVpcConnectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVpcConnectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ListVpcIngressConnectionsCommand
- */
-export const de_ListVpcIngressConnectionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVpcIngressConnectionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListVpcIngressConnectionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListVpcIngressConnectionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ListVpcIngressConnectionsCommandError
- */
-const de_ListVpcIngressConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVpcIngressConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0PauseServiceCommand
- */
-export const de_PauseServiceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PauseServiceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PauseServiceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PauseServiceResponse(data, context);
-  const response: PauseServiceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0PauseServiceCommandError
- */
-const de_PauseServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PauseServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.apprunner#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0ResumeServiceCommand
- */
-export const de_ResumeServiceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeServiceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResumeServiceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ResumeServiceResponse(data, context);
-  const response: ResumeServiceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0ResumeServiceCommandError
- */
-const de_ResumeServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.apprunner#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0StartDeploymentCommand
- */
-export const de_StartDeploymentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDeploymentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartDeploymentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartDeploymentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0StartDeploymentCommandError
- */
-const de_StartDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.apprunner#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.apprunner#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UpdateDefaultAutoScalingConfigurationCommand
- */
-export const de_UpdateDefaultAutoScalingConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDefaultAutoScalingConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDefaultAutoScalingConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateDefaultAutoScalingConfigurationResponse(data, context);
-  const response: UpdateDefaultAutoScalingConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UpdateDefaultAutoScalingConfigurationCommandError
- */
-const de_UpdateDefaultAutoScalingConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDefaultAutoScalingConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UpdateServiceCommand
- */
-export const de_UpdateServiceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateServiceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateServiceResponse(data, context);
-  const response: UpdateServiceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UpdateServiceCommandError
- */
-const de_UpdateServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.apprunner#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0UpdateVpcIngressConnectionCommand
- */
-export const de_UpdateVpcIngressConnectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVpcIngressConnectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateVpcIngressConnectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateVpcIngressConnectionResponse(data, context);
-  const response: UpdateVpcIngressConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0UpdateVpcIngressConnectionCommandError
- */
-const de_UpdateVpcIngressConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVpcIngressConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.apprunner#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.apprunner#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.apprunner#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.apprunner#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

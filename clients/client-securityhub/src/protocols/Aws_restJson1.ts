@@ -2611,51 +2611,13 @@ export const de_AcceptAdministratorInvitationCommand = async (
   context: __SerdeContext
 ): Promise<AcceptAdministratorInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AcceptAdministratorInvitationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AcceptAdministratorInvitationCommandError
- */
-const de_AcceptAdministratorInvitationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptAdministratorInvitationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2666,51 +2628,13 @@ export const de_AcceptInvitationCommand = async (
   context: __SerdeContext
 ): Promise<AcceptInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AcceptInvitationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AcceptInvitationCommandError
- */
-const de_AcceptInvitationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptInvitationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2721,7 +2645,7 @@ export const de_BatchDeleteAutomationRulesCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteAutomationRulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchDeleteAutomationRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2736,44 +2660,6 @@ export const de_BatchDeleteAutomationRulesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchDeleteAutomationRulesCommandError
- */
-const de_BatchDeleteAutomationRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteAutomationRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchDisableStandardsCommand
  */
 export const de_BatchDisableStandardsCommand = async (
@@ -2781,7 +2667,7 @@ export const de_BatchDisableStandardsCommand = async (
   context: __SerdeContext
 ): Promise<BatchDisableStandardsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchDisableStandardsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2792,44 +2678,6 @@ export const de_BatchDisableStandardsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1BatchDisableStandardsCommandError
- */
-const de_BatchDisableStandardsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDisableStandardsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2840,7 +2688,7 @@ export const de_BatchEnableStandardsCommand = async (
   context: __SerdeContext
 ): Promise<BatchEnableStandardsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchEnableStandardsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2854,44 +2702,6 @@ export const de_BatchEnableStandardsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchEnableStandardsCommandError
- */
-const de_BatchEnableStandardsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchEnableStandardsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchGetAutomationRulesCommand
  */
 export const de_BatchGetAutomationRulesCommand = async (
@@ -2899,7 +2709,7 @@ export const de_BatchGetAutomationRulesCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetAutomationRulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetAutomationRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2914,47 +2724,6 @@ export const de_BatchGetAutomationRulesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetAutomationRulesCommandError
- */
-const de_BatchGetAutomationRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetAutomationRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchGetConfigurationPolicyAssociationsCommand
  */
 export const de_BatchGetConfigurationPolicyAssociationsCommand = async (
@@ -2962,7 +2731,7 @@ export const de_BatchGetConfigurationPolicyAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetConfigurationPolicyAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetConfigurationPolicyAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2977,47 +2746,6 @@ export const de_BatchGetConfigurationPolicyAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetConfigurationPolicyAssociationsCommandError
- */
-const de_BatchGetConfigurationPolicyAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetConfigurationPolicyAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchGetSecurityControlsCommand
  */
 export const de_BatchGetSecurityControlsCommand = async (
@@ -3025,7 +2753,7 @@ export const de_BatchGetSecurityControlsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetSecurityControlsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetSecurityControlsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3040,41 +2768,6 @@ export const de_BatchGetSecurityControlsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetSecurityControlsCommandError
- */
-const de_BatchGetSecurityControlsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetSecurityControlsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchGetStandardsControlAssociationsCommand
  */
 export const de_BatchGetStandardsControlAssociationsCommand = async (
@@ -3082,7 +2775,7 @@ export const de_BatchGetStandardsControlAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetStandardsControlAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchGetStandardsControlAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3097,41 +2790,6 @@ export const de_BatchGetStandardsControlAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchGetStandardsControlAssociationsCommandError
- */
-const de_BatchGetStandardsControlAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetStandardsControlAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchImportFindingsCommand
  */
 export const de_BatchImportFindingsCommand = async (
@@ -3139,7 +2797,7 @@ export const de_BatchImportFindingsCommand = async (
   context: __SerdeContext
 ): Promise<BatchImportFindingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchImportFindingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3155,41 +2813,6 @@ export const de_BatchImportFindingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchImportFindingsCommandError
- */
-const de_BatchImportFindingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchImportFindingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchUpdateAutomationRulesCommand
  */
 export const de_BatchUpdateAutomationRulesCommand = async (
@@ -3197,7 +2820,7 @@ export const de_BatchUpdateAutomationRulesCommand = async (
   context: __SerdeContext
 ): Promise<BatchUpdateAutomationRulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchUpdateAutomationRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3212,44 +2835,6 @@ export const de_BatchUpdateAutomationRulesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchUpdateAutomationRulesCommandError
- */
-const de_BatchUpdateAutomationRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchUpdateAutomationRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchUpdateFindingsCommand
  */
 export const de_BatchUpdateFindingsCommand = async (
@@ -3257,7 +2842,7 @@ export const de_BatchUpdateFindingsCommand = async (
   context: __SerdeContext
 ): Promise<BatchUpdateFindingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchUpdateFindingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3272,41 +2857,6 @@ export const de_BatchUpdateFindingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchUpdateFindingsCommandError
- */
-const de_BatchUpdateFindingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchUpdateFindingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand
  */
 export const de_BatchUpdateStandardsControlAssociationsCommand = async (
@@ -3314,7 +2864,7 @@ export const de_BatchUpdateStandardsControlAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<BatchUpdateStandardsControlAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchUpdateStandardsControlAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3328,44 +2878,6 @@ export const de_BatchUpdateStandardsControlAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommandError
- */
-const de_BatchUpdateStandardsControlAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchUpdateStandardsControlAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateActionTargetCommand
  */
 export const de_CreateActionTargetCommand = async (
@@ -3373,7 +2885,7 @@ export const de_CreateActionTargetCommand = async (
   context: __SerdeContext
 ): Promise<CreateActionTargetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateActionTargetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3387,44 +2899,6 @@ export const de_CreateActionTargetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateActionTargetCommandError
- */
-const de_CreateActionTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateActionTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.securityhub#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAutomationRuleCommand
  */
 export const de_CreateAutomationRuleCommand = async (
@@ -3432,7 +2906,7 @@ export const de_CreateAutomationRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateAutomationRuleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateAutomationRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3446,44 +2920,6 @@ export const de_CreateAutomationRuleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAutomationRuleCommandError
- */
-const de_CreateAutomationRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAutomationRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateConfigurationPolicyCommand
  */
 export const de_CreateConfigurationPolicyCommand = async (
@@ -3491,7 +2927,7 @@ export const de_CreateConfigurationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigurationPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateConfigurationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3511,47 +2947,6 @@ export const de_CreateConfigurationPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateConfigurationPolicyCommandError
- */
-const de_CreateConfigurationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigurationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.securityhub#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFindingAggregatorCommand
  */
 export const de_CreateFindingAggregatorCommand = async (
@@ -3559,7 +2954,7 @@ export const de_CreateFindingAggregatorCommand = async (
   context: __SerdeContext
 ): Promise<CreateFindingAggregatorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateFindingAggregatorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3576,44 +2971,6 @@ export const de_CreateFindingAggregatorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFindingAggregatorCommandError
- */
-const de_CreateFindingAggregatorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFindingAggregatorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateInsightCommand
  */
 export const de_CreateInsightCommand = async (
@@ -3621,7 +2978,7 @@ export const de_CreateInsightCommand = async (
   context: __SerdeContext
 ): Promise<CreateInsightCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateInsightCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3635,44 +2992,6 @@ export const de_CreateInsightCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateInsightCommandError
- */
-const de_CreateInsightCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInsightCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.securityhub#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMembersCommand
  */
 export const de_CreateMembersCommand = async (
@@ -3680,7 +2999,7 @@ export const de_CreateMembersCommand = async (
   context: __SerdeContext
 ): Promise<CreateMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateMembersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3691,47 +3010,6 @@ export const de_CreateMembersCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateMembersCommandError
- */
-const de_CreateMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.securityhub#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3742,7 +3020,7 @@ export const de_DeclineInvitationsCommand = async (
   context: __SerdeContext
 ): Promise<DeclineInvitationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeclineInvitationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3756,41 +3034,6 @@ export const de_DeclineInvitationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeclineInvitationsCommandError
- */
-const de_DeclineInvitationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeclineInvitationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteActionTargetCommand
  */
 export const de_DeleteActionTargetCommand = async (
@@ -3798,7 +3041,7 @@ export const de_DeleteActionTargetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteActionTargetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteActionTargetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3812,41 +3055,6 @@ export const de_DeleteActionTargetCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteActionTargetCommandError
- */
-const de_DeleteActionTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteActionTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteConfigurationPolicyCommand
  */
 export const de_DeleteConfigurationPolicyCommand = async (
@@ -3854,57 +3062,13 @@ export const de_DeleteConfigurationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteConfigurationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteConfigurationPolicyCommandError
- */
-const de_DeleteConfigurationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.securityhub#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3915,54 +3079,13 @@ export const de_DeleteFindingAggregatorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFindingAggregatorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteFindingAggregatorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFindingAggregatorCommandError
- */
-const de_DeleteFindingAggregatorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFindingAggregatorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3973,7 +3096,7 @@ export const de_DeleteInsightCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInsightCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteInsightCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3987,44 +3110,6 @@ export const de_DeleteInsightCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteInsightCommandError
- */
-const de_DeleteInsightCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInsightCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteInvitationsCommand
  */
 export const de_DeleteInvitationsCommand = async (
@@ -4032,7 +3117,7 @@ export const de_DeleteInvitationsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInvitationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteInvitationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4043,44 +3128,6 @@ export const de_DeleteInvitationsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteInvitationsCommandError
- */
-const de_DeleteInvitationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInvitationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4091,7 +3138,7 @@ export const de_DeleteMembersCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteMembersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4105,44 +3152,6 @@ export const de_DeleteMembersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteMembersCommandError
- */
-const de_DeleteMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeActionTargetsCommand
  */
 export const de_DescribeActionTargetsCommand = async (
@@ -4150,7 +3159,7 @@ export const de_DescribeActionTargetsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeActionTargetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeActionTargetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4165,41 +3174,6 @@ export const de_DescribeActionTargetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeActionTargetsCommandError
- */
-const de_DescribeActionTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeActionTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeHubCommand
  */
 export const de_DescribeHubCommand = async (
@@ -4207,7 +3181,7 @@ export const de_DescribeHubCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHubCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeHubCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4224,44 +3198,6 @@ export const de_DescribeHubCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeHubCommandError
- */
-const de_DescribeHubCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHubCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeOrganizationConfigurationCommand
  */
 export const de_DescribeOrganizationConfigurationCommand = async (
@@ -4269,7 +3205,7 @@ export const de_DescribeOrganizationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOrganizationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeOrganizationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4286,41 +3222,6 @@ export const de_DescribeOrganizationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeOrganizationConfigurationCommandError
- */
-const de_DescribeOrganizationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeProductsCommand
  */
 export const de_DescribeProductsCommand = async (
@@ -4328,7 +3229,7 @@ export const de_DescribeProductsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProductsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeProductsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4343,41 +3244,6 @@ export const de_DescribeProductsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeProductsCommandError
- */
-const de_DescribeProductsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProductsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeStandardsCommand
  */
 export const de_DescribeStandardsCommand = async (
@@ -4385,7 +3251,7 @@ export const de_DescribeStandardsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStandardsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeStandardsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4400,38 +3266,6 @@ export const de_DescribeStandardsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeStandardsCommandError
- */
-const de_DescribeStandardsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStandardsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeStandardsControlsCommand
  */
 export const de_DescribeStandardsControlsCommand = async (
@@ -4439,7 +3273,7 @@ export const de_DescribeStandardsControlsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStandardsControlsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeStandardsControlsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4454,41 +3288,6 @@ export const de_DescribeStandardsControlsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeStandardsControlsCommandError
- */
-const de_DescribeStandardsControlsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStandardsControlsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DisableImportFindingsForProductCommand
  */
 export const de_DisableImportFindingsForProductCommand = async (
@@ -4496,51 +3295,13 @@ export const de_DisableImportFindingsForProductCommand = async (
   context: __SerdeContext
 ): Promise<DisableImportFindingsForProductCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisableImportFindingsForProductCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisableImportFindingsForProductCommandError
- */
-const de_DisableImportFindingsForProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableImportFindingsForProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4551,51 +3312,13 @@ export const de_DisableOrganizationAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<DisableOrganizationAdminAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisableOrganizationAdminAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisableOrganizationAdminAccountCommandError
- */
-const de_DisableOrganizationAdminAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableOrganizationAdminAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4606,51 +3329,13 @@ export const de_DisableSecurityHubCommand = async (
   context: __SerdeContext
 ): Promise<DisableSecurityHubCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisableSecurityHubCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisableSecurityHubCommandError
- */
-const de_DisableSecurityHubCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableSecurityHubCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4661,51 +3346,13 @@ export const de_DisassociateFromAdministratorAccountCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateFromAdministratorAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateFromAdministratorAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateFromAdministratorAccountCommandError
- */
-const de_DisassociateFromAdministratorAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateFromAdministratorAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4716,51 +3363,13 @@ export const de_DisassociateFromMasterAccountCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateFromMasterAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateFromMasterAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateFromMasterAccountCommandError
- */
-const de_DisassociateFromMasterAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateFromMasterAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4771,54 +3380,13 @@ export const de_DisassociateMembersCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateMembersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateMembersCommandError
- */
-const de_DisassociateMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4829,7 +3397,7 @@ export const de_EnableImportFindingsForProductCommand = async (
   context: __SerdeContext
 ): Promise<EnableImportFindingsForProductCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EnableImportFindingsForProductCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4843,44 +3411,6 @@ export const de_EnableImportFindingsForProductCommand = async (
 };
 
 /**
- * deserializeAws_restJson1EnableImportFindingsForProductCommandError
- */
-const de_EnableImportFindingsForProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableImportFindingsForProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.securityhub#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1EnableOrganizationAdminAccountCommand
  */
 export const de_EnableOrganizationAdminAccountCommand = async (
@@ -4888,51 +3418,13 @@ export const de_EnableOrganizationAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<EnableOrganizationAdminAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EnableOrganizationAdminAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1EnableOrganizationAdminAccountCommandError
- */
-const de_EnableOrganizationAdminAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableOrganizationAdminAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4943,51 +3435,13 @@ export const de_EnableSecurityHubCommand = async (
   context: __SerdeContext
 ): Promise<EnableSecurityHubCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EnableSecurityHubCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1EnableSecurityHubCommandError
- */
-const de_EnableSecurityHubCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableSecurityHubCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.securityhub#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4998,7 +3452,7 @@ export const de_GetAdministratorAccountCommand = async (
   context: __SerdeContext
 ): Promise<GetAdministratorAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAdministratorAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5012,44 +3466,6 @@ export const de_GetAdministratorAccountCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAdministratorAccountCommandError
- */
-const de_GetAdministratorAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAdministratorAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetConfigurationPolicyCommand
  */
 export const de_GetConfigurationPolicyCommand = async (
@@ -5057,7 +3473,7 @@ export const de_GetConfigurationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetConfigurationPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConfigurationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5077,47 +3493,6 @@ export const de_GetConfigurationPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConfigurationPolicyCommandError
- */
-const de_GetConfigurationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConfigurationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetConfigurationPolicyAssociationCommand
  */
 export const de_GetConfigurationPolicyAssociationCommand = async (
@@ -5125,7 +3500,7 @@ export const de_GetConfigurationPolicyAssociationCommand = async (
   context: __SerdeContext
 ): Promise<GetConfigurationPolicyAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConfigurationPolicyAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5145,47 +3520,6 @@ export const de_GetConfigurationPolicyAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConfigurationPolicyAssociationCommandError
- */
-const de_GetConfigurationPolicyAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConfigurationPolicyAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetEnabledStandardsCommand
  */
 export const de_GetEnabledStandardsCommand = async (
@@ -5193,7 +3527,7 @@ export const de_GetEnabledStandardsCommand = async (
   context: __SerdeContext
 ): Promise<GetEnabledStandardsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetEnabledStandardsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5208,41 +3542,6 @@ export const de_GetEnabledStandardsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetEnabledStandardsCommandError
- */
-const de_GetEnabledStandardsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEnabledStandardsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFindingAggregatorCommand
  */
 export const de_GetFindingAggregatorCommand = async (
@@ -5250,7 +3549,7 @@ export const de_GetFindingAggregatorCommand = async (
   context: __SerdeContext
 ): Promise<GetFindingAggregatorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFindingAggregatorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5267,47 +3566,6 @@ export const de_GetFindingAggregatorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFindingAggregatorCommandError
- */
-const de_GetFindingAggregatorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFindingAggregatorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFindingHistoryCommand
  */
 export const de_GetFindingHistoryCommand = async (
@@ -5315,7 +3573,7 @@ export const de_GetFindingHistoryCommand = async (
   context: __SerdeContext
 ): Promise<GetFindingHistoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFindingHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5330,41 +3588,6 @@ export const de_GetFindingHistoryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFindingHistoryCommandError
- */
-const de_GetFindingHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFindingHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFindingsCommand
  */
 export const de_GetFindingsCommand = async (
@@ -5372,7 +3595,7 @@ export const de_GetFindingsCommand = async (
   context: __SerdeContext
 ): Promise<GetFindingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFindingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5387,41 +3610,6 @@ export const de_GetFindingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFindingsCommandError
- */
-const de_GetFindingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFindingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetInsightResultsCommand
  */
 export const de_GetInsightResultsCommand = async (
@@ -5429,7 +3617,7 @@ export const de_GetInsightResultsCommand = async (
   context: __SerdeContext
 ): Promise<GetInsightResultsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetInsightResultsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5443,44 +3631,6 @@ export const de_GetInsightResultsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetInsightResultsCommandError
- */
-const de_GetInsightResultsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInsightResultsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetInsightsCommand
  */
 export const de_GetInsightsCommand = async (
@@ -5488,7 +3638,7 @@ export const de_GetInsightsCommand = async (
   context: __SerdeContext
 ): Promise<GetInsightsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetInsightsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5503,44 +3653,6 @@ export const de_GetInsightsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetInsightsCommandError
- */
-const de_GetInsightsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInsightsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetInvitationsCountCommand
  */
 export const de_GetInvitationsCountCommand = async (
@@ -5548,7 +3660,7 @@ export const de_GetInvitationsCountCommand = async (
   context: __SerdeContext
 ): Promise<GetInvitationsCountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetInvitationsCountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5562,41 +3674,6 @@ export const de_GetInvitationsCountCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetInvitationsCountCommandError
- */
-const de_GetInvitationsCountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInvitationsCountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMasterAccountCommand
  */
 export const de_GetMasterAccountCommand = async (
@@ -5604,7 +3681,7 @@ export const de_GetMasterAccountCommand = async (
   context: __SerdeContext
 ): Promise<GetMasterAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMasterAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5618,44 +3695,6 @@ export const de_GetMasterAccountCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMasterAccountCommandError
- */
-const de_GetMasterAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMasterAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMembersCommand
  */
 export const de_GetMembersCommand = async (
@@ -5663,7 +3702,7 @@ export const de_GetMembersCommand = async (
   context: __SerdeContext
 ): Promise<GetMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMembersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5678,44 +3717,6 @@ export const de_GetMembersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMembersCommandError
- */
-const de_GetMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSecurityControlDefinitionCommand
  */
 export const de_GetSecurityControlDefinitionCommand = async (
@@ -5723,7 +3724,7 @@ export const de_GetSecurityControlDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetSecurityControlDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSecurityControlDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5737,44 +3738,6 @@ export const de_GetSecurityControlDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSecurityControlDefinitionCommandError
- */
-const de_GetSecurityControlDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSecurityControlDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1InviteMembersCommand
  */
 export const de_InviteMembersCommand = async (
@@ -5782,7 +3745,7 @@ export const de_InviteMembersCommand = async (
   context: __SerdeContext
 ): Promise<InviteMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_InviteMembersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5796,44 +3759,6 @@ export const de_InviteMembersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1InviteMembersCommandError
- */
-const de_InviteMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InviteMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAutomationRulesCommand
  */
 export const de_ListAutomationRulesCommand = async (
@@ -5841,7 +3766,7 @@ export const de_ListAutomationRulesCommand = async (
   context: __SerdeContext
 ): Promise<ListAutomationRulesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAutomationRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5856,44 +3781,6 @@ export const de_ListAutomationRulesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAutomationRulesCommandError
- */
-const de_ListAutomationRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAutomationRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListConfigurationPoliciesCommand
  */
 export const de_ListConfigurationPoliciesCommand = async (
@@ -5901,7 +3788,7 @@ export const de_ListConfigurationPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationPoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListConfigurationPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5916,44 +3803,6 @@ export const de_ListConfigurationPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListConfigurationPoliciesCommandError
- */
-const de_ListConfigurationPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConfigurationPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListConfigurationPolicyAssociationsCommand
  */
 export const de_ListConfigurationPolicyAssociationsCommand = async (
@@ -5961,7 +3810,7 @@ export const de_ListConfigurationPolicyAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationPolicyAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListConfigurationPolicyAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5976,44 +3825,6 @@ export const de_ListConfigurationPolicyAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListConfigurationPolicyAssociationsCommandError
- */
-const de_ListConfigurationPolicyAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConfigurationPolicyAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListEnabledProductsForImportCommand
  */
 export const de_ListEnabledProductsForImportCommand = async (
@@ -6021,7 +3832,7 @@ export const de_ListEnabledProductsForImportCommand = async (
   context: __SerdeContext
 ): Promise<ListEnabledProductsForImportCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEnabledProductsForImportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6036,38 +3847,6 @@ export const de_ListEnabledProductsForImportCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListEnabledProductsForImportCommandError
- */
-const de_ListEnabledProductsForImportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEnabledProductsForImportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFindingAggregatorsCommand
  */
 export const de_ListFindingAggregatorsCommand = async (
@@ -6075,7 +3854,7 @@ export const de_ListFindingAggregatorsCommand = async (
   context: __SerdeContext
 ): Promise<ListFindingAggregatorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFindingAggregatorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6090,44 +3869,6 @@ export const de_ListFindingAggregatorsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFindingAggregatorsCommandError
- */
-const de_ListFindingAggregatorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFindingAggregatorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListInvitationsCommand
  */
 export const de_ListInvitationsCommand = async (
@@ -6135,7 +3876,7 @@ export const de_ListInvitationsCommand = async (
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListInvitationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6150,41 +3891,6 @@ export const de_ListInvitationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListInvitationsCommandError
- */
-const de_ListInvitationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInvitationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListMembersCommand
  */
 export const de_ListMembersCommand = async (
@@ -6192,7 +3898,7 @@ export const de_ListMembersCommand = async (
   context: __SerdeContext
 ): Promise<ListMembersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMembersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6207,41 +3913,6 @@ export const de_ListMembersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListMembersCommandError
- */
-const de_ListMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListOrganizationAdminAccountsCommand
  */
 export const de_ListOrganizationAdminAccountsCommand = async (
@@ -6249,7 +3920,7 @@ export const de_ListOrganizationAdminAccountsCommand = async (
   context: __SerdeContext
 ): Promise<ListOrganizationAdminAccountsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListOrganizationAdminAccountsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6264,41 +3935,6 @@ export const de_ListOrganizationAdminAccountsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListOrganizationAdminAccountsCommandError
- */
-const de_ListOrganizationAdminAccountsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOrganizationAdminAccountsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSecurityControlDefinitionsCommand
  */
 export const de_ListSecurityControlDefinitionsCommand = async (
@@ -6306,7 +3942,7 @@ export const de_ListSecurityControlDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListSecurityControlDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSecurityControlDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6321,41 +3957,6 @@ export const de_ListSecurityControlDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSecurityControlDefinitionsCommandError
- */
-const de_ListSecurityControlDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSecurityControlDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListStandardsControlAssociationsCommand
  */
 export const de_ListStandardsControlAssociationsCommand = async (
@@ -6363,7 +3964,7 @@ export const de_ListStandardsControlAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListStandardsControlAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListStandardsControlAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6378,41 +3979,6 @@ export const de_ListStandardsControlAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListStandardsControlAssociationsCommandError
- */
-const de_ListStandardsControlAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStandardsControlAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -6420,7 +3986,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6434,38 +4000,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartConfigurationPolicyAssociationCommand
  */
 export const de_StartConfigurationPolicyAssociationCommand = async (
@@ -6473,7 +4007,7 @@ export const de_StartConfigurationPolicyAssociationCommand = async (
   context: __SerdeContext
 ): Promise<StartConfigurationPolicyAssociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartConfigurationPolicyAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6493,47 +4027,6 @@ export const de_StartConfigurationPolicyAssociationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartConfigurationPolicyAssociationCommandError
- */
-const de_StartConfigurationPolicyAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartConfigurationPolicyAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartConfigurationPolicyDisassociationCommand
  */
 export const de_StartConfigurationPolicyDisassociationCommand = async (
@@ -6541,54 +4034,13 @@ export const de_StartConfigurationPolicyDisassociationCommand = async (
   context: __SerdeContext
 ): Promise<StartConfigurationPolicyDisassociationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartConfigurationPolicyDisassociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StartConfigurationPolicyDisassociationCommandError
- */
-const de_StartConfigurationPolicyDisassociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartConfigurationPolicyDisassociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6599,45 +4051,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6648,45 +4068,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6697,48 +4085,13 @@ export const de_UpdateActionTargetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateActionTargetCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateActionTargetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateActionTargetCommandError
- */
-const de_UpdateActionTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateActionTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6749,7 +4102,7 @@ export const de_UpdateConfigurationPolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConfigurationPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateConfigurationPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6769,50 +4122,6 @@ export const de_UpdateConfigurationPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateConfigurationPolicyCommandError
- */
-const de_UpdateConfigurationPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConfigurationPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.securityhub#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateFindingAggregatorCommand
  */
 export const de_UpdateFindingAggregatorCommand = async (
@@ -6820,7 +4129,7 @@ export const de_UpdateFindingAggregatorCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFindingAggregatorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFindingAggregatorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6837,47 +4146,6 @@ export const de_UpdateFindingAggregatorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateFindingAggregatorCommandError
- */
-const de_UpdateFindingAggregatorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFindingAggregatorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateFindingsCommand
  */
 export const de_UpdateFindingsCommand = async (
@@ -6885,51 +4153,13 @@ export const de_UpdateFindingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFindingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFindingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateFindingsCommandError
- */
-const de_UpdateFindingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFindingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6940,51 +4170,13 @@ export const de_UpdateInsightCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInsightCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateInsightCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateInsightCommandError
- */
-const de_UpdateInsightCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInsightCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6995,57 +4187,13 @@ export const de_UpdateOrganizationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateOrganizationConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateOrganizationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateOrganizationConfigurationCommandError
- */
-const de_UpdateOrganizationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateOrganizationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceConflictException":
-    case "com.amazonaws.securityhub#ResourceConflictException":
-      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7056,57 +4204,13 @@ export const de_UpdateSecurityControlCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSecurityControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSecurityControlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateSecurityControlCommandError
- */
-const de_UpdateSecurityControlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSecurityControlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.securityhub#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.securityhub#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7117,7 +4221,7 @@ export const de_UpdateSecurityHubConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSecurityHubConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSecurityHubConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7127,21 +4231,32 @@ export const de_UpdateSecurityHubConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSecurityHubConfigurationCommandError
+ * deserializeAws_restJson1UpdateStandardsControlCommand
  */
-const de_UpdateSecurityHubConfigurationCommandError = async (
+export const de_UpdateStandardsControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateSecurityHubConfigurationCommandOutput> => {
+): Promise<UpdateStandardsControlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.securityhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -7157,68 +4272,22 @@ const de_UpdateSecurityHubConfigurationCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateStandardsControlCommand
- */
-export const de_UpdateStandardsControlCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStandardsControlCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateStandardsControlCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateStandardsControlCommandError
- */
-const de_UpdateStandardsControlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStandardsControlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AccessDeniedException":
     case "com.amazonaws.securityhub#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.securityhub#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidAccessException":
-    case "com.amazonaws.securityhub#InvalidAccessException":
-      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.securityhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.securityhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.securityhub#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.securityhub#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

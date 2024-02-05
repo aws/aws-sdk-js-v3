@@ -1208,7 +1208,7 @@ export const de_AcceptSharedDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<AcceptSharedDirectoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptSharedDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1221,44 +1221,6 @@ export const de_AcceptSharedDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AcceptSharedDirectoryCommandError
- */
-const de_AcceptSharedDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptSharedDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryAlreadySharedException":
-    case "com.amazonaws.directoryservice#DirectoryAlreadySharedException":
-      throw await de_DirectoryAlreadySharedExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddIpRoutesCommand
  */
 export const de_AddIpRoutesCommand = async (
@@ -1266,7 +1228,7 @@ export const de_AddIpRoutesCommand = async (
   context: __SerdeContext
 ): Promise<AddIpRoutesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddIpRoutesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1279,50 +1241,6 @@ export const de_AddIpRoutesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddIpRoutesCommandError
- */
-const de_AddIpRoutesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddIpRoutesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExistsException":
-    case "com.amazonaws.directoryservice#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "IpRouteLimitExceededException":
-    case "com.amazonaws.directoryservice#IpRouteLimitExceededException":
-      throw await de_IpRouteLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddRegionCommand
  */
 export const de_AddRegionCommand = async (
@@ -1330,7 +1248,7 @@ export const de_AddRegionCommand = async (
   context: __SerdeContext
 ): Promise<AddRegionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddRegionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1343,59 +1261,6 @@ export const de_AddRegionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddRegionCommandError
- */
-const de_AddRegionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddRegionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.directoryservice#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryAlreadyInRegionException":
-    case "com.amazonaws.directoryservice#DirectoryAlreadyInRegionException":
-      throw await de_DirectoryAlreadyInRegionExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RegionLimitExceededException":
-    case "com.amazonaws.directoryservice#RegionLimitExceededException":
-      throw await de_RegionLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddTagsToResourceCommand
  */
 export const de_AddTagsToResourceCommand = async (
@@ -1403,7 +1268,7 @@ export const de_AddTagsToResourceCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsToResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1416,44 +1281,6 @@ export const de_AddTagsToResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddTagsToResourceCommandError
- */
-const de_AddTagsToResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "TagLimitExceededException":
-    case "com.amazonaws.directoryservice#TagLimitExceededException":
-      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelSchemaExtensionCommand
  */
 export const de_CancelSchemaExtensionCommand = async (
@@ -1461,7 +1288,7 @@ export const de_CancelSchemaExtensionCommand = async (
   context: __SerdeContext
 ): Promise<CancelSchemaExtensionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelSchemaExtensionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1474,38 +1301,6 @@ export const de_CancelSchemaExtensionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelSchemaExtensionCommandError
- */
-const de_CancelSchemaExtensionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelSchemaExtensionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ConnectDirectoryCommand
  */
 export const de_ConnectDirectoryCommand = async (
@@ -1513,7 +1308,7 @@ export const de_ConnectDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<ConnectDirectoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConnectDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1526,41 +1321,6 @@ export const de_ConnectDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ConnectDirectoryCommandError
- */
-const de_ConnectDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConnectDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryLimitExceededException":
-    case "com.amazonaws.directoryservice#DirectoryLimitExceededException":
-      throw await de_DirectoryLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAliasCommand
  */
 export const de_CreateAliasCommand = async (
@@ -1568,7 +1328,7 @@ export const de_CreateAliasCommand = async (
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1581,44 +1341,6 @@ export const de_CreateAliasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAliasCommandError
- */
-const de_CreateAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExistsException":
-    case "com.amazonaws.directoryservice#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateComputerCommand
  */
 export const de_CreateComputerCommand = async (
@@ -1626,7 +1348,7 @@ export const de_CreateComputerCommand = async (
   context: __SerdeContext
 ): Promise<CreateComputerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateComputerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1639,53 +1361,6 @@ export const de_CreateComputerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateComputerCommandError
- */
-const de_CreateComputerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateComputerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthenticationFailedException":
-    case "com.amazonaws.directoryservice#AuthenticationFailedException":
-      throw await de_AuthenticationFailedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExistsException":
-    case "com.amazonaws.directoryservice#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateConditionalForwarderCommand
  */
 export const de_CreateConditionalForwarderCommand = async (
@@ -1693,7 +1368,7 @@ export const de_CreateConditionalForwarderCommand = async (
   context: __SerdeContext
 ): Promise<CreateConditionalForwarderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConditionalForwarderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1706,50 +1381,6 @@ export const de_CreateConditionalForwarderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateConditionalForwarderCommandError
- */
-const de_CreateConditionalForwarderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConditionalForwarderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExistsException":
-    case "com.amazonaws.directoryservice#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDirectoryCommand
  */
 export const de_CreateDirectoryCommand = async (
@@ -1757,7 +1388,7 @@ export const de_CreateDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<CreateDirectoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1770,41 +1401,6 @@ export const de_CreateDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDirectoryCommandError
- */
-const de_CreateDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryLimitExceededException":
-    case "com.amazonaws.directoryservice#DirectoryLimitExceededException":
-      throw await de_DirectoryLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLogSubscriptionCommand
  */
 export const de_CreateLogSubscriptionCommand = async (
@@ -1812,7 +1408,7 @@ export const de_CreateLogSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<CreateLogSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLogSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1825,47 +1421,6 @@ export const de_CreateLogSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLogSubscriptionCommandError
- */
-const de_CreateLogSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLogSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExistsException":
-    case "com.amazonaws.directoryservice#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InsufficientPermissionsException":
-    case "com.amazonaws.directoryservice#InsufficientPermissionsException":
-      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateMicrosoftADCommand
  */
 export const de_CreateMicrosoftADCommand = async (
@@ -1873,7 +1428,7 @@ export const de_CreateMicrosoftADCommand = async (
   context: __SerdeContext
 ): Promise<CreateMicrosoftADCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateMicrosoftADCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1886,44 +1441,6 @@ export const de_CreateMicrosoftADCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateMicrosoftADCommandError
- */
-const de_CreateMicrosoftADCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMicrosoftADCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryLimitExceededException":
-    case "com.amazonaws.directoryservice#DirectoryLimitExceededException":
-      throw await de_DirectoryLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSnapshotCommand
  */
 export const de_CreateSnapshotCommand = async (
@@ -1931,7 +1448,7 @@ export const de_CreateSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1944,44 +1461,6 @@ export const de_CreateSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSnapshotCommandError
- */
-const de_CreateSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "SnapshotLimitExceededException":
-    case "com.amazonaws.directoryservice#SnapshotLimitExceededException":
-      throw await de_SnapshotLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTrustCommand
  */
 export const de_CreateTrustCommand = async (
@@ -1989,7 +1468,7 @@ export const de_CreateTrustCommand = async (
   context: __SerdeContext
 ): Promise<CreateTrustCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTrustCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2002,47 +1481,6 @@ export const de_CreateTrustCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTrustCommandError
- */
-const de_CreateTrustCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrustCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExistsException":
-    case "com.amazonaws.directoryservice#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteConditionalForwarderCommand
  */
 export const de_DeleteConditionalForwarderCommand = async (
@@ -2050,7 +1488,7 @@ export const de_DeleteConditionalForwarderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConditionalForwarderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConditionalForwarderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2063,47 +1501,6 @@ export const de_DeleteConditionalForwarderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteConditionalForwarderCommandError
- */
-const de_DeleteConditionalForwarderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConditionalForwarderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDirectoryCommand
  */
 export const de_DeleteDirectoryCommand = async (
@@ -2111,7 +1508,7 @@ export const de_DeleteDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDirectoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2124,38 +1521,6 @@ export const de_DeleteDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDirectoryCommandError
- */
-const de_DeleteDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteLogSubscriptionCommand
  */
 export const de_DeleteLogSubscriptionCommand = async (
@@ -2163,7 +1528,7 @@ export const de_DeleteLogSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLogSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLogSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2176,41 +1541,6 @@ export const de_DeleteLogSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteLogSubscriptionCommandError
- */
-const de_DeleteLogSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLogSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSnapshotCommand
  */
 export const de_DeleteSnapshotCommand = async (
@@ -2218,7 +1548,7 @@ export const de_DeleteSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2231,41 +1561,6 @@ export const de_DeleteSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSnapshotCommandError
- */
-const de_DeleteSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTrustCommand
  */
 export const de_DeleteTrustCommand = async (
@@ -2273,7 +1568,7 @@ export const de_DeleteTrustCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTrustCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTrustCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2286,44 +1581,6 @@ export const de_DeleteTrustCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTrustCommandError
- */
-const de_DeleteTrustCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTrustCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeregisterCertificateCommand
  */
 export const de_DeregisterCertificateCommand = async (
@@ -2331,7 +1588,7 @@ export const de_DeregisterCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2344,53 +1601,6 @@ export const de_DeregisterCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeregisterCertificateCommandError
- */
-const de_DeregisterCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CertificateDoesNotExistException":
-    case "com.amazonaws.directoryservice#CertificateDoesNotExistException":
-      throw await de_CertificateDoesNotExistExceptionRes(parsedOutput, context);
-    case "CertificateInUseException":
-    case "com.amazonaws.directoryservice#CertificateInUseException":
-      throw await de_CertificateInUseExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeregisterEventTopicCommand
  */
 export const de_DeregisterEventTopicCommand = async (
@@ -2398,7 +1608,7 @@ export const de_DeregisterEventTopicCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterEventTopicCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterEventTopicCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2411,41 +1621,6 @@ export const de_DeregisterEventTopicCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeregisterEventTopicCommandError
- */
-const de_DeregisterEventTopicCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterEventTopicCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeCertificateCommand
  */
 export const de_DescribeCertificateCommand = async (
@@ -2453,7 +1628,7 @@ export const de_DescribeCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2466,47 +1641,6 @@ export const de_DescribeCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCertificateCommandError
- */
-const de_DescribeCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CertificateDoesNotExistException":
-    case "com.amazonaws.directoryservice#CertificateDoesNotExistException":
-      throw await de_CertificateDoesNotExistExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeClientAuthenticationSettingsCommand
  */
 export const de_DescribeClientAuthenticationSettingsCommand = async (
@@ -2514,7 +1648,7 @@ export const de_DescribeClientAuthenticationSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeClientAuthenticationSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeClientAuthenticationSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2527,47 +1661,6 @@ export const de_DescribeClientAuthenticationSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeClientAuthenticationSettingsCommandError
- */
-const de_DescribeClientAuthenticationSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClientAuthenticationSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.directoryservice#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConditionalForwardersCommand
  */
 export const de_DescribeConditionalForwardersCommand = async (
@@ -2575,7 +1668,7 @@ export const de_DescribeConditionalForwardersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConditionalForwardersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConditionalForwardersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2588,47 +1681,6 @@ export const de_DescribeConditionalForwardersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConditionalForwardersCommandError
- */
-const de_DescribeConditionalForwardersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConditionalForwardersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDirectoriesCommand
  */
 export const de_DescribeDirectoriesCommand = async (
@@ -2636,7 +1688,7 @@ export const de_DescribeDirectoriesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDirectoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDirectoriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2649,44 +1701,6 @@ export const de_DescribeDirectoriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDirectoriesCommandError
- */
-const de_DescribeDirectoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDirectoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDomainControllersCommand
  */
 export const de_DescribeDomainControllersCommand = async (
@@ -2694,7 +1708,7 @@ export const de_DescribeDomainControllersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainControllersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDomainControllersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2707,47 +1721,6 @@ export const de_DescribeDomainControllersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDomainControllersCommandError
- */
-const de_DescribeDomainControllersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDomainControllersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEventTopicsCommand
  */
 export const de_DescribeEventTopicsCommand = async (
@@ -2755,7 +1728,7 @@ export const de_DescribeEventTopicsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventTopicsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventTopicsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2768,41 +1741,6 @@ export const de_DescribeEventTopicsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEventTopicsCommandError
- */
-const de_DescribeEventTopicsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventTopicsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLDAPSSettingsCommand
  */
 export const de_DescribeLDAPSSettingsCommand = async (
@@ -2810,7 +1748,7 @@ export const de_DescribeLDAPSSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLDAPSSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLDAPSSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2823,47 +1761,6 @@ export const de_DescribeLDAPSSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLDAPSSettingsCommandError
- */
-const de_DescribeLDAPSSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLDAPSSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRegionsCommand
  */
 export const de_DescribeRegionsCommand = async (
@@ -2871,7 +1768,7 @@ export const de_DescribeRegionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRegionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRegionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2884,50 +1781,6 @@ export const de_DescribeRegionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRegionsCommandError
- */
-const de_DescribeRegionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRegionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.directoryservice#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSettingsCommand
  */
 export const de_DescribeSettingsCommand = async (
@@ -2935,7 +1788,7 @@ export const de_DescribeSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2948,47 +1801,6 @@ export const de_DescribeSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSettingsCommandError
- */
-const de_DescribeSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSharedDirectoriesCommand
  */
 export const de_DescribeSharedDirectoriesCommand = async (
@@ -2996,7 +1808,7 @@ export const de_DescribeSharedDirectoriesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSharedDirectoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSharedDirectoriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3009,47 +1821,6 @@ export const de_DescribeSharedDirectoriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSharedDirectoriesCommandError
- */
-const de_DescribeSharedDirectoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSharedDirectoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSnapshotsCommand
  */
 export const de_DescribeSnapshotsCommand = async (
@@ -3057,7 +1828,7 @@ export const de_DescribeSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3070,44 +1841,6 @@ export const de_DescribeSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSnapshotsCommandError
- */
-const de_DescribeSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTrustsCommand
  */
 export const de_DescribeTrustsCommand = async (
@@ -3115,7 +1848,7 @@ export const de_DescribeTrustsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTrustsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTrustsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3128,47 +1861,6 @@ export const de_DescribeTrustsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTrustsCommandError
- */
-const de_DescribeTrustsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeUpdateDirectoryCommand
  */
 export const de_DescribeUpdateDirectoryCommand = async (
@@ -3176,7 +1868,7 @@ export const de_DescribeUpdateDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUpdateDirectoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUpdateDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3189,47 +1881,6 @@ export const de_DescribeUpdateDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeUpdateDirectoryCommandError
- */
-const de_DescribeUpdateDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUpdateDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.directoryservice#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableClientAuthenticationCommand
  */
 export const de_DisableClientAuthenticationCommand = async (
@@ -3237,7 +1888,7 @@ export const de_DisableClientAuthenticationCommand = async (
   context: __SerdeContext
 ): Promise<DisableClientAuthenticationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableClientAuthenticationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3250,47 +1901,6 @@ export const de_DisableClientAuthenticationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableClientAuthenticationCommandError
- */
-const de_DisableClientAuthenticationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableClientAuthenticationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.directoryservice#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidClientAuthStatusException":
-    case "com.amazonaws.directoryservice#InvalidClientAuthStatusException":
-      throw await de_InvalidClientAuthStatusExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableLDAPSCommand
  */
 export const de_DisableLDAPSCommand = async (
@@ -3298,7 +1908,7 @@ export const de_DisableLDAPSCommand = async (
   context: __SerdeContext
 ): Promise<DisableLDAPSCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableLDAPSCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3311,50 +1921,6 @@ export const de_DisableLDAPSCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableLDAPSCommandError
- */
-const de_DisableLDAPSCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableLDAPSCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidLDAPSStatusException":
-    case "com.amazonaws.directoryservice#InvalidLDAPSStatusException":
-      throw await de_InvalidLDAPSStatusExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableRadiusCommand
  */
 export const de_DisableRadiusCommand = async (
@@ -3362,7 +1928,7 @@ export const de_DisableRadiusCommand = async (
   context: __SerdeContext
 ): Promise<DisableRadiusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableRadiusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3375,38 +1941,6 @@ export const de_DisableRadiusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableRadiusCommandError
- */
-const de_DisableRadiusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableRadiusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableSsoCommand
  */
 export const de_DisableSsoCommand = async (
@@ -3414,7 +1948,7 @@ export const de_DisableSsoCommand = async (
   context: __SerdeContext
 ): Promise<DisableSsoCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableSsoCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3427,44 +1961,6 @@ export const de_DisableSsoCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableSsoCommandError
- */
-const de_DisableSsoCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableSsoCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthenticationFailedException":
-    case "com.amazonaws.directoryservice#AuthenticationFailedException":
-      throw await de_AuthenticationFailedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InsufficientPermissionsException":
-    case "com.amazonaws.directoryservice#InsufficientPermissionsException":
-      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EnableClientAuthenticationCommand
  */
 export const de_EnableClientAuthenticationCommand = async (
@@ -3472,7 +1968,7 @@ export const de_EnableClientAuthenticationCommand = async (
   context: __SerdeContext
 ): Promise<EnableClientAuthenticationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableClientAuthenticationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3485,50 +1981,6 @@ export const de_EnableClientAuthenticationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableClientAuthenticationCommandError
- */
-const de_EnableClientAuthenticationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableClientAuthenticationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.directoryservice#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidClientAuthStatusException":
-    case "com.amazonaws.directoryservice#InvalidClientAuthStatusException":
-      throw await de_InvalidClientAuthStatusExceptionRes(parsedOutput, context);
-    case "NoAvailableCertificateException":
-    case "com.amazonaws.directoryservice#NoAvailableCertificateException":
-      throw await de_NoAvailableCertificateExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EnableLDAPSCommand
  */
 export const de_EnableLDAPSCommand = async (
@@ -3536,7 +1988,7 @@ export const de_EnableLDAPSCommand = async (
   context: __SerdeContext
 ): Promise<EnableLDAPSCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableLDAPSCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3549,53 +2001,6 @@ export const de_EnableLDAPSCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableLDAPSCommandError
- */
-const de_EnableLDAPSCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableLDAPSCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidLDAPSStatusException":
-    case "com.amazonaws.directoryservice#InvalidLDAPSStatusException":
-      throw await de_InvalidLDAPSStatusExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NoAvailableCertificateException":
-    case "com.amazonaws.directoryservice#NoAvailableCertificateException":
-      throw await de_NoAvailableCertificateExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EnableRadiusCommand
  */
 export const de_EnableRadiusCommand = async (
@@ -3603,7 +2008,7 @@ export const de_EnableRadiusCommand = async (
   context: __SerdeContext
 ): Promise<EnableRadiusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableRadiusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3616,44 +2021,6 @@ export const de_EnableRadiusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableRadiusCommandError
- */
-const de_EnableRadiusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableRadiusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExistsException":
-    case "com.amazonaws.directoryservice#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EnableSsoCommand
  */
 export const de_EnableSsoCommand = async (
@@ -3661,7 +2028,7 @@ export const de_EnableSsoCommand = async (
   context: __SerdeContext
 ): Promise<EnableSsoCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableSsoCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3674,44 +2041,6 @@ export const de_EnableSsoCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableSsoCommandError
- */
-const de_EnableSsoCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableSsoCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthenticationFailedException":
-    case "com.amazonaws.directoryservice#AuthenticationFailedException":
-      throw await de_AuthenticationFailedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InsufficientPermissionsException":
-    case "com.amazonaws.directoryservice#InsufficientPermissionsException":
-      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDirectoryLimitsCommand
  */
 export const de_GetDirectoryLimitsCommand = async (
@@ -3719,7 +2048,7 @@ export const de_GetDirectoryLimitsCommand = async (
   context: __SerdeContext
 ): Promise<GetDirectoryLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDirectoryLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3732,38 +2061,6 @@ export const de_GetDirectoryLimitsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDirectoryLimitsCommandError
- */
-const de_GetDirectoryLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDirectoryLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSnapshotLimitsCommand
  */
 export const de_GetSnapshotLimitsCommand = async (
@@ -3771,7 +2068,7 @@ export const de_GetSnapshotLimitsCommand = async (
   context: __SerdeContext
 ): Promise<GetSnapshotLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSnapshotLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3784,38 +2081,6 @@ export const de_GetSnapshotLimitsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSnapshotLimitsCommandError
- */
-const de_GetSnapshotLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSnapshotLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCertificatesCommand
  */
 export const de_ListCertificatesCommand = async (
@@ -3823,7 +2088,7 @@ export const de_ListCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<ListCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCertificatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3836,47 +2101,6 @@ export const de_ListCertificatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCertificatesCommandError
- */
-const de_ListCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListIpRoutesCommand
  */
 export const de_ListIpRoutesCommand = async (
@@ -3884,7 +2108,7 @@ export const de_ListIpRoutesCommand = async (
   context: __SerdeContext
 ): Promise<ListIpRoutesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListIpRoutesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3897,44 +2121,6 @@ export const de_ListIpRoutesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListIpRoutesCommandError
- */
-const de_ListIpRoutesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIpRoutesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLogSubscriptionsCommand
  */
 export const de_ListLogSubscriptionsCommand = async (
@@ -3942,7 +2128,7 @@ export const de_ListLogSubscriptionsCommand = async (
   context: __SerdeContext
 ): Promise<ListLogSubscriptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLogSubscriptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3955,41 +2141,6 @@ export const de_ListLogSubscriptionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLogSubscriptionsCommandError
- */
-const de_ListLogSubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLogSubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSchemaExtensionsCommand
  */
 export const de_ListSchemaExtensionsCommand = async (
@@ -3997,7 +2148,7 @@ export const de_ListSchemaExtensionsCommand = async (
   context: __SerdeContext
 ): Promise<ListSchemaExtensionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSchemaExtensionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4010,41 +2161,6 @@ export const de_ListSchemaExtensionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSchemaExtensionsCommandError
- */
-const de_ListSchemaExtensionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSchemaExtensionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -4052,7 +2168,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4065,44 +2181,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.directoryservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterCertificateCommand
  */
 export const de_RegisterCertificateCommand = async (
@@ -4110,7 +2188,7 @@ export const de_RegisterCertificateCommand = async (
   context: __SerdeContext
 ): Promise<RegisterCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4123,56 +2201,6 @@ export const de_RegisterCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterCertificateCommandError
- */
-const de_RegisterCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CertificateAlreadyExistsException":
-    case "com.amazonaws.directoryservice#CertificateAlreadyExistsException":
-      throw await de_CertificateAlreadyExistsExceptionRes(parsedOutput, context);
-    case "CertificateLimitExceededException":
-    case "com.amazonaws.directoryservice#CertificateLimitExceededException":
-      throw await de_CertificateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidCertificateException":
-    case "com.amazonaws.directoryservice#InvalidCertificateException":
-      throw await de_InvalidCertificateExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterEventTopicCommand
  */
 export const de_RegisterEventTopicCommand = async (
@@ -4180,7 +2208,7 @@ export const de_RegisterEventTopicCommand = async (
   context: __SerdeContext
 ): Promise<RegisterEventTopicCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterEventTopicCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4193,41 +2221,6 @@ export const de_RegisterEventTopicCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterEventTopicCommandError
- */
-const de_RegisterEventTopicCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterEventTopicCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RejectSharedDirectoryCommand
  */
 export const de_RejectSharedDirectoryCommand = async (
@@ -4235,7 +2228,7 @@ export const de_RejectSharedDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<RejectSharedDirectoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RejectSharedDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4248,44 +2241,6 @@ export const de_RejectSharedDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RejectSharedDirectoryCommandError
- */
-const de_RejectSharedDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectSharedDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryAlreadySharedException":
-    case "com.amazonaws.directoryservice#DirectoryAlreadySharedException":
-      throw await de_DirectoryAlreadySharedExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RemoveIpRoutesCommand
  */
 export const de_RemoveIpRoutesCommand = async (
@@ -4293,7 +2248,7 @@ export const de_RemoveIpRoutesCommand = async (
   context: __SerdeContext
 ): Promise<RemoveIpRoutesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveIpRoutesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4306,44 +2261,6 @@ export const de_RemoveIpRoutesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveIpRoutesCommandError
- */
-const de_RemoveIpRoutesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveIpRoutesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RemoveRegionCommand
  */
 export const de_RemoveRegionCommand = async (
@@ -4351,7 +2268,7 @@ export const de_RemoveRegionCommand = async (
   context: __SerdeContext
 ): Promise<RemoveRegionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveRegionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4364,47 +2281,6 @@ export const de_RemoveRegionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveRegionCommandError
- */
-const de_RemoveRegionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveRegionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.directoryservice#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RemoveTagsFromResourceCommand
  */
 export const de_RemoveTagsFromResourceCommand = async (
@@ -4412,7 +2288,7 @@ export const de_RemoveTagsFromResourceCommand = async (
   context: __SerdeContext
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveTagsFromResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4425,41 +2301,6 @@ export const de_RemoveTagsFromResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveTagsFromResourceCommandError
- */
-const de_RemoveTagsFromResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ResetUserPasswordCommand
  */
 export const de_ResetUserPasswordCommand = async (
@@ -4467,7 +2308,7 @@ export const de_ResetUserPasswordCommand = async (
   context: __SerdeContext
 ): Promise<ResetUserPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResetUserPasswordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4480,50 +2321,6 @@ export const de_ResetUserPasswordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ResetUserPasswordCommandError
- */
-const de_ResetUserPasswordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetUserPasswordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.directoryservice#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    case "UserDoesNotExistException":
-    case "com.amazonaws.directoryservice#UserDoesNotExistException":
-      throw await de_UserDoesNotExistExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RestoreFromSnapshotCommand
  */
 export const de_RestoreFromSnapshotCommand = async (
@@ -4531,7 +2328,7 @@ export const de_RestoreFromSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<RestoreFromSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreFromSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4544,41 +2341,6 @@ export const de_RestoreFromSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RestoreFromSnapshotCommandError
- */
-const de_RestoreFromSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreFromSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ShareDirectoryCommand
  */
 export const de_ShareDirectoryCommand = async (
@@ -4586,7 +2348,7 @@ export const de_ShareDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<ShareDirectoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ShareDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4599,59 +2361,6 @@ export const de_ShareDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ShareDirectoryCommandError
- */
-const de_ShareDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ShareDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.directoryservice#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryAlreadySharedException":
-    case "com.amazonaws.directoryservice#DirectoryAlreadySharedException":
-      throw await de_DirectoryAlreadySharedExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTargetException":
-    case "com.amazonaws.directoryservice#InvalidTargetException":
-      throw await de_InvalidTargetExceptionRes(parsedOutput, context);
-    case "OrganizationsException":
-    case "com.amazonaws.directoryservice#OrganizationsException":
-      throw await de_OrganizationsExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ShareLimitExceededException":
-    case "com.amazonaws.directoryservice#ShareLimitExceededException":
-      throw await de_ShareLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartSchemaExtensionCommand
  */
 export const de_StartSchemaExtensionCommand = async (
@@ -4659,7 +2368,7 @@ export const de_StartSchemaExtensionCommand = async (
   context: __SerdeContext
 ): Promise<StartSchemaExtensionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartSchemaExtensionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4672,47 +2381,6 @@ export const de_StartSchemaExtensionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartSchemaExtensionCommandError
- */
-const de_StartSchemaExtensionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSchemaExtensionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "SnapshotLimitExceededException":
-    case "com.amazonaws.directoryservice#SnapshotLimitExceededException":
-      throw await de_SnapshotLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UnshareDirectoryCommand
  */
 export const de_UnshareDirectoryCommand = async (
@@ -4720,7 +2388,7 @@ export const de_UnshareDirectoryCommand = async (
   context: __SerdeContext
 ): Promise<UnshareDirectoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UnshareDirectoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4733,44 +2401,6 @@ export const de_UnshareDirectoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UnshareDirectoryCommandError
- */
-const de_UnshareDirectoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnshareDirectoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryNotSharedException":
-    case "com.amazonaws.directoryservice#DirectoryNotSharedException":
-      throw await de_DirectoryNotSharedExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidTargetException":
-    case "com.amazonaws.directoryservice#InvalidTargetException":
-      throw await de_InvalidTargetExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateConditionalForwarderCommand
  */
 export const de_UpdateConditionalForwarderCommand = async (
@@ -4778,7 +2408,7 @@ export const de_UpdateConditionalForwarderCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConditionalForwarderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateConditionalForwarderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4791,47 +2421,6 @@ export const de_UpdateConditionalForwarderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateConditionalForwarderCommandError
- */
-const de_UpdateConditionalForwarderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConditionalForwarderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDirectorySetupCommand
  */
 export const de_UpdateDirectorySetupCommand = async (
@@ -4839,7 +2428,7 @@ export const de_UpdateDirectorySetupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDirectorySetupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDirectorySetupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4852,56 +2441,6 @@ export const de_UpdateDirectorySetupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDirectorySetupCommandError
- */
-const de_UpdateDirectorySetupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDirectorySetupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.directoryservice#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "DirectoryInDesiredStateException":
-    case "com.amazonaws.directoryservice#DirectoryInDesiredStateException":
-      throw await de_DirectoryInDesiredStateExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "SnapshotLimitExceededException":
-    case "com.amazonaws.directoryservice#SnapshotLimitExceededException":
-      throw await de_SnapshotLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateNumberOfDomainControllersCommand
  */
 export const de_UpdateNumberOfDomainControllersCommand = async (
@@ -4909,7 +2448,7 @@ export const de_UpdateNumberOfDomainControllersCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNumberOfDomainControllersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateNumberOfDomainControllersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4922,50 +2461,6 @@ export const de_UpdateNumberOfDomainControllersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateNumberOfDomainControllersCommandError
- */
-const de_UpdateNumberOfDomainControllersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNumberOfDomainControllersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "DomainControllerLimitExceededException":
-    case "com.amazonaws.directoryservice#DomainControllerLimitExceededException":
-      throw await de_DomainControllerLimitExceededExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateRadiusCommand
  */
 export const de_UpdateRadiusCommand = async (
@@ -4973,7 +2468,7 @@ export const de_UpdateRadiusCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRadiusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRadiusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4986,41 +2481,6 @@ export const de_UpdateRadiusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateRadiusCommandError
- */
-const de_UpdateRadiusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRadiusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateSettingsCommand
  */
 export const de_UpdateSettingsCommand = async (
@@ -5028,7 +2488,7 @@ export const de_UpdateSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5041,53 +2501,6 @@ export const de_UpdateSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateSettingsCommandError
- */
-const de_UpdateSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "DirectoryDoesNotExistException":
-    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
-      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
-    case "DirectoryUnavailableException":
-    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
-      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
-    case "IncompatibleSettingsException":
-    case "com.amazonaws.directoryservice#IncompatibleSettingsException":
-      throw await de_IncompatibleSettingsExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.directoryservice#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    case "UnsupportedSettingsException":
-    case "com.amazonaws.directoryservice#UnsupportedSettingsException":
-      throw await de_UnsupportedSettingsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateTrustCommand
  */
 export const de_UpdateTrustCommand = async (
@@ -5095,7 +2508,7 @@ export const de_UpdateTrustCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTrustCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTrustCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5108,41 +2521,6 @@ export const de_UpdateTrustCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateTrustCommandError
- */
-const de_UpdateTrustCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTrustCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.directoryservice#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "EntityDoesNotExistException":
-    case "com.amazonaws.directoryservice#EntityDoesNotExistException":
-      throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.directoryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.directoryservice#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1VerifyTrustCommand
  */
 export const de_VerifyTrustCommand = async (
@@ -5150,7 +2528,7 @@ export const de_VerifyTrustCommand = async (
   context: __SerdeContext
 ): Promise<VerifyTrustCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_VerifyTrustCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5163,12 +2541,9 @@ export const de_VerifyTrustCommand = async (
 };
 
 /**
- * deserializeAws_json1_1VerifyTrustCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_VerifyTrustCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyTrustCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5178,6 +2553,9 @@ const de_VerifyTrustCommandError = async (
     case "ClientException":
     case "com.amazonaws.directoryservice#ClientException":
       throw await de_ClientExceptionRes(parsedOutput, context);
+    case "DirectoryAlreadySharedException":
+    case "com.amazonaws.directoryservice#DirectoryAlreadySharedException":
+      throw await de_DirectoryAlreadySharedExceptionRes(parsedOutput, context);
     case "EntityDoesNotExistException":
     case "com.amazonaws.directoryservice#EntityDoesNotExistException":
       throw await de_EntityDoesNotExistExceptionRes(parsedOutput, context);
@@ -5187,16 +2565,109 @@ const de_VerifyTrustCommandError = async (
     case "ServiceException":
     case "com.amazonaws.directoryservice#ServiceException":
       throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "DirectoryUnavailableException":
+    case "com.amazonaws.directoryservice#DirectoryUnavailableException":
+      throw await de_DirectoryUnavailableExceptionRes(parsedOutput, context);
+    case "EntityAlreadyExistsException":
+    case "com.amazonaws.directoryservice#EntityAlreadyExistsException":
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
+    case "IpRouteLimitExceededException":
+    case "com.amazonaws.directoryservice#IpRouteLimitExceededException":
+      throw await de_IpRouteLimitExceededExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.directoryservice#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "DirectoryAlreadyInRegionException":
+    case "com.amazonaws.directoryservice#DirectoryAlreadyInRegionException":
+      throw await de_DirectoryAlreadyInRegionExceptionRes(parsedOutput, context);
+    case "DirectoryDoesNotExistException":
+    case "com.amazonaws.directoryservice#DirectoryDoesNotExistException":
+      throw await de_DirectoryDoesNotExistExceptionRes(parsedOutput, context);
+    case "RegionLimitExceededException":
+    case "com.amazonaws.directoryservice#RegionLimitExceededException":
+      throw await de_RegionLimitExceededExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.directoryservice#UnsupportedOperationException":
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
+    case "TagLimitExceededException":
+    case "com.amazonaws.directoryservice#TagLimitExceededException":
+      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
+    case "DirectoryLimitExceededException":
+    case "com.amazonaws.directoryservice#DirectoryLimitExceededException":
+      throw await de_DirectoryLimitExceededExceptionRes(parsedOutput, context);
+    case "AuthenticationFailedException":
+    case "com.amazonaws.directoryservice#AuthenticationFailedException":
+      throw await de_AuthenticationFailedExceptionRes(parsedOutput, context);
+    case "InsufficientPermissionsException":
+    case "com.amazonaws.directoryservice#InsufficientPermissionsException":
+      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
+    case "SnapshotLimitExceededException":
+    case "com.amazonaws.directoryservice#SnapshotLimitExceededException":
+      throw await de_SnapshotLimitExceededExceptionRes(parsedOutput, context);
+    case "CertificateDoesNotExistException":
+    case "com.amazonaws.directoryservice#CertificateDoesNotExistException":
+      throw await de_CertificateDoesNotExistExceptionRes(parsedOutput, context);
+    case "CertificateInUseException":
+    case "com.amazonaws.directoryservice#CertificateInUseException":
+      throw await de_CertificateInUseExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.directoryservice#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidClientAuthStatusException":
+    case "com.amazonaws.directoryservice#InvalidClientAuthStatusException":
+      throw await de_InvalidClientAuthStatusExceptionRes(parsedOutput, context);
+    case "InvalidLDAPSStatusException":
+    case "com.amazonaws.directoryservice#InvalidLDAPSStatusException":
+      throw await de_InvalidLDAPSStatusExceptionRes(parsedOutput, context);
+    case "NoAvailableCertificateException":
+    case "com.amazonaws.directoryservice#NoAvailableCertificateException":
+      throw await de_NoAvailableCertificateExceptionRes(parsedOutput, context);
+    case "CertificateAlreadyExistsException":
+    case "com.amazonaws.directoryservice#CertificateAlreadyExistsException":
+      throw await de_CertificateAlreadyExistsExceptionRes(parsedOutput, context);
+    case "CertificateLimitExceededException":
+    case "com.amazonaws.directoryservice#CertificateLimitExceededException":
+      throw await de_CertificateLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidCertificateException":
+    case "com.amazonaws.directoryservice#InvalidCertificateException":
+      throw await de_InvalidCertificateExceptionRes(parsedOutput, context);
+    case "InvalidPasswordException":
+    case "com.amazonaws.directoryservice#InvalidPasswordException":
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
+    case "UserDoesNotExistException":
+    case "com.amazonaws.directoryservice#UserDoesNotExistException":
+      throw await de_UserDoesNotExistExceptionRes(parsedOutput, context);
+    case "InvalidTargetException":
+    case "com.amazonaws.directoryservice#InvalidTargetException":
+      throw await de_InvalidTargetExceptionRes(parsedOutput, context);
+    case "OrganizationsException":
+    case "com.amazonaws.directoryservice#OrganizationsException":
+      throw await de_OrganizationsExceptionRes(parsedOutput, context);
+    case "ShareLimitExceededException":
+    case "com.amazonaws.directoryservice#ShareLimitExceededException":
+      throw await de_ShareLimitExceededExceptionRes(parsedOutput, context);
+    case "DirectoryNotSharedException":
+    case "com.amazonaws.directoryservice#DirectoryNotSharedException":
+      throw await de_DirectoryNotSharedExceptionRes(parsedOutput, context);
+    case "DirectoryInDesiredStateException":
+    case "com.amazonaws.directoryservice#DirectoryInDesiredStateException":
+      throw await de_DirectoryInDesiredStateExceptionRes(parsedOutput, context);
+    case "DomainControllerLimitExceededException":
+    case "com.amazonaws.directoryservice#DomainControllerLimitExceededException":
+      throw await de_DomainControllerLimitExceededExceptionRes(parsedOutput, context);
+    case "IncompatibleSettingsException":
+    case "com.amazonaws.directoryservice#IncompatibleSettingsException":
+      throw await de_IncompatibleSettingsExceptionRes(parsedOutput, context);
+    case "UnsupportedSettingsException":
+    case "com.amazonaws.directoryservice#UnsupportedSettingsException":
+      throw await de_UnsupportedSettingsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

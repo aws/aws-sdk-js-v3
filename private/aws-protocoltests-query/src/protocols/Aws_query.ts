@@ -681,7 +681,7 @@ export const de_DatetimeOffsetsCommand = async (
   context: __SerdeContext
 ): Promise<DatetimeOffsetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DatetimeOffsetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -694,26 +694,6 @@ export const de_DatetimeOffsetsCommand = async (
 };
 
 /**
- * deserializeAws_queryDatetimeOffsetsCommandError
- */
-const de_DatetimeOffsetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DatetimeOffsetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryEmptyInputAndEmptyOutputCommand
  */
 export const de_EmptyInputAndEmptyOutputCommand = async (
@@ -721,7 +701,7 @@ export const de_EmptyInputAndEmptyOutputCommand = async (
   context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EmptyInputAndEmptyOutputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -734,26 +714,6 @@ export const de_EmptyInputAndEmptyOutputCommand = async (
 };
 
 /**
- * deserializeAws_queryEmptyInputAndEmptyOutputCommandError
- */
-const de_EmptyInputAndEmptyOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryEndpointOperationCommand
  */
 export const de_EndpointOperationCommand = async (
@@ -761,33 +721,13 @@ export const de_EndpointOperationCommand = async (
   context: __SerdeContext
 ): Promise<EndpointOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EndpointOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EndpointOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryEndpointOperationCommandError
- */
-const de_EndpointOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EndpointOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -798,33 +738,13 @@ export const de_EndpointWithHostLabelOperationCommand = async (
   context: __SerdeContext
 ): Promise<EndpointWithHostLabelOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EndpointWithHostLabelOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EndpointWithHostLabelOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryEndpointWithHostLabelOperationCommandError
- */
-const de_EndpointWithHostLabelOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EndpointWithHostLabelOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -835,7 +755,7 @@ export const de_FlattenedXmlMapCommand = async (
   context: __SerdeContext
 ): Promise<FlattenedXmlMapCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_FlattenedXmlMapCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -848,26 +768,6 @@ export const de_FlattenedXmlMapCommand = async (
 };
 
 /**
- * deserializeAws_queryFlattenedXmlMapCommandError
- */
-const de_FlattenedXmlMapCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FlattenedXmlMapCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryFlattenedXmlMapWithXmlNameCommand
  */
 export const de_FlattenedXmlMapWithXmlNameCommand = async (
@@ -875,7 +775,7 @@ export const de_FlattenedXmlMapWithXmlNameCommand = async (
   context: __SerdeContext
 ): Promise<FlattenedXmlMapWithXmlNameCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_FlattenedXmlMapWithXmlNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -888,26 +788,6 @@ export const de_FlattenedXmlMapWithXmlNameCommand = async (
 };
 
 /**
- * deserializeAws_queryFlattenedXmlMapWithXmlNameCommandError
- */
-const de_FlattenedXmlMapWithXmlNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FlattenedXmlMapWithXmlNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryFlattenedXmlMapWithXmlNamespaceCommand
  */
 export const de_FlattenedXmlMapWithXmlNamespaceCommand = async (
@@ -915,7 +795,7 @@ export const de_FlattenedXmlMapWithXmlNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_FlattenedXmlMapWithXmlNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -928,26 +808,6 @@ export const de_FlattenedXmlMapWithXmlNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_queryFlattenedXmlMapWithXmlNamespaceCommandError
- */
-const de_FlattenedXmlMapWithXmlNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FlattenedXmlMapWithXmlNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryFractionalSecondsCommand
  */
 export const de_FractionalSecondsCommand = async (
@@ -955,7 +815,7 @@ export const de_FractionalSecondsCommand = async (
   context: __SerdeContext
 ): Promise<FractionalSecondsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_FractionalSecondsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -968,26 +828,6 @@ export const de_FractionalSecondsCommand = async (
 };
 
 /**
- * deserializeAws_queryFractionalSecondsCommandError
- */
-const de_FractionalSecondsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FractionalSecondsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGreetingWithErrorsCommand
  */
 export const de_GreetingWithErrorsCommand = async (
@@ -995,7 +835,7 @@ export const de_GreetingWithErrorsCommand = async (
   context: __SerdeContext
 ): Promise<GreetingWithErrorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GreetingWithErrorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1008,12 +848,462 @@ export const de_GreetingWithErrorsCommand = async (
 };
 
 /**
- * deserializeAws_queryGreetingWithErrorsCommandError
+ * deserializeAws_queryHostWithPathOperationCommand
  */
-const de_GreetingWithErrorsCommandError = async (
+export const de_HostWithPathOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GreetingWithErrorsCommandOutput> => {
+): Promise<HostWithPathOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: HostWithPathOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryIgnoresWrappingXmlNameCommand
+ */
+export const de_IgnoresWrappingXmlNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<IgnoresWrappingXmlNameCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_IgnoresWrappingXmlNameOutput(data.IgnoresWrappingXmlNameResult, context);
+  const response: IgnoresWrappingXmlNameCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryNestedStructuresCommand
+ */
+export const de_NestedStructuresCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NestedStructuresCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: NestedStructuresCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryNoInputAndNoOutputCommand
+ */
+export const de_NoInputAndNoOutputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NoInputAndNoOutputCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: NoInputAndNoOutputCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryNoInputAndOutputCommand
+ */
+export const de_NoInputAndOutputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NoInputAndOutputCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_NoInputAndOutputOutput(data.NoInputAndOutputResult, context);
+  const response: NoInputAndOutputCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryPutWithContentEncodingCommand
+ */
+export const de_PutWithContentEncodingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutWithContentEncodingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutWithContentEncodingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryQueryIdempotencyTokenAutoFillCommand
+ */
+export const de_QueryIdempotencyTokenAutoFillCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: QueryIdempotencyTokenAutoFillCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryQueryListsCommand
+ */
+export const de_QueryListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryListsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: QueryListsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryQueryMapsCommand
+ */
+export const de_QueryMapsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryMapsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: QueryMapsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryQueryTimestampsCommand
+ */
+export const de_QueryTimestampsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryTimestampsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: QueryTimestampsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRecursiveXmlShapesCommand
+ */
+export const de_RecursiveXmlShapesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RecursiveXmlShapesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RecursiveXmlShapesOutput(data.RecursiveXmlShapesResult, context);
+  const response: RecursiveXmlShapesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySimpleInputParamsCommand
+ */
+export const de_SimpleInputParamsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SimpleInputParamsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: SimpleInputParamsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySimpleScalarXmlPropertiesCommand
+ */
+export const de_SimpleScalarXmlPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SimpleScalarXmlPropertiesOutput(data.SimpleScalarXmlPropertiesResult, context);
+  const response: SimpleScalarXmlPropertiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryXmlBlobsCommand
+ */
+export const de_XmlBlobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlBlobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlBlobsOutput(data.XmlBlobsResult, context);
+  const response: XmlBlobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryXmlEmptyBlobsCommand
+ */
+export const de_XmlEmptyBlobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEmptyBlobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlBlobsOutput(data.XmlEmptyBlobsResult, context);
+  const response: XmlEmptyBlobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryXmlEmptyListsCommand
+ */
+export const de_XmlEmptyListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEmptyListsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlListsOutput(data.XmlEmptyListsResult, context);
+  const response: XmlEmptyListsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryXmlEmptyMapsCommand
+ */
+export const de_XmlEmptyMapsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEmptyMapsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlMapsOutput(data.XmlEmptyMapsResult, context);
+  const response: XmlEmptyMapsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryXmlEnumsCommand
+ */
+export const de_XmlEnumsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEnumsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlEnumsOutput(data.XmlEnumsResult, context);
+  const response: XmlEnumsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryXmlIntEnumsCommand
+ */
+export const de_XmlIntEnumsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlIntEnumsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlIntEnumsOutput(data.XmlIntEnumsResult, context);
+  const response: XmlIntEnumsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryXmlListsCommand
+ */
+export const de_XmlListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlListsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlListsOutput(data.XmlListsResult, context);
+  const response: XmlListsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryXmlMapsCommand
+ */
+export const de_XmlMapsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlMapsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlMapsOutput(data.XmlMapsResult, context);
+  const response: XmlMapsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryXmlMapsXmlNameCommand
+ */
+export const de_XmlMapsXmlNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlMapsXmlNameCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlMapsXmlNameOutput(data.XmlMapsXmlNameResult, context);
+  const response: XmlMapsXmlNameCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryXmlNamespacesCommand
+ */
+export const de_XmlNamespacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlNamespacesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlNamespacesOutput(data.XmlNamespacesResult, context);
+  const response: XmlNamespacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryXmlTimestampsCommand
+ */
+export const de_XmlTimestampsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlTimestampsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlTimestampsOutput(data.XmlTimestampsResult, context);
+  const response: XmlTimestampsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_queryCommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1035,941 +1325,8 @@ const de_GreetingWithErrorsCommandError = async (
         output,
         parsedBody: parsedBody.Error,
         errorCode,
-      });
+      }) as never;
   }
-};
-
-/**
- * deserializeAws_queryHostWithPathOperationCommand
- */
-export const de_HostWithPathOperationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HostWithPathOperationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_HostWithPathOperationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: HostWithPathOperationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryHostWithPathOperationCommandError
- */
-const de_HostWithPathOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HostWithPathOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryIgnoresWrappingXmlNameCommand
- */
-export const de_IgnoresWrappingXmlNameCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<IgnoresWrappingXmlNameCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_IgnoresWrappingXmlNameCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_IgnoresWrappingXmlNameOutput(data.IgnoresWrappingXmlNameResult, context);
-  const response: IgnoresWrappingXmlNameCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryIgnoresWrappingXmlNameCommandError
- */
-const de_IgnoresWrappingXmlNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<IgnoresWrappingXmlNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryNestedStructuresCommand
- */
-export const de_NestedStructuresCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NestedStructuresCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_NestedStructuresCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: NestedStructuresCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryNestedStructuresCommandError
- */
-const de_NestedStructuresCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NestedStructuresCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryNoInputAndNoOutputCommand
- */
-export const de_NoInputAndNoOutputCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NoInputAndNoOutputCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_NoInputAndNoOutputCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: NoInputAndNoOutputCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryNoInputAndNoOutputCommandError
- */
-const de_NoInputAndNoOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NoInputAndNoOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryNoInputAndOutputCommand
- */
-export const de_NoInputAndOutputCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NoInputAndOutputCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_NoInputAndOutputCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_NoInputAndOutputOutput(data.NoInputAndOutputResult, context);
-  const response: NoInputAndOutputCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryNoInputAndOutputCommandError
- */
-const de_NoInputAndOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NoInputAndOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryPutWithContentEncodingCommand
- */
-export const de_PutWithContentEncodingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutWithContentEncodingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutWithContentEncodingCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: PutWithContentEncodingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryPutWithContentEncodingCommandError
- */
-const de_PutWithContentEncodingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutWithContentEncodingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryQueryIdempotencyTokenAutoFillCommand
- */
-export const de_QueryIdempotencyTokenAutoFillCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_QueryIdempotencyTokenAutoFillCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: QueryIdempotencyTokenAutoFillCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryQueryIdempotencyTokenAutoFillCommandError
- */
-const de_QueryIdempotencyTokenAutoFillCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryQueryListsCommand
- */
-export const de_QueryListsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryListsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_QueryListsCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: QueryListsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryQueryListsCommandError
- */
-const de_QueryListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryQueryMapsCommand
- */
-export const de_QueryMapsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryMapsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_QueryMapsCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: QueryMapsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryQueryMapsCommandError
- */
-const de_QueryMapsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryMapsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryQueryTimestampsCommand
- */
-export const de_QueryTimestampsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryTimestampsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_QueryTimestampsCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: QueryTimestampsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryQueryTimestampsCommandError
- */
-const de_QueryTimestampsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryTimestampsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryRecursiveXmlShapesCommand
- */
-export const de_RecursiveXmlShapesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RecursiveXmlShapesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RecursiveXmlShapesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RecursiveXmlShapesOutput(data.RecursiveXmlShapesResult, context);
-  const response: RecursiveXmlShapesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRecursiveXmlShapesCommandError
- */
-const de_RecursiveXmlShapesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RecursiveXmlShapesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_querySimpleInputParamsCommand
- */
-export const de_SimpleInputParamsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimpleInputParamsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SimpleInputParamsCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: SimpleInputParamsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySimpleInputParamsCommandError
- */
-const de_SimpleInputParamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimpleInputParamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_querySimpleScalarXmlPropertiesCommand
- */
-export const de_SimpleScalarXmlPropertiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SimpleScalarXmlPropertiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SimpleScalarXmlPropertiesOutput(data.SimpleScalarXmlPropertiesResult, context);
-  const response: SimpleScalarXmlPropertiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySimpleScalarXmlPropertiesCommandError
- */
-const de_SimpleScalarXmlPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryXmlBlobsCommand
- */
-export const de_XmlBlobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlBlobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlBlobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlBlobsOutput(data.XmlBlobsResult, context);
-  const response: XmlBlobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryXmlBlobsCommandError
- */
-const de_XmlBlobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlBlobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryXmlEmptyBlobsCommand
- */
-export const de_XmlEmptyBlobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyBlobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlEmptyBlobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlBlobsOutput(data.XmlEmptyBlobsResult, context);
-  const response: XmlEmptyBlobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryXmlEmptyBlobsCommandError
- */
-const de_XmlEmptyBlobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyBlobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryXmlEmptyListsCommand
- */
-export const de_XmlEmptyListsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyListsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlEmptyListsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlListsOutput(data.XmlEmptyListsResult, context);
-  const response: XmlEmptyListsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryXmlEmptyListsCommandError
- */
-const de_XmlEmptyListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryXmlEmptyMapsCommand
- */
-export const de_XmlEmptyMapsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyMapsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlEmptyMapsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlMapsOutput(data.XmlEmptyMapsResult, context);
-  const response: XmlEmptyMapsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryXmlEmptyMapsCommandError
- */
-const de_XmlEmptyMapsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyMapsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryXmlEnumsCommand
- */
-export const de_XmlEnumsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEnumsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlEnumsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlEnumsOutput(data.XmlEnumsResult, context);
-  const response: XmlEnumsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryXmlEnumsCommandError
- */
-const de_XmlEnumsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEnumsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryXmlIntEnumsCommand
- */
-export const de_XmlIntEnumsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlIntEnumsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlIntEnumsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlIntEnumsOutput(data.XmlIntEnumsResult, context);
-  const response: XmlIntEnumsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryXmlIntEnumsCommandError
- */
-const de_XmlIntEnumsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlIntEnumsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryXmlListsCommand
- */
-export const de_XmlListsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlListsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlListsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlListsOutput(data.XmlListsResult, context);
-  const response: XmlListsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryXmlListsCommandError
- */
-const de_XmlListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryXmlMapsCommand
- */
-export const de_XmlMapsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlMapsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlMapsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlMapsOutput(data.XmlMapsResult, context);
-  const response: XmlMapsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryXmlMapsCommandError
- */
-const de_XmlMapsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlMapsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryXmlMapsXmlNameCommand
- */
-export const de_XmlMapsXmlNameCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlMapsXmlNameCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlMapsXmlNameCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlMapsXmlNameOutput(data.XmlMapsXmlNameResult, context);
-  const response: XmlMapsXmlNameCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryXmlMapsXmlNameCommandError
- */
-const de_XmlMapsXmlNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlMapsXmlNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryXmlNamespacesCommand
- */
-export const de_XmlNamespacesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlNamespacesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlNamespacesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlNamespacesOutput(data.XmlNamespacesResult, context);
-  const response: XmlNamespacesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryXmlNamespacesCommandError
- */
-const de_XmlNamespacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlNamespacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryXmlTimestampsCommand
- */
-export const de_XmlTimestampsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlTimestampsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlTimestampsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlTimestampsOutput(data.XmlTimestampsResult, context);
-  const response: XmlTimestampsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryXmlTimestampsCommandError
- */
-const de_XmlTimestampsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlTimestampsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**

@@ -661,7 +661,7 @@ export const de_CreateAppCommand = async (
   context: __SerdeContext
 ): Promise<CreateAppCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -674,44 +674,6 @@ export const de_CreateAppCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAppCommandError
- */
-const de_CreateAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateReplicationJobCommand
  */
 export const de_CreateReplicationJobCommand = async (
@@ -719,7 +681,7 @@ export const de_CreateReplicationJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateReplicationJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReplicationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -732,56 +694,6 @@ export const de_CreateReplicationJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateReplicationJobCommandError
- */
-const de_CreateReplicationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReplicationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "NoConnectorsAvailableException":
-    case "com.amazonaws.sms#NoConnectorsAvailableException":
-      throw await de_NoConnectorsAvailableExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ReplicationJobAlreadyExistsException":
-    case "com.amazonaws.sms#ReplicationJobAlreadyExistsException":
-      throw await de_ReplicationJobAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ServerCannotBeReplicatedException":
-    case "com.amazonaws.sms#ServerCannotBeReplicatedException":
-      throw await de_ServerCannotBeReplicatedExceptionRes(parsedOutput, context);
-    case "TemporarilyUnavailableException":
-    case "com.amazonaws.sms#TemporarilyUnavailableException":
-      throw await de_TemporarilyUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAppCommand
  */
 export const de_DeleteAppCommand = async (
@@ -789,7 +701,7 @@ export const de_DeleteAppCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -802,44 +714,6 @@ export const de_DeleteAppCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAppCommandError
- */
-const de_DeleteAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAppLaunchConfigurationCommand
  */
 export const de_DeleteAppLaunchConfigurationCommand = async (
@@ -847,7 +721,7 @@ export const de_DeleteAppLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppLaunchConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAppLaunchConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -860,44 +734,6 @@ export const de_DeleteAppLaunchConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAppLaunchConfigurationCommandError
- */
-const de_DeleteAppLaunchConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAppLaunchConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAppReplicationConfigurationCommand
  */
 export const de_DeleteAppReplicationConfigurationCommand = async (
@@ -905,7 +741,7 @@ export const de_DeleteAppReplicationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppReplicationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAppReplicationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -918,44 +754,6 @@ export const de_DeleteAppReplicationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAppReplicationConfigurationCommandError
- */
-const de_DeleteAppReplicationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAppReplicationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAppValidationConfigurationCommand
  */
 export const de_DeleteAppValidationConfigurationCommand = async (
@@ -963,7 +761,7 @@ export const de_DeleteAppValidationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAppValidationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAppValidationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -976,44 +774,6 @@ export const de_DeleteAppValidationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAppValidationConfigurationCommandError
- */
-const de_DeleteAppValidationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAppValidationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteReplicationJobCommand
  */
 export const de_DeleteReplicationJobCommand = async (
@@ -1021,7 +781,7 @@ export const de_DeleteReplicationJobCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReplicationJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReplicationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1034,44 +794,6 @@ export const de_DeleteReplicationJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteReplicationJobCommandError
- */
-const de_DeleteReplicationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReplicationJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ReplicationJobNotFoundException":
-    case "com.amazonaws.sms#ReplicationJobNotFoundException":
-      throw await de_ReplicationJobNotFoundExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteServerCatalogCommand
  */
 export const de_DeleteServerCatalogCommand = async (
@@ -1079,7 +801,7 @@ export const de_DeleteServerCatalogCommand = async (
   context: __SerdeContext
 ): Promise<DeleteServerCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteServerCatalogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1092,41 +814,6 @@ export const de_DeleteServerCatalogCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteServerCatalogCommandError
- */
-const de_DeleteServerCatalogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServerCatalogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateConnectorCommand
  */
 export const de_DisassociateConnectorCommand = async (
@@ -1134,7 +821,7 @@ export const de_DisassociateConnectorCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateConnectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateConnectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1147,41 +834,6 @@ export const de_DisassociateConnectorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateConnectorCommandError
- */
-const de_DisassociateConnectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateConnectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GenerateChangeSetCommand
  */
 export const de_GenerateChangeSetCommand = async (
@@ -1189,7 +841,7 @@ export const de_GenerateChangeSetCommand = async (
   context: __SerdeContext
 ): Promise<GenerateChangeSetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GenerateChangeSetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1202,44 +854,6 @@ export const de_GenerateChangeSetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GenerateChangeSetCommandError
- */
-const de_GenerateChangeSetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateChangeSetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GenerateTemplateCommand
  */
 export const de_GenerateTemplateCommand = async (
@@ -1247,7 +861,7 @@ export const de_GenerateTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GenerateTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GenerateTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1260,44 +874,6 @@ export const de_GenerateTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GenerateTemplateCommandError
- */
-const de_GenerateTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAppCommand
  */
 export const de_GetAppCommand = async (
@@ -1305,7 +881,7 @@ export const de_GetAppCommand = async (
   context: __SerdeContext
 ): Promise<GetAppCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1318,41 +894,6 @@ export const de_GetAppCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAppCommandError
- */
-const de_GetAppCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAppLaunchConfigurationCommand
  */
 export const de_GetAppLaunchConfigurationCommand = async (
@@ -1360,7 +901,7 @@ export const de_GetAppLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetAppLaunchConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAppLaunchConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1373,44 +914,6 @@ export const de_GetAppLaunchConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAppLaunchConfigurationCommandError
- */
-const de_GetAppLaunchConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAppLaunchConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAppReplicationConfigurationCommand
  */
 export const de_GetAppReplicationConfigurationCommand = async (
@@ -1418,7 +921,7 @@ export const de_GetAppReplicationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetAppReplicationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAppReplicationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1431,44 +934,6 @@ export const de_GetAppReplicationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAppReplicationConfigurationCommandError
- */
-const de_GetAppReplicationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAppReplicationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAppValidationConfigurationCommand
  */
 export const de_GetAppValidationConfigurationCommand = async (
@@ -1476,7 +941,7 @@ export const de_GetAppValidationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetAppValidationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAppValidationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1489,44 +954,6 @@ export const de_GetAppValidationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAppValidationConfigurationCommandError
- */
-const de_GetAppValidationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAppValidationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAppValidationOutputCommand
  */
 export const de_GetAppValidationOutputCommand = async (
@@ -1534,7 +961,7 @@ export const de_GetAppValidationOutputCommand = async (
   context: __SerdeContext
 ): Promise<GetAppValidationOutputCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAppValidationOutputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1547,44 +974,6 @@ export const de_GetAppValidationOutputCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAppValidationOutputCommandError
- */
-const de_GetAppValidationOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAppValidationOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetConnectorsCommand
  */
 export const de_GetConnectorsCommand = async (
@@ -1592,7 +981,7 @@ export const de_GetConnectorsCommand = async (
   context: __SerdeContext
 ): Promise<GetConnectorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetConnectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1605,32 +994,6 @@ export const de_GetConnectorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetConnectorsCommandError
- */
-const de_GetConnectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConnectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetReplicationJobsCommand
  */
 export const de_GetReplicationJobsCommand = async (
@@ -1638,7 +1001,7 @@ export const de_GetReplicationJobsCommand = async (
   context: __SerdeContext
 ): Promise<GetReplicationJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetReplicationJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1651,38 +1014,6 @@ export const de_GetReplicationJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetReplicationJobsCommandError
- */
-const de_GetReplicationJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReplicationJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetReplicationRunsCommand
  */
 export const de_GetReplicationRunsCommand = async (
@@ -1690,7 +1021,7 @@ export const de_GetReplicationRunsCommand = async (
   context: __SerdeContext
 ): Promise<GetReplicationRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetReplicationRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1703,38 +1034,6 @@ export const de_GetReplicationRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetReplicationRunsCommandError
- */
-const de_GetReplicationRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReplicationRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetServersCommand
  */
 export const de_GetServersCommand = async (
@@ -1742,7 +1041,7 @@ export const de_GetServersCommand = async (
   context: __SerdeContext
 ): Promise<GetServersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetServersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1755,41 +1054,6 @@ export const de_GetServersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetServersCommandError
- */
-const de_GetServersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportAppCatalogCommand
  */
 export const de_ImportAppCatalogCommand = async (
@@ -1797,7 +1061,7 @@ export const de_ImportAppCatalogCommand = async (
   context: __SerdeContext
 ): Promise<ImportAppCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportAppCatalogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1810,44 +1074,6 @@ export const de_ImportAppCatalogCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportAppCatalogCommandError
- */
-const de_ImportAppCatalogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportAppCatalogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportServerCatalogCommand
  */
 export const de_ImportServerCatalogCommand = async (
@@ -1855,7 +1081,7 @@ export const de_ImportServerCatalogCommand = async (
   context: __SerdeContext
 ): Promise<ImportServerCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportServerCatalogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1868,44 +1094,6 @@ export const de_ImportServerCatalogCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportServerCatalogCommandError
- */
-const de_ImportServerCatalogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportServerCatalogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "NoConnectorsAvailableException":
-    case "com.amazonaws.sms#NoConnectorsAvailableException":
-      throw await de_NoConnectorsAvailableExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1LaunchAppCommand
  */
 export const de_LaunchAppCommand = async (
@@ -1913,7 +1101,7 @@ export const de_LaunchAppCommand = async (
   context: __SerdeContext
 ): Promise<LaunchAppCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_LaunchAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1926,44 +1114,6 @@ export const de_LaunchAppCommand = async (
 };
 
 /**
- * deserializeAws_json1_1LaunchAppCommandError
- */
-const de_LaunchAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<LaunchAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAppsCommand
  */
 export const de_ListAppsCommand = async (
@@ -1971,7 +1121,7 @@ export const de_ListAppsCommand = async (
   context: __SerdeContext
 ): Promise<ListAppsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAppsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1984,44 +1134,6 @@ export const de_ListAppsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAppsCommandError
- */
-const de_ListAppsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAppsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1NotifyAppValidationOutputCommand
  */
 export const de_NotifyAppValidationOutputCommand = async (
@@ -2029,7 +1141,7 @@ export const de_NotifyAppValidationOutputCommand = async (
   context: __SerdeContext
 ): Promise<NotifyAppValidationOutputCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_NotifyAppValidationOutputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2042,44 +1154,6 @@ export const de_NotifyAppValidationOutputCommand = async (
 };
 
 /**
- * deserializeAws_json1_1NotifyAppValidationOutputCommandError
- */
-const de_NotifyAppValidationOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NotifyAppValidationOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutAppLaunchConfigurationCommand
  */
 export const de_PutAppLaunchConfigurationCommand = async (
@@ -2087,7 +1161,7 @@ export const de_PutAppLaunchConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutAppLaunchConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAppLaunchConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2100,44 +1174,6 @@ export const de_PutAppLaunchConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutAppLaunchConfigurationCommandError
- */
-const de_PutAppLaunchConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAppLaunchConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutAppReplicationConfigurationCommand
  */
 export const de_PutAppReplicationConfigurationCommand = async (
@@ -2145,7 +1181,7 @@ export const de_PutAppReplicationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutAppReplicationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAppReplicationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2158,44 +1194,6 @@ export const de_PutAppReplicationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutAppReplicationConfigurationCommandError
- */
-const de_PutAppReplicationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAppReplicationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutAppValidationConfigurationCommand
  */
 export const de_PutAppValidationConfigurationCommand = async (
@@ -2203,7 +1201,7 @@ export const de_PutAppValidationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutAppValidationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAppValidationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2216,44 +1214,6 @@ export const de_PutAppValidationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutAppValidationConfigurationCommandError
- */
-const de_PutAppValidationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAppValidationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartAppReplicationCommand
  */
 export const de_StartAppReplicationCommand = async (
@@ -2261,7 +1221,7 @@ export const de_StartAppReplicationCommand = async (
   context: __SerdeContext
 ): Promise<StartAppReplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartAppReplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2274,44 +1234,6 @@ export const de_StartAppReplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartAppReplicationCommandError
- */
-const de_StartAppReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAppReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartOnDemandAppReplicationCommand
  */
 export const de_StartOnDemandAppReplicationCommand = async (
@@ -2319,7 +1241,7 @@ export const de_StartOnDemandAppReplicationCommand = async (
   context: __SerdeContext
 ): Promise<StartOnDemandAppReplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartOnDemandAppReplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2332,44 +1254,6 @@ export const de_StartOnDemandAppReplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartOnDemandAppReplicationCommandError
- */
-const de_StartOnDemandAppReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartOnDemandAppReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartOnDemandReplicationRunCommand
  */
 export const de_StartOnDemandReplicationRunCommand = async (
@@ -2377,7 +1261,7 @@ export const de_StartOnDemandReplicationRunCommand = async (
   context: __SerdeContext
 ): Promise<StartOnDemandReplicationRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartOnDemandReplicationRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2390,47 +1274,6 @@ export const de_StartOnDemandReplicationRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartOnDemandReplicationRunCommandError
- */
-const de_StartOnDemandReplicationRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartOnDemandReplicationRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DryRunOperationException":
-    case "com.amazonaws.sms#DryRunOperationException":
-      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ReplicationRunLimitExceededException":
-    case "com.amazonaws.sms#ReplicationRunLimitExceededException":
-      throw await de_ReplicationRunLimitExceededExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopAppReplicationCommand
  */
 export const de_StopAppReplicationCommand = async (
@@ -2438,7 +1281,7 @@ export const de_StopAppReplicationCommand = async (
   context: __SerdeContext
 ): Promise<StopAppReplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopAppReplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2451,44 +1294,6 @@ export const de_StopAppReplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopAppReplicationCommandError
- */
-const de_StopAppReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopAppReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TerminateAppCommand
  */
 export const de_TerminateAppCommand = async (
@@ -2496,7 +1301,7 @@ export const de_TerminateAppCommand = async (
   context: __SerdeContext
 ): Promise<TerminateAppCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TerminateAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2509,44 +1314,6 @@ export const de_TerminateAppCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TerminateAppCommandError
- */
-const de_TerminateAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateAppCommand
  */
 export const de_UpdateAppCommand = async (
@@ -2554,7 +1321,7 @@ export const de_UpdateAppCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAppCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAppCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2567,44 +1334,6 @@ export const de_UpdateAppCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAppCommandError
- */
-const de_UpdateAppCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAppCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalError":
-    case "com.amazonaws.sms#InternalError":
-      throw await de_InternalErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.sms#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.sms#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.sms#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateReplicationJobCommand
  */
 export const de_UpdateReplicationJobCommand = async (
@@ -2612,7 +1341,7 @@ export const de_UpdateReplicationJobCommand = async (
   context: __SerdeContext
 ): Promise<UpdateReplicationJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateReplicationJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2625,12 +1354,9 @@ export const de_UpdateReplicationJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateReplicationJobCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateReplicationJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateReplicationJobCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2649,25 +1375,37 @@ const de_UpdateReplicationJobCommandError = async (
     case "OperationNotPermittedException":
     case "com.amazonaws.sms#OperationNotPermittedException":
       throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ReplicationJobNotFoundException":
-    case "com.amazonaws.sms#ReplicationJobNotFoundException":
-      throw await de_ReplicationJobNotFoundExceptionRes(parsedOutput, context);
+    case "UnauthorizedOperationException":
+    case "com.amazonaws.sms#UnauthorizedOperationException":
+      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
+    case "NoConnectorsAvailableException":
+    case "com.amazonaws.sms#NoConnectorsAvailableException":
+      throw await de_NoConnectorsAvailableExceptionRes(parsedOutput, context);
+    case "ReplicationJobAlreadyExistsException":
+    case "com.amazonaws.sms#ReplicationJobAlreadyExistsException":
+      throw await de_ReplicationJobAlreadyExistsExceptionRes(parsedOutput, context);
     case "ServerCannotBeReplicatedException":
     case "com.amazonaws.sms#ServerCannotBeReplicatedException":
       throw await de_ServerCannotBeReplicatedExceptionRes(parsedOutput, context);
     case "TemporarilyUnavailableException":
     case "com.amazonaws.sms#TemporarilyUnavailableException":
       throw await de_TemporarilyUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.sms#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
+    case "ReplicationJobNotFoundException":
+    case "com.amazonaws.sms#ReplicationJobNotFoundException":
+      throw await de_ReplicationJobNotFoundExceptionRes(parsedOutput, context);
+    case "DryRunOperationException":
+    case "com.amazonaws.sms#DryRunOperationException":
+      throw await de_DryRunOperationExceptionRes(parsedOutput, context);
+    case "ReplicationRunLimitExceededException":
+    case "com.amazonaws.sms#ReplicationRunLimitExceededException":
+      throw await de_ReplicationRunLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

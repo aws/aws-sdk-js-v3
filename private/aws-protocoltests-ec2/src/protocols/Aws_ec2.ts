@@ -534,7 +534,7 @@ export const de_DatetimeOffsetsCommand = async (
   context: __SerdeContext
 ): Promise<DatetimeOffsetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DatetimeOffsetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -547,26 +547,6 @@ export const de_DatetimeOffsetsCommand = async (
 };
 
 /**
- * deserializeAws_ec2DatetimeOffsetsCommandError
- */
-const de_DatetimeOffsetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DatetimeOffsetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EmptyInputAndEmptyOutputCommand
  */
 export const de_EmptyInputAndEmptyOutputCommand = async (
@@ -574,7 +554,7 @@ export const de_EmptyInputAndEmptyOutputCommand = async (
   context: __SerdeContext
 ): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EmptyInputAndEmptyOutputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -587,26 +567,6 @@ export const de_EmptyInputAndEmptyOutputCommand = async (
 };
 
 /**
- * deserializeAws_ec2EmptyInputAndEmptyOutputCommandError
- */
-const de_EmptyInputAndEmptyOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EmptyInputAndEmptyOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2EndpointOperationCommand
  */
 export const de_EndpointOperationCommand = async (
@@ -614,33 +574,13 @@ export const de_EndpointOperationCommand = async (
   context: __SerdeContext
 ): Promise<EndpointOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EndpointOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EndpointOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2EndpointOperationCommandError
- */
-const de_EndpointOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EndpointOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -651,33 +591,13 @@ export const de_EndpointWithHostLabelOperationCommand = async (
   context: __SerdeContext
 ): Promise<EndpointWithHostLabelOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EndpointWithHostLabelOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EndpointWithHostLabelOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_ec2EndpointWithHostLabelOperationCommandError
- */
-const de_EndpointWithHostLabelOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EndpointWithHostLabelOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -688,7 +608,7 @@ export const de_FractionalSecondsCommand = async (
   context: __SerdeContext
 ): Promise<FractionalSecondsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_FractionalSecondsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -701,26 +621,6 @@ export const de_FractionalSecondsCommand = async (
 };
 
 /**
- * deserializeAws_ec2FractionalSecondsCommandError
- */
-const de_FractionalSecondsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FractionalSecondsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_ec2GreetingWithErrorsCommand
  */
 export const de_GreetingWithErrorsCommand = async (
@@ -728,7 +628,7 @@ export const de_GreetingWithErrorsCommand = async (
   context: __SerdeContext
 ): Promise<GreetingWithErrorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GreetingWithErrorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -741,12 +641,368 @@ export const de_GreetingWithErrorsCommand = async (
 };
 
 /**
- * deserializeAws_ec2GreetingWithErrorsCommandError
+ * deserializeAws_ec2HostWithPathOperationCommand
  */
-const de_GreetingWithErrorsCommandError = async (
+export const de_HostWithPathOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GreetingWithErrorsCommandOutput> => {
+): Promise<HostWithPathOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: HostWithPathOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2IgnoresWrappingXmlNameCommand
+ */
+export const de_IgnoresWrappingXmlNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<IgnoresWrappingXmlNameCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_IgnoresWrappingXmlNameOutput(data, context);
+  const response: IgnoresWrappingXmlNameCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2NestedStructuresCommand
+ */
+export const de_NestedStructuresCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NestedStructuresCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: NestedStructuresCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2NoInputAndOutputCommand
+ */
+export const de_NoInputAndOutputCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<NoInputAndOutputCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_NoInputAndOutputOutput(data, context);
+  const response: NoInputAndOutputCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2PutWithContentEncodingCommand
+ */
+export const de_PutWithContentEncodingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutWithContentEncodingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutWithContentEncodingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand
+ */
+export const de_QueryIdempotencyTokenAutoFillCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: QueryIdempotencyTokenAutoFillCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2QueryListsCommand
+ */
+export const de_QueryListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryListsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: QueryListsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2QueryTimestampsCommand
+ */
+export const de_QueryTimestampsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<QueryTimestampsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: QueryTimestampsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2RecursiveXmlShapesCommand
+ */
+export const de_RecursiveXmlShapesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RecursiveXmlShapesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RecursiveXmlShapesOutput(data, context);
+  const response: RecursiveXmlShapesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2SimpleInputParamsCommand
+ */
+export const de_SimpleInputParamsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SimpleInputParamsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: SimpleInputParamsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2SimpleScalarXmlPropertiesCommand
+ */
+export const de_SimpleScalarXmlPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SimpleScalarXmlPropertiesOutput(data, context);
+  const response: SimpleScalarXmlPropertiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2XmlBlobsCommand
+ */
+export const de_XmlBlobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlBlobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlBlobsOutput(data, context);
+  const response: XmlBlobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2XmlEmptyBlobsCommand
+ */
+export const de_XmlEmptyBlobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEmptyBlobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlBlobsOutput(data, context);
+  const response: XmlEmptyBlobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2XmlEmptyListsCommand
+ */
+export const de_XmlEmptyListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEmptyListsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlListsOutput(data, context);
+  const response: XmlEmptyListsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2XmlEnumsCommand
+ */
+export const de_XmlEnumsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlEnumsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlEnumsOutput(data, context);
+  const response: XmlEnumsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2XmlIntEnumsCommand
+ */
+export const de_XmlIntEnumsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlIntEnumsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlIntEnumsOutput(data, context);
+  const response: XmlIntEnumsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2XmlListsCommand
+ */
+export const de_XmlListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlListsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlListsOutput(data, context);
+  const response: XmlListsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2XmlNamespacesCommand
+ */
+export const de_XmlNamespacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlNamespacesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlNamespacesOutput(data, context);
+  const response: XmlNamespacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_ec2XmlTimestampsCommand
+ */
+export const de_XmlTimestampsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlTimestampsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_XmlTimestampsOutput(data, context);
+  const response: XmlTimestampsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_ec2CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -765,747 +1021,8 @@ const de_GreetingWithErrorsCommandError = async (
         output,
         parsedBody: parsedBody.Errors.Error,
         errorCode,
-      });
+      }) as never;
   }
-};
-
-/**
- * deserializeAws_ec2HostWithPathOperationCommand
- */
-export const de_HostWithPathOperationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HostWithPathOperationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_HostWithPathOperationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: HostWithPathOperationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2HostWithPathOperationCommandError
- */
-const de_HostWithPathOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<HostWithPathOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2IgnoresWrappingXmlNameCommand
- */
-export const de_IgnoresWrappingXmlNameCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<IgnoresWrappingXmlNameCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_IgnoresWrappingXmlNameCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_IgnoresWrappingXmlNameOutput(data, context);
-  const response: IgnoresWrappingXmlNameCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2IgnoresWrappingXmlNameCommandError
- */
-const de_IgnoresWrappingXmlNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<IgnoresWrappingXmlNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2NestedStructuresCommand
- */
-export const de_NestedStructuresCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NestedStructuresCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_NestedStructuresCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: NestedStructuresCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2NestedStructuresCommandError
- */
-const de_NestedStructuresCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NestedStructuresCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2NoInputAndOutputCommand
- */
-export const de_NoInputAndOutputCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NoInputAndOutputCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_NoInputAndOutputCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_NoInputAndOutputOutput(data, context);
-  const response: NoInputAndOutputCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2NoInputAndOutputCommandError
- */
-const de_NoInputAndOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NoInputAndOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2PutWithContentEncodingCommand
- */
-export const de_PutWithContentEncodingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutWithContentEncodingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutWithContentEncodingCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: PutWithContentEncodingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2PutWithContentEncodingCommandError
- */
-const de_PutWithContentEncodingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutWithContentEncodingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2QueryIdempotencyTokenAutoFillCommand
- */
-export const de_QueryIdempotencyTokenAutoFillCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_QueryIdempotencyTokenAutoFillCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: QueryIdempotencyTokenAutoFillCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2QueryIdempotencyTokenAutoFillCommandError
- */
-const de_QueryIdempotencyTokenAutoFillCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryIdempotencyTokenAutoFillCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2QueryListsCommand
- */
-export const de_QueryListsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryListsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_QueryListsCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: QueryListsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2QueryListsCommandError
- */
-const de_QueryListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2QueryTimestampsCommand
- */
-export const de_QueryTimestampsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryTimestampsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_QueryTimestampsCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: QueryTimestampsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2QueryTimestampsCommandError
- */
-const de_QueryTimestampsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryTimestampsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2RecursiveXmlShapesCommand
- */
-export const de_RecursiveXmlShapesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RecursiveXmlShapesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RecursiveXmlShapesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RecursiveXmlShapesOutput(data, context);
-  const response: RecursiveXmlShapesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2RecursiveXmlShapesCommandError
- */
-const de_RecursiveXmlShapesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RecursiveXmlShapesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2SimpleInputParamsCommand
- */
-export const de_SimpleInputParamsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimpleInputParamsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SimpleInputParamsCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: SimpleInputParamsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2SimpleInputParamsCommandError
- */
-const de_SimpleInputParamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimpleInputParamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2SimpleScalarXmlPropertiesCommand
- */
-export const de_SimpleScalarXmlPropertiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SimpleScalarXmlPropertiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SimpleScalarXmlPropertiesOutput(data, context);
-  const response: SimpleScalarXmlPropertiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2SimpleScalarXmlPropertiesCommandError
- */
-const de_SimpleScalarXmlPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimpleScalarXmlPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2XmlBlobsCommand
- */
-export const de_XmlBlobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlBlobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlBlobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlBlobsOutput(data, context);
-  const response: XmlBlobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2XmlBlobsCommandError
- */
-const de_XmlBlobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlBlobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2XmlEmptyBlobsCommand
- */
-export const de_XmlEmptyBlobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyBlobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlEmptyBlobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlBlobsOutput(data, context);
-  const response: XmlEmptyBlobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2XmlEmptyBlobsCommandError
- */
-const de_XmlEmptyBlobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyBlobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2XmlEmptyListsCommand
- */
-export const de_XmlEmptyListsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyListsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlEmptyListsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlListsOutput(data, context);
-  const response: XmlEmptyListsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2XmlEmptyListsCommandError
- */
-const de_XmlEmptyListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEmptyListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2XmlEnumsCommand
- */
-export const de_XmlEnumsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEnumsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlEnumsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlEnumsOutput(data, context);
-  const response: XmlEnumsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2XmlEnumsCommandError
- */
-const de_XmlEnumsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlEnumsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2XmlIntEnumsCommand
- */
-export const de_XmlIntEnumsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlIntEnumsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlIntEnumsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlIntEnumsOutput(data, context);
-  const response: XmlIntEnumsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2XmlIntEnumsCommandError
- */
-const de_XmlIntEnumsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlIntEnumsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2XmlListsCommand
- */
-export const de_XmlListsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlListsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlListsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlListsOutput(data, context);
-  const response: XmlListsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2XmlListsCommandError
- */
-const de_XmlListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2XmlNamespacesCommand
- */
-export const de_XmlNamespacesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlNamespacesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlNamespacesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlNamespacesOutput(data, context);
-  const response: XmlNamespacesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2XmlNamespacesCommandError
- */
-const de_XmlNamespacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlNamespacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_ec2XmlTimestampsCommand
- */
-export const de_XmlTimestampsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlTimestampsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_XmlTimestampsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_XmlTimestampsOutput(data, context);
-  const response: XmlTimestampsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_ec2XmlTimestampsCommandError
- */
-const de_XmlTimestampsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<XmlTimestampsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Errors.Error,
-    errorCode,
-  });
 };
 
 /**

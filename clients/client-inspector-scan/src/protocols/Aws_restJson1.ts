@@ -60,7 +60,7 @@ export const de_ScanSbomCommand = async (
   context: __SerdeContext
 ): Promise<ScanSbomCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ScanSbomCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -74,12 +74,9 @@ export const de_ScanSbomCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ScanSbomCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_ScanSbomCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ScanSbomCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -104,7 +101,7 @@ const de_ScanSbomCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

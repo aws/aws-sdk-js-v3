@@ -1759,7 +1759,7 @@ export const de_CreateApiCommand = async (
   context: __SerdeContext
 ): Promise<CreateApiCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1788,41 +1788,6 @@ export const de_CreateApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateApiCommandError
- */
-const de_CreateApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateApiMappingCommand
  */
 export const de_CreateApiMappingCommand = async (
@@ -1830,7 +1795,7 @@ export const de_CreateApiMappingCommand = async (
   context: __SerdeContext
 ): Promise<CreateApiMappingCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateApiMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1847,41 +1812,6 @@ export const de_CreateApiMappingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateApiMappingCommandError
- */
-const de_CreateApiMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApiMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateAuthorizerCommand
  */
 export const de_CreateAuthorizerCommand = async (
@@ -1889,7 +1819,7 @@ export const de_CreateAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<CreateAuthorizerCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateAuthorizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1913,41 +1843,6 @@ export const de_CreateAuthorizerCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateAuthorizerCommandError
- */
-const de_CreateAuthorizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAuthorizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDeploymentCommand
  */
 export const de_CreateDeploymentCommand = async (
@@ -1955,7 +1850,7 @@ export const de_CreateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1974,41 +1869,6 @@ export const de_CreateDeploymentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDeploymentCommandError
- */
-const de_CreateDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDomainNameCommand
  */
 export const de_CreateDomainNameCommand = async (
@@ -2016,7 +1876,7 @@ export const de_CreateDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<CreateDomainNameCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateDomainNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2034,44 +1894,6 @@ export const de_CreateDomainNameCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDomainNameCommandError
- */
-const de_CreateDomainNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDomainNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.apigatewayv2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateIntegrationCommand
  */
 export const de_CreateIntegrationCommand = async (
@@ -2079,7 +1901,7 @@ export const de_CreateIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<CreateIntegrationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2112,41 +1934,6 @@ export const de_CreateIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateIntegrationCommandError
- */
-const de_CreateIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateIntegrationResponseCommand
  */
 export const de_CreateIntegrationResponseCommand = async (
@@ -2154,7 +1941,7 @@ export const de_CreateIntegrationResponseCommand = async (
   context: __SerdeContext
 ): Promise<CreateIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateIntegrationResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2173,41 +1960,6 @@ export const de_CreateIntegrationResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateIntegrationResponseCommandError
- */
-const de_CreateIntegrationResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIntegrationResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateModelCommand
  */
 export const de_CreateModelCommand = async (
@@ -2215,7 +1967,7 @@ export const de_CreateModelCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2233,41 +1985,6 @@ export const de_CreateModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateModelCommandError
- */
-const de_CreateModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateRouteCommand
  */
 export const de_CreateRouteCommand = async (
@@ -2275,7 +1992,7 @@ export const de_CreateRouteCommand = async (
   context: __SerdeContext
 ): Promise<CreateRouteCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2301,41 +2018,6 @@ export const de_CreateRouteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateRouteCommandError
- */
-const de_CreateRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateRouteResponseCommand
  */
 export const de_CreateRouteResponseCommand = async (
@@ -2343,7 +2025,7 @@ export const de_CreateRouteResponseCommand = async (
   context: __SerdeContext
 ): Promise<CreateRouteResponseCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateRouteResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2361,41 +2043,6 @@ export const de_CreateRouteResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateRouteResponseCommandError
- */
-const de_CreateRouteResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRouteResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateStageCommand
  */
 export const de_CreateStageCommand = async (
@@ -2403,7 +2050,7 @@ export const de_CreateStageCommand = async (
   context: __SerdeContext
 ): Promise<CreateStageCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2430,41 +2077,6 @@ export const de_CreateStageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateStageCommandError
- */
-const de_CreateStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateVpcLinkCommand
  */
 export const de_CreateVpcLinkCommand = async (
@@ -2472,7 +2084,7 @@ export const de_CreateVpcLinkCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcLinkCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateVpcLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2494,35 +2106,6 @@ export const de_CreateVpcLinkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateVpcLinkCommandError
- */
-const de_CreateVpcLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpcLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteAccessLogSettingsCommand
  */
 export const de_DeleteAccessLogSettingsCommand = async (
@@ -2530,42 +2113,13 @@ export const de_DeleteAccessLogSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccessLogSettingsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteAccessLogSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAccessLogSettingsCommandError
- */
-const de_DeleteAccessLogSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccessLogSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2576,42 +2130,13 @@ export const de_DeleteApiCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApiCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteApiCommandError
- */
-const de_DeleteApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2622,45 +2147,13 @@ export const de_DeleteApiMappingCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApiMappingCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteApiMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteApiMappingCommandError
- */
-const de_DeleteApiMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApiMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2671,42 +2164,13 @@ export const de_DeleteAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAuthorizerCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteAuthorizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteAuthorizerCommandError
- */
-const de_DeleteAuthorizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAuthorizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2717,42 +2181,13 @@ export const de_DeleteCorsConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCorsConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteCorsConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteCorsConfigurationCommandError
- */
-const de_DeleteCorsConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCorsConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2763,42 +2198,13 @@ export const de_DeleteDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeploymentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDeploymentCommandError
- */
-const de_DeleteDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2809,42 +2215,13 @@ export const de_DeleteDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainNameCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteDomainNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDomainNameCommandError
- */
-const de_DeleteDomainNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDomainNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2855,42 +2232,13 @@ export const de_DeleteIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIntegrationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteIntegrationCommandError
- */
-const de_DeleteIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2901,42 +2249,13 @@ export const de_DeleteIntegrationResponseCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteIntegrationResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteIntegrationResponseCommandError
- */
-const de_DeleteIntegrationResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIntegrationResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2947,42 +2266,13 @@ export const de_DeleteModelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteModelCommandError
- */
-const de_DeleteModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2993,42 +2283,13 @@ export const de_DeleteRouteCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRouteCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRouteCommandError
- */
-const de_DeleteRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3039,42 +2300,13 @@ export const de_DeleteRouteRequestParameterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRouteRequestParameterCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteRouteRequestParameterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRouteRequestParameterCommandError
- */
-const de_DeleteRouteRequestParameterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRouteRequestParameterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3085,42 +2317,13 @@ export const de_DeleteRouteResponseCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRouteResponseCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteRouteResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRouteResponseCommandError
- */
-const de_DeleteRouteResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRouteResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3131,42 +2334,13 @@ export const de_DeleteRouteSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRouteSettingsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteRouteSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRouteSettingsCommandError
- */
-const de_DeleteRouteSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRouteSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3177,42 +2351,13 @@ export const de_DeleteStageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStageCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteStageCommandError
- */
-const de_DeleteStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3223,42 +2368,13 @@ export const de_DeleteVpcLinkCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpcLinkCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_DeleteVpcLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteVpcLinkCommandError
- */
-const de_DeleteVpcLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3269,7 +2385,7 @@ export const de_ExportApiCommand = async (
   context: __SerdeContext
 ): Promise<ExportApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExportApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3280,38 +2396,6 @@ export const de_ExportApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExportApiCommandError
- */
-const de_ExportApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetApiCommand
  */
 export const de_GetApiCommand = async (
@@ -3319,7 +2403,7 @@ export const de_GetApiCommand = async (
   context: __SerdeContext
 ): Promise<GetApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3348,32 +2432,6 @@ export const de_GetApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApiCommandError
- */
-const de_GetApiCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<GetApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetApiMappingCommand
  */
 export const de_GetApiMappingCommand = async (
@@ -3381,7 +2439,7 @@ export const de_GetApiMappingCommand = async (
   context: __SerdeContext
 ): Promise<GetApiMappingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApiMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3398,38 +2456,6 @@ export const de_GetApiMappingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApiMappingCommandError
- */
-const de_GetApiMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApiMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetApiMappingsCommand
  */
 export const de_GetApiMappingsCommand = async (
@@ -3437,7 +2463,7 @@ export const de_GetApiMappingsCommand = async (
   context: __SerdeContext
 ): Promise<GetApiMappingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApiMappingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3452,38 +2478,6 @@ export const de_GetApiMappingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApiMappingsCommandError
- */
-const de_GetApiMappingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApiMappingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetApisCommand
  */
 export const de_GetApisCommand = async (
@@ -3491,7 +2485,7 @@ export const de_GetApisCommand = async (
   context: __SerdeContext
 ): Promise<GetApisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetApisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3506,38 +2500,6 @@ export const de_GetApisCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetApisCommandError
- */
-const de_GetApisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAuthorizerCommand
  */
 export const de_GetAuthorizerCommand = async (
@@ -3545,7 +2507,7 @@ export const de_GetAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<GetAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAuthorizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3569,35 +2531,6 @@ export const de_GetAuthorizerCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAuthorizerCommandError
- */
-const de_GetAuthorizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAuthorizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAuthorizersCommand
  */
 export const de_GetAuthorizersCommand = async (
@@ -3605,7 +2538,7 @@ export const de_GetAuthorizersCommand = async (
   context: __SerdeContext
 ): Promise<GetAuthorizersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAuthorizersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3620,38 +2553,6 @@ export const de_GetAuthorizersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAuthorizersCommandError
- */
-const de_GetAuthorizersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAuthorizersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDeploymentCommand
  */
 export const de_GetDeploymentCommand = async (
@@ -3659,7 +2560,7 @@ export const de_GetDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3678,35 +2579,6 @@ export const de_GetDeploymentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDeploymentCommandError
- */
-const de_GetDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDeploymentsCommand
  */
 export const de_GetDeploymentsCommand = async (
@@ -3714,7 +2586,7 @@ export const de_GetDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<GetDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeploymentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3729,38 +2601,6 @@ export const de_GetDeploymentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDeploymentsCommandError
- */
-const de_GetDeploymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDomainNameCommand
  */
 export const de_GetDomainNameCommand = async (
@@ -3768,7 +2608,7 @@ export const de_GetDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDomainNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3786,35 +2626,6 @@ export const de_GetDomainNameCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDomainNameCommandError
- */
-const de_GetDomainNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDomainNamesCommand
  */
 export const de_GetDomainNamesCommand = async (
@@ -3822,7 +2633,7 @@ export const de_GetDomainNamesCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDomainNamesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3837,38 +2648,6 @@ export const de_GetDomainNamesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDomainNamesCommandError
- */
-const de_GetDomainNamesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainNamesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetIntegrationCommand
  */
 export const de_GetIntegrationCommand = async (
@@ -3876,7 +2655,7 @@ export const de_GetIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<GetIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3909,35 +2688,6 @@ export const de_GetIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetIntegrationCommandError
- */
-const de_GetIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetIntegrationResponseCommand
  */
 export const de_GetIntegrationResponseCommand = async (
@@ -3945,7 +2695,7 @@ export const de_GetIntegrationResponseCommand = async (
   context: __SerdeContext
 ): Promise<GetIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIntegrationResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3964,35 +2714,6 @@ export const de_GetIntegrationResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetIntegrationResponseCommandError
- */
-const de_GetIntegrationResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIntegrationResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetIntegrationResponsesCommand
  */
 export const de_GetIntegrationResponsesCommand = async (
@@ -4000,7 +2721,7 @@ export const de_GetIntegrationResponsesCommand = async (
   context: __SerdeContext
 ): Promise<GetIntegrationResponsesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIntegrationResponsesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4015,38 +2736,6 @@ export const de_GetIntegrationResponsesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetIntegrationResponsesCommandError
- */
-const de_GetIntegrationResponsesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIntegrationResponsesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetIntegrationsCommand
  */
 export const de_GetIntegrationsCommand = async (
@@ -4054,7 +2743,7 @@ export const de_GetIntegrationsCommand = async (
   context: __SerdeContext
 ): Promise<GetIntegrationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIntegrationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4069,38 +2758,6 @@ export const de_GetIntegrationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetIntegrationsCommandError
- */
-const de_GetIntegrationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIntegrationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetModelCommand
  */
 export const de_GetModelCommand = async (
@@ -4108,7 +2765,7 @@ export const de_GetModelCommand = async (
   context: __SerdeContext
 ): Promise<GetModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4126,35 +2783,6 @@ export const de_GetModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetModelCommandError
- */
-const de_GetModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetModelsCommand
  */
 export const de_GetModelsCommand = async (
@@ -4162,7 +2790,7 @@ export const de_GetModelsCommand = async (
   context: __SerdeContext
 ): Promise<GetModelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetModelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4177,38 +2805,6 @@ export const de_GetModelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetModelsCommandError
- */
-const de_GetModelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetModelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetModelTemplateCommand
  */
 export const de_GetModelTemplateCommand = async (
@@ -4216,7 +2812,7 @@ export const de_GetModelTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetModelTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetModelTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4230,35 +2826,6 @@ export const de_GetModelTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetModelTemplateCommandError
- */
-const de_GetModelTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetModelTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRouteCommand
  */
 export const de_GetRouteCommand = async (
@@ -4266,7 +2833,7 @@ export const de_GetRouteCommand = async (
   context: __SerdeContext
 ): Promise<GetRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4292,35 +2859,6 @@ export const de_GetRouteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRouteCommandError
- */
-const de_GetRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRouteResponseCommand
  */
 export const de_GetRouteResponseCommand = async (
@@ -4328,7 +2866,7 @@ export const de_GetRouteResponseCommand = async (
   context: __SerdeContext
 ): Promise<GetRouteResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRouteResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4346,35 +2884,6 @@ export const de_GetRouteResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRouteResponseCommandError
- */
-const de_GetRouteResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRouteResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRouteResponsesCommand
  */
 export const de_GetRouteResponsesCommand = async (
@@ -4382,7 +2891,7 @@ export const de_GetRouteResponsesCommand = async (
   context: __SerdeContext
 ): Promise<GetRouteResponsesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRouteResponsesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4397,38 +2906,6 @@ export const de_GetRouteResponsesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRouteResponsesCommandError
- */
-const de_GetRouteResponsesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRouteResponsesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRoutesCommand
  */
 export const de_GetRoutesCommand = async (
@@ -4436,7 +2913,7 @@ export const de_GetRoutesCommand = async (
   context: __SerdeContext
 ): Promise<GetRoutesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRoutesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4451,38 +2928,6 @@ export const de_GetRoutesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRoutesCommandError
- */
-const de_GetRoutesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRoutesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetStageCommand
  */
 export const de_GetStageCommand = async (
@@ -4490,7 +2935,7 @@ export const de_GetStageCommand = async (
   context: __SerdeContext
 ): Promise<GetStageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4517,35 +2962,6 @@ export const de_GetStageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetStageCommandError
- */
-const de_GetStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetStagesCommand
  */
 export const de_GetStagesCommand = async (
@@ -4553,7 +2969,7 @@ export const de_GetStagesCommand = async (
   context: __SerdeContext
 ): Promise<GetStagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetStagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4568,38 +2984,6 @@ export const de_GetStagesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetStagesCommandError
- */
-const de_GetStagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetTagsCommand
  */
 export const de_GetTagsCommand = async (
@@ -4607,7 +2991,7 @@ export const de_GetTagsCommand = async (
   context: __SerdeContext
 ): Promise<GetTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4621,41 +3005,6 @@ export const de_GetTagsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetTagsCommandError
- */
-const de_GetTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetVpcLinkCommand
  */
 export const de_GetVpcLinkCommand = async (
@@ -4663,7 +3012,7 @@ export const de_GetVpcLinkCommand = async (
   context: __SerdeContext
 ): Promise<GetVpcLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetVpcLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4685,35 +3034,6 @@ export const de_GetVpcLinkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetVpcLinkCommandError
- */
-const de_GetVpcLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVpcLinkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetVpcLinksCommand
  */
 export const de_GetVpcLinksCommand = async (
@@ -4721,7 +3041,7 @@ export const de_GetVpcLinksCommand = async (
   context: __SerdeContext
 ): Promise<GetVpcLinksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetVpcLinksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4736,35 +3056,6 @@ export const de_GetVpcLinksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetVpcLinksCommandError
- */
-const de_GetVpcLinksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVpcLinksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ImportApiCommand
  */
 export const de_ImportApiCommand = async (
@@ -4772,7 +3063,7 @@ export const de_ImportApiCommand = async (
   context: __SerdeContext
 ): Promise<ImportApiCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_ImportApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4798,41 +3089,6 @@ export const de_ImportApiCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ImportApiCommandError
- */
-const de_ImportApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4843,7 +3099,7 @@ export const de_ReimportApiCommand = async (
   context: __SerdeContext
 ): Promise<ReimportApiCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_ReimportApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4869,41 +3125,6 @@ export const de_ReimportApiCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ReimportApiCommandError
- */
-const de_ReimportApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReimportApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4914,42 +3135,13 @@ export const de_ResetAuthorizersCacheCommand = async (
   context: __SerdeContext
 ): Promise<ResetAuthorizersCacheCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_ResetAuthorizersCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ResetAuthorizersCacheCommandError
- */
-const de_ResetAuthorizersCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetAuthorizersCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4960,48 +3152,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5012,48 +3169,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5064,7 +3186,7 @@ export const de_UpdateApiCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApiCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApiCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5093,41 +3215,6 @@ export const de_UpdateApiCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApiCommandError
- */
-const de_UpdateApiCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApiCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateApiMappingCommand
  */
 export const de_UpdateApiMappingCommand = async (
@@ -5135,7 +3222,7 @@ export const de_UpdateApiMappingCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApiMappingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateApiMappingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5152,41 +3239,6 @@ export const de_UpdateApiMappingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateApiMappingCommandError
- */
-const de_UpdateApiMappingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApiMappingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateAuthorizerCommand
  */
 export const de_UpdateAuthorizerCommand = async (
@@ -5194,7 +3246,7 @@ export const de_UpdateAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAuthorizerCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAuthorizerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5218,41 +3270,6 @@ export const de_UpdateAuthorizerCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAuthorizerCommandError
- */
-const de_UpdateAuthorizerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAuthorizerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDeploymentCommand
  */
 export const de_UpdateDeploymentCommand = async (
@@ -5260,7 +3277,7 @@ export const de_UpdateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5279,41 +3296,6 @@ export const de_UpdateDeploymentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDeploymentCommandError
- */
-const de_UpdateDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDomainNameCommand
  */
 export const de_UpdateDomainNameCommand = async (
@@ -5321,7 +3303,7 @@ export const de_UpdateDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainNameCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDomainNameCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5339,41 +3321,6 @@ export const de_UpdateDomainNameCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDomainNameCommandError
- */
-const de_UpdateDomainNameCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDomainNameCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateIntegrationCommand
  */
 export const de_UpdateIntegrationCommand = async (
@@ -5381,7 +3328,7 @@ export const de_UpdateIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateIntegrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateIntegrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5414,41 +3361,6 @@ export const de_UpdateIntegrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateIntegrationCommandError
- */
-const de_UpdateIntegrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateIntegrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateIntegrationResponseCommand
  */
 export const de_UpdateIntegrationResponseCommand = async (
@@ -5456,7 +3368,7 @@ export const de_UpdateIntegrationResponseCommand = async (
   context: __SerdeContext
 ): Promise<UpdateIntegrationResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateIntegrationResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5475,41 +3387,6 @@ export const de_UpdateIntegrationResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateIntegrationResponseCommandError
- */
-const de_UpdateIntegrationResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateIntegrationResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateModelCommand
  */
 export const de_UpdateModelCommand = async (
@@ -5517,7 +3394,7 @@ export const de_UpdateModelCommand = async (
   context: __SerdeContext
 ): Promise<UpdateModelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateModelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5535,41 +3412,6 @@ export const de_UpdateModelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateModelCommandError
- */
-const de_UpdateModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateRouteCommand
  */
 export const de_UpdateRouteCommand = async (
@@ -5577,7 +3419,7 @@ export const de_UpdateRouteCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRouteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRouteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5603,41 +3445,6 @@ export const de_UpdateRouteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRouteCommandError
- */
-const de_UpdateRouteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRouteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateRouteResponseCommand
  */
 export const de_UpdateRouteResponseCommand = async (
@@ -5645,7 +3452,7 @@ export const de_UpdateRouteResponseCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRouteResponseCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRouteResponseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5663,41 +3470,6 @@ export const de_UpdateRouteResponseCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRouteResponseCommandError
- */
-const de_UpdateRouteResponseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRouteResponseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateStageCommand
  */
 export const de_UpdateStageCommand = async (
@@ -5705,7 +3477,7 @@ export const de_UpdateStageCommand = async (
   context: __SerdeContext
 ): Promise<UpdateStageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateStageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5732,41 +3504,6 @@ export const de_UpdateStageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateStageCommandError
- */
-const de_UpdateStageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.apigatewayv2#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.apigatewayv2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.apigatewayv2#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.apigatewayv2#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateVpcLinkCommand
  */
 export const de_UpdateVpcLinkCommand = async (
@@ -5774,7 +3511,7 @@ export const de_UpdateVpcLinkCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVpcLinkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateVpcLinkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5796,12 +3533,9 @@ export const de_UpdateVpcLinkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateVpcLinkCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateVpcLinkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVpcLinkCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5811,19 +3545,25 @@ const de_UpdateVpcLinkCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.apigatewayv2#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.apigatewayv2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.apigatewayv2#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.apigatewayv2#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.apigatewayv2#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -1892,7 +1892,7 @@ export const de_AddCustomAttributesCommand = async (
   context: __SerdeContext
 ): Promise<AddCustomAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddCustomAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1905,47 +1905,6 @@ export const de_AddCustomAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddCustomAttributesCommandError
- */
-const de_AddCustomAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddCustomAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserImportInProgressException":
-    case "com.amazonaws.cognitoidentityprovider#UserImportInProgressException":
-      throw await de_UserImportInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminAddUserToGroupCommand
  */
 export const de_AdminAddUserToGroupCommand = async (
@@ -1953,54 +1912,13 @@ export const de_AdminAddUserToGroupCommand = async (
   context: __SerdeContext
 ): Promise<AdminAddUserToGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminAddUserToGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AdminAddUserToGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1AdminAddUserToGroupCommandError
- */
-const de_AdminAddUserToGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminAddUserToGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2011,7 +1929,7 @@ export const de_AdminConfirmSignUpCommand = async (
   context: __SerdeContext
 ): Promise<AdminConfirmSignUpCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminConfirmSignUpCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2024,62 +1942,6 @@ export const de_AdminConfirmSignUpCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminConfirmSignUpCommandError
- */
-const de_AdminConfirmSignUpCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminConfirmSignUpCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyFailedAttemptsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyFailedAttemptsException":
-      throw await de_TooManyFailedAttemptsExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminCreateUserCommand
  */
 export const de_AdminCreateUserCommand = async (
@@ -2087,7 +1949,7 @@ export const de_AdminCreateUserCommand = async (
   context: __SerdeContext
 ): Promise<AdminCreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminCreateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2100,77 +1962,6 @@ export const de_AdminCreateUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminCreateUserCommandError
- */
-const de_AdminCreateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminCreateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeDeliveryFailureException":
-    case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.cognitoidentityprovider#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UnsupportedUserStateException":
-    case "com.amazonaws.cognitoidentityprovider#UnsupportedUserStateException":
-      throw await de_UnsupportedUserStateExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    case "UsernameExistsException":
-    case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
-      throw await de_UsernameExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminDeleteUserCommand
  */
 export const de_AdminDeleteUserCommand = async (
@@ -2178,54 +1969,13 @@ export const de_AdminDeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<AdminDeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminDeleteUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AdminDeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1AdminDeleteUserCommandError
- */
-const de_AdminDeleteUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminDeleteUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2236,7 +1986,7 @@ export const de_AdminDeleteUserAttributesCommand = async (
   context: __SerdeContext
 ): Promise<AdminDeleteUserAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminDeleteUserAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2249,47 +1999,6 @@ export const de_AdminDeleteUserAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminDeleteUserAttributesCommandError
- */
-const de_AdminDeleteUserAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminDeleteUserAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminDisableProviderForUserCommand
  */
 export const de_AdminDisableProviderForUserCommand = async (
@@ -2297,7 +2006,7 @@ export const de_AdminDisableProviderForUserCommand = async (
   context: __SerdeContext
 ): Promise<AdminDisableProviderForUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminDisableProviderForUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2310,50 +2019,6 @@ export const de_AdminDisableProviderForUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminDisableProviderForUserCommandError
- */
-const de_AdminDisableProviderForUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminDisableProviderForUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AliasExistsException":
-    case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await de_AliasExistsExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminDisableUserCommand
  */
 export const de_AdminDisableUserCommand = async (
@@ -2361,7 +2026,7 @@ export const de_AdminDisableUserCommand = async (
   context: __SerdeContext
 ): Promise<AdminDisableUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminDisableUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2374,47 +2039,6 @@ export const de_AdminDisableUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminDisableUserCommandError
- */
-const de_AdminDisableUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminDisableUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminEnableUserCommand
  */
 export const de_AdminEnableUserCommand = async (
@@ -2422,7 +2046,7 @@ export const de_AdminEnableUserCommand = async (
   context: __SerdeContext
 ): Promise<AdminEnableUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminEnableUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2435,47 +2059,6 @@ export const de_AdminEnableUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminEnableUserCommandError
- */
-const de_AdminEnableUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminEnableUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminForgetDeviceCommand
  */
 export const de_AdminForgetDeviceCommand = async (
@@ -2483,57 +2066,13 @@ export const de_AdminForgetDeviceCommand = async (
   context: __SerdeContext
 ): Promise<AdminForgetDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminForgetDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AdminForgetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1AdminForgetDeviceCommandError
- */
-const de_AdminForgetDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminForgetDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2544,7 +2083,7 @@ export const de_AdminGetDeviceCommand = async (
   context: __SerdeContext
 ): Promise<AdminGetDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminGetDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2557,47 +2096,6 @@ export const de_AdminGetDeviceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminGetDeviceCommandError
- */
-const de_AdminGetDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminGetDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminGetUserCommand
  */
 export const de_AdminGetUserCommand = async (
@@ -2605,7 +2103,7 @@ export const de_AdminGetUserCommand = async (
   context: __SerdeContext
 ): Promise<AdminGetUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminGetUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2618,47 +2116,6 @@ export const de_AdminGetUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminGetUserCommandError
- */
-const de_AdminGetUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminGetUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminInitiateAuthCommand
  */
 export const de_AdminInitiateAuthCommand = async (
@@ -2666,7 +2123,7 @@ export const de_AdminInitiateAuthCommand = async (
   context: __SerdeContext
 ): Promise<AdminInitiateAuthCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminInitiateAuthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2679,74 +2136,6 @@ export const de_AdminInitiateAuthCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminInitiateAuthCommandError
- */
-const de_AdminInitiateAuthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminInitiateAuthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "MFAMethodNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#MFAMethodNotFoundException":
-      throw await de_MFAMethodNotFoundExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminLinkProviderForUserCommand
  */
 export const de_AdminLinkProviderForUserCommand = async (
@@ -2754,7 +2143,7 @@ export const de_AdminLinkProviderForUserCommand = async (
   context: __SerdeContext
 ): Promise<AdminLinkProviderForUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminLinkProviderForUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2767,53 +2156,6 @@ export const de_AdminLinkProviderForUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminLinkProviderForUserCommandError
- */
-const de_AdminLinkProviderForUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminLinkProviderForUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AliasExistsException":
-    case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await de_AliasExistsExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminListDevicesCommand
  */
 export const de_AdminListDevicesCommand = async (
@@ -2821,7 +2163,7 @@ export const de_AdminListDevicesCommand = async (
   context: __SerdeContext
 ): Promise<AdminListDevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminListDevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2834,47 +2176,6 @@ export const de_AdminListDevicesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminListDevicesCommandError
- */
-const de_AdminListDevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminListDevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminListGroupsForUserCommand
  */
 export const de_AdminListGroupsForUserCommand = async (
@@ -2882,7 +2183,7 @@ export const de_AdminListGroupsForUserCommand = async (
   context: __SerdeContext
 ): Promise<AdminListGroupsForUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminListGroupsForUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2895,47 +2196,6 @@ export const de_AdminListGroupsForUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminListGroupsForUserCommandError
- */
-const de_AdminListGroupsForUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminListGroupsForUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminListUserAuthEventsCommand
  */
 export const de_AdminListUserAuthEventsCommand = async (
@@ -2943,7 +2203,7 @@ export const de_AdminListUserAuthEventsCommand = async (
   context: __SerdeContext
 ): Promise<AdminListUserAuthEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminListUserAuthEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2956,50 +2216,6 @@ export const de_AdminListUserAuthEventsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminListUserAuthEventsCommandError
- */
-const de_AdminListUserAuthEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminListUserAuthEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    case "UserPoolAddOnNotEnabledException":
-    case "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException":
-      throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminRemoveUserFromGroupCommand
  */
 export const de_AdminRemoveUserFromGroupCommand = async (
@@ -3007,54 +2223,13 @@ export const de_AdminRemoveUserFromGroupCommand = async (
   context: __SerdeContext
 ): Promise<AdminRemoveUserFromGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminRemoveUserFromGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AdminRemoveUserFromGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1AdminRemoveUserFromGroupCommandError
- */
-const de_AdminRemoveUserFromGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminRemoveUserFromGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3065,7 +2240,7 @@ export const de_AdminResetUserPasswordCommand = async (
   context: __SerdeContext
 ): Promise<AdminResetUserPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminResetUserPasswordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3078,68 +2253,6 @@ export const de_AdminResetUserPasswordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminResetUserPasswordCommandError
- */
-const de_AdminResetUserPasswordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminResetUserPasswordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidEmailRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminRespondToAuthChallengeCommand
  */
 export const de_AdminRespondToAuthChallengeCommand = async (
@@ -3147,7 +2260,7 @@ export const de_AdminRespondToAuthChallengeCommand = async (
   context: __SerdeContext
 ): Promise<AdminRespondToAuthChallengeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminRespondToAuthChallengeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3160,89 +2273,6 @@ export const de_AdminRespondToAuthChallengeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminRespondToAuthChallengeCommandError
- */
-const de_AdminRespondToAuthChallengeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminRespondToAuthChallengeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AliasExistsException":
-    case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await de_AliasExistsExceptionRes(parsedOutput, context);
-    case "CodeMismatchException":
-    case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
-    case "ExpiredCodeException":
-    case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
-      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "MFAMethodNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#MFAMethodNotFoundException":
-      throw await de_MFAMethodNotFoundExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "SoftwareTokenMFANotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#SoftwareTokenMFANotFoundException":
-      throw await de_SoftwareTokenMFANotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminSetUserMFAPreferenceCommand
  */
 export const de_AdminSetUserMFAPreferenceCommand = async (
@@ -3250,7 +2280,7 @@ export const de_AdminSetUserMFAPreferenceCommand = async (
   context: __SerdeContext
 ): Promise<AdminSetUserMFAPreferenceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminSetUserMFAPreferenceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3263,50 +2293,6 @@ export const de_AdminSetUserMFAPreferenceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminSetUserMFAPreferenceCommandError
- */
-const de_AdminSetUserMFAPreferenceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminSetUserMFAPreferenceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminSetUserPasswordCommand
  */
 export const de_AdminSetUserPasswordCommand = async (
@@ -3314,7 +2300,7 @@ export const de_AdminSetUserPasswordCommand = async (
   context: __SerdeContext
 ): Promise<AdminSetUserPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminSetUserPasswordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3327,50 +2313,6 @@ export const de_AdminSetUserPasswordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminSetUserPasswordCommandError
- */
-const de_AdminSetUserPasswordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminSetUserPasswordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminSetUserSettingsCommand
  */
 export const de_AdminSetUserSettingsCommand = async (
@@ -3378,7 +2320,7 @@ export const de_AdminSetUserSettingsCommand = async (
   context: __SerdeContext
 ): Promise<AdminSetUserSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminSetUserSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3391,44 +2333,6 @@ export const de_AdminSetUserSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminSetUserSettingsCommandError
- */
-const de_AdminSetUserSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminSetUserSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommand
  */
 export const de_AdminUpdateAuthEventFeedbackCommand = async (
@@ -3436,7 +2340,7 @@ export const de_AdminUpdateAuthEventFeedbackCommand = async (
   context: __SerdeContext
 ): Promise<AdminUpdateAuthEventFeedbackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminUpdateAuthEventFeedbackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3449,50 +2353,6 @@ export const de_AdminUpdateAuthEventFeedbackCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommandError
- */
-const de_AdminUpdateAuthEventFeedbackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminUpdateAuthEventFeedbackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    case "UserPoolAddOnNotEnabledException":
-    case "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException":
-      throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminUpdateDeviceStatusCommand
  */
 export const de_AdminUpdateDeviceStatusCommand = async (
@@ -3500,7 +2360,7 @@ export const de_AdminUpdateDeviceStatusCommand = async (
   context: __SerdeContext
 ): Promise<AdminUpdateDeviceStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminUpdateDeviceStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3513,50 +2373,6 @@ export const de_AdminUpdateDeviceStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminUpdateDeviceStatusCommandError
- */
-const de_AdminUpdateDeviceStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminUpdateDeviceStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminUpdateUserAttributesCommand
  */
 export const de_AdminUpdateUserAttributesCommand = async (
@@ -3564,7 +2380,7 @@ export const de_AdminUpdateUserAttributesCommand = async (
   context: __SerdeContext
 ): Promise<AdminUpdateUserAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminUpdateUserAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3577,68 +2393,6 @@ export const de_AdminUpdateUserAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminUpdateUserAttributesCommandError
- */
-const de_AdminUpdateUserAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminUpdateUserAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AliasExistsException":
-    case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await de_AliasExistsExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidEmailRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AdminUserGlobalSignOutCommand
  */
 export const de_AdminUserGlobalSignOutCommand = async (
@@ -3646,7 +2400,7 @@ export const de_AdminUserGlobalSignOutCommand = async (
   context: __SerdeContext
 ): Promise<AdminUserGlobalSignOutCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AdminUserGlobalSignOutCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3659,47 +2413,6 @@ export const de_AdminUserGlobalSignOutCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AdminUserGlobalSignOutCommandError
- */
-const de_AdminUserGlobalSignOutCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AdminUserGlobalSignOutCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateSoftwareTokenCommand
  */
 export const de_AssociateSoftwareTokenCommand = async (
@@ -3707,7 +2420,7 @@ export const de_AssociateSoftwareTokenCommand = async (
   context: __SerdeContext
 ): Promise<AssociateSoftwareTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateSoftwareTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3720,50 +2433,6 @@ export const de_AssociateSoftwareTokenCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateSoftwareTokenCommandError
- */
-const de_AssociateSoftwareTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateSoftwareTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "SoftwareTokenMFANotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#SoftwareTokenMFANotFoundException":
-      throw await de_SoftwareTokenMFANotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ChangePasswordCommand
  */
 export const de_ChangePasswordCommand = async (
@@ -3771,7 +2440,7 @@ export const de_ChangePasswordCommand = async (
   context: __SerdeContext
 ): Promise<ChangePasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ChangePasswordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3784,62 +2453,6 @@ export const de_ChangePasswordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ChangePasswordCommandError
- */
-const de_ChangePasswordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ChangePasswordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ConfirmDeviceCommand
  */
 export const de_ConfirmDeviceCommand = async (
@@ -3847,7 +2460,7 @@ export const de_ConfirmDeviceCommand = async (
   context: __SerdeContext
 ): Promise<ConfirmDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConfirmDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3860,68 +2473,6 @@ export const de_ConfirmDeviceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ConfirmDeviceCommandError
- */
-const de_ConfirmDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfirmDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    case "UsernameExistsException":
-    case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
-      throw await de_UsernameExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ConfirmForgotPasswordCommand
  */
 export const de_ConfirmForgotPasswordCommand = async (
@@ -3929,7 +2480,7 @@ export const de_ConfirmForgotPasswordCommand = async (
   context: __SerdeContext
 ): Promise<ConfirmForgotPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConfirmForgotPasswordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3942,77 +2493,6 @@ export const de_ConfirmForgotPasswordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ConfirmForgotPasswordCommandError
- */
-const de_ConfirmForgotPasswordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfirmForgotPasswordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeMismatchException":
-    case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
-    case "ExpiredCodeException":
-    case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
-      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyFailedAttemptsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyFailedAttemptsException":
-      throw await de_TooManyFailedAttemptsExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ConfirmSignUpCommand
  */
 export const de_ConfirmSignUpCommand = async (
@@ -4020,7 +2500,7 @@ export const de_ConfirmSignUpCommand = async (
   context: __SerdeContext
 ): Promise<ConfirmSignUpCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConfirmSignUpCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4033,74 +2513,6 @@ export const de_ConfirmSignUpCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ConfirmSignUpCommandError
- */
-const de_ConfirmSignUpCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfirmSignUpCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AliasExistsException":
-    case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await de_AliasExistsExceptionRes(parsedOutput, context);
-    case "CodeMismatchException":
-    case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
-    case "ExpiredCodeException":
-    case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
-      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyFailedAttemptsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyFailedAttemptsException":
-      throw await de_TooManyFailedAttemptsExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateGroupCommand
  */
 export const de_CreateGroupCommand = async (
@@ -4108,7 +2520,7 @@ export const de_CreateGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4121,50 +2533,6 @@ export const de_CreateGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateGroupCommandError
- */
-const de_CreateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GroupExistsException":
-    case "com.amazonaws.cognitoidentityprovider#GroupExistsException":
-      throw await de_GroupExistsExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateIdentityProviderCommand
  */
 export const de_CreateIdentityProviderCommand = async (
@@ -4172,7 +2540,7 @@ export const de_CreateIdentityProviderCommand = async (
   context: __SerdeContext
 ): Promise<CreateIdentityProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateIdentityProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4185,50 +2553,6 @@ export const de_CreateIdentityProviderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateIdentityProviderCommandError
- */
-const de_CreateIdentityProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateIdentityProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateProviderException":
-    case "com.amazonaws.cognitoidentityprovider#DuplicateProviderException":
-      throw await de_DuplicateProviderExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateResourceServerCommand
  */
 export const de_CreateResourceServerCommand = async (
@@ -4236,7 +2560,7 @@ export const de_CreateResourceServerCommand = async (
   context: __SerdeContext
 ): Promise<CreateResourceServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateResourceServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4249,47 +2573,6 @@ export const de_CreateResourceServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateResourceServerCommandError
- */
-const de_CreateResourceServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResourceServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUserImportJobCommand
  */
 export const de_CreateUserImportJobCommand = async (
@@ -4297,7 +2580,7 @@ export const de_CreateUserImportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4310,50 +2593,6 @@ export const de_CreateUserImportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUserImportJobCommandError
- */
-const de_CreateUserImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.cognitoidentityprovider#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUserPoolCommand
  */
 export const de_CreateUserPoolCommand = async (
@@ -4361,7 +2600,7 @@ export const de_CreateUserPoolCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4374,56 +2613,6 @@ export const de_CreateUserPoolCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUserPoolCommandError
- */
-const de_CreateUserPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidEmailRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserPoolTaggingException":
-    case "com.amazonaws.cognitoidentityprovider#UserPoolTaggingException":
-      throw await de_UserPoolTaggingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUserPoolClientCommand
  */
 export const de_CreateUserPoolClientCommand = async (
@@ -4431,7 +2620,7 @@ export const de_CreateUserPoolClientCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserPoolClientCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserPoolClientCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4444,53 +2633,6 @@ export const de_CreateUserPoolClientCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUserPoolClientCommandError
- */
-const de_CreateUserPoolClientCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserPoolClientCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOAuthFlowException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidOAuthFlowException":
-      throw await de_InvalidOAuthFlowExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ScopeDoesNotExistException":
-    case "com.amazonaws.cognitoidentityprovider#ScopeDoesNotExistException":
-      throw await de_ScopeDoesNotExistExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUserPoolDomainCommand
  */
 export const de_CreateUserPoolDomainCommand = async (
@@ -4498,7 +2640,7 @@ export const de_CreateUserPoolDomainCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserPoolDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserPoolDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4511,44 +2653,6 @@ export const de_CreateUserPoolDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUserPoolDomainCommandError
- */
-const de_CreateUserPoolDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserPoolDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteGroupCommand
  */
 export const de_DeleteGroupCommand = async (
@@ -4556,51 +2660,13 @@ export const de_DeleteGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteGroupCommandError
- */
-const de_DeleteGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4611,57 +2677,13 @@ export const de_DeleteIdentityProviderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteIdentityProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteIdentityProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteIdentityProviderCommandError
- */
-const de_DeleteIdentityProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteIdentityProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedIdentityProviderException":
-    case "com.amazonaws.cognitoidentityprovider#UnsupportedIdentityProviderException":
-      throw await de_UnsupportedIdentityProviderExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4672,51 +2694,13 @@ export const de_DeleteResourceServerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourceServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResourceServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteResourceServerCommandError
- */
-const de_DeleteResourceServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourceServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4727,63 +2711,13 @@ export const de_DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteUserCommandError
- */
-const de_DeleteUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4794,7 +2728,7 @@ export const de_DeleteUserAttributesCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4807,56 +2741,6 @@ export const de_DeleteUserAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteUserAttributesCommandError
- */
-const de_DeleteUserAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteUserPoolCommand
  */
 export const de_DeleteUserPoolCommand = async (
@@ -4864,54 +2748,13 @@ export const de_DeleteUserPoolCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteUserPoolCommandError
- */
-const de_DeleteUserPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserImportInProgressException":
-    case "com.amazonaws.cognitoidentityprovider#UserImportInProgressException":
-      throw await de_UserImportInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4922,54 +2765,13 @@ export const de_DeleteUserPoolClientCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserPoolClientCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserPoolClientCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteUserPoolClientCommandError
- */
-const de_DeleteUserPoolClientCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserPoolClientCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4980,7 +2782,7 @@ export const de_DeleteUserPoolDomainCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserPoolDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserPoolDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4993,41 +2795,6 @@ export const de_DeleteUserPoolDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteUserPoolDomainCommandError
- */
-const de_DeleteUserPoolDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserPoolDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeIdentityProviderCommand
  */
 export const de_DescribeIdentityProviderCommand = async (
@@ -5035,7 +2802,7 @@ export const de_DescribeIdentityProviderCommand = async (
   context: __SerdeContext
 ): Promise<DescribeIdentityProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeIdentityProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5048,44 +2815,6 @@ export const de_DescribeIdentityProviderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeIdentityProviderCommandError
- */
-const de_DescribeIdentityProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeIdentityProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeResourceServerCommand
  */
 export const de_DescribeResourceServerCommand = async (
@@ -5093,7 +2822,7 @@ export const de_DescribeResourceServerCommand = async (
   context: __SerdeContext
 ): Promise<DescribeResourceServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeResourceServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5106,44 +2835,6 @@ export const de_DescribeResourceServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeResourceServerCommandError
- */
-const de_DescribeResourceServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourceServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRiskConfigurationCommand
  */
 export const de_DescribeRiskConfigurationCommand = async (
@@ -5151,7 +2842,7 @@ export const de_DescribeRiskConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRiskConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRiskConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5164,47 +2855,6 @@ export const de_DescribeRiskConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRiskConfigurationCommandError
- */
-const de_DescribeRiskConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRiskConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserPoolAddOnNotEnabledException":
-    case "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException":
-      throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeUserImportJobCommand
  */
 export const de_DescribeUserImportJobCommand = async (
@@ -5212,7 +2862,7 @@ export const de_DescribeUserImportJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUserImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUserImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5225,44 +2875,6 @@ export const de_DescribeUserImportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeUserImportJobCommandError
- */
-const de_DescribeUserImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUserImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeUserPoolCommand
  */
 export const de_DescribeUserPoolCommand = async (
@@ -5270,7 +2882,7 @@ export const de_DescribeUserPoolCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUserPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUserPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5283,47 +2895,6 @@ export const de_DescribeUserPoolCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeUserPoolCommandError
- */
-const de_DescribeUserPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUserPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserPoolTaggingException":
-    case "com.amazonaws.cognitoidentityprovider#UserPoolTaggingException":
-      throw await de_UserPoolTaggingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeUserPoolClientCommand
  */
 export const de_DescribeUserPoolClientCommand = async (
@@ -5331,7 +2902,7 @@ export const de_DescribeUserPoolClientCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUserPoolClientCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUserPoolClientCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5344,44 +2915,6 @@ export const de_DescribeUserPoolClientCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeUserPoolClientCommandError
- */
-const de_DescribeUserPoolClientCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUserPoolClientCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeUserPoolDomainCommand
  */
 export const de_DescribeUserPoolDomainCommand = async (
@@ -5389,7 +2922,7 @@ export const de_DescribeUserPoolDomainCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUserPoolDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeUserPoolDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5402,41 +2935,6 @@ export const de_DescribeUserPoolDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeUserPoolDomainCommandError
- */
-const de_DescribeUserPoolDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUserPoolDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ForgetDeviceCommand
  */
 export const de_ForgetDeviceCommand = async (
@@ -5444,66 +2942,13 @@ export const de_ForgetDeviceCommand = async (
   context: __SerdeContext
 ): Promise<ForgetDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ForgetDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ForgetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1ForgetDeviceCommandError
- */
-const de_ForgetDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ForgetDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5514,7 +2959,7 @@ export const de_ForgotPasswordCommand = async (
   context: __SerdeContext
 ): Promise<ForgotPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ForgotPasswordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5527,74 +2972,6 @@ export const de_ForgotPasswordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ForgotPasswordCommandError
- */
-const de_ForgotPasswordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ForgotPasswordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeDeliveryFailureException":
-    case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidEmailRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCSVHeaderCommand
  */
 export const de_GetCSVHeaderCommand = async (
@@ -5602,7 +2979,7 @@ export const de_GetCSVHeaderCommand = async (
   context: __SerdeContext
 ): Promise<GetCSVHeaderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCSVHeaderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5615,44 +2992,6 @@ export const de_GetCSVHeaderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCSVHeaderCommandError
- */
-const de_GetCSVHeaderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCSVHeaderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDeviceCommand
  */
 export const de_GetDeviceCommand = async (
@@ -5660,7 +2999,7 @@ export const de_GetDeviceCommand = async (
   context: __SerdeContext
 ): Promise<GetDeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5673,59 +3012,6 @@ export const de_GetDeviceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDeviceCommandError
- */
-const de_GetDeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetGroupCommand
  */
 export const de_GetGroupCommand = async (
@@ -5733,7 +3019,7 @@ export const de_GetGroupCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5746,44 +3032,6 @@ export const de_GetGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetGroupCommandError
- */
-const de_GetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetIdentityProviderByIdentifierCommand
  */
 export const de_GetIdentityProviderByIdentifierCommand = async (
@@ -5791,7 +3039,7 @@ export const de_GetIdentityProviderByIdentifierCommand = async (
   context: __SerdeContext
 ): Promise<GetIdentityProviderByIdentifierCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetIdentityProviderByIdentifierCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5804,44 +3052,6 @@ export const de_GetIdentityProviderByIdentifierCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetIdentityProviderByIdentifierCommandError
- */
-const de_GetIdentityProviderByIdentifierCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetIdentityProviderByIdentifierCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLogDeliveryConfigurationCommand
  */
 export const de_GetLogDeliveryConfigurationCommand = async (
@@ -5849,7 +3059,7 @@ export const de_GetLogDeliveryConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetLogDeliveryConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLogDeliveryConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5862,44 +3072,6 @@ export const de_GetLogDeliveryConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLogDeliveryConfigurationCommandError
- */
-const de_GetLogDeliveryConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLogDeliveryConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSigningCertificateCommand
  */
 export const de_GetSigningCertificateCommand = async (
@@ -5907,7 +3079,7 @@ export const de_GetSigningCertificateCommand = async (
   context: __SerdeContext
 ): Promise<GetSigningCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSigningCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5920,38 +3092,6 @@ export const de_GetSigningCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSigningCertificateCommandError
- */
-const de_GetSigningCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSigningCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUICustomizationCommand
  */
 export const de_GetUICustomizationCommand = async (
@@ -5959,7 +3099,7 @@ export const de_GetUICustomizationCommand = async (
   context: __SerdeContext
 ): Promise<GetUICustomizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUICustomizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5972,44 +3112,6 @@ export const de_GetUICustomizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUICustomizationCommandError
- */
-const de_GetUICustomizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUICustomizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUserCommand
  */
 export const de_GetUserCommand = async (
@@ -6017,7 +3119,7 @@ export const de_GetUserCommand = async (
   context: __SerdeContext
 ): Promise<GetUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6030,56 +3132,6 @@ export const de_GetUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUserCommandError
- */
-const de_GetUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUserAttributeVerificationCodeCommand
  */
 export const de_GetUserAttributeVerificationCodeCommand = async (
@@ -6087,7 +3139,7 @@ export const de_GetUserAttributeVerificationCodeCommand = async (
   context: __SerdeContext
 ): Promise<GetUserAttributeVerificationCodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUserAttributeVerificationCodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6100,80 +3152,6 @@ export const de_GetUserAttributeVerificationCodeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUserAttributeVerificationCodeCommandError
- */
-const de_GetUserAttributeVerificationCodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUserAttributeVerificationCodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeDeliveryFailureException":
-    case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidEmailRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUserPoolMfaConfigCommand
  */
 export const de_GetUserPoolMfaConfigCommand = async (
@@ -6181,7 +3159,7 @@ export const de_GetUserPoolMfaConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetUserPoolMfaConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUserPoolMfaConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6194,44 +3172,6 @@ export const de_GetUserPoolMfaConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUserPoolMfaConfigCommandError
- */
-const de_GetUserPoolMfaConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUserPoolMfaConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GlobalSignOutCommand
  */
 export const de_GlobalSignOutCommand = async (
@@ -6239,7 +3179,7 @@ export const de_GlobalSignOutCommand = async (
   context: __SerdeContext
 ): Promise<GlobalSignOutCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GlobalSignOutCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6252,53 +3192,6 @@ export const de_GlobalSignOutCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GlobalSignOutCommandError
- */
-const de_GlobalSignOutCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GlobalSignOutCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1InitiateAuthCommand
  */
 export const de_InitiateAuthCommand = async (
@@ -6306,7 +3199,7 @@ export const de_InitiateAuthCommand = async (
   context: __SerdeContext
 ): Promise<InitiateAuthCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_InitiateAuthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6319,74 +3212,6 @@ export const de_InitiateAuthCommand = async (
 };
 
 /**
- * deserializeAws_json1_1InitiateAuthCommandError
- */
-const de_InitiateAuthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InitiateAuthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDevicesCommand
  */
 export const de_ListDevicesCommand = async (
@@ -6394,7 +3219,7 @@ export const de_ListDevicesCommand = async (
   context: __SerdeContext
 ): Promise<ListDevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6407,59 +3232,6 @@ export const de_ListDevicesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDevicesCommandError
- */
-const de_ListDevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListGroupsCommand
  */
 export const de_ListGroupsCommand = async (
@@ -6467,7 +3239,7 @@ export const de_ListGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6480,44 +3252,6 @@ export const de_ListGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListGroupsCommandError
- */
-const de_ListGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListIdentityProvidersCommand
  */
 export const de_ListIdentityProvidersCommand = async (
@@ -6525,7 +3259,7 @@ export const de_ListIdentityProvidersCommand = async (
   context: __SerdeContext
 ): Promise<ListIdentityProvidersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListIdentityProvidersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6538,44 +3272,6 @@ export const de_ListIdentityProvidersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListIdentityProvidersCommandError
- */
-const de_ListIdentityProvidersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListIdentityProvidersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResourceServersCommand
  */
 export const de_ListResourceServersCommand = async (
@@ -6583,7 +3279,7 @@ export const de_ListResourceServersCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceServersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourceServersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6596,44 +3292,6 @@ export const de_ListResourceServersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResourceServersCommandError
- */
-const de_ListResourceServersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceServersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -6641,7 +3299,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6654,44 +3312,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListUserImportJobsCommand
  */
 export const de_ListUserImportJobsCommand = async (
@@ -6699,7 +3319,7 @@ export const de_ListUserImportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListUserImportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUserImportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6712,44 +3332,6 @@ export const de_ListUserImportJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListUserImportJobsCommandError
- */
-const de_ListUserImportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUserImportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListUserPoolClientsCommand
  */
 export const de_ListUserPoolClientsCommand = async (
@@ -6757,7 +3339,7 @@ export const de_ListUserPoolClientsCommand = async (
   context: __SerdeContext
 ): Promise<ListUserPoolClientsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUserPoolClientsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6770,44 +3352,6 @@ export const de_ListUserPoolClientsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListUserPoolClientsCommandError
- */
-const de_ListUserPoolClientsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUserPoolClientsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListUserPoolsCommand
  */
 export const de_ListUserPoolsCommand = async (
@@ -6815,7 +3359,7 @@ export const de_ListUserPoolsCommand = async (
   context: __SerdeContext
 ): Promise<ListUserPoolsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUserPoolsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6828,41 +3372,6 @@ export const de_ListUserPoolsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListUserPoolsCommandError
- */
-const de_ListUserPoolsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUserPoolsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListUsersCommand
  */
 export const de_ListUsersCommand = async (
@@ -6870,7 +3379,7 @@ export const de_ListUsersCommand = async (
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUsersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6883,44 +3392,6 @@ export const de_ListUsersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListUsersCommandError
- */
-const de_ListUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListUsersInGroupCommand
  */
 export const de_ListUsersInGroupCommand = async (
@@ -6928,7 +3399,7 @@ export const de_ListUsersInGroupCommand = async (
   context: __SerdeContext
 ): Promise<ListUsersInGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUsersInGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6941,44 +3412,6 @@ export const de_ListUsersInGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListUsersInGroupCommandError
- */
-const de_ListUsersInGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUsersInGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ResendConfirmationCodeCommand
  */
 export const de_ResendConfirmationCodeCommand = async (
@@ -6986,7 +3419,7 @@ export const de_ResendConfirmationCodeCommand = async (
   context: __SerdeContext
 ): Promise<ResendConfirmationCodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResendConfirmationCodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6999,74 +3432,6 @@ export const de_ResendConfirmationCodeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ResendConfirmationCodeCommandError
- */
-const de_ResendConfirmationCodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResendConfirmationCodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeDeliveryFailureException":
-    case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidEmailRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RespondToAuthChallengeCommand
  */
 export const de_RespondToAuthChallengeCommand = async (
@@ -7074,7 +3439,7 @@ export const de_RespondToAuthChallengeCommand = async (
   context: __SerdeContext
 ): Promise<RespondToAuthChallengeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RespondToAuthChallengeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7087,92 +3452,6 @@ export const de_RespondToAuthChallengeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RespondToAuthChallengeCommandError
- */
-const de_RespondToAuthChallengeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RespondToAuthChallengeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AliasExistsException":
-    case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await de_AliasExistsExceptionRes(parsedOutput, context);
-    case "CodeMismatchException":
-    case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
-    case "ExpiredCodeException":
-    case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
-      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "MFAMethodNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#MFAMethodNotFoundException":
-      throw await de_MFAMethodNotFoundExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "SoftwareTokenMFANotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#SoftwareTokenMFANotFoundException":
-      throw await de_SoftwareTokenMFANotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RevokeTokenCommand
  */
 export const de_RevokeTokenCommand = async (
@@ -7180,7 +3459,7 @@ export const de_RevokeTokenCommand = async (
   context: __SerdeContext
 ): Promise<RevokeTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RevokeTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7193,50 +3472,6 @@ export const de_RevokeTokenCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RevokeTokenCommandError
- */
-const de_RevokeTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnauthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#UnauthorizedException":
-      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cognitoidentityprovider#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    case "UnsupportedTokenTypeException":
-    case "com.amazonaws.cognitoidentityprovider#UnsupportedTokenTypeException":
-      throw await de_UnsupportedTokenTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetLogDeliveryConfigurationCommand
  */
 export const de_SetLogDeliveryConfigurationCommand = async (
@@ -7244,7 +3479,7 @@ export const de_SetLogDeliveryConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<SetLogDeliveryConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetLogDeliveryConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7257,44 +3492,6 @@ export const de_SetLogDeliveryConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SetLogDeliveryConfigurationCommandError
- */
-const de_SetLogDeliveryConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetLogDeliveryConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetRiskConfigurationCommand
  */
 export const de_SetRiskConfigurationCommand = async (
@@ -7302,7 +3499,7 @@ export const de_SetRiskConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<SetRiskConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetRiskConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7315,53 +3512,6 @@ export const de_SetRiskConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SetRiskConfigurationCommandError
- */
-const de_SetRiskConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetRiskConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeDeliveryFailureException":
-    case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidEmailRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserPoolAddOnNotEnabledException":
-    case "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException":
-      throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetUICustomizationCommand
  */
 export const de_SetUICustomizationCommand = async (
@@ -7369,7 +3519,7 @@ export const de_SetUICustomizationCommand = async (
   context: __SerdeContext
 ): Promise<SetUICustomizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetUICustomizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7382,44 +3532,6 @@ export const de_SetUICustomizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SetUICustomizationCommandError
- */
-const de_SetUICustomizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetUICustomizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetUserMFAPreferenceCommand
  */
 export const de_SetUserMFAPreferenceCommand = async (
@@ -7427,7 +3539,7 @@ export const de_SetUserMFAPreferenceCommand = async (
   context: __SerdeContext
 ): Promise<SetUserMFAPreferenceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetUserMFAPreferenceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7440,53 +3552,6 @@ export const de_SetUserMFAPreferenceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SetUserMFAPreferenceCommandError
- */
-const de_SetUserMFAPreferenceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetUserMFAPreferenceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetUserPoolMfaConfigCommand
  */
 export const de_SetUserPoolMfaConfigCommand = async (
@@ -7494,7 +3559,7 @@ export const de_SetUserPoolMfaConfigCommand = async (
   context: __SerdeContext
 ): Promise<SetUserPoolMfaConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetUserPoolMfaConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7507,50 +3572,6 @@ export const de_SetUserPoolMfaConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SetUserPoolMfaConfigCommandError
- */
-const de_SetUserPoolMfaConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetUserPoolMfaConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetUserSettingsCommand
  */
 export const de_SetUserSettingsCommand = async (
@@ -7558,7 +3579,7 @@ export const de_SetUserSettingsCommand = async (
   context: __SerdeContext
 ): Promise<SetUserSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetUserSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7571,53 +3592,6 @@ export const de_SetUserSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SetUserSettingsCommandError
- */
-const de_SetUserSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetUserSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SignUpCommand
  */
 export const de_SignUpCommand = async (
@@ -7625,7 +3599,7 @@ export const de_SignUpCommand = async (
   context: __SerdeContext
 ): Promise<SignUpCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SignUpCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7638,71 +3612,6 @@ export const de_SignUpCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SignUpCommandError
- */
-const de_SignUpCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<SignUpCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeDeliveryFailureException":
-    case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidEmailRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UsernameExistsException":
-    case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
-      throw await de_UsernameExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartUserImportJobCommand
  */
 export const de_StartUserImportJobCommand = async (
@@ -7710,7 +3619,7 @@ export const de_StartUserImportJobCommand = async (
   context: __SerdeContext
 ): Promise<StartUserImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartUserImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7723,47 +3632,6 @@ export const de_StartUserImportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartUserImportJobCommandError
- */
-const de_StartUserImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartUserImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.cognitoidentityprovider#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopUserImportJobCommand
  */
 export const de_StopUserImportJobCommand = async (
@@ -7771,7 +3639,7 @@ export const de_StopUserImportJobCommand = async (
   context: __SerdeContext
 ): Promise<StopUserImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopUserImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7784,47 +3652,6 @@ export const de_StopUserImportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopUserImportJobCommandError
- */
-const de_StopUserImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopUserImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PreconditionNotMetException":
-    case "com.amazonaws.cognitoidentityprovider#PreconditionNotMetException":
-      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -7832,7 +3659,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7845,44 +3672,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -7890,7 +3679,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7903,44 +3692,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateAuthEventFeedbackCommand
  */
 export const de_UpdateAuthEventFeedbackCommand = async (
@@ -7948,7 +3699,7 @@ export const de_UpdateAuthEventFeedbackCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAuthEventFeedbackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAuthEventFeedbackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7961,50 +3712,6 @@ export const de_UpdateAuthEventFeedbackCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAuthEventFeedbackCommandError
- */
-const de_UpdateAuthEventFeedbackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAuthEventFeedbackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    case "UserPoolAddOnNotEnabledException":
-    case "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException":
-      throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDeviceStatusCommand
  */
 export const de_UpdateDeviceStatusCommand = async (
@@ -8012,7 +3719,7 @@ export const de_UpdateDeviceStatusCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDeviceStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDeviceStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8025,59 +3732,6 @@ export const de_UpdateDeviceStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDeviceStatusCommandError
- */
-const de_UpdateDeviceStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDeviceStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateGroupCommand
  */
 export const de_UpdateGroupCommand = async (
@@ -8085,7 +3739,7 @@ export const de_UpdateGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8098,44 +3752,6 @@ export const de_UpdateGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateGroupCommandError
- */
-const de_UpdateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateIdentityProviderCommand
  */
 export const de_UpdateIdentityProviderCommand = async (
@@ -8143,7 +3759,7 @@ export const de_UpdateIdentityProviderCommand = async (
   context: __SerdeContext
 ): Promise<UpdateIdentityProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateIdentityProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8156,50 +3772,6 @@ export const de_UpdateIdentityProviderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateIdentityProviderCommandError
- */
-const de_UpdateIdentityProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateIdentityProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnsupportedIdentityProviderException":
-    case "com.amazonaws.cognitoidentityprovider#UnsupportedIdentityProviderException":
-      throw await de_UnsupportedIdentityProviderExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateResourceServerCommand
  */
 export const de_UpdateResourceServerCommand = async (
@@ -8207,7 +3779,7 @@ export const de_UpdateResourceServerCommand = async (
   context: __SerdeContext
 ): Promise<UpdateResourceServerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateResourceServerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8220,44 +3792,6 @@ export const de_UpdateResourceServerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateResourceServerCommandError
- */
-const de_UpdateResourceServerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourceServerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateUserAttributesCommand
  */
 export const de_UpdateUserAttributesCommand = async (
@@ -8265,7 +3799,7 @@ export const de_UpdateUserAttributesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUserAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateUserAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8278,86 +3812,6 @@ export const de_UpdateUserAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateUserAttributesCommandError
- */
-const de_UpdateUserAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AliasExistsException":
-    case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await de_AliasExistsExceptionRes(parsedOutput, context);
-    case "CodeDeliveryFailureException":
-    case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
-      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
-    case "CodeMismatchException":
-    case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
-    case "ExpiredCodeException":
-    case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
-      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidEmailRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidLambdaResponseException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
-      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UnexpectedLambdaException":
-    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
-      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
-    case "UserLambdaValidationException":
-    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
-      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateUserPoolCommand
  */
 export const de_UpdateUserPoolCommand = async (
@@ -8365,7 +3819,7 @@ export const de_UpdateUserPoolCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUserPoolCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateUserPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8378,62 +3832,6 @@ export const de_UpdateUserPoolCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateUserPoolCommandError
- */
-const de_UpdateUserPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidEmailRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
-      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleAccessPolicyException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
-      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
-    case "InvalidSmsRoleTrustRelationshipException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
-      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserImportInProgressException":
-    case "com.amazonaws.cognitoidentityprovider#UserImportInProgressException":
-      throw await de_UserImportInProgressExceptionRes(parsedOutput, context);
-    case "UserPoolTaggingException":
-    case "com.amazonaws.cognitoidentityprovider#UserPoolTaggingException":
-      throw await de_UserPoolTaggingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateUserPoolClientCommand
  */
 export const de_UpdateUserPoolClientCommand = async (
@@ -8441,7 +3839,7 @@ export const de_UpdateUserPoolClientCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUserPoolClientCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateUserPoolClientCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8454,53 +3852,6 @@ export const de_UpdateUserPoolClientCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateUserPoolClientCommandError
- */
-const de_UpdateUserPoolClientCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserPoolClientCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidOAuthFlowException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidOAuthFlowException":
-      throw await de_InvalidOAuthFlowExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ScopeDoesNotExistException":
-    case "com.amazonaws.cognitoidentityprovider#ScopeDoesNotExistException":
-      throw await de_ScopeDoesNotExistExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateUserPoolDomainCommand
  */
 export const de_UpdateUserPoolDomainCommand = async (
@@ -8508,7 +3859,7 @@ export const de_UpdateUserPoolDomainCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUserPoolDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateUserPoolDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8521,44 +3872,6 @@ export const de_UpdateUserPoolDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateUserPoolDomainCommandError
- */
-const de_UpdateUserPoolDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserPoolDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1VerifySoftwareTokenCommand
  */
 export const de_VerifySoftwareTokenCommand = async (
@@ -8566,7 +3879,7 @@ export const de_VerifySoftwareTokenCommand = async (
   context: __SerdeContext
 ): Promise<VerifySoftwareTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_VerifySoftwareTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8579,68 +3892,6 @@ export const de_VerifySoftwareTokenCommand = async (
 };
 
 /**
- * deserializeAws_json1_1VerifySoftwareTokenCommandError
- */
-const de_VerifySoftwareTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifySoftwareTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CodeMismatchException":
-    case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
-    case "EnableSoftwareTokenMFAException":
-    case "com.amazonaws.cognitoidentityprovider#EnableSoftwareTokenMFAException":
-      throw await de_EnableSoftwareTokenMFAExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidUserPoolConfigurationException":
-    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
-      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "SoftwareTokenMFANotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#SoftwareTokenMFANotFoundException":
-      throw await de_SoftwareTokenMFANotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
-    case "UserNotFoundException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
-      throw await de_UserNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1VerifyUserAttributeCommand
  */
 export const de_VerifyUserAttributeCommand = async (
@@ -8648,7 +3899,7 @@ export const de_VerifyUserAttributeCommand = async (
   context: __SerdeContext
 ): Promise<VerifyUserAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_VerifyUserAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8661,64 +3912,145 @@ export const de_VerifyUserAttributeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1VerifyUserAttributeCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_VerifyUserAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifyUserAttributeCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "AliasExistsException":
-    case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
-      throw await de_AliasExistsExceptionRes(parsedOutput, context);
-    case "CodeMismatchException":
-    case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
-      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
-    case "ExpiredCodeException":
-    case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
-      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "InternalErrorException":
     case "com.amazonaws.cognitoidentityprovider#InternalErrorException":
       throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cognitoidentityprovider#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.cognitoidentityprovider#NotAuthorizedException":
       throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "PasswordResetRequiredException":
-    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
-      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.cognitoidentityprovider#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    case "UserNotConfirmedException":
-    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
-      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
+    case "UserImportInProgressException":
+    case "com.amazonaws.cognitoidentityprovider#UserImportInProgressException":
+      throw await de_UserImportInProgressExceptionRes(parsedOutput, context);
     case "UserNotFoundException":
     case "com.amazonaws.cognitoidentityprovider#UserNotFoundException":
       throw await de_UserNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidLambdaResponseException":
+    case "com.amazonaws.cognitoidentityprovider#InvalidLambdaResponseException":
+      throw await de_InvalidLambdaResponseExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.cognitoidentityprovider#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "TooManyFailedAttemptsException":
+    case "com.amazonaws.cognitoidentityprovider#TooManyFailedAttemptsException":
+      throw await de_TooManyFailedAttemptsExceptionRes(parsedOutput, context);
+    case "UnexpectedLambdaException":
+    case "com.amazonaws.cognitoidentityprovider#UnexpectedLambdaException":
+      throw await de_UnexpectedLambdaExceptionRes(parsedOutput, context);
+    case "UserLambdaValidationException":
+    case "com.amazonaws.cognitoidentityprovider#UserLambdaValidationException":
+      throw await de_UserLambdaValidationExceptionRes(parsedOutput, context);
+    case "CodeDeliveryFailureException":
+    case "com.amazonaws.cognitoidentityprovider#CodeDeliveryFailureException":
+      throw await de_CodeDeliveryFailureExceptionRes(parsedOutput, context);
+    case "InvalidPasswordException":
+    case "com.amazonaws.cognitoidentityprovider#InvalidPasswordException":
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
+    case "InvalidSmsRoleAccessPolicyException":
+    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleAccessPolicyException":
+      throw await de_InvalidSmsRoleAccessPolicyExceptionRes(parsedOutput, context);
+    case "InvalidSmsRoleTrustRelationshipException":
+    case "com.amazonaws.cognitoidentityprovider#InvalidSmsRoleTrustRelationshipException":
+      throw await de_InvalidSmsRoleTrustRelationshipExceptionRes(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.cognitoidentityprovider#PreconditionNotMetException":
+      throw await de_PreconditionNotMetExceptionRes(parsedOutput, context);
+    case "UnsupportedUserStateException":
+    case "com.amazonaws.cognitoidentityprovider#UnsupportedUserStateException":
+      throw await de_UnsupportedUserStateExceptionRes(parsedOutput, context);
+    case "UsernameExistsException":
+    case "com.amazonaws.cognitoidentityprovider#UsernameExistsException":
+      throw await de_UsernameExistsExceptionRes(parsedOutput, context);
+    case "AliasExistsException":
+    case "com.amazonaws.cognitoidentityprovider#AliasExistsException":
+      throw await de_AliasExistsExceptionRes(parsedOutput, context);
+    case "InvalidUserPoolConfigurationException":
+    case "com.amazonaws.cognitoidentityprovider#InvalidUserPoolConfigurationException":
+      throw await de_InvalidUserPoolConfigurationExceptionRes(parsedOutput, context);
+    case "MFAMethodNotFoundException":
+    case "com.amazonaws.cognitoidentityprovider#MFAMethodNotFoundException":
+      throw await de_MFAMethodNotFoundExceptionRes(parsedOutput, context);
+    case "PasswordResetRequiredException":
+    case "com.amazonaws.cognitoidentityprovider#PasswordResetRequiredException":
+      throw await de_PasswordResetRequiredExceptionRes(parsedOutput, context);
+    case "UserNotConfirmedException":
+    case "com.amazonaws.cognitoidentityprovider#UserNotConfirmedException":
+      throw await de_UserNotConfirmedExceptionRes(parsedOutput, context);
+    case "UserPoolAddOnNotEnabledException":
+    case "com.amazonaws.cognitoidentityprovider#UserPoolAddOnNotEnabledException":
+      throw await de_UserPoolAddOnNotEnabledExceptionRes(parsedOutput, context);
+    case "InvalidEmailRoleAccessPolicyException":
+    case "com.amazonaws.cognitoidentityprovider#InvalidEmailRoleAccessPolicyException":
+      throw await de_InvalidEmailRoleAccessPolicyExceptionRes(parsedOutput, context);
+    case "CodeMismatchException":
+    case "com.amazonaws.cognitoidentityprovider#CodeMismatchException":
+      throw await de_CodeMismatchExceptionRes(parsedOutput, context);
+    case "ExpiredCodeException":
+    case "com.amazonaws.cognitoidentityprovider#ExpiredCodeException":
+      throw await de_ExpiredCodeExceptionRes(parsedOutput, context);
+    case "SoftwareTokenMFANotFoundException":
+    case "com.amazonaws.cognitoidentityprovider#SoftwareTokenMFANotFoundException":
+      throw await de_SoftwareTokenMFANotFoundExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cognitoidentityprovider#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.cognitoidentityprovider#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "GroupExistsException":
+    case "com.amazonaws.cognitoidentityprovider#GroupExistsException":
+      throw await de_GroupExistsExceptionRes(parsedOutput, context);
+    case "DuplicateProviderException":
+    case "com.amazonaws.cognitoidentityprovider#DuplicateProviderException":
+      throw await de_DuplicateProviderExceptionRes(parsedOutput, context);
+    case "UserPoolTaggingException":
+    case "com.amazonaws.cognitoidentityprovider#UserPoolTaggingException":
+      throw await de_UserPoolTaggingExceptionRes(parsedOutput, context);
+    case "InvalidOAuthFlowException":
+    case "com.amazonaws.cognitoidentityprovider#InvalidOAuthFlowException":
+      throw await de_InvalidOAuthFlowExceptionRes(parsedOutput, context);
+    case "ScopeDoesNotExistException":
+    case "com.amazonaws.cognitoidentityprovider#ScopeDoesNotExistException":
+      throw await de_ScopeDoesNotExistExceptionRes(parsedOutput, context);
+    case "UnsupportedIdentityProviderException":
+    case "com.amazonaws.cognitoidentityprovider#UnsupportedIdentityProviderException":
+      throw await de_UnsupportedIdentityProviderExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.cognitoidentityprovider#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.cognitoidentityprovider#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
+    case "UnsupportedTokenTypeException":
+    case "com.amazonaws.cognitoidentityprovider#UnsupportedTokenTypeException":
+      throw await de_UnsupportedTokenTypeExceptionRes(parsedOutput, context);
+    case "EnableSoftwareTokenMFAException":
+    case "com.amazonaws.cognitoidentityprovider#EnableSoftwareTokenMFAException":
+      throw await de_EnableSoftwareTokenMFAExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

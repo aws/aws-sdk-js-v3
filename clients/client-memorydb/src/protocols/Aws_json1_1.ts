@@ -729,7 +729,7 @@ export const de_BatchUpdateClusterCommand = async (
   context: __SerdeContext
 ): Promise<BatchUpdateClusterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchUpdateClusterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -742,35 +742,6 @@ export const de_BatchUpdateClusterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchUpdateClusterCommandError
- */
-const de_BatchUpdateClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchUpdateClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUpdateNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceUpdateNotFoundFault":
-      throw await de_ServiceUpdateNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CopySnapshotCommand
  */
 export const de_CopySnapshotCommand = async (
@@ -778,7 +749,7 @@ export const de_CopySnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CopySnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CopySnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -791,24 +762,744 @@ export const de_CopySnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CopySnapshotCommandError
+ * deserializeAws_json1_1CreateACLCommand
  */
-const de_CopySnapshotCommandError = async (
+export const de_CreateACLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CopySnapshotCommandOutput> => {
+): Promise<CreateACLCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateACLCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateClusterCommand
+ */
+export const de_CreateClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateClusterResponse(data, context);
+  const response: CreateClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateParameterGroupCommand
+ */
+export const de_CreateParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateSnapshotCommand
+ */
+export const de_CreateSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateSnapshotResponse(data, context);
+  const response: CreateSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateSubnetGroupCommand
+ */
+export const de_CreateSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateUserCommand
+ */
+export const de_CreateUserCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUserCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteACLCommand
+ */
+export const de_DeleteACLCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteACLCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteACLCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteClusterCommand
+ */
+export const de_DeleteClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteClusterResponse(data, context);
+  const response: DeleteClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteParameterGroupCommand
+ */
+export const de_DeleteParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteSnapshotCommand
+ */
+export const de_DeleteSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteSnapshotResponse(data, context);
+  const response: DeleteSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteSubnetGroupCommand
+ */
+export const de_DeleteSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteUserCommand
+ */
+export const de_DeleteUserCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUserCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeACLsCommand
+ */
+export const de_DescribeACLsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeACLsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeACLsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeClustersCommand
+ */
+export const de_DescribeClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeClustersResponse(data, context);
+  const response: DescribeClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEngineVersionsCommand
+ */
+export const de_DescribeEngineVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEngineVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeEngineVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEventsCommand
+ */
+export const de_DescribeEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEventsResponse(data, context);
+  const response: DescribeEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeParameterGroupsCommand
+ */
+export const de_DescribeParameterGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeParameterGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeParameterGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeParametersCommand
+ */
+export const de_DescribeParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeReservedNodesCommand
+ */
+export const de_DescribeReservedNodesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedNodesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeReservedNodesResponse(data, context);
+  const response: DescribeReservedNodesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeReservedNodesOfferingsCommand
+ */
+export const de_DescribeReservedNodesOfferingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedNodesOfferingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeReservedNodesOfferingsResponse(data, context);
+  const response: DescribeReservedNodesOfferingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeServiceUpdatesCommand
+ */
+export const de_DescribeServiceUpdatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServiceUpdatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeServiceUpdatesResponse(data, context);
+  const response: DescribeServiceUpdatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSnapshotsCommand
+ */
+export const de_DescribeSnapshotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSnapshotsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeSnapshotsResponse(data, context);
+  const response: DescribeSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSubnetGroupsCommand
+ */
+export const de_DescribeSubnetGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSubnetGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeSubnetGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeUsersCommand
+ */
+export const de_DescribeUsersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUsersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeUsersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1FailoverShardCommand
+ */
+export const de_FailoverShardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverShardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_FailoverShardResponse(data, context);
+  const response: FailoverShardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAllowedNodeTypeUpdatesCommand
+ */
+export const de_ListAllowedNodeTypeUpdatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAllowedNodeTypeUpdatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListAllowedNodeTypeUpdatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsCommand
+ */
+export const de_ListTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PurchaseReservedNodesOfferingCommand
+ */
+export const de_PurchaseReservedNodesOfferingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PurchaseReservedNodesOfferingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PurchaseReservedNodesOfferingResponse(data, context);
+  const response: PurchaseReservedNodesOfferingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ResetParameterGroupCommand
+ */
+export const de_ResetParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ResetParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateACLCommand
+ */
+export const de_UpdateACLCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateACLCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateACLCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateClusterCommand
+ */
+export const de_UpdateClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateClusterResponse(data, context);
+  const response: UpdateClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateParameterGroupCommand
+ */
+export const de_UpdateParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSubnetGroupCommand
+ */
+export const de_UpdateSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateUserCommand
+ */
+export const de_UpdateUserCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.memorydb#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUpdateNotFoundFault":
+    case "com.amazonaws.memorydb#ServiceUpdateNotFoundFault":
+      throw await de_ServiceUpdateNotFoundFaultRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidSnapshotStateFault":
     case "com.amazonaws.memorydb#InvalidSnapshotStateFault":
       throw await de_InvalidSnapshotStateFaultRes(parsedOutput, context);
@@ -827,49 +1518,6 @@ const de_CopySnapshotCommandError = async (
     case "TagQuotaPerResourceExceeded":
     case "com.amazonaws.memorydb#TagQuotaPerResourceExceeded":
       throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateACLCommand
- */
-export const de_CreateACLCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateACLCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateACLCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateACLCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateACLCommandError
- */
-const de_CreateACLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateACLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ACLAlreadyExistsFault":
     case "com.amazonaws.memorydb#ACLAlreadyExistsFault":
       throw await de_ACLAlreadyExistsFaultRes(parsedOutput, context);
@@ -882,58 +1530,9 @@ const de_CreateACLCommandError = async (
     case "DuplicateUserNameFault":
     case "com.amazonaws.memorydb#DuplicateUserNameFault":
       throw await de_DuplicateUserNameFaultRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.memorydb#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     case "UserNotFoundFault":
     case "com.amazonaws.memorydb#UserNotFoundFault":
       throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateClusterCommand
- */
-export const de_CreateClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateClusterResponse(data, context);
-  const response: CreateClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateClusterCommandError
- */
-const de_CreateClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ACLNotFoundFault":
     case "com.amazonaws.memorydb#ACLNotFoundFault":
       throw await de_ACLNotFoundFaultRes(parsedOutput, context);
@@ -952,12 +1551,6 @@ const de_CreateClusterCommandError = async (
     case "InvalidCredentialsException":
     case "com.amazonaws.memorydb#InvalidCredentialsException":
       throw await de_InvalidCredentialsExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.memorydb#InvalidVPCNetworkStateFault":
       throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
@@ -970,198 +1563,30 @@ const de_CreateClusterCommandError = async (
     case "ParameterGroupNotFoundFault":
     case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
       throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     case "ShardsPerClusterQuotaExceededFault":
     case "com.amazonaws.memorydb#ShardsPerClusterQuotaExceededFault":
       throw await de_ShardsPerClusterQuotaExceededFaultRes(parsedOutput, context);
     case "SubnetGroupNotFoundFault":
     case "com.amazonaws.memorydb#SubnetGroupNotFoundFault":
       throw await de_SubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.memorydb#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateParameterGroupCommand
- */
-export const de_CreateParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateParameterGroupCommandError
- */
-const de_CreateParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterGroupStateFault":
     case "com.amazonaws.memorydb#InvalidParameterGroupStateFault":
       throw await de_InvalidParameterGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ParameterGroupAlreadyExistsFault":
     case "com.amazonaws.memorydb#ParameterGroupAlreadyExistsFault":
       throw await de_ParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
     case "ParameterGroupQuotaExceededFault":
     case "com.amazonaws.memorydb#ParameterGroupQuotaExceededFault":
       throw await de_ParameterGroupQuotaExceededFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.memorydb#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateSnapshotCommand
- */
-export const de_CreateSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateSnapshotResponse(data, context);
-  const response: CreateSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateSnapshotCommandError
- */
-const de_CreateSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ClusterNotFoundFault":
     case "com.amazonaws.memorydb#ClusterNotFoundFault":
       throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidClusterStateFault":
     case "com.amazonaws.memorydb#InvalidClusterStateFault":
       throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotAlreadyExistsFault":
-    case "com.amazonaws.memorydb#SnapshotAlreadyExistsFault":
-      throw await de_SnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "SnapshotQuotaExceededFault":
-    case "com.amazonaws.memorydb#SnapshotQuotaExceededFault":
-      throw await de_SnapshotQuotaExceededFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.memorydb#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateSubnetGroupCommand
- */
-export const de_CreateSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateSubnetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateSubnetGroupCommandError
- */
-const de_CreateSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidSubnet":
     case "com.amazonaws.memorydb#InvalidSubnet":
       throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     case "SubnetGroupAlreadyExistsFault":
     case "com.amazonaws.memorydb#SubnetGroupAlreadyExistsFault":
       throw await de_SubnetGroupAlreadyExistsFaultRes(parsedOutput, context);
@@ -1174,1829 +1599,64 @@ const de_CreateSubnetGroupCommandError = async (
     case "SubnetQuotaExceededFault":
     case "com.amazonaws.memorydb#SubnetQuotaExceededFault":
       throw await de_SubnetQuotaExceededFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.memorydb#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateUserCommand
- */
-export const de_CreateUserCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateUserCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateUserCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateUserCommandError
- */
-const de_CreateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateUserNameFault":
-    case "com.amazonaws.memorydb#DuplicateUserNameFault":
-      throw await de_DuplicateUserNameFaultRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.memorydb#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
     case "UserAlreadyExistsFault":
     case "com.amazonaws.memorydb#UserAlreadyExistsFault":
       throw await de_UserAlreadyExistsFaultRes(parsedOutput, context);
     case "UserQuotaExceededFault":
     case "com.amazonaws.memorydb#UserQuotaExceededFault":
       throw await de_UserQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteACLCommand
- */
-export const de_DeleteACLCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteACLCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteACLCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteACLCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteACLCommandError
- */
-const de_DeleteACLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteACLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ACLNotFoundFault":
-    case "com.amazonaws.memorydb#ACLNotFoundFault":
-      throw await de_ACLNotFoundFaultRes(parsedOutput, context);
-    case "InvalidACLStateFault":
-    case "com.amazonaws.memorydb#InvalidACLStateFault":
-      throw await de_InvalidACLStateFaultRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteClusterCommand
- */
-export const de_DeleteClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteClusterResponse(data, context);
-  const response: DeleteClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteClusterCommandError
- */
-const de_DeleteClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFoundFault":
-    case "com.amazonaws.memorydb#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterStateFault":
-    case "com.amazonaws.memorydb#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotAlreadyExistsFault":
-    case "com.amazonaws.memorydb#SnapshotAlreadyExistsFault":
-      throw await de_SnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteParameterGroupCommand
- */
-export const de_DeleteParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteParameterGroupCommandError
- */
-const de_DeleteParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterGroupStateFault":
-    case "com.amazonaws.memorydb#InvalidParameterGroupStateFault":
-      throw await de_InvalidParameterGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ParameterGroupNotFoundFault":
-    case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
-      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteSnapshotCommand
- */
-export const de_DeleteSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteSnapshotResponse(data, context);
-  const response: DeleteSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteSnapshotCommandError
- */
-const de_DeleteSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidSnapshotStateFault":
-    case "com.amazonaws.memorydb#InvalidSnapshotStateFault":
-      throw await de_InvalidSnapshotStateFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotNotFoundFault":
-    case "com.amazonaws.memorydb#SnapshotNotFoundFault":
-      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteSubnetGroupCommand
- */
-export const de_DeleteSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteSubnetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteSubnetGroupCommandError
- */
-const de_DeleteSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
     case "SubnetGroupInUseFault":
     case "com.amazonaws.memorydb#SubnetGroupInUseFault":
       throw await de_SubnetGroupInUseFaultRes(parsedOutput, context);
-    case "SubnetGroupNotFoundFault":
-    case "com.amazonaws.memorydb#SubnetGroupNotFoundFault":
-      throw await de_SubnetGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteUserCommand
- */
-export const de_DeleteUserCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteUserCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteUserCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteUserCommandError
- */
-const de_DeleteUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidUserStateFault":
     case "com.amazonaws.memorydb#InvalidUserStateFault":
       throw await de_InvalidUserStateFaultRes(parsedOutput, context);
-    case "UserNotFoundFault":
-    case "com.amazonaws.memorydb#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeACLsCommand
- */
-export const de_DescribeACLsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeACLsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeACLsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeACLsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeACLsCommandError
- */
-const de_DescribeACLsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeACLsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ACLNotFoundFault":
-    case "com.amazonaws.memorydb#ACLNotFoundFault":
-      throw await de_ACLNotFoundFaultRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeClustersCommand
- */
-export const de_DescribeClustersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClustersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeClustersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeClustersResponse(data, context);
-  const response: DescribeClustersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeClustersCommandError
- */
-const de_DescribeClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFoundFault":
-    case "com.amazonaws.memorydb#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEngineVersionsCommand
- */
-export const de_DescribeEngineVersionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngineVersionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEngineVersionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeEngineVersionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEngineVersionsCommandError
- */
-const de_DescribeEngineVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngineVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEventsCommand
- */
-export const de_DescribeEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEventsResponse(data, context);
-  const response: DescribeEventsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEventsCommandError
- */
-const de_DescribeEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeParameterGroupsCommand
- */
-export const de_DescribeParameterGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeParameterGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeParameterGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeParameterGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeParameterGroupsCommandError
- */
-const de_DescribeParameterGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeParameterGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ParameterGroupNotFoundFault":
-    case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
-      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeParametersCommand
- */
-export const de_DescribeParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeParametersCommandError
- */
-const de_DescribeParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ParameterGroupNotFoundFault":
-    case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
-      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeReservedNodesCommand
- */
-export const de_DescribeReservedNodesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedNodesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeReservedNodesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeReservedNodesResponse(data, context);
-  const response: DescribeReservedNodesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeReservedNodesCommandError
- */
-const de_DescribeReservedNodesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedNodesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ReservedNodeNotFoundFault":
     case "com.amazonaws.memorydb#ReservedNodeNotFoundFault":
       throw await de_ReservedNodeNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeReservedNodesOfferingsCommand
- */
-export const de_DescribeReservedNodesOfferingsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedNodesOfferingsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeReservedNodesOfferingsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeReservedNodesOfferingsResponse(data, context);
-  const response: DescribeReservedNodesOfferingsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeReservedNodesOfferingsCommandError
- */
-const de_DescribeReservedNodesOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedNodesOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ReservedNodesOfferingNotFoundFault":
     case "com.amazonaws.memorydb#ReservedNodesOfferingNotFoundFault":
       throw await de_ReservedNodesOfferingNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeServiceUpdatesCommand
- */
-export const de_DescribeServiceUpdatesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServiceUpdatesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeServiceUpdatesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeServiceUpdatesResponse(data, context);
-  const response: DescribeServiceUpdatesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeServiceUpdatesCommandError
- */
-const de_DescribeServiceUpdatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServiceUpdatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeSnapshotsCommand
- */
-export const de_DescribeSnapshotsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSnapshotsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeSnapshotsResponse(data, context);
-  const response: DescribeSnapshotsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeSnapshotsCommandError
- */
-const de_DescribeSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotNotFoundFault":
-    case "com.amazonaws.memorydb#SnapshotNotFoundFault":
-      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeSubnetGroupsCommand
- */
-export const de_DescribeSubnetGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSubnetGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSubnetGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeSubnetGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeSubnetGroupsCommandError
- */
-const de_DescribeSubnetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSubnetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "SubnetGroupNotFoundFault":
-    case "com.amazonaws.memorydb#SubnetGroupNotFoundFault":
-      throw await de_SubnetGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeUsersCommand
- */
-export const de_DescribeUsersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUsersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeUsersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeUsersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeUsersCommandError
- */
-const de_DescribeUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "UserNotFoundFault":
-    case "com.amazonaws.memorydb#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1FailoverShardCommand
- */
-export const de_FailoverShardCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverShardCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_FailoverShardCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_FailoverShardResponse(data, context);
-  const response: FailoverShardCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1FailoverShardCommandError
- */
-const de_FailoverShardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverShardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "APICallRateForCustomerExceededFault":
     case "com.amazonaws.memorydb#APICallRateForCustomerExceededFault":
       throw await de_APICallRateForCustomerExceededFaultRes(parsedOutput, context);
-    case "ClusterNotFoundFault":
-    case "com.amazonaws.memorydb#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterStateFault":
-    case "com.amazonaws.memorydb#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidKMSKeyFault":
     case "com.amazonaws.memorydb#InvalidKMSKeyFault":
       throw await de_InvalidKMSKeyFaultRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ShardNotFoundFault":
     case "com.amazonaws.memorydb#ShardNotFoundFault":
       throw await de_ShardNotFoundFaultRes(parsedOutput, context);
     case "TestFailoverNotAvailableFault":
     case "com.amazonaws.memorydb#TestFailoverNotAvailableFault":
       throw await de_TestFailoverNotAvailableFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAllowedNodeTypeUpdatesCommand
- */
-export const de_ListAllowedNodeTypeUpdatesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAllowedNodeTypeUpdatesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAllowedNodeTypeUpdatesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListAllowedNodeTypeUpdatesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAllowedNodeTypeUpdatesCommandError
- */
-const de_ListAllowedNodeTypeUpdatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAllowedNodeTypeUpdatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFoundFault":
-    case "com.amazonaws.memorydb#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsCommand
- */
-export const de_ListTagsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsCommandError
- */
-const de_ListTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ACLNotFoundFault":
-    case "com.amazonaws.memorydb#ACLNotFoundFault":
-      throw await de_ACLNotFoundFaultRes(parsedOutput, context);
-    case "ClusterNotFoundFault":
-    case "com.amazonaws.memorydb#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidARNFault":
     case "com.amazonaws.memorydb#InvalidARNFault":
       throw await de_InvalidARNFaultRes(parsedOutput, context);
-    case "InvalidClusterStateFault":
-    case "com.amazonaws.memorydb#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "ParameterGroupNotFoundFault":
-    case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
-      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotNotFoundFault":
-    case "com.amazonaws.memorydb#SnapshotNotFoundFault":
-      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
-    case "SubnetGroupNotFoundFault":
-    case "com.amazonaws.memorydb#SubnetGroupNotFoundFault":
-      throw await de_SubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "UserNotFoundFault":
-    case "com.amazonaws.memorydb#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PurchaseReservedNodesOfferingCommand
- */
-export const de_PurchaseReservedNodesOfferingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseReservedNodesOfferingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PurchaseReservedNodesOfferingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PurchaseReservedNodesOfferingResponse(data, context);
-  const response: PurchaseReservedNodesOfferingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PurchaseReservedNodesOfferingCommandError
- */
-const de_PurchaseReservedNodesOfferingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseReservedNodesOfferingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "ReservedNodeAlreadyExistsFault":
     case "com.amazonaws.memorydb#ReservedNodeAlreadyExistsFault":
       throw await de_ReservedNodeAlreadyExistsFaultRes(parsedOutput, context);
     case "ReservedNodeQuotaExceededFault":
     case "com.amazonaws.memorydb#ReservedNodeQuotaExceededFault":
       throw await de_ReservedNodeQuotaExceededFaultRes(parsedOutput, context);
-    case "ReservedNodesOfferingNotFoundFault":
-    case "com.amazonaws.memorydb#ReservedNodesOfferingNotFoundFault":
-      throw await de_ReservedNodesOfferingNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.memorydb#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ResetParameterGroupCommand
- */
-export const de_ResetParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResetParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ResetParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ResetParameterGroupCommandError
- */
-const de_ResetParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterGroupStateFault":
-    case "com.amazonaws.memorydb#InvalidParameterGroupStateFault":
-      throw await de_InvalidParameterGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ParameterGroupNotFoundFault":
-    case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
-      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ACLNotFoundFault":
-    case "com.amazonaws.memorydb#ACLNotFoundFault":
-      throw await de_ACLNotFoundFaultRes(parsedOutput, context);
-    case "ClusterNotFoundFault":
-    case "com.amazonaws.memorydb#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidARNFault":
-    case "com.amazonaws.memorydb#InvalidARNFault":
-      throw await de_InvalidARNFaultRes(parsedOutput, context);
-    case "InvalidClusterStateFault":
-    case "com.amazonaws.memorydb#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "ParameterGroupNotFoundFault":
-    case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
-      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotNotFoundFault":
-    case "com.amazonaws.memorydb#SnapshotNotFoundFault":
-      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
-    case "SubnetGroupNotFoundFault":
-    case "com.amazonaws.memorydb#SubnetGroupNotFoundFault":
-      throw await de_SubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "TagQuotaPerResourceExceeded":
-    case "com.amazonaws.memorydb#TagQuotaPerResourceExceeded":
-      throw await de_TagQuotaPerResourceExceededRes(parsedOutput, context);
-    case "UserNotFoundFault":
-    case "com.amazonaws.memorydb#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ACLNotFoundFault":
-    case "com.amazonaws.memorydb#ACLNotFoundFault":
-      throw await de_ACLNotFoundFaultRes(parsedOutput, context);
-    case "ClusterNotFoundFault":
-    case "com.amazonaws.memorydb#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidARNFault":
-    case "com.amazonaws.memorydb#InvalidARNFault":
-      throw await de_InvalidARNFaultRes(parsedOutput, context);
-    case "InvalidClusterStateFault":
-    case "com.amazonaws.memorydb#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "ParameterGroupNotFoundFault":
-    case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
-      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotNotFoundFault":
-    case "com.amazonaws.memorydb#SnapshotNotFoundFault":
-      throw await de_SnapshotNotFoundFaultRes(parsedOutput, context);
-    case "SubnetGroupNotFoundFault":
-    case "com.amazonaws.memorydb#SubnetGroupNotFoundFault":
-      throw await de_SubnetGroupNotFoundFaultRes(parsedOutput, context);
     case "TagNotFoundFault":
     case "com.amazonaws.memorydb#TagNotFoundFault":
       throw await de_TagNotFoundFaultRes(parsedOutput, context);
-    case "UserNotFoundFault":
-    case "com.amazonaws.memorydb#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateACLCommand
- */
-export const de_UpdateACLCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateACLCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateACLCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateACLCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateACLCommandError
- */
-const de_UpdateACLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateACLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ACLNotFoundFault":
-    case "com.amazonaws.memorydb#ACLNotFoundFault":
-      throw await de_ACLNotFoundFaultRes(parsedOutput, context);
-    case "DefaultUserRequired":
-    case "com.amazonaws.memorydb#DefaultUserRequired":
-      throw await de_DefaultUserRequiredRes(parsedOutput, context);
-    case "DuplicateUserNameFault":
-    case "com.amazonaws.memorydb#DuplicateUserNameFault":
-      throw await de_DuplicateUserNameFaultRes(parsedOutput, context);
-    case "InvalidACLStateFault":
-    case "com.amazonaws.memorydb#InvalidACLStateFault":
-      throw await de_InvalidACLStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "UserNotFoundFault":
-    case "com.amazonaws.memorydb#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateClusterCommand
- */
-export const de_UpdateClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateClusterResponse(data, context);
-  const response: UpdateClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateClusterCommandError
- */
-const de_UpdateClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ACLNotFoundFault":
-    case "com.amazonaws.memorydb#ACLNotFoundFault":
-      throw await de_ACLNotFoundFaultRes(parsedOutput, context);
-    case "ClusterNotFoundFault":
-    case "com.amazonaws.memorydb#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "ClusterQuotaForCustomerExceededFault":
-    case "com.amazonaws.memorydb#ClusterQuotaForCustomerExceededFault":
-      throw await de_ClusterQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "InvalidACLStateFault":
-    case "com.amazonaws.memorydb#InvalidACLStateFault":
-      throw await de_InvalidACLStateFaultRes(parsedOutput, context);
-    case "InvalidClusterStateFault":
-    case "com.amazonaws.memorydb#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "InvalidKMSKeyFault":
-    case "com.amazonaws.memorydb#InvalidKMSKeyFault":
-      throw await de_InvalidKMSKeyFaultRes(parsedOutput, context);
     case "InvalidNodeStateFault":
     case "com.amazonaws.memorydb#InvalidNodeStateFault":
       throw await de_InvalidNodeStateFaultRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.memorydb#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
     case "NoOperationFault":
     case "com.amazonaws.memorydb#NoOperationFault":
       throw await de_NoOperationFaultRes(parsedOutput, context);
-    case "NodeQuotaForClusterExceededFault":
-    case "com.amazonaws.memorydb#NodeQuotaForClusterExceededFault":
-      throw await de_NodeQuotaForClusterExceededFaultRes(parsedOutput, context);
-    case "NodeQuotaForCustomerExceededFault":
-    case "com.amazonaws.memorydb#NodeQuotaForCustomerExceededFault":
-      throw await de_NodeQuotaForCustomerExceededFaultRes(parsedOutput, context);
-    case "ParameterGroupNotFoundFault":
-    case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
-      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "ShardsPerClusterQuotaExceededFault":
-    case "com.amazonaws.memorydb#ShardsPerClusterQuotaExceededFault":
-      throw await de_ShardsPerClusterQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateParameterGroupCommand
- */
-export const de_UpdateParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateParameterGroupCommandError
- */
-const de_UpdateParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterGroupStateFault":
-    case "com.amazonaws.memorydb#InvalidParameterGroupStateFault":
-      throw await de_InvalidParameterGroupStateFaultRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ParameterGroupNotFoundFault":
-    case "com.amazonaws.memorydb#ParameterGroupNotFoundFault":
-      throw await de_ParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSubnetGroupCommand
- */
-export const de_UpdateSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSubnetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSubnetGroupCommandError
- */
-const de_UpdateSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidSubnet":
-    case "com.amazonaws.memorydb#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "ServiceLinkedRoleNotFoundFault":
-    case "com.amazonaws.memorydb#ServiceLinkedRoleNotFoundFault":
-      throw await de_ServiceLinkedRoleNotFoundFaultRes(parsedOutput, context);
-    case "SubnetGroupNotFoundFault":
-    case "com.amazonaws.memorydb#SubnetGroupNotFoundFault":
-      throw await de_SubnetGroupNotFoundFaultRes(parsedOutput, context);
     case "SubnetInUse":
     case "com.amazonaws.memorydb#SubnetInUse":
       throw await de_SubnetInUseRes(parsedOutput, context);
-    case "SubnetNotAllowedFault":
-    case "com.amazonaws.memorydb#SubnetNotAllowedFault":
-      throw await de_SubnetNotAllowedFaultRes(parsedOutput, context);
-    case "SubnetQuotaExceededFault":
-    case "com.amazonaws.memorydb#SubnetQuotaExceededFault":
-      throw await de_SubnetQuotaExceededFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateUserCommand
- */
-export const de_UpdateUserCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateUserCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateUserCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateUserCommandError
- */
-const de_UpdateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.memorydb#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.memorydb#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidUserStateFault":
-    case "com.amazonaws.memorydb#InvalidUserStateFault":
-      throw await de_InvalidUserStateFaultRes(parsedOutput, context);
-    case "UserNotFoundFault":
-    case "com.amazonaws.memorydb#UserNotFoundFault":
-      throw await de_UserNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

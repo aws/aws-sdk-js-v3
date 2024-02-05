@@ -705,7 +705,7 @@ export const de_AddAttributesToFindingsCommand = async (
   context: __SerdeContext
 ): Promise<AddAttributesToFindingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddAttributesToFindingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -718,44 +718,6 @@ export const de_AddAttributesToFindingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddAttributesToFindingsCommandError
- */
-const de_AddAttributesToFindingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddAttributesToFindingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAssessmentTargetCommand
  */
 export const de_CreateAssessmentTargetCommand = async (
@@ -763,7 +725,7 @@ export const de_CreateAssessmentTargetCommand = async (
   context: __SerdeContext
 ): Promise<CreateAssessmentTargetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAssessmentTargetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -776,50 +738,6 @@ export const de_CreateAssessmentTargetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAssessmentTargetCommandError
- */
-const de_CreateAssessmentTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAssessmentTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidCrossAccountRoleException":
-    case "com.amazonaws.inspector#InvalidCrossAccountRoleException":
-      throw await de_InvalidCrossAccountRoleExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.inspector#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAssessmentTemplateCommand
  */
 export const de_CreateAssessmentTemplateCommand = async (
@@ -827,7 +745,7 @@ export const de_CreateAssessmentTemplateCommand = async (
   context: __SerdeContext
 ): Promise<CreateAssessmentTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAssessmentTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -840,47 +758,6 @@ export const de_CreateAssessmentTemplateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAssessmentTemplateCommandError
- */
-const de_CreateAssessmentTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAssessmentTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.inspector#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateExclusionsPreviewCommand
  */
 export const de_CreateExclusionsPreviewCommand = async (
@@ -888,7 +765,7 @@ export const de_CreateExclusionsPreviewCommand = async (
   context: __SerdeContext
 ): Promise<CreateExclusionsPreviewCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateExclusionsPreviewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -901,47 +778,6 @@ export const de_CreateExclusionsPreviewCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateExclusionsPreviewCommandError
- */
-const de_CreateExclusionsPreviewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateExclusionsPreviewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "PreviewGenerationInProgressException":
-    case "com.amazonaws.inspector#PreviewGenerationInProgressException":
-      throw await de_PreviewGenerationInProgressExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateResourceGroupCommand
  */
 export const de_CreateResourceGroupCommand = async (
@@ -949,7 +785,7 @@ export const de_CreateResourceGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateResourceGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateResourceGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -962,44 +798,6 @@ export const de_CreateResourceGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateResourceGroupCommandError
- */
-const de_CreateResourceGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResourceGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.inspector#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAssessmentRunCommand
  */
 export const de_DeleteAssessmentRunCommand = async (
@@ -1007,54 +805,13 @@ export const de_DeleteAssessmentRunCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAssessmentRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAssessmentRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAssessmentRunCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAssessmentRunCommandError
- */
-const de_DeleteAssessmentRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAssessmentRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AssessmentRunInProgressException":
-    case "com.amazonaws.inspector#AssessmentRunInProgressException":
-      throw await de_AssessmentRunInProgressExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1065,54 +822,13 @@ export const de_DeleteAssessmentTargetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAssessmentTargetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAssessmentTargetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAssessmentTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAssessmentTargetCommandError
- */
-const de_DeleteAssessmentTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAssessmentTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AssessmentRunInProgressException":
-    case "com.amazonaws.inspector#AssessmentRunInProgressException":
-      throw await de_AssessmentRunInProgressExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1123,54 +839,13 @@ export const de_DeleteAssessmentTemplateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAssessmentTemplateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAssessmentTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAssessmentTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAssessmentTemplateCommandError
- */
-const de_DeleteAssessmentTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAssessmentTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AssessmentRunInProgressException":
-    case "com.amazonaws.inspector#AssessmentRunInProgressException":
-      throw await de_AssessmentRunInProgressExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1181,7 +856,7 @@ export const de_DescribeAssessmentRunsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAssessmentRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAssessmentRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1194,35 +869,6 @@ export const de_DescribeAssessmentRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAssessmentRunsCommandError
- */
-const de_DescribeAssessmentRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssessmentRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAssessmentTargetsCommand
  */
 export const de_DescribeAssessmentTargetsCommand = async (
@@ -1230,7 +876,7 @@ export const de_DescribeAssessmentTargetsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAssessmentTargetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAssessmentTargetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1243,35 +889,6 @@ export const de_DescribeAssessmentTargetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAssessmentTargetsCommandError
- */
-const de_DescribeAssessmentTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssessmentTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAssessmentTemplatesCommand
  */
 export const de_DescribeAssessmentTemplatesCommand = async (
@@ -1279,7 +896,7 @@ export const de_DescribeAssessmentTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAssessmentTemplatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAssessmentTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1292,35 +909,6 @@ export const de_DescribeAssessmentTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAssessmentTemplatesCommandError
- */
-const de_DescribeAssessmentTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssessmentTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand
  */
 export const de_DescribeCrossAccountAccessRoleCommand = async (
@@ -1328,7 +916,7 @@ export const de_DescribeCrossAccountAccessRoleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCrossAccountAccessRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCrossAccountAccessRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1341,32 +929,6 @@ export const de_DescribeCrossAccountAccessRoleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCrossAccountAccessRoleCommandError
- */
-const de_DescribeCrossAccountAccessRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCrossAccountAccessRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeExclusionsCommand
  */
 export const de_DescribeExclusionsCommand = async (
@@ -1374,7 +936,7 @@ export const de_DescribeExclusionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExclusionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeExclusionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1387,35 +949,6 @@ export const de_DescribeExclusionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeExclusionsCommandError
- */
-const de_DescribeExclusionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExclusionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFindingsCommand
  */
 export const de_DescribeFindingsCommand = async (
@@ -1423,7 +956,7 @@ export const de_DescribeFindingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFindingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFindingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1436,35 +969,6 @@ export const de_DescribeFindingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFindingsCommandError
- */
-const de_DescribeFindingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFindingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeResourceGroupsCommand
  */
 export const de_DescribeResourceGroupsCommand = async (
@@ -1472,7 +976,7 @@ export const de_DescribeResourceGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeResourceGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeResourceGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1485,35 +989,6 @@ export const de_DescribeResourceGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeResourceGroupsCommandError
- */
-const de_DescribeResourceGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourceGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRulesPackagesCommand
  */
 export const de_DescribeRulesPackagesCommand = async (
@@ -1521,7 +996,7 @@ export const de_DescribeRulesPackagesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRulesPackagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRulesPackagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1534,35 +1009,6 @@ export const de_DescribeRulesPackagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRulesPackagesCommandError
- */
-const de_DescribeRulesPackagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRulesPackagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAssessmentReportCommand
  */
 export const de_GetAssessmentReportCommand = async (
@@ -1570,7 +1016,7 @@ export const de_GetAssessmentReportCommand = async (
   context: __SerdeContext
 ): Promise<GetAssessmentReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAssessmentReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1583,50 +1029,6 @@ export const de_GetAssessmentReportCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAssessmentReportCommandError
- */
-const de_GetAssessmentReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssessmentReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AssessmentRunInProgressException":
-    case "com.amazonaws.inspector#AssessmentRunInProgressException":
-      throw await de_AssessmentRunInProgressExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    case "UnsupportedFeatureException":
-    case "com.amazonaws.inspector#UnsupportedFeatureException":
-      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetExclusionsPreviewCommand
  */
 export const de_GetExclusionsPreviewCommand = async (
@@ -1634,7 +1036,7 @@ export const de_GetExclusionsPreviewCommand = async (
   context: __SerdeContext
 ): Promise<GetExclusionsPreviewCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetExclusionsPreviewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1647,41 +1049,6 @@ export const de_GetExclusionsPreviewCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetExclusionsPreviewCommandError
- */
-const de_GetExclusionsPreviewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExclusionsPreviewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTelemetryMetadataCommand
  */
 export const de_GetTelemetryMetadataCommand = async (
@@ -1689,7 +1056,7 @@ export const de_GetTelemetryMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetTelemetryMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTelemetryMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1702,41 +1069,6 @@ export const de_GetTelemetryMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTelemetryMetadataCommandError
- */
-const de_GetTelemetryMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTelemetryMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAssessmentRunAgentsCommand
  */
 export const de_ListAssessmentRunAgentsCommand = async (
@@ -1744,7 +1076,7 @@ export const de_ListAssessmentRunAgentsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssessmentRunAgentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAssessmentRunAgentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1757,41 +1089,6 @@ export const de_ListAssessmentRunAgentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAssessmentRunAgentsCommandError
- */
-const de_ListAssessmentRunAgentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssessmentRunAgentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAssessmentRunsCommand
  */
 export const de_ListAssessmentRunsCommand = async (
@@ -1799,7 +1096,7 @@ export const de_ListAssessmentRunsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssessmentRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAssessmentRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1812,41 +1109,6 @@ export const de_ListAssessmentRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAssessmentRunsCommandError
- */
-const de_ListAssessmentRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssessmentRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAssessmentTargetsCommand
  */
 export const de_ListAssessmentTargetsCommand = async (
@@ -1854,7 +1116,7 @@ export const de_ListAssessmentTargetsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssessmentTargetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAssessmentTargetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1867,38 +1129,6 @@ export const de_ListAssessmentTargetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAssessmentTargetsCommandError
- */
-const de_ListAssessmentTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssessmentTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAssessmentTemplatesCommand
  */
 export const de_ListAssessmentTemplatesCommand = async (
@@ -1906,7 +1136,7 @@ export const de_ListAssessmentTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListAssessmentTemplatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAssessmentTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1919,41 +1149,6 @@ export const de_ListAssessmentTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAssessmentTemplatesCommandError
- */
-const de_ListAssessmentTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssessmentTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListEventSubscriptionsCommand
  */
 export const de_ListEventSubscriptionsCommand = async (
@@ -1961,7 +1156,7 @@ export const de_ListEventSubscriptionsCommand = async (
   context: __SerdeContext
 ): Promise<ListEventSubscriptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEventSubscriptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1974,41 +1169,6 @@ export const de_ListEventSubscriptionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEventSubscriptionsCommandError
- */
-const de_ListEventSubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventSubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListExclusionsCommand
  */
 export const de_ListExclusionsCommand = async (
@@ -2016,7 +1176,7 @@ export const de_ListExclusionsCommand = async (
   context: __SerdeContext
 ): Promise<ListExclusionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListExclusionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2029,41 +1189,6 @@ export const de_ListExclusionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListExclusionsCommandError
- */
-const de_ListExclusionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExclusionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListFindingsCommand
  */
 export const de_ListFindingsCommand = async (
@@ -2071,7 +1196,7 @@ export const de_ListFindingsCommand = async (
   context: __SerdeContext
 ): Promise<ListFindingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFindingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2084,41 +1209,6 @@ export const de_ListFindingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFindingsCommandError
- */
-const de_ListFindingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFindingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRulesPackagesCommand
  */
 export const de_ListRulesPackagesCommand = async (
@@ -2126,7 +1216,7 @@ export const de_ListRulesPackagesCommand = async (
   context: __SerdeContext
 ): Promise<ListRulesPackagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRulesPackagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2139,38 +1229,6 @@ export const de_ListRulesPackagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRulesPackagesCommandError
- */
-const de_ListRulesPackagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRulesPackagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2178,7 +1236,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2191,41 +1249,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PreviewAgentsCommand
  */
 export const de_PreviewAgentsCommand = async (
@@ -2233,7 +1256,7 @@ export const de_PreviewAgentsCommand = async (
   context: __SerdeContext
 ): Promise<PreviewAgentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PreviewAgentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2246,44 +1269,6 @@ export const de_PreviewAgentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PreviewAgentsCommandError
- */
-const de_PreviewAgentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PreviewAgentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidCrossAccountRoleException":
-    case "com.amazonaws.inspector#InvalidCrossAccountRoleException":
-      throw await de_InvalidCrossAccountRoleExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterCrossAccountAccessRoleCommand
  */
 export const de_RegisterCrossAccountAccessRoleCommand = async (
@@ -2291,51 +1276,13 @@ export const de_RegisterCrossAccountAccessRoleCommand = async (
   context: __SerdeContext
 ): Promise<RegisterCrossAccountAccessRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterCrossAccountAccessRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RegisterCrossAccountAccessRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterCrossAccountAccessRoleCommandError
- */
-const de_RegisterCrossAccountAccessRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterCrossAccountAccessRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidCrossAccountRoleException":
-    case "com.amazonaws.inspector#InvalidCrossAccountRoleException":
-      throw await de_InvalidCrossAccountRoleExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2346,7 +1293,7 @@ export const de_RemoveAttributesFromFindingsCommand = async (
   context: __SerdeContext
 ): Promise<RemoveAttributesFromFindingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveAttributesFromFindingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2359,44 +1306,6 @@ export const de_RemoveAttributesFromFindingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveAttributesFromFindingsCommandError
- */
-const de_RemoveAttributesFromFindingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveAttributesFromFindingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetTagsForResourceCommand
  */
 export const de_SetTagsForResourceCommand = async (
@@ -2404,51 +1313,13 @@ export const de_SetTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<SetTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1SetTagsForResourceCommandError
- */
-const de_SetTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2459,7 +1330,7 @@ export const de_StartAssessmentRunCommand = async (
   context: __SerdeContext
 ): Promise<StartAssessmentRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartAssessmentRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2472,53 +1343,6 @@ export const de_StartAssessmentRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartAssessmentRunCommandError
- */
-const de_StartAssessmentRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAssessmentRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AgentsAlreadyRunningAssessmentException":
-    case "com.amazonaws.inspector#AgentsAlreadyRunningAssessmentException":
-      throw await de_AgentsAlreadyRunningAssessmentExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidCrossAccountRoleException":
-    case "com.amazonaws.inspector#InvalidCrossAccountRoleException":
-      throw await de_InvalidCrossAccountRoleExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.inspector#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopAssessmentRunCommand
  */
 export const de_StopAssessmentRunCommand = async (
@@ -2526,51 +1350,13 @@ export const de_StopAssessmentRunCommand = async (
   context: __SerdeContext
 ): Promise<StopAssessmentRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopAssessmentRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopAssessmentRunCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopAssessmentRunCommandError
- */
-const de_StopAssessmentRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopAssessmentRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2581,54 +1367,13 @@ export const de_SubscribeToEventCommand = async (
   context: __SerdeContext
 ): Promise<SubscribeToEventCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SubscribeToEventCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SubscribeToEventCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1SubscribeToEventCommandError
- */
-const de_SubscribeToEventCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubscribeToEventCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.inspector#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2639,51 +1384,13 @@ export const de_UnsubscribeFromEventCommand = async (
   context: __SerdeContext
 ): Promise<UnsubscribeFromEventCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UnsubscribeFromEventCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UnsubscribeFromEventCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1UnsubscribeFromEventCommandError
- */
-const de_UnsubscribeFromEventCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnsubscribeFromEventCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.inspector#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.inspector#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.inspector#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntityException":
-    case "com.amazonaws.inspector#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceTemporarilyUnavailableException":
-    case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
-      throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2694,7 +1401,7 @@ export const de_UpdateAssessmentTargetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAssessmentTargetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAssessmentTargetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateAssessmentTargetCommandOutput = {
@@ -2704,12 +1411,9 @@ export const de_UpdateAssessmentTargetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAssessmentTargetCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateAssessmentTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAssessmentTargetCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2731,13 +1435,31 @@ const de_UpdateAssessmentTargetCommandError = async (
     case "ServiceTemporarilyUnavailableException":
     case "com.amazonaws.inspector#ServiceTemporarilyUnavailableException":
       throw await de_ServiceTemporarilyUnavailableExceptionRes(parsedOutput, context);
+    case "InvalidCrossAccountRoleException":
+    case "com.amazonaws.inspector#InvalidCrossAccountRoleException":
+      throw await de_InvalidCrossAccountRoleExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.inspector#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "PreviewGenerationInProgressException":
+    case "com.amazonaws.inspector#PreviewGenerationInProgressException":
+      throw await de_PreviewGenerationInProgressExceptionRes(parsedOutput, context);
+    case "AssessmentRunInProgressException":
+    case "com.amazonaws.inspector#AssessmentRunInProgressException":
+      throw await de_AssessmentRunInProgressExceptionRes(parsedOutput, context);
+    case "UnsupportedFeatureException":
+    case "com.amazonaws.inspector#UnsupportedFeatureException":
+      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
+    case "AgentsAlreadyRunningAssessmentException":
+    case "com.amazonaws.inspector#AgentsAlreadyRunningAssessmentException":
+      throw await de_AgentsAlreadyRunningAssessmentExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

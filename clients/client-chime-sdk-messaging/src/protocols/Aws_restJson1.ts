@@ -1372,60 +1372,13 @@ export const de_AssociateChannelFlowCommand = async (
   context: __SerdeContext
 ): Promise<AssociateChannelFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateChannelFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AssociateChannelFlowCommandError
- */
-const de_AssociateChannelFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateChannelFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1436,7 +1389,7 @@ export const de_BatchCreateChannelMembershipCommand = async (
   context: __SerdeContext
 ): Promise<BatchCreateChannelMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_BatchCreateChannelMembershipCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1451,53 +1404,6 @@ export const de_BatchCreateChannelMembershipCommand = async (
 };
 
 /**
- * deserializeAws_restJson1BatchCreateChannelMembershipCommandError
- */
-const de_BatchCreateChannelMembershipCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchCreateChannelMembershipCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ChannelFlowCallbackCommand
  */
 export const de_ChannelFlowCallbackCommand = async (
@@ -1505,7 +1411,7 @@ export const de_ChannelFlowCallbackCommand = async (
   context: __SerdeContext
 ): Promise<ChannelFlowCallbackCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ChannelFlowCallbackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1520,50 +1426,6 @@ export const de_ChannelFlowCallbackCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ChannelFlowCallbackCommandError
- */
-const de_ChannelFlowCallbackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ChannelFlowCallbackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateChannelCommand
  */
 export const de_CreateChannelCommand = async (
@@ -1571,7 +1433,7 @@ export const de_CreateChannelCommand = async (
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1585,53 +1447,6 @@ export const de_CreateChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateChannelCommandError
- */
-const de_CreateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateChannelBanCommand
  */
 export const de_CreateChannelBanCommand = async (
@@ -1639,7 +1454,7 @@ export const de_CreateChannelBanCommand = async (
   context: __SerdeContext
 ): Promise<CreateChannelBanCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateChannelBanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1654,53 +1469,6 @@ export const de_CreateChannelBanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateChannelBanCommandError
- */
-const de_CreateChannelBanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChannelBanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateChannelFlowCommand
  */
 export const de_CreateChannelFlowCommand = async (
@@ -1708,7 +1476,7 @@ export const de_CreateChannelFlowCommand = async (
   context: __SerdeContext
 ): Promise<CreateChannelFlowCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateChannelFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1722,53 +1490,6 @@ export const de_CreateChannelFlowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateChannelFlowCommandError
- */
-const de_CreateChannelFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChannelFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateChannelMembershipCommand
  */
 export const de_CreateChannelMembershipCommand = async (
@@ -1776,7 +1497,7 @@ export const de_CreateChannelMembershipCommand = async (
   context: __SerdeContext
 ): Promise<CreateChannelMembershipCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateChannelMembershipCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1792,56 +1513,6 @@ export const de_CreateChannelMembershipCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateChannelMembershipCommandError
- */
-const de_CreateChannelMembershipCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChannelMembershipCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateChannelModeratorCommand
  */
 export const de_CreateChannelModeratorCommand = async (
@@ -1849,7 +1520,7 @@ export const de_CreateChannelModeratorCommand = async (
   context: __SerdeContext
 ): Promise<CreateChannelModeratorCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateChannelModeratorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1864,53 +1535,6 @@ export const de_CreateChannelModeratorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateChannelModeratorCommandError
- */
-const de_CreateChannelModeratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChannelModeratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteChannelCommand
  */
 export const de_DeleteChannelCommand = async (
@@ -1918,57 +1542,13 @@ export const de_DeleteChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteChannelCommandError
- */
-const de_DeleteChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1979,54 +1559,13 @@ export const de_DeleteChannelBanCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChannelBanCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteChannelBanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteChannelBanCommandError
- */
-const de_DeleteChannelBanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelBanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2037,57 +1576,13 @@ export const de_DeleteChannelFlowCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChannelFlowCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteChannelFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteChannelFlowCommandError
- */
-const de_DeleteChannelFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2098,57 +1593,13 @@ export const de_DeleteChannelMembershipCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChannelMembershipCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteChannelMembershipCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteChannelMembershipCommandError
- */
-const de_DeleteChannelMembershipCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelMembershipCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2159,54 +1610,13 @@ export const de_DeleteChannelMessageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChannelMessageCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteChannelMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteChannelMessageCommandError
- */
-const de_DeleteChannelMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2217,54 +1627,13 @@ export const de_DeleteChannelModeratorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChannelModeratorCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteChannelModeratorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteChannelModeratorCommandError
- */
-const de_DeleteChannelModeratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelModeratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2275,54 +1644,13 @@ export const de_DeleteMessagingStreamingConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMessagingStreamingConfigurationsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteMessagingStreamingConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteMessagingStreamingConfigurationsCommandError
- */
-const de_DeleteMessagingStreamingConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMessagingStreamingConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2333,7 +1661,7 @@ export const de_DescribeChannelCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2347,47 +1675,6 @@ export const de_DescribeChannelCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeChannelCommandError
- */
-const de_DescribeChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeChannelBanCommand
  */
 export const de_DescribeChannelBanCommand = async (
@@ -2395,7 +1682,7 @@ export const de_DescribeChannelBanCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChannelBanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeChannelBanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2409,50 +1696,6 @@ export const de_DescribeChannelBanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeChannelBanCommandError
- */
-const de_DescribeChannelBanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChannelBanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeChannelFlowCommand
  */
 export const de_DescribeChannelFlowCommand = async (
@@ -2460,7 +1703,7 @@ export const de_DescribeChannelFlowCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChannelFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeChannelFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2474,47 +1717,6 @@ export const de_DescribeChannelFlowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeChannelFlowCommandError
- */
-const de_DescribeChannelFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChannelFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeChannelMembershipCommand
  */
 export const de_DescribeChannelMembershipCommand = async (
@@ -2522,7 +1724,7 @@ export const de_DescribeChannelMembershipCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChannelMembershipCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeChannelMembershipCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2536,50 +1738,6 @@ export const de_DescribeChannelMembershipCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeChannelMembershipCommandError
- */
-const de_DescribeChannelMembershipCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChannelMembershipCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommand
  */
 export const de_DescribeChannelMembershipForAppInstanceUserCommand = async (
@@ -2587,7 +1745,7 @@ export const de_DescribeChannelMembershipForAppInstanceUserCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeChannelMembershipForAppInstanceUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2601,47 +1759,6 @@ export const de_DescribeChannelMembershipForAppInstanceUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCommandError
- */
-const de_DescribeChannelMembershipForAppInstanceUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChannelMembershipForAppInstanceUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommand
  */
 export const de_DescribeChannelModeratedByAppInstanceUserCommand = async (
@@ -2649,7 +1766,7 @@ export const de_DescribeChannelModeratedByAppInstanceUserCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeChannelModeratedByAppInstanceUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2663,47 +1780,6 @@ export const de_DescribeChannelModeratedByAppInstanceUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeChannelModeratedByAppInstanceUserCommandError
- */
-const de_DescribeChannelModeratedByAppInstanceUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChannelModeratedByAppInstanceUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeChannelModeratorCommand
  */
 export const de_DescribeChannelModeratorCommand = async (
@@ -2711,7 +1787,7 @@ export const de_DescribeChannelModeratorCommand = async (
   context: __SerdeContext
 ): Promise<DescribeChannelModeratorCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeChannelModeratorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2725,50 +1801,6 @@ export const de_DescribeChannelModeratorCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeChannelModeratorCommandError
- */
-const de_DescribeChannelModeratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeChannelModeratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DisassociateChannelFlowCommand
  */
 export const de_DisassociateChannelFlowCommand = async (
@@ -2776,60 +1808,13 @@ export const de_DisassociateChannelFlowCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateChannelFlowCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DisassociateChannelFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateChannelFlowCommandError
- */
-const de_DisassociateChannelFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateChannelFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2840,7 +1825,7 @@ export const de_GetChannelMembershipPreferencesCommand = async (
   context: __SerdeContext
 ): Promise<GetChannelMembershipPreferencesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetChannelMembershipPreferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2856,47 +1841,6 @@ export const de_GetChannelMembershipPreferencesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetChannelMembershipPreferencesCommandError
- */
-const de_GetChannelMembershipPreferencesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetChannelMembershipPreferencesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetChannelMessageCommand
  */
 export const de_GetChannelMessageCommand = async (
@@ -2904,7 +1848,7 @@ export const de_GetChannelMessageCommand = async (
   context: __SerdeContext
 ): Promise<GetChannelMessageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetChannelMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2918,50 +1862,6 @@ export const de_GetChannelMessageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetChannelMessageCommandError
- */
-const de_GetChannelMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetChannelMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetChannelMessageStatusCommand
  */
 export const de_GetChannelMessageStatusCommand = async (
@@ -2969,7 +1869,7 @@ export const de_GetChannelMessageStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetChannelMessageStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetChannelMessageStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2983,47 +1883,6 @@ export const de_GetChannelMessageStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetChannelMessageStatusCommandError
- */
-const de_GetChannelMessageStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetChannelMessageStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMessagingSessionEndpointCommand
  */
 export const de_GetMessagingSessionEndpointCommand = async (
@@ -3031,7 +1890,7 @@ export const de_GetMessagingSessionEndpointCommand = async (
   context: __SerdeContext
 ): Promise<GetMessagingSessionEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMessagingSessionEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3045,44 +1904,6 @@ export const de_GetMessagingSessionEndpointCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMessagingSessionEndpointCommandError
- */
-const de_GetMessagingSessionEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMessagingSessionEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMessagingStreamingConfigurationsCommand
  */
 export const de_GetMessagingStreamingConfigurationsCommand = async (
@@ -3090,7 +1911,7 @@ export const de_GetMessagingStreamingConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<GetMessagingStreamingConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMessagingStreamingConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3104,50 +1925,6 @@ export const de_GetMessagingStreamingConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMessagingStreamingConfigurationsCommandError
- */
-const de_GetMessagingStreamingConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMessagingStreamingConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmessaging#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelBansCommand
  */
 export const de_ListChannelBansCommand = async (
@@ -3155,7 +1932,7 @@ export const de_ListChannelBansCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelBansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelBansCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3171,47 +1948,6 @@ export const de_ListChannelBansCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelBansCommandError
- */
-const de_ListChannelBansCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelBansCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelFlowsCommand
  */
 export const de_ListChannelFlowsCommand = async (
@@ -3219,7 +1955,7 @@ export const de_ListChannelFlowsCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelFlowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelFlowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3234,47 +1970,6 @@ export const de_ListChannelFlowsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelFlowsCommandError
- */
-const de_ListChannelFlowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelFlowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelMembershipsCommand
  */
 export const de_ListChannelMembershipsCommand = async (
@@ -3282,7 +1977,7 @@ export const de_ListChannelMembershipsCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelMembershipsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelMembershipsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3298,47 +1993,6 @@ export const de_ListChannelMembershipsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelMembershipsCommandError
- */
-const de_ListChannelMembershipsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelMembershipsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommand
  */
 export const de_ListChannelMembershipsForAppInstanceUserCommand = async (
@@ -3346,7 +2000,7 @@ export const de_ListChannelMembershipsForAppInstanceUserCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelMembershipsForAppInstanceUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3361,47 +2015,6 @@ export const de_ListChannelMembershipsForAppInstanceUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelMembershipsForAppInstanceUserCommandError
- */
-const de_ListChannelMembershipsForAppInstanceUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelMessagesCommand
  */
 export const de_ListChannelMessagesCommand = async (
@@ -3409,7 +2022,7 @@ export const de_ListChannelMessagesCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelMessagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelMessagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3426,47 +2039,6 @@ export const de_ListChannelMessagesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelMessagesCommandError
- */
-const de_ListChannelMessagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelMessagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelModeratorsCommand
  */
 export const de_ListChannelModeratorsCommand = async (
@@ -3474,7 +2046,7 @@ export const de_ListChannelModeratorsCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelModeratorsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelModeratorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3490,47 +2062,6 @@ export const de_ListChannelModeratorsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelModeratorsCommandError
- */
-const de_ListChannelModeratorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelModeratorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelsCommand
  */
 export const de_ListChannelsCommand = async (
@@ -3538,7 +2069,7 @@ export const de_ListChannelsCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3553,47 +2084,6 @@ export const de_ListChannelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelsCommandError
- */
-const de_ListChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand
  */
 export const de_ListChannelsAssociatedWithChannelFlowCommand = async (
@@ -3601,7 +2091,7 @@ export const de_ListChannelsAssociatedWithChannelFlowCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelsAssociatedWithChannelFlowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3616,47 +2106,6 @@ export const de_ListChannelsAssociatedWithChannelFlowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommandError
- */
-const de_ListChannelsAssociatedWithChannelFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelsAssociatedWithChannelFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand
  */
 export const de_ListChannelsModeratedByAppInstanceUserCommand = async (
@@ -3664,7 +2113,7 @@ export const de_ListChannelsModeratedByAppInstanceUserCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChannelsModeratedByAppInstanceUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3679,47 +2128,6 @@ export const de_ListChannelsModeratedByAppInstanceUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommandError
- */
-const de_ListChannelsModeratedByAppInstanceUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSubChannelsCommand
  */
 export const de_ListSubChannelsCommand = async (
@@ -3727,7 +2135,7 @@ export const de_ListSubChannelsCommand = async (
   context: __SerdeContext
 ): Promise<ListSubChannelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSubChannelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3743,47 +2151,6 @@ export const de_ListSubChannelsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSubChannelsCommandError
- */
-const de_ListSubChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSubChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3791,7 +2158,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3805,47 +2172,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutChannelExpirationSettingsCommand
  */
 export const de_PutChannelExpirationSettingsCommand = async (
@@ -3853,7 +2179,7 @@ export const de_PutChannelExpirationSettingsCommand = async (
   context: __SerdeContext
 ): Promise<PutChannelExpirationSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutChannelExpirationSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3868,50 +2194,6 @@ export const de_PutChannelExpirationSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutChannelExpirationSettingsCommandError
- */
-const de_PutChannelExpirationSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutChannelExpirationSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutChannelMembershipPreferencesCommand
  */
 export const de_PutChannelMembershipPreferencesCommand = async (
@@ -3919,7 +2201,7 @@ export const de_PutChannelMembershipPreferencesCommand = async (
   context: __SerdeContext
 ): Promise<PutChannelMembershipPreferencesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutChannelMembershipPreferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3935,50 +2217,6 @@ export const de_PutChannelMembershipPreferencesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutChannelMembershipPreferencesCommandError
- */
-const de_PutChannelMembershipPreferencesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutChannelMembershipPreferencesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutMessagingStreamingConfigurationsCommand
  */
 export const de_PutMessagingStreamingConfigurationsCommand = async (
@@ -3986,7 +2224,7 @@ export const de_PutMessagingStreamingConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<PutMessagingStreamingConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutMessagingStreamingConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4000,12 +2238,199 @@ export const de_PutMessagingStreamingConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutMessagingStreamingConfigurationsCommandError
+ * deserializeAws_restJson1RedactChannelMessageCommand
  */
-const de_PutMessagingStreamingConfigurationsCommandError = async (
+export const de_RedactChannelMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutMessagingStreamingConfigurationsCommandOutput> => {
+): Promise<RedactChannelMessageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    MessageId: __expectString,
+    SubChannelId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchChannelsCommand
+ */
+export const de_SearchChannelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchChannelsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Channels: (_) => de_ChannelSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SendChannelMessageCommand
+ */
+export const de_SendChannelMessageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendChannelMessageCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    MessageId: __expectString,
+    Status: _json,
+    SubChannelId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateChannelCommand
+ */
+export const de_UpdateChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateChannelFlowCommand
+ */
+export const de_UpdateChannelFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelFlowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelFlowArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateChannelMessageCommand
+ */
+export const de_UpdateChannelMessageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelMessageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelArn: __expectString,
+    MessageId: __expectString,
+    Status: _json,
+    SubChannelId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateChannelReadMarkerCommand
+ */
+export const de_UpdateChannelReadMarkerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelReadMarkerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ChannelArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4036,593 +2461,16 @@ const de_PutMessagingStreamingConfigurationsCommandError = async (
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1RedactChannelMessageCommand
- */
-export const de_RedactChannelMessageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RedactChannelMessageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RedactChannelMessageCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ChannelArn: __expectString,
-    MessageId: __expectString,
-    SubChannelId: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1RedactChannelMessageCommandError
- */
-const de_RedactChannelMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RedactChannelMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1SearchChannelsCommand
- */
-export const de_SearchChannelsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchChannelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchChannelsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Channels: (_) => de_ChannelSummaryList(_, context),
-    NextToken: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1SearchChannelsCommandError
- */
-const de_SearchChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1SendChannelMessageCommand
- */
-export const de_SendChannelMessageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendChannelMessageCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_SendChannelMessageCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ChannelArn: __expectString,
-    MessageId: __expectString,
-    Status: _json,
-    SubChannelId: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1SendChannelMessageCommandError
- */
-const de_SendChannelMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendChannelMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.chimesdkmessaging#ResourceLimitExceededException":
       throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateChannelCommand
- */
-export const de_UpdateChannelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateChannelCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ChannelArn: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateChannelCommandError
- */
-const de_UpdateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateChannelFlowCommand
- */
-export const de_UpdateChannelFlowCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelFlowCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateChannelFlowCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ChannelFlowArn: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateChannelFlowCommandError
- */
-const de_UpdateChannelFlowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelFlowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateChannelMessageCommand
- */
-export const de_UpdateChannelMessageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelMessageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateChannelMessageCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ChannelArn: __expectString,
-    MessageId: __expectString,
-    Status: _json,
-    SubChannelId: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateChannelMessageCommandError
- */
-const de_UpdateChannelMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateChannelReadMarkerCommand
- */
-export const de_UpdateChannelReadMarkerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelReadMarkerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateChannelReadMarkerCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    ChannelArn: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateChannelReadMarkerCommandError
- */
-const de_UpdateChannelReadMarkerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelReadMarkerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmessaging#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmessaging#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmessaging#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmessaging#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmessaging#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmessaging#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmessaging#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

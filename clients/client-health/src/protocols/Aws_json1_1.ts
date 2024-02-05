@@ -294,7 +294,7 @@ export const de_DescribeAffectedAccountsForOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAffectedAccountsForOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -307,32 +307,6 @@ export const de_DescribeAffectedAccountsForOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommandError
- */
-const de_DescribeAffectedAccountsForOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAffectedAccountsForOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidPaginationToken":
-    case "com.amazonaws.health#InvalidPaginationToken":
-      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAffectedEntitiesCommand
  */
 export const de_DescribeAffectedEntitiesCommand = async (
@@ -340,7 +314,7 @@ export const de_DescribeAffectedEntitiesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAffectedEntitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAffectedEntitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -353,35 +327,6 @@ export const de_DescribeAffectedEntitiesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAffectedEntitiesCommandError
- */
-const de_DescribeAffectedEntitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAffectedEntitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidPaginationToken":
-    case "com.amazonaws.health#InvalidPaginationToken":
-      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
-    case "UnsupportedLocale":
-    case "com.amazonaws.health#UnsupportedLocale":
-      throw await de_UnsupportedLocaleRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommand
  */
 export const de_DescribeAffectedEntitiesForOrganizationCommand = async (
@@ -389,7 +334,7 @@ export const de_DescribeAffectedEntitiesForOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAffectedEntitiesForOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -402,35 +347,6 @@ export const de_DescribeAffectedEntitiesForOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationCommandError
- */
-const de_DescribeAffectedEntitiesForOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidPaginationToken":
-    case "com.amazonaws.health#InvalidPaginationToken":
-      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
-    case "UnsupportedLocale":
-    case "com.amazonaws.health#UnsupportedLocale":
-      throw await de_UnsupportedLocaleRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEntityAggregatesCommand
  */
 export const de_DescribeEntityAggregatesCommand = async (
@@ -438,7 +354,7 @@ export const de_DescribeEntityAggregatesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEntityAggregatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEntityAggregatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -451,26 +367,6 @@ export const de_DescribeEntityAggregatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEntityAggregatesCommandError
- */
-const de_DescribeEntityAggregatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEntityAggregatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeEntityAggregatesForOrganizationCommand
  */
 export const de_DescribeEntityAggregatesForOrganizationCommand = async (
@@ -478,7 +374,7 @@ export const de_DescribeEntityAggregatesForOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEntityAggregatesForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEntityAggregatesForOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -491,26 +387,6 @@ export const de_DescribeEntityAggregatesForOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEntityAggregatesForOrganizationCommandError
- */
-const de_DescribeEntityAggregatesForOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEntityAggregatesForOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeEventAggregatesCommand
  */
 export const de_DescribeEventAggregatesCommand = async (
@@ -518,7 +394,7 @@ export const de_DescribeEventAggregatesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventAggregatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventAggregatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -531,32 +407,6 @@ export const de_DescribeEventAggregatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEventAggregatesCommandError
- */
-const de_DescribeEventAggregatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventAggregatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidPaginationToken":
-    case "com.amazonaws.health#InvalidPaginationToken":
-      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEventDetailsCommand
  */
 export const de_DescribeEventDetailsCommand = async (
@@ -564,7 +414,7 @@ export const de_DescribeEventDetailsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -577,32 +427,6 @@ export const de_DescribeEventDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEventDetailsCommandError
- */
-const de_DescribeEventDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UnsupportedLocale":
-    case "com.amazonaws.health#UnsupportedLocale":
-      throw await de_UnsupportedLocaleRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEventDetailsForOrganizationCommand
  */
 export const de_DescribeEventDetailsForOrganizationCommand = async (
@@ -610,7 +434,7 @@ export const de_DescribeEventDetailsForOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventDetailsForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventDetailsForOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -623,32 +447,6 @@ export const de_DescribeEventDetailsForOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEventDetailsForOrganizationCommandError
- */
-const de_DescribeEventDetailsForOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventDetailsForOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UnsupportedLocale":
-    case "com.amazonaws.health#UnsupportedLocale":
-      throw await de_UnsupportedLocaleRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEventsCommand
  */
 export const de_DescribeEventsCommand = async (
@@ -656,7 +454,7 @@ export const de_DescribeEventsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -669,35 +467,6 @@ export const de_DescribeEventsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEventsCommandError
- */
-const de_DescribeEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidPaginationToken":
-    case "com.amazonaws.health#InvalidPaginationToken":
-      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
-    case "UnsupportedLocale":
-    case "com.amazonaws.health#UnsupportedLocale":
-      throw await de_UnsupportedLocaleRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEventsForOrganizationCommand
  */
 export const de_DescribeEventsForOrganizationCommand = async (
@@ -705,7 +474,7 @@ export const de_DescribeEventsForOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventsForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventsForOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -718,35 +487,6 @@ export const de_DescribeEventsForOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEventsForOrganizationCommandError
- */
-const de_DescribeEventsForOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsForOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidPaginationToken":
-    case "com.amazonaws.health#InvalidPaginationToken":
-      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
-    case "UnsupportedLocale":
-    case "com.amazonaws.health#UnsupportedLocale":
-      throw await de_UnsupportedLocaleRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEventTypesCommand
  */
 export const de_DescribeEventTypesCommand = async (
@@ -754,7 +494,7 @@ export const de_DescribeEventTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -767,35 +507,6 @@ export const de_DescribeEventTypesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEventTypesCommandError
- */
-const de_DescribeEventTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidPaginationToken":
-    case "com.amazonaws.health#InvalidPaginationToken":
-      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
-    case "UnsupportedLocale":
-    case "com.amazonaws.health#UnsupportedLocale":
-      throw await de_UnsupportedLocaleRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand
  */
 export const de_DescribeHealthServiceStatusForOrganizationCommand = async (
@@ -803,7 +514,7 @@ export const de_DescribeHealthServiceStatusForOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeHealthServiceStatusForOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -816,26 +527,6 @@ export const de_DescribeHealthServiceStatusForOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommandError
- */
-const de_DescribeHealthServiceStatusForOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommand
  */
 export const de_DisableHealthServiceAccessForOrganizationCommand = async (
@@ -843,39 +534,13 @@ export const de_DisableHealthServiceAccessForOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableHealthServiceAccessForOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisableHealthServiceAccessForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DisableHealthServiceAccessForOrganizationCommandError
- */
-const de_DisableHealthServiceAccessForOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableHealthServiceAccessForOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.health#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -886,7 +551,7 @@ export const de_EnableHealthServiceAccessForOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableHealthServiceAccessForOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableHealthServiceAccessForOrganizationCommandOutput = {
@@ -896,18 +561,21 @@ export const de_EnableHealthServiceAccessForOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableHealthServiceAccessForOrganizationCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_EnableHealthServiceAccessForOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableHealthServiceAccessForOrganizationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidPaginationToken":
+    case "com.amazonaws.health#InvalidPaginationToken":
+      throw await de_InvalidPaginationTokenRes(parsedOutput, context);
+    case "UnsupportedLocale":
+    case "com.amazonaws.health#UnsupportedLocale":
+      throw await de_UnsupportedLocaleRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.health#ConcurrentModificationException":
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
@@ -917,7 +585,7 @@ const de_EnableHealthServiceAccessForOrganizationCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

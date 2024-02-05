@@ -211,7 +211,7 @@ export const de_AssumeRoleCommand = async (
   context: __SerdeContext
 ): Promise<AssumeRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssumeRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -224,41 +224,6 @@ export const de_AssumeRoleCommand = async (
 };
 
 /**
- * deserializeAws_queryAssumeRoleCommandError
- */
-const de_AssumeRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssumeRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExpiredTokenException":
-    case "com.amazonaws.sts#ExpiredTokenException":
-      throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.sts#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PackedPolicyTooLarge":
-    case "com.amazonaws.sts#PackedPolicyTooLargeException":
-      throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
-    case "RegionDisabledException":
-    case "com.amazonaws.sts#RegionDisabledException":
-      throw await de_RegionDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryAssumeRoleWithSAMLCommand
  */
 export const de_AssumeRoleWithSAMLCommand = async (
@@ -266,7 +231,7 @@ export const de_AssumeRoleWithSAMLCommand = async (
   context: __SerdeContext
 ): Promise<AssumeRoleWithSAMLCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssumeRoleWithSAMLCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -279,47 +244,6 @@ export const de_AssumeRoleWithSAMLCommand = async (
 };
 
 /**
- * deserializeAws_queryAssumeRoleWithSAMLCommandError
- */
-const de_AssumeRoleWithSAMLCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssumeRoleWithSAMLCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExpiredTokenException":
-    case "com.amazonaws.sts#ExpiredTokenException":
-      throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
-    case "IDPRejectedClaim":
-    case "com.amazonaws.sts#IDPRejectedClaimException":
-      throw await de_IDPRejectedClaimExceptionRes(parsedOutput, context);
-    case "InvalidIdentityToken":
-    case "com.amazonaws.sts#InvalidIdentityTokenException":
-      throw await de_InvalidIdentityTokenExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.sts#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PackedPolicyTooLarge":
-    case "com.amazonaws.sts#PackedPolicyTooLargeException":
-      throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
-    case "RegionDisabledException":
-    case "com.amazonaws.sts#RegionDisabledException":
-      throw await de_RegionDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryAssumeRoleWithWebIdentityCommand
  */
 export const de_AssumeRoleWithWebIdentityCommand = async (
@@ -327,7 +251,7 @@ export const de_AssumeRoleWithWebIdentityCommand = async (
   context: __SerdeContext
 ): Promise<AssumeRoleWithWebIdentityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssumeRoleWithWebIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -340,50 +264,6 @@ export const de_AssumeRoleWithWebIdentityCommand = async (
 };
 
 /**
- * deserializeAws_queryAssumeRoleWithWebIdentityCommandError
- */
-const de_AssumeRoleWithWebIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssumeRoleWithWebIdentityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExpiredTokenException":
-    case "com.amazonaws.sts#ExpiredTokenException":
-      throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
-    case "IDPCommunicationError":
-    case "com.amazonaws.sts#IDPCommunicationErrorException":
-      throw await de_IDPCommunicationErrorExceptionRes(parsedOutput, context);
-    case "IDPRejectedClaim":
-    case "com.amazonaws.sts#IDPRejectedClaimException":
-      throw await de_IDPRejectedClaimExceptionRes(parsedOutput, context);
-    case "InvalidIdentityToken":
-    case "com.amazonaws.sts#InvalidIdentityTokenException":
-      throw await de_InvalidIdentityTokenExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.sts#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PackedPolicyTooLarge":
-    case "com.amazonaws.sts#PackedPolicyTooLargeException":
-      throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
-    case "RegionDisabledException":
-    case "com.amazonaws.sts#RegionDisabledException":
-      throw await de_RegionDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDecodeAuthorizationMessageCommand
  */
 export const de_DecodeAuthorizationMessageCommand = async (
@@ -391,7 +271,7 @@ export const de_DecodeAuthorizationMessageCommand = async (
   context: __SerdeContext
 ): Promise<DecodeAuthorizationMessageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DecodeAuthorizationMessageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -404,32 +284,6 @@ export const de_DecodeAuthorizationMessageCommand = async (
 };
 
 /**
- * deserializeAws_queryDecodeAuthorizationMessageCommandError
- */
-const de_DecodeAuthorizationMessageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DecodeAuthorizationMessageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidAuthorizationMessageException":
-    case "com.amazonaws.sts#InvalidAuthorizationMessageException":
-      throw await de_InvalidAuthorizationMessageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetAccessKeyInfoCommand
  */
 export const de_GetAccessKeyInfoCommand = async (
@@ -437,7 +291,7 @@ export const de_GetAccessKeyInfoCommand = async (
   context: __SerdeContext
 ): Promise<GetAccessKeyInfoCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAccessKeyInfoCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -450,26 +304,6 @@ export const de_GetAccessKeyInfoCommand = async (
 };
 
 /**
- * deserializeAws_queryGetAccessKeyInfoCommandError
- */
-const de_GetAccessKeyInfoCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccessKeyInfoCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGetCallerIdentityCommand
  */
 export const de_GetCallerIdentityCommand = async (
@@ -477,7 +311,7 @@ export const de_GetCallerIdentityCommand = async (
   context: __SerdeContext
 ): Promise<GetCallerIdentityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCallerIdentityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -490,26 +324,6 @@ export const de_GetCallerIdentityCommand = async (
 };
 
 /**
- * deserializeAws_queryGetCallerIdentityCommandError
- */
-const de_GetCallerIdentityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCallerIdentityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGetFederationTokenCommand
  */
 export const de_GetFederationTokenCommand = async (
@@ -517,7 +331,7 @@ export const de_GetFederationTokenCommand = async (
   context: __SerdeContext
 ): Promise<GetFederationTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetFederationTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -530,38 +344,6 @@ export const de_GetFederationTokenCommand = async (
 };
 
 /**
- * deserializeAws_queryGetFederationTokenCommandError
- */
-const de_GetFederationTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFederationTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.sts#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "PackedPolicyTooLarge":
-    case "com.amazonaws.sts#PackedPolicyTooLargeException":
-      throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
-    case "RegionDisabledException":
-    case "com.amazonaws.sts#RegionDisabledException":
-      throw await de_RegionDisabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetSessionTokenCommand
  */
 export const de_GetSessionTokenCommand = async (
@@ -569,7 +351,7 @@ export const de_GetSessionTokenCommand = async (
   context: __SerdeContext
 ): Promise<GetSessionTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSessionTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -582,28 +364,46 @@ export const de_GetSessionTokenCommand = async (
 };
 
 /**
- * deserializeAws_queryGetSessionTokenCommandError
+ * deserialize_Aws_queryCommandError
  */
-const de_GetSessionTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSessionTokenCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ExpiredTokenException":
+    case "com.amazonaws.sts#ExpiredTokenException":
+      throw await de_ExpiredTokenExceptionRes(parsedOutput, context);
+    case "MalformedPolicyDocument":
+    case "com.amazonaws.sts#MalformedPolicyDocumentException":
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
+    case "PackedPolicyTooLarge":
+    case "com.amazonaws.sts#PackedPolicyTooLargeException":
+      throw await de_PackedPolicyTooLargeExceptionRes(parsedOutput, context);
     case "RegionDisabledException":
     case "com.amazonaws.sts#RegionDisabledException":
       throw await de_RegionDisabledExceptionRes(parsedOutput, context);
+    case "IDPRejectedClaim":
+    case "com.amazonaws.sts#IDPRejectedClaimException":
+      throw await de_IDPRejectedClaimExceptionRes(parsedOutput, context);
+    case "InvalidIdentityToken":
+    case "com.amazonaws.sts#InvalidIdentityTokenException":
+      throw await de_InvalidIdentityTokenExceptionRes(parsedOutput, context);
+    case "IDPCommunicationError":
+    case "com.amazonaws.sts#IDPCommunicationErrorException":
+      throw await de_IDPCommunicationErrorExceptionRes(parsedOutput, context);
+    case "InvalidAuthorizationMessageException":
+    case "com.amazonaws.sts#InvalidAuthorizationMessageException":
+      throw await de_InvalidAuthorizationMessageExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
         errorCode,
-      });
+      }) as never;
   }
 };
 

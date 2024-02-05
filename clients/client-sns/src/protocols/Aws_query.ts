@@ -979,48 +979,13 @@ export const de_AddPermissionCommand = async (
   context: __SerdeContext
 ): Promise<AddPermissionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddPermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddPermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryAddPermissionCommandError
- */
-const de_AddPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1031,7 +996,7 @@ export const de_CheckIfPhoneNumberIsOptedOutCommand = async (
   context: __SerdeContext
 ): Promise<CheckIfPhoneNumberIsOptedOutCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CheckIfPhoneNumberIsOptedOutCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1044,41 +1009,6 @@ export const de_CheckIfPhoneNumberIsOptedOutCommand = async (
 };
 
 /**
- * deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError
- */
-const de_CheckIfPhoneNumberIsOptedOutCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CheckIfPhoneNumberIsOptedOutCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "Throttled":
-    case "com.amazonaws.sns#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryConfirmSubscriptionCommand
  */
 export const de_ConfirmSubscriptionCommand = async (
@@ -1086,7 +1016,7 @@ export const de_ConfirmSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<ConfirmSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConfirmSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1099,50 +1029,6 @@ export const de_ConfirmSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_queryConfirmSubscriptionCommandError
- */
-const de_ConfirmSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfirmSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "FilterPolicyLimitExceeded":
-    case "com.amazonaws.sns#FilterPolicyLimitExceededException":
-      throw await de_FilterPolicyLimitExceededExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ReplayLimitExceeded":
-    case "com.amazonaws.sns#ReplayLimitExceededException":
-      throw await de_ReplayLimitExceededExceptionRes(parsedOutput, context);
-    case "SubscriptionLimitExceeded":
-    case "com.amazonaws.sns#SubscriptionLimitExceededException":
-      throw await de_SubscriptionLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreatePlatformApplicationCommand
  */
 export const de_CreatePlatformApplicationCommand = async (
@@ -1150,7 +1036,7 @@ export const de_CreatePlatformApplicationCommand = async (
   context: __SerdeContext
 ): Promise<CreatePlatformApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePlatformApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1163,38 +1049,6 @@ export const de_CreatePlatformApplicationCommand = async (
 };
 
 /**
- * deserializeAws_queryCreatePlatformApplicationCommandError
- */
-const de_CreatePlatformApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePlatformApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreatePlatformEndpointCommand
  */
 export const de_CreatePlatformEndpointCommand = async (
@@ -1202,7 +1056,7 @@ export const de_CreatePlatformEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreatePlatformEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePlatformEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1215,12 +1069,719 @@ export const de_CreatePlatformEndpointCommand = async (
 };
 
 /**
- * deserializeAws_queryCreatePlatformEndpointCommandError
+ * deserializeAws_queryCreateSMSSandboxPhoneNumberCommand
  */
-const de_CreatePlatformEndpointCommandError = async (
+export const de_CreateSMSSandboxPhoneNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreatePlatformEndpointCommandOutput> => {
+): Promise<CreateSMSSandboxPhoneNumberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateSMSSandboxPhoneNumberResult(data.CreateSMSSandboxPhoneNumberResult, context);
+  const response: CreateSMSSandboxPhoneNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateTopicCommand
+ */
+export const de_CreateTopicCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTopicCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateTopicResponse(data.CreateTopicResult, context);
+  const response: CreateTopicCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteEndpointCommand
+ */
+export const de_DeleteEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeletePlatformApplicationCommand
+ */
+export const de_DeletePlatformApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePlatformApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeletePlatformApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteSMSSandboxPhoneNumberCommand
+ */
+export const de_DeleteSMSSandboxPhoneNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteSMSSandboxPhoneNumberResult(data.DeleteSMSSandboxPhoneNumberResult, context);
+  const response: DeleteSMSSandboxPhoneNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteTopicCommand
+ */
+export const de_DeleteTopicCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTopicCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteTopicCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetDataProtectionPolicyCommand
+ */
+export const de_GetDataProtectionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataProtectionPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDataProtectionPolicyResponse(data.GetDataProtectionPolicyResult, context);
+  const response: GetDataProtectionPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetEndpointAttributesCommand
+ */
+export const de_GetEndpointAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEndpointAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetEndpointAttributesResponse(data.GetEndpointAttributesResult, context);
+  const response: GetEndpointAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetPlatformApplicationAttributesCommand
+ */
+export const de_GetPlatformApplicationAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPlatformApplicationAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetPlatformApplicationAttributesResponse(data.GetPlatformApplicationAttributesResult, context);
+  const response: GetPlatformApplicationAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetSMSAttributesCommand
+ */
+export const de_GetSMSAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSMSAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetSMSAttributesResponse(data.GetSMSAttributesResult, context);
+  const response: GetSMSAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetSMSSandboxAccountStatusCommand
+ */
+export const de_GetSMSSandboxAccountStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSMSSandboxAccountStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetSMSSandboxAccountStatusResult(data.GetSMSSandboxAccountStatusResult, context);
+  const response: GetSMSSandboxAccountStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetSubscriptionAttributesCommand
+ */
+export const de_GetSubscriptionAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSubscriptionAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetSubscriptionAttributesResponse(data.GetSubscriptionAttributesResult, context);
+  const response: GetSubscriptionAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetTopicAttributesCommand
+ */
+export const de_GetTopicAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTopicAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetTopicAttributesResponse(data.GetTopicAttributesResult, context);
+  const response: GetTopicAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListEndpointsByPlatformApplicationCommand
+ */
+export const de_ListEndpointsByPlatformApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEndpointsByPlatformApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListEndpointsByPlatformApplicationResponse(data.ListEndpointsByPlatformApplicationResult, context);
+  const response: ListEndpointsByPlatformApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListOriginationNumbersCommand
+ */
+export const de_ListOriginationNumbersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOriginationNumbersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListOriginationNumbersResult(data.ListOriginationNumbersResult, context);
+  const response: ListOriginationNumbersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListPhoneNumbersOptedOutCommand
+ */
+export const de_ListPhoneNumbersOptedOutCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPhoneNumbersOptedOutCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListPhoneNumbersOptedOutResponse(data.ListPhoneNumbersOptedOutResult, context);
+  const response: ListPhoneNumbersOptedOutCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListPlatformApplicationsCommand
+ */
+export const de_ListPlatformApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPlatformApplicationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListPlatformApplicationsResponse(data.ListPlatformApplicationsResult, context);
+  const response: ListPlatformApplicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListSMSSandboxPhoneNumbersCommand
+ */
+export const de_ListSMSSandboxPhoneNumbersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSMSSandboxPhoneNumbersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListSMSSandboxPhoneNumbersResult(data.ListSMSSandboxPhoneNumbersResult, context);
+  const response: ListSMSSandboxPhoneNumbersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListSubscriptionsCommand
+ */
+export const de_ListSubscriptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSubscriptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListSubscriptionsResponse(data.ListSubscriptionsResult, context);
+  const response: ListSubscriptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListSubscriptionsByTopicCommand
+ */
+export const de_ListSubscriptionsByTopicCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSubscriptionsByTopicCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListSubscriptionsByTopicResponse(data.ListSubscriptionsByTopicResult, context);
+  const response: ListSubscriptionsByTopicCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListTagsForResourceResponse(data.ListTagsForResourceResult, context);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListTopicsCommand
+ */
+export const de_ListTopicsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTopicsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListTopicsResponse(data.ListTopicsResult, context);
+  const response: ListTopicsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryOptInPhoneNumberCommand
+ */
+export const de_OptInPhoneNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OptInPhoneNumberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_OptInPhoneNumberResponse(data.OptInPhoneNumberResult, context);
+  const response: OptInPhoneNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryPublishCommand
+ */
+export const de_PublishCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PublishResponse(data.PublishResult, context);
+  const response: PublishCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryPublishBatchCommand
+ */
+export const de_PublishBatchCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PublishBatchCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PublishBatchResponse(data.PublishBatchResult, context);
+  const response: PublishBatchCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryPutDataProtectionPolicyCommand
+ */
+export const de_PutDataProtectionPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutDataProtectionPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutDataProtectionPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemovePermissionCommand
+ */
+export const de_RemovePermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemovePermissionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemovePermissionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySetEndpointAttributesCommand
+ */
+export const de_SetEndpointAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetEndpointAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: SetEndpointAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySetPlatformApplicationAttributesCommand
+ */
+export const de_SetPlatformApplicationAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetPlatformApplicationAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: SetPlatformApplicationAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySetSMSAttributesCommand
+ */
+export const de_SetSMSAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetSMSAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SetSMSAttributesResponse(data.SetSMSAttributesResult, context);
+  const response: SetSMSAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySetSubscriptionAttributesCommand
+ */
+export const de_SetSubscriptionAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetSubscriptionAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: SetSubscriptionAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySetTopicAttributesCommand
+ */
+export const de_SetTopicAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetTopicAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: SetTopicAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySubscribeCommand
+ */
+export const de_SubscribeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubscribeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SubscribeResponse(data.SubscribeResult, context);
+  const response: SubscribeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryTagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TagResourceResponse(data.TagResourceResult, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryUnsubscribeCommand
+ */
+export const de_UnsubscribeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnsubscribeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UnsubscribeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryUntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UntagResourceResponse(data.UntagResourceResult, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryVerifySMSSandboxPhoneNumberCommand
+ */
+export const de_VerifySMSSandboxPhoneNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<VerifySMSSandboxPhoneNumberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_VerifySMSSandboxPhoneNumberResult(data.VerifySMSSandboxPhoneNumberResult, context);
+  const response: VerifySMSSandboxPhoneNumberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_queryCommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1239,122 +1800,27 @@ const de_CreatePlatformEndpointCommandError = async (
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateSMSSandboxPhoneNumberCommand
- */
-export const de_CreateSMSSandboxPhoneNumberCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSMSSandboxPhoneNumberCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateSMSSandboxPhoneNumberCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateSMSSandboxPhoneNumberResult(data.CreateSMSSandboxPhoneNumberResult, context);
-  const response: CreateSMSSandboxPhoneNumberCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateSMSSandboxPhoneNumberCommandError
- */
-const de_CreateSMSSandboxPhoneNumberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSMSSandboxPhoneNumberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OptedOut":
-    case "com.amazonaws.sns#OptedOutException":
-      throw await de_OptedOutExceptionRes(parsedOutput, context);
     case "Throttled":
     case "com.amazonaws.sns#ThrottledException":
       throw await de_ThrottledExceptionRes(parsedOutput, context);
+    case "FilterPolicyLimitExceeded":
+    case "com.amazonaws.sns#FilterPolicyLimitExceededException":
+      throw await de_FilterPolicyLimitExceededExceptionRes(parsedOutput, context);
+    case "ReplayLimitExceeded":
+    case "com.amazonaws.sns#ReplayLimitExceededException":
+      throw await de_ReplayLimitExceededExceptionRes(parsedOutput, context);
+    case "SubscriptionLimitExceeded":
+    case "com.amazonaws.sns#SubscriptionLimitExceededException":
+      throw await de_SubscriptionLimitExceededExceptionRes(parsedOutput, context);
+    case "OptedOut":
+    case "com.amazonaws.sns#OptedOutException":
+      throw await de_OptedOutExceptionRes(parsedOutput, context);
     case "UserError":
     case "com.amazonaws.sns#UserErrorException":
       throw await de_UserErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateTopicCommand
- */
-export const de_CreateTopicCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTopicCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateTopicCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateTopicResponse(data.CreateTopicResult, context);
-  const response: CreateTopicCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateTopicCommandError
- */
-const de_CreateTopicCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTopicCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "ConcurrentAccess":
     case "com.amazonaws.sns#ConcurrentAccessException":
       throw await de_ConcurrentAccessExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidSecurity":
     case "com.amazonaws.sns#InvalidSecurityException":
       throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
@@ -1370,1225 +1836,18 @@ const de_CreateTopicCommandError = async (
     case "TopicLimitExceeded":
     case "com.amazonaws.sns#TopicLimitExceededException":
       throw await de_TopicLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteEndpointCommand
- */
-export const de_DeleteEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteEndpointCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteEndpointCommandError
- */
-const de_DeleteEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeletePlatformApplicationCommand
- */
-export const de_DeletePlatformApplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePlatformApplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeletePlatformApplicationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeletePlatformApplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeletePlatformApplicationCommandError
- */
-const de_DeletePlatformApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePlatformApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteSMSSandboxPhoneNumberCommand
- */
-export const de_DeleteSMSSandboxPhoneNumberCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteSMSSandboxPhoneNumberCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteSMSSandboxPhoneNumberResult(data.DeleteSMSSandboxPhoneNumberResult, context);
-  const response: DeleteSMSSandboxPhoneNumberCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteSMSSandboxPhoneNumberCommandError
- */
-const de_DeleteSMSSandboxPhoneNumberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSMSSandboxPhoneNumberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFound":
     case "com.amazonaws.sns#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "Throttled":
-    case "com.amazonaws.sns#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    case "UserError":
-    case "com.amazonaws.sns#UserErrorException":
-      throw await de_UserErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteTopicCommand
- */
-export const de_DeleteTopicCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTopicCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteTopicCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteTopicCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteTopicCommandError
- */
-const de_DeleteTopicCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTopicCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "ConcurrentAccess":
-    case "com.amazonaws.sns#ConcurrentAccessException":
-      throw await de_ConcurrentAccessExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidState":
     case "com.amazonaws.sns#InvalidStateException":
       throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "StaleTag":
-    case "com.amazonaws.sns#StaleTagException":
-      throw await de_StaleTagExceptionRes(parsedOutput, context);
-    case "TagPolicy":
-    case "com.amazonaws.sns#TagPolicyException":
-      throw await de_TagPolicyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetDataProtectionPolicyCommand
- */
-export const de_GetDataProtectionPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataProtectionPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetDataProtectionPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetDataProtectionPolicyResponse(data.GetDataProtectionPolicyResult, context);
-  const response: GetDataProtectionPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetDataProtectionPolicyCommandError
- */
-const de_GetDataProtectionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataProtectionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sns#InvalidSecurityException":
-      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetEndpointAttributesCommand
- */
-export const de_GetEndpointAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEndpointAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetEndpointAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetEndpointAttributesResponse(data.GetEndpointAttributesResult, context);
-  const response: GetEndpointAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetEndpointAttributesCommandError
- */
-const de_GetEndpointAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEndpointAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetPlatformApplicationAttributesCommand
- */
-export const de_GetPlatformApplicationAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPlatformApplicationAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetPlatformApplicationAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetPlatformApplicationAttributesResponse(data.GetPlatformApplicationAttributesResult, context);
-  const response: GetPlatformApplicationAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetPlatformApplicationAttributesCommandError
- */
-const de_GetPlatformApplicationAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPlatformApplicationAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetSMSAttributesCommand
- */
-export const de_GetSMSAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSMSAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetSMSAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetSMSAttributesResponse(data.GetSMSAttributesResult, context);
-  const response: GetSMSAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetSMSAttributesCommandError
- */
-const de_GetSMSAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSMSAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "Throttled":
-    case "com.amazonaws.sns#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetSMSSandboxAccountStatusCommand
- */
-export const de_GetSMSSandboxAccountStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSMSSandboxAccountStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetSMSSandboxAccountStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetSMSSandboxAccountStatusResult(data.GetSMSSandboxAccountStatusResult, context);
-  const response: GetSMSSandboxAccountStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetSMSSandboxAccountStatusCommandError
- */
-const de_GetSMSSandboxAccountStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSMSSandboxAccountStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "Throttled":
-    case "com.amazonaws.sns#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetSubscriptionAttributesCommand
- */
-export const de_GetSubscriptionAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSubscriptionAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetSubscriptionAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetSubscriptionAttributesResponse(data.GetSubscriptionAttributesResult, context);
-  const response: GetSubscriptionAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetSubscriptionAttributesCommandError
- */
-const de_GetSubscriptionAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSubscriptionAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetTopicAttributesCommand
- */
-export const de_GetTopicAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTopicAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetTopicAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetTopicAttributesResponse(data.GetTopicAttributesResult, context);
-  const response: GetTopicAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetTopicAttributesCommandError
- */
-const de_GetTopicAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTopicAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sns#InvalidSecurityException":
-      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryListEndpointsByPlatformApplicationCommand
- */
-export const de_ListEndpointsByPlatformApplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEndpointsByPlatformApplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListEndpointsByPlatformApplicationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListEndpointsByPlatformApplicationResponse(data.ListEndpointsByPlatformApplicationResult, context);
-  const response: ListEndpointsByPlatformApplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryListEndpointsByPlatformApplicationCommandError
- */
-const de_ListEndpointsByPlatformApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEndpointsByPlatformApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryListOriginationNumbersCommand
- */
-export const de_ListOriginationNumbersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOriginationNumbersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListOriginationNumbersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListOriginationNumbersResult(data.ListOriginationNumbersResult, context);
-  const response: ListOriginationNumbersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryListOriginationNumbersCommandError
- */
-const de_ListOriginationNumbersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOriginationNumbersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "Throttled":
-    case "com.amazonaws.sns#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sns#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryListPhoneNumbersOptedOutCommand
- */
-export const de_ListPhoneNumbersOptedOutCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPhoneNumbersOptedOutCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListPhoneNumbersOptedOutCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListPhoneNumbersOptedOutResponse(data.ListPhoneNumbersOptedOutResult, context);
-  const response: ListPhoneNumbersOptedOutCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryListPhoneNumbersOptedOutCommandError
- */
-const de_ListPhoneNumbersOptedOutCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPhoneNumbersOptedOutCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "Throttled":
-    case "com.amazonaws.sns#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryListPlatformApplicationsCommand
- */
-export const de_ListPlatformApplicationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPlatformApplicationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListPlatformApplicationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListPlatformApplicationsResponse(data.ListPlatformApplicationsResult, context);
-  const response: ListPlatformApplicationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryListPlatformApplicationsCommandError
- */
-const de_ListPlatformApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPlatformApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryListSMSSandboxPhoneNumbersCommand
- */
-export const de_ListSMSSandboxPhoneNumbersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSMSSandboxPhoneNumbersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListSMSSandboxPhoneNumbersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListSMSSandboxPhoneNumbersResult(data.ListSMSSandboxPhoneNumbersResult, context);
-  const response: ListSMSSandboxPhoneNumbersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryListSMSSandboxPhoneNumbersCommandError
- */
-const de_ListSMSSandboxPhoneNumbersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSMSSandboxPhoneNumbersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sns#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "Throttled":
-    case "com.amazonaws.sns#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryListSubscriptionsCommand
- */
-export const de_ListSubscriptionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSubscriptionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListSubscriptionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListSubscriptionsResponse(data.ListSubscriptionsResult, context);
-  const response: ListSubscriptionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryListSubscriptionsCommandError
- */
-const de_ListSubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryListSubscriptionsByTopicCommand
- */
-export const de_ListSubscriptionsByTopicCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSubscriptionsByTopicCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListSubscriptionsByTopicCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListSubscriptionsByTopicResponse(data.ListSubscriptionsByTopicResult, context);
-  const response: ListSubscriptionsByTopicCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryListSubscriptionsByTopicCommandError
- */
-const de_ListSubscriptionsByTopicCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSubscriptionsByTopicCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListTagsForResourceResponse(data.ListTagsForResourceResult, context);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "ConcurrentAccess":
-    case "com.amazonaws.sns#ConcurrentAccessException":
-      throw await de_ConcurrentAccessExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sns#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagPolicy":
-    case "com.amazonaws.sns#TagPolicyException":
-      throw await de_TagPolicyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryListTopicsCommand
- */
-export const de_ListTopicsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTopicsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTopicsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListTopicsResponse(data.ListTopicsResult, context);
-  const response: ListTopicsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryListTopicsCommandError
- */
-const de_ListTopicsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTopicsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryOptInPhoneNumberCommand
- */
-export const de_OptInPhoneNumberCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<OptInPhoneNumberCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_OptInPhoneNumberCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_OptInPhoneNumberResponse(data.OptInPhoneNumberResult, context);
-  const response: OptInPhoneNumberCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryOptInPhoneNumberCommandError
- */
-const de_OptInPhoneNumberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<OptInPhoneNumberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "Throttled":
-    case "com.amazonaws.sns#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryPublishCommand
- */
-export const de_PublishCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PublishCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PublishCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PublishResponse(data.PublishResult, context);
-  const response: PublishCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryPublishCommandError
- */
-const de_PublishCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PublishCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "EndpointDisabled":
     case "com.amazonaws.sns#EndpointDisabledException":
       throw await de_EndpointDisabledExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sns#InvalidSecurityException":
-      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
     case "KMSAccessDenied":
     case "com.amazonaws.sns#KMSAccessDeniedException":
       throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
@@ -2607,64 +1866,12 @@ const de_PublishCommandError = async (
     case "KMSThrottling":
     case "com.amazonaws.sns#KMSThrottlingException":
       throw await de_KMSThrottlingExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ParameterValueInvalid":
     case "com.amazonaws.sns#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "PlatformApplicationDisabled":
     case "com.amazonaws.sns#PlatformApplicationDisabledException":
       throw await de_PlatformApplicationDisabledExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sns#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryPublishBatchCommand
- */
-export const de_PublishBatchCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PublishBatchCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PublishBatchCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PublishBatchResponse(data.PublishBatchResult, context);
-  const response: PublishBatchCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryPublishBatchCommandError
- */
-const de_PublishBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PublishBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "BatchEntryIdsNotDistinct":
     case "com.amazonaws.sns#BatchEntryIdsNotDistinctException":
       throw await de_BatchEntryIdsNotDistinctExceptionRes(parsedOutput, context);
@@ -2674,741 +1881,12 @@ const de_PublishBatchCommandError = async (
     case "EmptyBatchRequest":
     case "com.amazonaws.sns#EmptyBatchRequestException":
       throw await de_EmptyBatchRequestExceptionRes(parsedOutput, context);
-    case "EndpointDisabled":
-    case "com.amazonaws.sns#EndpointDisabledException":
-      throw await de_EndpointDisabledExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidBatchEntryId":
     case "com.amazonaws.sns#InvalidBatchEntryIdException":
       throw await de_InvalidBatchEntryIdExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sns#InvalidSecurityException":
-      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
-    case "KMSAccessDenied":
-    case "com.amazonaws.sns#KMSAccessDeniedException":
-      throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
-    case "KMSDisabled":
-    case "com.amazonaws.sns#KMSDisabledException":
-      throw await de_KMSDisabledExceptionRes(parsedOutput, context);
-    case "KMSInvalidState":
-    case "com.amazonaws.sns#KMSInvalidStateException":
-      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
-    case "KMSNotFound":
-    case "com.amazonaws.sns#KMSNotFoundException":
-      throw await de_KMSNotFoundExceptionRes(parsedOutput, context);
-    case "KMSOptInRequired":
-    case "com.amazonaws.sns#KMSOptInRequired":
-      throw await de_KMSOptInRequiredRes(parsedOutput, context);
-    case "KMSThrottling":
-    case "com.amazonaws.sns#KMSThrottlingException":
-      throw await de_KMSThrottlingExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ParameterValueInvalid":
-    case "com.amazonaws.sns#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "PlatformApplicationDisabled":
-    case "com.amazonaws.sns#PlatformApplicationDisabledException":
-      throw await de_PlatformApplicationDisabledExceptionRes(parsedOutput, context);
     case "TooManyEntriesInBatchRequest":
     case "com.amazonaws.sns#TooManyEntriesInBatchRequestException":
       throw await de_TooManyEntriesInBatchRequestExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.sns#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryPutDataProtectionPolicyCommand
- */
-export const de_PutDataProtectionPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDataProtectionPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutDataProtectionPolicyCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: PutDataProtectionPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryPutDataProtectionPolicyCommandError
- */
-const de_PutDataProtectionPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDataProtectionPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sns#InvalidSecurityException":
-      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemovePermissionCommand
- */
-export const de_RemovePermissionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemovePermissionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemovePermissionCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RemovePermissionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemovePermissionCommandError
- */
-const de_RemovePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemovePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySetEndpointAttributesCommand
- */
-export const de_SetEndpointAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetEndpointAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SetEndpointAttributesCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: SetEndpointAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySetEndpointAttributesCommandError
- */
-const de_SetEndpointAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetEndpointAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySetPlatformApplicationAttributesCommand
- */
-export const de_SetPlatformApplicationAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetPlatformApplicationAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SetPlatformApplicationAttributesCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: SetPlatformApplicationAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySetPlatformApplicationAttributesCommandError
- */
-const de_SetPlatformApplicationAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetPlatformApplicationAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySetSMSAttributesCommand
- */
-export const de_SetSMSAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetSMSAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SetSMSAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SetSMSAttributesResponse(data.SetSMSAttributesResult, context);
-  const response: SetSMSAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySetSMSAttributesCommandError
- */
-const de_SetSMSAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetSMSAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "Throttled":
-    case "com.amazonaws.sns#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySetSubscriptionAttributesCommand
- */
-export const de_SetSubscriptionAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetSubscriptionAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SetSubscriptionAttributesCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: SetSubscriptionAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySetSubscriptionAttributesCommandError
- */
-const de_SetSubscriptionAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetSubscriptionAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "FilterPolicyLimitExceeded":
-    case "com.amazonaws.sns#FilterPolicyLimitExceededException":
-      throw await de_FilterPolicyLimitExceededExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ReplayLimitExceeded":
-    case "com.amazonaws.sns#ReplayLimitExceededException":
-      throw await de_ReplayLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySetTopicAttributesCommand
- */
-export const de_SetTopicAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetTopicAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SetTopicAttributesCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: SetTopicAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySetTopicAttributesCommandError
- */
-const de_SetTopicAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetTopicAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sns#InvalidSecurityException":
-      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySubscribeCommand
- */
-export const de_SubscribeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubscribeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SubscribeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SubscribeResponse(data.SubscribeResult, context);
-  const response: SubscribeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySubscribeCommandError
- */
-const de_SubscribeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubscribeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "FilterPolicyLimitExceeded":
-    case "com.amazonaws.sns#FilterPolicyLimitExceededException":
-      throw await de_FilterPolicyLimitExceededExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sns#InvalidSecurityException":
-      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ReplayLimitExceeded":
-    case "com.amazonaws.sns#ReplayLimitExceededException":
-      throw await de_ReplayLimitExceededExceptionRes(parsedOutput, context);
-    case "SubscriptionLimitExceeded":
-    case "com.amazonaws.sns#SubscriptionLimitExceededException":
-      throw await de_SubscriptionLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryTagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_TagResourceResponse(data.TagResourceResult, context);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryTagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "ConcurrentAccess":
-    case "com.amazonaws.sns#ConcurrentAccessException":
-      throw await de_ConcurrentAccessExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sns#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "StaleTag":
-    case "com.amazonaws.sns#StaleTagException":
-      throw await de_StaleTagExceptionRes(parsedOutput, context);
-    case "TagLimitExceeded":
-    case "com.amazonaws.sns#TagLimitExceededException":
-      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
-    case "TagPolicy":
-    case "com.amazonaws.sns#TagPolicyException":
-      throw await de_TagPolicyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryUnsubscribeCommand
- */
-export const de_UnsubscribeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnsubscribeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UnsubscribeCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: UnsubscribeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryUnsubscribeCommandError
- */
-const de_UnsubscribeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnsubscribeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSecurity":
-    case "com.amazonaws.sns#InvalidSecurityException":
-      throw await de_InvalidSecurityExceptionRes(parsedOutput, context);
-    case "NotFound":
-    case "com.amazonaws.sns#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryUntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UntagResourceResponse(data.UntagResourceResult, context);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryUntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "ConcurrentAccess":
-    case "com.amazonaws.sns#ConcurrentAccessException":
-      throw await de_ConcurrentAccessExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sns#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "StaleTag":
-    case "com.amazonaws.sns#StaleTagException":
-      throw await de_StaleTagExceptionRes(parsedOutput, context);
-    case "TagLimitExceeded":
-    case "com.amazonaws.sns#TagLimitExceededException":
-      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
-    case "TagPolicy":
-    case "com.amazonaws.sns#TagPolicyException":
-      throw await de_TagPolicyExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryVerifySMSSandboxPhoneNumberCommand
- */
-export const de_VerifySMSSandboxPhoneNumberCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifySMSSandboxPhoneNumberCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_VerifySMSSandboxPhoneNumberCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_VerifySMSSandboxPhoneNumberResult(data.VerifySMSSandboxPhoneNumberResult, context);
-  const response: VerifySMSSandboxPhoneNumberCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryVerifySMSSandboxPhoneNumberCommandError
- */
-const de_VerifySMSSandboxPhoneNumberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<VerifySMSSandboxPhoneNumberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationError":
-    case "com.amazonaws.sns#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InternalError":
-    case "com.amazonaws.sns#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameter":
-    case "com.amazonaws.sns#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.sns#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "Throttled":
-    case "com.amazonaws.sns#ThrottledException":
-      throw await de_ThrottledExceptionRes(parsedOutput, context);
     case "VerificationException":
     case "com.amazonaws.sns#VerificationException":
       throw await de_VerificationExceptionRes(parsedOutput, context);
@@ -3418,7 +1896,7 @@ const de_VerifySMSSandboxPhoneNumberCommandError = async (
         output,
         parsedBody: parsedBody.Error,
         errorCode,
-      });
+      }) as never;
   }
 };
 

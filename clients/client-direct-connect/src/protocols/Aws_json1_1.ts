@@ -1132,7 +1132,7 @@ export const de_AcceptDirectConnectGatewayAssociationProposalCommand = async (
   context: __SerdeContext
 ): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptDirectConnectGatewayAssociationProposalCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1145,35 +1145,6 @@ export const de_AcceptDirectConnectGatewayAssociationProposalCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommandError
- */
-const de_AcceptDirectConnectGatewayAssociationProposalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AllocateConnectionOnInterconnectCommand
  */
 export const de_AllocateConnectionOnInterconnectCommand = async (
@@ -1181,7 +1152,7 @@ export const de_AllocateConnectionOnInterconnectCommand = async (
   context: __SerdeContext
 ): Promise<AllocateConnectionOnInterconnectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AllocateConnectionOnInterconnectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1194,35 +1165,6 @@ export const de_AllocateConnectionOnInterconnectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AllocateConnectionOnInterconnectCommandError
- */
-const de_AllocateConnectionOnInterconnectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AllocateConnectionOnInterconnectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AllocateHostedConnectionCommand
  */
 export const de_AllocateHostedConnectionCommand = async (
@@ -1230,7 +1172,7 @@ export const de_AllocateHostedConnectionCommand = async (
   context: __SerdeContext
 ): Promise<AllocateHostedConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AllocateHostedConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1243,41 +1185,6 @@ export const de_AllocateHostedConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AllocateHostedConnectionCommandError
- */
-const de_AllocateHostedConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AllocateHostedConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeysException":
-    case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.directconnect#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommand
  */
 export const de_AllocatePrivateVirtualInterfaceCommand = async (
@@ -1285,7 +1192,7 @@ export const de_AllocatePrivateVirtualInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<AllocatePrivateVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AllocatePrivateVirtualInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1298,41 +1205,6 @@ export const de_AllocatePrivateVirtualInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommandError
- */
-const de_AllocatePrivateVirtualInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AllocatePrivateVirtualInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeysException":
-    case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.directconnect#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand
  */
 export const de_AllocatePublicVirtualInterfaceCommand = async (
@@ -1340,7 +1212,7 @@ export const de_AllocatePublicVirtualInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<AllocatePublicVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AllocatePublicVirtualInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1353,41 +1225,6 @@ export const de_AllocatePublicVirtualInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AllocatePublicVirtualInterfaceCommandError
- */
-const de_AllocatePublicVirtualInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AllocatePublicVirtualInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeysException":
-    case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.directconnect#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AllocateTransitVirtualInterfaceCommand
  */
 export const de_AllocateTransitVirtualInterfaceCommand = async (
@@ -1395,7 +1232,7 @@ export const de_AllocateTransitVirtualInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<AllocateTransitVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AllocateTransitVirtualInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1408,41 +1245,6 @@ export const de_AllocateTransitVirtualInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AllocateTransitVirtualInterfaceCommandError
- */
-const de_AllocateTransitVirtualInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AllocateTransitVirtualInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeysException":
-    case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.directconnect#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateConnectionWithLagCommand
  */
 export const de_AssociateConnectionWithLagCommand = async (
@@ -1450,7 +1252,7 @@ export const de_AssociateConnectionWithLagCommand = async (
   context: __SerdeContext
 ): Promise<AssociateConnectionWithLagCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateConnectionWithLagCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1463,35 +1265,6 @@ export const de_AssociateConnectionWithLagCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateConnectionWithLagCommandError
- */
-const de_AssociateConnectionWithLagCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateConnectionWithLagCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateHostedConnectionCommand
  */
 export const de_AssociateHostedConnectionCommand = async (
@@ -1499,7 +1272,7 @@ export const de_AssociateHostedConnectionCommand = async (
   context: __SerdeContext
 ): Promise<AssociateHostedConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateHostedConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1512,35 +1285,6 @@ export const de_AssociateHostedConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateHostedConnectionCommandError
- */
-const de_AssociateHostedConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateHostedConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateMacSecKeyCommand
  */
 export const de_AssociateMacSecKeyCommand = async (
@@ -1548,7 +1292,7 @@ export const de_AssociateMacSecKeyCommand = async (
   context: __SerdeContext
 ): Promise<AssociateMacSecKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateMacSecKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1561,35 +1305,6 @@ export const de_AssociateMacSecKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateMacSecKeyCommandError
- */
-const de_AssociateMacSecKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateMacSecKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateVirtualInterfaceCommand
  */
 export const de_AssociateVirtualInterfaceCommand = async (
@@ -1597,7 +1312,7 @@ export const de_AssociateVirtualInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<AssociateVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateVirtualInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1610,35 +1325,6 @@ export const de_AssociateVirtualInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateVirtualInterfaceCommandError
- */
-const de_AssociateVirtualInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateVirtualInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ConfirmConnectionCommand
  */
 export const de_ConfirmConnectionCommand = async (
@@ -1646,7 +1332,7 @@ export const de_ConfirmConnectionCommand = async (
   context: __SerdeContext
 ): Promise<ConfirmConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConfirmConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1659,35 +1345,6 @@ export const de_ConfirmConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ConfirmConnectionCommandError
- */
-const de_ConfirmConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfirmConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ConfirmCustomerAgreementCommand
  */
 export const de_ConfirmCustomerAgreementCommand = async (
@@ -1695,7 +1352,7 @@ export const de_ConfirmCustomerAgreementCommand = async (
   context: __SerdeContext
 ): Promise<ConfirmCustomerAgreementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConfirmCustomerAgreementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1708,35 +1365,6 @@ export const de_ConfirmCustomerAgreementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ConfirmCustomerAgreementCommandError
- */
-const de_ConfirmCustomerAgreementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfirmCustomerAgreementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand
  */
 export const de_ConfirmPrivateVirtualInterfaceCommand = async (
@@ -1744,7 +1372,7 @@ export const de_ConfirmPrivateVirtualInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<ConfirmPrivateVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConfirmPrivateVirtualInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1757,35 +1385,6 @@ export const de_ConfirmPrivateVirtualInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommandError
- */
-const de_ConfirmPrivateVirtualInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfirmPrivateVirtualInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand
  */
 export const de_ConfirmPublicVirtualInterfaceCommand = async (
@@ -1793,7 +1392,7 @@ export const de_ConfirmPublicVirtualInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<ConfirmPublicVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConfirmPublicVirtualInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1806,35 +1405,6 @@ export const de_ConfirmPublicVirtualInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommandError
- */
-const de_ConfirmPublicVirtualInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfirmPublicVirtualInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommand
  */
 export const de_ConfirmTransitVirtualInterfaceCommand = async (
@@ -1842,7 +1412,7 @@ export const de_ConfirmTransitVirtualInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<ConfirmTransitVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConfirmTransitVirtualInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1855,35 +1425,6 @@ export const de_ConfirmTransitVirtualInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommandError
- */
-const de_ConfirmTransitVirtualInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConfirmTransitVirtualInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateBGPPeerCommand
  */
 export const de_CreateBGPPeerCommand = async (
@@ -1891,7 +1432,7 @@ export const de_CreateBGPPeerCommand = async (
   context: __SerdeContext
 ): Promise<CreateBGPPeerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBGPPeerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1904,35 +1445,6 @@ export const de_CreateBGPPeerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBGPPeerCommandError
- */
-const de_CreateBGPPeerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBGPPeerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateConnectionCommand
  */
 export const de_CreateConnectionCommand = async (
@@ -1940,7 +1452,7 @@ export const de_CreateConnectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1953,41 +1465,6 @@ export const de_CreateConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateConnectionCommandError
- */
-const de_CreateConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeysException":
-    case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.directconnect#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDirectConnectGatewayCommand
  */
 export const de_CreateDirectConnectGatewayCommand = async (
@@ -1995,7 +1472,7 @@ export const de_CreateDirectConnectGatewayCommand = async (
   context: __SerdeContext
 ): Promise<CreateDirectConnectGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDirectConnectGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2008,35 +1485,6 @@ export const de_CreateDirectConnectGatewayCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDirectConnectGatewayCommandError
- */
-const de_CreateDirectConnectGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDirectConnectGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommand
  */
 export const de_CreateDirectConnectGatewayAssociationCommand = async (
@@ -2044,7 +1492,7 @@ export const de_CreateDirectConnectGatewayAssociationCommand = async (
   context: __SerdeContext
 ): Promise<CreateDirectConnectGatewayAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDirectConnectGatewayAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2057,35 +1505,6 @@ export const de_CreateDirectConnectGatewayAssociationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommandError
- */
-const de_CreateDirectConnectGatewayAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDirectConnectGatewayAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommand
  */
 export const de_CreateDirectConnectGatewayAssociationProposalCommand = async (
@@ -2093,7 +1512,7 @@ export const de_CreateDirectConnectGatewayAssociationProposalCommand = async (
   context: __SerdeContext
 ): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDirectConnectGatewayAssociationProposalCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2106,35 +1525,6 @@ export const de_CreateDirectConnectGatewayAssociationProposalCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommandError
- */
-const de_CreateDirectConnectGatewayAssociationProposalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateInterconnectCommand
  */
 export const de_CreateInterconnectCommand = async (
@@ -2142,7 +1532,7 @@ export const de_CreateInterconnectCommand = async (
   context: __SerdeContext
 ): Promise<CreateInterconnectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInterconnectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2155,41 +1545,6 @@ export const de_CreateInterconnectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateInterconnectCommandError
- */
-const de_CreateInterconnectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInterconnectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeysException":
-    case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.directconnect#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLagCommand
  */
 export const de_CreateLagCommand = async (
@@ -2197,7 +1552,7 @@ export const de_CreateLagCommand = async (
   context: __SerdeContext
 ): Promise<CreateLagCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLagCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2210,41 +1565,6 @@ export const de_CreateLagCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLagCommandError
- */
-const de_CreateLagCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLagCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeysException":
-    case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.directconnect#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand
  */
 export const de_CreatePrivateVirtualInterfaceCommand = async (
@@ -2252,7 +1572,7 @@ export const de_CreatePrivateVirtualInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<CreatePrivateVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePrivateVirtualInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2265,41 +1585,6 @@ export const de_CreatePrivateVirtualInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePrivateVirtualInterfaceCommandError
- */
-const de_CreatePrivateVirtualInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePrivateVirtualInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeysException":
-    case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.directconnect#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePublicVirtualInterfaceCommand
  */
 export const de_CreatePublicVirtualInterfaceCommand = async (
@@ -2307,7 +1592,7 @@ export const de_CreatePublicVirtualInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<CreatePublicVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePublicVirtualInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2320,41 +1605,6 @@ export const de_CreatePublicVirtualInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePublicVirtualInterfaceCommandError
- */
-const de_CreatePublicVirtualInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePublicVirtualInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeysException":
-    case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.directconnect#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTransitVirtualInterfaceCommand
  */
 export const de_CreateTransitVirtualInterfaceCommand = async (
@@ -2362,7 +1612,7 @@ export const de_CreateTransitVirtualInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<CreateTransitVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTransitVirtualInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2375,41 +1625,6 @@ export const de_CreateTransitVirtualInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTransitVirtualInterfaceCommandError
- */
-const de_CreateTransitVirtualInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTransitVirtualInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeysException":
-    case "com.amazonaws.directconnect#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.directconnect#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteBGPPeerCommand
  */
 export const de_DeleteBGPPeerCommand = async (
@@ -2417,7 +1632,7 @@ export const de_DeleteBGPPeerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBGPPeerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteBGPPeerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2430,35 +1645,6 @@ export const de_DeleteBGPPeerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteBGPPeerCommandError
- */
-const de_DeleteBGPPeerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBGPPeerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteConnectionCommand
  */
 export const de_DeleteConnectionCommand = async (
@@ -2466,7 +1652,7 @@ export const de_DeleteConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2479,35 +1665,6 @@ export const de_DeleteConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteConnectionCommandError
- */
-const de_DeleteConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDirectConnectGatewayCommand
  */
 export const de_DeleteDirectConnectGatewayCommand = async (
@@ -2515,7 +1672,7 @@ export const de_DeleteDirectConnectGatewayCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDirectConnectGatewayCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDirectConnectGatewayCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2528,35 +1685,6 @@ export const de_DeleteDirectConnectGatewayCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDirectConnectGatewayCommandError
- */
-const de_DeleteDirectConnectGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDirectConnectGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand
  */
 export const de_DeleteDirectConnectGatewayAssociationCommand = async (
@@ -2564,7 +1692,7 @@ export const de_DeleteDirectConnectGatewayAssociationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDirectConnectGatewayAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDirectConnectGatewayAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2577,35 +1705,6 @@ export const de_DeleteDirectConnectGatewayAssociationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommandError
- */
-const de_DeleteDirectConnectGatewayAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDirectConnectGatewayAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommand
  */
 export const de_DeleteDirectConnectGatewayAssociationProposalCommand = async (
@@ -2613,7 +1712,7 @@ export const de_DeleteDirectConnectGatewayAssociationProposalCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDirectConnectGatewayAssociationProposalCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2626,35 +1725,6 @@ export const de_DeleteDirectConnectGatewayAssociationProposalCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommandError
- */
-const de_DeleteDirectConnectGatewayAssociationProposalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteInterconnectCommand
  */
 export const de_DeleteInterconnectCommand = async (
@@ -2662,7 +1732,7 @@ export const de_DeleteInterconnectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInterconnectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteInterconnectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2675,35 +1745,6 @@ export const de_DeleteInterconnectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteInterconnectCommandError
- */
-const de_DeleteInterconnectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInterconnectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteLagCommand
  */
 export const de_DeleteLagCommand = async (
@@ -2711,7 +1752,7 @@ export const de_DeleteLagCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLagCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLagCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2724,35 +1765,6 @@ export const de_DeleteLagCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteLagCommandError
- */
-const de_DeleteLagCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLagCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteVirtualInterfaceCommand
  */
 export const de_DeleteVirtualInterfaceCommand = async (
@@ -2760,7 +1772,7 @@ export const de_DeleteVirtualInterfaceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVirtualInterfaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVirtualInterfaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2773,35 +1785,6 @@ export const de_DeleteVirtualInterfaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteVirtualInterfaceCommandError
- */
-const de_DeleteVirtualInterfaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVirtualInterfaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConnectionLoaCommand
  */
 export const de_DescribeConnectionLoaCommand = async (
@@ -2809,7 +1792,7 @@ export const de_DescribeConnectionLoaCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConnectionLoaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConnectionLoaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2822,35 +1805,6 @@ export const de_DescribeConnectionLoaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConnectionLoaCommandError
- */
-const de_DescribeConnectionLoaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectionLoaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConnectionsCommand
  */
 export const de_DescribeConnectionsCommand = async (
@@ -2858,7 +1812,7 @@ export const de_DescribeConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2871,35 +1825,6 @@ export const de_DescribeConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConnectionsCommandError
- */
-const de_DescribeConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand
  */
 export const de_DescribeConnectionsOnInterconnectCommand = async (
@@ -2907,7 +1832,7 @@ export const de_DescribeConnectionsOnInterconnectCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConnectionsOnInterconnectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConnectionsOnInterconnectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2920,35 +1845,6 @@ export const de_DescribeConnectionsOnInterconnectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConnectionsOnInterconnectCommandError
- */
-const de_DescribeConnectionsOnInterconnectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectionsOnInterconnectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeCustomerMetadataCommand
  */
 export const de_DescribeCustomerMetadataCommand = async (
@@ -2956,7 +1852,7 @@ export const de_DescribeCustomerMetadataCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCustomerMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCustomerMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2969,35 +1865,6 @@ export const de_DescribeCustomerMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCustomerMetadataCommandError
- */
-const de_DescribeCustomerMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomerMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommand
  */
 export const de_DescribeDirectConnectGatewayAssociationProposalsCommand = async (
@@ -3005,7 +1872,7 @@ export const de_DescribeDirectConnectGatewayAssociationProposalsCommand = async 
   context: __SerdeContext
 ): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDirectConnectGatewayAssociationProposalsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3018,35 +1885,6 @@ export const de_DescribeDirectConnectGatewayAssociationProposalsCommand = async 
 };
 
 /**
- * deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommandError
- */
-const de_DescribeDirectConnectGatewayAssociationProposalsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommand
  */
 export const de_DescribeDirectConnectGatewayAssociationsCommand = async (
@@ -3054,7 +1892,7 @@ export const de_DescribeDirectConnectGatewayAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDirectConnectGatewayAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3067,35 +1905,6 @@ export const de_DescribeDirectConnectGatewayAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommandError
- */
-const de_DescribeDirectConnectGatewayAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommand
  */
 export const de_DescribeDirectConnectGatewayAttachmentsCommand = async (
@@ -3103,7 +1912,7 @@ export const de_DescribeDirectConnectGatewayAttachmentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDirectConnectGatewayAttachmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3116,35 +1925,6 @@ export const de_DescribeDirectConnectGatewayAttachmentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommandError
- */
-const de_DescribeDirectConnectGatewayAttachmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDirectConnectGatewaysCommand
  */
 export const de_DescribeDirectConnectGatewaysCommand = async (
@@ -3152,7 +1932,7 @@ export const de_DescribeDirectConnectGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDirectConnectGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDirectConnectGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3165,35 +1945,6 @@ export const de_DescribeDirectConnectGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDirectConnectGatewaysCommandError
- */
-const de_DescribeDirectConnectGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDirectConnectGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeHostedConnectionsCommand
  */
 export const de_DescribeHostedConnectionsCommand = async (
@@ -3201,7 +1952,7 @@ export const de_DescribeHostedConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHostedConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeHostedConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3214,35 +1965,6 @@ export const de_DescribeHostedConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeHostedConnectionsCommandError
- */
-const de_DescribeHostedConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHostedConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeInterconnectLoaCommand
  */
 export const de_DescribeInterconnectLoaCommand = async (
@@ -3250,7 +1972,7 @@ export const de_DescribeInterconnectLoaCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInterconnectLoaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInterconnectLoaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3263,35 +1985,6 @@ export const de_DescribeInterconnectLoaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeInterconnectLoaCommandError
- */
-const de_DescribeInterconnectLoaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInterconnectLoaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeInterconnectsCommand
  */
 export const de_DescribeInterconnectsCommand = async (
@@ -3299,7 +1992,7 @@ export const de_DescribeInterconnectsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInterconnectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInterconnectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3312,35 +2005,6 @@ export const de_DescribeInterconnectsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeInterconnectsCommandError
- */
-const de_DescribeInterconnectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInterconnectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLagsCommand
  */
 export const de_DescribeLagsCommand = async (
@@ -3348,7 +2012,7 @@ export const de_DescribeLagsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3361,35 +2025,6 @@ export const de_DescribeLagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLagsCommandError
- */
-const de_DescribeLagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLoaCommand
  */
 export const de_DescribeLoaCommand = async (
@@ -3397,7 +2032,7 @@ export const de_DescribeLoaCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLoaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLoaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3410,35 +2045,6 @@ export const de_DescribeLoaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLoaCommandError
- */
-const de_DescribeLoaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLocationsCommand
  */
 export const de_DescribeLocationsCommand = async (
@@ -3446,7 +2052,7 @@ export const de_DescribeLocationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLocationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLocationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3459,35 +2065,6 @@ export const de_DescribeLocationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLocationsCommandError
- */
-const de_DescribeLocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRouterConfigurationCommand
  */
 export const de_DescribeRouterConfigurationCommand = async (
@@ -3495,7 +2072,7 @@ export const de_DescribeRouterConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRouterConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRouterConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3508,35 +2085,6 @@ export const de_DescribeRouterConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRouterConfigurationCommandError
- */
-const de_DescribeRouterConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRouterConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTagsCommand
  */
 export const de_DescribeTagsCommand = async (
@@ -3544,7 +2092,7 @@ export const de_DescribeTagsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3557,35 +2105,6 @@ export const de_DescribeTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTagsCommandError
- */
-const de_DescribeTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeVirtualGatewaysCommand
  */
 export const de_DescribeVirtualGatewaysCommand = async (
@@ -3593,7 +2112,7 @@ export const de_DescribeVirtualGatewaysCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVirtualGatewaysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVirtualGatewaysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3606,35 +2125,6 @@ export const de_DescribeVirtualGatewaysCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeVirtualGatewaysCommandError
- */
-const de_DescribeVirtualGatewaysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVirtualGatewaysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeVirtualInterfacesCommand
  */
 export const de_DescribeVirtualInterfacesCommand = async (
@@ -3642,7 +2132,7 @@ export const de_DescribeVirtualInterfacesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVirtualInterfacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeVirtualInterfacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3655,35 +2145,6 @@ export const de_DescribeVirtualInterfacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeVirtualInterfacesCommandError
- */
-const de_DescribeVirtualInterfacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVirtualInterfacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateConnectionFromLagCommand
  */
 export const de_DisassociateConnectionFromLagCommand = async (
@@ -3691,7 +2152,7 @@ export const de_DisassociateConnectionFromLagCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateConnectionFromLagCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateConnectionFromLagCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3704,35 +2165,6 @@ export const de_DisassociateConnectionFromLagCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateConnectionFromLagCommandError
- */
-const de_DisassociateConnectionFromLagCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateConnectionFromLagCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateMacSecKeyCommand
  */
 export const de_DisassociateMacSecKeyCommand = async (
@@ -3740,7 +2172,7 @@ export const de_DisassociateMacSecKeyCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateMacSecKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateMacSecKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3753,35 +2185,6 @@ export const de_DisassociateMacSecKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateMacSecKeyCommandError
- */
-const de_DisassociateMacSecKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateMacSecKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommand
  */
 export const de_ListVirtualInterfaceTestHistoryCommand = async (
@@ -3789,7 +2192,7 @@ export const de_ListVirtualInterfaceTestHistoryCommand = async (
   context: __SerdeContext
 ): Promise<ListVirtualInterfaceTestHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListVirtualInterfaceTestHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3802,35 +2205,6 @@ export const de_ListVirtualInterfaceTestHistoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommandError
- */
-const de_ListVirtualInterfaceTestHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVirtualInterfaceTestHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartBgpFailoverTestCommand
  */
 export const de_StartBgpFailoverTestCommand = async (
@@ -3838,7 +2212,7 @@ export const de_StartBgpFailoverTestCommand = async (
   context: __SerdeContext
 ): Promise<StartBgpFailoverTestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartBgpFailoverTestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3851,35 +2225,6 @@ export const de_StartBgpFailoverTestCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartBgpFailoverTestCommandError
- */
-const de_StartBgpFailoverTestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartBgpFailoverTestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopBgpFailoverTestCommand
  */
 export const de_StopBgpFailoverTestCommand = async (
@@ -3887,7 +2232,7 @@ export const de_StopBgpFailoverTestCommand = async (
   context: __SerdeContext
 ): Promise<StopBgpFailoverTestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopBgpFailoverTestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3900,35 +2245,6 @@ export const de_StopBgpFailoverTestCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopBgpFailoverTestCommandError
- */
-const de_StopBgpFailoverTestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopBgpFailoverTestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -3936,7 +2252,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3949,12 +2265,129 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
+ * deserializeAws_json1_1UntagResourceCommand
  */
-const de_TagResourceCommandError = async (
+export const de_UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateConnectionCommand
+ */
+export const de_UpdateConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_Connection(data, context);
+  const response: UpdateConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDirectConnectGatewayCommand
+ */
+export const de_UpdateDirectConnectGatewayCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDirectConnectGatewayCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDirectConnectGatewayCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand
+ */
+export const de_UpdateDirectConnectGatewayAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDirectConnectGatewayAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDirectConnectGatewayAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateLagCommand
+ */
+export const de_UpdateLagCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLagCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_Lag(data, context);
+  const response: UpdateLagCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand
+ */
+export const de_UpdateVirtualInterfaceAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVirtualInterfaceAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateVirtualInterfaceAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3979,301 +2412,7 @@ const de_TagResourceCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateConnectionCommand
- */
-export const de_UpdateConnectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConnectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateConnectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_Connection(data, context);
-  const response: UpdateConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateConnectionCommandError
- */
-const de_UpdateConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateDirectConnectGatewayCommand
- */
-export const de_UpdateDirectConnectGatewayCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDirectConnectGatewayCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDirectConnectGatewayCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateDirectConnectGatewayCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDirectConnectGatewayCommandError
- */
-const de_UpdateDirectConnectGatewayCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDirectConnectGatewayCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand
- */
-export const de_UpdateDirectConnectGatewayAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDirectConnectGatewayAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDirectConnectGatewayAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateDirectConnectGatewayAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommandError
- */
-const de_UpdateDirectConnectGatewayAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDirectConnectGatewayAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateLagCommand
- */
-export const de_UpdateLagCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLagCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateLagCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_Lag(data, context);
-  const response: UpdateLagCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateLagCommandError
- */
-const de_UpdateLagCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLagCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand
- */
-export const de_UpdateVirtualInterfaceAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVirtualInterfaceAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateVirtualInterfaceAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateVirtualInterfaceAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommandError
- */
-const de_UpdateVirtualInterfaceAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVirtualInterfaceAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DirectConnectClientException":
-    case "com.amazonaws.directconnect#DirectConnectClientException":
-      throw await de_DirectConnectClientExceptionRes(parsedOutput, context);
-    case "DirectConnectServerException":
-    case "com.amazonaws.directconnect#DirectConnectServerException":
-      throw await de_DirectConnectServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

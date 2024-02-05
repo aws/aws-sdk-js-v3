@@ -338,7 +338,7 @@ export const de_ActivatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<ActivatePipelineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ActivatePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -351,41 +351,6 @@ export const de_ActivatePipelineCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ActivatePipelineCommandError
- */
-const de_ActivatePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ActivatePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AddTagsCommand
  */
 export const de_AddTagsCommand = async (
@@ -393,7 +358,7 @@ export const de_AddTagsCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -406,41 +371,6 @@ export const de_AddTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddTagsCommandError
- */
-const de_AddTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePipelineCommand
  */
 export const de_CreatePipelineCommand = async (
@@ -448,7 +378,7 @@ export const de_CreatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -461,35 +391,6 @@ export const de_CreatePipelineCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePipelineCommandError
- */
-const de_CreatePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeactivatePipelineCommand
  */
 export const de_DeactivatePipelineCommand = async (
@@ -497,7 +398,7 @@ export const de_DeactivatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<DeactivatePipelineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeactivatePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -510,41 +411,6 @@ export const de_DeactivatePipelineCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeactivatePipelineCommandError
- */
-const de_DeactivatePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeactivatePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeletePipelineCommand
  */
 export const de_DeletePipelineCommand = async (
@@ -552,45 +418,13 @@ export const de_DeletePipelineCommand = async (
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeletePipelineCommandError
- */
-const de_DeletePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -601,7 +435,7 @@ export const de_DescribeObjectsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeObjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeObjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -614,41 +448,6 @@ export const de_DescribeObjectsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeObjectsCommandError
- */
-const de_DescribeObjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeObjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribePipelinesCommand
  */
 export const de_DescribePipelinesCommand = async (
@@ -656,7 +455,7 @@ export const de_DescribePipelinesCommand = async (
   context: __SerdeContext
 ): Promise<DescribePipelinesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePipelinesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -669,41 +468,6 @@ export const de_DescribePipelinesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePipelinesCommandError
- */
-const de_DescribePipelinesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePipelinesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EvaluateExpressionCommand
  */
 export const de_EvaluateExpressionCommand = async (
@@ -711,7 +475,7 @@ export const de_EvaluateExpressionCommand = async (
   context: __SerdeContext
 ): Promise<EvaluateExpressionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EvaluateExpressionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -724,44 +488,6 @@ export const de_EvaluateExpressionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EvaluateExpressionCommandError
- */
-const de_EvaluateExpressionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EvaluateExpressionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "TaskNotFoundException":
-    case "com.amazonaws.datapipeline#TaskNotFoundException":
-      throw await de_TaskNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPipelineDefinitionCommand
  */
 export const de_GetPipelineDefinitionCommand = async (
@@ -769,7 +495,7 @@ export const de_GetPipelineDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetPipelineDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPipelineDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -782,41 +508,6 @@ export const de_GetPipelineDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPipelineDefinitionCommandError
- */
-const de_GetPipelineDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPipelineDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPipelinesCommand
  */
 export const de_ListPipelinesCommand = async (
@@ -824,7 +515,7 @@ export const de_ListPipelinesCommand = async (
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPipelinesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -837,35 +528,6 @@ export const de_ListPipelinesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPipelinesCommandError
- */
-const de_ListPipelinesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPipelinesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PollForTaskCommand
  */
 export const de_PollForTaskCommand = async (
@@ -873,7 +535,7 @@ export const de_PollForTaskCommand = async (
   context: __SerdeContext
 ): Promise<PollForTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PollForTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -886,38 +548,6 @@ export const de_PollForTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PollForTaskCommandError
- */
-const de_PollForTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PollForTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TaskNotFoundException":
-    case "com.amazonaws.datapipeline#TaskNotFoundException":
-      throw await de_TaskNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutPipelineDefinitionCommand
  */
 export const de_PutPipelineDefinitionCommand = async (
@@ -925,7 +555,7 @@ export const de_PutPipelineDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<PutPipelineDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutPipelineDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -938,41 +568,6 @@ export const de_PutPipelineDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutPipelineDefinitionCommandError
- */
-const de_PutPipelineDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutPipelineDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1QueryObjectsCommand
  */
 export const de_QueryObjectsCommand = async (
@@ -980,7 +575,7 @@ export const de_QueryObjectsCommand = async (
   context: __SerdeContext
 ): Promise<QueryObjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_QueryObjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -993,41 +588,6 @@ export const de_QueryObjectsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1QueryObjectsCommandError
- */
-const de_QueryObjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<QueryObjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RemoveTagsCommand
  */
 export const de_RemoveTagsCommand = async (
@@ -1035,7 +595,7 @@ export const de_RemoveTagsCommand = async (
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1048,41 +608,6 @@ export const de_RemoveTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveTagsCommandError
- */
-const de_RemoveTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ReportTaskProgressCommand
  */
 export const de_ReportTaskProgressCommand = async (
@@ -1090,7 +615,7 @@ export const de_ReportTaskProgressCommand = async (
   context: __SerdeContext
 ): Promise<ReportTaskProgressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReportTaskProgressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1103,44 +628,6 @@ export const de_ReportTaskProgressCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ReportTaskProgressCommandError
- */
-const de_ReportTaskProgressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReportTaskProgressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "TaskNotFoundException":
-    case "com.amazonaws.datapipeline#TaskNotFoundException":
-      throw await de_TaskNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ReportTaskRunnerHeartbeatCommand
  */
 export const de_ReportTaskRunnerHeartbeatCommand = async (
@@ -1148,7 +635,7 @@ export const de_ReportTaskRunnerHeartbeatCommand = async (
   context: __SerdeContext
 ): Promise<ReportTaskRunnerHeartbeatCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReportTaskRunnerHeartbeatCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1161,35 +648,6 @@ export const de_ReportTaskRunnerHeartbeatCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ReportTaskRunnerHeartbeatCommandError
- */
-const de_ReportTaskRunnerHeartbeatCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReportTaskRunnerHeartbeatCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetStatusCommand
  */
 export const de_SetStatusCommand = async (
@@ -1197,48 +655,13 @@ export const de_SetStatusCommand = async (
   context: __SerdeContext
 ): Promise<SetStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1SetStatusCommandError
- */
-const de_SetStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1249,7 +672,7 @@ export const de_SetTaskStatusCommand = async (
   context: __SerdeContext
 ): Promise<SetTaskStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetTaskStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1262,12 +685,29 @@ export const de_SetTaskStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SetTaskStatusCommandError
+ * deserializeAws_json1_1ValidatePipelineDefinitionCommand
  */
-const de_SetTaskStatusCommandError = async (
+export const de_ValidatePipelineDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<SetTaskStatusCommandOutput> => {
+): Promise<ValidatePipelineDefinitionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ValidatePipelineDefinitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1295,62 +735,7 @@ const de_SetTaskStatusCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ValidatePipelineDefinitionCommand
- */
-export const de_ValidatePipelineDefinitionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ValidatePipelineDefinitionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ValidatePipelineDefinitionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ValidatePipelineDefinitionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ValidatePipelineDefinitionCommandError
- */
-const de_ValidatePipelineDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ValidatePipelineDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.datapipeline#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.datapipeline#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "PipelineDeletedException":
-    case "com.amazonaws.datapipeline#PipelineDeletedException":
-      throw await de_PipelineDeletedExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.datapipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

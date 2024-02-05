@@ -1585,7 +1585,7 @@ export const de_AcceptInboundConnectionCommand = async (
   context: __SerdeContext
 ): Promise<AcceptInboundConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AcceptInboundConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1599,38 +1599,6 @@ export const de_AcceptInboundConnectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AcceptInboundConnectionCommandError
- */
-const de_AcceptInboundConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptInboundConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AddDataSourceCommand
  */
 export const de_AddDataSourceCommand = async (
@@ -1638,7 +1606,7 @@ export const de_AddDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<AddDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AddDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1652,50 +1620,6 @@ export const de_AddDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AddDataSourceCommandError
- */
-const de_AddDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DependencyFailureException":
-    case "com.amazonaws.opensearch#DependencyFailureException":
-      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AddTagsCommand
  */
 export const de_AddTagsCommand = async (
@@ -1703,48 +1627,13 @@ export const de_AddTagsCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AddTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AddTagsCommandError
- */
-const de_AddTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1755,7 +1644,7 @@ export const de_AssociatePackageCommand = async (
   context: __SerdeContext
 ): Promise<AssociatePackageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociatePackageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1769,47 +1658,6 @@ export const de_AssociatePackageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssociatePackageCommandError
- */
-const de_AssociatePackageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociatePackageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.opensearch#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AuthorizeVpcEndpointAccessCommand
  */
 export const de_AuthorizeVpcEndpointAccessCommand = async (
@@ -1817,7 +1665,7 @@ export const de_AuthorizeVpcEndpointAccessCommand = async (
   context: __SerdeContext
 ): Promise<AuthorizeVpcEndpointAccessCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AuthorizeVpcEndpointAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1831,47 +1679,6 @@ export const de_AuthorizeVpcEndpointAccessCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AuthorizeVpcEndpointAccessCommandError
- */
-const de_AuthorizeVpcEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeVpcEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CancelServiceSoftwareUpdateCommand
  */
 export const de_CancelServiceSoftwareUpdateCommand = async (
@@ -1879,7 +1686,7 @@ export const de_CancelServiceSoftwareUpdateCommand = async (
   context: __SerdeContext
 ): Promise<CancelServiceSoftwareUpdateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelServiceSoftwareUpdateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1893,41 +1700,6 @@ export const de_CancelServiceSoftwareUpdateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CancelServiceSoftwareUpdateCommandError
- */
-const de_CancelServiceSoftwareUpdateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelServiceSoftwareUpdateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDomainCommand
  */
 export const de_CreateDomainCommand = async (
@@ -1935,7 +1707,7 @@ export const de_CreateDomainCommand = async (
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1949,50 +1721,6 @@ export const de_CreateDomainCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDomainCommandError
- */
-const de_CreateDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidTypeException":
-    case "com.amazonaws.opensearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.opensearch#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateOutboundConnectionCommand
  */
 export const de_CreateOutboundConnectionCommand = async (
@@ -2000,7 +1728,7 @@ export const de_CreateOutboundConnectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateOutboundConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateOutboundConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2020,41 +1748,6 @@ export const de_CreateOutboundConnectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateOutboundConnectionCommandError
- */
-const de_CreateOutboundConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOutboundConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.opensearch#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreatePackageCommand
  */
 export const de_CreatePackageCommand = async (
@@ -2062,7 +1755,7 @@ export const de_CreatePackageCommand = async (
   context: __SerdeContext
 ): Promise<CreatePackageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreatePackageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2076,50 +1769,6 @@ export const de_CreatePackageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreatePackageCommandError
- */
-const de_CreatePackageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePackageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidTypeException":
-    case "com.amazonaws.opensearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.opensearch#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateVpcEndpointCommand
  */
 export const de_CreateVpcEndpointCommand = async (
@@ -2127,7 +1776,7 @@ export const de_CreateVpcEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateVpcEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2141,47 +1790,6 @@ export const de_CreateVpcEndpointCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateVpcEndpointCommandError
- */
-const de_CreateVpcEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpcEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.opensearch#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteDataSourceCommand
  */
 export const de_DeleteDataSourceCommand = async (
@@ -2189,7 +1797,7 @@ export const de_DeleteDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2203,47 +1811,6 @@ export const de_DeleteDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDataSourceCommandError
- */
-const de_DeleteDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DependencyFailureException":
-    case "com.amazonaws.opensearch#DependencyFailureException":
-      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteDomainCommand
  */
 export const de_DeleteDomainCommand = async (
@@ -2251,7 +1818,7 @@ export const de_DeleteDomainCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2265,41 +1832,6 @@ export const de_DeleteDomainCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDomainCommandError
- */
-const de_DeleteDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteInboundConnectionCommand
  */
 export const de_DeleteInboundConnectionCommand = async (
@@ -2307,7 +1839,7 @@ export const de_DeleteInboundConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInboundConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteInboundConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2318,35 +1850,6 @@ export const de_DeleteInboundConnectionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteInboundConnectionCommandError
- */
-const de_DeleteInboundConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInboundConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2357,7 +1860,7 @@ export const de_DeleteOutboundConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteOutboundConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteOutboundConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2371,35 +1874,6 @@ export const de_DeleteOutboundConnectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteOutboundConnectionCommandError
- */
-const de_DeleteOutboundConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOutboundConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeletePackageCommand
  */
 export const de_DeletePackageCommand = async (
@@ -2407,7 +1881,7 @@ export const de_DeletePackageCommand = async (
   context: __SerdeContext
 ): Promise<DeletePackageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeletePackageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2421,47 +1895,6 @@ export const de_DeletePackageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeletePackageCommandError
- */
-const de_DeletePackageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePackageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.opensearch#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteVpcEndpointCommand
  */
 export const de_DeleteVpcEndpointCommand = async (
@@ -2469,7 +1902,7 @@ export const de_DeleteVpcEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpcEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteVpcEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2483,41 +1916,6 @@ export const de_DeleteVpcEndpointCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteVpcEndpointCommandError
- */
-const de_DeleteVpcEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDomainCommand
  */
 export const de_DescribeDomainCommand = async (
@@ -2525,7 +1923,7 @@ export const de_DescribeDomainCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2539,41 +1937,6 @@ export const de_DescribeDomainCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDomainCommandError
- */
-const de_DescribeDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDomainAutoTunesCommand
  */
 export const de_DescribeDomainAutoTunesCommand = async (
@@ -2581,7 +1944,7 @@ export const de_DescribeDomainAutoTunesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainAutoTunesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDomainAutoTunesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2596,41 +1959,6 @@ export const de_DescribeDomainAutoTunesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDomainAutoTunesCommandError
- */
-const de_DescribeDomainAutoTunesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDomainAutoTunesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDomainChangeProgressCommand
  */
 export const de_DescribeDomainChangeProgressCommand = async (
@@ -2638,7 +1966,7 @@ export const de_DescribeDomainChangeProgressCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainChangeProgressCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDomainChangeProgressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2652,41 +1980,6 @@ export const de_DescribeDomainChangeProgressCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDomainChangeProgressCommandError
- */
-const de_DescribeDomainChangeProgressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDomainChangeProgressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDomainConfigCommand
  */
 export const de_DescribeDomainConfigCommand = async (
@@ -2694,7 +1987,7 @@ export const de_DescribeDomainConfigCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDomainConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2708,41 +2001,6 @@ export const de_DescribeDomainConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDomainConfigCommandError
- */
-const de_DescribeDomainConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDomainConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDomainHealthCommand
  */
 export const de_DescribeDomainHealthCommand = async (
@@ -2750,7 +2008,7 @@ export const de_DescribeDomainHealthCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainHealthCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDomainHealthCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2776,44 +2034,6 @@ export const de_DescribeDomainHealthCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDomainHealthCommandError
- */
-const de_DescribeDomainHealthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDomainHealthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDomainNodesCommand
  */
 export const de_DescribeDomainNodesCommand = async (
@@ -2821,7 +2041,7 @@ export const de_DescribeDomainNodesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainNodesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDomainNodesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2835,47 +2055,6 @@ export const de_DescribeDomainNodesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDomainNodesCommandError
- */
-const de_DescribeDomainNodesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDomainNodesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DependencyFailureException":
-    case "com.amazonaws.opensearch#DependencyFailureException":
-      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDomainsCommand
  */
 export const de_DescribeDomainsCommand = async (
@@ -2883,7 +2062,7 @@ export const de_DescribeDomainsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDomainsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2897,38 +2076,6 @@ export const de_DescribeDomainsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDomainsCommandError
- */
-const de_DescribeDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDryRunProgressCommand
  */
 export const de_DescribeDryRunProgressCommand = async (
@@ -2936,7 +2083,7 @@ export const de_DescribeDryRunProgressCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDryRunProgressCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDryRunProgressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2952,44 +2099,6 @@ export const de_DescribeDryRunProgressCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDryRunProgressCommandError
- */
-const de_DescribeDryRunProgressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDryRunProgressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeInboundConnectionsCommand
  */
 export const de_DescribeInboundConnectionsCommand = async (
@@ -2997,7 +2106,7 @@ export const de_DescribeInboundConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInboundConnectionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeInboundConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3012,35 +2121,6 @@ export const de_DescribeInboundConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeInboundConnectionsCommandError
- */
-const de_DescribeInboundConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInboundConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.opensearch#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeInstanceTypeLimitsCommand
  */
 export const de_DescribeInstanceTypeLimitsCommand = async (
@@ -3048,7 +2128,7 @@ export const de_DescribeInstanceTypeLimitsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceTypeLimitsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeInstanceTypeLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3062,47 +2142,6 @@ export const de_DescribeInstanceTypeLimitsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeInstanceTypeLimitsCommandError
- */
-const de_DescribeInstanceTypeLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceTypeLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidTypeException":
-    case "com.amazonaws.opensearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeOutboundConnectionsCommand
  */
 export const de_DescribeOutboundConnectionsCommand = async (
@@ -3110,7 +2149,7 @@ export const de_DescribeOutboundConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOutboundConnectionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeOutboundConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3125,35 +2164,6 @@ export const de_DescribeOutboundConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeOutboundConnectionsCommandError
- */
-const de_DescribeOutboundConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOutboundConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.opensearch#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribePackagesCommand
  */
 export const de_DescribePackagesCommand = async (
@@ -3161,7 +2171,7 @@ export const de_DescribePackagesCommand = async (
   context: __SerdeContext
 ): Promise<DescribePackagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribePackagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3176,44 +2186,6 @@ export const de_DescribePackagesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribePackagesCommandError
- */
-const de_DescribePackagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePackagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeReservedInstanceOfferingsCommand
  */
 export const de_DescribeReservedInstanceOfferingsCommand = async (
@@ -3221,7 +2193,7 @@ export const de_DescribeReservedInstanceOfferingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReservedInstanceOfferingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeReservedInstanceOfferingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3236,41 +2208,6 @@ export const de_DescribeReservedInstanceOfferingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeReservedInstanceOfferingsCommandError
- */
-const de_DescribeReservedInstanceOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedInstanceOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeReservedInstancesCommand
  */
 export const de_DescribeReservedInstancesCommand = async (
@@ -3278,7 +2215,7 @@ export const de_DescribeReservedInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReservedInstancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeReservedInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3293,41 +2230,6 @@ export const de_DescribeReservedInstancesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeReservedInstancesCommandError
- */
-const de_DescribeReservedInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeVpcEndpointsCommand
  */
 export const de_DescribeVpcEndpointsCommand = async (
@@ -3335,7 +2237,7 @@ export const de_DescribeVpcEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVpcEndpointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeVpcEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3350,41 +2252,6 @@ export const de_DescribeVpcEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeVpcEndpointsCommandError
- */
-const de_DescribeVpcEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVpcEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DissociatePackageCommand
  */
 export const de_DissociatePackageCommand = async (
@@ -3392,7 +2259,7 @@ export const de_DissociatePackageCommand = async (
   context: __SerdeContext
 ): Promise<DissociatePackageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DissociatePackageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3406,47 +2273,6 @@ export const de_DissociatePackageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DissociatePackageCommandError
- */
-const de_DissociatePackageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DissociatePackageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.opensearch#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetCompatibleVersionsCommand
  */
 export const de_GetCompatibleVersionsCommand = async (
@@ -3454,7 +2280,7 @@ export const de_GetCompatibleVersionsCommand = async (
   context: __SerdeContext
 ): Promise<GetCompatibleVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCompatibleVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3468,44 +2294,6 @@ export const de_GetCompatibleVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCompatibleVersionsCommandError
- */
-const de_GetCompatibleVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCompatibleVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDataSourceCommand
  */
 export const de_GetDataSourceCommand = async (
@@ -3513,7 +2301,7 @@ export const de_GetDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<GetDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3529,47 +2317,6 @@ export const de_GetDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDataSourceCommandError
- */
-const de_GetDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DependencyFailureException":
-    case "com.amazonaws.opensearch#DependencyFailureException":
-      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDomainMaintenanceStatusCommand
  */
 export const de_GetDomainMaintenanceStatusCommand = async (
@@ -3577,7 +2324,7 @@ export const de_GetDomainMaintenanceStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainMaintenanceStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDomainMaintenanceStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3596,44 +2343,6 @@ export const de_GetDomainMaintenanceStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDomainMaintenanceStatusCommandError
- */
-const de_GetDomainMaintenanceStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainMaintenanceStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetPackageVersionHistoryCommand
  */
 export const de_GetPackageVersionHistoryCommand = async (
@@ -3641,7 +2350,7 @@ export const de_GetPackageVersionHistoryCommand = async (
   context: __SerdeContext
 ): Promise<GetPackageVersionHistoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetPackageVersionHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3657,44 +2366,6 @@ export const de_GetPackageVersionHistoryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetPackageVersionHistoryCommandError
- */
-const de_GetPackageVersionHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPackageVersionHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetUpgradeHistoryCommand
  */
 export const de_GetUpgradeHistoryCommand = async (
@@ -3702,7 +2373,7 @@ export const de_GetUpgradeHistoryCommand = async (
   context: __SerdeContext
 ): Promise<GetUpgradeHistoryCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetUpgradeHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3717,44 +2388,6 @@ export const de_GetUpgradeHistoryCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetUpgradeHistoryCommandError
- */
-const de_GetUpgradeHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUpgradeHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetUpgradeStatusCommand
  */
 export const de_GetUpgradeStatusCommand = async (
@@ -3762,7 +2395,7 @@ export const de_GetUpgradeStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetUpgradeStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetUpgradeStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3778,44 +2411,6 @@ export const de_GetUpgradeStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetUpgradeStatusCommandError
- */
-const de_GetUpgradeStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUpgradeStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDataSourcesCommand
  */
 export const de_ListDataSourcesCommand = async (
@@ -3823,7 +2418,7 @@ export const de_ListDataSourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListDataSourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDataSourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3837,47 +2432,6 @@ export const de_ListDataSourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDataSourcesCommandError
- */
-const de_ListDataSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DependencyFailureException":
-    case "com.amazonaws.opensearch#DependencyFailureException":
-      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDomainMaintenancesCommand
  */
 export const de_ListDomainMaintenancesCommand = async (
@@ -3885,7 +2439,7 @@ export const de_ListDomainMaintenancesCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainMaintenancesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDomainMaintenancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3900,44 +2454,6 @@ export const de_ListDomainMaintenancesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDomainMaintenancesCommandError
- */
-const de_ListDomainMaintenancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDomainMaintenancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDomainNamesCommand
  */
 export const de_ListDomainNamesCommand = async (
@@ -3945,7 +2461,7 @@ export const de_ListDomainNamesCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainNamesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDomainNamesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3959,35 +2475,6 @@ export const de_ListDomainNamesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDomainNamesCommandError
- */
-const de_ListDomainNamesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDomainNamesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDomainsForPackageCommand
  */
 export const de_ListDomainsForPackageCommand = async (
@@ -3995,7 +2482,7 @@ export const de_ListDomainsForPackageCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainsForPackageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDomainsForPackageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4010,44 +2497,6 @@ export const de_ListDomainsForPackageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDomainsForPackageCommandError
- */
-const de_ListDomainsForPackageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDomainsForPackageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListInstanceTypeDetailsCommand
  */
 export const de_ListInstanceTypeDetailsCommand = async (
@@ -4055,7 +2504,7 @@ export const de_ListInstanceTypeDetailsCommand = async (
   context: __SerdeContext
 ): Promise<ListInstanceTypeDetailsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListInstanceTypeDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4070,41 +2519,6 @@ export const de_ListInstanceTypeDetailsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListInstanceTypeDetailsCommandError
- */
-const de_ListInstanceTypeDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInstanceTypeDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPackagesForDomainCommand
  */
 export const de_ListPackagesForDomainCommand = async (
@@ -4112,7 +2526,7 @@ export const de_ListPackagesForDomainCommand = async (
   context: __SerdeContext
 ): Promise<ListPackagesForDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPackagesForDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4127,44 +2541,6 @@ export const de_ListPackagesForDomainCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPackagesForDomainCommandError
- */
-const de_ListPackagesForDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPackagesForDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListScheduledActionsCommand
  */
 export const de_ListScheduledActionsCommand = async (
@@ -4172,7 +2548,7 @@ export const de_ListScheduledActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListScheduledActionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListScheduledActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4187,44 +2563,6 @@ export const de_ListScheduledActionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListScheduledActionsCommandError
- */
-const de_ListScheduledActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListScheduledActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.opensearch#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsCommand
  */
 export const de_ListTagsCommand = async (
@@ -4232,7 +2570,7 @@ export const de_ListTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4246,41 +2584,6 @@ export const de_ListTagsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsCommandError
- */
-const de_ListTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListVersionsCommand
  */
 export const de_ListVersionsCommand = async (
@@ -4288,7 +2591,7 @@ export const de_ListVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4303,41 +2606,6 @@ export const de_ListVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListVersionsCommandError
- */
-const de_ListVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListVpcEndpointAccessCommand
  */
 export const de_ListVpcEndpointAccessCommand = async (
@@ -4345,7 +2613,7 @@ export const de_ListVpcEndpointAccessCommand = async (
   context: __SerdeContext
 ): Promise<ListVpcEndpointAccessCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListVpcEndpointAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4360,41 +2628,6 @@ export const de_ListVpcEndpointAccessCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListVpcEndpointAccessCommandError
- */
-const de_ListVpcEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVpcEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListVpcEndpointsCommand
  */
 export const de_ListVpcEndpointsCommand = async (
@@ -4402,7 +2635,7 @@ export const de_ListVpcEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<ListVpcEndpointsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListVpcEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4414,38 +2647,6 @@ export const de_ListVpcEndpointsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListVpcEndpointsCommandError
- */
-const de_ListVpcEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVpcEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4456,7 +2657,7 @@ export const de_ListVpcEndpointsForDomainCommand = async (
   context: __SerdeContext
 ): Promise<ListVpcEndpointsForDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListVpcEndpointsForDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4471,41 +2672,6 @@ export const de_ListVpcEndpointsForDomainCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListVpcEndpointsForDomainCommandError
- */
-const de_ListVpcEndpointsForDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVpcEndpointsForDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PurchaseReservedInstanceOfferingCommand
  */
 export const de_PurchaseReservedInstanceOfferingCommand = async (
@@ -4513,7 +2679,7 @@ export const de_PurchaseReservedInstanceOfferingCommand = async (
   context: __SerdeContext
 ): Promise<PurchaseReservedInstanceOfferingCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PurchaseReservedInstanceOfferingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4528,47 +2694,6 @@ export const de_PurchaseReservedInstanceOfferingCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PurchaseReservedInstanceOfferingCommandError
- */
-const de_PurchaseReservedInstanceOfferingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseReservedInstanceOfferingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.opensearch#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RejectInboundConnectionCommand
  */
 export const de_RejectInboundConnectionCommand = async (
@@ -4576,7 +2701,7 @@ export const de_RejectInboundConnectionCommand = async (
   context: __SerdeContext
 ): Promise<RejectInboundConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RejectInboundConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4590,35 +2715,6 @@ export const de_RejectInboundConnectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RejectInboundConnectionCommandError
- */
-const de_RejectInboundConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectInboundConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RemoveTagsCommand
  */
 export const de_RemoveTagsCommand = async (
@@ -4626,45 +2722,13 @@ export const de_RemoveTagsCommand = async (
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RemoveTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RemoveTagsCommandError
- */
-const de_RemoveTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4675,51 +2739,13 @@ export const de_RevokeVpcEndpointAccessCommand = async (
   context: __SerdeContext
 ): Promise<RevokeVpcEndpointAccessCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RevokeVpcEndpointAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RevokeVpcEndpointAccessCommandError
- */
-const de_RevokeVpcEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeVpcEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4730,7 +2756,7 @@ export const de_StartDomainMaintenanceCommand = async (
   context: __SerdeContext
 ): Promise<StartDomainMaintenanceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartDomainMaintenanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4744,44 +2770,6 @@ export const de_StartDomainMaintenanceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartDomainMaintenanceCommandError
- */
-const de_StartDomainMaintenanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDomainMaintenanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartServiceSoftwareUpdateCommand
  */
 export const de_StartServiceSoftwareUpdateCommand = async (
@@ -4789,7 +2777,7 @@ export const de_StartServiceSoftwareUpdateCommand = async (
   context: __SerdeContext
 ): Promise<StartServiceSoftwareUpdateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartServiceSoftwareUpdateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4803,41 +2791,6 @@ export const de_StartServiceSoftwareUpdateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartServiceSoftwareUpdateCommandError
- */
-const de_StartServiceSoftwareUpdateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartServiceSoftwareUpdateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDataSourceCommand
  */
 export const de_UpdateDataSourceCommand = async (
@@ -4845,7 +2798,7 @@ export const de_UpdateDataSourceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataSourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDataSourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4859,47 +2812,6 @@ export const de_UpdateDataSourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDataSourceCommandError
- */
-const de_UpdateDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "DependencyFailureException":
-    case "com.amazonaws.opensearch#DependencyFailureException":
-      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDomainConfigCommand
  */
 export const de_UpdateDomainConfigCommand = async (
@@ -4907,7 +2819,7 @@ export const de_UpdateDomainConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDomainConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4923,47 +2835,6 @@ export const de_UpdateDomainConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDomainConfigCommandError
- */
-const de_UpdateDomainConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDomainConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "InvalidTypeException":
-    case "com.amazonaws.opensearch#InvalidTypeException":
-      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdatePackageCommand
  */
 export const de_UpdatePackageCommand = async (
@@ -4971,7 +2842,7 @@ export const de_UpdatePackageCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePackageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdatePackageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4985,47 +2856,6 @@ export const de_UpdatePackageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdatePackageCommandError
- */
-const de_UpdatePackageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePackageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.opensearch#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateScheduledActionCommand
  */
 export const de_UpdateScheduledActionCommand = async (
@@ -5033,7 +2863,7 @@ export const de_UpdateScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateScheduledActionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateScheduledActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5047,50 +2877,6 @@ export const de_UpdateScheduledActionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateScheduledActionCommandError
- */
-const de_UpdateScheduledActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateScheduledActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.opensearch#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.opensearch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "SlotNotAvailableException":
-    case "com.amazonaws.opensearch#SlotNotAvailableException":
-      throw await de_SlotNotAvailableExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateVpcEndpointCommand
  */
 export const de_UpdateVpcEndpointCommand = async (
@@ -5098,7 +2884,7 @@ export const de_UpdateVpcEndpointCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVpcEndpointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateVpcEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5112,47 +2898,6 @@ export const de_UpdateVpcEndpointCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateVpcEndpointCommandError
- */
-const de_UpdateVpcEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVpcEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.opensearch#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DisabledOperationException":
-    case "com.amazonaws.opensearch#DisabledOperationException":
-      throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearch#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpgradeDomainCommand
  */
 export const de_UpgradeDomainCommand = async (
@@ -5160,7 +2905,7 @@ export const de_UpgradeDomainCommand = async (
   context: __SerdeContext
 ): Promise<UpgradeDomainCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpgradeDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5179,43 +2924,61 @@ export const de_UpgradeDomainCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpgradeDomainCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpgradeDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpgradeDomainCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "BaseException":
-    case "com.amazonaws.opensearch#BaseException":
-      throw await de_BaseExceptionRes(parsedOutput, context);
     case "DisabledOperationException":
     case "com.amazonaws.opensearch#DisabledOperationException":
       throw await de_DisabledOperationExceptionRes(parsedOutput, context);
-    case "InternalException":
-    case "com.amazonaws.opensearch#InternalException":
-      throw await de_InternalExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.opensearch#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.opensearch#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.opensearch#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "BaseException":
+    case "com.amazonaws.opensearch#BaseException":
+      throw await de_BaseExceptionRes(parsedOutput, context);
+    case "DependencyFailureException":
+    case "com.amazonaws.opensearch#DependencyFailureException":
+      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.opensearch#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearch#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.opensearch#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.opensearch#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InvalidTypeException":
+    case "com.amazonaws.opensearch#InvalidTypeException":
+      throw await de_InvalidTypeExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.opensearch#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.opensearch#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "SlotNotAvailableException":
+    case "com.amazonaws.opensearch#SlotNotAvailableException":
+      throw await de_SlotNotAvailableExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

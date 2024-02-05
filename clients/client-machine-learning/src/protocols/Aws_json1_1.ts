@@ -521,7 +521,7 @@ export const de_AddTagsCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -534,12 +534,549 @@ export const de_AddTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddTagsCommandError
+ * deserializeAws_json1_1CreateBatchPredictionCommand
  */
-const de_AddTagsCommandError = async (
+export const de_CreateBatchPredictionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsCommandOutput> => {
+): Promise<CreateBatchPredictionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateBatchPredictionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDataSourceFromRDSCommand
+ */
+export const de_CreateDataSourceFromRDSCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataSourceFromRDSCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateDataSourceFromRDSCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDataSourceFromRedshiftCommand
+ */
+export const de_CreateDataSourceFromRedshiftCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataSourceFromRedshiftCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateDataSourceFromRedshiftCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDataSourceFromS3Command
+ */
+export const de_CreateDataSourceFromS3Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataSourceFromS3CommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateDataSourceFromS3CommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateEvaluationCommand
+ */
+export const de_CreateEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEvaluationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateEvaluationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateMLModelCommand
+ */
+export const de_CreateMLModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMLModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateMLModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateRealtimeEndpointCommand
+ */
+export const de_CreateRealtimeEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRealtimeEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateRealtimeEndpointOutput(data, context);
+  const response: CreateRealtimeEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteBatchPredictionCommand
+ */
+export const de_DeleteBatchPredictionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBatchPredictionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteBatchPredictionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDataSourceCommand
+ */
+export const de_DeleteDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataSourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteDataSourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteEvaluationCommand
+ */
+export const de_DeleteEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEvaluationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteEvaluationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteMLModelCommand
+ */
+export const de_DeleteMLModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMLModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteMLModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteRealtimeEndpointCommand
+ */
+export const de_DeleteRealtimeEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRealtimeEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteRealtimeEndpointOutput(data, context);
+  const response: DeleteRealtimeEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteTagsCommand
+ */
+export const de_DeleteTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBatchPredictionsCommand
+ */
+export const de_DescribeBatchPredictionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBatchPredictionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBatchPredictionsOutput(data, context);
+  const response: DescribeBatchPredictionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDataSourcesCommand
+ */
+export const de_DescribeDataSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataSourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDataSourcesOutput(data, context);
+  const response: DescribeDataSourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEvaluationsCommand
+ */
+export const de_DescribeEvaluationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEvaluationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEvaluationsOutput(data, context);
+  const response: DescribeEvaluationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMLModelsCommand
+ */
+export const de_DescribeMLModelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMLModelsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeMLModelsOutput(data, context);
+  const response: DescribeMLModelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTagsCommand
+ */
+export const de_DescribeTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetBatchPredictionCommand
+ */
+export const de_GetBatchPredictionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBatchPredictionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetBatchPredictionOutput(data, context);
+  const response: GetBatchPredictionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDataSourceCommand
+ */
+export const de_GetDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDataSourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDataSourceOutput(data, context);
+  const response: GetDataSourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetEvaluationCommand
+ */
+export const de_GetEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEvaluationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetEvaluationOutput(data, context);
+  const response: GetEvaluationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetMLModelCommand
+ */
+export const de_GetMLModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMLModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetMLModelOutput(data, context);
+  const response: GetMLModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PredictCommand
+ */
+export const de_PredictCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PredictCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PredictOutput(data, context);
+  const response: PredictCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateBatchPredictionCommand
+ */
+export const de_UpdateBatchPredictionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBatchPredictionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateBatchPredictionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDataSourceCommand
+ */
+export const de_UpdateDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataSourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDataSourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateEvaluationCommand
+ */
+export const de_UpdateEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEvaluationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateEvaluationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateMLModelCommand
+ */
+export const de_UpdateMLModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMLModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateMLModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -561,1414 +1098,22 @@ const de_AddTagsCommandError = async (
     case "TagLimitExceededException":
     case "com.amazonaws.machinelearning#TagLimitExceededException":
       throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateBatchPredictionCommand
- */
-export const de_CreateBatchPredictionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBatchPredictionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateBatchPredictionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateBatchPredictionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateBatchPredictionCommandError
- */
-const de_CreateBatchPredictionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBatchPredictionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
       throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateDataSourceFromRDSCommand
- */
-export const de_CreateDataSourceFromRDSCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataSourceFromRDSCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDataSourceFromRDSCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateDataSourceFromRDSCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateDataSourceFromRDSCommandError
- */
-const de_CreateDataSourceFromRDSCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataSourceFromRDSCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateDataSourceFromRedshiftCommand
- */
-export const de_CreateDataSourceFromRedshiftCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataSourceFromRedshiftCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDataSourceFromRedshiftCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateDataSourceFromRedshiftCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateDataSourceFromRedshiftCommandError
- */
-const de_CreateDataSourceFromRedshiftCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataSourceFromRedshiftCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateDataSourceFromS3Command
- */
-export const de_CreateDataSourceFromS3Command = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataSourceFromS3CommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDataSourceFromS3CommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateDataSourceFromS3CommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateDataSourceFromS3CommandError
- */
-const de_CreateDataSourceFromS3CommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataSourceFromS3CommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateEvaluationCommand
- */
-export const de_CreateEvaluationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEvaluationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateEvaluationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateEvaluationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateEvaluationCommandError
- */
-const de_CreateEvaluationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEvaluationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateMLModelCommand
- */
-export const de_CreateMLModelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMLModelCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateMLModelCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateMLModelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateMLModelCommandError
- */
-const de_CreateMLModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMLModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.machinelearning#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateRealtimeEndpointCommand
- */
-export const de_CreateRealtimeEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRealtimeEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateRealtimeEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateRealtimeEndpointOutput(data, context);
-  const response: CreateRealtimeEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateRealtimeEndpointCommandError
- */
-const de_CreateRealtimeEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRealtimeEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteBatchPredictionCommand
- */
-export const de_DeleteBatchPredictionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBatchPredictionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteBatchPredictionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteBatchPredictionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteBatchPredictionCommandError
- */
-const de_DeleteBatchPredictionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBatchPredictionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteDataSourceCommand
- */
-export const de_DeleteDataSourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataSourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDataSourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteDataSourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDataSourceCommandError
- */
-const de_DeleteDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteEvaluationCommand
- */
-export const de_DeleteEvaluationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEvaluationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteEvaluationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteEvaluationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteEvaluationCommandError
- */
-const de_DeleteEvaluationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEvaluationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteMLModelCommand
- */
-export const de_DeleteMLModelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMLModelCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteMLModelCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteMLModelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteMLModelCommandError
- */
-const de_DeleteMLModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMLModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteRealtimeEndpointCommand
- */
-export const de_DeleteRealtimeEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRealtimeEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteRealtimeEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteRealtimeEndpointOutput(data, context);
-  const response: DeleteRealtimeEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteRealtimeEndpointCommandError
- */
-const de_DeleteRealtimeEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRealtimeEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteTagsCommand
- */
-export const de_DeleteTagsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteTagsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteTagsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteTagsCommandError
- */
-const de_DeleteTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidTagException":
-    case "com.amazonaws.machinelearning#InvalidTagException":
-      throw await de_InvalidTagExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeBatchPredictionsCommand
- */
-export const de_DescribeBatchPredictionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBatchPredictionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBatchPredictionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeBatchPredictionsOutput(data, context);
-  const response: DescribeBatchPredictionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeBatchPredictionsCommandError
- */
-const de_DescribeBatchPredictionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBatchPredictionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeDataSourcesCommand
- */
-export const de_DescribeDataSourcesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSourcesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDataSourcesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDataSourcesOutput(data, context);
-  const response: DescribeDataSourcesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeDataSourcesCommandError
- */
-const de_DescribeDataSourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEvaluationsCommand
- */
-export const de_DescribeEvaluationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEvaluationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEvaluationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEvaluationsOutput(data, context);
-  const response: DescribeEvaluationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEvaluationsCommandError
- */
-const de_DescribeEvaluationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEvaluationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeMLModelsCommand
- */
-export const de_DescribeMLModelsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMLModelsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeMLModelsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeMLModelsOutput(data, context);
-  const response: DescribeMLModelsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeMLModelsCommandError
- */
-const de_DescribeMLModelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMLModelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTagsCommand
- */
-export const de_DescribeTagsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTagsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeTagsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTagsCommandError
- */
-const de_DescribeTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetBatchPredictionCommand
- */
-export const de_GetBatchPredictionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBatchPredictionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetBatchPredictionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetBatchPredictionOutput(data, context);
-  const response: GetBatchPredictionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetBatchPredictionCommandError
- */
-const de_GetBatchPredictionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBatchPredictionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetDataSourceCommand
- */
-export const de_GetDataSourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataSourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetDataSourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetDataSourceOutput(data, context);
-  const response: GetDataSourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetDataSourceCommandError
- */
-const de_GetDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetEvaluationCommand
- */
-export const de_GetEvaluationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEvaluationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetEvaluationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetEvaluationOutput(data, context);
-  const response: GetEvaluationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetEvaluationCommandError
- */
-const de_GetEvaluationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEvaluationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetMLModelCommand
- */
-export const de_GetMLModelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMLModelCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetMLModelCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetMLModelOutput(data, context);
-  const response: GetMLModelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetMLModelCommandError
- */
-const de_GetMLModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMLModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PredictCommand
- */
-export const de_PredictCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PredictCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PredictCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PredictOutput(data, context);
-  const response: PredictCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PredictCommandError
- */
-const de_PredictCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PredictCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.machinelearning#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "PredictorNotMountedException":
     case "com.amazonaws.machinelearning#PredictorNotMountedException":
       throw await de_PredictorNotMountedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateBatchPredictionCommand
- */
-export const de_UpdateBatchPredictionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBatchPredictionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateBatchPredictionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateBatchPredictionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateBatchPredictionCommandError
- */
-const de_UpdateBatchPredictionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBatchPredictionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateDataSourceCommand
- */
-export const de_UpdateDataSourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataSourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDataSourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateDataSourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDataSourceCommandError
- */
-const de_UpdateDataSourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataSourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateEvaluationCommand
- */
-export const de_UpdateEvaluationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEvaluationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateEvaluationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateEvaluationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateEvaluationCommandError
- */
-const de_UpdateEvaluationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEvaluationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateMLModelCommand
- */
-export const de_UpdateMLModelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMLModelCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateMLModelCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateMLModelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateMLModelCommandError
- */
-const de_UpdateMLModelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMLModelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.machinelearning#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.machinelearning#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.machinelearning#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

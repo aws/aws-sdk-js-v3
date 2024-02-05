@@ -589,51 +589,13 @@ export const de_AddTagsToStreamCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsToStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsToStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddTagsToStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1AddTagsToStreamCommandError
- */
-const de_AddTagsToStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsToStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -644,45 +606,13 @@ export const de_CreateStreamCommand = async (
   context: __SerdeContext
 ): Promise<CreateStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1CreateStreamCommandError
- */
-const de_CreateStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -693,51 +623,13 @@ export const de_DecreaseStreamRetentionPeriodCommand = async (
   context: __SerdeContext
 ): Promise<DecreaseStreamRetentionPeriodCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DecreaseStreamRetentionPeriodCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DecreaseStreamRetentionPeriodCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError
- */
-const de_DecreaseStreamRetentionPeriodCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DecreaseStreamRetentionPeriodCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -748,51 +640,13 @@ export const de_DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -803,51 +657,13 @@ export const de_DeleteStreamCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteStreamCommandError
- */
-const de_DeleteStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -858,45 +674,13 @@ export const de_DeregisterStreamConsumerCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterStreamConsumerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterStreamConsumerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeregisterStreamConsumerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeregisterStreamConsumerCommandError
- */
-const de_DeregisterStreamConsumerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterStreamConsumerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -907,7 +691,7 @@ export const de_DescribeLimitsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -920,32 +704,6 @@ export const de_DescribeLimitsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLimitsCommandError
- */
-const de_DescribeLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeStreamCommand
  */
 export const de_DescribeStreamCommand = async (
@@ -953,7 +711,7 @@ export const de_DescribeStreamCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -966,41 +724,6 @@ export const de_DescribeStreamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeStreamCommandError
- */
-const de_DescribeStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeStreamConsumerCommand
  */
 export const de_DescribeStreamConsumerCommand = async (
@@ -1008,7 +731,7 @@ export const de_DescribeStreamConsumerCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStreamConsumerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStreamConsumerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1021,38 +744,6 @@ export const de_DescribeStreamConsumerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeStreamConsumerCommandError
- */
-const de_DescribeStreamConsumerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStreamConsumerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeStreamSummaryCommand
  */
 export const de_DescribeStreamSummaryCommand = async (
@@ -1060,7 +751,7 @@ export const de_DescribeStreamSummaryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStreamSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStreamSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1073,41 +764,6 @@ export const de_DescribeStreamSummaryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeStreamSummaryCommandError
- */
-const de_DescribeStreamSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStreamSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableEnhancedMonitoringCommand
  */
 export const de_DisableEnhancedMonitoringCommand = async (
@@ -1115,7 +771,7 @@ export const de_DisableEnhancedMonitoringCommand = async (
   context: __SerdeContext
 ): Promise<DisableEnhancedMonitoringCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableEnhancedMonitoringCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1128,44 +784,6 @@ export const de_DisableEnhancedMonitoringCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableEnhancedMonitoringCommandError
- */
-const de_DisableEnhancedMonitoringCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableEnhancedMonitoringCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EnableEnhancedMonitoringCommand
  */
 export const de_EnableEnhancedMonitoringCommand = async (
@@ -1173,7 +791,7 @@ export const de_EnableEnhancedMonitoringCommand = async (
   context: __SerdeContext
 ): Promise<EnableEnhancedMonitoringCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableEnhancedMonitoringCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1186,44 +804,6 @@ export const de_EnableEnhancedMonitoringCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableEnhancedMonitoringCommandError
- */
-const de_EnableEnhancedMonitoringCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableEnhancedMonitoringCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRecordsCommand
  */
 export const de_GetRecordsCommand = async (
@@ -1231,7 +811,7 @@ export const de_GetRecordsCommand = async (
   context: __SerdeContext
 ): Promise<GetRecordsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRecordsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1244,62 +824,6 @@ export const de_GetRecordsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRecordsCommandError
- */
-const de_GetRecordsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecordsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ExpiredIteratorException":
-    case "com.amazonaws.kinesis#ExpiredIteratorException":
-      throw await de_ExpiredIteratorExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "KMSAccessDeniedException":
-    case "com.amazonaws.kinesis#KMSAccessDeniedException":
-      throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
-    case "KMSDisabledException":
-    case "com.amazonaws.kinesis#KMSDisabledException":
-      throw await de_KMSDisabledExceptionRes(parsedOutput, context);
-    case "KMSInvalidStateException":
-    case "com.amazonaws.kinesis#KMSInvalidStateException":
-      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
-    case "KMSNotFoundException":
-    case "com.amazonaws.kinesis#KMSNotFoundException":
-      throw await de_KMSNotFoundExceptionRes(parsedOutput, context);
-    case "KMSOptInRequired":
-    case "com.amazonaws.kinesis#KMSOptInRequired":
-      throw await de_KMSOptInRequiredRes(parsedOutput, context);
-    case "KMSThrottlingException":
-    case "com.amazonaws.kinesis#KMSThrottlingException":
-      throw await de_KMSThrottlingExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.kinesis#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourcePolicyCommand
  */
 export const de_GetResourcePolicyCommand = async (
@@ -1307,7 +831,7 @@ export const de_GetResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1320,41 +844,6 @@ export const de_GetResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourcePolicyCommandError
- */
-const de_GetResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetShardIteratorCommand
  */
 export const de_GetShardIteratorCommand = async (
@@ -1362,7 +851,7 @@ export const de_GetShardIteratorCommand = async (
   context: __SerdeContext
 ): Promise<GetShardIteratorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetShardIteratorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1375,41 +864,6 @@ export const de_GetShardIteratorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetShardIteratorCommandError
- */
-const de_GetShardIteratorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetShardIteratorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.kinesis#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1IncreaseStreamRetentionPeriodCommand
  */
 export const de_IncreaseStreamRetentionPeriodCommand = async (
@@ -1417,51 +871,13 @@ export const de_IncreaseStreamRetentionPeriodCommand = async (
   context: __SerdeContext
 ): Promise<IncreaseStreamRetentionPeriodCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_IncreaseStreamRetentionPeriodCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: IncreaseStreamRetentionPeriodCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError
- */
-const de_IncreaseStreamRetentionPeriodCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<IncreaseStreamRetentionPeriodCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1472,7 +888,7 @@ export const de_ListShardsCommand = async (
   context: __SerdeContext
 ): Promise<ListShardsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListShardsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1485,47 +901,6 @@ export const de_ListShardsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListShardsCommandError
- */
-const de_ListShardsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListShardsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ExpiredNextTokenException":
-    case "com.amazonaws.kinesis#ExpiredNextTokenException":
-      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListStreamConsumersCommand
  */
 export const de_ListStreamConsumersCommand = async (
@@ -1533,7 +908,7 @@ export const de_ListStreamConsumersCommand = async (
   context: __SerdeContext
 ): Promise<ListStreamConsumersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStreamConsumersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1546,44 +921,6 @@ export const de_ListStreamConsumersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListStreamConsumersCommandError
- */
-const de_ListStreamConsumersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStreamConsumersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExpiredNextTokenException":
-    case "com.amazonaws.kinesis#ExpiredNextTokenException":
-      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListStreamsCommand
  */
 export const de_ListStreamsCommand = async (
@@ -1591,7 +928,7 @@ export const de_ListStreamsCommand = async (
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStreamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1604,38 +941,6 @@ export const de_ListStreamsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListStreamsCommandError
- */
-const de_ListStreamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStreamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExpiredNextTokenException":
-    case "com.amazonaws.kinesis#ExpiredNextTokenException":
-      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForStreamCommand
  */
 export const de_ListTagsForStreamCommand = async (
@@ -1643,7 +948,7 @@ export const de_ListTagsForStreamCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1656,41 +961,6 @@ export const de_ListTagsForStreamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForStreamCommandError
- */
-const de_ListTagsForStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1MergeShardsCommand
  */
 export const de_MergeShardsCommand = async (
@@ -1698,54 +968,13 @@ export const de_MergeShardsCommand = async (
   context: __SerdeContext
 ): Promise<MergeShardsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_MergeShardsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: MergeShardsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1MergeShardsCommandError
- */
-const de_MergeShardsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MergeShardsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.kinesis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1756,7 +985,7 @@ export const de_PutRecordCommand = async (
   context: __SerdeContext
 ): Promise<PutRecordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRecordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1769,59 +998,6 @@ export const de_PutRecordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutRecordCommandError
- */
-const de_PutRecordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRecordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "KMSAccessDeniedException":
-    case "com.amazonaws.kinesis#KMSAccessDeniedException":
-      throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
-    case "KMSDisabledException":
-    case "com.amazonaws.kinesis#KMSDisabledException":
-      throw await de_KMSDisabledExceptionRes(parsedOutput, context);
-    case "KMSInvalidStateException":
-    case "com.amazonaws.kinesis#KMSInvalidStateException":
-      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
-    case "KMSNotFoundException":
-    case "com.amazonaws.kinesis#KMSNotFoundException":
-      throw await de_KMSNotFoundExceptionRes(parsedOutput, context);
-    case "KMSOptInRequired":
-    case "com.amazonaws.kinesis#KMSOptInRequired":
-      throw await de_KMSOptInRequiredRes(parsedOutput, context);
-    case "KMSThrottlingException":
-    case "com.amazonaws.kinesis#KMSThrottlingException":
-      throw await de_KMSThrottlingExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.kinesis#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutRecordsCommand
  */
 export const de_PutRecordsCommand = async (
@@ -1829,7 +1005,7 @@ export const de_PutRecordsCommand = async (
   context: __SerdeContext
 ): Promise<PutRecordsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRecordsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1842,12 +1018,169 @@ export const de_PutRecordsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutRecordsCommandError
+ * deserializeAws_json1_1PutResourcePolicyCommand
  */
-const de_PutRecordsCommandError = async (
+export const de_PutResourcePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutRecordsCommandOutput> => {
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RegisterStreamConsumerCommand
+ */
+export const de_RegisterStreamConsumerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterStreamConsumerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RegisterStreamConsumerOutput(data, context);
+  const response: RegisterStreamConsumerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RemoveTagsFromStreamCommand
+ */
+export const de_RemoveTagsFromStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTagsFromStreamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveTagsFromStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SplitShardCommand
+ */
+export const de_SplitShardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SplitShardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: SplitShardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartStreamEncryptionCommand
+ */
+export const de_StartStreamEncryptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartStreamEncryptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: StartStreamEncryptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopStreamEncryptionCommand
+ */
+export const de_StopStreamEncryptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopStreamEncryptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: StopStreamEncryptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SubscribeToShardCommand
+ */
+export const de_SubscribeToShardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<SubscribeToShardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents = { EventStream: de_SubscribeToShardEventStream(output.body, context) };
+  const response: SubscribeToShardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateShardCountCommand
+ */
+export const de_UpdateShardCountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateShardCountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateShardCountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateStreamModeCommand
+ */
+export const de_UpdateStreamModeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStreamModeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateStreamModeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1860,6 +1193,18 @@ const de_PutRecordsCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesis#InvalidArgumentException":
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.kinesis#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesis#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ExpiredIteratorException":
+    case "com.amazonaws.kinesis#ExpiredIteratorException":
+      throw await de_ExpiredIteratorExceptionRes(parsedOutput, context);
     case "KMSAccessDeniedException":
     case "com.amazonaws.kinesis#KMSAccessDeniedException":
       throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
@@ -1881,229 +1226,9 @@ const de_PutRecordsCommandError = async (
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.kinesis#ProvisionedThroughputExceededException":
       throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutResourcePolicyCommand
- */
-export const de_PutResourcePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutResourcePolicyCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: PutResourcePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutResourcePolicyCommandError
- */
-const de_PutResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RegisterStreamConsumerCommand
- */
-export const de_RegisterStreamConsumerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterStreamConsumerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterStreamConsumerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RegisterStreamConsumerOutput(data, context);
-  const response: RegisterStreamConsumerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterStreamConsumerCommandError
- */
-const de_RegisterStreamConsumerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterStreamConsumerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RemoveTagsFromStreamCommand
- */
-export const de_RemoveTagsFromStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromStreamCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveTagsFromStreamCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RemoveTagsFromStreamCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RemoveTagsFromStreamCommandError
- */
-const de_RemoveTagsFromStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SplitShardCommand
- */
-export const de_SplitShardCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SplitShardCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SplitShardCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: SplitShardCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SplitShardCommandError
- */
-const de_SplitShardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SplitShardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ExpiredNextTokenException":
+    case "com.amazonaws.kinesis#ExpiredNextTokenException":
+      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.kinesis#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -2113,304 +1238,7 @@ const de_SplitShardCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartStreamEncryptionCommand
- */
-export const de_StartStreamEncryptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartStreamEncryptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartStreamEncryptionCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: StartStreamEncryptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartStreamEncryptionCommandError
- */
-const de_StartStreamEncryptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartStreamEncryptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "KMSAccessDeniedException":
-    case "com.amazonaws.kinesis#KMSAccessDeniedException":
-      throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
-    case "KMSDisabledException":
-    case "com.amazonaws.kinesis#KMSDisabledException":
-      throw await de_KMSDisabledExceptionRes(parsedOutput, context);
-    case "KMSInvalidStateException":
-    case "com.amazonaws.kinesis#KMSInvalidStateException":
-      throw await de_KMSInvalidStateExceptionRes(parsedOutput, context);
-    case "KMSNotFoundException":
-    case "com.amazonaws.kinesis#KMSNotFoundException":
-      throw await de_KMSNotFoundExceptionRes(parsedOutput, context);
-    case "KMSOptInRequired":
-    case "com.amazonaws.kinesis#KMSOptInRequired":
-      throw await de_KMSOptInRequiredRes(parsedOutput, context);
-    case "KMSThrottlingException":
-    case "com.amazonaws.kinesis#KMSThrottlingException":
-      throw await de_KMSThrottlingExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopStreamEncryptionCommand
- */
-export const de_StopStreamEncryptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopStreamEncryptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopStreamEncryptionCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: StopStreamEncryptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopStreamEncryptionCommandError
- */
-const de_StopStreamEncryptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopStreamEncryptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SubscribeToShardCommand
- */
-export const de_SubscribeToShardCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext & __EventStreamSerdeContext
-): Promise<SubscribeToShardCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SubscribeToShardCommandError(output, context);
-  }
-  const contents = { EventStream: de_SubscribeToShardEventStream(output.body, context) };
-  const response: SubscribeToShardCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SubscribeToShardCommandError
- */
-const de_SubscribeToShardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SubscribeToShardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateShardCountCommand
- */
-export const de_UpdateShardCountCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateShardCountCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateShardCountCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateShardCountCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateShardCountCommandError
- */
-const de_UpdateShardCountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateShardCountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.kinesis#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.kinesis#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateStreamModeCommand
- */
-export const de_UpdateStreamModeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStreamModeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateStreamModeCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: UpdateStreamModeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateStreamModeCommandError
- */
-const de_UpdateStreamModeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStreamModeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesis#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.kinesis#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.kinesis#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesis#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

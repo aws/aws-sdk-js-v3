@@ -2700,7 +2700,7 @@ export const de_AddTagsToResourceCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsToResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2713,12 +2713,2769 @@ export const de_AddTagsToResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddTagsToResourceCommandError
+ * deserializeAws_json1_1AssociateOpsItemRelatedItemCommand
  */
-const de_AddTagsToResourceCommandError = async (
+export const de_AssociateOpsItemRelatedItemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> => {
+): Promise<AssociateOpsItemRelatedItemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: AssociateOpsItemRelatedItemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CancelCommandCommand
+ */
+export const de_CancelCommandCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelCommandCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CancelCommandCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand
+ */
+export const de_CancelMaintenanceWindowExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelMaintenanceWindowExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CancelMaintenanceWindowExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateActivationCommand
+ */
+export const de_CreateActivationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateActivationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateActivationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAssociationCommand
+ */
+export const de_CreateAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateAssociationResult(data, context);
+  const response: CreateAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateAssociationBatchCommand
+ */
+export const de_CreateAssociationBatchCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAssociationBatchCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateAssociationBatchResult(data, context);
+  const response: CreateAssociationBatchCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDocumentCommand
+ */
+export const de_CreateDocumentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDocumentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDocumentResult(data, context);
+  const response: CreateDocumentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateMaintenanceWindowCommand
+ */
+export const de_CreateMaintenanceWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMaintenanceWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateMaintenanceWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateOpsItemCommand
+ */
+export const de_CreateOpsItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateOpsItemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateOpsItemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateOpsMetadataCommand
+ */
+export const de_CreateOpsMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateOpsMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateOpsMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreatePatchBaselineCommand
+ */
+export const de_CreatePatchBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePatchBaselineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreatePatchBaselineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateResourceDataSyncCommand
+ */
+export const de_CreateResourceDataSyncCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateResourceDataSyncCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateResourceDataSyncCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteActivationCommand
+ */
+export const de_DeleteActivationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteActivationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteActivationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteAssociationCommand
+ */
+export const de_DeleteAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDocumentCommand
+ */
+export const de_DeleteDocumentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDocumentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteDocumentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteInventoryCommand
+ */
+export const de_DeleteInventoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInventoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteInventoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteMaintenanceWindowCommand
+ */
+export const de_DeleteMaintenanceWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMaintenanceWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteMaintenanceWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteOpsItemCommand
+ */
+export const de_DeleteOpsItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOpsItemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteOpsItemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteOpsMetadataCommand
+ */
+export const de_DeleteOpsMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOpsMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteOpsMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteParameterCommand
+ */
+export const de_DeleteParameterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteParameterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteParameterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteParametersCommand
+ */
+export const de_DeleteParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeletePatchBaselineCommand
+ */
+export const de_DeletePatchBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePatchBaselineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeletePatchBaselineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteResourceDataSyncCommand
+ */
+export const de_DeleteResourceDataSyncCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourceDataSyncCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteResourceDataSyncCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeregisterManagedInstanceCommand
+ */
+export const de_DeregisterManagedInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterManagedInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeregisterManagedInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand
+ */
+export const de_DeregisterPatchBaselineForPatchGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeregisterPatchBaselineForPatchGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand
+ */
+export const de_DeregisterTargetFromMaintenanceWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeregisterTargetFromMaintenanceWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand
+ */
+export const de_DeregisterTaskFromMaintenanceWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterTaskFromMaintenanceWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeregisterTaskFromMaintenanceWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeActivationsCommand
+ */
+export const de_DescribeActivationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeActivationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeActivationsResult(data, context);
+  const response: DescribeActivationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAssociationCommand
+ */
+export const de_DescribeAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAssociationResult(data, context);
+  const response: DescribeAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAssociationExecutionsCommand
+ */
+export const de_DescribeAssociationExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAssociationExecutionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAssociationExecutionsResult(data, context);
+  const response: DescribeAssociationExecutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAssociationExecutionTargetsCommand
+ */
+export const de_DescribeAssociationExecutionTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAssociationExecutionTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAssociationExecutionTargetsResult(data, context);
+  const response: DescribeAssociationExecutionTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAutomationExecutionsCommand
+ */
+export const de_DescribeAutomationExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAutomationExecutionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAutomationExecutionsResult(data, context);
+  const response: DescribeAutomationExecutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAutomationStepExecutionsCommand
+ */
+export const de_DescribeAutomationStepExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAutomationStepExecutionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAutomationStepExecutionsResult(data, context);
+  const response: DescribeAutomationStepExecutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeAvailablePatchesCommand
+ */
+export const de_DescribeAvailablePatchesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAvailablePatchesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAvailablePatchesResult(data, context);
+  const response: DescribeAvailablePatchesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDocumentCommand
+ */
+export const de_DescribeDocumentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDocumentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDocumentResult(data, context);
+  const response: DescribeDocumentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDocumentPermissionCommand
+ */
+export const de_DescribeDocumentPermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDocumentPermissionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeDocumentPermissionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand
+ */
+export const de_DescribeEffectiveInstanceAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEffectiveInstanceAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeEffectiveInstanceAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand
+ */
+export const de_DescribeEffectivePatchesForPatchBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeEffectivePatchesForPatchBaselineResult(data, context);
+  const response: DescribeEffectivePatchesForPatchBaselineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeInstanceAssociationsStatusCommand
+ */
+export const de_DescribeInstanceAssociationsStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceAssociationsStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeInstanceAssociationsStatusResult(data, context);
+  const response: DescribeInstanceAssociationsStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeInstanceInformationCommand
+ */
+export const de_DescribeInstanceInformationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceInformationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeInstanceInformationResult(data, context);
+  const response: DescribeInstanceInformationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeInstancePatchesCommand
+ */
+export const de_DescribeInstancePatchesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstancePatchesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeInstancePatchesResult(data, context);
+  const response: DescribeInstancePatchesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeInstancePatchStatesCommand
+ */
+export const de_DescribeInstancePatchStatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstancePatchStatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeInstancePatchStatesResult(data, context);
+  const response: DescribeInstancePatchStatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand
+ */
+export const de_DescribeInstancePatchStatesForPatchGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeInstancePatchStatesForPatchGroupResult(data, context);
+  const response: DescribeInstancePatchStatesForPatchGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeInventoryDeletionsCommand
+ */
+export const de_DescribeInventoryDeletionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInventoryDeletionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeInventoryDeletionsResult(data, context);
+  const response: DescribeInventoryDeletionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand
+ */
+export const de_DescribeMaintenanceWindowExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeMaintenanceWindowExecutionsResult(data, context);
+  const response: DescribeMaintenanceWindowExecutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsCommand
+ */
+export const de_DescribeMaintenanceWindowExecutionTaskInvocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeMaintenanceWindowExecutionTaskInvocationsResult(data, context);
+  const response: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommand
+ */
+export const de_DescribeMaintenanceWindowExecutionTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeMaintenanceWindowExecutionTasksResult(data, context);
+  const response: DescribeMaintenanceWindowExecutionTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowsCommand
+ */
+export const de_DescribeMaintenanceWindowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMaintenanceWindowsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommand
+ */
+export const de_DescribeMaintenanceWindowScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMaintenanceWindowScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand
+ */
+export const de_DescribeMaintenanceWindowsForTargetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowsForTargetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMaintenanceWindowsForTargetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowTargetsCommand
+ */
+export const de_DescribeMaintenanceWindowTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMaintenanceWindowTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeMaintenanceWindowTasksCommand
+ */
+export const de_DescribeMaintenanceWindowTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMaintenanceWindowTasksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeMaintenanceWindowTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeOpsItemsCommand
+ */
+export const de_DescribeOpsItemsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOpsItemsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeOpsItemsResponse(data, context);
+  const response: DescribeOpsItemsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeParametersCommand
+ */
+export const de_DescribeParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeParametersResult(data, context);
+  const response: DescribeParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribePatchBaselinesCommand
+ */
+export const de_DescribePatchBaselinesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePatchBaselinesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribePatchBaselinesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribePatchGroupsCommand
+ */
+export const de_DescribePatchGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePatchGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribePatchGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribePatchGroupStateCommand
+ */
+export const de_DescribePatchGroupStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePatchGroupStateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribePatchGroupStateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribePatchPropertiesCommand
+ */
+export const de_DescribePatchPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePatchPropertiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribePatchPropertiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSessionsCommand
+ */
+export const de_DescribeSessionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSessionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeSessionsResponse(data, context);
+  const response: DescribeSessionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisassociateOpsItemRelatedItemCommand
+ */
+export const de_DisassociateOpsItemRelatedItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateOpsItemRelatedItemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateOpsItemRelatedItemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetAutomationExecutionCommand
+ */
+export const de_GetAutomationExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutomationExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAutomationExecutionResult(data, context);
+  const response: GetAutomationExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetCalendarStateCommand
+ */
+export const de_GetCalendarStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCalendarStateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetCalendarStateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetCommandInvocationCommand
+ */
+export const de_GetCommandInvocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCommandInvocationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetCommandInvocationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetConnectionStatusCommand
+ */
+export const de_GetConnectionStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectionStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetConnectionStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDefaultPatchBaselineCommand
+ */
+export const de_GetDefaultPatchBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDefaultPatchBaselineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetDefaultPatchBaselineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand
+ */
+export const de_GetDeployablePatchSnapshotForInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetDeployablePatchSnapshotForInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDocumentCommand
+ */
+export const de_GetDocumentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDocumentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDocumentResult(data, context);
+  const response: GetDocumentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetInventoryCommand
+ */
+export const de_GetInventoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInventoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetInventoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetInventorySchemaCommand
+ */
+export const de_GetInventorySchemaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInventorySchemaCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetInventorySchemaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetMaintenanceWindowCommand
+ */
+export const de_GetMaintenanceWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMaintenanceWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetMaintenanceWindowResult(data, context);
+  const response: GetMaintenanceWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetMaintenanceWindowExecutionCommand
+ */
+export const de_GetMaintenanceWindowExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMaintenanceWindowExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetMaintenanceWindowExecutionResult(data, context);
+  const response: GetMaintenanceWindowExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetMaintenanceWindowExecutionTaskCommand
+ */
+export const de_GetMaintenanceWindowExecutionTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMaintenanceWindowExecutionTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetMaintenanceWindowExecutionTaskResult(data, context);
+  const response: GetMaintenanceWindowExecutionTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand
+ */
+export const de_GetMaintenanceWindowExecutionTaskInvocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetMaintenanceWindowExecutionTaskInvocationResult(data, context);
+  const response: GetMaintenanceWindowExecutionTaskInvocationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetMaintenanceWindowTaskCommand
+ */
+export const de_GetMaintenanceWindowTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMaintenanceWindowTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetMaintenanceWindowTaskResult(data, context);
+  const response: GetMaintenanceWindowTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetOpsItemCommand
+ */
+export const de_GetOpsItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOpsItemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetOpsItemResponse(data, context);
+  const response: GetOpsItemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetOpsMetadataCommand
+ */
+export const de_GetOpsMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOpsMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetOpsMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetOpsSummaryCommand
+ */
+export const de_GetOpsSummaryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOpsSummaryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetOpsSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetParameterCommand
+ */
+export const de_GetParameterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetParameterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetParameterResult(data, context);
+  const response: GetParameterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetParameterHistoryCommand
+ */
+export const de_GetParameterHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetParameterHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetParameterHistoryResult(data, context);
+  const response: GetParameterHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetParametersCommand
+ */
+export const de_GetParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetParametersResult(data, context);
+  const response: GetParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetParametersByPathCommand
+ */
+export const de_GetParametersByPathCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetParametersByPathCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetParametersByPathResult(data, context);
+  const response: GetParametersByPathCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetPatchBaselineCommand
+ */
+export const de_GetPatchBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPatchBaselineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetPatchBaselineResult(data, context);
+  const response: GetPatchBaselineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetPatchBaselineForPatchGroupCommand
+ */
+export const de_GetPatchBaselineForPatchGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPatchBaselineForPatchGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetPatchBaselineForPatchGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetResourcePoliciesCommand
+ */
+export const de_GetResourcePoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePoliciesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetResourcePoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetServiceSettingCommand
+ */
+export const de_GetServiceSettingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetServiceSettingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetServiceSettingResult(data, context);
+  const response: GetServiceSettingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1LabelParameterVersionCommand
+ */
+export const de_LabelParameterVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<LabelParameterVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: LabelParameterVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAssociationsCommand
+ */
+export const de_ListAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAssociationsResult(data, context);
+  const response: ListAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAssociationVersionsCommand
+ */
+export const de_ListAssociationVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssociationVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListAssociationVersionsResult(data, context);
+  const response: ListAssociationVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCommandInvocationsCommand
+ */
+export const de_ListCommandInvocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCommandInvocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListCommandInvocationsResult(data, context);
+  const response: ListCommandInvocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCommandsCommand
+ */
+export const de_ListCommandsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCommandsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListCommandsResult(data, context);
+  const response: ListCommandsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListComplianceItemsCommand
+ */
+export const de_ListComplianceItemsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComplianceItemsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListComplianceItemsResult(data, context);
+  const response: ListComplianceItemsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListComplianceSummariesCommand
+ */
+export const de_ListComplianceSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComplianceSummariesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListComplianceSummariesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDocumentMetadataHistoryCommand
+ */
+export const de_ListDocumentMetadataHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDocumentMetadataHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDocumentMetadataHistoryResponse(data, context);
+  const response: ListDocumentMetadataHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDocumentsCommand
+ */
+export const de_ListDocumentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDocumentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDocumentsResult(data, context);
+  const response: ListDocumentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDocumentVersionsCommand
+ */
+export const de_ListDocumentVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDocumentVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListDocumentVersionsResult(data, context);
+  const response: ListDocumentVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListInventoryEntriesCommand
+ */
+export const de_ListInventoryEntriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInventoryEntriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListInventoryEntriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListOpsItemEventsCommand
+ */
+export const de_ListOpsItemEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOpsItemEventsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListOpsItemEventsResponse(data, context);
+  const response: ListOpsItemEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListOpsItemRelatedItemsCommand
+ */
+export const de_ListOpsItemRelatedItemsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOpsItemRelatedItemsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListOpsItemRelatedItemsResponse(data, context);
+  const response: ListOpsItemRelatedItemsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListOpsMetadataCommand
+ */
+export const de_ListOpsMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOpsMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListOpsMetadataResult(data, context);
+  const response: ListOpsMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListResourceComplianceSummariesCommand
+ */
+export const de_ListResourceComplianceSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceComplianceSummariesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListResourceComplianceSummariesResult(data, context);
+  const response: ListResourceComplianceSummariesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListResourceDataSyncCommand
+ */
+export const de_ListResourceDataSyncCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceDataSyncCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListResourceDataSyncResult(data, context);
+  const response: ListResourceDataSyncCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ModifyDocumentPermissionCommand
+ */
+export const de_ModifyDocumentPermissionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyDocumentPermissionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ModifyDocumentPermissionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutComplianceItemsCommand
+ */
+export const de_PutComplianceItemsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutComplianceItemsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutComplianceItemsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutInventoryCommand
+ */
+export const de_PutInventoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutInventoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutInventoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutParameterCommand
+ */
+export const de_PutParameterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutParameterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutParameterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RegisterDefaultPatchBaselineCommand
+ */
+export const de_RegisterDefaultPatchBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterDefaultPatchBaselineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RegisterDefaultPatchBaselineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand
+ */
+export const de_RegisterPatchBaselineForPatchGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterPatchBaselineForPatchGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RegisterPatchBaselineForPatchGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand
+ */
+export const de_RegisterTargetWithMaintenanceWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterTargetWithMaintenanceWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RegisterTargetWithMaintenanceWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand
+ */
+export const de_RegisterTaskWithMaintenanceWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterTaskWithMaintenanceWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RegisterTaskWithMaintenanceWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RemoveTagsFromResourceCommand
+ */
+export const de_RemoveTagsFromResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTagsFromResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RemoveTagsFromResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ResetServiceSettingCommand
+ */
+export const de_ResetServiceSettingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetServiceSettingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ResetServiceSettingResult(data, context);
+  const response: ResetServiceSettingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ResumeSessionCommand
+ */
+export const de_ResumeSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeSessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ResumeSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SendAutomationSignalCommand
+ */
+export const de_SendAutomationSignalCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendAutomationSignalCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SendAutomationSignalCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SendCommandCommand
+ */
+export const de_SendCommandCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendCommandCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SendCommandResult(data, context);
+  const response: SendCommandCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartAssociationsOnceCommand
+ */
+export const de_StartAssociationsOnceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAssociationsOnceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartAssociationsOnceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartAutomationExecutionCommand
+ */
+export const de_StartAutomationExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAutomationExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartAutomationExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartChangeRequestExecutionCommand
+ */
+export const de_StartChangeRequestExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartChangeRequestExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartChangeRequestExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartSessionCommand
+ */
+export const de_StartSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopAutomationExecutionCommand
+ */
+export const de_StopAutomationExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopAutomationExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopAutomationExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TerminateSessionCommand
+ */
+export const de_TerminateSessionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TerminateSessionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TerminateSessionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UnlabelParameterVersionCommand
+ */
+export const de_UnlabelParameterVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnlabelParameterVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UnlabelParameterVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateAssociationCommand
+ */
+export const de_UpdateAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateAssociationResult(data, context);
+  const response: UpdateAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateAssociationStatusCommand
+ */
+export const de_UpdateAssociationStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAssociationStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateAssociationStatusResult(data, context);
+  const response: UpdateAssociationStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDocumentCommand
+ */
+export const de_UpdateDocumentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDocumentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateDocumentResult(data, context);
+  const response: UpdateDocumentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDocumentDefaultVersionCommand
+ */
+export const de_UpdateDocumentDefaultVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDocumentDefaultVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDocumentDefaultVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDocumentMetadataCommand
+ */
+export const de_UpdateDocumentMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDocumentMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDocumentMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateMaintenanceWindowCommand
+ */
+export const de_UpdateMaintenanceWindowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMaintenanceWindowCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateMaintenanceWindowCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateMaintenanceWindowTargetCommand
+ */
+export const de_UpdateMaintenanceWindowTargetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMaintenanceWindowTargetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateMaintenanceWindowTargetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateMaintenanceWindowTaskCommand
+ */
+export const de_UpdateMaintenanceWindowTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMaintenanceWindowTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateMaintenanceWindowTaskResult(data, context);
+  const response: UpdateMaintenanceWindowTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateManagedInstanceRoleCommand
+ */
+export const de_UpdateManagedInstanceRoleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateManagedInstanceRoleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateManagedInstanceRoleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateOpsItemCommand
+ */
+export const de_UpdateOpsItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateOpsItemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateOpsItemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateOpsMetadataCommand
+ */
+export const de_UpdateOpsMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateOpsMetadataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateOpsMetadataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdatePatchBaselineCommand
+ */
+export const de_UpdatePatchBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePatchBaselineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdatePatchBaselineResult(data, context);
+  const response: UpdatePatchBaselineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateResourceDataSyncCommand
+ */
+export const de_UpdateResourceDataSyncCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourceDataSyncCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateResourceDataSyncCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateServiceSettingCommand
+ */
+export const de_UpdateServiceSettingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServiceSettingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateServiceSettingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2740,52 +5497,6 @@ const de_AddTagsToResourceCommandError = async (
     case "TooManyUpdates":
     case "com.amazonaws.ssm#TooManyUpdates":
       throw await de_TooManyUpdatesRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1AssociateOpsItemRelatedItemCommand
- */
-export const de_AssociateOpsItemRelatedItemCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateOpsItemRelatedItemCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AssociateOpsItemRelatedItemCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: AssociateOpsItemRelatedItemCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1AssociateOpsItemRelatedItemCommandError
- */
-const de_AssociateOpsItemRelatedItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateOpsItemRelatedItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "OpsItemConflictException":
     case "com.amazonaws.ssm#OpsItemConflictException":
       throw await de_OpsItemConflictExceptionRes(parsedOutput, context);
@@ -2801,226 +5512,36 @@ const de_AssociateOpsItemRelatedItemCommandError = async (
     case "OpsItemRelatedItemAlreadyExistsException":
     case "com.amazonaws.ssm#OpsItemRelatedItemAlreadyExistsException":
       throw await de_OpsItemRelatedItemAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CancelCommandCommand
- */
-export const de_CancelCommandCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelCommandCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CancelCommandCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CancelCommandCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CancelCommandCommandError
- */
-const de_CancelCommandCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelCommandCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DuplicateInstanceId":
     case "com.amazonaws.ssm#DuplicateInstanceId":
       throw await de_DuplicateInstanceIdRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidCommandId":
     case "com.amazonaws.ssm#InvalidCommandId":
       throw await de_InvalidCommandIdRes(parsedOutput, context);
     case "InvalidInstanceId":
     case "com.amazonaws.ssm#InvalidInstanceId":
       throw await de_InvalidInstanceIdRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand
- */
-export const de_CancelMaintenanceWindowExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelMaintenanceWindowExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CancelMaintenanceWindowExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CancelMaintenanceWindowExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CancelMaintenanceWindowExecutionCommandError
- */
-const de_CancelMaintenanceWindowExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelMaintenanceWindowExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DoesNotExistException":
     case "com.amazonaws.ssm#DoesNotExistException":
       throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateActivationCommand
- */
-export const de_CreateActivationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateActivationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateActivationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateActivationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateActivationCommandError
- */
-const de_CreateActivationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateActivationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidParameters":
     case "com.amazonaws.ssm#InvalidParameters":
       throw await de_InvalidParametersRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateAssociationCommand
- */
-export const de_CreateAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateAssociationResult(data, context);
-  const response: CreateAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateAssociationCommandError
- */
-const de_CreateAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AssociationAlreadyExists":
     case "com.amazonaws.ssm#AssociationAlreadyExists":
       throw await de_AssociationAlreadyExistsRes(parsedOutput, context);
     case "AssociationLimitExceeded":
     case "com.amazonaws.ssm#AssociationLimitExceeded":
       throw await de_AssociationLimitExceededRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidDocument":
     case "com.amazonaws.ssm#InvalidDocument":
       throw await de_InvalidDocumentRes(parsedOutput, context);
     case "InvalidDocumentVersion":
     case "com.amazonaws.ssm#InvalidDocumentVersion":
       throw await de_InvalidDocumentVersionRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
     case "InvalidOutputLocation":
     case "com.amazonaws.ssm#InvalidOutputLocation":
       throw await de_InvalidOutputLocationRes(parsedOutput, context);
-    case "InvalidParameters":
-    case "com.amazonaws.ssm#InvalidParameters":
-      throw await de_InvalidParametersRes(parsedOutput, context);
     case "InvalidSchedule":
     case "com.amazonaws.ssm#InvalidSchedule":
       throw await de_InvalidScheduleRes(parsedOutput, context);
@@ -3036,137 +5557,12 @@ const de_CreateAssociationCommandError = async (
     case "UnsupportedPlatformType":
     case "com.amazonaws.ssm#UnsupportedPlatformType":
       throw await de_UnsupportedPlatformTypeRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateAssociationBatchCommand
- */
-export const de_CreateAssociationBatchCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAssociationBatchCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateAssociationBatchCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateAssociationBatchResult(data, context);
-  const response: CreateAssociationBatchCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateAssociationBatchCommandError
- */
-const de_CreateAssociationBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAssociationBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AssociationLimitExceeded":
-    case "com.amazonaws.ssm#AssociationLimitExceeded":
-      throw await de_AssociationLimitExceededRes(parsedOutput, context);
-    case "DuplicateInstanceId":
-    case "com.amazonaws.ssm#DuplicateInstanceId":
-      throw await de_DuplicateInstanceIdRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidDocumentVersion":
-    case "com.amazonaws.ssm#InvalidDocumentVersion":
-      throw await de_InvalidDocumentVersionRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
-    case "InvalidOutputLocation":
-    case "com.amazonaws.ssm#InvalidOutputLocation":
-      throw await de_InvalidOutputLocationRes(parsedOutput, context);
-    case "InvalidParameters":
-    case "com.amazonaws.ssm#InvalidParameters":
-      throw await de_InvalidParametersRes(parsedOutput, context);
-    case "InvalidSchedule":
-    case "com.amazonaws.ssm#InvalidSchedule":
-      throw await de_InvalidScheduleRes(parsedOutput, context);
-    case "InvalidTarget":
-    case "com.amazonaws.ssm#InvalidTarget":
-      throw await de_InvalidTargetRes(parsedOutput, context);
-    case "InvalidTargetMaps":
-    case "com.amazonaws.ssm#InvalidTargetMaps":
-      throw await de_InvalidTargetMapsRes(parsedOutput, context);
-    case "UnsupportedPlatformType":
-    case "com.amazonaws.ssm#UnsupportedPlatformType":
-      throw await de_UnsupportedPlatformTypeRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateDocumentCommand
- */
-export const de_CreateDocumentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDocumentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDocumentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDocumentResult(data, context);
-  const response: CreateDocumentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateDocumentCommandError
- */
-const de_CreateDocumentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDocumentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DocumentAlreadyExists":
     case "com.amazonaws.ssm#DocumentAlreadyExists":
       throw await de_DocumentAlreadyExistsRes(parsedOutput, context);
     case "DocumentLimitExceeded":
     case "com.amazonaws.ssm#DocumentLimitExceeded":
       throw await de_DocumentLimitExceededRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidDocumentContent":
     case "com.amazonaws.ssm#InvalidDocumentContent":
       throw await de_InvalidDocumentContentRes(parsedOutput, context);
@@ -3176,162 +5572,18 @@ const de_CreateDocumentCommandError = async (
     case "MaxDocumentSizeExceeded":
     case "com.amazonaws.ssm#MaxDocumentSizeExceeded":
       throw await de_MaxDocumentSizeExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateMaintenanceWindowCommand
- */
-export const de_CreateMaintenanceWindowCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMaintenanceWindowCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateMaintenanceWindowCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateMaintenanceWindowCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateMaintenanceWindowCommandError
- */
-const de_CreateMaintenanceWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMaintenanceWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "IdempotentParameterMismatch":
     case "com.amazonaws.ssm#IdempotentParameterMismatch":
       throw await de_IdempotentParameterMismatchRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ResourceLimitExceededException":
     case "com.amazonaws.ssm#ResourceLimitExceededException":
       throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateOpsItemCommand
- */
-export const de_CreateOpsItemCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOpsItemCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateOpsItemCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateOpsItemCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateOpsItemCommandError
- */
-const de_CreateOpsItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOpsItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "OpsItemAccessDeniedException":
     case "com.amazonaws.ssm#OpsItemAccessDeniedException":
       throw await de_OpsItemAccessDeniedExceptionRes(parsedOutput, context);
     case "OpsItemAlreadyExistsException":
     case "com.amazonaws.ssm#OpsItemAlreadyExistsException":
       throw await de_OpsItemAlreadyExistsExceptionRes(parsedOutput, context);
-    case "OpsItemInvalidParameterException":
-    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
-      throw await de_OpsItemInvalidParameterExceptionRes(parsedOutput, context);
-    case "OpsItemLimitExceededException":
-    case "com.amazonaws.ssm#OpsItemLimitExceededException":
-      throw await de_OpsItemLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateOpsMetadataCommand
- */
-export const de_CreateOpsMetadataCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOpsMetadataCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateOpsMetadataCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateOpsMetadataCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateOpsMetadataCommandError
- */
-const de_CreateOpsMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOpsMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "OpsMetadataAlreadyExistsException":
     case "com.amazonaws.ssm#OpsMetadataAlreadyExistsException":
       throw await de_OpsMetadataAlreadyExistsExceptionRes(parsedOutput, context);
@@ -3344,104 +5596,6 @@ const de_CreateOpsMetadataCommandError = async (
     case "OpsMetadataTooManyUpdatesException":
     case "com.amazonaws.ssm#OpsMetadataTooManyUpdatesException":
       throw await de_OpsMetadataTooManyUpdatesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreatePatchBaselineCommand
- */
-export const de_CreatePatchBaselineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePatchBaselineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreatePatchBaselineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreatePatchBaselineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreatePatchBaselineCommandError
- */
-const de_CreatePatchBaselineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePatchBaselineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatch":
-    case "com.amazonaws.ssm#IdempotentParameterMismatch":
-      throw await de_IdempotentParameterMismatchRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.ssm#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateResourceDataSyncCommand
- */
-export const de_CreateResourceDataSyncCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResourceDataSyncCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateResourceDataSyncCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateResourceDataSyncCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateResourceDataSyncCommandError
- */
-const de_CreateResourceDataSyncCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResourceDataSyncCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ResourceDataSyncAlreadyExistsException":
     case "com.amazonaws.ssm#ResourceDataSyncAlreadyExistsException":
       throw await de_ResourceDataSyncAlreadyExistsExceptionRes(parsedOutput, context);
@@ -3451,220 +5605,21 @@ const de_CreateResourceDataSyncCommandError = async (
     case "ResourceDataSyncInvalidConfigurationException":
     case "com.amazonaws.ssm#ResourceDataSyncInvalidConfigurationException":
       throw await de_ResourceDataSyncInvalidConfigurationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteActivationCommand
- */
-export const de_DeleteActivationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteActivationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteActivationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteActivationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteActivationCommandError
- */
-const de_DeleteActivationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteActivationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidActivation":
     case "com.amazonaws.ssm#InvalidActivation":
       throw await de_InvalidActivationRes(parsedOutput, context);
     case "InvalidActivationId":
     case "com.amazonaws.ssm#InvalidActivationId":
       throw await de_InvalidActivationIdRes(parsedOutput, context);
-    case "TooManyUpdates":
-    case "com.amazonaws.ssm#TooManyUpdates":
-      throw await de_TooManyUpdatesRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteAssociationCommand
- */
-export const de_DeleteAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAssociationCommandError
- */
-const de_DeleteAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AssociationDoesNotExist":
     case "com.amazonaws.ssm#AssociationDoesNotExist":
       throw await de_AssociationDoesNotExistRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
-    case "TooManyUpdates":
-    case "com.amazonaws.ssm#TooManyUpdates":
-      throw await de_TooManyUpdatesRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteDocumentCommand
- */
-export const de_DeleteDocumentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDocumentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDocumentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteDocumentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDocumentCommandError
- */
-const de_DeleteDocumentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDocumentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AssociatedInstances":
     case "com.amazonaws.ssm#AssociatedInstances":
       throw await de_AssociatedInstancesRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
     case "InvalidDocumentOperation":
     case "com.amazonaws.ssm#InvalidDocumentOperation":
       throw await de_InvalidDocumentOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteInventoryCommand
- */
-export const de_DeleteInventoryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInventoryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteInventoryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteInventoryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteInventoryCommandError
- */
-const de_DeleteInventoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInventoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidDeleteInventoryParametersException":
     case "com.amazonaws.ssm#InvalidDeleteInventoryParametersException":
       throw await de_InvalidDeleteInventoryParametersExceptionRes(parsedOutput, context);
@@ -3677,4750 +5632,135 @@ const de_DeleteInventoryCommandError = async (
     case "InvalidTypeNameException":
     case "com.amazonaws.ssm#InvalidTypeNameException":
       throw await de_InvalidTypeNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteMaintenanceWindowCommand
- */
-export const de_DeleteMaintenanceWindowCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMaintenanceWindowCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteMaintenanceWindowCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteMaintenanceWindowCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteMaintenanceWindowCommandError
- */
-const de_DeleteMaintenanceWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMaintenanceWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteOpsItemCommand
- */
-export const de_DeleteOpsItemCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOpsItemCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteOpsItemCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteOpsItemCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteOpsItemCommandError
- */
-const de_DeleteOpsItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOpsItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "OpsItemInvalidParameterException":
-    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
-      throw await de_OpsItemInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteOpsMetadataCommand
- */
-export const de_DeleteOpsMetadataCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOpsMetadataCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteOpsMetadataCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteOpsMetadataCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteOpsMetadataCommandError
- */
-const de_DeleteOpsMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOpsMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "OpsMetadataInvalidArgumentException":
-    case "com.amazonaws.ssm#OpsMetadataInvalidArgumentException":
-      throw await de_OpsMetadataInvalidArgumentExceptionRes(parsedOutput, context);
     case "OpsMetadataNotFoundException":
     case "com.amazonaws.ssm#OpsMetadataNotFoundException":
       throw await de_OpsMetadataNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteParameterCommand
- */
-export const de_DeleteParameterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteParameterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteParameterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteParameterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteParameterCommandError
- */
-const de_DeleteParameterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteParameterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ParameterNotFound":
     case "com.amazonaws.ssm#ParameterNotFound":
       throw await de_ParameterNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteParametersCommand
- */
-export const de_DeleteParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteParametersCommandError
- */
-const de_DeleteParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeletePatchBaselineCommand
- */
-export const de_DeletePatchBaselineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePatchBaselineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeletePatchBaselineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeletePatchBaselineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeletePatchBaselineCommandError
- */
-const de_DeletePatchBaselineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePatchBaselineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.ssm#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteResourceDataSyncCommand
- */
-export const de_DeleteResourceDataSyncCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourceDataSyncCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteResourceDataSyncCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteResourceDataSyncCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteResourceDataSyncCommandError
- */
-const de_DeleteResourceDataSyncCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourceDataSyncCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ResourceDataSyncInvalidConfigurationException":
-    case "com.amazonaws.ssm#ResourceDataSyncInvalidConfigurationException":
-      throw await de_ResourceDataSyncInvalidConfigurationExceptionRes(parsedOutput, context);
     case "ResourceDataSyncNotFoundException":
     case "com.amazonaws.ssm#ResourceDataSyncNotFoundException":
       throw await de_ResourceDataSyncNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteResourcePolicyCommand
- */
-export const de_DeleteResourcePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteResourcePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ResourcePolicyConflictException":
     case "com.amazonaws.ssm#ResourcePolicyConflictException":
       throw await de_ResourcePolicyConflictExceptionRes(parsedOutput, context);
     case "ResourcePolicyInvalidParameterException":
     case "com.amazonaws.ssm#ResourcePolicyInvalidParameterException":
       throw await de_ResourcePolicyInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeregisterManagedInstanceCommand
- */
-export const de_DeregisterManagedInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterManagedInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeregisterManagedInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeregisterManagedInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeregisterManagedInstanceCommandError
- */
-const de_DeregisterManagedInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterManagedInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand
- */
-export const de_DeregisterPatchBaselineForPatchGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeregisterPatchBaselineForPatchGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeregisterPatchBaselineForPatchGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommandError
- */
-const de_DeregisterPatchBaselineForPatchGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidResourceId":
-    case "com.amazonaws.ssm#InvalidResourceId":
-      throw await de_InvalidResourceIdRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommand
- */
-export const de_DeregisterTargetFromMaintenanceWindowCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeregisterTargetFromMaintenanceWindowCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeregisterTargetFromMaintenanceWindowCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeregisterTargetFromMaintenanceWindowCommandError
- */
-const de_DeregisterTargetFromMaintenanceWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterTargetFromMaintenanceWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "TargetInUseException":
     case "com.amazonaws.ssm#TargetInUseException":
       throw await de_TargetInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand
- */
-export const de_DeregisterTaskFromMaintenanceWindowCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterTaskFromMaintenanceWindowCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeregisterTaskFromMaintenanceWindowCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeregisterTaskFromMaintenanceWindowCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommandError
- */
-const de_DeregisterTaskFromMaintenanceWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterTaskFromMaintenanceWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeActivationsCommand
- */
-export const de_DescribeActivationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeActivationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeActivationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeActivationsResult(data, context);
-  const response: DescribeActivationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeActivationsCommandError
- */
-const de_DescribeActivationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeActivationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidFilter":
     case "com.amazonaws.ssm#InvalidFilter":
       throw await de_InvalidFilterRes(parsedOutput, context);
     case "InvalidNextToken":
     case "com.amazonaws.ssm#InvalidNextToken":
       throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeAssociationCommand
- */
-export const de_DescribeAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAssociationResult(data, context);
-  const response: DescribeAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeAssociationCommandError
- */
-const de_DescribeAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AssociationDoesNotExist":
-    case "com.amazonaws.ssm#AssociationDoesNotExist":
-      throw await de_AssociationDoesNotExistRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidAssociationVersion":
     case "com.amazonaws.ssm#InvalidAssociationVersion":
       throw await de_InvalidAssociationVersionRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeAssociationExecutionsCommand
- */
-export const de_DescribeAssociationExecutionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssociationExecutionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAssociationExecutionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAssociationExecutionsResult(data, context);
-  const response: DescribeAssociationExecutionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeAssociationExecutionsCommandError
- */
-const de_DescribeAssociationExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssociationExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AssociationDoesNotExist":
-    case "com.amazonaws.ssm#AssociationDoesNotExist":
-      throw await de_AssociationDoesNotExistRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeAssociationExecutionTargetsCommand
- */
-export const de_DescribeAssociationExecutionTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssociationExecutionTargetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAssociationExecutionTargetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAssociationExecutionTargetsResult(data, context);
-  const response: DescribeAssociationExecutionTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeAssociationExecutionTargetsCommandError
- */
-const de_DescribeAssociationExecutionTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAssociationExecutionTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AssociationDoesNotExist":
-    case "com.amazonaws.ssm#AssociationDoesNotExist":
-      throw await de_AssociationDoesNotExistRes(parsedOutput, context);
     case "AssociationExecutionDoesNotExist":
     case "com.amazonaws.ssm#AssociationExecutionDoesNotExist":
       throw await de_AssociationExecutionDoesNotExistRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeAutomationExecutionsCommand
- */
-export const de_DescribeAutomationExecutionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutomationExecutionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAutomationExecutionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAutomationExecutionsResult(data, context);
-  const response: DescribeAutomationExecutionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeAutomationExecutionsCommandError
- */
-const de_DescribeAutomationExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutomationExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidFilterKey":
     case "com.amazonaws.ssm#InvalidFilterKey":
       throw await de_InvalidFilterKeyRes(parsedOutput, context);
     case "InvalidFilterValue":
     case "com.amazonaws.ssm#InvalidFilterValue":
       throw await de_InvalidFilterValueRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeAutomationStepExecutionsCommand
- */
-export const de_DescribeAutomationStepExecutionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutomationStepExecutionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAutomationStepExecutionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAutomationStepExecutionsResult(data, context);
-  const response: DescribeAutomationStepExecutionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeAutomationStepExecutionsCommandError
- */
-const de_DescribeAutomationStepExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAutomationStepExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AutomationExecutionNotFoundException":
     case "com.amazonaws.ssm#AutomationExecutionNotFoundException":
       throw await de_AutomationExecutionNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidFilterKey":
-    case "com.amazonaws.ssm#InvalidFilterKey":
-      throw await de_InvalidFilterKeyRes(parsedOutput, context);
-    case "InvalidFilterValue":
-    case "com.amazonaws.ssm#InvalidFilterValue":
-      throw await de_InvalidFilterValueRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeAvailablePatchesCommand
- */
-export const de_DescribeAvailablePatchesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAvailablePatchesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAvailablePatchesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAvailablePatchesResult(data, context);
-  const response: DescribeAvailablePatchesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeAvailablePatchesCommandError
- */
-const de_DescribeAvailablePatchesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAvailablePatchesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeDocumentCommand
- */
-export const de_DescribeDocumentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDocumentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDocumentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDocumentResult(data, context);
-  const response: DescribeDocumentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeDocumentCommandError
- */
-const de_DescribeDocumentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDocumentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidDocumentVersion":
-    case "com.amazonaws.ssm#InvalidDocumentVersion":
-      throw await de_InvalidDocumentVersionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeDocumentPermissionCommand
- */
-export const de_DescribeDocumentPermissionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDocumentPermissionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDocumentPermissionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeDocumentPermissionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeDocumentPermissionCommandError
- */
-const de_DescribeDocumentPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDocumentPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidDocumentOperation":
-    case "com.amazonaws.ssm#InvalidDocumentOperation":
-      throw await de_InvalidDocumentOperationRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
     case "InvalidPermissionType":
     case "com.amazonaws.ssm#InvalidPermissionType":
       throw await de_InvalidPermissionTypeRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand
- */
-export const de_DescribeEffectiveInstanceAssociationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEffectiveInstanceAssociationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEffectiveInstanceAssociationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeEffectiveInstanceAssociationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommandError
- */
-const de_DescribeEffectiveInstanceAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEffectiveInstanceAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommand
- */
-export const de_DescribeEffectivePatchesForPatchBaselineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEffectivePatchesForPatchBaselineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeEffectivePatchesForPatchBaselineResult(data, context);
-  const response: DescribeEffectivePatchesForPatchBaselineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeEffectivePatchesForPatchBaselineCommandError
- */
-const de_DescribeEffectivePatchesForPatchBaselineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEffectivePatchesForPatchBaselineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidResourceId":
-    case "com.amazonaws.ssm#InvalidResourceId":
-      throw await de_InvalidResourceIdRes(parsedOutput, context);
     case "UnsupportedOperatingSystem":
     case "com.amazonaws.ssm#UnsupportedOperatingSystem":
       throw await de_UnsupportedOperatingSystemRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeInstanceAssociationsStatusCommand
- */
-export const de_DescribeInstanceAssociationsStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceAssociationsStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeInstanceAssociationsStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeInstanceAssociationsStatusResult(data, context);
-  const response: DescribeInstanceAssociationsStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeInstanceAssociationsStatusCommandError
- */
-const de_DescribeInstanceAssociationsStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceAssociationsStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeInstanceInformationCommand
- */
-export const de_DescribeInstanceInformationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceInformationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeInstanceInformationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeInstanceInformationResult(data, context);
-  const response: DescribeInstanceInformationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeInstanceInformationCommandError
- */
-const de_DescribeInstanceInformationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceInformationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidFilterKey":
-    case "com.amazonaws.ssm#InvalidFilterKey":
-      throw await de_InvalidFilterKeyRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
     case "InvalidInstanceInformationFilterValue":
     case "com.amazonaws.ssm#InvalidInstanceInformationFilterValue":
       throw await de_InvalidInstanceInformationFilterValueRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeInstancePatchesCommand
- */
-export const de_DescribeInstancePatchesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstancePatchesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeInstancePatchesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeInstancePatchesResult(data, context);
-  const response: DescribeInstancePatchesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeInstancePatchesCommandError
- */
-const de_DescribeInstancePatchesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstancePatchesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidFilter":
-    case "com.amazonaws.ssm#InvalidFilter":
-      throw await de_InvalidFilterRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeInstancePatchStatesCommand
- */
-export const de_DescribeInstancePatchStatesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstancePatchStatesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeInstancePatchStatesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeInstancePatchStatesResult(data, context);
-  const response: DescribeInstancePatchStatesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeInstancePatchStatesCommandError
- */
-const de_DescribeInstancePatchStatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstancePatchStatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand
- */
-export const de_DescribeInstancePatchStatesForPatchGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeInstancePatchStatesForPatchGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeInstancePatchStatesForPatchGroupResult(data, context);
-  const response: DescribeInstancePatchStatesForPatchGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommandError
- */
-const de_DescribeInstancePatchStatesForPatchGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstancePatchStatesForPatchGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidFilter":
-    case "com.amazonaws.ssm#InvalidFilter":
-      throw await de_InvalidFilterRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeInventoryDeletionsCommand
- */
-export const de_DescribeInventoryDeletionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInventoryDeletionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeInventoryDeletionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeInventoryDeletionsResult(data, context);
-  const response: DescribeInventoryDeletionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeInventoryDeletionsCommandError
- */
-const de_DescribeInventoryDeletionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInventoryDeletionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidDeletionIdException":
     case "com.amazonaws.ssm#InvalidDeletionIdException":
       throw await de_InvalidDeletionIdExceptionRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommand
- */
-export const de_DescribeMaintenanceWindowExecutionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeMaintenanceWindowExecutionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeMaintenanceWindowExecutionsResult(data, context);
-  const response: DescribeMaintenanceWindowExecutionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowExecutionsCommandError
- */
-const de_DescribeMaintenanceWindowExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsCommand
- */
-export const de_DescribeMaintenanceWindowExecutionTaskInvocationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeMaintenanceWindowExecutionTaskInvocationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeMaintenanceWindowExecutionTaskInvocationsResult(data, context);
-  const response: DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocationsCommandError
- */
-const de_DescribeMaintenanceWindowExecutionTaskInvocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowExecutionTaskInvocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommand
- */
-export const de_DescribeMaintenanceWindowExecutionTasksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeMaintenanceWindowExecutionTasksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeMaintenanceWindowExecutionTasksResult(data, context);
-  const response: DescribeMaintenanceWindowExecutionTasksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowExecutionTasksCommandError
- */
-const de_DescribeMaintenanceWindowExecutionTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowExecutionTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowsCommand
- */
-export const de_DescribeMaintenanceWindowsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeMaintenanceWindowsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeMaintenanceWindowsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowsCommandError
- */
-const de_DescribeMaintenanceWindowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommand
- */
-export const de_DescribeMaintenanceWindowScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowScheduleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeMaintenanceWindowScheduleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeMaintenanceWindowScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommandError
- */
-const de_DescribeMaintenanceWindowScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand
- */
-export const de_DescribeMaintenanceWindowsForTargetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowsForTargetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeMaintenanceWindowsForTargetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeMaintenanceWindowsForTargetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommandError
- */
-const de_DescribeMaintenanceWindowsForTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowsForTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowTargetsCommand
- */
-export const de_DescribeMaintenanceWindowTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowTargetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeMaintenanceWindowTargetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeMaintenanceWindowTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowTargetsCommandError
- */
-const de_DescribeMaintenanceWindowTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowTasksCommand
- */
-export const de_DescribeMaintenanceWindowTasksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowTasksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeMaintenanceWindowTasksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeMaintenanceWindowTasksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeMaintenanceWindowTasksCommandError
- */
-const de_DescribeMaintenanceWindowTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMaintenanceWindowTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeOpsItemsCommand
- */
-export const de_DescribeOpsItemsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOpsItemsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeOpsItemsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeOpsItemsResponse(data, context);
-  const response: DescribeOpsItemsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeOpsItemsCommandError
- */
-const de_DescribeOpsItemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOpsItemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeParametersCommand
- */
-export const de_DescribeParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeParametersResult(data, context);
-  const response: DescribeParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeParametersCommandError
- */
-const de_DescribeParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidFilterKey":
-    case "com.amazonaws.ssm#InvalidFilterKey":
-      throw await de_InvalidFilterKeyRes(parsedOutput, context);
     case "InvalidFilterOption":
     case "com.amazonaws.ssm#InvalidFilterOption":
       throw await de_InvalidFilterOptionRes(parsedOutput, context);
-    case "InvalidFilterValue":
-    case "com.amazonaws.ssm#InvalidFilterValue":
-      throw await de_InvalidFilterValueRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribePatchBaselinesCommand
- */
-export const de_DescribePatchBaselinesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePatchBaselinesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribePatchBaselinesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribePatchBaselinesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribePatchBaselinesCommandError
- */
-const de_DescribePatchBaselinesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePatchBaselinesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribePatchGroupsCommand
- */
-export const de_DescribePatchGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePatchGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribePatchGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribePatchGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribePatchGroupsCommandError
- */
-const de_DescribePatchGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePatchGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribePatchGroupStateCommand
- */
-export const de_DescribePatchGroupStateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePatchGroupStateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribePatchGroupStateCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribePatchGroupStateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribePatchGroupStateCommandError
- */
-const de_DescribePatchGroupStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePatchGroupStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribePatchPropertiesCommand
- */
-export const de_DescribePatchPropertiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePatchPropertiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribePatchPropertiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribePatchPropertiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribePatchPropertiesCommandError
- */
-const de_DescribePatchPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePatchPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeSessionsCommand
- */
-export const de_DescribeSessionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSessionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSessionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeSessionsResponse(data, context);
-  const response: DescribeSessionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeSessionsCommandError
- */
-const de_DescribeSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidFilterKey":
-    case "com.amazonaws.ssm#InvalidFilterKey":
-      throw await de_InvalidFilterKeyRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DisassociateOpsItemRelatedItemCommand
- */
-export const de_DisassociateOpsItemRelatedItemCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateOpsItemRelatedItemCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisassociateOpsItemRelatedItemCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DisassociateOpsItemRelatedItemCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DisassociateOpsItemRelatedItemCommandError
- */
-const de_DisassociateOpsItemRelatedItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateOpsItemRelatedItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "OpsItemConflictException":
-    case "com.amazonaws.ssm#OpsItemConflictException":
-      throw await de_OpsItemConflictExceptionRes(parsedOutput, context);
-    case "OpsItemInvalidParameterException":
-    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
-      throw await de_OpsItemInvalidParameterExceptionRes(parsedOutput, context);
-    case "OpsItemNotFoundException":
-    case "com.amazonaws.ssm#OpsItemNotFoundException":
-      throw await de_OpsItemNotFoundExceptionRes(parsedOutput, context);
     case "OpsItemRelatedItemAssociationNotFoundException":
     case "com.amazonaws.ssm#OpsItemRelatedItemAssociationNotFoundException":
       throw await de_OpsItemRelatedItemAssociationNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetAutomationExecutionCommand
- */
-export const de_GetAutomationExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAutomationExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetAutomationExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetAutomationExecutionResult(data, context);
-  const response: GetAutomationExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetAutomationExecutionCommandError
- */
-const de_GetAutomationExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAutomationExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AutomationExecutionNotFoundException":
-    case "com.amazonaws.ssm#AutomationExecutionNotFoundException":
-      throw await de_AutomationExecutionNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetCalendarStateCommand
- */
-export const de_GetCalendarStateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCalendarStateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetCalendarStateCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetCalendarStateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetCalendarStateCommandError
- */
-const de_GetCalendarStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCalendarStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
     case "InvalidDocumentType":
     case "com.amazonaws.ssm#InvalidDocumentType":
       throw await de_InvalidDocumentTypeRes(parsedOutput, context);
     case "UnsupportedCalendarException":
     case "com.amazonaws.ssm#UnsupportedCalendarException":
       throw await de_UnsupportedCalendarExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetCommandInvocationCommand
- */
-export const de_GetCommandInvocationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCommandInvocationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetCommandInvocationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetCommandInvocationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetCommandInvocationCommandError
- */
-const de_GetCommandInvocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCommandInvocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidCommandId":
-    case "com.amazonaws.ssm#InvalidCommandId":
-      throw await de_InvalidCommandIdRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
     case "InvalidPluginName":
     case "com.amazonaws.ssm#InvalidPluginName":
       throw await de_InvalidPluginNameRes(parsedOutput, context);
     case "InvocationDoesNotExist":
     case "com.amazonaws.ssm#InvocationDoesNotExist":
       throw await de_InvocationDoesNotExistRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetConnectionStatusCommand
- */
-export const de_GetConnectionStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConnectionStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetConnectionStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetConnectionStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetConnectionStatusCommandError
- */
-const de_GetConnectionStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConnectionStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetDefaultPatchBaselineCommand
- */
-export const de_GetDefaultPatchBaselineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDefaultPatchBaselineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetDefaultPatchBaselineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetDefaultPatchBaselineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetDefaultPatchBaselineCommandError
- */
-const de_GetDefaultPatchBaselineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDefaultPatchBaselineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand
- */
-export const de_GetDeployablePatchSnapshotForInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetDeployablePatchSnapshotForInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetDeployablePatchSnapshotForInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommandError
- */
-const de_GetDeployablePatchSnapshotForInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeployablePatchSnapshotForInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "UnsupportedFeatureRequiredException":
     case "com.amazonaws.ssm#UnsupportedFeatureRequiredException":
       throw await de_UnsupportedFeatureRequiredExceptionRes(parsedOutput, context);
-    case "UnsupportedOperatingSystem":
-    case "com.amazonaws.ssm#UnsupportedOperatingSystem":
-      throw await de_UnsupportedOperatingSystemRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetDocumentCommand
- */
-export const de_GetDocumentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetDocumentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetDocumentResult(data, context);
-  const response: GetDocumentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetDocumentCommandError
- */
-const de_GetDocumentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidDocumentVersion":
-    case "com.amazonaws.ssm#InvalidDocumentVersion":
-      throw await de_InvalidDocumentVersionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetInventoryCommand
- */
-export const de_GetInventoryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInventoryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetInventoryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetInventoryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetInventoryCommandError
- */
-const de_GetInventoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInventoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidAggregatorException":
     case "com.amazonaws.ssm#InvalidAggregatorException":
       throw await de_InvalidAggregatorExceptionRes(parsedOutput, context);
-    case "InvalidFilter":
-    case "com.amazonaws.ssm#InvalidFilter":
-      throw await de_InvalidFilterRes(parsedOutput, context);
     case "InvalidInventoryGroupException":
     case "com.amazonaws.ssm#InvalidInventoryGroupException":
       throw await de_InvalidInventoryGroupExceptionRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
     case "InvalidResultAttributeException":
     case "com.amazonaws.ssm#InvalidResultAttributeException":
       throw await de_InvalidResultAttributeExceptionRes(parsedOutput, context);
-    case "InvalidTypeNameException":
-    case "com.amazonaws.ssm#InvalidTypeNameException":
-      throw await de_InvalidTypeNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetInventorySchemaCommand
- */
-export const de_GetInventorySchemaCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInventorySchemaCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetInventorySchemaCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetInventorySchemaCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetInventorySchemaCommandError
- */
-const de_GetInventorySchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInventorySchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "InvalidTypeNameException":
-    case "com.amazonaws.ssm#InvalidTypeNameException":
-      throw await de_InvalidTypeNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetMaintenanceWindowCommand
- */
-export const de_GetMaintenanceWindowCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMaintenanceWindowCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetMaintenanceWindowCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetMaintenanceWindowResult(data, context);
-  const response: GetMaintenanceWindowCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetMaintenanceWindowCommandError
- */
-const de_GetMaintenanceWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMaintenanceWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetMaintenanceWindowExecutionCommand
- */
-export const de_GetMaintenanceWindowExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMaintenanceWindowExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetMaintenanceWindowExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetMaintenanceWindowExecutionResult(data, context);
-  const response: GetMaintenanceWindowExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetMaintenanceWindowExecutionCommandError
- */
-const de_GetMaintenanceWindowExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMaintenanceWindowExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetMaintenanceWindowExecutionTaskCommand
- */
-export const de_GetMaintenanceWindowExecutionTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMaintenanceWindowExecutionTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetMaintenanceWindowExecutionTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetMaintenanceWindowExecutionTaskResult(data, context);
-  const response: GetMaintenanceWindowExecutionTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetMaintenanceWindowExecutionTaskCommandError
- */
-const de_GetMaintenanceWindowExecutionTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMaintenanceWindowExecutionTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommand
- */
-export const de_GetMaintenanceWindowExecutionTaskInvocationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetMaintenanceWindowExecutionTaskInvocationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetMaintenanceWindowExecutionTaskInvocationResult(data, context);
-  const response: GetMaintenanceWindowExecutionTaskInvocationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationCommandError
- */
-const de_GetMaintenanceWindowExecutionTaskInvocationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMaintenanceWindowExecutionTaskInvocationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetMaintenanceWindowTaskCommand
- */
-export const de_GetMaintenanceWindowTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMaintenanceWindowTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetMaintenanceWindowTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetMaintenanceWindowTaskResult(data, context);
-  const response: GetMaintenanceWindowTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetMaintenanceWindowTaskCommandError
- */
-const de_GetMaintenanceWindowTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMaintenanceWindowTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetOpsItemCommand
- */
-export const de_GetOpsItemCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOpsItemCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetOpsItemCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetOpsItemResponse(data, context);
-  const response: GetOpsItemCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetOpsItemCommandError
- */
-const de_GetOpsItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOpsItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "OpsItemAccessDeniedException":
-    case "com.amazonaws.ssm#OpsItemAccessDeniedException":
-      throw await de_OpsItemAccessDeniedExceptionRes(parsedOutput, context);
-    case "OpsItemNotFoundException":
-    case "com.amazonaws.ssm#OpsItemNotFoundException":
-      throw await de_OpsItemNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetOpsMetadataCommand
- */
-export const de_GetOpsMetadataCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOpsMetadataCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetOpsMetadataCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetOpsMetadataCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetOpsMetadataCommandError
- */
-const de_GetOpsMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOpsMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "OpsMetadataInvalidArgumentException":
-    case "com.amazonaws.ssm#OpsMetadataInvalidArgumentException":
-      throw await de_OpsMetadataInvalidArgumentExceptionRes(parsedOutput, context);
-    case "OpsMetadataNotFoundException":
-    case "com.amazonaws.ssm#OpsMetadataNotFoundException":
-      throw await de_OpsMetadataNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetOpsSummaryCommand
- */
-export const de_GetOpsSummaryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOpsSummaryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetOpsSummaryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetOpsSummaryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetOpsSummaryCommandError
- */
-const de_GetOpsSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOpsSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidAggregatorException":
-    case "com.amazonaws.ssm#InvalidAggregatorException":
-      throw await de_InvalidAggregatorExceptionRes(parsedOutput, context);
-    case "InvalidFilter":
-    case "com.amazonaws.ssm#InvalidFilter":
-      throw await de_InvalidFilterRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "InvalidTypeNameException":
-    case "com.amazonaws.ssm#InvalidTypeNameException":
-      throw await de_InvalidTypeNameExceptionRes(parsedOutput, context);
-    case "ResourceDataSyncNotFoundException":
-    case "com.amazonaws.ssm#ResourceDataSyncNotFoundException":
-      throw await de_ResourceDataSyncNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetParameterCommand
- */
-export const de_GetParameterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetParameterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetParameterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetParameterResult(data, context);
-  const response: GetParameterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetParameterCommandError
- */
-const de_GetParameterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetParameterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidKeyId":
     case "com.amazonaws.ssm#InvalidKeyId":
       throw await de_InvalidKeyIdRes(parsedOutput, context);
-    case "ParameterNotFound":
-    case "com.amazonaws.ssm#ParameterNotFound":
-      throw await de_ParameterNotFoundRes(parsedOutput, context);
     case "ParameterVersionNotFound":
     case "com.amazonaws.ssm#ParameterVersionNotFound":
       throw await de_ParameterVersionNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetParameterHistoryCommand
- */
-export const de_GetParameterHistoryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetParameterHistoryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetParameterHistoryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetParameterHistoryResult(data, context);
-  const response: GetParameterHistoryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetParameterHistoryCommandError
- */
-const de_GetParameterHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetParameterHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidKeyId":
-    case "com.amazonaws.ssm#InvalidKeyId":
-      throw await de_InvalidKeyIdRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ParameterNotFound":
-    case "com.amazonaws.ssm#ParameterNotFound":
-      throw await de_ParameterNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetParametersCommand
- */
-export const de_GetParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetParametersResult(data, context);
-  const response: GetParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetParametersCommandError
- */
-const de_GetParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidKeyId":
-    case "com.amazonaws.ssm#InvalidKeyId":
-      throw await de_InvalidKeyIdRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetParametersByPathCommand
- */
-export const de_GetParametersByPathCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetParametersByPathCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetParametersByPathCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetParametersByPathResult(data, context);
-  const response: GetParametersByPathCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetParametersByPathCommandError
- */
-const de_GetParametersByPathCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetParametersByPathCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidFilterKey":
-    case "com.amazonaws.ssm#InvalidFilterKey":
-      throw await de_InvalidFilterKeyRes(parsedOutput, context);
-    case "InvalidFilterOption":
-    case "com.amazonaws.ssm#InvalidFilterOption":
-      throw await de_InvalidFilterOptionRes(parsedOutput, context);
-    case "InvalidFilterValue":
-    case "com.amazonaws.ssm#InvalidFilterValue":
-      throw await de_InvalidFilterValueRes(parsedOutput, context);
-    case "InvalidKeyId":
-    case "com.amazonaws.ssm#InvalidKeyId":
-      throw await de_InvalidKeyIdRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetPatchBaselineCommand
- */
-export const de_GetPatchBaselineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPatchBaselineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetPatchBaselineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetPatchBaselineResult(data, context);
-  const response: GetPatchBaselineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetPatchBaselineCommandError
- */
-const de_GetPatchBaselineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPatchBaselineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidResourceId":
-    case "com.amazonaws.ssm#InvalidResourceId":
-      throw await de_InvalidResourceIdRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetPatchBaselineForPatchGroupCommand
- */
-export const de_GetPatchBaselineForPatchGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPatchBaselineForPatchGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetPatchBaselineForPatchGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetPatchBaselineForPatchGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetPatchBaselineForPatchGroupCommandError
- */
-const de_GetPatchBaselineForPatchGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPatchBaselineForPatchGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetResourcePoliciesCommand
- */
-export const de_GetResourcePoliciesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePoliciesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetResourcePoliciesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetResourcePoliciesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetResourcePoliciesCommandError
- */
-const de_GetResourcePoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ResourcePolicyInvalidParameterException":
-    case "com.amazonaws.ssm#ResourcePolicyInvalidParameterException":
-      throw await de_ResourcePolicyInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetServiceSettingCommand
- */
-export const de_GetServiceSettingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceSettingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetServiceSettingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetServiceSettingResult(data, context);
-  const response: GetServiceSettingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetServiceSettingCommandError
- */
-const de_GetServiceSettingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceSettingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ServiceSettingNotFound":
     case "com.amazonaws.ssm#ServiceSettingNotFound":
       throw await de_ServiceSettingNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1LabelParameterVersionCommand
- */
-export const de_LabelParameterVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<LabelParameterVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_LabelParameterVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: LabelParameterVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1LabelParameterVersionCommandError
- */
-const de_LabelParameterVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<LabelParameterVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ParameterNotFound":
-    case "com.amazonaws.ssm#ParameterNotFound":
-      throw await de_ParameterNotFoundRes(parsedOutput, context);
     case "ParameterVersionLabelLimitExceeded":
     case "com.amazonaws.ssm#ParameterVersionLabelLimitExceeded":
       throw await de_ParameterVersionLabelLimitExceededRes(parsedOutput, context);
-    case "ParameterVersionNotFound":
-    case "com.amazonaws.ssm#ParameterVersionNotFound":
-      throw await de_ParameterVersionNotFoundRes(parsedOutput, context);
-    case "TooManyUpdates":
-    case "com.amazonaws.ssm#TooManyUpdates":
-      throw await de_TooManyUpdatesRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAssociationsCommand
- */
-export const de_ListAssociationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssociationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAssociationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListAssociationsResult(data, context);
-  const response: ListAssociationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAssociationsCommandError
- */
-const de_ListAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListAssociationVersionsCommand
- */
-export const de_ListAssociationVersionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssociationVersionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListAssociationVersionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListAssociationVersionsResult(data, context);
-  const response: ListAssociationVersionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListAssociationVersionsCommandError
- */
-const de_ListAssociationVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssociationVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AssociationDoesNotExist":
-    case "com.amazonaws.ssm#AssociationDoesNotExist":
-      throw await de_AssociationDoesNotExistRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListCommandInvocationsCommand
- */
-export const de_ListCommandInvocationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCommandInvocationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListCommandInvocationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListCommandInvocationsResult(data, context);
-  const response: ListCommandInvocationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListCommandInvocationsCommandError
- */
-const de_ListCommandInvocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCommandInvocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidCommandId":
-    case "com.amazonaws.ssm#InvalidCommandId":
-      throw await de_InvalidCommandIdRes(parsedOutput, context);
-    case "InvalidFilterKey":
-    case "com.amazonaws.ssm#InvalidFilterKey":
-      throw await de_InvalidFilterKeyRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListCommandsCommand
- */
-export const de_ListCommandsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCommandsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListCommandsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListCommandsResult(data, context);
-  const response: ListCommandsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListCommandsCommandError
- */
-const de_ListCommandsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCommandsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidCommandId":
-    case "com.amazonaws.ssm#InvalidCommandId":
-      throw await de_InvalidCommandIdRes(parsedOutput, context);
-    case "InvalidFilterKey":
-    case "com.amazonaws.ssm#InvalidFilterKey":
-      throw await de_InvalidFilterKeyRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListComplianceItemsCommand
- */
-export const de_ListComplianceItemsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListComplianceItemsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListComplianceItemsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListComplianceItemsResult(data, context);
-  const response: ListComplianceItemsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListComplianceItemsCommandError
- */
-const de_ListComplianceItemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListComplianceItemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidFilter":
-    case "com.amazonaws.ssm#InvalidFilter":
-      throw await de_InvalidFilterRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "InvalidResourceId":
-    case "com.amazonaws.ssm#InvalidResourceId":
-      throw await de_InvalidResourceIdRes(parsedOutput, context);
-    case "InvalidResourceType":
-    case "com.amazonaws.ssm#InvalidResourceType":
-      throw await de_InvalidResourceTypeRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListComplianceSummariesCommand
- */
-export const de_ListComplianceSummariesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListComplianceSummariesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListComplianceSummariesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListComplianceSummariesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListComplianceSummariesCommandError
- */
-const de_ListComplianceSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListComplianceSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidFilter":
-    case "com.amazonaws.ssm#InvalidFilter":
-      throw await de_InvalidFilterRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDocumentMetadataHistoryCommand
- */
-export const de_ListDocumentMetadataHistoryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentMetadataHistoryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDocumentMetadataHistoryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDocumentMetadataHistoryResponse(data, context);
-  const response: ListDocumentMetadataHistoryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDocumentMetadataHistoryCommandError
- */
-const de_ListDocumentMetadataHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentMetadataHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidDocumentVersion":
-    case "com.amazonaws.ssm#InvalidDocumentVersion":
-      throw await de_InvalidDocumentVersionRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDocumentsCommand
- */
-export const de_ListDocumentsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDocumentsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDocumentsResult(data, context);
-  const response: ListDocumentsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDocumentsCommandError
- */
-const de_ListDocumentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidFilterKey":
-    case "com.amazonaws.ssm#InvalidFilterKey":
-      throw await de_InvalidFilterKeyRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDocumentVersionsCommand
- */
-export const de_ListDocumentVersionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentVersionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDocumentVersionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListDocumentVersionsResult(data, context);
-  const response: ListDocumentVersionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDocumentVersionsCommandError
- */
-const de_ListDocumentVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDocumentVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListInventoryEntriesCommand
- */
-export const de_ListInventoryEntriesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInventoryEntriesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListInventoryEntriesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListInventoryEntriesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListInventoryEntriesCommandError
- */
-const de_ListInventoryEntriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInventoryEntriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidFilter":
-    case "com.amazonaws.ssm#InvalidFilter":
-      throw await de_InvalidFilterRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "InvalidTypeNameException":
-    case "com.amazonaws.ssm#InvalidTypeNameException":
-      throw await de_InvalidTypeNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListOpsItemEventsCommand
- */
-export const de_ListOpsItemEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOpsItemEventsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListOpsItemEventsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListOpsItemEventsResponse(data, context);
-  const response: ListOpsItemEventsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListOpsItemEventsCommandError
- */
-const de_ListOpsItemEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOpsItemEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "OpsItemInvalidParameterException":
-    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
-      throw await de_OpsItemInvalidParameterExceptionRes(parsedOutput, context);
-    case "OpsItemLimitExceededException":
-    case "com.amazonaws.ssm#OpsItemLimitExceededException":
-      throw await de_OpsItemLimitExceededExceptionRes(parsedOutput, context);
-    case "OpsItemNotFoundException":
-    case "com.amazonaws.ssm#OpsItemNotFoundException":
-      throw await de_OpsItemNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListOpsItemRelatedItemsCommand
- */
-export const de_ListOpsItemRelatedItemsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOpsItemRelatedItemsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListOpsItemRelatedItemsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListOpsItemRelatedItemsResponse(data, context);
-  const response: ListOpsItemRelatedItemsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListOpsItemRelatedItemsCommandError
- */
-const de_ListOpsItemRelatedItemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOpsItemRelatedItemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "OpsItemInvalidParameterException":
-    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
-      throw await de_OpsItemInvalidParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListOpsMetadataCommand
- */
-export const de_ListOpsMetadataCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOpsMetadataCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListOpsMetadataCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListOpsMetadataResult(data, context);
-  const response: ListOpsMetadataCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListOpsMetadataCommandError
- */
-const de_ListOpsMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOpsMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "OpsMetadataInvalidArgumentException":
-    case "com.amazonaws.ssm#OpsMetadataInvalidArgumentException":
-      throw await de_OpsMetadataInvalidArgumentExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListResourceComplianceSummariesCommand
- */
-export const de_ListResourceComplianceSummariesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceComplianceSummariesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListResourceComplianceSummariesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListResourceComplianceSummariesResult(data, context);
-  const response: ListResourceComplianceSummariesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListResourceComplianceSummariesCommandError
- */
-const de_ListResourceComplianceSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceComplianceSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidFilter":
-    case "com.amazonaws.ssm#InvalidFilter":
-      throw await de_InvalidFilterRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListResourceDataSyncCommand
- */
-export const de_ListResourceDataSyncCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceDataSyncCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListResourceDataSyncCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListResourceDataSyncResult(data, context);
-  const response: ListResourceDataSyncCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListResourceDataSyncCommandError
- */
-const de_ListResourceDataSyncCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceDataSyncCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.ssm#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "ResourceDataSyncInvalidConfigurationException":
-    case "com.amazonaws.ssm#ResourceDataSyncInvalidConfigurationException":
-      throw await de_ResourceDataSyncInvalidConfigurationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidResourceId":
-    case "com.amazonaws.ssm#InvalidResourceId":
-      throw await de_InvalidResourceIdRes(parsedOutput, context);
-    case "InvalidResourceType":
-    case "com.amazonaws.ssm#InvalidResourceType":
-      throw await de_InvalidResourceTypeRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ModifyDocumentPermissionCommand
- */
-export const de_ModifyDocumentPermissionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDocumentPermissionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyDocumentPermissionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ModifyDocumentPermissionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ModifyDocumentPermissionCommandError
- */
-const de_ModifyDocumentPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDocumentPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DocumentLimitExceeded":
-    case "com.amazonaws.ssm#DocumentLimitExceeded":
-      throw await de_DocumentLimitExceededRes(parsedOutput, context);
     case "DocumentPermissionLimit":
     case "com.amazonaws.ssm#DocumentPermissionLimit":
       throw await de_DocumentPermissionLimitRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidPermissionType":
-    case "com.amazonaws.ssm#InvalidPermissionType":
-      throw await de_InvalidPermissionTypeRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutComplianceItemsCommand
- */
-export const de_PutComplianceItemsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutComplianceItemsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutComplianceItemsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutComplianceItemsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutComplianceItemsCommandError
- */
-const de_PutComplianceItemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutComplianceItemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ComplianceTypeCountLimitExceededException":
     case "com.amazonaws.ssm#ComplianceTypeCountLimitExceededException":
       throw await de_ComplianceTypeCountLimitExceededExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidItemContentException":
     case "com.amazonaws.ssm#InvalidItemContentException":
       throw await de_InvalidItemContentExceptionRes(parsedOutput, context);
-    case "InvalidResourceId":
-    case "com.amazonaws.ssm#InvalidResourceId":
-      throw await de_InvalidResourceIdRes(parsedOutput, context);
-    case "InvalidResourceType":
-    case "com.amazonaws.ssm#InvalidResourceType":
-      throw await de_InvalidResourceTypeRes(parsedOutput, context);
     case "ItemSizeLimitExceededException":
     case "com.amazonaws.ssm#ItemSizeLimitExceededException":
       throw await de_ItemSizeLimitExceededExceptionRes(parsedOutput, context);
     case "TotalSizeLimitExceededException":
     case "com.amazonaws.ssm#TotalSizeLimitExceededException":
       throw await de_TotalSizeLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutInventoryCommand
- */
-export const de_PutInventoryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutInventoryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutInventoryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutInventoryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutInventoryCommandError
- */
-const de_PutInventoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutInventoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "CustomSchemaCountLimitExceededException":
     case "com.amazonaws.ssm#CustomSchemaCountLimitExceededException":
       throw await de_CustomSchemaCountLimitExceededExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
     case "InvalidInventoryItemContextException":
     case "com.amazonaws.ssm#InvalidInventoryItemContextException":
       throw await de_InvalidInventoryItemContextExceptionRes(parsedOutput, context);
-    case "InvalidItemContentException":
-    case "com.amazonaws.ssm#InvalidItemContentException":
-      throw await de_InvalidItemContentExceptionRes(parsedOutput, context);
-    case "InvalidTypeNameException":
-    case "com.amazonaws.ssm#InvalidTypeNameException":
-      throw await de_InvalidTypeNameExceptionRes(parsedOutput, context);
     case "ItemContentMismatchException":
     case "com.amazonaws.ssm#ItemContentMismatchException":
       throw await de_ItemContentMismatchExceptionRes(parsedOutput, context);
-    case "ItemSizeLimitExceededException":
-    case "com.amazonaws.ssm#ItemSizeLimitExceededException":
-      throw await de_ItemSizeLimitExceededExceptionRes(parsedOutput, context);
     case "SubTypeCountLimitExceededException":
     case "com.amazonaws.ssm#SubTypeCountLimitExceededException":
       throw await de_SubTypeCountLimitExceededExceptionRes(parsedOutput, context);
-    case "TotalSizeLimitExceededException":
-    case "com.amazonaws.ssm#TotalSizeLimitExceededException":
-      throw await de_TotalSizeLimitExceededExceptionRes(parsedOutput, context);
     case "UnsupportedInventoryItemContextException":
     case "com.amazonaws.ssm#UnsupportedInventoryItemContextException":
       throw await de_UnsupportedInventoryItemContextExceptionRes(parsedOutput, context);
     case "UnsupportedInventorySchemaVersionException":
     case "com.amazonaws.ssm#UnsupportedInventorySchemaVersionException":
       throw await de_UnsupportedInventorySchemaVersionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutParameterCommand
- */
-export const de_PutParameterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutParameterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutParameterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutParameterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutParameterCommandError
- */
-const de_PutParameterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutParameterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "HierarchyLevelLimitExceededException":
     case "com.amazonaws.ssm#HierarchyLevelLimitExceededException":
       throw await de_HierarchyLevelLimitExceededExceptionRes(parsedOutput, context);
@@ -8430,15 +5770,9 @@ const de_PutParameterCommandError = async (
     case "IncompatiblePolicyException":
     case "com.amazonaws.ssm#IncompatiblePolicyException":
       throw await de_IncompatiblePolicyExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidAllowedPatternException":
     case "com.amazonaws.ssm#InvalidAllowedPatternException":
       throw await de_InvalidAllowedPatternExceptionRes(parsedOutput, context);
-    case "InvalidKeyId":
-    case "com.amazonaws.ssm#InvalidKeyId":
-      throw await de_InvalidKeyIdRes(parsedOutput, context);
     case "InvalidPolicyAttributeException":
     case "com.amazonaws.ssm#InvalidPolicyAttributeException":
       throw await de_InvalidPolicyAttributeExceptionRes(parsedOutput, context);
@@ -8460,669 +5794,36 @@ const de_PutParameterCommandError = async (
     case "PoliciesLimitExceededException":
     case "com.amazonaws.ssm#PoliciesLimitExceededException":
       throw await de_PoliciesLimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyUpdates":
-    case "com.amazonaws.ssm#TooManyUpdates":
-      throw await de_TooManyUpdatesRes(parsedOutput, context);
     case "UnsupportedParameterType":
     case "com.amazonaws.ssm#UnsupportedParameterType":
       throw await de_UnsupportedParameterTypeRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutResourcePolicyCommand
- */
-export const de_PutResourcePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutResourcePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutResourcePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutResourcePolicyCommandError
- */
-const de_PutResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ResourcePolicyConflictException":
-    case "com.amazonaws.ssm#ResourcePolicyConflictException":
-      throw await de_ResourcePolicyConflictExceptionRes(parsedOutput, context);
-    case "ResourcePolicyInvalidParameterException":
-    case "com.amazonaws.ssm#ResourcePolicyInvalidParameterException":
-      throw await de_ResourcePolicyInvalidParameterExceptionRes(parsedOutput, context);
     case "ResourcePolicyLimitExceededException":
     case "com.amazonaws.ssm#ResourcePolicyLimitExceededException":
       throw await de_ResourcePolicyLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RegisterDefaultPatchBaselineCommand
- */
-export const de_RegisterDefaultPatchBaselineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterDefaultPatchBaselineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterDefaultPatchBaselineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RegisterDefaultPatchBaselineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterDefaultPatchBaselineCommandError
- */
-const de_RegisterDefaultPatchBaselineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterDefaultPatchBaselineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidResourceId":
-    case "com.amazonaws.ssm#InvalidResourceId":
-      throw await de_InvalidResourceIdRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommand
- */
-export const de_RegisterPatchBaselineForPatchGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterPatchBaselineForPatchGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterPatchBaselineForPatchGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RegisterPatchBaselineForPatchGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterPatchBaselineForPatchGroupCommandError
- */
-const de_RegisterPatchBaselineForPatchGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterPatchBaselineForPatchGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AlreadyExistsException":
     case "com.amazonaws.ssm#AlreadyExistsException":
       throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidResourceId":
-    case "com.amazonaws.ssm#InvalidResourceId":
-      throw await de_InvalidResourceIdRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.ssm#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand
- */
-export const de_RegisterTargetWithMaintenanceWindowCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterTargetWithMaintenanceWindowCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterTargetWithMaintenanceWindowCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RegisterTargetWithMaintenanceWindowCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterTargetWithMaintenanceWindowCommandError
- */
-const de_RegisterTargetWithMaintenanceWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterTargetWithMaintenanceWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatch":
-    case "com.amazonaws.ssm#IdempotentParameterMismatch":
-      throw await de_IdempotentParameterMismatchRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.ssm#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand
- */
-export const de_RegisterTaskWithMaintenanceWindowCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterTaskWithMaintenanceWindowCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterTaskWithMaintenanceWindowCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RegisterTaskWithMaintenanceWindowCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterTaskWithMaintenanceWindowCommandError
- */
-const de_RegisterTaskWithMaintenanceWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterTaskWithMaintenanceWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
     case "FeatureNotAvailableException":
     case "com.amazonaws.ssm#FeatureNotAvailableException":
       throw await de_FeatureNotAvailableExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatch":
-    case "com.amazonaws.ssm#IdempotentParameterMismatch":
-      throw await de_IdempotentParameterMismatchRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.ssm#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RemoveTagsFromResourceCommand
- */
-export const de_RemoveTagsFromResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveTagsFromResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RemoveTagsFromResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RemoveTagsFromResourceCommandError
- */
-const de_RemoveTagsFromResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidResourceId":
-    case "com.amazonaws.ssm#InvalidResourceId":
-      throw await de_InvalidResourceIdRes(parsedOutput, context);
-    case "InvalidResourceType":
-    case "com.amazonaws.ssm#InvalidResourceType":
-      throw await de_InvalidResourceTypeRes(parsedOutput, context);
-    case "TooManyUpdates":
-    case "com.amazonaws.ssm#TooManyUpdates":
-      throw await de_TooManyUpdatesRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ResetServiceSettingCommand
- */
-export const de_ResetServiceSettingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetServiceSettingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResetServiceSettingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ResetServiceSettingResult(data, context);
-  const response: ResetServiceSettingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ResetServiceSettingCommandError
- */
-const de_ResetServiceSettingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetServiceSettingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceSettingNotFound":
-    case "com.amazonaws.ssm#ServiceSettingNotFound":
-      throw await de_ServiceSettingNotFoundRes(parsedOutput, context);
-    case "TooManyUpdates":
-    case "com.amazonaws.ssm#TooManyUpdates":
-      throw await de_TooManyUpdatesRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ResumeSessionCommand
- */
-export const de_ResumeSessionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeSessionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResumeSessionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ResumeSessionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ResumeSessionCommandError
- */
-const de_ResumeSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SendAutomationSignalCommand
- */
-export const de_SendAutomationSignalCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendAutomationSignalCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SendAutomationSignalCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: SendAutomationSignalCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SendAutomationSignalCommandError
- */
-const de_SendAutomationSignalCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendAutomationSignalCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AutomationExecutionNotFoundException":
-    case "com.amazonaws.ssm#AutomationExecutionNotFoundException":
-      throw await de_AutomationExecutionNotFoundExceptionRes(parsedOutput, context);
     case "AutomationStepNotFoundException":
     case "com.amazonaws.ssm#AutomationStepNotFoundException":
       throw await de_AutomationStepNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidAutomationSignalException":
     case "com.amazonaws.ssm#InvalidAutomationSignalException":
       throw await de_InvalidAutomationSignalExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SendCommandCommand
- */
-export const de_SendCommandCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendCommandCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SendCommandCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SendCommandResult(data, context);
-  const response: SendCommandCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SendCommandCommandError
- */
-const de_SendCommandCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendCommandCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateInstanceId":
-    case "com.amazonaws.ssm#DuplicateInstanceId":
-      throw await de_DuplicateInstanceIdRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidDocumentVersion":
-    case "com.amazonaws.ssm#InvalidDocumentVersion":
-      throw await de_InvalidDocumentVersionRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
     case "InvalidNotificationConfig":
     case "com.amazonaws.ssm#InvalidNotificationConfig":
       throw await de_InvalidNotificationConfigRes(parsedOutput, context);
     case "InvalidOutputFolder":
     case "com.amazonaws.ssm#InvalidOutputFolder":
       throw await de_InvalidOutputFolderRes(parsedOutput, context);
-    case "InvalidParameters":
-    case "com.amazonaws.ssm#InvalidParameters":
-      throw await de_InvalidParametersRes(parsedOutput, context);
     case "InvalidRole":
     case "com.amazonaws.ssm#InvalidRole":
       throw await de_InvalidRoleRes(parsedOutput, context);
-    case "MaxDocumentSizeExceeded":
-    case "com.amazonaws.ssm#MaxDocumentSizeExceeded":
-      throw await de_MaxDocumentSizeExceededRes(parsedOutput, context);
-    case "UnsupportedPlatformType":
-    case "com.amazonaws.ssm#UnsupportedPlatformType":
-      throw await de_UnsupportedPlatformTypeRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartAssociationsOnceCommand
- */
-export const de_StartAssociationsOnceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAssociationsOnceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartAssociationsOnceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartAssociationsOnceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartAssociationsOnceCommandError
- */
-const de_StartAssociationsOnceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAssociationsOnceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AssociationDoesNotExist":
-    case "com.amazonaws.ssm#AssociationDoesNotExist":
-      throw await de_AssociationDoesNotExistRes(parsedOutput, context);
     case "InvalidAssociation":
     case "com.amazonaws.ssm#InvalidAssociation":
       throw await de_InvalidAssociationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartAutomationExecutionCommand
- */
-export const de_StartAutomationExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAutomationExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartAutomationExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartAutomationExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartAutomationExecutionCommandError
- */
-const de_StartAutomationExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAutomationExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AutomationDefinitionNotFoundException":
     case "com.amazonaws.ssm#AutomationDefinitionNotFoundException":
       throw await de_AutomationDefinitionNotFoundExceptionRes(parsedOutput, context);
@@ -9132,473 +5833,27 @@ const de_StartAutomationExecutionCommandError = async (
     case "AutomationExecutionLimitExceededException":
     case "com.amazonaws.ssm#AutomationExecutionLimitExceededException":
       throw await de_AutomationExecutionLimitExceededExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatch":
-    case "com.amazonaws.ssm#IdempotentParameterMismatch":
-      throw await de_IdempotentParameterMismatchRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidAutomationExecutionParametersException":
     case "com.amazonaws.ssm#InvalidAutomationExecutionParametersException":
       throw await de_InvalidAutomationExecutionParametersExceptionRes(parsedOutput, context);
-    case "InvalidTarget":
-    case "com.amazonaws.ssm#InvalidTarget":
-      throw await de_InvalidTargetRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartChangeRequestExecutionCommand
- */
-export const de_StartChangeRequestExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartChangeRequestExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartChangeRequestExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartChangeRequestExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartChangeRequestExecutionCommandError
- */
-const de_StartChangeRequestExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartChangeRequestExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AutomationDefinitionNotApprovedException":
     case "com.amazonaws.ssm#AutomationDefinitionNotApprovedException":
       throw await de_AutomationDefinitionNotApprovedExceptionRes(parsedOutput, context);
-    case "AutomationDefinitionNotFoundException":
-    case "com.amazonaws.ssm#AutomationDefinitionNotFoundException":
-      throw await de_AutomationDefinitionNotFoundExceptionRes(parsedOutput, context);
-    case "AutomationDefinitionVersionNotFoundException":
-    case "com.amazonaws.ssm#AutomationDefinitionVersionNotFoundException":
-      throw await de_AutomationDefinitionVersionNotFoundExceptionRes(parsedOutput, context);
-    case "AutomationExecutionLimitExceededException":
-    case "com.amazonaws.ssm#AutomationExecutionLimitExceededException":
-      throw await de_AutomationExecutionLimitExceededExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatch":
-    case "com.amazonaws.ssm#IdempotentParameterMismatch":
-      throw await de_IdempotentParameterMismatchRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidAutomationExecutionParametersException":
-    case "com.amazonaws.ssm#InvalidAutomationExecutionParametersException":
-      throw await de_InvalidAutomationExecutionParametersExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartSessionCommand
- */
-export const de_StartSessionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSessionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartSessionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartSessionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartSessionCommandError
- */
-const de_StartSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
     case "TargetNotConnected":
     case "com.amazonaws.ssm#TargetNotConnected":
       throw await de_TargetNotConnectedRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopAutomationExecutionCommand
- */
-export const de_StopAutomationExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopAutomationExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopAutomationExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopAutomationExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopAutomationExecutionCommandError
- */
-const de_StopAutomationExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopAutomationExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AutomationExecutionNotFoundException":
-    case "com.amazonaws.ssm#AutomationExecutionNotFoundException":
-      throw await de_AutomationExecutionNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidAutomationStatusUpdateException":
     case "com.amazonaws.ssm#InvalidAutomationStatusUpdateException":
       throw await de_InvalidAutomationStatusUpdateExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TerminateSessionCommand
- */
-export const de_TerminateSessionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateSessionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TerminateSessionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TerminateSessionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TerminateSessionCommandError
- */
-const de_TerminateSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UnlabelParameterVersionCommand
- */
-export const de_UnlabelParameterVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnlabelParameterVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UnlabelParameterVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UnlabelParameterVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UnlabelParameterVersionCommandError
- */
-const de_UnlabelParameterVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnlabelParameterVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ParameterNotFound":
-    case "com.amazonaws.ssm#ParameterNotFound":
-      throw await de_ParameterNotFoundRes(parsedOutput, context);
-    case "ParameterVersionNotFound":
-    case "com.amazonaws.ssm#ParameterVersionNotFound":
-      throw await de_ParameterVersionNotFoundRes(parsedOutput, context);
-    case "TooManyUpdates":
-    case "com.amazonaws.ssm#TooManyUpdates":
-      throw await de_TooManyUpdatesRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateAssociationCommand
- */
-export const de_UpdateAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateAssociationResult(data, context);
-  const response: UpdateAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateAssociationCommandError
- */
-const de_UpdateAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AssociationDoesNotExist":
-    case "com.amazonaws.ssm#AssociationDoesNotExist":
-      throw await de_AssociationDoesNotExistRes(parsedOutput, context);
     case "AssociationVersionLimitExceeded":
     case "com.amazonaws.ssm#AssociationVersionLimitExceeded":
       throw await de_AssociationVersionLimitExceededRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidAssociationVersion":
-    case "com.amazonaws.ssm#InvalidAssociationVersion":
-      throw await de_InvalidAssociationVersionRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidDocumentVersion":
-    case "com.amazonaws.ssm#InvalidDocumentVersion":
-      throw await de_InvalidDocumentVersionRes(parsedOutput, context);
-    case "InvalidOutputLocation":
-    case "com.amazonaws.ssm#InvalidOutputLocation":
-      throw await de_InvalidOutputLocationRes(parsedOutput, context);
-    case "InvalidParameters":
-    case "com.amazonaws.ssm#InvalidParameters":
-      throw await de_InvalidParametersRes(parsedOutput, context);
-    case "InvalidSchedule":
-    case "com.amazonaws.ssm#InvalidSchedule":
-      throw await de_InvalidScheduleRes(parsedOutput, context);
-    case "InvalidTarget":
-    case "com.amazonaws.ssm#InvalidTarget":
-      throw await de_InvalidTargetRes(parsedOutput, context);
-    case "InvalidTargetMaps":
-    case "com.amazonaws.ssm#InvalidTargetMaps":
-      throw await de_InvalidTargetMapsRes(parsedOutput, context);
     case "InvalidUpdate":
     case "com.amazonaws.ssm#InvalidUpdate":
       throw await de_InvalidUpdateRes(parsedOutput, context);
-    case "TooManyUpdates":
-    case "com.amazonaws.ssm#TooManyUpdates":
-      throw await de_TooManyUpdatesRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateAssociationStatusCommand
- */
-export const de_UpdateAssociationStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAssociationStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateAssociationStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateAssociationStatusResult(data, context);
-  const response: UpdateAssociationStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateAssociationStatusCommandError
- */
-const de_UpdateAssociationStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAssociationStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AssociationDoesNotExist":
-    case "com.amazonaws.ssm#AssociationDoesNotExist":
-      throw await de_AssociationDoesNotExistRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
     case "StatusUnchanged":
     case "com.amazonaws.ssm#StatusUnchanged":
       throw await de_StatusUnchangedRes(parsedOutput, context);
-    case "TooManyUpdates":
-    case "com.amazonaws.ssm#TooManyUpdates":
-      throw await de_TooManyUpdatesRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateDocumentCommand
- */
-export const de_UpdateDocumentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDocumentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDocumentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateDocumentResult(data, context);
-  const response: UpdateDocumentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDocumentCommandError
- */
-const de_UpdateDocumentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDocumentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DocumentVersionLimitExceeded":
     case "com.amazonaws.ssm#DocumentVersionLimitExceeded":
       throw await de_DocumentVersionLimitExceededRes(parsedOutput, context);
@@ -9608,618 +5863,19 @@ const de_UpdateDocumentCommandError = async (
     case "DuplicateDocumentVersionName":
     case "com.amazonaws.ssm#DuplicateDocumentVersionName":
       throw await de_DuplicateDocumentVersionNameRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidDocumentContent":
-    case "com.amazonaws.ssm#InvalidDocumentContent":
-      throw await de_InvalidDocumentContentRes(parsedOutput, context);
-    case "InvalidDocumentOperation":
-    case "com.amazonaws.ssm#InvalidDocumentOperation":
-      throw await de_InvalidDocumentOperationRes(parsedOutput, context);
-    case "InvalidDocumentSchemaVersion":
-    case "com.amazonaws.ssm#InvalidDocumentSchemaVersion":
-      throw await de_InvalidDocumentSchemaVersionRes(parsedOutput, context);
-    case "InvalidDocumentVersion":
-    case "com.amazonaws.ssm#InvalidDocumentVersion":
-      throw await de_InvalidDocumentVersionRes(parsedOutput, context);
-    case "MaxDocumentSizeExceeded":
-    case "com.amazonaws.ssm#MaxDocumentSizeExceeded":
-      throw await de_MaxDocumentSizeExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateDocumentDefaultVersionCommand
- */
-export const de_UpdateDocumentDefaultVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDocumentDefaultVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDocumentDefaultVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateDocumentDefaultVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDocumentDefaultVersionCommandError
- */
-const de_UpdateDocumentDefaultVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDocumentDefaultVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidDocumentSchemaVersion":
-    case "com.amazonaws.ssm#InvalidDocumentSchemaVersion":
-      throw await de_InvalidDocumentSchemaVersionRes(parsedOutput, context);
-    case "InvalidDocumentVersion":
-    case "com.amazonaws.ssm#InvalidDocumentVersion":
-      throw await de_InvalidDocumentVersionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateDocumentMetadataCommand
- */
-export const de_UpdateDocumentMetadataCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDocumentMetadataCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDocumentMetadataCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateDocumentMetadataCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDocumentMetadataCommandError
- */
-const de_UpdateDocumentMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDocumentMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidDocument":
-    case "com.amazonaws.ssm#InvalidDocument":
-      throw await de_InvalidDocumentRes(parsedOutput, context);
-    case "InvalidDocumentOperation":
-    case "com.amazonaws.ssm#InvalidDocumentOperation":
-      throw await de_InvalidDocumentOperationRes(parsedOutput, context);
-    case "InvalidDocumentVersion":
-    case "com.amazonaws.ssm#InvalidDocumentVersion":
-      throw await de_InvalidDocumentVersionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateMaintenanceWindowCommand
- */
-export const de_UpdateMaintenanceWindowCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMaintenanceWindowCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateMaintenanceWindowCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateMaintenanceWindowCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateMaintenanceWindowCommandError
- */
-const de_UpdateMaintenanceWindowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMaintenanceWindowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateMaintenanceWindowTargetCommand
- */
-export const de_UpdateMaintenanceWindowTargetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMaintenanceWindowTargetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateMaintenanceWindowTargetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateMaintenanceWindowTargetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateMaintenanceWindowTargetCommandError
- */
-const de_UpdateMaintenanceWindowTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMaintenanceWindowTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateMaintenanceWindowTaskCommand
- */
-export const de_UpdateMaintenanceWindowTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMaintenanceWindowTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateMaintenanceWindowTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateMaintenanceWindowTaskResult(data, context);
-  const response: UpdateMaintenanceWindowTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateMaintenanceWindowTaskCommandError
- */
-const de_UpdateMaintenanceWindowTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMaintenanceWindowTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateManagedInstanceRoleCommand
- */
-export const de_UpdateManagedInstanceRoleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateManagedInstanceRoleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateManagedInstanceRoleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateManagedInstanceRoleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateManagedInstanceRoleCommandError
- */
-const de_UpdateManagedInstanceRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateManagedInstanceRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInstanceId":
-    case "com.amazonaws.ssm#InvalidInstanceId":
-      throw await de_InvalidInstanceIdRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateOpsItemCommand
- */
-export const de_UpdateOpsItemCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateOpsItemCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateOpsItemCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateOpsItemCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateOpsItemCommandError
- */
-const de_UpdateOpsItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateOpsItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "OpsItemAccessDeniedException":
-    case "com.amazonaws.ssm#OpsItemAccessDeniedException":
-      throw await de_OpsItemAccessDeniedExceptionRes(parsedOutput, context);
-    case "OpsItemAlreadyExistsException":
-    case "com.amazonaws.ssm#OpsItemAlreadyExistsException":
-      throw await de_OpsItemAlreadyExistsExceptionRes(parsedOutput, context);
-    case "OpsItemConflictException":
-    case "com.amazonaws.ssm#OpsItemConflictException":
-      throw await de_OpsItemConflictExceptionRes(parsedOutput, context);
-    case "OpsItemInvalidParameterException":
-    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
-      throw await de_OpsItemInvalidParameterExceptionRes(parsedOutput, context);
-    case "OpsItemLimitExceededException":
-    case "com.amazonaws.ssm#OpsItemLimitExceededException":
-      throw await de_OpsItemLimitExceededExceptionRes(parsedOutput, context);
-    case "OpsItemNotFoundException":
-    case "com.amazonaws.ssm#OpsItemNotFoundException":
-      throw await de_OpsItemNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateOpsMetadataCommand
- */
-export const de_UpdateOpsMetadataCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateOpsMetadataCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateOpsMetadataCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateOpsMetadataCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateOpsMetadataCommandError
- */
-const de_UpdateOpsMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateOpsMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "OpsMetadataInvalidArgumentException":
-    case "com.amazonaws.ssm#OpsMetadataInvalidArgumentException":
-      throw await de_OpsMetadataInvalidArgumentExceptionRes(parsedOutput, context);
     case "OpsMetadataKeyLimitExceededException":
     case "com.amazonaws.ssm#OpsMetadataKeyLimitExceededException":
       throw await de_OpsMetadataKeyLimitExceededExceptionRes(parsedOutput, context);
-    case "OpsMetadataNotFoundException":
-    case "com.amazonaws.ssm#OpsMetadataNotFoundException":
-      throw await de_OpsMetadataNotFoundExceptionRes(parsedOutput, context);
-    case "OpsMetadataTooManyUpdatesException":
-    case "com.amazonaws.ssm#OpsMetadataTooManyUpdatesException":
-      throw await de_OpsMetadataTooManyUpdatesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdatePatchBaselineCommand
- */
-export const de_UpdatePatchBaselineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePatchBaselineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdatePatchBaselineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdatePatchBaselineResult(data, context);
-  const response: UpdatePatchBaselineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdatePatchBaselineCommandError
- */
-const de_UpdatePatchBaselineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePatchBaselineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DoesNotExistException":
-    case "com.amazonaws.ssm#DoesNotExistException":
-      throw await de_DoesNotExistExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateResourceDataSyncCommand
- */
-export const de_UpdateResourceDataSyncCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourceDataSyncCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateResourceDataSyncCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateResourceDataSyncCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateResourceDataSyncCommandError
- */
-const de_UpdateResourceDataSyncCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourceDataSyncCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "ResourceDataSyncConflictException":
     case "com.amazonaws.ssm#ResourceDataSyncConflictException":
       throw await de_ResourceDataSyncConflictExceptionRes(parsedOutput, context);
-    case "ResourceDataSyncInvalidConfigurationException":
-    case "com.amazonaws.ssm#ResourceDataSyncInvalidConfigurationException":
-      throw await de_ResourceDataSyncInvalidConfigurationExceptionRes(parsedOutput, context);
-    case "ResourceDataSyncNotFoundException":
-    case "com.amazonaws.ssm#ResourceDataSyncNotFoundException":
-      throw await de_ResourceDataSyncNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateServiceSettingCommand
- */
-export const de_UpdateServiceSettingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceSettingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateServiceSettingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateServiceSettingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateServiceSettingCommandError
- */
-const de_UpdateServiceSettingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceSettingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.ssm#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceSettingNotFound":
-    case "com.amazonaws.ssm#ServiceSettingNotFound":
-      throw await de_ServiceSettingNotFoundRes(parsedOutput, context);
-    case "TooManyUpdates":
-    case "com.amazonaws.ssm#TooManyUpdates":
-      throw await de_TooManyUpdatesRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

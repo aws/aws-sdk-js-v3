@@ -2025,7 +2025,7 @@ export const de_CancelImageCreationCommand = async (
   context: __SerdeContext
 ): Promise<CancelImageCreationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelImageCreationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2041,53 +2041,6 @@ export const de_CancelImageCreationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CancelImageCreationCommandError
- */
-const de_CancelImageCreationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelImageCreationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CancelLifecycleExecutionCommand
  */
 export const de_CancelLifecycleExecutionCommand = async (
@@ -2095,7 +2048,7 @@ export const de_CancelLifecycleExecutionCommand = async (
   context: __SerdeContext
 ): Promise<CancelLifecycleExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelLifecycleExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2109,53 +2062,6 @@ export const de_CancelLifecycleExecutionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CancelLifecycleExecutionCommandError
- */
-const de_CancelLifecycleExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelLifecycleExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateComponentCommand
  */
 export const de_CreateComponentCommand = async (
@@ -2163,7 +2069,7 @@ export const de_CreateComponentCommand = async (
   context: __SerdeContext
 ): Promise<CreateComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2176,62 +2082,6 @@ export const de_CreateComponentCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateComponentCommandError
- */
-const de_CreateComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidVersionNumberException":
-    case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
-      throw await de_InvalidVersionNumberExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2242,7 +2092,7 @@ export const de_CreateContainerRecipeCommand = async (
   context: __SerdeContext
 ): Promise<CreateContainerRecipeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateContainerRecipeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2258,62 +2108,6 @@ export const de_CreateContainerRecipeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateContainerRecipeCommandError
- */
-const de_CreateContainerRecipeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateContainerRecipeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidVersionNumberException":
-    case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
-      throw await de_InvalidVersionNumberExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDistributionConfigurationCommand
  */
 export const de_CreateDistributionConfigurationCommand = async (
@@ -2321,7 +2115,7 @@ export const de_CreateDistributionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateDistributionConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDistributionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2337,62 +2131,6 @@ export const de_CreateDistributionConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDistributionConfigurationCommandError
- */
-const de_CreateDistributionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDistributionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateImageCommand
  */
 export const de_CreateImageCommand = async (
@@ -2400,7 +2138,7 @@ export const de_CreateImageCommand = async (
   context: __SerdeContext
 ): Promise<CreateImageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2416,56 +2154,6 @@ export const de_CreateImageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateImageCommandError
- */
-const de_CreateImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateImagePipelineCommand
  */
 export const de_CreateImagePipelineCommand = async (
@@ -2473,7 +2161,7 @@ export const de_CreateImagePipelineCommand = async (
   context: __SerdeContext
 ): Promise<CreateImagePipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateImagePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2489,59 +2177,6 @@ export const de_CreateImagePipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateImagePipelineCommandError
- */
-const de_CreateImagePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateImagePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateImageRecipeCommand
  */
 export const de_CreateImageRecipeCommand = async (
@@ -2549,7 +2184,7 @@ export const de_CreateImageRecipeCommand = async (
   context: __SerdeContext
 ): Promise<CreateImageRecipeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateImageRecipeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2565,62 +2200,6 @@ export const de_CreateImageRecipeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateImageRecipeCommandError
- */
-const de_CreateImageRecipeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateImageRecipeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidVersionNumberException":
-    case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
-      throw await de_InvalidVersionNumberExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateInfrastructureConfigurationCommand
  */
 export const de_CreateInfrastructureConfigurationCommand = async (
@@ -2628,7 +2207,7 @@ export const de_CreateInfrastructureConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateInfrastructureConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateInfrastructureConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2644,59 +2223,6 @@ export const de_CreateInfrastructureConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateInfrastructureConfigurationCommandError
- */
-const de_CreateInfrastructureConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInfrastructureConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateLifecyclePolicyCommand
  */
 export const de_CreateLifecyclePolicyCommand = async (
@@ -2704,7 +2230,7 @@ export const de_CreateLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateLifecyclePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2719,59 +2245,6 @@ export const de_CreateLifecyclePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateLifecyclePolicyCommandError
- */
-const de_CreateLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateWorkflowCommand
  */
 export const de_CreateWorkflowCommand = async (
@@ -2779,7 +2252,7 @@ export const de_CreateWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorkflowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2794,62 +2267,6 @@ export const de_CreateWorkflowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateWorkflowCommandError
- */
-const de_CreateWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidVersionNumberException":
-    case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
-      throw await de_InvalidVersionNumberExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteComponentCommand
  */
 export const de_DeleteComponentCommand = async (
@@ -2857,7 +2274,7 @@ export const de_DeleteComponentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2872,50 +2289,6 @@ export const de_DeleteComponentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteComponentCommandError
- */
-const de_DeleteComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceDependencyException":
-    case "com.amazonaws.imagebuilder#ResourceDependencyException":
-      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteContainerRecipeCommand
  */
 export const de_DeleteContainerRecipeCommand = async (
@@ -2923,7 +2296,7 @@ export const de_DeleteContainerRecipeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteContainerRecipeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteContainerRecipeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2938,50 +2311,6 @@ export const de_DeleteContainerRecipeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteContainerRecipeCommandError
- */
-const de_DeleteContainerRecipeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContainerRecipeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceDependencyException":
-    case "com.amazonaws.imagebuilder#ResourceDependencyException":
-      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteDistributionConfigurationCommand
  */
 export const de_DeleteDistributionConfigurationCommand = async (
@@ -2989,7 +2318,7 @@ export const de_DeleteDistributionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDistributionConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDistributionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3004,50 +2333,6 @@ export const de_DeleteDistributionConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDistributionConfigurationCommandError
- */
-const de_DeleteDistributionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDistributionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceDependencyException":
-    case "com.amazonaws.imagebuilder#ResourceDependencyException":
-      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteImageCommand
  */
 export const de_DeleteImageCommand = async (
@@ -3055,7 +2340,7 @@ export const de_DeleteImageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3070,50 +2355,6 @@ export const de_DeleteImageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteImageCommandError
- */
-const de_DeleteImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceDependencyException":
-    case "com.amazonaws.imagebuilder#ResourceDependencyException":
-      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteImagePipelineCommand
  */
 export const de_DeleteImagePipelineCommand = async (
@@ -3121,7 +2362,7 @@ export const de_DeleteImagePipelineCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImagePipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteImagePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3136,50 +2377,6 @@ export const de_DeleteImagePipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteImagePipelineCommandError
- */
-const de_DeleteImagePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteImagePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceDependencyException":
-    case "com.amazonaws.imagebuilder#ResourceDependencyException":
-      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteImageRecipeCommand
  */
 export const de_DeleteImageRecipeCommand = async (
@@ -3187,7 +2384,7 @@ export const de_DeleteImageRecipeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteImageRecipeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteImageRecipeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3202,50 +2399,6 @@ export const de_DeleteImageRecipeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteImageRecipeCommandError
- */
-const de_DeleteImageRecipeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteImageRecipeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceDependencyException":
-    case "com.amazonaws.imagebuilder#ResourceDependencyException":
-      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteInfrastructureConfigurationCommand
  */
 export const de_DeleteInfrastructureConfigurationCommand = async (
@@ -3253,7 +2406,7 @@ export const de_DeleteInfrastructureConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInfrastructureConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteInfrastructureConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3268,50 +2421,6 @@ export const de_DeleteInfrastructureConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteInfrastructureConfigurationCommandError
- */
-const de_DeleteInfrastructureConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInfrastructureConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceDependencyException":
-    case "com.amazonaws.imagebuilder#ResourceDependencyException":
-      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteLifecyclePolicyCommand
  */
 export const de_DeleteLifecyclePolicyCommand = async (
@@ -3319,7 +2428,7 @@ export const de_DeleteLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteLifecyclePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3333,50 +2442,6 @@ export const de_DeleteLifecyclePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteLifecyclePolicyCommandError
- */
-const de_DeleteLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceDependencyException":
-    case "com.amazonaws.imagebuilder#ResourceDependencyException":
-      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteWorkflowCommand
  */
 export const de_DeleteWorkflowCommand = async (
@@ -3384,7 +2449,7 @@ export const de_DeleteWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorkflowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3398,50 +2463,6 @@ export const de_DeleteWorkflowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteWorkflowCommandError
- */
-const de_DeleteWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceDependencyException":
-    case "com.amazonaws.imagebuilder#ResourceDependencyException":
-      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetComponentCommand
  */
 export const de_GetComponentCommand = async (
@@ -3449,7 +2470,7 @@ export const de_GetComponentCommand = async (
   context: __SerdeContext
 ): Promise<GetComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3464,47 +2485,6 @@ export const de_GetComponentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetComponentCommandError
- */
-const de_GetComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetComponentPolicyCommand
  */
 export const de_GetComponentPolicyCommand = async (
@@ -3512,7 +2492,7 @@ export const de_GetComponentPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetComponentPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetComponentPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3527,47 +2507,6 @@ export const de_GetComponentPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetComponentPolicyCommandError
- */
-const de_GetComponentPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetComponentPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetContainerRecipeCommand
  */
 export const de_GetContainerRecipeCommand = async (
@@ -3575,7 +2514,7 @@ export const de_GetContainerRecipeCommand = async (
   context: __SerdeContext
 ): Promise<GetContainerRecipeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetContainerRecipeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3590,47 +2529,6 @@ export const de_GetContainerRecipeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetContainerRecipeCommandError
- */
-const de_GetContainerRecipeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContainerRecipeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetContainerRecipePolicyCommand
  */
 export const de_GetContainerRecipePolicyCommand = async (
@@ -3638,7 +2536,7 @@ export const de_GetContainerRecipePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetContainerRecipePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetContainerRecipePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3653,47 +2551,6 @@ export const de_GetContainerRecipePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetContainerRecipePolicyCommandError
- */
-const de_GetContainerRecipePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContainerRecipePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDistributionConfigurationCommand
  */
 export const de_GetDistributionConfigurationCommand = async (
@@ -3701,7 +2558,7 @@ export const de_GetDistributionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetDistributionConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDistributionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3716,47 +2573,6 @@ export const de_GetDistributionConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDistributionConfigurationCommandError
- */
-const de_GetDistributionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDistributionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetImageCommand
  */
 export const de_GetImageCommand = async (
@@ -3764,7 +2580,7 @@ export const de_GetImageCommand = async (
   context: __SerdeContext
 ): Promise<GetImageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3779,47 +2595,6 @@ export const de_GetImageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetImageCommandError
- */
-const de_GetImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetImagePipelineCommand
  */
 export const de_GetImagePipelineCommand = async (
@@ -3827,7 +2602,7 @@ export const de_GetImagePipelineCommand = async (
   context: __SerdeContext
 ): Promise<GetImagePipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetImagePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3842,47 +2617,6 @@ export const de_GetImagePipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetImagePipelineCommandError
- */
-const de_GetImagePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImagePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetImagePolicyCommand
  */
 export const de_GetImagePolicyCommand = async (
@@ -3890,7 +2624,7 @@ export const de_GetImagePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetImagePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetImagePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3905,47 +2639,6 @@ export const de_GetImagePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetImagePolicyCommandError
- */
-const de_GetImagePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImagePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetImageRecipeCommand
  */
 export const de_GetImageRecipeCommand = async (
@@ -3953,7 +2646,7 @@ export const de_GetImageRecipeCommand = async (
   context: __SerdeContext
 ): Promise<GetImageRecipeCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetImageRecipeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3968,47 +2661,6 @@ export const de_GetImageRecipeCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetImageRecipeCommandError
- */
-const de_GetImageRecipeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImageRecipeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetImageRecipePolicyCommand
  */
 export const de_GetImageRecipePolicyCommand = async (
@@ -4016,7 +2668,7 @@ export const de_GetImageRecipePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetImageRecipePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetImageRecipePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4031,47 +2683,6 @@ export const de_GetImageRecipePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetImageRecipePolicyCommandError
- */
-const de_GetImageRecipePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImageRecipePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetInfrastructureConfigurationCommand
  */
 export const de_GetInfrastructureConfigurationCommand = async (
@@ -4079,7 +2690,7 @@ export const de_GetInfrastructureConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetInfrastructureConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetInfrastructureConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4094,47 +2705,6 @@ export const de_GetInfrastructureConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetInfrastructureConfigurationCommandError
- */
-const de_GetInfrastructureConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInfrastructureConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetLifecycleExecutionCommand
  */
 export const de_GetLifecycleExecutionCommand = async (
@@ -4142,7 +2712,7 @@ export const de_GetLifecycleExecutionCommand = async (
   context: __SerdeContext
 ): Promise<GetLifecycleExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLifecycleExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4156,47 +2726,6 @@ export const de_GetLifecycleExecutionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetLifecycleExecutionCommandError
- */
-const de_GetLifecycleExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLifecycleExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetLifecyclePolicyCommand
  */
 export const de_GetLifecyclePolicyCommand = async (
@@ -4204,7 +2733,7 @@ export const de_GetLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLifecyclePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4218,47 +2747,6 @@ export const de_GetLifecyclePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetLifecyclePolicyCommandError
- */
-const de_GetLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetWorkflowCommand
  */
 export const de_GetWorkflowCommand = async (
@@ -4266,7 +2754,7 @@ export const de_GetWorkflowCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetWorkflowCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4280,47 +2768,6 @@ export const de_GetWorkflowCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetWorkflowCommandError
- */
-const de_GetWorkflowCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkflowCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetWorkflowExecutionCommand
  */
 export const de_GetWorkflowExecutionCommand = async (
@@ -4328,7 +2775,7 @@ export const de_GetWorkflowExecutionCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetWorkflowExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4355,47 +2802,6 @@ export const de_GetWorkflowExecutionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetWorkflowExecutionCommandError
- */
-const de_GetWorkflowExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkflowExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetWorkflowStepExecutionCommand
  */
 export const de_GetWorkflowStepExecutionCommand = async (
@@ -4403,7 +2809,7 @@ export const de_GetWorkflowStepExecutionCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowStepExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetWorkflowStepExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4433,47 +2839,6 @@ export const de_GetWorkflowStepExecutionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetWorkflowStepExecutionCommandError
- */
-const de_GetWorkflowStepExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkflowStepExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ImportComponentCommand
  */
 export const de_ImportComponentCommand = async (
@@ -4481,7 +2846,7 @@ export const de_ImportComponentCommand = async (
   context: __SerdeContext
 ): Promise<ImportComponentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ImportComponentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4497,59 +2862,6 @@ export const de_ImportComponentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ImportComponentCommandError
- */
-const de_ImportComponentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportComponentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidVersionNumberException":
-    case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
-      throw await de_InvalidVersionNumberExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ImportVmImageCommand
  */
 export const de_ImportVmImageCommand = async (
@@ -4557,7 +2869,7 @@ export const de_ImportVmImageCommand = async (
   context: __SerdeContext
 ): Promise<ImportVmImageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ImportVmImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4573,38 +2885,6 @@ export const de_ImportVmImageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ImportVmImageCommandError
- */
-const de_ImportVmImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportVmImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListComponentBuildVersionsCommand
  */
 export const de_ListComponentBuildVersionsCommand = async (
@@ -4612,7 +2892,7 @@ export const de_ListComponentBuildVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListComponentBuildVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListComponentBuildVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4628,50 +2908,6 @@ export const de_ListComponentBuildVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListComponentBuildVersionsCommandError
- */
-const de_ListComponentBuildVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListComponentBuildVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListComponentsCommand
  */
 export const de_ListComponentsCommand = async (
@@ -4679,7 +2915,7 @@ export const de_ListComponentsCommand = async (
   context: __SerdeContext
 ): Promise<ListComponentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListComponentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4695,50 +2931,6 @@ export const de_ListComponentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListComponentsCommandError
- */
-const de_ListComponentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListComponentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListContainerRecipesCommand
  */
 export const de_ListContainerRecipesCommand = async (
@@ -4746,7 +2938,7 @@ export const de_ListContainerRecipesCommand = async (
   context: __SerdeContext
 ): Promise<ListContainerRecipesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListContainerRecipesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4762,50 +2954,6 @@ export const de_ListContainerRecipesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListContainerRecipesCommandError
- */
-const de_ListContainerRecipesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContainerRecipesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDistributionConfigurationsCommand
  */
 export const de_ListDistributionConfigurationsCommand = async (
@@ -4813,7 +2961,7 @@ export const de_ListDistributionConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListDistributionConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDistributionConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4829,50 +2977,6 @@ export const de_ListDistributionConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDistributionConfigurationsCommandError
- */
-const de_ListDistributionConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDistributionConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImageBuildVersionsCommand
  */
 export const de_ListImageBuildVersionsCommand = async (
@@ -4880,7 +2984,7 @@ export const de_ListImageBuildVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListImageBuildVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImageBuildVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4896,50 +3000,6 @@ export const de_ListImageBuildVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImageBuildVersionsCommandError
- */
-const de_ListImageBuildVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImageBuildVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImagePackagesCommand
  */
 export const de_ListImagePackagesCommand = async (
@@ -4947,7 +3007,7 @@ export const de_ListImagePackagesCommand = async (
   context: __SerdeContext
 ): Promise<ListImagePackagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImagePackagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4963,53 +3023,6 @@ export const de_ListImagePackagesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImagePackagesCommandError
- */
-const de_ListImagePackagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImagePackagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImagePipelineImagesCommand
  */
 export const de_ListImagePipelineImagesCommand = async (
@@ -5017,7 +3030,7 @@ export const de_ListImagePipelineImagesCommand = async (
   context: __SerdeContext
 ): Promise<ListImagePipelineImagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImagePipelineImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5033,53 +3046,6 @@ export const de_ListImagePipelineImagesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImagePipelineImagesCommandError
- */
-const de_ListImagePipelineImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImagePipelineImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImagePipelinesCommand
  */
 export const de_ListImagePipelinesCommand = async (
@@ -5087,7 +3053,7 @@ export const de_ListImagePipelinesCommand = async (
   context: __SerdeContext
 ): Promise<ListImagePipelinesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImagePipelinesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5103,50 +3069,6 @@ export const de_ListImagePipelinesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImagePipelinesCommandError
- */
-const de_ListImagePipelinesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImagePipelinesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImageRecipesCommand
  */
 export const de_ListImageRecipesCommand = async (
@@ -5154,7 +3076,7 @@ export const de_ListImageRecipesCommand = async (
   context: __SerdeContext
 ): Promise<ListImageRecipesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImageRecipesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5170,50 +3092,6 @@ export const de_ListImageRecipesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImageRecipesCommandError
- */
-const de_ListImageRecipesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImageRecipesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImagesCommand
  */
 export const de_ListImagesCommand = async (
@@ -5221,7 +3099,7 @@ export const de_ListImagesCommand = async (
   context: __SerdeContext
 ): Promise<ListImagesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5237,50 +3115,6 @@ export const de_ListImagesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImagesCommandError
- */
-const de_ListImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImageScanFindingAggregationsCommand
  */
 export const de_ListImageScanFindingAggregationsCommand = async (
@@ -5288,7 +3122,7 @@ export const de_ListImageScanFindingAggregationsCommand = async (
   context: __SerdeContext
 ): Promise<ListImageScanFindingAggregationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImageScanFindingAggregationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5305,50 +3139,6 @@ export const de_ListImageScanFindingAggregationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImageScanFindingAggregationsCommandError
- */
-const de_ListImageScanFindingAggregationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImageScanFindingAggregationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListImageScanFindingsCommand
  */
 export const de_ListImageScanFindingsCommand = async (
@@ -5356,7 +3146,7 @@ export const de_ListImageScanFindingsCommand = async (
   context: __SerdeContext
 ): Promise<ListImageScanFindingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListImageScanFindingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5372,50 +3162,6 @@ export const de_ListImageScanFindingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListImageScanFindingsCommandError
- */
-const de_ListImageScanFindingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImageScanFindingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListInfrastructureConfigurationsCommand
  */
 export const de_ListInfrastructureConfigurationsCommand = async (
@@ -5423,7 +3169,7 @@ export const de_ListInfrastructureConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListInfrastructureConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListInfrastructureConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5439,50 +3185,6 @@ export const de_ListInfrastructureConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListInfrastructureConfigurationsCommandError
- */
-const de_ListInfrastructureConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInfrastructureConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListLifecycleExecutionResourcesCommand
  */
 export const de_ListLifecycleExecutionResourcesCommand = async (
@@ -5490,7 +3192,7 @@ export const de_ListLifecycleExecutionResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListLifecycleExecutionResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLifecycleExecutionResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5507,50 +3209,6 @@ export const de_ListLifecycleExecutionResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListLifecycleExecutionResourcesCommandError
- */
-const de_ListLifecycleExecutionResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLifecycleExecutionResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListLifecycleExecutionsCommand
  */
 export const de_ListLifecycleExecutionsCommand = async (
@@ -5558,7 +3216,7 @@ export const de_ListLifecycleExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListLifecycleExecutionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLifecycleExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5573,50 +3231,6 @@ export const de_ListLifecycleExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListLifecycleExecutionsCommandError
- */
-const de_ListLifecycleExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLifecycleExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListLifecyclePoliciesCommand
  */
 export const de_ListLifecyclePoliciesCommand = async (
@@ -5624,7 +3238,7 @@ export const de_ListLifecyclePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListLifecyclePoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLifecyclePoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5639,50 +3253,6 @@ export const de_ListLifecyclePoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListLifecyclePoliciesCommandError
- */
-const de_ListLifecyclePoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLifecyclePoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -5690,7 +3260,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5704,38 +3274,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.imagebuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWaitingWorkflowStepsCommand
  */
 export const de_ListWaitingWorkflowStepsCommand = async (
@@ -5743,7 +3281,7 @@ export const de_ListWaitingWorkflowStepsCommand = async (
   context: __SerdeContext
 ): Promise<ListWaitingWorkflowStepsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWaitingWorkflowStepsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5758,50 +3296,6 @@ export const de_ListWaitingWorkflowStepsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWaitingWorkflowStepsCommandError
- */
-const de_ListWaitingWorkflowStepsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWaitingWorkflowStepsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWorkflowBuildVersionsCommand
  */
 export const de_ListWorkflowBuildVersionsCommand = async (
@@ -5809,7 +3303,7 @@ export const de_ListWorkflowBuildVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkflowBuildVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorkflowBuildVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5824,50 +3318,6 @@ export const de_ListWorkflowBuildVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWorkflowBuildVersionsCommandError
- */
-const de_ListWorkflowBuildVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkflowBuildVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWorkflowExecutionsCommand
  */
 export const de_ListWorkflowExecutionsCommand = async (
@@ -5875,7 +3325,7 @@ export const de_ListWorkflowExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkflowExecutionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorkflowExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5893,50 +3343,6 @@ export const de_ListWorkflowExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWorkflowExecutionsCommandError
- */
-const de_ListWorkflowExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkflowExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWorkflowsCommand
  */
 export const de_ListWorkflowsCommand = async (
@@ -5944,7 +3350,7 @@ export const de_ListWorkflowsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkflowsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorkflowsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5959,50 +3365,6 @@ export const de_ListWorkflowsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWorkflowsCommandError
- */
-const de_ListWorkflowsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkflowsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListWorkflowStepExecutionsCommand
  */
 export const de_ListWorkflowStepExecutionsCommand = async (
@@ -6010,7 +3372,7 @@ export const de_ListWorkflowStepExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkflowStepExecutionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListWorkflowStepExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6030,50 +3392,6 @@ export const de_ListWorkflowStepExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListWorkflowStepExecutionsCommandError
- */
-const de_ListWorkflowStepExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkflowStepExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutComponentPolicyCommand
  */
 export const de_PutComponentPolicyCommand = async (
@@ -6081,7 +3399,7 @@ export const de_PutComponentPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutComponentPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutComponentPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6096,53 +3414,6 @@ export const de_PutComponentPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutComponentPolicyCommandError
- */
-const de_PutComponentPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutComponentPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.imagebuilder#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutContainerRecipePolicyCommand
  */
 export const de_PutContainerRecipePolicyCommand = async (
@@ -6150,7 +3421,7 @@ export const de_PutContainerRecipePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutContainerRecipePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutContainerRecipePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6165,53 +3436,6 @@ export const de_PutContainerRecipePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutContainerRecipePolicyCommandError
- */
-const de_PutContainerRecipePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutContainerRecipePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.imagebuilder#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutImagePolicyCommand
  */
 export const de_PutImagePolicyCommand = async (
@@ -6219,7 +3443,7 @@ export const de_PutImagePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutImagePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutImagePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6234,53 +3458,6 @@ export const de_PutImagePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutImagePolicyCommandError
- */
-const de_PutImagePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutImagePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.imagebuilder#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutImageRecipePolicyCommand
  */
 export const de_PutImageRecipePolicyCommand = async (
@@ -6288,7 +3465,7 @@ export const de_PutImageRecipePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutImageRecipePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutImageRecipePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6303,53 +3480,6 @@ export const de_PutImageRecipePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutImageRecipePolicyCommandError
- */
-const de_PutImageRecipePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutImageRecipePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.imagebuilder#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SendWorkflowStepActionCommand
  */
 export const de_SendWorkflowStepActionCommand = async (
@@ -6357,7 +3487,7 @@ export const de_SendWorkflowStepActionCommand = async (
   context: __SerdeContext
 ): Promise<SendWorkflowStepActionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SendWorkflowStepActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6373,59 +3503,6 @@ export const de_SendWorkflowStepActionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SendWorkflowStepActionCommandError
- */
-const de_SendWorkflowStepActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendWorkflowStepActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.imagebuilder#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartImagePipelineExecutionCommand
  */
 export const de_StartImagePipelineExecutionCommand = async (
@@ -6433,7 +3510,7 @@ export const de_StartImagePipelineExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StartImagePipelineExecutionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartImagePipelineExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6449,56 +3526,6 @@ export const de_StartImagePipelineExecutionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartImagePipelineExecutionCommandError
- */
-const de_StartImagePipelineExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartImagePipelineExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartResourceStateUpdateCommand
  */
 export const de_StartResourceStateUpdateCommand = async (
@@ -6506,7 +3533,7 @@ export const de_StartResourceStateUpdateCommand = async (
   context: __SerdeContext
 ): Promise<StartResourceStateUpdateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartResourceStateUpdateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6521,56 +3548,6 @@ export const de_StartResourceStateUpdateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartResourceStateUpdateCommandError
- */
-const de_StartResourceStateUpdateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartResourceStateUpdateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -6578,45 +3555,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.imagebuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6627,45 +3572,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.imagebuilder#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6676,7 +3589,7 @@ export const de_UpdateDistributionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDistributionConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDistributionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6692,56 +3605,6 @@ export const de_UpdateDistributionConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateDistributionConfigurationCommandError
- */
-const de_UpdateDistributionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDistributionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateImagePipelineCommand
  */
 export const de_UpdateImagePipelineCommand = async (
@@ -6749,7 +3612,7 @@ export const de_UpdateImagePipelineCommand = async (
   context: __SerdeContext
 ): Promise<UpdateImagePipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateImagePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6765,53 +3628,6 @@ export const de_UpdateImagePipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateImagePipelineCommandError
- */
-const de_UpdateImagePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateImagePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateInfrastructureConfigurationCommand
  */
 export const de_UpdateInfrastructureConfigurationCommand = async (
@@ -6819,7 +3635,7 @@ export const de_UpdateInfrastructureConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInfrastructureConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateInfrastructureConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6835,53 +3651,6 @@ export const de_UpdateInfrastructureConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateInfrastructureConfigurationCommandError
- */
-const de_UpdateInfrastructureConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInfrastructureConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CallRateLimitExceededException":
-    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
-      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
-    case "ClientException":
-    case "com.amazonaws.imagebuilder#ClientException":
-      throw await de_ClientExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.imagebuilder#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.imagebuilder#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.imagebuilder#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.imagebuilder#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateLifecyclePolicyCommand
  */
 export const de_UpdateLifecyclePolicyCommand = async (
@@ -6889,7 +3658,7 @@ export const de_UpdateLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLifecyclePolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateLifecyclePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6903,12 +3672,9 @@ export const de_UpdateLifecyclePolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateLifecyclePolicyCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLifecyclePolicyCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6927,9 +3693,6 @@ const de_UpdateLifecyclePolicyCommandError = async (
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
@@ -6942,13 +3705,40 @@ const de_UpdateLifecyclePolicyCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.imagebuilder#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidVersionNumberException":
+    case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
+      throw await de_InvalidVersionNumberExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceDependencyException":
+    case "com.amazonaws.imagebuilder#ResourceDependencyException":
+      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.imagebuilder#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.imagebuilder#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

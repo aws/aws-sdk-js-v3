@@ -3163,7 +3163,7 @@ export const de_AcceptReservedNodeExchangeCommand = async (
   context: __SerdeContext
 ): Promise<AcceptReservedNodeExchangeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptReservedNodeExchangeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3176,12 +3176,2584 @@ export const de_AcceptReservedNodeExchangeCommand = async (
 };
 
 /**
- * deserializeAws_queryAcceptReservedNodeExchangeCommandError
+ * deserializeAws_queryAddPartnerCommand
  */
-const de_AcceptReservedNodeExchangeCommandError = async (
+export const de_AddPartnerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AcceptReservedNodeExchangeCommandOutput> => {
+): Promise<AddPartnerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PartnerIntegrationOutputMessage(data.AddPartnerResult, context);
+  const response: AddPartnerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryAssociateDataShareConsumerCommand
+ */
+export const de_AssociateDataShareConsumerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateDataShareConsumerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DataShare(data.AssociateDataShareConsumerResult, context);
+  const response: AssociateDataShareConsumerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommand
+ */
+export const de_AuthorizeClusterSecurityGroupIngressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AuthorizeClusterSecurityGroupIngressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AuthorizeClusterSecurityGroupIngressResult(data.AuthorizeClusterSecurityGroupIngressResult, context);
+  const response: AuthorizeClusterSecurityGroupIngressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryAuthorizeDataShareCommand
+ */
+export const de_AuthorizeDataShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AuthorizeDataShareCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DataShare(data.AuthorizeDataShareResult, context);
+  const response: AuthorizeDataShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryAuthorizeEndpointAccessCommand
+ */
+export const de_AuthorizeEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AuthorizeEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EndpointAuthorization(data.AuthorizeEndpointAccessResult, context);
+  const response: AuthorizeEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryAuthorizeSnapshotAccessCommand
+ */
+export const de_AuthorizeSnapshotAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AuthorizeSnapshotAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AuthorizeSnapshotAccessResult(data.AuthorizeSnapshotAccessResult, context);
+  const response: AuthorizeSnapshotAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryBatchDeleteClusterSnapshotsCommand
+ */
+export const de_BatchDeleteClusterSnapshotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteClusterSnapshotsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchDeleteClusterSnapshotsResult(data.BatchDeleteClusterSnapshotsResult, context);
+  const response: BatchDeleteClusterSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryBatchModifyClusterSnapshotsCommand
+ */
+export const de_BatchModifyClusterSnapshotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchModifyClusterSnapshotsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchModifyClusterSnapshotsOutputMessage(data.BatchModifyClusterSnapshotsResult, context);
+  const response: BatchModifyClusterSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCancelResizeCommand
+ */
+export const de_CancelResizeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelResizeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ResizeProgressMessage(data.CancelResizeResult, context);
+  const response: CancelResizeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCopyClusterSnapshotCommand
+ */
+export const de_CopyClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyClusterSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopyClusterSnapshotResult(data.CopyClusterSnapshotResult, context);
+  const response: CopyClusterSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateAuthenticationProfileCommand
+ */
+export const de_CreateAuthenticationProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAuthenticationProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateAuthenticationProfileResult(data.CreateAuthenticationProfileResult, context);
+  const response: CreateAuthenticationProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateClusterCommand
+ */
+export const de_CreateClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateClusterResult(data.CreateClusterResult, context);
+  const response: CreateClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateClusterParameterGroupCommand
+ */
+export const de_CreateClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateClusterParameterGroupResult(data.CreateClusterParameterGroupResult, context);
+  const response: CreateClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateClusterSecurityGroupCommand
+ */
+export const de_CreateClusterSecurityGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateClusterSecurityGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateClusterSecurityGroupResult(data.CreateClusterSecurityGroupResult, context);
+  const response: CreateClusterSecurityGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateClusterSnapshotCommand
+ */
+export const de_CreateClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateClusterSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateClusterSnapshotResult(data.CreateClusterSnapshotResult, context);
+  const response: CreateClusterSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateClusterSubnetGroupCommand
+ */
+export const de_CreateClusterSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateClusterSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateClusterSubnetGroupResult(data.CreateClusterSubnetGroupResult, context);
+  const response: CreateClusterSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateCustomDomainAssociationCommand
+ */
+export const de_CreateCustomDomainAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCustomDomainAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateCustomDomainAssociationResult(data.CreateCustomDomainAssociationResult, context);
+  const response: CreateCustomDomainAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateEndpointAccessCommand
+ */
+export const de_CreateEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EndpointAccess(data.CreateEndpointAccessResult, context);
+  const response: CreateEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateEventSubscriptionCommand
+ */
+export const de_CreateEventSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEventSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateEventSubscriptionResult(data.CreateEventSubscriptionResult, context);
+  const response: CreateEventSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateHsmClientCertificateCommand
+ */
+export const de_CreateHsmClientCertificateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHsmClientCertificateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateHsmClientCertificateResult(data.CreateHsmClientCertificateResult, context);
+  const response: CreateHsmClientCertificateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateHsmConfigurationCommand
+ */
+export const de_CreateHsmConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateHsmConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateHsmConfigurationResult(data.CreateHsmConfigurationResult, context);
+  const response: CreateHsmConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateRedshiftIdcApplicationCommand
+ */
+export const de_CreateRedshiftIdcApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRedshiftIdcApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateRedshiftIdcApplicationResult(data.CreateRedshiftIdcApplicationResult, context);
+  const response: CreateRedshiftIdcApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateScheduledActionCommand
+ */
+export const de_CreateScheduledActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateScheduledActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ScheduledAction(data.CreateScheduledActionResult, context);
+  const response: CreateScheduledActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateSnapshotCopyGrantCommand
+ */
+export const de_CreateSnapshotCopyGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSnapshotCopyGrantCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateSnapshotCopyGrantResult(data.CreateSnapshotCopyGrantResult, context);
+  const response: CreateSnapshotCopyGrantCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateSnapshotScheduleCommand
+ */
+export const de_CreateSnapshotScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSnapshotScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SnapshotSchedule(data.CreateSnapshotScheduleResult, context);
+  const response: CreateSnapshotScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateTagsCommand
+ */
+export const de_CreateTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: CreateTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateUsageLimitCommand
+ */
+export const de_CreateUsageLimitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUsageLimitCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UsageLimit(data.CreateUsageLimitResult, context);
+  const response: CreateUsageLimitCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeauthorizeDataShareCommand
+ */
+export const de_DeauthorizeDataShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeauthorizeDataShareCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DataShare(data.DeauthorizeDataShareResult, context);
+  const response: DeauthorizeDataShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteAuthenticationProfileCommand
+ */
+export const de_DeleteAuthenticationProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAuthenticationProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteAuthenticationProfileResult(data.DeleteAuthenticationProfileResult, context);
+  const response: DeleteAuthenticationProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteClusterCommand
+ */
+export const de_DeleteClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteClusterResult(data.DeleteClusterResult, context);
+  const response: DeleteClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteClusterParameterGroupCommand
+ */
+export const de_DeleteClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteClusterSecurityGroupCommand
+ */
+export const de_DeleteClusterSecurityGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterSecurityGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteClusterSecurityGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteClusterSnapshotCommand
+ */
+export const de_DeleteClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteClusterSnapshotResult(data.DeleteClusterSnapshotResult, context);
+  const response: DeleteClusterSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteClusterSubnetGroupCommand
+ */
+export const de_DeleteClusterSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteClusterSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteClusterSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteCustomDomainAssociationCommand
+ */
+export const de_DeleteCustomDomainAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCustomDomainAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteCustomDomainAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteEndpointAccessCommand
+ */
+export const de_DeleteEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EndpointAccess(data.DeleteEndpointAccessResult, context);
+  const response: DeleteEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteEventSubscriptionCommand
+ */
+export const de_DeleteEventSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteEventSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteHsmClientCertificateCommand
+ */
+export const de_DeleteHsmClientCertificateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHsmClientCertificateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteHsmClientCertificateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteHsmConfigurationCommand
+ */
+export const de_DeleteHsmConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteHsmConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteHsmConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeletePartnerCommand
+ */
+export const de_DeletePartnerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePartnerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PartnerIntegrationOutputMessage(data.DeletePartnerResult, context);
+  const response: DeletePartnerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteRedshiftIdcApplicationCommand
+ */
+export const de_DeleteRedshiftIdcApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRedshiftIdcApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteRedshiftIdcApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteScheduledActionCommand
+ */
+export const de_DeleteScheduledActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteScheduledActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteScheduledActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteSnapshotCopyGrantCommand
+ */
+export const de_DeleteSnapshotCopyGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSnapshotCopyGrantCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteSnapshotCopyGrantCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteSnapshotScheduleCommand
+ */
+export const de_DeleteSnapshotScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSnapshotScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteSnapshotScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteTagsCommand
+ */
+export const de_DeleteTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteUsageLimitCommand
+ */
+export const de_DeleteUsageLimitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUsageLimitCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteUsageLimitCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeAccountAttributesCommand
+ */
+export const de_DescribeAccountAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AccountAttributeList(data.DescribeAccountAttributesResult, context);
+  const response: DescribeAccountAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeAuthenticationProfilesCommand
+ */
+export const de_DescribeAuthenticationProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAuthenticationProfilesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAuthenticationProfilesResult(data.DescribeAuthenticationProfilesResult, context);
+  const response: DescribeAuthenticationProfilesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeClusterDbRevisionsCommand
+ */
+export const de_DescribeClusterDbRevisionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterDbRevisionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ClusterDbRevisionsMessage(data.DescribeClusterDbRevisionsResult, context);
+  const response: DescribeClusterDbRevisionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeClusterParameterGroupsCommand
+ */
+export const de_DescribeClusterParameterGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterParameterGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ClusterParameterGroupsMessage(data.DescribeClusterParameterGroupsResult, context);
+  const response: DescribeClusterParameterGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeClusterParametersCommand
+ */
+export const de_DescribeClusterParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ClusterParameterGroupDetails(data.DescribeClusterParametersResult, context);
+  const response: DescribeClusterParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeClustersCommand
+ */
+export const de_DescribeClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ClustersMessage(data.DescribeClustersResult, context);
+  const response: DescribeClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeClusterSecurityGroupsCommand
+ */
+export const de_DescribeClusterSecurityGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterSecurityGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ClusterSecurityGroupMessage(data.DescribeClusterSecurityGroupsResult, context);
+  const response: DescribeClusterSecurityGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeClusterSnapshotsCommand
+ */
+export const de_DescribeClusterSnapshotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterSnapshotsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SnapshotMessage(data.DescribeClusterSnapshotsResult, context);
+  const response: DescribeClusterSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeClusterSubnetGroupsCommand
+ */
+export const de_DescribeClusterSubnetGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterSubnetGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ClusterSubnetGroupMessage(data.DescribeClusterSubnetGroupsResult, context);
+  const response: DescribeClusterSubnetGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeClusterTracksCommand
+ */
+export const de_DescribeClusterTracksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterTracksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TrackListMessage(data.DescribeClusterTracksResult, context);
+  const response: DescribeClusterTracksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeClusterVersionsCommand
+ */
+export const de_DescribeClusterVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeClusterVersionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ClusterVersionsMessage(data.DescribeClusterVersionsResult, context);
+  const response: DescribeClusterVersionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeCustomDomainAssociationsCommand
+ */
+export const de_DescribeCustomDomainAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCustomDomainAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CustomDomainAssociationsMessage(data.DescribeCustomDomainAssociationsResult, context);
+  const response: DescribeCustomDomainAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDataSharesCommand
+ */
+export const de_DescribeDataSharesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataSharesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDataSharesResult(data.DescribeDataSharesResult, context);
+  const response: DescribeDataSharesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDataSharesForConsumerCommand
+ */
+export const de_DescribeDataSharesForConsumerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataSharesForConsumerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDataSharesForConsumerResult(data.DescribeDataSharesForConsumerResult, context);
+  const response: DescribeDataSharesForConsumerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDataSharesForProducerCommand
+ */
+export const de_DescribeDataSharesForProducerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataSharesForProducerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDataSharesForProducerResult(data.DescribeDataSharesForProducerResult, context);
+  const response: DescribeDataSharesForProducerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeDefaultClusterParametersCommand
+ */
+export const de_DescribeDefaultClusterParametersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDefaultClusterParametersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDefaultClusterParametersResult(data.DescribeDefaultClusterParametersResult, context);
+  const response: DescribeDefaultClusterParametersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEndpointAccessCommand
+ */
+export const de_DescribeEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EndpointAccessList(data.DescribeEndpointAccessResult, context);
+  const response: DescribeEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEndpointAuthorizationCommand
+ */
+export const de_DescribeEndpointAuthorizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEndpointAuthorizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EndpointAuthorizationList(data.DescribeEndpointAuthorizationResult, context);
+  const response: DescribeEndpointAuthorizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEventCategoriesCommand
+ */
+export const de_DescribeEventCategoriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventCategoriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EventCategoriesMessage(data.DescribeEventCategoriesResult, context);
+  const response: DescribeEventCategoriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEventsCommand
+ */
+export const de_DescribeEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EventsMessage(data.DescribeEventsResult, context);
+  const response: DescribeEventsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeEventSubscriptionsCommand
+ */
+export const de_DescribeEventSubscriptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEventSubscriptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EventSubscriptionsMessage(data.DescribeEventSubscriptionsResult, context);
+  const response: DescribeEventSubscriptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeHsmClientCertificatesCommand
+ */
+export const de_DescribeHsmClientCertificatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHsmClientCertificatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_HsmClientCertificateMessage(data.DescribeHsmClientCertificatesResult, context);
+  const response: DescribeHsmClientCertificatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeHsmConfigurationsCommand
+ */
+export const de_DescribeHsmConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHsmConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_HsmConfigurationMessage(data.DescribeHsmConfigurationsResult, context);
+  const response: DescribeHsmConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeInboundIntegrationsCommand
+ */
+export const de_DescribeInboundIntegrationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInboundIntegrationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_InboundIntegrationsMessage(data.DescribeInboundIntegrationsResult, context);
+  const response: DescribeInboundIntegrationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeLoggingStatusCommand
+ */
+export const de_DescribeLoggingStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLoggingStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_LoggingStatus(data.DescribeLoggingStatusResult, context);
+  const response: DescribeLoggingStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeNodeConfigurationOptionsCommand
+ */
+export const de_DescribeNodeConfigurationOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNodeConfigurationOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_NodeConfigurationOptionsMessage(data.DescribeNodeConfigurationOptionsResult, context);
+  const response: DescribeNodeConfigurationOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeOrderableClusterOptionsCommand
+ */
+export const de_DescribeOrderableClusterOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeOrderableClusterOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_OrderableClusterOptionsMessage(data.DescribeOrderableClusterOptionsResult, context);
+  const response: DescribeOrderableClusterOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribePartnersCommand
+ */
+export const de_DescribePartnersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePartnersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribePartnersOutputMessage(data.DescribePartnersResult, context);
+  const response: DescribePartnersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeRedshiftIdcApplicationsCommand
+ */
+export const de_DescribeRedshiftIdcApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRedshiftIdcApplicationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeRedshiftIdcApplicationsResult(data.DescribeRedshiftIdcApplicationsResult, context);
+  const response: DescribeRedshiftIdcApplicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeReservedNodeExchangeStatusCommand
+ */
+export const de_DescribeReservedNodeExchangeStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedNodeExchangeStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeReservedNodeExchangeStatusOutputMessage(data.DescribeReservedNodeExchangeStatusResult, context);
+  const response: DescribeReservedNodeExchangeStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeReservedNodeOfferingsCommand
+ */
+export const de_DescribeReservedNodeOfferingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedNodeOfferingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ReservedNodeOfferingsMessage(data.DescribeReservedNodeOfferingsResult, context);
+  const response: DescribeReservedNodeOfferingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeReservedNodesCommand
+ */
+export const de_DescribeReservedNodesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReservedNodesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ReservedNodesMessage(data.DescribeReservedNodesResult, context);
+  const response: DescribeReservedNodesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeResizeCommand
+ */
+export const de_DescribeResizeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeResizeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ResizeProgressMessage(data.DescribeResizeResult, context);
+  const response: DescribeResizeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeScheduledActionsCommand
+ */
+export const de_DescribeScheduledActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeScheduledActionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ScheduledActionsMessage(data.DescribeScheduledActionsResult, context);
+  const response: DescribeScheduledActionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeSnapshotCopyGrantsCommand
+ */
+export const de_DescribeSnapshotCopyGrantsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSnapshotCopyGrantsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SnapshotCopyGrantMessage(data.DescribeSnapshotCopyGrantsResult, context);
+  const response: DescribeSnapshotCopyGrantsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeSnapshotSchedulesCommand
+ */
+export const de_DescribeSnapshotSchedulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSnapshotSchedulesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeSnapshotSchedulesOutputMessage(data.DescribeSnapshotSchedulesResult, context);
+  const response: DescribeSnapshotSchedulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeStorageCommand
+ */
+export const de_DescribeStorageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStorageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CustomerStorageMessage(data.DescribeStorageResult, context);
+  const response: DescribeStorageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTableRestoreStatusCommand
+ */
+export const de_DescribeTableRestoreStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTableRestoreStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TableRestoreStatusMessage(data.DescribeTableRestoreStatusResult, context);
+  const response: DescribeTableRestoreStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTagsCommand
+ */
+export const de_DescribeTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_TaggedResourceListMessage(data.DescribeTagsResult, context);
+  const response: DescribeTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeUsageLimitsCommand
+ */
+export const de_DescribeUsageLimitsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUsageLimitsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UsageLimitList(data.DescribeUsageLimitsResult, context);
+  const response: DescribeUsageLimitsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDisableLoggingCommand
+ */
+export const de_DisableLoggingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableLoggingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_LoggingStatus(data.DisableLoggingResult, context);
+  const response: DisableLoggingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDisableSnapshotCopyCommand
+ */
+export const de_DisableSnapshotCopyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableSnapshotCopyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DisableSnapshotCopyResult(data.DisableSnapshotCopyResult, context);
+  const response: DisableSnapshotCopyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDisassociateDataShareConsumerCommand
+ */
+export const de_DisassociateDataShareConsumerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateDataShareConsumerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DataShare(data.DisassociateDataShareConsumerResult, context);
+  const response: DisassociateDataShareConsumerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryEnableLoggingCommand
+ */
+export const de_EnableLoggingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableLoggingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_LoggingStatus(data.EnableLoggingResult, context);
+  const response: EnableLoggingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryEnableSnapshotCopyCommand
+ */
+export const de_EnableSnapshotCopyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableSnapshotCopyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EnableSnapshotCopyResult(data.EnableSnapshotCopyResult, context);
+  const response: EnableSnapshotCopyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryFailoverPrimaryComputeCommand
+ */
+export const de_FailoverPrimaryComputeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<FailoverPrimaryComputeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_FailoverPrimaryComputeResult(data.FailoverPrimaryComputeResult, context);
+  const response: FailoverPrimaryComputeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetClusterCredentialsCommand
+ */
+export const de_GetClusterCredentialsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClusterCredentialsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ClusterCredentials(data.GetClusterCredentialsResult, context);
+  const response: GetClusterCredentialsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetClusterCredentialsWithIAMCommand
+ */
+export const de_GetClusterCredentialsWithIAMCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClusterCredentialsWithIAMCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ClusterExtendedCredentials(data.GetClusterCredentialsWithIAMResult, context);
+  const response: GetClusterCredentialsWithIAMCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand
+ */
+export const de_GetReservedNodeExchangeConfigurationOptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetReservedNodeExchangeConfigurationOptionsOutputMessage(
+    data.GetReservedNodeExchangeConfigurationOptionsResult,
+    context
+  );
+  const response: GetReservedNodeExchangeConfigurationOptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetReservedNodeExchangeOfferingsCommand
+ */
+export const de_GetReservedNodeExchangeOfferingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReservedNodeExchangeOfferingsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetReservedNodeExchangeOfferingsOutputMessage(data.GetReservedNodeExchangeOfferingsResult, context);
+  const response: GetReservedNodeExchangeOfferingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetResourcePolicyResult(data.GetResourcePolicyResult, context);
+  const response: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyAquaConfigurationCommand
+ */
+export const de_ModifyAquaConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyAquaConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyAquaOutputMessage(data.ModifyAquaConfigurationResult, context);
+  const response: ModifyAquaConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyAuthenticationProfileCommand
+ */
+export const de_ModifyAuthenticationProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyAuthenticationProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyAuthenticationProfileResult(data.ModifyAuthenticationProfileResult, context);
+  const response: ModifyAuthenticationProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyClusterCommand
+ */
+export const de_ModifyClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyClusterResult(data.ModifyClusterResult, context);
+  const response: ModifyClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyClusterDbRevisionCommand
+ */
+export const de_ModifyClusterDbRevisionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyClusterDbRevisionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyClusterDbRevisionResult(data.ModifyClusterDbRevisionResult, context);
+  const response: ModifyClusterDbRevisionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyClusterIamRolesCommand
+ */
+export const de_ModifyClusterIamRolesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyClusterIamRolesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyClusterIamRolesResult(data.ModifyClusterIamRolesResult, context);
+  const response: ModifyClusterIamRolesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyClusterMaintenanceCommand
+ */
+export const de_ModifyClusterMaintenanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyClusterMaintenanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyClusterMaintenanceResult(data.ModifyClusterMaintenanceResult, context);
+  const response: ModifyClusterMaintenanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyClusterParameterGroupCommand
+ */
+export const de_ModifyClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ClusterParameterGroupNameMessage(data.ModifyClusterParameterGroupResult, context);
+  const response: ModifyClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyClusterSnapshotCommand
+ */
+export const de_ModifyClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyClusterSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyClusterSnapshotResult(data.ModifyClusterSnapshotResult, context);
+  const response: ModifyClusterSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyClusterSnapshotScheduleCommand
+ */
+export const de_ModifyClusterSnapshotScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyClusterSnapshotScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: ModifyClusterSnapshotScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyClusterSubnetGroupCommand
+ */
+export const de_ModifyClusterSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyClusterSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyClusterSubnetGroupResult(data.ModifyClusterSubnetGroupResult, context);
+  const response: ModifyClusterSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyCustomDomainAssociationCommand
+ */
+export const de_ModifyCustomDomainAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCustomDomainAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyCustomDomainAssociationResult(data.ModifyCustomDomainAssociationResult, context);
+  const response: ModifyCustomDomainAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyEndpointAccessCommand
+ */
+export const de_ModifyEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EndpointAccess(data.ModifyEndpointAccessResult, context);
+  const response: ModifyEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyEventSubscriptionCommand
+ */
+export const de_ModifyEventSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyEventSubscriptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyEventSubscriptionResult(data.ModifyEventSubscriptionResult, context);
+  const response: ModifyEventSubscriptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyRedshiftIdcApplicationCommand
+ */
+export const de_ModifyRedshiftIdcApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyRedshiftIdcApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyRedshiftIdcApplicationResult(data.ModifyRedshiftIdcApplicationResult, context);
+  const response: ModifyRedshiftIdcApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyScheduledActionCommand
+ */
+export const de_ModifyScheduledActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyScheduledActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ScheduledAction(data.ModifyScheduledActionResult, context);
+  const response: ModifyScheduledActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand
+ */
+export const de_ModifySnapshotCopyRetentionPeriodCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifySnapshotCopyRetentionPeriodResult(data.ModifySnapshotCopyRetentionPeriodResult, context);
+  const response: ModifySnapshotCopyRetentionPeriodCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifySnapshotScheduleCommand
+ */
+export const de_ModifySnapshotScheduleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifySnapshotScheduleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SnapshotSchedule(data.ModifySnapshotScheduleResult, context);
+  const response: ModifySnapshotScheduleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyUsageLimitCommand
+ */
+export const de_ModifyUsageLimitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyUsageLimitCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UsageLimit(data.ModifyUsageLimitResult, context);
+  const response: ModifyUsageLimitCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryPauseClusterCommand
+ */
+export const de_PauseClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PauseClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PauseClusterResult(data.PauseClusterResult, context);
+  const response: PauseClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryPurchaseReservedNodeOfferingCommand
+ */
+export const de_PurchaseReservedNodeOfferingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PurchaseReservedNodeOfferingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PurchaseReservedNodeOfferingResult(data.PurchaseReservedNodeOfferingResult, context);
+  const response: PurchaseReservedNodeOfferingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryPutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PutResourcePolicyResult(data.PutResourcePolicyResult, context);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRebootClusterCommand
+ */
+export const de_RebootClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RebootClusterResult(data.RebootClusterResult, context);
+  const response: RebootClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRejectDataShareCommand
+ */
+export const de_RejectDataShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectDataShareCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DataShare(data.RejectDataShareResult, context);
+  const response: RejectDataShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryResetClusterParameterGroupCommand
+ */
+export const de_ResetClusterParameterGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetClusterParameterGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ClusterParameterGroupNameMessage(data.ResetClusterParameterGroupResult, context);
+  const response: ResetClusterParameterGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryResizeClusterCommand
+ */
+export const de_ResizeClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResizeClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ResizeClusterResult(data.ResizeClusterResult, context);
+  const response: ResizeClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRestoreFromClusterSnapshotCommand
+ */
+export const de_RestoreFromClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreFromClusterSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreFromClusterSnapshotResult(data.RestoreFromClusterSnapshotResult, context);
+  const response: RestoreFromClusterSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRestoreTableFromClusterSnapshotCommand
+ */
+export const de_RestoreTableFromClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreTableFromClusterSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreTableFromClusterSnapshotResult(data.RestoreTableFromClusterSnapshotResult, context);
+  const response: RestoreTableFromClusterSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryResumeClusterCommand
+ */
+export const de_ResumeClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ResumeClusterResult(data.ResumeClusterResult, context);
+  const response: ResumeClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRevokeClusterSecurityGroupIngressCommand
+ */
+export const de_RevokeClusterSecurityGroupIngressCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeClusterSecurityGroupIngressCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RevokeClusterSecurityGroupIngressResult(data.RevokeClusterSecurityGroupIngressResult, context);
+  const response: RevokeClusterSecurityGroupIngressCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRevokeEndpointAccessCommand
+ */
+export const de_RevokeEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_EndpointAuthorization(data.RevokeEndpointAccessResult, context);
+  const response: RevokeEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRevokeSnapshotAccessCommand
+ */
+export const de_RevokeSnapshotAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RevokeSnapshotAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RevokeSnapshotAccessResult(data.RevokeSnapshotAccessResult, context);
+  const response: RevokeSnapshotAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRotateEncryptionKeyCommand
+ */
+export const de_RotateEncryptionKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RotateEncryptionKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RotateEncryptionKeyResult(data.RotateEncryptionKeyResult, context);
+  const response: RotateEncryptionKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryUpdatePartnerStatusCommand
+ */
+export const de_UpdatePartnerStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePartnerStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PartnerIntegrationOutputMessage(data.UpdatePartnerStatusResult, context);
+  const response: UpdatePartnerStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_queryCommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3209,49 +5781,6 @@ const de_AcceptReservedNodeExchangeCommandError = async (
     case "UnsupportedOperation":
     case "com.amazonaws.redshift#UnsupportedOperationFault":
       throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAddPartnerCommand
- */
-export const de_AddPartnerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddPartnerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AddPartnerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PartnerIntegrationOutputMessage(data.AddPartnerResult, context);
-  const response: AddPartnerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAddPartnerCommandError
- */
-const de_AddPartnerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddPartnerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ClusterNotFound":
     case "com.amazonaws.redshift#ClusterNotFoundFault":
       throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
@@ -3261,101 +5790,12 @@ const de_AddPartnerCommandError = async (
     case "UnauthorizedPartnerIntegration":
     case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
       throw await de_UnauthorizedPartnerIntegrationFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAssociateDataShareConsumerCommand
- */
-export const de_AssociateDataShareConsumerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateDataShareConsumerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AssociateDataShareConsumerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DataShare(data.AssociateDataShareConsumerResult, context);
-  const response: AssociateDataShareConsumerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAssociateDataShareConsumerCommandError
- */
-const de_AssociateDataShareConsumerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateDataShareConsumerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidDataShareFault":
     case "com.amazonaws.redshift#InvalidDataShareFault":
       throw await de_InvalidDataShareFaultRes(parsedOutput, context);
     case "InvalidNamespaceFault":
     case "com.amazonaws.redshift#InvalidNamespaceFault":
       throw await de_InvalidNamespaceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommand
- */
-export const de_AuthorizeClusterSecurityGroupIngressCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeClusterSecurityGroupIngressCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AuthorizeClusterSecurityGroupIngressCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_AuthorizeClusterSecurityGroupIngressResult(data.AuthorizeClusterSecurityGroupIngressResult, context);
-  const response: AuthorizeClusterSecurityGroupIngressCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAuthorizeClusterSecurityGroupIngressCommandError
- */
-const de_AuthorizeClusterSecurityGroupIngressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeClusterSecurityGroupIngressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AuthorizationAlreadyExists":
     case "com.amazonaws.redshift#AuthorizationAlreadyExistsFault":
       throw await de_AuthorizationAlreadyExistsFaultRes(parsedOutput, context);
@@ -3368,98 +5808,6 @@ const de_AuthorizeClusterSecurityGroupIngressCommandError = async (
     case "InvalidClusterSecurityGroupState":
     case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
       throw await de_InvalidClusterSecurityGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAuthorizeDataShareCommand
- */
-export const de_AuthorizeDataShareCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeDataShareCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AuthorizeDataShareCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DataShare(data.AuthorizeDataShareResult, context);
-  const response: AuthorizeDataShareCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAuthorizeDataShareCommandError
- */
-const de_AuthorizeDataShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeDataShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidDataShareFault":
-    case "com.amazonaws.redshift#InvalidDataShareFault":
-      throw await de_InvalidDataShareFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAuthorizeEndpointAccessCommand
- */
-export const de_AuthorizeEndpointAccessCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeEndpointAccessCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AuthorizeEndpointAccessCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EndpointAuthorization(data.AuthorizeEndpointAccessResult, context);
-  const response: AuthorizeEndpointAccessCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAuthorizeEndpointAccessCommandError
- */
-const de_AuthorizeEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "EndpointAuthorizationAlreadyExists":
     case "com.amazonaws.redshift#EndpointAuthorizationAlreadyExistsFault":
       throw await de_EndpointAuthorizationAlreadyExistsFaultRes(parsedOutput, context);
@@ -3472,58 +5820,6 @@ const de_AuthorizeEndpointAccessCommandError = async (
     case "InvalidClusterState":
     case "com.amazonaws.redshift#InvalidClusterStateFault":
       throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAuthorizeSnapshotAccessCommand
- */
-export const de_AuthorizeSnapshotAccessCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeSnapshotAccessCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AuthorizeSnapshotAccessCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_AuthorizeSnapshotAccessResult(data.AuthorizeSnapshotAccessResult, context);
-  const response: AuthorizeSnapshotAccessCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAuthorizeSnapshotAccessCommandError
- */
-const de_AuthorizeSnapshotAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AuthorizeSnapshotAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationAlreadyExists":
-    case "com.amazonaws.redshift#AuthorizationAlreadyExistsFault":
-      throw await de_AuthorizationAlreadyExistsFaultRes(parsedOutput, context);
-    case "AuthorizationQuotaExceeded":
-    case "com.amazonaws.redshift#AuthorizationQuotaExceededFault":
-      throw await de_AuthorizationQuotaExceededFaultRes(parsedOutput, context);
     case "ClusterSnapshotNotFound":
     case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
       throw await de_ClusterSnapshotNotFoundFaultRes(parsedOutput, context);
@@ -3536,263 +5832,24 @@ const de_AuthorizeSnapshotAccessCommandError = async (
     case "LimitExceededFault":
     case "com.amazonaws.redshift#LimitExceededFault":
       throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryBatchDeleteClusterSnapshotsCommand
- */
-export const de_BatchDeleteClusterSnapshotsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteClusterSnapshotsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_BatchDeleteClusterSnapshotsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_BatchDeleteClusterSnapshotsResult(data.BatchDeleteClusterSnapshotsResult, context);
-  const response: BatchDeleteClusterSnapshotsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryBatchDeleteClusterSnapshotsCommandError
- */
-const de_BatchDeleteClusterSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteClusterSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "BatchDeleteRequestSizeExceeded":
     case "com.amazonaws.redshift#BatchDeleteRequestSizeExceededFault":
       throw await de_BatchDeleteRequestSizeExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryBatchModifyClusterSnapshotsCommand
- */
-export const de_BatchModifyClusterSnapshotsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchModifyClusterSnapshotsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_BatchModifyClusterSnapshotsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_BatchModifyClusterSnapshotsOutputMessage(data.BatchModifyClusterSnapshotsResult, context);
-  const response: BatchModifyClusterSnapshotsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryBatchModifyClusterSnapshotsCommandError
- */
-const de_BatchModifyClusterSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchModifyClusterSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "BatchModifyClusterSnapshotsLimitExceededFault":
     case "com.amazonaws.redshift#BatchModifyClusterSnapshotsLimitExceededFault":
       throw await de_BatchModifyClusterSnapshotsLimitExceededFaultRes(parsedOutput, context);
     case "InvalidRetentionPeriodFault":
     case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
       throw await de_InvalidRetentionPeriodFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCancelResizeCommand
- */
-export const de_CancelResizeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelResizeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CancelResizeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ResizeProgressMessage(data.CancelResizeResult, context);
-  const response: CancelResizeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCancelResizeCommandError
- */
-const de_CancelResizeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelResizeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "ResizeNotFound":
     case "com.amazonaws.redshift#ResizeNotFoundFault":
       throw await de_ResizeNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCopyClusterSnapshotCommand
- */
-export const de_CopyClusterSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CopyClusterSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CopyClusterSnapshotResult(data.CopyClusterSnapshotResult, context);
-  const response: CopyClusterSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCopyClusterSnapshotCommandError
- */
-const de_CopyClusterSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyClusterSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "ClusterSnapshotAlreadyExists":
     case "com.amazonaws.redshift#ClusterSnapshotAlreadyExistsFault":
       throw await de_ClusterSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "ClusterSnapshotNotFound":
-    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
-      throw await de_ClusterSnapshotNotFoundFaultRes(parsedOutput, context);
     case "ClusterSnapshotQuotaExceeded":
     case "com.amazonaws.redshift#ClusterSnapshotQuotaExceededFault":
       throw await de_ClusterSnapshotQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidClusterSnapshotState":
-    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
-      throw await de_InvalidClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidRetentionPeriodFault":
-    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
-      throw await de_InvalidRetentionPeriodFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateAuthenticationProfileCommand
- */
-export const de_CreateAuthenticationProfileCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAuthenticationProfileCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateAuthenticationProfileCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateAuthenticationProfileResult(data.CreateAuthenticationProfileResult, context);
-  const response: CreateAuthenticationProfileCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateAuthenticationProfileCommandError
- */
-const de_CreateAuthenticationProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAuthenticationProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AuthenticationProfileAlreadyExistsFault":
     case "com.amazonaws.redshift#AuthenticationProfileAlreadyExistsFault":
       throw await de_AuthenticationProfileAlreadyExistsFaultRes(parsedOutput, context);
@@ -3802,49 +5859,6 @@ const de_CreateAuthenticationProfileCommandError = async (
     case "InvalidAuthenticationProfileRequestFault":
     case "com.amazonaws.redshift#InvalidAuthenticationProfileRequestFault":
       throw await de_InvalidAuthenticationProfileRequestFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateClusterCommand
- */
-export const de_CreateClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateClusterResult(data.CreateClusterResult, context);
-  const response: CreateClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateClusterCommandError
- */
-const de_CreateClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ClusterAlreadyExists":
     case "com.amazonaws.redshift#ClusterAlreadyExistsFault":
       throw await de_ClusterAlreadyExistsFaultRes(parsedOutput, context);
@@ -3854,15 +5868,9 @@ const de_CreateClusterCommandError = async (
     case "ClusterQuotaExceeded":
     case "com.amazonaws.redshift#ClusterQuotaExceededFault":
       throw await de_ClusterQuotaExceededFaultRes(parsedOutput, context);
-    case "ClusterSecurityGroupNotFound":
-    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
-      throw await de_ClusterSecurityGroupNotFoundFaultRes(parsedOutput, context);
     case "ClusterSubnetGroupNotFoundFault":
     case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
       throw await de_ClusterSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DependentServiceRequestThrottlingFault":
-    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
-      throw await de_DependentServiceRequestThrottlingFaultRes(parsedOutput, context);
     case "HsmClientCertificateNotFoundFault":
     case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
       throw await de_HsmClientCertificateNotFoundFaultRes(parsedOutput, context);
@@ -3881,9 +5889,6 @@ const de_CreateClusterCommandError = async (
     case "InvalidElasticIpFault":
     case "com.amazonaws.redshift#InvalidElasticIpFault":
       throw await de_InvalidElasticIpFaultRes(parsedOutput, context);
-    case "InvalidRetentionPeriodFault":
-    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
-      throw await de_InvalidRetentionPeriodFaultRes(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.redshift#InvalidSubnet":
       throw await de_InvalidSubnetRes(parsedOutput, context);
@@ -3896,9 +5901,6 @@ const de_CreateClusterCommandError = async (
     case "Ipv6CidrBlockNotFoundFault":
     case "com.amazonaws.redshift#Ipv6CidrBlockNotFoundFault":
       throw await de_Ipv6CidrBlockNotFoundFaultRes(parsedOutput, context);
-    case "LimitExceededFault":
-    case "com.amazonaws.redshift#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
     case "NumberOfNodesPerClusterLimitExceeded":
     case "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault":
       throw await de_NumberOfNodesPerClusterLimitExceededFaultRes(parsedOutput, context);
@@ -3917,226 +5919,18 @@ const de_CreateClusterCommandError = async (
     case "UnauthorizedOperation":
     case "com.amazonaws.redshift#UnauthorizedOperation":
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateClusterParameterGroupCommand
- */
-export const de_CreateClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateClusterParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateClusterParameterGroupResult(data.CreateClusterParameterGroupResult, context);
-  const response: CreateClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateClusterParameterGroupCommandError
- */
-const de_CreateClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ClusterParameterGroupAlreadyExists":
     case "com.amazonaws.redshift#ClusterParameterGroupAlreadyExistsFault":
       throw await de_ClusterParameterGroupAlreadyExistsFaultRes(parsedOutput, context);
     case "ClusterParameterGroupQuotaExceeded":
     case "com.amazonaws.redshift#ClusterParameterGroupQuotaExceededFault":
       throw await de_ClusterParameterGroupQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    case "TagLimitExceededFault":
-    case "com.amazonaws.redshift#TagLimitExceededFault":
-      throw await de_TagLimitExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateClusterSecurityGroupCommand
- */
-export const de_CreateClusterSecurityGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterSecurityGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateClusterSecurityGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateClusterSecurityGroupResult(data.CreateClusterSecurityGroupResult, context);
-  const response: CreateClusterSecurityGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateClusterSecurityGroupCommandError
- */
-const de_CreateClusterSecurityGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterSecurityGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ClusterSecurityGroupAlreadyExists":
     case "com.amazonaws.redshift#ClusterSecurityGroupAlreadyExistsFault":
       throw await de_ClusterSecurityGroupAlreadyExistsFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
     case "QuotaExceeded.ClusterSecurityGroup":
     case "com.amazonaws.redshift#ClusterSecurityGroupQuotaExceededFault":
       throw await de_ClusterSecurityGroupQuotaExceededFaultRes(parsedOutput, context);
-    case "TagLimitExceededFault":
-    case "com.amazonaws.redshift#TagLimitExceededFault":
-      throw await de_TagLimitExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateClusterSnapshotCommand
- */
-export const de_CreateClusterSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateClusterSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateClusterSnapshotResult(data.CreateClusterSnapshotResult, context);
-  const response: CreateClusterSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateClusterSnapshotCommandError
- */
-const de_CreateClusterSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSnapshotAlreadyExists":
-    case "com.amazonaws.redshift#ClusterSnapshotAlreadyExistsFault":
-      throw await de_ClusterSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "ClusterSnapshotQuotaExceeded":
-    case "com.amazonaws.redshift#ClusterSnapshotQuotaExceededFault":
-      throw await de_ClusterSnapshotQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "InvalidRetentionPeriodFault":
-    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
-      throw await de_InvalidRetentionPeriodFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    case "TagLimitExceededFault":
-    case "com.amazonaws.redshift#TagLimitExceededFault":
-      throw await de_TagLimitExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateClusterSubnetGroupCommand
- */
-export const de_CreateClusterSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateClusterSubnetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateClusterSubnetGroupResult(data.CreateClusterSubnetGroupResult, context);
-  const response: CreateClusterSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateClusterSubnetGroupCommandError
- */
-const de_CreateClusterSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateClusterSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ClusterSubnetGroupAlreadyExists":
     case "com.amazonaws.redshift#ClusterSubnetGroupAlreadyExistsFault":
       throw await de_ClusterSubnetGroupAlreadyExistsFaultRes(parsedOutput, context);
@@ -4146,125 +5940,12 @@ const de_CreateClusterSubnetGroupCommandError = async (
     case "ClusterSubnetQuotaExceededFault":
     case "com.amazonaws.redshift#ClusterSubnetQuotaExceededFault":
       throw await de_ClusterSubnetQuotaExceededFaultRes(parsedOutput, context);
-    case "DependentServiceRequestThrottlingFault":
-    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
-      throw await de_DependentServiceRequestThrottlingFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.redshift#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    case "TagLimitExceededFault":
-    case "com.amazonaws.redshift#TagLimitExceededFault":
-      throw await de_TagLimitExceededFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateCustomDomainAssociationCommand
- */
-export const de_CreateCustomDomainAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomDomainAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateCustomDomainAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateCustomDomainAssociationResult(data.CreateCustomDomainAssociationResult, context);
-  const response: CreateCustomDomainAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateCustomDomainAssociationCommandError
- */
-const de_CreateCustomDomainAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomDomainAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "CustomCnameAssociationFault":
     case "com.amazonaws.redshift#CustomCnameAssociationFault":
       throw await de_CustomCnameAssociationFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateEndpointAccessCommand
- */
-export const de_CreateEndpointAccessCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEndpointAccessCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateEndpointAccessCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EndpointAccess(data.CreateEndpointAccessResult, context);
-  const response: CreateEndpointAccessCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateEndpointAccessCommandError
- */
-const de_CreateEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AccessToClusterDenied":
     case "com.amazonaws.redshift#AccessToClusterDeniedFault":
       throw await de_AccessToClusterDeniedFaultRes(parsedOutput, context);
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSubnetGroupNotFoundFault":
-    case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
-      throw await de_ClusterSubnetGroupNotFoundFaultRes(parsedOutput, context);
     case "EndpointAlreadyExists":
     case "com.amazonaws.redshift#EndpointAlreadyExistsFault":
       throw await de_EndpointAlreadyExistsFaultRes(parsedOutput, context);
@@ -4274,67 +5955,9 @@ const de_CreateEndpointAccessCommandError = async (
     case "EndpointsPerClusterLimitExceeded":
     case "com.amazonaws.redshift#EndpointsPerClusterLimitExceededFault":
       throw await de_EndpointsPerClusterLimitExceededFaultRes(parsedOutput, context);
-    case "InvalidClusterSecurityGroupState":
-    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
-      throw await de_InvalidClusterSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateEventSubscriptionCommand
- */
-export const de_CreateEventSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateEventSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateEventSubscriptionResult(data.CreateEventSubscriptionResult, context);
-  const response: CreateEventSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateEventSubscriptionCommandError
- */
-const de_CreateEventSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "EventSubscriptionQuotaExceeded":
     case "com.amazonaws.redshift#EventSubscriptionQuotaExceededFault":
       throw await de_EventSubscriptionQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
     case "SNSInvalidTopic":
     case "com.amazonaws.redshift#SNSInvalidTopicFault":
       throw await de_SNSInvalidTopicFaultRes(parsedOutput, context);
@@ -4359,223 +5982,27 @@ const de_CreateEventSubscriptionCommandError = async (
     case "SubscriptionSeverityNotFound":
     case "com.amazonaws.redshift#SubscriptionSeverityNotFoundFault":
       throw await de_SubscriptionSeverityNotFoundFaultRes(parsedOutput, context);
-    case "TagLimitExceededFault":
-    case "com.amazonaws.redshift#TagLimitExceededFault":
-      throw await de_TagLimitExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateHsmClientCertificateCommand
- */
-export const de_CreateHsmClientCertificateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHsmClientCertificateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateHsmClientCertificateCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateHsmClientCertificateResult(data.CreateHsmClientCertificateResult, context);
-  const response: CreateHsmClientCertificateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateHsmClientCertificateCommandError
- */
-const de_CreateHsmClientCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHsmClientCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "HsmClientCertificateAlreadyExistsFault":
     case "com.amazonaws.redshift#HsmClientCertificateAlreadyExistsFault":
       throw await de_HsmClientCertificateAlreadyExistsFaultRes(parsedOutput, context);
     case "HsmClientCertificateQuotaExceededFault":
     case "com.amazonaws.redshift#HsmClientCertificateQuotaExceededFault":
       throw await de_HsmClientCertificateQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    case "TagLimitExceededFault":
-    case "com.amazonaws.redshift#TagLimitExceededFault":
-      throw await de_TagLimitExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateHsmConfigurationCommand
- */
-export const de_CreateHsmConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHsmConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateHsmConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateHsmConfigurationResult(data.CreateHsmConfigurationResult, context);
-  const response: CreateHsmConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateHsmConfigurationCommandError
- */
-const de_CreateHsmConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHsmConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "HsmConfigurationAlreadyExistsFault":
     case "com.amazonaws.redshift#HsmConfigurationAlreadyExistsFault":
       throw await de_HsmConfigurationAlreadyExistsFaultRes(parsedOutput, context);
     case "HsmConfigurationQuotaExceededFault":
     case "com.amazonaws.redshift#HsmConfigurationQuotaExceededFault":
       throw await de_HsmConfigurationQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    case "TagLimitExceededFault":
-    case "com.amazonaws.redshift#TagLimitExceededFault":
-      throw await de_TagLimitExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateRedshiftIdcApplicationCommand
- */
-export const de_CreateRedshiftIdcApplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRedshiftIdcApplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateRedshiftIdcApplicationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateRedshiftIdcApplicationResult(data.CreateRedshiftIdcApplicationResult, context);
-  const response: CreateRedshiftIdcApplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateRedshiftIdcApplicationCommandError
- */
-const de_CreateRedshiftIdcApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRedshiftIdcApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DependentServiceAccessDenied":
     case "com.amazonaws.redshift#DependentServiceAccessDeniedFault":
       throw await de_DependentServiceAccessDeniedFaultRes(parsedOutput, context);
-    case "DependentServiceUnavailableFault":
-    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
-      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
     case "RedshiftIdcApplicationAlreadyExists":
     case "com.amazonaws.redshift#RedshiftIdcApplicationAlreadyExistsFault":
       throw await de_RedshiftIdcApplicationAlreadyExistsFaultRes(parsedOutput, context);
     case "RedshiftIdcApplicationQuotaExceeded":
     case "com.amazonaws.redshift#RedshiftIdcApplicationQuotaExceededFault":
       throw await de_RedshiftIdcApplicationQuotaExceededFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateScheduledActionCommand
- */
-export const de_CreateScheduledActionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateScheduledActionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateScheduledActionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ScheduledAction(data.CreateScheduledActionResult, context);
-  const response: CreateScheduledActionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateScheduledActionCommandError
- */
-const de_CreateScheduledActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateScheduledActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InvalidSchedule":
     case "com.amazonaws.redshift#InvalidScheduleFault":
       throw await de_InvalidScheduleFaultRes(parsedOutput, context);
@@ -4591,122 +6018,12 @@ const de_CreateScheduledActionCommandError = async (
     case "ScheduledActionTypeUnsupported":
     case "com.amazonaws.redshift#ScheduledActionTypeUnsupportedFault":
       throw await de_ScheduledActionTypeUnsupportedFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateSnapshotCopyGrantCommand
- */
-export const de_CreateSnapshotCopyGrantCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotCopyGrantCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateSnapshotCopyGrantCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateSnapshotCopyGrantResult(data.CreateSnapshotCopyGrantResult, context);
-  const response: CreateSnapshotCopyGrantCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateSnapshotCopyGrantCommandError
- */
-const de_CreateSnapshotCopyGrantCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotCopyGrantCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependentServiceRequestThrottlingFault":
-    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
-      throw await de_DependentServiceRequestThrottlingFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    case "LimitExceededFault":
-    case "com.amazonaws.redshift#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
     case "SnapshotCopyGrantAlreadyExistsFault":
     case "com.amazonaws.redshift#SnapshotCopyGrantAlreadyExistsFault":
       throw await de_SnapshotCopyGrantAlreadyExistsFaultRes(parsedOutput, context);
     case "SnapshotCopyGrantQuotaExceededFault":
     case "com.amazonaws.redshift#SnapshotCopyGrantQuotaExceededFault":
       throw await de_SnapshotCopyGrantQuotaExceededFaultRes(parsedOutput, context);
-    case "TagLimitExceededFault":
-    case "com.amazonaws.redshift#TagLimitExceededFault":
-      throw await de_TagLimitExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateSnapshotScheduleCommand
- */
-export const de_CreateSnapshotScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotScheduleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateSnapshotScheduleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SnapshotSchedule(data.CreateSnapshotScheduleResult, context);
-  const response: CreateSnapshotScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateSnapshotScheduleCommandError
- */
-const de_CreateSnapshotScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidSchedule":
-    case "com.amazonaws.redshift#InvalidScheduleFault":
-      throw await de_InvalidScheduleFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
     case "ScheduleDefinitionTypeUnsupported":
     case "com.amazonaws.redshift#ScheduleDefinitionTypeUnsupportedFault":
       throw await de_ScheduleDefinitionTypeUnsupportedFaultRes(parsedOutput, context);
@@ -4716,5636 +6033,148 @@ const de_CreateSnapshotScheduleCommandError = async (
     case "SnapshotScheduleQuotaExceeded":
     case "com.amazonaws.redshift#SnapshotScheduleQuotaExceededFault":
       throw await de_SnapshotScheduleQuotaExceededFaultRes(parsedOutput, context);
-    case "TagLimitExceededFault":
-    case "com.amazonaws.redshift#TagLimitExceededFault":
-      throw await de_TagLimitExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateTagsCommand
- */
-export const de_CreateTagsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTagsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateTagsCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: CreateTagsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateTagsCommandError
- */
-const de_CreateTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
     case "ResourceNotFoundFault":
     case "com.amazonaws.redshift#ResourceNotFoundFault":
       throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "TagLimitExceededFault":
-    case "com.amazonaws.redshift#TagLimitExceededFault":
-      throw await de_TagLimitExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateUsageLimitCommand
- */
-export const de_CreateUsageLimitCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUsageLimitCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateUsageLimitCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UsageLimit(data.CreateUsageLimitResult, context);
-  const response: CreateUsageLimitCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateUsageLimitCommandError
- */
-const de_CreateUsageLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUsageLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidUsageLimit":
     case "com.amazonaws.redshift#InvalidUsageLimitFault":
       throw await de_InvalidUsageLimitFaultRes(parsedOutput, context);
-    case "LimitExceededFault":
-    case "com.amazonaws.redshift#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "TagLimitExceededFault":
-    case "com.amazonaws.redshift#TagLimitExceededFault":
-      throw await de_TagLimitExceededFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     case "UsageLimitAlreadyExists":
     case "com.amazonaws.redshift#UsageLimitAlreadyExistsFault":
       throw await de_UsageLimitAlreadyExistsFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeauthorizeDataShareCommand
- */
-export const de_DeauthorizeDataShareCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeauthorizeDataShareCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeauthorizeDataShareCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DataShare(data.DeauthorizeDataShareResult, context);
-  const response: DeauthorizeDataShareCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeauthorizeDataShareCommandError
- */
-const de_DeauthorizeDataShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeauthorizeDataShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidDataShareFault":
-    case "com.amazonaws.redshift#InvalidDataShareFault":
-      throw await de_InvalidDataShareFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteAuthenticationProfileCommand
- */
-export const de_DeleteAuthenticationProfileCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAuthenticationProfileCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteAuthenticationProfileCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteAuthenticationProfileResult(data.DeleteAuthenticationProfileResult, context);
-  const response: DeleteAuthenticationProfileCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteAuthenticationProfileCommandError
- */
-const de_DeleteAuthenticationProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAuthenticationProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AuthenticationProfileNotFoundFault":
     case "com.amazonaws.redshift#AuthenticationProfileNotFoundFault":
       throw await de_AuthenticationProfileNotFoundFaultRes(parsedOutput, context);
-    case "InvalidAuthenticationProfileRequestFault":
-    case "com.amazonaws.redshift#InvalidAuthenticationProfileRequestFault":
-      throw await de_InvalidAuthenticationProfileRequestFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteClusterCommand
- */
-export const de_DeleteClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteClusterResult(data.DeleteClusterResult, context);
-  const response: DeleteClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteClusterCommandError
- */
-const de_DeleteClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSnapshotAlreadyExists":
-    case "com.amazonaws.redshift#ClusterSnapshotAlreadyExistsFault":
-      throw await de_ClusterSnapshotAlreadyExistsFaultRes(parsedOutput, context);
-    case "ClusterSnapshotQuotaExceeded":
-    case "com.amazonaws.redshift#ClusterSnapshotQuotaExceededFault":
-      throw await de_ClusterSnapshotQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "InvalidRetentionPeriodFault":
-    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
-      throw await de_InvalidRetentionPeriodFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteClusterParameterGroupCommand
- */
-export const de_DeleteClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteClusterParameterGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteClusterParameterGroupCommandError
- */
-const de_DeleteClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterParameterGroupNotFound":
-    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
-      throw await de_ClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
     case "InvalidClusterParameterGroupState":
     case "com.amazonaws.redshift#InvalidClusterParameterGroupStateFault":
       throw await de_InvalidClusterParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteClusterSecurityGroupCommand
- */
-export const de_DeleteClusterSecurityGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterSecurityGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteClusterSecurityGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteClusterSecurityGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteClusterSecurityGroupCommandError
- */
-const de_DeleteClusterSecurityGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterSecurityGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterSecurityGroupNotFound":
-    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
-      throw await de_ClusterSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterSecurityGroupState":
-    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
-      throw await de_InvalidClusterSecurityGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteClusterSnapshotCommand
- */
-export const de_DeleteClusterSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteClusterSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteClusterSnapshotResult(data.DeleteClusterSnapshotResult, context);
-  const response: DeleteClusterSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteClusterSnapshotCommandError
- */
-const de_DeleteClusterSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterSnapshotNotFound":
-    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
-      throw await de_ClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterSnapshotState":
-    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
-      throw await de_InvalidClusterSnapshotStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteClusterSubnetGroupCommand
- */
-export const de_DeleteClusterSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteClusterSubnetGroupCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteClusterSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteClusterSubnetGroupCommandError
- */
-const de_DeleteClusterSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteClusterSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterSubnetGroupNotFoundFault":
-    case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
-      throw await de_ClusterSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterSubnetGroupStateFault":
-    case "com.amazonaws.redshift#InvalidClusterSubnetGroupStateFault":
-      throw await de_InvalidClusterSubnetGroupStateFaultRes(parsedOutput, context);
     case "InvalidClusterSubnetStateFault":
     case "com.amazonaws.redshift#InvalidClusterSubnetStateFault":
       throw await de_InvalidClusterSubnetStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteCustomDomainAssociationCommand
- */
-export const de_DeleteCustomDomainAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomDomainAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteCustomDomainAssociationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteCustomDomainAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteCustomDomainAssociationCommandError
- */
-const de_DeleteCustomDomainAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomDomainAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "CustomCnameAssociationFault":
-    case "com.amazonaws.redshift#CustomCnameAssociationFault":
-      throw await de_CustomCnameAssociationFaultRes(parsedOutput, context);
     case "CustomDomainAssociationNotFoundFault":
     case "com.amazonaws.redshift#CustomDomainAssociationNotFoundFault":
       throw await de_CustomDomainAssociationNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteEndpointAccessCommand
- */
-export const de_DeleteEndpointAccessCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointAccessCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteEndpointAccessCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EndpointAccess(data.DeleteEndpointAccessResult, context);
-  const response: DeleteEndpointAccessCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteEndpointAccessCommandError
- */
-const de_DeleteEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "EndpointNotFound":
     case "com.amazonaws.redshift#EndpointNotFoundFault":
       throw await de_EndpointNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterSecurityGroupState":
-    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
-      throw await de_InvalidClusterSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidEndpointState":
     case "com.amazonaws.redshift#InvalidEndpointStateFault":
       throw await de_InvalidEndpointStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteEventSubscriptionCommand
- */
-export const de_DeleteEventSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteEventSubscriptionCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteEventSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteEventSubscriptionCommandError
- */
-const de_DeleteEventSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidSubscriptionStateFault":
     case "com.amazonaws.redshift#InvalidSubscriptionStateFault":
       throw await de_InvalidSubscriptionStateFaultRes(parsedOutput, context);
     case "SubscriptionNotFound":
     case "com.amazonaws.redshift#SubscriptionNotFoundFault":
       throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteHsmClientCertificateCommand
- */
-export const de_DeleteHsmClientCertificateCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHsmClientCertificateCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteHsmClientCertificateCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteHsmClientCertificateCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteHsmClientCertificateCommandError
- */
-const de_DeleteHsmClientCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHsmClientCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "HsmClientCertificateNotFoundFault":
-    case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
-      throw await de_HsmClientCertificateNotFoundFaultRes(parsedOutput, context);
     case "InvalidHsmClientCertificateStateFault":
     case "com.amazonaws.redshift#InvalidHsmClientCertificateStateFault":
       throw await de_InvalidHsmClientCertificateStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteHsmConfigurationCommand
- */
-export const de_DeleteHsmConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHsmConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteHsmConfigurationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteHsmConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteHsmConfigurationCommandError
- */
-const de_DeleteHsmConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHsmConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "HsmConfigurationNotFoundFault":
-    case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
-      throw await de_HsmConfigurationNotFoundFaultRes(parsedOutput, context);
     case "InvalidHsmConfigurationStateFault":
     case "com.amazonaws.redshift#InvalidHsmConfigurationStateFault":
       throw await de_InvalidHsmConfigurationStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeletePartnerCommand
- */
-export const de_DeletePartnerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePartnerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeletePartnerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PartnerIntegrationOutputMessage(data.DeletePartnerResult, context);
-  const response: DeletePartnerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeletePartnerCommandError
- */
-const de_DeletePartnerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePartnerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "PartnerNotFound":
-    case "com.amazonaws.redshift#PartnerNotFoundFault":
-      throw await de_PartnerNotFoundFaultRes(parsedOutput, context);
-    case "UnauthorizedPartnerIntegration":
-    case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
-      throw await de_UnauthorizedPartnerIntegrationFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteRedshiftIdcApplicationCommand
- */
-export const de_DeleteRedshiftIdcApplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRedshiftIdcApplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteRedshiftIdcApplicationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteRedshiftIdcApplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteRedshiftIdcApplicationCommandError
- */
-const de_DeleteRedshiftIdcApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRedshiftIdcApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependentServiceAccessDenied":
-    case "com.amazonaws.redshift#DependentServiceAccessDeniedFault":
-      throw await de_DependentServiceAccessDeniedFaultRes(parsedOutput, context);
-    case "DependentServiceUnavailableFault":
-    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
-      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
-    case "RedshiftIdcApplicationNotExists":
-    case "com.amazonaws.redshift#RedshiftIdcApplicationNotExistsFault":
-      throw await de_RedshiftIdcApplicationNotExistsFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteResourcePolicyCommand
- */
-export const de_DeleteResourcePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteResourcePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.redshift#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteScheduledActionCommand
- */
-export const de_DeleteScheduledActionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteScheduledActionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteScheduledActionCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteScheduledActionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteScheduledActionCommandError
- */
-const de_DeleteScheduledActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteScheduledActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ScheduledActionNotFound":
     case "com.amazonaws.redshift#ScheduledActionNotFoundFault":
       throw await de_ScheduledActionNotFoundFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteSnapshotCopyGrantCommand
- */
-export const de_DeleteSnapshotCopyGrantCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotCopyGrantCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteSnapshotCopyGrantCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteSnapshotCopyGrantCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteSnapshotCopyGrantCommandError
- */
-const de_DeleteSnapshotCopyGrantCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotCopyGrantCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidSnapshotCopyGrantStateFault":
     case "com.amazonaws.redshift#InvalidSnapshotCopyGrantStateFault":
       throw await de_InvalidSnapshotCopyGrantStateFaultRes(parsedOutput, context);
     case "SnapshotCopyGrantNotFoundFault":
     case "com.amazonaws.redshift#SnapshotCopyGrantNotFoundFault":
       throw await de_SnapshotCopyGrantNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteSnapshotScheduleCommand
- */
-export const de_DeleteSnapshotScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotScheduleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteSnapshotScheduleCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteSnapshotScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteSnapshotScheduleCommandError
- */
-const de_DeleteSnapshotScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidClusterSnapshotScheduleState":
     case "com.amazonaws.redshift#InvalidClusterSnapshotScheduleStateFault":
       throw await de_InvalidClusterSnapshotScheduleStateFaultRes(parsedOutput, context);
-    case "SnapshotScheduleNotFound":
-    case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
-      throw await de_SnapshotScheduleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteTagsCommand
- */
-export const de_DeleteTagsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteTagsCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteTagsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteTagsCommandError
- */
-const de_DeleteTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.redshift#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteUsageLimitCommand
- */
-export const de_DeleteUsageLimitCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUsageLimitCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteUsageLimitCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteUsageLimitCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteUsageLimitCommandError
- */
-const de_DeleteUsageLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUsageLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     case "UsageLimitNotFound":
     case "com.amazonaws.redshift#UsageLimitNotFoundFault":
       throw await de_UsageLimitNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeAccountAttributesCommand
- */
-export const de_DescribeAccountAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAccountAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_AccountAttributeList(data.DescribeAccountAttributesResult, context);
-  const response: DescribeAccountAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeAccountAttributesCommandError
- */
-const de_DescribeAccountAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeAuthenticationProfilesCommand
- */
-export const de_DescribeAuthenticationProfilesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAuthenticationProfilesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAuthenticationProfilesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAuthenticationProfilesResult(data.DescribeAuthenticationProfilesResult, context);
-  const response: DescribeAuthenticationProfilesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeAuthenticationProfilesCommandError
- */
-const de_DescribeAuthenticationProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAuthenticationProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthenticationProfileNotFoundFault":
-    case "com.amazonaws.redshift#AuthenticationProfileNotFoundFault":
-      throw await de_AuthenticationProfileNotFoundFaultRes(parsedOutput, context);
-    case "InvalidAuthenticationProfileRequestFault":
-    case "com.amazonaws.redshift#InvalidAuthenticationProfileRequestFault":
-      throw await de_InvalidAuthenticationProfileRequestFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeClusterDbRevisionsCommand
- */
-export const de_DescribeClusterDbRevisionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterDbRevisionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeClusterDbRevisionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ClusterDbRevisionsMessage(data.DescribeClusterDbRevisionsResult, context);
-  const response: DescribeClusterDbRevisionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeClusterDbRevisionsCommandError
- */
-const de_DescribeClusterDbRevisionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterDbRevisionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeClusterParameterGroupsCommand
- */
-export const de_DescribeClusterParameterGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterParameterGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeClusterParameterGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ClusterParameterGroupsMessage(data.DescribeClusterParameterGroupsResult, context);
-  const response: DescribeClusterParameterGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeClusterParameterGroupsCommandError
- */
-const de_DescribeClusterParameterGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterParameterGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterParameterGroupNotFound":
-    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
-      throw await de_ClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeClusterParametersCommand
- */
-export const de_DescribeClusterParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeClusterParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ClusterParameterGroupDetails(data.DescribeClusterParametersResult, context);
-  const response: DescribeClusterParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeClusterParametersCommandError
- */
-const de_DescribeClusterParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterParameterGroupNotFound":
-    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
-      throw await de_ClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeClustersCommand
- */
-export const de_DescribeClustersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClustersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeClustersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ClustersMessage(data.DescribeClustersResult, context);
-  const response: DescribeClustersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeClustersCommandError
- */
-const de_DescribeClustersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClustersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeClusterSecurityGroupsCommand
- */
-export const de_DescribeClusterSecurityGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterSecurityGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeClusterSecurityGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ClusterSecurityGroupMessage(data.DescribeClusterSecurityGroupsResult, context);
-  const response: DescribeClusterSecurityGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeClusterSecurityGroupsCommandError
- */
-const de_DescribeClusterSecurityGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterSecurityGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterSecurityGroupNotFound":
-    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
-      throw await de_ClusterSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeClusterSnapshotsCommand
- */
-export const de_DescribeClusterSnapshotsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterSnapshotsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeClusterSnapshotsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SnapshotMessage(data.DescribeClusterSnapshotsResult, context);
-  const response: DescribeClusterSnapshotsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeClusterSnapshotsCommandError
- */
-const de_DescribeClusterSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSnapshotNotFound":
-    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
-      throw await de_ClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeClusterSubnetGroupsCommand
- */
-export const de_DescribeClusterSubnetGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterSubnetGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeClusterSubnetGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ClusterSubnetGroupMessage(data.DescribeClusterSubnetGroupsResult, context);
-  const response: DescribeClusterSubnetGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeClusterSubnetGroupsCommandError
- */
-const de_DescribeClusterSubnetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterSubnetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterSubnetGroupNotFoundFault":
-    case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
-      throw await de_ClusterSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeClusterTracksCommand
- */
-export const de_DescribeClusterTracksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterTracksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeClusterTracksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_TrackListMessage(data.DescribeClusterTracksResult, context);
-  const response: DescribeClusterTracksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeClusterTracksCommandError
- */
-const de_DescribeClusterTracksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterTracksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidClusterTrack":
-    case "com.amazonaws.redshift#InvalidClusterTrackFault":
-      throw await de_InvalidClusterTrackFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeClusterVersionsCommand
- */
-export const de_DescribeClusterVersionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterVersionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeClusterVersionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ClusterVersionsMessage(data.DescribeClusterVersionsResult, context);
-  const response: DescribeClusterVersionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeClusterVersionsCommandError
- */
-const de_DescribeClusterVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeClusterVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeCustomDomainAssociationsCommand
- */
-export const de_DescribeCustomDomainAssociationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomDomainAssociationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeCustomDomainAssociationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CustomDomainAssociationsMessage(data.DescribeCustomDomainAssociationsResult, context);
-  const response: DescribeCustomDomainAssociationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeCustomDomainAssociationsCommandError
- */
-const de_DescribeCustomDomainAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCustomDomainAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CustomDomainAssociationNotFoundFault":
-    case "com.amazonaws.redshift#CustomDomainAssociationNotFoundFault":
-      throw await de_CustomDomainAssociationNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDataSharesCommand
- */
-export const de_DescribeDataSharesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSharesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDataSharesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDataSharesResult(data.DescribeDataSharesResult, context);
-  const response: DescribeDataSharesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDataSharesCommandError
- */
-const de_DescribeDataSharesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSharesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidDataShareFault":
-    case "com.amazonaws.redshift#InvalidDataShareFault":
-      throw await de_InvalidDataShareFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDataSharesForConsumerCommand
- */
-export const de_DescribeDataSharesForConsumerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSharesForConsumerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDataSharesForConsumerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDataSharesForConsumerResult(data.DescribeDataSharesForConsumerResult, context);
-  const response: DescribeDataSharesForConsumerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDataSharesForConsumerCommandError
- */
-const de_DescribeDataSharesForConsumerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSharesForConsumerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNamespaceFault":
-    case "com.amazonaws.redshift#InvalidNamespaceFault":
-      throw await de_InvalidNamespaceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDataSharesForProducerCommand
- */
-export const de_DescribeDataSharesForProducerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSharesForProducerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDataSharesForProducerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDataSharesForProducerResult(data.DescribeDataSharesForProducerResult, context);
-  const response: DescribeDataSharesForProducerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDataSharesForProducerCommandError
- */
-const de_DescribeDataSharesForProducerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataSharesForProducerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNamespaceFault":
-    case "com.amazonaws.redshift#InvalidNamespaceFault":
-      throw await de_InvalidNamespaceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeDefaultClusterParametersCommand
- */
-export const de_DescribeDefaultClusterParametersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDefaultClusterParametersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDefaultClusterParametersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDefaultClusterParametersResult(data.DescribeDefaultClusterParametersResult, context);
-  const response: DescribeDefaultClusterParametersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeDefaultClusterParametersCommandError
- */
-const de_DescribeDefaultClusterParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDefaultClusterParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeEndpointAccessCommand
- */
-export const de_DescribeEndpointAccessCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointAccessCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEndpointAccessCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EndpointAccessList(data.DescribeEndpointAccessResult, context);
-  const response: DescribeEndpointAccessCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEndpointAccessCommandError
- */
-const de_DescribeEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "EndpointNotFound":
-    case "com.amazonaws.redshift#EndpointNotFoundFault":
-      throw await de_EndpointNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeEndpointAuthorizationCommand
- */
-export const de_DescribeEndpointAuthorizationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointAuthorizationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEndpointAuthorizationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EndpointAuthorizationList(data.DescribeEndpointAuthorizationResult, context);
-  const response: DescribeEndpointAuthorizationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEndpointAuthorizationCommandError
- */
-const de_DescribeEndpointAuthorizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointAuthorizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeEventCategoriesCommand
- */
-export const de_DescribeEventCategoriesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventCategoriesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventCategoriesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EventCategoriesMessage(data.DescribeEventCategoriesResult, context);
-  const response: DescribeEventCategoriesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEventCategoriesCommandError
- */
-const de_DescribeEventCategoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventCategoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeEventsCommand
- */
-export const de_DescribeEventsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EventsMessage(data.DescribeEventsResult, context);
-  const response: DescribeEventsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEventsCommandError
- */
-const de_DescribeEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeEventSubscriptionsCommand
- */
-export const de_DescribeEventSubscriptionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventSubscriptionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeEventSubscriptionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EventSubscriptionsMessage(data.DescribeEventSubscriptionsResult, context);
-  const response: DescribeEventSubscriptionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeEventSubscriptionsCommandError
- */
-const de_DescribeEventSubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventSubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    case "SubscriptionNotFound":
-    case "com.amazonaws.redshift#SubscriptionNotFoundFault":
-      throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeHsmClientCertificatesCommand
- */
-export const de_DescribeHsmClientCertificatesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHsmClientCertificatesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeHsmClientCertificatesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_HsmClientCertificateMessage(data.DescribeHsmClientCertificatesResult, context);
-  const response: DescribeHsmClientCertificatesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeHsmClientCertificatesCommandError
- */
-const de_DescribeHsmClientCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHsmClientCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "HsmClientCertificateNotFoundFault":
-    case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
-      throw await de_HsmClientCertificateNotFoundFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeHsmConfigurationsCommand
- */
-export const de_DescribeHsmConfigurationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHsmConfigurationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeHsmConfigurationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_HsmConfigurationMessage(data.DescribeHsmConfigurationsResult, context);
-  const response: DescribeHsmConfigurationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeHsmConfigurationsCommandError
- */
-const de_DescribeHsmConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHsmConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "HsmConfigurationNotFoundFault":
-    case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
-      throw await de_HsmConfigurationNotFoundFaultRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeInboundIntegrationsCommand
- */
-export const de_DescribeInboundIntegrationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInboundIntegrationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeInboundIntegrationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_InboundIntegrationsMessage(data.DescribeInboundIntegrationsResult, context);
-  const response: DescribeInboundIntegrationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeInboundIntegrationsCommandError
- */
-const de_DescribeInboundIntegrationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInboundIntegrationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "IntegrationNotFoundFault":
     case "com.amazonaws.redshift#IntegrationNotFoundFault":
       throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
-    case "InvalidNamespaceFault":
-    case "com.amazonaws.redshift#InvalidNamespaceFault":
-      throw await de_InvalidNamespaceFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeLoggingStatusCommand
- */
-export const de_DescribeLoggingStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoggingStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeLoggingStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_LoggingStatus(data.DescribeLoggingStatusResult, context);
-  const response: DescribeLoggingStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeLoggingStatusCommandError
- */
-const de_DescribeLoggingStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoggingStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeNodeConfigurationOptionsCommand
- */
-export const de_DescribeNodeConfigurationOptionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNodeConfigurationOptionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeNodeConfigurationOptionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_NodeConfigurationOptionsMessage(data.DescribeNodeConfigurationOptionsResult, context);
-  const response: DescribeNodeConfigurationOptionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeNodeConfigurationOptionsCommandError
- */
-const de_DescribeNodeConfigurationOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNodeConfigurationOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AccessToSnapshotDenied":
     case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
       throw await de_AccessToSnapshotDeniedFaultRes(parsedOutput, context);
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSnapshotNotFound":
-    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
-      throw await de_ClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterSnapshotState":
-    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
-      throw await de_InvalidClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeOrderableClusterOptionsCommand
- */
-export const de_DescribeOrderableClusterOptionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrderableClusterOptionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeOrderableClusterOptionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_OrderableClusterOptionsMessage(data.DescribeOrderableClusterOptionsResult, context);
-  const response: DescribeOrderableClusterOptionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeOrderableClusterOptionsCommandError
- */
-const de_DescribeOrderableClusterOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrderableClusterOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribePartnersCommand
- */
-export const de_DescribePartnersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePartnersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribePartnersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribePartnersOutputMessage(data.DescribePartnersResult, context);
-  const response: DescribePartnersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribePartnersCommandError
- */
-const de_DescribePartnersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePartnersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "UnauthorizedPartnerIntegration":
-    case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
-      throw await de_UnauthorizedPartnerIntegrationFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeRedshiftIdcApplicationsCommand
- */
-export const de_DescribeRedshiftIdcApplicationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRedshiftIdcApplicationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeRedshiftIdcApplicationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeRedshiftIdcApplicationsResult(data.DescribeRedshiftIdcApplicationsResult, context);
-  const response: DescribeRedshiftIdcApplicationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeRedshiftIdcApplicationsCommandError
- */
-const de_DescribeRedshiftIdcApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRedshiftIdcApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependentServiceAccessDenied":
-    case "com.amazonaws.redshift#DependentServiceAccessDeniedFault":
-      throw await de_DependentServiceAccessDeniedFaultRes(parsedOutput, context);
-    case "DependentServiceUnavailableFault":
-    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
-      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
-    case "RedshiftIdcApplicationNotExists":
-    case "com.amazonaws.redshift#RedshiftIdcApplicationNotExistsFault":
-      throw await de_RedshiftIdcApplicationNotExistsFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeReservedNodeExchangeStatusCommand
- */
-export const de_DescribeReservedNodeExchangeStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedNodeExchangeStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeReservedNodeExchangeStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeReservedNodeExchangeStatusOutputMessage(data.DescribeReservedNodeExchangeStatusResult, context);
-  const response: DescribeReservedNodeExchangeStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeReservedNodeExchangeStatusCommandError
- */
-const de_DescribeReservedNodeExchangeStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedNodeExchangeStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ReservedNodeExchangeNotFond":
     case "com.amazonaws.redshift#ReservedNodeExchangeNotFoundFault":
       throw await de_ReservedNodeExchangeNotFoundFaultRes(parsedOutput, context);
-    case "ReservedNodeNotFound":
-    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
-      throw await de_ReservedNodeNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeReservedNodeOfferingsCommand
- */
-export const de_DescribeReservedNodeOfferingsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedNodeOfferingsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeReservedNodeOfferingsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ReservedNodeOfferingsMessage(data.DescribeReservedNodeOfferingsResult, context);
-  const response: DescribeReservedNodeOfferingsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeReservedNodeOfferingsCommandError
- */
-const de_DescribeReservedNodeOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedNodeOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependentServiceUnavailableFault":
-    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
-      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
-    case "ReservedNodeOfferingNotFound":
-    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
-      throw await de_ReservedNodeOfferingNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeReservedNodesCommand
- */
-export const de_DescribeReservedNodesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedNodesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeReservedNodesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ReservedNodesMessage(data.DescribeReservedNodesResult, context);
-  const response: DescribeReservedNodesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeReservedNodesCommandError
- */
-const de_DescribeReservedNodesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReservedNodesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependentServiceUnavailableFault":
-    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
-      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
-    case "ReservedNodeNotFound":
-    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
-      throw await de_ReservedNodeNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeResizeCommand
- */
-export const de_DescribeResizeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResizeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeResizeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ResizeProgressMessage(data.DescribeResizeResult, context);
-  const response: DescribeResizeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeResizeCommandError
- */
-const de_DescribeResizeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResizeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "ResizeNotFound":
-    case "com.amazonaws.redshift#ResizeNotFoundFault":
-      throw await de_ResizeNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeScheduledActionsCommand
- */
-export const de_DescribeScheduledActionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScheduledActionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeScheduledActionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ScheduledActionsMessage(data.DescribeScheduledActionsResult, context);
-  const response: DescribeScheduledActionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeScheduledActionsCommandError
- */
-const de_DescribeScheduledActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScheduledActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ScheduledActionNotFound":
-    case "com.amazonaws.redshift#ScheduledActionNotFoundFault":
-      throw await de_ScheduledActionNotFoundFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeSnapshotCopyGrantsCommand
- */
-export const de_DescribeSnapshotCopyGrantsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotCopyGrantsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSnapshotCopyGrantsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SnapshotCopyGrantMessage(data.DescribeSnapshotCopyGrantsResult, context);
-  const response: DescribeSnapshotCopyGrantsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeSnapshotCopyGrantsCommandError
- */
-const de_DescribeSnapshotCopyGrantsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotCopyGrantsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    case "SnapshotCopyGrantNotFoundFault":
-    case "com.amazonaws.redshift#SnapshotCopyGrantNotFoundFault":
-      throw await de_SnapshotCopyGrantNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeSnapshotSchedulesCommand
- */
-export const de_DescribeSnapshotSchedulesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotSchedulesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSnapshotSchedulesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeSnapshotSchedulesOutputMessage(data.DescribeSnapshotSchedulesResult, context);
-  const response: DescribeSnapshotSchedulesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeSnapshotSchedulesCommandError
- */
-const de_DescribeSnapshotSchedulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotSchedulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeStorageCommand
- */
-export const de_DescribeStorageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStorageCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeStorageCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CustomerStorageMessage(data.DescribeStorageResult, context);
-  const response: DescribeStorageCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeStorageCommandError
- */
-const de_DescribeStorageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStorageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeTableRestoreStatusCommand
- */
-export const de_DescribeTableRestoreStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTableRestoreStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTableRestoreStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_TableRestoreStatusMessage(data.DescribeTableRestoreStatusResult, context);
-  const response: DescribeTableRestoreStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeTableRestoreStatusCommandError
- */
-const de_DescribeTableRestoreStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTableRestoreStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "TableRestoreNotFoundFault":
     case "com.amazonaws.redshift#TableRestoreNotFoundFault":
       throw await de_TableRestoreNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeTagsCommand
- */
-export const de_DescribeTagsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTagsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_TaggedResourceListMessage(data.DescribeTagsResult, context);
-  const response: DescribeTagsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeTagsCommandError
- */
-const de_DescribeTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.redshift#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeUsageLimitsCommand
- */
-export const de_DescribeUsageLimitsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUsageLimitsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeUsageLimitsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UsageLimitList(data.DescribeUsageLimitsResult, context);
-  const response: DescribeUsageLimitsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeUsageLimitsCommandError
- */
-const de_DescribeUsageLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUsageLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDisableLoggingCommand
- */
-export const de_DisableLoggingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableLoggingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisableLoggingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_LoggingStatus(data.DisableLoggingResult, context);
-  const response: DisableLoggingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDisableLoggingCommandError
- */
-const de_DisableLoggingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableLoggingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDisableSnapshotCopyCommand
- */
-export const de_DisableSnapshotCopyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableSnapshotCopyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisableSnapshotCopyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DisableSnapshotCopyResult(data.DisableSnapshotCopyResult, context);
-  const response: DisableSnapshotCopyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDisableSnapshotCopyCommandError
- */
-const de_DisableSnapshotCopyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableSnapshotCopyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "SnapshotCopyAlreadyDisabledFault":
     case "com.amazonaws.redshift#SnapshotCopyAlreadyDisabledFault":
       throw await de_SnapshotCopyAlreadyDisabledFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDisassociateDataShareConsumerCommand
- */
-export const de_DisassociateDataShareConsumerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateDataShareConsumerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisassociateDataShareConsumerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DataShare(data.DisassociateDataShareConsumerResult, context);
-  const response: DisassociateDataShareConsumerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDisassociateDataShareConsumerCommandError
- */
-const de_DisassociateDataShareConsumerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateDataShareConsumerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidDataShareFault":
-    case "com.amazonaws.redshift#InvalidDataShareFault":
-      throw await de_InvalidDataShareFaultRes(parsedOutput, context);
-    case "InvalidNamespaceFault":
-    case "com.amazonaws.redshift#InvalidNamespaceFault":
-      throw await de_InvalidNamespaceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryEnableLoggingCommand
- */
-export const de_EnableLoggingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableLoggingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_EnableLoggingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_LoggingStatus(data.EnableLoggingResult, context);
-  const response: EnableLoggingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryEnableLoggingCommandError
- */
-const de_EnableLoggingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableLoggingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "BucketNotFoundFault":
     case "com.amazonaws.redshift#BucketNotFoundFault":
       throw await de_BucketNotFoundFaultRes(parsedOutput, context);
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "InsufficientS3BucketPolicyFault":
     case "com.amazonaws.redshift#InsufficientS3BucketPolicyFault":
       throw await de_InsufficientS3BucketPolicyFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidS3BucketNameFault":
     case "com.amazonaws.redshift#InvalidS3BucketNameFault":
       throw await de_InvalidS3BucketNameFaultRes(parsedOutput, context);
     case "InvalidS3KeyPrefixFault":
     case "com.amazonaws.redshift#InvalidS3KeyPrefixFault":
       throw await de_InvalidS3KeyPrefixFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryEnableSnapshotCopyCommand
- */
-export const de_EnableSnapshotCopyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableSnapshotCopyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_EnableSnapshotCopyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EnableSnapshotCopyResult(data.EnableSnapshotCopyResult, context);
-  const response: EnableSnapshotCopyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryEnableSnapshotCopyCommandError
- */
-const de_EnableSnapshotCopyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableSnapshotCopyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "CopyToRegionDisabledFault":
     case "com.amazonaws.redshift#CopyToRegionDisabledFault":
       throw await de_CopyToRegionDisabledFaultRes(parsedOutput, context);
-    case "DependentServiceRequestThrottlingFault":
-    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
-      throw await de_DependentServiceRequestThrottlingFaultRes(parsedOutput, context);
     case "IncompatibleOrderableOptions":
     case "com.amazonaws.redshift#IncompatibleOrderableOptions":
       throw await de_IncompatibleOrderableOptionsRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "InvalidRetentionPeriodFault":
-    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
-      throw await de_InvalidRetentionPeriodFaultRes(parsedOutput, context);
-    case "LimitExceededFault":
-    case "com.amazonaws.redshift#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
     case "SnapshotCopyAlreadyEnabledFault":
     case "com.amazonaws.redshift#SnapshotCopyAlreadyEnabledFault":
       throw await de_SnapshotCopyAlreadyEnabledFaultRes(parsedOutput, context);
-    case "SnapshotCopyGrantNotFoundFault":
-    case "com.amazonaws.redshift#SnapshotCopyGrantNotFoundFault":
-      throw await de_SnapshotCopyGrantNotFoundFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
     case "UnknownSnapshotCopyRegionFault":
     case "com.amazonaws.redshift#UnknownSnapshotCopyRegionFault":
       throw await de_UnknownSnapshotCopyRegionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryFailoverPrimaryComputeCommand
- */
-export const de_FailoverPrimaryComputeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverPrimaryComputeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_FailoverPrimaryComputeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_FailoverPrimaryComputeResult(data.FailoverPrimaryComputeResult, context);
-  const response: FailoverPrimaryComputeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryFailoverPrimaryComputeCommandError
- */
-const de_FailoverPrimaryComputeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<FailoverPrimaryComputeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetClusterCredentialsCommand
- */
-export const de_GetClusterCredentialsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetClusterCredentialsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetClusterCredentialsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ClusterCredentials(data.GetClusterCredentialsResult, context);
-  const response: GetClusterCredentialsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetClusterCredentialsCommandError
- */
-const de_GetClusterCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetClusterCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetClusterCredentialsWithIAMCommand
- */
-export const de_GetClusterCredentialsWithIAMCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetClusterCredentialsWithIAMCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetClusterCredentialsWithIAMCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ClusterExtendedCredentials(data.GetClusterCredentialsWithIAMResult, context);
-  const response: GetClusterCredentialsWithIAMCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetClusterCredentialsWithIAMCommandError
- */
-const de_GetClusterCredentialsWithIAMCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetClusterCredentialsWithIAMCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommand
- */
-export const de_GetReservedNodeExchangeConfigurationOptionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetReservedNodeExchangeConfigurationOptionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetReservedNodeExchangeConfigurationOptionsOutputMessage(
-    data.GetReservedNodeExchangeConfigurationOptionsResult,
-    context
-  );
-  const response: GetReservedNodeExchangeConfigurationOptionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetReservedNodeExchangeConfigurationOptionsCommandError
- */
-const de_GetReservedNodeExchangeConfigurationOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReservedNodeExchangeConfigurationOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSnapshotNotFound":
-    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
-      throw await de_ClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "DependentServiceUnavailableFault":
-    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
-      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
-    case "InvalidReservedNodeState":
-    case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
-      throw await de_InvalidReservedNodeStateFaultRes(parsedOutput, context);
-    case "ReservedNodeAlreadyMigrated":
-    case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
-      throw await de_ReservedNodeAlreadyMigratedFaultRes(parsedOutput, context);
-    case "ReservedNodeNotFound":
-    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
-      throw await de_ReservedNodeNotFoundFaultRes(parsedOutput, context);
-    case "ReservedNodeOfferingNotFound":
-    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
-      throw await de_ReservedNodeOfferingNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetReservedNodeExchangeOfferingsCommand
- */
-export const de_GetReservedNodeExchangeOfferingsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReservedNodeExchangeOfferingsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetReservedNodeExchangeOfferingsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetReservedNodeExchangeOfferingsOutputMessage(data.GetReservedNodeExchangeOfferingsResult, context);
-  const response: GetReservedNodeExchangeOfferingsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetReservedNodeExchangeOfferingsCommandError
- */
-const de_GetReservedNodeExchangeOfferingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReservedNodeExchangeOfferingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependentServiceUnavailableFault":
-    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
-      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
-    case "InvalidReservedNodeState":
-    case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
-      throw await de_InvalidReservedNodeStateFaultRes(parsedOutput, context);
-    case "ReservedNodeAlreadyMigrated":
-    case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
-      throw await de_ReservedNodeAlreadyMigratedFaultRes(parsedOutput, context);
-    case "ReservedNodeNotFound":
-    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
-      throw await de_ReservedNodeNotFoundFaultRes(parsedOutput, context);
-    case "ReservedNodeOfferingNotFound":
-    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
-      throw await de_ReservedNodeOfferingNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetResourcePolicyCommand
- */
-export const de_GetResourcePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetResourcePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetResourcePolicyResult(data.GetResourcePolicyResult, context);
-  const response: GetResourcePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetResourcePolicyCommandError
- */
-const de_GetResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidPolicyFault":
     case "com.amazonaws.redshift#InvalidPolicyFault":
       throw await de_InvalidPolicyFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.redshift#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyAquaConfigurationCommand
- */
-export const de_ModifyAquaConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyAquaConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyAquaConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyAquaOutputMessage(data.ModifyAquaConfigurationResult, context);
-  const response: ModifyAquaConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyAquaConfigurationCommandError
- */
-const de_ModifyAquaConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyAquaConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyAuthenticationProfileCommand
- */
-export const de_ModifyAuthenticationProfileCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyAuthenticationProfileCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyAuthenticationProfileCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyAuthenticationProfileResult(data.ModifyAuthenticationProfileResult, context);
-  const response: ModifyAuthenticationProfileCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyAuthenticationProfileCommandError
- */
-const de_ModifyAuthenticationProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyAuthenticationProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthenticationProfileNotFoundFault":
-    case "com.amazonaws.redshift#AuthenticationProfileNotFoundFault":
-      throw await de_AuthenticationProfileNotFoundFaultRes(parsedOutput, context);
-    case "AuthenticationProfileQuotaExceededFault":
-    case "com.amazonaws.redshift#AuthenticationProfileQuotaExceededFault":
-      throw await de_AuthenticationProfileQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidAuthenticationProfileRequestFault":
-    case "com.amazonaws.redshift#InvalidAuthenticationProfileRequestFault":
-      throw await de_InvalidAuthenticationProfileRequestFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyClusterCommand
- */
-export const de_ModifyClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyClusterResult(data.ModifyClusterResult, context);
-  const response: ModifyClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyClusterCommandError
- */
-const de_ModifyClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterAlreadyExists":
-    case "com.amazonaws.redshift#ClusterAlreadyExistsFault":
-      throw await de_ClusterAlreadyExistsFaultRes(parsedOutput, context);
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "ClusterParameterGroupNotFound":
-    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
-      throw await de_ClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSecurityGroupNotFound":
-    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
-      throw await de_ClusterSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "CustomCnameAssociationFault":
-    case "com.amazonaws.redshift#CustomCnameAssociationFault":
-      throw await de_CustomCnameAssociationFaultRes(parsedOutput, context);
-    case "DependentServiceRequestThrottlingFault":
-    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
-      throw await de_DependentServiceRequestThrottlingFaultRes(parsedOutput, context);
-    case "HsmClientCertificateNotFoundFault":
-    case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
-      throw await de_HsmClientCertificateNotFoundFaultRes(parsedOutput, context);
-    case "HsmConfigurationNotFoundFault":
-    case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
-      throw await de_HsmConfigurationNotFoundFaultRes(parsedOutput, context);
-    case "InsufficientClusterCapacity":
-    case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
-      throw await de_InsufficientClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidClusterSecurityGroupState":
-    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
-      throw await de_InvalidClusterSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "InvalidClusterTrack":
-    case "com.amazonaws.redshift#InvalidClusterTrackFault":
-      throw await de_InvalidClusterTrackFaultRes(parsedOutput, context);
-    case "InvalidElasticIpFault":
-    case "com.amazonaws.redshift#InvalidElasticIpFault":
-      throw await de_InvalidElasticIpFaultRes(parsedOutput, context);
-    case "InvalidRetentionPeriodFault":
-    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
-      throw await de_InvalidRetentionPeriodFaultRes(parsedOutput, context);
-    case "Ipv6CidrBlockNotFoundFault":
-    case "com.amazonaws.redshift#Ipv6CidrBlockNotFoundFault":
-      throw await de_Ipv6CidrBlockNotFoundFaultRes(parsedOutput, context);
-    case "LimitExceededFault":
-    case "com.amazonaws.redshift#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "NumberOfNodesPerClusterLimitExceeded":
-    case "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault":
-      throw await de_NumberOfNodesPerClusterLimitExceededFaultRes(parsedOutput, context);
-    case "NumberOfNodesQuotaExceeded":
-    case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
-      throw await de_NumberOfNodesQuotaExceededFaultRes(parsedOutput, context);
     case "TableLimitExceeded":
     case "com.amazonaws.redshift#TableLimitExceededFault":
       throw await de_TableLimitExceededFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
     case "UnsupportedOptionFault":
     case "com.amazonaws.redshift#UnsupportedOptionFault":
       throw await de_UnsupportedOptionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyClusterDbRevisionCommand
- */
-export const de_ModifyClusterDbRevisionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterDbRevisionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyClusterDbRevisionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyClusterDbRevisionResult(data.ModifyClusterDbRevisionResult, context);
-  const response: ModifyClusterDbRevisionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyClusterDbRevisionCommandError
- */
-const de_ModifyClusterDbRevisionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterDbRevisionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "ClusterOnLatestRevision":
     case "com.amazonaws.redshift#ClusterOnLatestRevisionFault":
       throw await de_ClusterOnLatestRevisionFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyClusterIamRolesCommand
- */
-export const de_ModifyClusterIamRolesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterIamRolesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyClusterIamRolesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyClusterIamRolesResult(data.ModifyClusterIamRolesResult, context);
-  const response: ModifyClusterIamRolesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyClusterIamRolesCommandError
- */
-const de_ModifyClusterIamRolesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterIamRolesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyClusterMaintenanceCommand
- */
-export const de_ModifyClusterMaintenanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterMaintenanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyClusterMaintenanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyClusterMaintenanceResult(data.ModifyClusterMaintenanceResult, context);
-  const response: ModifyClusterMaintenanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyClusterMaintenanceCommandError
- */
-const de_ModifyClusterMaintenanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterMaintenanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyClusterParameterGroupCommand
- */
-export const de_ModifyClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyClusterParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ClusterParameterGroupNameMessage(data.ModifyClusterParameterGroupResult, context);
-  const response: ModifyClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyClusterParameterGroupCommandError
- */
-const de_ModifyClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterParameterGroupNotFound":
-    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
-      throw await de_ClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterParameterGroupState":
-    case "com.amazonaws.redshift#InvalidClusterParameterGroupStateFault":
-      throw await de_InvalidClusterParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyClusterSnapshotCommand
- */
-export const de_ModifyClusterSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyClusterSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyClusterSnapshotResult(data.ModifyClusterSnapshotResult, context);
-  const response: ModifyClusterSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyClusterSnapshotCommandError
- */
-const de_ModifyClusterSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterSnapshotNotFound":
-    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
-      throw await de_ClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterSnapshotState":
-    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
-      throw await de_InvalidClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidRetentionPeriodFault":
-    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
-      throw await de_InvalidRetentionPeriodFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyClusterSnapshotScheduleCommand
- */
-export const de_ModifyClusterSnapshotScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterSnapshotScheduleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyClusterSnapshotScheduleCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: ModifyClusterSnapshotScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyClusterSnapshotScheduleCommandError
- */
-const de_ModifyClusterSnapshotScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterSnapshotScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterSnapshotScheduleState":
-    case "com.amazonaws.redshift#InvalidClusterSnapshotScheduleStateFault":
-      throw await de_InvalidClusterSnapshotScheduleStateFaultRes(parsedOutput, context);
-    case "SnapshotScheduleNotFound":
-    case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
-      throw await de_SnapshotScheduleNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyClusterSubnetGroupCommand
- */
-export const de_ModifyClusterSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyClusterSubnetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyClusterSubnetGroupResult(data.ModifyClusterSubnetGroupResult, context);
-  const response: ModifyClusterSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyClusterSubnetGroupCommandError
- */
-const de_ModifyClusterSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyClusterSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterSubnetGroupNotFoundFault":
-    case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
-      throw await de_ClusterSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSubnetQuotaExceededFault":
-    case "com.amazonaws.redshift#ClusterSubnetQuotaExceededFault":
-      throw await de_ClusterSubnetQuotaExceededFaultRes(parsedOutput, context);
-    case "DependentServiceRequestThrottlingFault":
-    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
-      throw await de_DependentServiceRequestThrottlingFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.redshift#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
     case "SubnetAlreadyInUse":
     case "com.amazonaws.redshift#SubnetAlreadyInUse":
       throw await de_SubnetAlreadyInUseRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyCustomDomainAssociationCommand
- */
-export const de_ModifyCustomDomainAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCustomDomainAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyCustomDomainAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyCustomDomainAssociationResult(data.ModifyCustomDomainAssociationResult, context);
-  const response: ModifyCustomDomainAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyCustomDomainAssociationCommandError
- */
-const de_ModifyCustomDomainAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyCustomDomainAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "CustomCnameAssociationFault":
-    case "com.amazonaws.redshift#CustomCnameAssociationFault":
-      throw await de_CustomCnameAssociationFaultRes(parsedOutput, context);
-    case "CustomDomainAssociationNotFoundFault":
-    case "com.amazonaws.redshift#CustomDomainAssociationNotFoundFault":
-      throw await de_CustomDomainAssociationNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyEndpointAccessCommand
- */
-export const de_ModifyEndpointAccessCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyEndpointAccessCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyEndpointAccessCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EndpointAccess(data.ModifyEndpointAccessResult, context);
-  const response: ModifyEndpointAccessCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyEndpointAccessCommandError
- */
-const de_ModifyEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "EndpointNotFound":
-    case "com.amazonaws.redshift#EndpointNotFoundFault":
-      throw await de_EndpointNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterSecurityGroupState":
-    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
-      throw await de_InvalidClusterSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "InvalidEndpointState":
-    case "com.amazonaws.redshift#InvalidEndpointStateFault":
-      throw await de_InvalidEndpointStateFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyEventSubscriptionCommand
- */
-export const de_ModifyEventSubscriptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyEventSubscriptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyEventSubscriptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyEventSubscriptionResult(data.ModifyEventSubscriptionResult, context);
-  const response: ModifyEventSubscriptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyEventSubscriptionCommandError
- */
-const de_ModifyEventSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyEventSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidSubscriptionStateFault":
-    case "com.amazonaws.redshift#InvalidSubscriptionStateFault":
-      throw await de_InvalidSubscriptionStateFaultRes(parsedOutput, context);
-    case "SNSInvalidTopic":
-    case "com.amazonaws.redshift#SNSInvalidTopicFault":
-      throw await de_SNSInvalidTopicFaultRes(parsedOutput, context);
-    case "SNSNoAuthorization":
-    case "com.amazonaws.redshift#SNSNoAuthorizationFault":
-      throw await de_SNSNoAuthorizationFaultRes(parsedOutput, context);
-    case "SNSTopicArnNotFound":
-    case "com.amazonaws.redshift#SNSTopicArnNotFoundFault":
-      throw await de_SNSTopicArnNotFoundFaultRes(parsedOutput, context);
-    case "SourceNotFound":
-    case "com.amazonaws.redshift#SourceNotFoundFault":
-      throw await de_SourceNotFoundFaultRes(parsedOutput, context);
-    case "SubscriptionCategoryNotFound":
-    case "com.amazonaws.redshift#SubscriptionCategoryNotFoundFault":
-      throw await de_SubscriptionCategoryNotFoundFaultRes(parsedOutput, context);
-    case "SubscriptionEventIdNotFound":
-    case "com.amazonaws.redshift#SubscriptionEventIdNotFoundFault":
-      throw await de_SubscriptionEventIdNotFoundFaultRes(parsedOutput, context);
-    case "SubscriptionNotFound":
-    case "com.amazonaws.redshift#SubscriptionNotFoundFault":
-      throw await de_SubscriptionNotFoundFaultRes(parsedOutput, context);
-    case "SubscriptionSeverityNotFound":
-    case "com.amazonaws.redshift#SubscriptionSeverityNotFoundFault":
-      throw await de_SubscriptionSeverityNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyRedshiftIdcApplicationCommand
- */
-export const de_ModifyRedshiftIdcApplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyRedshiftIdcApplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyRedshiftIdcApplicationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyRedshiftIdcApplicationResult(data.ModifyRedshiftIdcApplicationResult, context);
-  const response: ModifyRedshiftIdcApplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyRedshiftIdcApplicationCommandError
- */
-const de_ModifyRedshiftIdcApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyRedshiftIdcApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependentServiceAccessDenied":
-    case "com.amazonaws.redshift#DependentServiceAccessDeniedFault":
-      throw await de_DependentServiceAccessDeniedFaultRes(parsedOutput, context);
-    case "DependentServiceUnavailableFault":
-    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
-      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
-    case "RedshiftIdcApplicationNotExists":
-    case "com.amazonaws.redshift#RedshiftIdcApplicationNotExistsFault":
-      throw await de_RedshiftIdcApplicationNotExistsFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyScheduledActionCommand
- */
-export const de_ModifyScheduledActionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyScheduledActionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyScheduledActionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ScheduledAction(data.ModifyScheduledActionResult, context);
-  const response: ModifyScheduledActionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyScheduledActionCommandError
- */
-const de_ModifyScheduledActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyScheduledActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidSchedule":
-    case "com.amazonaws.redshift#InvalidScheduleFault":
-      throw await de_InvalidScheduleFaultRes(parsedOutput, context);
-    case "InvalidScheduledAction":
-    case "com.amazonaws.redshift#InvalidScheduledActionFault":
-      throw await de_InvalidScheduledActionFaultRes(parsedOutput, context);
-    case "ScheduledActionNotFound":
-    case "com.amazonaws.redshift#ScheduledActionNotFoundFault":
-      throw await de_ScheduledActionNotFoundFaultRes(parsedOutput, context);
-    case "ScheduledActionTypeUnsupported":
-    case "com.amazonaws.redshift#ScheduledActionTypeUnsupportedFault":
-      throw await de_ScheduledActionTypeUnsupportedFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifySnapshotCopyRetentionPeriodCommand
- */
-export const de_ModifySnapshotCopyRetentionPeriodCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifySnapshotCopyRetentionPeriodCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifySnapshotCopyRetentionPeriodResult(data.ModifySnapshotCopyRetentionPeriodResult, context);
-  const response: ModifySnapshotCopyRetentionPeriodCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifySnapshotCopyRetentionPeriodCommandError
- */
-const de_ModifySnapshotCopyRetentionPeriodCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifySnapshotCopyRetentionPeriodCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "InvalidRetentionPeriodFault":
-    case "com.amazonaws.redshift#InvalidRetentionPeriodFault":
-      throw await de_InvalidRetentionPeriodFaultRes(parsedOutput, context);
     case "SnapshotCopyDisabledFault":
     case "com.amazonaws.redshift#SnapshotCopyDisabledFault":
       throw await de_SnapshotCopyDisabledFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifySnapshotScheduleCommand
- */
-export const de_ModifySnapshotScheduleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifySnapshotScheduleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifySnapshotScheduleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SnapshotSchedule(data.ModifySnapshotScheduleResult, context);
-  const response: ModifySnapshotScheduleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifySnapshotScheduleCommandError
- */
-const de_ModifySnapshotScheduleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifySnapshotScheduleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidSchedule":
-    case "com.amazonaws.redshift#InvalidScheduleFault":
-      throw await de_InvalidScheduleFaultRes(parsedOutput, context);
-    case "SnapshotScheduleNotFound":
-    case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
-      throw await de_SnapshotScheduleNotFoundFaultRes(parsedOutput, context);
     case "SnapshotScheduleUpdateInProgress":
     case "com.amazonaws.redshift#SnapshotScheduleUpdateInProgressFault":
       throw await de_SnapshotScheduleUpdateInProgressFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyUsageLimitCommand
- */
-export const de_ModifyUsageLimitCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyUsageLimitCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyUsageLimitCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UsageLimit(data.ModifyUsageLimitResult, context);
-  const response: ModifyUsageLimitCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyUsageLimitCommandError
- */
-const de_ModifyUsageLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyUsageLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidUsageLimit":
-    case "com.amazonaws.redshift#InvalidUsageLimitFault":
-      throw await de_InvalidUsageLimitFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    case "UsageLimitNotFound":
-    case "com.amazonaws.redshift#UsageLimitNotFoundFault":
-      throw await de_UsageLimitNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryPauseClusterCommand
- */
-export const de_PauseClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PauseClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PauseClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PauseClusterResult(data.PauseClusterResult, context);
-  const response: PauseClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryPauseClusterCommandError
- */
-const de_PauseClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PauseClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryPurchaseReservedNodeOfferingCommand
- */
-export const de_PurchaseReservedNodeOfferingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseReservedNodeOfferingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PurchaseReservedNodeOfferingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PurchaseReservedNodeOfferingResult(data.PurchaseReservedNodeOfferingResult, context);
-  const response: PurchaseReservedNodeOfferingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryPurchaseReservedNodeOfferingCommandError
- */
-const de_PurchaseReservedNodeOfferingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseReservedNodeOfferingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ReservedNodeAlreadyExists":
-    case "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault":
-      throw await de_ReservedNodeAlreadyExistsFaultRes(parsedOutput, context);
-    case "ReservedNodeOfferingNotFound":
-    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
-      throw await de_ReservedNodeOfferingNotFoundFaultRes(parsedOutput, context);
     case "ReservedNodeQuotaExceeded":
     case "com.amazonaws.redshift#ReservedNodeQuotaExceededFault":
       throw await de_ReservedNodeQuotaExceededFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryPutResourcePolicyCommand
- */
-export const de_PutResourcePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutResourcePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PutResourcePolicyResult(data.PutResourcePolicyResult, context);
-  const response: PutResourcePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryPutResourcePolicyCommandError
- */
-const de_PutResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ConflictPolicyUpdateFault":
     case "com.amazonaws.redshift#ConflictPolicyUpdateFault":
       throw await de_ConflictPolicyUpdateFaultRes(parsedOutput, context);
-    case "InvalidPolicyFault":
-    case "com.amazonaws.redshift#InvalidPolicyFault":
-      throw await de_InvalidPolicyFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.redshift#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRebootClusterCommand
- */
-export const de_RebootClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RebootClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RebootClusterResult(data.RebootClusterResult, context);
-  const response: RebootClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRebootClusterCommandError
- */
-const de_RebootClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRejectDataShareCommand
- */
-export const de_RejectDataShareCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectDataShareCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RejectDataShareCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DataShare(data.RejectDataShareResult, context);
-  const response: RejectDataShareCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRejectDataShareCommandError
- */
-const de_RejectDataShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectDataShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidDataShareFault":
-    case "com.amazonaws.redshift#InvalidDataShareFault":
-      throw await de_InvalidDataShareFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryResetClusterParameterGroupCommand
- */
-export const de_ResetClusterParameterGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetClusterParameterGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResetClusterParameterGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ClusterParameterGroupNameMessage(data.ResetClusterParameterGroupResult, context);
-  const response: ResetClusterParameterGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryResetClusterParameterGroupCommandError
- */
-const de_ResetClusterParameterGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetClusterParameterGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterParameterGroupNotFound":
-    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
-      throw await de_ClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterParameterGroupState":
-    case "com.amazonaws.redshift#InvalidClusterParameterGroupStateFault":
-      throw await de_InvalidClusterParameterGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryResizeClusterCommand
- */
-export const de_ResizeClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResizeClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResizeClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ResizeClusterResult(data.ResizeClusterResult, context);
-  const response: ResizeClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryResizeClusterCommandError
- */
-const de_ResizeClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResizeClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "DependentServiceUnavailableFault":
-    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
-      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
-    case "InsufficientClusterCapacity":
-    case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
-      throw await de_InsufficientClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "InvalidReservedNodeState":
-    case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
-      throw await de_InvalidReservedNodeStateFaultRes(parsedOutput, context);
-    case "LimitExceededFault":
-    case "com.amazonaws.redshift#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "NumberOfNodesPerClusterLimitExceeded":
-    case "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault":
-      throw await de_NumberOfNodesPerClusterLimitExceededFaultRes(parsedOutput, context);
-    case "NumberOfNodesQuotaExceeded":
-    case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
-      throw await de_NumberOfNodesQuotaExceededFaultRes(parsedOutput, context);
-    case "ReservedNodeAlreadyExists":
-    case "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault":
-      throw await de_ReservedNodeAlreadyExistsFaultRes(parsedOutput, context);
-    case "ReservedNodeAlreadyMigrated":
-    case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
-      throw await de_ReservedNodeAlreadyMigratedFaultRes(parsedOutput, context);
-    case "ReservedNodeNotFound":
-    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
-      throw await de_ReservedNodeNotFoundFaultRes(parsedOutput, context);
-    case "ReservedNodeOfferingNotFound":
-    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
-      throw await de_ReservedNodeOfferingNotFoundFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    case "UnsupportedOptionFault":
-    case "com.amazonaws.redshift#UnsupportedOptionFault":
-      throw await de_UnsupportedOptionFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRestoreFromClusterSnapshotCommand
- */
-export const de_RestoreFromClusterSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreFromClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreFromClusterSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreFromClusterSnapshotResult(data.RestoreFromClusterSnapshotResult, context);
-  const response: RestoreFromClusterSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRestoreFromClusterSnapshotCommandError
- */
-const de_RestoreFromClusterSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreFromClusterSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessToSnapshotDenied":
-    case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
-      throw await de_AccessToSnapshotDeniedFaultRes(parsedOutput, context);
-    case "ClusterAlreadyExists":
-    case "com.amazonaws.redshift#ClusterAlreadyExistsFault":
-      throw await de_ClusterAlreadyExistsFaultRes(parsedOutput, context);
-    case "ClusterParameterGroupNotFound":
-    case "com.amazonaws.redshift#ClusterParameterGroupNotFoundFault":
-      throw await de_ClusterParameterGroupNotFoundFaultRes(parsedOutput, context);
-    case "ClusterQuotaExceeded":
-    case "com.amazonaws.redshift#ClusterQuotaExceededFault":
-      throw await de_ClusterQuotaExceededFaultRes(parsedOutput, context);
-    case "ClusterSecurityGroupNotFound":
-    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
-      throw await de_ClusterSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSnapshotNotFound":
-    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
-      throw await de_ClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSubnetGroupNotFoundFault":
-    case "com.amazonaws.redshift#ClusterSubnetGroupNotFoundFault":
-      throw await de_ClusterSubnetGroupNotFoundFaultRes(parsedOutput, context);
-    case "DependentServiceRequestThrottlingFault":
-    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
-      throw await de_DependentServiceRequestThrottlingFaultRes(parsedOutput, context);
-    case "DependentServiceUnavailableFault":
-    case "com.amazonaws.redshift#DependentServiceUnavailableFault":
-      throw await de_DependentServiceUnavailableFaultRes(parsedOutput, context);
-    case "HsmClientCertificateNotFoundFault":
-    case "com.amazonaws.redshift#HsmClientCertificateNotFoundFault":
-      throw await de_HsmClientCertificateNotFoundFaultRes(parsedOutput, context);
-    case "HsmConfigurationNotFoundFault":
-    case "com.amazonaws.redshift#HsmConfigurationNotFoundFault":
-      throw await de_HsmConfigurationNotFoundFaultRes(parsedOutput, context);
-    case "InsufficientClusterCapacity":
-    case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
-      throw await de_InsufficientClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidClusterSnapshotState":
-    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
-      throw await de_InvalidClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidClusterSubnetGroupStateFault":
-    case "com.amazonaws.redshift#InvalidClusterSubnetGroupStateFault":
-      throw await de_InvalidClusterSubnetGroupStateFaultRes(parsedOutput, context);
-    case "InvalidClusterTrack":
-    case "com.amazonaws.redshift#InvalidClusterTrackFault":
-      throw await de_InvalidClusterTrackFaultRes(parsedOutput, context);
-    case "InvalidElasticIpFault":
-    case "com.amazonaws.redshift#InvalidElasticIpFault":
-      throw await de_InvalidElasticIpFaultRes(parsedOutput, context);
-    case "InvalidReservedNodeState":
-    case "com.amazonaws.redshift#InvalidReservedNodeStateFault":
-      throw await de_InvalidReservedNodeStateFaultRes(parsedOutput, context);
     case "InvalidRestore":
     case "com.amazonaws.redshift#InvalidRestoreFault":
       throw await de_InvalidRestoreFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.redshift#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "InvalidTagFault":
-    case "com.amazonaws.redshift#InvalidTagFault":
-      throw await de_InvalidTagFaultRes(parsedOutput, context);
-    case "InvalidVPCNetworkStateFault":
-    case "com.amazonaws.redshift#InvalidVPCNetworkStateFault":
-      throw await de_InvalidVPCNetworkStateFaultRes(parsedOutput, context);
-    case "Ipv6CidrBlockNotFoundFault":
-    case "com.amazonaws.redshift#Ipv6CidrBlockNotFoundFault":
-      throw await de_Ipv6CidrBlockNotFoundFaultRes(parsedOutput, context);
-    case "LimitExceededFault":
-    case "com.amazonaws.redshift#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "NumberOfNodesPerClusterLimitExceeded":
-    case "com.amazonaws.redshift#NumberOfNodesPerClusterLimitExceededFault":
-      throw await de_NumberOfNodesPerClusterLimitExceededFaultRes(parsedOutput, context);
-    case "NumberOfNodesQuotaExceeded":
-    case "com.amazonaws.redshift#NumberOfNodesQuotaExceededFault":
-      throw await de_NumberOfNodesQuotaExceededFaultRes(parsedOutput, context);
-    case "ReservedNodeAlreadyExists":
-    case "com.amazonaws.redshift#ReservedNodeAlreadyExistsFault":
-      throw await de_ReservedNodeAlreadyExistsFaultRes(parsedOutput, context);
-    case "ReservedNodeAlreadyMigrated":
-    case "com.amazonaws.redshift#ReservedNodeAlreadyMigratedFault":
-      throw await de_ReservedNodeAlreadyMigratedFaultRes(parsedOutput, context);
-    case "ReservedNodeNotFound":
-    case "com.amazonaws.redshift#ReservedNodeNotFoundFault":
-      throw await de_ReservedNodeNotFoundFaultRes(parsedOutput, context);
-    case "ReservedNodeOfferingNotFound":
-    case "com.amazonaws.redshift#ReservedNodeOfferingNotFoundFault":
-      throw await de_ReservedNodeOfferingNotFoundFaultRes(parsedOutput, context);
-    case "SnapshotScheduleNotFound":
-    case "com.amazonaws.redshift#SnapshotScheduleNotFoundFault":
-      throw await de_SnapshotScheduleNotFoundFaultRes(parsedOutput, context);
-    case "TagLimitExceededFault":
-    case "com.amazonaws.redshift#TagLimitExceededFault":
-      throw await de_TagLimitExceededFaultRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.redshift#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRestoreTableFromClusterSnapshotCommand
- */
-export const de_RestoreTableFromClusterSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreTableFromClusterSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreTableFromClusterSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreTableFromClusterSnapshotResult(data.RestoreTableFromClusterSnapshotResult, context);
-  const response: RestoreTableFromClusterSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRestoreTableFromClusterSnapshotCommandError
- */
-const de_RestoreTableFromClusterSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreTableFromClusterSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSnapshotNotFound":
-    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
-      throw await de_ClusterSnapshotNotFoundFaultRes(parsedOutput, context);
     case "InProgressTableRestoreQuotaExceededFault":
     case "com.amazonaws.redshift#InProgressTableRestoreQuotaExceededFault":
       throw await de_InProgressTableRestoreQuotaExceededFaultRes(parsedOutput, context);
-    case "InvalidClusterSnapshotState":
-    case "com.amazonaws.redshift#InvalidClusterSnapshotStateFault":
-      throw await de_InvalidClusterSnapshotStateFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
     case "InvalidTableRestoreArgument":
     case "com.amazonaws.redshift#InvalidTableRestoreArgumentFault":
       throw await de_InvalidTableRestoreArgumentFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryResumeClusterCommand
- */
-export const de_ResumeClusterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeClusterCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ResumeClusterCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ResumeClusterResult(data.ResumeClusterResult, context);
-  const response: ResumeClusterCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryResumeClusterCommandError
- */
-const de_ResumeClusterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResumeClusterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "InsufficientClusterCapacity":
-    case "com.amazonaws.redshift#InsufficientClusterCapacityFault":
-      throw await de_InsufficientClusterCapacityFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRevokeClusterSecurityGroupIngressCommand
- */
-export const de_RevokeClusterSecurityGroupIngressCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeClusterSecurityGroupIngressCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RevokeClusterSecurityGroupIngressCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RevokeClusterSecurityGroupIngressResult(data.RevokeClusterSecurityGroupIngressResult, context);
-  const response: RevokeClusterSecurityGroupIngressCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRevokeClusterSecurityGroupIngressCommandError
- */
-const de_RevokeClusterSecurityGroupIngressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeClusterSecurityGroupIngressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AuthorizationNotFound":
     case "com.amazonaws.redshift#AuthorizationNotFoundFault":
       throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSecurityGroupNotFound":
-    case "com.amazonaws.redshift#ClusterSecurityGroupNotFoundFault":
-      throw await de_ClusterSecurityGroupNotFoundFaultRes(parsedOutput, context);
-    case "InvalidClusterSecurityGroupState":
-    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
-      throw await de_InvalidClusterSecurityGroupStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRevokeEndpointAccessCommand
- */
-export const de_RevokeEndpointAccessCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeEndpointAccessCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RevokeEndpointAccessCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_EndpointAuthorization(data.RevokeEndpointAccessResult, context);
-  const response: RevokeEndpointAccessCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRevokeEndpointAccessCommandError
- */
-const de_RevokeEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
     case "EndpointAuthorizationNotFound":
     case "com.amazonaws.redshift#EndpointAuthorizationNotFoundFault":
       throw await de_EndpointAuthorizationNotFoundFaultRes(parsedOutput, context);
-    case "EndpointNotFound":
-    case "com.amazonaws.redshift#EndpointNotFoundFault":
-      throw await de_EndpointNotFoundFaultRes(parsedOutput, context);
-    case "InvalidAuthorizationState":
-    case "com.amazonaws.redshift#InvalidAuthorizationStateFault":
-      throw await de_InvalidAuthorizationStateFaultRes(parsedOutput, context);
-    case "InvalidClusterSecurityGroupState":
-    case "com.amazonaws.redshift#InvalidClusterSecurityGroupStateFault":
-      throw await de_InvalidClusterSecurityGroupStateFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "InvalidEndpointState":
-    case "com.amazonaws.redshift#InvalidEndpointStateFault":
-      throw await de_InvalidEndpointStateFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRevokeSnapshotAccessCommand
- */
-export const de_RevokeSnapshotAccessCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeSnapshotAccessCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RevokeSnapshotAccessCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RevokeSnapshotAccessResult(data.RevokeSnapshotAccessResult, context);
-  const response: RevokeSnapshotAccessCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRevokeSnapshotAccessCommandError
- */
-const de_RevokeSnapshotAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RevokeSnapshotAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessToSnapshotDenied":
-    case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
-      throw await de_AccessToSnapshotDeniedFaultRes(parsedOutput, context);
-    case "AuthorizationNotFound":
-    case "com.amazonaws.redshift#AuthorizationNotFoundFault":
-      throw await de_AuthorizationNotFoundFaultRes(parsedOutput, context);
-    case "ClusterSnapshotNotFound":
-    case "com.amazonaws.redshift#ClusterSnapshotNotFoundFault":
-      throw await de_ClusterSnapshotNotFoundFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRotateEncryptionKeyCommand
- */
-export const de_RotateEncryptionKeyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RotateEncryptionKeyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RotateEncryptionKeyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RotateEncryptionKeyResult(data.RotateEncryptionKeyResult, context);
-  const response: RotateEncryptionKeyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRotateEncryptionKeyCommandError
- */
-const de_RotateEncryptionKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RotateEncryptionKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "DependentServiceRequestThrottlingFault":
-    case "com.amazonaws.redshift#DependentServiceRequestThrottlingFault":
-      throw await de_DependentServiceRequestThrottlingFaultRes(parsedOutput, context);
-    case "InvalidClusterState":
-    case "com.amazonaws.redshift#InvalidClusterStateFault":
-      throw await de_InvalidClusterStateFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryUpdatePartnerStatusCommand
- */
-export const de_UpdatePartnerStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePartnerStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdatePartnerStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PartnerIntegrationOutputMessage(data.UpdatePartnerStatusResult, context);
-  const response: UpdatePartnerStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryUpdatePartnerStatusCommandError
- */
-const de_UpdatePartnerStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePartnerStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClusterNotFound":
-    case "com.amazonaws.redshift#ClusterNotFoundFault":
-      throw await de_ClusterNotFoundFaultRes(parsedOutput, context);
-    case "PartnerNotFound":
-    case "com.amazonaws.redshift#PartnerNotFoundFault":
-      throw await de_PartnerNotFoundFaultRes(parsedOutput, context);
-    case "UnauthorizedPartnerIntegration":
-    case "com.amazonaws.redshift#UnauthorizedPartnerIntegrationFault":
-      throw await de_UnauthorizedPartnerIntegrationFaultRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.redshift#UnsupportedOperationFault":
-      throw await de_UnsupportedOperationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

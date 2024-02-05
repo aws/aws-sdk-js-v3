@@ -268,57 +268,13 @@ export const de_DeleteObjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteObjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteObjectCommandError
- */
-const de_DeleteObjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteObjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupstorage#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableException":
-    case "com.amazonaws.backupstorage#RetryableException":
-      throw await de_RetryableExceptionRes(parsedOutput, context);
-    case "ServiceInternalException":
-    case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -329,7 +285,7 @@ export const de_GetChunkCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetChunkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetChunkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -344,50 +300,6 @@ export const de_GetChunkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetChunkCommandError
- */
-const de_GetChunkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetChunkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "KMSInvalidKeyUsageException":
-    case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
-      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupstorage#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableException":
-    case "com.amazonaws.backupstorage#RetryableException":
-      throw await de_RetryableExceptionRes(parsedOutput, context);
-    case "ServiceInternalException":
-    case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetObjectMetadataCommand
  */
 export const de_GetObjectMetadataCommand = async (
@@ -395,7 +307,7 @@ export const de_GetObjectMetadataCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetObjectMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetObjectMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -411,53 +323,6 @@ export const de_GetObjectMetadataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetObjectMetadataCommandError
- */
-const de_GetObjectMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetObjectMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "KMSInvalidKeyUsageException":
-    case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
-      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupstorage#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableException":
-    case "com.amazonaws.backupstorage#RetryableException":
-      throw await de_RetryableExceptionRes(parsedOutput, context);
-    case "ServiceInternalException":
-    case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListChunksCommand
  */
 export const de_ListChunksCommand = async (
@@ -465,7 +330,7 @@ export const de_ListChunksCommand = async (
   context: __SerdeContext
 ): Promise<ListChunksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListChunksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -480,47 +345,6 @@ export const de_ListChunksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListChunksCommandError
- */
-const de_ListChunksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChunksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupstorage#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableException":
-    case "com.amazonaws.backupstorage#RetryableException":
-      throw await de_RetryableExceptionRes(parsedOutput, context);
-    case "ServiceInternalException":
-    case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListObjectsCommand
  */
 export const de_ListObjectsCommand = async (
@@ -528,7 +352,7 @@ export const de_ListObjectsCommand = async (
   context: __SerdeContext
 ): Promise<ListObjectsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListObjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -543,53 +367,6 @@ export const de_ListObjectsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListObjectsCommandError
- */
-const de_ListObjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListObjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "KMSInvalidKeyUsageException":
-    case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
-      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backupstorage#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "RetryableException":
-    case "com.amazonaws.backupstorage#RetryableException":
-      throw await de_RetryableExceptionRes(parsedOutput, context);
-    case "ServiceInternalException":
-    case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1NotifyObjectCompleteCommand
  */
 export const de_NotifyObjectCompleteCommand = async (
@@ -597,7 +374,7 @@ export const de_NotifyObjectCompleteCommand = async (
   context: __SerdeContext
 ): Promise<NotifyObjectCompleteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_NotifyObjectCompleteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -612,53 +389,6 @@ export const de_NotifyObjectCompleteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1NotifyObjectCompleteCommandError
- */
-const de_NotifyObjectCompleteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NotifyObjectCompleteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "KMSInvalidKeyUsageException":
-    case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
-      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
-    case "NotReadableInputStreamException":
-    case "com.amazonaws.backupstorage#NotReadableInputStreamException":
-      throw await de_NotReadableInputStreamExceptionRes(parsedOutput, context);
-    case "RetryableException":
-    case "com.amazonaws.backupstorage#RetryableException":
-      throw await de_RetryableExceptionRes(parsedOutput, context);
-    case "ServiceInternalException":
-    case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutChunkCommand
  */
 export const de_PutChunkCommand = async (
@@ -666,7 +396,7 @@ export const de_PutChunkCommand = async (
   context: __SerdeContext
 ): Promise<PutChunkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutChunkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -681,53 +411,6 @@ export const de_PutChunkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutChunkCommandError
- */
-const de_PutChunkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutChunkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "KMSInvalidKeyUsageException":
-    case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
-      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
-    case "NotReadableInputStreamException":
-    case "com.amazonaws.backupstorage#NotReadableInputStreamException":
-      throw await de_NotReadableInputStreamExceptionRes(parsedOutput, context);
-    case "RetryableException":
-    case "com.amazonaws.backupstorage#RetryableException":
-      throw await de_RetryableExceptionRes(parsedOutput, context);
-    case "ServiceInternalException":
-    case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutObjectCommand
  */
 export const de_PutObjectCommand = async (
@@ -735,7 +418,7 @@ export const de_PutObjectCommand = async (
   context: __SerdeContext
 ): Promise<PutObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutObjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -752,53 +435,6 @@ export const de_PutObjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutObjectCommandError
- */
-const de_PutObjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutObjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.backupstorage#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IllegalArgumentException":
-    case "com.amazonaws.backupstorage#IllegalArgumentException":
-      throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
-    case "KMSInvalidKeyUsageException":
-    case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
-      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
-    case "NotReadableInputStreamException":
-    case "com.amazonaws.backupstorage#NotReadableInputStreamException":
-      throw await de_NotReadableInputStreamExceptionRes(parsedOutput, context);
-    case "RetryableException":
-    case "com.amazonaws.backupstorage#RetryableException":
-      throw await de_RetryableExceptionRes(parsedOutput, context);
-    case "ServiceInternalException":
-    case "com.amazonaws.backupstorage#ServiceInternalException":
-      throw await de_ServiceInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backupstorage#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.backupstorage#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartObjectCommand
  */
 export const de_StartObjectCommand = async (
@@ -806,7 +442,7 @@ export const de_StartObjectCommand = async (
   context: __SerdeContext
 ): Promise<StartObjectCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartObjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -820,12 +456,9 @@ export const de_StartObjectCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartObjectCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_StartObjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartObjectCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -835,9 +468,6 @@ const de_StartObjectCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.backupstorage#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DataAlreadyExistsException":
-    case "com.amazonaws.backupstorage#DataAlreadyExistsException":
-      throw await de_DataAlreadyExistsExceptionRes(parsedOutput, context);
     case "IllegalArgumentException":
     case "com.amazonaws.backupstorage#IllegalArgumentException":
       throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
@@ -856,13 +486,22 @@ const de_StartObjectCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.backupstorage#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "KMSInvalidKeyUsageException":
+    case "com.amazonaws.backupstorage#KMSInvalidKeyUsageException":
+      throw await de_KMSInvalidKeyUsageExceptionRes(parsedOutput, context);
+    case "NotReadableInputStreamException":
+    case "com.amazonaws.backupstorage#NotReadableInputStreamException":
+      throw await de_NotReadableInputStreamExceptionRes(parsedOutput, context);
+    case "DataAlreadyExistsException":
+    case "com.amazonaws.backupstorage#DataAlreadyExistsException":
+      throw await de_DataAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

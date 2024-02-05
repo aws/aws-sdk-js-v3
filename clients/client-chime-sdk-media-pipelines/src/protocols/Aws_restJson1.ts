@@ -889,7 +889,7 @@ export const de_CreateMediaCapturePipelineCommand = async (
   context: __SerdeContext
 ): Promise<CreateMediaCapturePipelineCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateMediaCapturePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -903,50 +903,6 @@ export const de_CreateMediaCapturePipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMediaCapturePipelineCommandError
- */
-const de_CreateMediaCapturePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMediaCapturePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMediaConcatenationPipelineCommand
  */
 export const de_CreateMediaConcatenationPipelineCommand = async (
@@ -954,7 +910,7 @@ export const de_CreateMediaConcatenationPipelineCommand = async (
   context: __SerdeContext
 ): Promise<CreateMediaConcatenationPipelineCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateMediaConcatenationPipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -968,50 +924,6 @@ export const de_CreateMediaConcatenationPipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMediaConcatenationPipelineCommandError
- */
-const de_CreateMediaConcatenationPipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMediaConcatenationPipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMediaInsightsPipelineCommand
  */
 export const de_CreateMediaInsightsPipelineCommand = async (
@@ -1019,7 +931,7 @@ export const de_CreateMediaInsightsPipelineCommand = async (
   context: __SerdeContext
 ): Promise<CreateMediaInsightsPipelineCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateMediaInsightsPipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1033,53 +945,6 @@ export const de_CreateMediaInsightsPipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMediaInsightsPipelineCommandError
- */
-const de_CreateMediaInsightsPipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMediaInsightsPipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMediaInsightsPipelineConfigurationCommand
  */
 export const de_CreateMediaInsightsPipelineConfigurationCommand = async (
@@ -1087,7 +952,7 @@ export const de_CreateMediaInsightsPipelineConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateMediaInsightsPipelineConfigurationCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateMediaInsightsPipelineConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1101,53 +966,6 @@ export const de_CreateMediaInsightsPipelineConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMediaInsightsPipelineConfigurationCommandError
- */
-const de_CreateMediaInsightsPipelineConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMediaInsightsPipelineConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMediaLiveConnectorPipelineCommand
  */
 export const de_CreateMediaLiveConnectorPipelineCommand = async (
@@ -1155,7 +973,7 @@ export const de_CreateMediaLiveConnectorPipelineCommand = async (
   context: __SerdeContext
 ): Promise<CreateMediaLiveConnectorPipelineCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateMediaLiveConnectorPipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1169,50 +987,6 @@ export const de_CreateMediaLiveConnectorPipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMediaLiveConnectorPipelineCommandError
- */
-const de_CreateMediaLiveConnectorPipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMediaLiveConnectorPipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMediaPipelineKinesisVideoStreamPoolCommand
  */
 export const de_CreateMediaPipelineKinesisVideoStreamPoolCommand = async (
@@ -1220,7 +994,7 @@ export const de_CreateMediaPipelineKinesisVideoStreamPoolCommand = async (
   context: __SerdeContext
 ): Promise<CreateMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateMediaPipelineKinesisVideoStreamPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1234,53 +1008,6 @@ export const de_CreateMediaPipelineKinesisVideoStreamPoolCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMediaPipelineKinesisVideoStreamPoolCommandError
- */
-const de_CreateMediaPipelineKinesisVideoStreamPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMediaStreamPipelineCommand
  */
 export const de_CreateMediaStreamPipelineCommand = async (
@@ -1288,7 +1015,7 @@ export const de_CreateMediaStreamPipelineCommand = async (
   context: __SerdeContext
 ): Promise<CreateMediaStreamPipelineCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateMediaStreamPipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1302,53 +1029,6 @@ export const de_CreateMediaStreamPipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMediaStreamPipelineCommandError
- */
-const de_CreateMediaStreamPipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMediaStreamPipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteMediaCapturePipelineCommand
  */
 export const de_DeleteMediaCapturePipelineCommand = async (
@@ -1356,57 +1036,13 @@ export const de_DeleteMediaCapturePipelineCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMediaCapturePipelineCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteMediaCapturePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteMediaCapturePipelineCommandError
- */
-const de_DeleteMediaCapturePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMediaCapturePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1417,60 +1053,13 @@ export const de_DeleteMediaInsightsPipelineConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMediaInsightsPipelineConfigurationCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteMediaInsightsPipelineConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteMediaInsightsPipelineConfigurationCommandError
- */
-const de_DeleteMediaInsightsPipelineConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMediaInsightsPipelineConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1481,60 +1070,13 @@ export const de_DeleteMediaPipelineCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMediaPipelineCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteMediaPipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteMediaPipelineCommandError
- */
-const de_DeleteMediaPipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMediaPipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1545,60 +1087,13 @@ export const de_DeleteMediaPipelineKinesisVideoStreamPoolCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteMediaPipelineKinesisVideoStreamPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteMediaPipelineKinesisVideoStreamPoolCommandError
- */
-const de_DeleteMediaPipelineKinesisVideoStreamPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1609,7 +1104,7 @@ export const de_GetMediaCapturePipelineCommand = async (
   context: __SerdeContext
 ): Promise<GetMediaCapturePipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMediaCapturePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1623,50 +1118,6 @@ export const de_GetMediaCapturePipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMediaCapturePipelineCommandError
- */
-const de_GetMediaCapturePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMediaCapturePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMediaInsightsPipelineConfigurationCommand
  */
 export const de_GetMediaInsightsPipelineConfigurationCommand = async (
@@ -1674,7 +1125,7 @@ export const de_GetMediaInsightsPipelineConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetMediaInsightsPipelineConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMediaInsightsPipelineConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1688,50 +1139,6 @@ export const de_GetMediaInsightsPipelineConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMediaInsightsPipelineConfigurationCommandError
- */
-const de_GetMediaInsightsPipelineConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMediaInsightsPipelineConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMediaPipelineCommand
  */
 export const de_GetMediaPipelineCommand = async (
@@ -1739,7 +1146,7 @@ export const de_GetMediaPipelineCommand = async (
   context: __SerdeContext
 ): Promise<GetMediaPipelineCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMediaPipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1753,50 +1160,6 @@ export const de_GetMediaPipelineCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMediaPipelineCommandError
- */
-const de_GetMediaPipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMediaPipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMediaPipelineKinesisVideoStreamPoolCommand
  */
 export const de_GetMediaPipelineKinesisVideoStreamPoolCommand = async (
@@ -1804,7 +1167,7 @@ export const de_GetMediaPipelineKinesisVideoStreamPoolCommand = async (
   context: __SerdeContext
 ): Promise<GetMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMediaPipelineKinesisVideoStreamPoolCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1818,50 +1181,6 @@ export const de_GetMediaPipelineKinesisVideoStreamPoolCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMediaPipelineKinesisVideoStreamPoolCommandError
- */
-const de_GetMediaPipelineKinesisVideoStreamPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSpeakerSearchTaskCommand
  */
 export const de_GetSpeakerSearchTaskCommand = async (
@@ -1869,7 +1188,7 @@ export const de_GetSpeakerSearchTaskCommand = async (
   context: __SerdeContext
 ): Promise<GetSpeakerSearchTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSpeakerSearchTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1883,50 +1202,6 @@ export const de_GetSpeakerSearchTaskCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSpeakerSearchTaskCommandError
- */
-const de_GetSpeakerSearchTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSpeakerSearchTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetVoiceToneAnalysisTaskCommand
  */
 export const de_GetVoiceToneAnalysisTaskCommand = async (
@@ -1934,7 +1209,7 @@ export const de_GetVoiceToneAnalysisTaskCommand = async (
   context: __SerdeContext
 ): Promise<GetVoiceToneAnalysisTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetVoiceToneAnalysisTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1948,50 +1223,6 @@ export const de_GetVoiceToneAnalysisTaskCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetVoiceToneAnalysisTaskCommandError
- */
-const de_GetVoiceToneAnalysisTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVoiceToneAnalysisTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListMediaCapturePipelinesCommand
  */
 export const de_ListMediaCapturePipelinesCommand = async (
@@ -1999,7 +1230,7 @@ export const de_ListMediaCapturePipelinesCommand = async (
   context: __SerdeContext
 ): Promise<ListMediaCapturePipelinesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMediaCapturePipelinesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2014,50 +1245,6 @@ export const de_ListMediaCapturePipelinesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListMediaCapturePipelinesCommandError
- */
-const de_ListMediaCapturePipelinesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMediaCapturePipelinesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListMediaInsightsPipelineConfigurationsCommand
  */
 export const de_ListMediaInsightsPipelineConfigurationsCommand = async (
@@ -2065,7 +1252,7 @@ export const de_ListMediaInsightsPipelineConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListMediaInsightsPipelineConfigurationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMediaInsightsPipelineConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2080,50 +1267,6 @@ export const de_ListMediaInsightsPipelineConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListMediaInsightsPipelineConfigurationsCommandError
- */
-const de_ListMediaInsightsPipelineConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMediaInsightsPipelineConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListMediaPipelineKinesisVideoStreamPoolsCommand
  */
 export const de_ListMediaPipelineKinesisVideoStreamPoolsCommand = async (
@@ -2131,7 +1274,7 @@ export const de_ListMediaPipelineKinesisVideoStreamPoolsCommand = async (
   context: __SerdeContext
 ): Promise<ListMediaPipelineKinesisVideoStreamPoolsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMediaPipelineKinesisVideoStreamPoolsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2146,50 +1289,6 @@ export const de_ListMediaPipelineKinesisVideoStreamPoolsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListMediaPipelineKinesisVideoStreamPoolsCommandError
- */
-const de_ListMediaPipelineKinesisVideoStreamPoolsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMediaPipelineKinesisVideoStreamPoolsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.chimesdkmediapipelines#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListMediaPipelinesCommand
  */
 export const de_ListMediaPipelinesCommand = async (
@@ -2197,7 +1296,7 @@ export const de_ListMediaPipelinesCommand = async (
   context: __SerdeContext
 ): Promise<ListMediaPipelinesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMediaPipelinesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2212,12 +1311,199 @@ export const de_ListMediaPipelinesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListMediaPipelinesCommandError
+ * deserializeAws_restJson1ListTagsForResourceCommand
  */
-const de_ListMediaPipelinesCommandError = async (
+export const de_ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ListMediaPipelinesCommandOutput> => {
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartSpeakerSearchTaskCommand
+ */
+export const de_StartSpeakerSearchTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSpeakerSearchTaskCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SpeakerSearchTask: (_) => de_SpeakerSearchTask(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartVoiceToneAnalysisTaskCommand
+ */
+export const de_StartVoiceToneAnalysisTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartVoiceToneAnalysisTaskCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    VoiceToneAnalysisTask: (_) => de_VoiceToneAnalysisTask(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopSpeakerSearchTaskCommand
+ */
+export const de_StopSpeakerSearchTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopSpeakerSearchTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopVoiceToneAnalysisTaskCommand
+ */
+export const de_StopVoiceToneAnalysisTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopVoiceToneAnalysisTaskCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand
+ */
+export const de_UpdateMediaInsightsPipelineConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaInsightsPipelineConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    MediaInsightsPipelineConfiguration: (_) => de_MediaInsightsPipelineConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateMediaInsightsPipelineStatusCommand
+ */
+export const de_UpdateMediaInsightsPipelineStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaInsightsPipelineStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateMediaPipelineKinesisVideoStreamPoolCommand
+ */
+export const de_UpdateMediaPipelineKinesisVideoStreamPoolCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    KinesisVideoStreamPoolConfiguration: (_) => de_KinesisVideoStreamPoolConfiguration(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2245,664 +1531,19 @@ const de_ListMediaPipelinesCommandError = async (
     case "UnauthorizedClientException":
     case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
       throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Tags: _json,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StartSpeakerSearchTaskCommand
- */
-export const de_StartSpeakerSearchTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSpeakerSearchTaskCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_StartSpeakerSearchTaskCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    SpeakerSearchTask: (_) => de_SpeakerSearchTask(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StartSpeakerSearchTaskCommandError
- */
-const de_StartSpeakerSearchTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSpeakerSearchTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.chimesdkmediapipelines#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StartVoiceToneAnalysisTaskCommand
- */
-export const de_StartVoiceToneAnalysisTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartVoiceToneAnalysisTaskCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_StartVoiceToneAnalysisTaskCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    VoiceToneAnalysisTask: (_) => de_VoiceToneAnalysisTask(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StartVoiceToneAnalysisTaskCommandError
- */
-const de_StartVoiceToneAnalysisTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartVoiceToneAnalysisTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StopSpeakerSearchTaskCommand
- */
-export const de_StopSpeakerSearchTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopSpeakerSearchTaskCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_StopSpeakerSearchTaskCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StopSpeakerSearchTaskCommandError
- */
-const de_StopSpeakerSearchTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopSpeakerSearchTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StopVoiceToneAnalysisTaskCommand
- */
-export const de_StopVoiceToneAnalysisTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopVoiceToneAnalysisTaskCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_StopVoiceToneAnalysisTaskCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StopVoiceToneAnalysisTaskCommandError
- */
-const de_StopVoiceToneAnalysisTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopVoiceToneAnalysisTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommand
- */
-export const de_UpdateMediaInsightsPipelineConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMediaInsightsPipelineConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateMediaInsightsPipelineConfigurationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    MediaInsightsPipelineConfiguration: (_) => de_MediaInsightsPipelineConfiguration(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateMediaInsightsPipelineConfigurationCommandError
- */
-const de_UpdateMediaInsightsPipelineConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMediaInsightsPipelineConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateMediaInsightsPipelineStatusCommand
- */
-export const de_UpdateMediaInsightsPipelineStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMediaInsightsPipelineStatusCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateMediaInsightsPipelineStatusCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateMediaInsightsPipelineStatusCommandError
- */
-const de_UpdateMediaInsightsPipelineStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMediaInsightsPipelineStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateMediaPipelineKinesisVideoStreamPoolCommand
- */
-export const de_UpdateMediaPipelineKinesisVideoStreamPoolCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateMediaPipelineKinesisVideoStreamPoolCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    KinesisVideoStreamPoolConfiguration: (_) => de_KinesisVideoStreamPoolConfiguration(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateMediaPipelineKinesisVideoStreamPoolCommandError
- */
-const de_UpdateMediaPipelineKinesisVideoStreamPoolCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.chimesdkmediapipelines#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.chimesdkmediapipelines#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "ForbiddenException":
-    case "com.amazonaws.chimesdkmediapipelines#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.chimesdkmediapipelines#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.chimesdkmediapipelines#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottledClientException":
-    case "com.amazonaws.chimesdkmediapipelines#ThrottledClientException":
-      throw await de_ThrottledClientExceptionRes(parsedOutput, context);
-    case "UnauthorizedClientException":
-    case "com.amazonaws.chimesdkmediapipelines#UnauthorizedClientException":
-      throw await de_UnauthorizedClientExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

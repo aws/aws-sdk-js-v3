@@ -1188,57 +1188,13 @@ export const de_AbortDocumentVersionUploadCommand = async (
   context: __SerdeContext
 ): Promise<AbortDocumentVersionUploadCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_AbortDocumentVersionUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AbortDocumentVersionUploadCommandError
- */
-const de_AbortDocumentVersionUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AbortDocumentVersionUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1249,7 +1205,7 @@ export const de_ActivateUserCommand = async (
   context: __SerdeContext
 ): Promise<ActivateUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ActivateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1263,44 +1219,6 @@ export const de_ActivateUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ActivateUserCommandError
- */
-const de_ActivateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ActivateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AddResourcePermissionsCommand
  */
 export const de_AddResourcePermissionsCommand = async (
@@ -1308,7 +1226,7 @@ export const de_AddResourcePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<AddResourcePermissionsCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_AddResourcePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1322,44 +1240,6 @@ export const de_AddResourcePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AddResourcePermissionsCommandError
- */
-const de_AddResourcePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddResourcePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateCommentCommand
  */
 export const de_CreateCommentCommand = async (
@@ -1367,7 +1247,7 @@ export const de_CreateCommentCommand = async (
   context: __SerdeContext
 ): Promise<CreateCommentCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateCommentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1381,53 +1261,6 @@ export const de_CreateCommentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateCommentCommandError
- */
-const de_CreateCommentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCommentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DocumentLockedForCommentsException":
-    case "com.amazonaws.workdocs#DocumentLockedForCommentsException":
-      throw await de_DocumentLockedForCommentsExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidCommentOperationException":
-    case "com.amazonaws.workdocs#InvalidCommentOperationException":
-      throw await de_InvalidCommentOperationExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateCustomMetadataCommand
  */
 export const de_CreateCustomMetadataCommand = async (
@@ -1435,57 +1268,13 @@ export const de_CreateCustomMetadataCommand = async (
   context: __SerdeContext
 ): Promise<CreateCustomMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateCustomMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateCustomMetadataCommandError
- */
-const de_CreateCustomMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CustomMetadataLimitExceededException":
-    case "com.amazonaws.workdocs#CustomMetadataLimitExceededException":
-      throw await de_CustomMetadataLimitExceededExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1496,7 +1285,7 @@ export const de_CreateFolderCommand = async (
   context: __SerdeContext
 ): Promise<CreateFolderCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateFolderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1510,59 +1299,6 @@ export const de_CreateFolderCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFolderCommandError
- */
-const de_CreateFolderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFolderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConflictingOperationException":
-    case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExistsException":
-    case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workdocs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateLabelsCommand
  */
 export const de_CreateLabelsCommand = async (
@@ -1570,54 +1306,13 @@ export const de_CreateLabelsCommand = async (
   context: __SerdeContext
 ): Promise<CreateLabelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateLabelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateLabelsCommandError
- */
-const de_CreateLabelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLabelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManyLabelsException":
-    case "com.amazonaws.workdocs#TooManyLabelsException":
-      throw await de_TooManyLabelsExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1628,7 +1323,7 @@ export const de_CreateNotificationSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<CreateNotificationSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateNotificationSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1642,41 +1337,6 @@ export const de_CreateNotificationSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateNotificationSubscriptionCommandError
- */
-const de_CreateNotificationSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNotificationSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TooManySubscriptionsException":
-    case "com.amazonaws.workdocs#TooManySubscriptionsException":
-      throw await de_TooManySubscriptionsExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateUserCommand
  */
 export const de_CreateUserCommand = async (
@@ -1684,7 +1344,7 @@ export const de_CreateUserCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1698,44 +1358,6 @@ export const de_CreateUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateUserCommandError
- */
-const de_CreateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityAlreadyExistsException":
-    case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeactivateUserCommand
  */
 export const de_DeactivateUserCommand = async (
@@ -1743,51 +1365,13 @@ export const de_DeactivateUserCommand = async (
   context: __SerdeContext
 ): Promise<DeactivateUserCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeactivateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeactivateUserCommandError
- */
-const de_DeactivateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeactivateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1798,57 +1382,13 @@ export const de_DeleteCommentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCommentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteCommentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteCommentCommandError
- */
-const de_DeleteCommentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCommentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DocumentLockedForCommentsException":
-    case "com.amazonaws.workdocs#DocumentLockedForCommentsException":
-      throw await de_DocumentLockedForCommentsExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1859,54 +1399,13 @@ export const de_DeleteCustomMetadataCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCustomMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteCustomMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteCustomMetadataCommandError
- */
-const de_DeleteCustomMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1917,63 +1416,13 @@ export const de_DeleteDocumentCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDocumentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteDocumentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDocumentCommandError
- */
-const de_DeleteDocumentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDocumentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConflictingOperationException":
-    case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workdocs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1984,60 +1433,13 @@ export const de_DeleteDocumentVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDocumentVersionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteDocumentVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDocumentVersionCommandError
- */
-const de_DeleteDocumentVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDocumentVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConflictingOperationException":
-    case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.workdocs#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2048,63 +1450,13 @@ export const de_DeleteFolderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFolderCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteFolderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFolderCommandError
- */
-const de_DeleteFolderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFolderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConflictingOperationException":
-    case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workdocs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2115,57 +1467,13 @@ export const de_DeleteFolderContentsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFolderContentsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteFolderContentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFolderContentsCommandError
- */
-const de_DeleteFolderContentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFolderContentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictingOperationException":
-    case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2176,54 +1484,13 @@ export const de_DeleteLabelsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLabelsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteLabelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteLabelsCommandError
- */
-const de_DeleteLabelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLabelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2234,48 +1501,13 @@ export const de_DeleteNotificationSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNotificationSubscriptionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteNotificationSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteNotificationSubscriptionCommandError
- */
-const de_DeleteNotificationSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNotificationSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2286,51 +1518,13 @@ export const de_DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteUserCommandError
- */
-const de_DeleteUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2341,7 +1535,7 @@ export const de_DescribeActivitiesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeActivitiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeActivitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2356,44 +1550,6 @@ export const de_DescribeActivitiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeActivitiesCommandError
- */
-const de_DescribeActivitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeActivitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeCommentsCommand
  */
 export const de_DescribeCommentsCommand = async (
@@ -2401,7 +1557,7 @@ export const de_DescribeCommentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCommentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeCommentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2416,47 +1572,6 @@ export const de_DescribeCommentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeCommentsCommandError
- */
-const de_DescribeCommentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCommentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeDocumentVersionsCommand
  */
 export const de_DescribeDocumentVersionsCommand = async (
@@ -2464,7 +1579,7 @@ export const de_DescribeDocumentVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDocumentVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeDocumentVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2479,53 +1594,6 @@ export const de_DescribeDocumentVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeDocumentVersionsCommandError
- */
-const de_DescribeDocumentVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDocumentVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.workdocs#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeFolderContentsCommand
  */
 export const de_DescribeFolderContentsCommand = async (
@@ -2533,7 +1601,7 @@ export const de_DescribeFolderContentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFolderContentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeFolderContentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2549,47 +1617,6 @@ export const de_DescribeFolderContentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeFolderContentsCommandError
- */
-const de_DescribeFolderContentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFolderContentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeGroupsCommand
  */
 export const de_DescribeGroupsCommand = async (
@@ -2597,7 +1624,7 @@ export const de_DescribeGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2612,41 +1639,6 @@ export const de_DescribeGroupsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeGroupsCommandError
- */
-const de_DescribeGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeNotificationSubscriptionsCommand
  */
 export const de_DescribeNotificationSubscriptionsCommand = async (
@@ -2654,7 +1646,7 @@ export const de_DescribeNotificationSubscriptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeNotificationSubscriptionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeNotificationSubscriptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2669,38 +1661,6 @@ export const de_DescribeNotificationSubscriptionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeNotificationSubscriptionsCommandError
- */
-const de_DescribeNotificationSubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNotificationSubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeResourcePermissionsCommand
  */
 export const de_DescribeResourcePermissionsCommand = async (
@@ -2708,7 +1668,7 @@ export const de_DescribeResourcePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeResourcePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeResourcePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2723,44 +1683,6 @@ export const de_DescribeResourcePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeResourcePermissionsCommandError
- */
-const de_DescribeResourcePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeResourcePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeRootFoldersCommand
  */
 export const de_DescribeRootFoldersCommand = async (
@@ -2768,7 +1690,7 @@ export const de_DescribeRootFoldersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRootFoldersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeRootFoldersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2783,44 +1705,6 @@ export const de_DescribeRootFoldersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeRootFoldersCommandError
- */
-const de_DescribeRootFoldersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRootFoldersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeUsersCommand
  */
 export const de_DescribeUsersCommand = async (
@@ -2828,7 +1712,7 @@ export const de_DescribeUsersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeUsersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeUsersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2844,50 +1728,6 @@ export const de_DescribeUsersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeUsersCommandError
- */
-const de_DescribeUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "RequestedEntityTooLargeException":
-    case "com.amazonaws.workdocs#RequestedEntityTooLargeException":
-      throw await de_RequestedEntityTooLargeExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetCurrentUserCommand
  */
 export const de_GetCurrentUserCommand = async (
@@ -2895,7 +1735,7 @@ export const de_GetCurrentUserCommand = async (
   context: __SerdeContext
 ): Promise<GetCurrentUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCurrentUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2909,44 +1749,6 @@ export const de_GetCurrentUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCurrentUserCommandError
- */
-const de_GetCurrentUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCurrentUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDocumentCommand
  */
 export const de_GetDocumentCommand = async (
@@ -2954,7 +1756,7 @@ export const de_GetDocumentCommand = async (
   context: __SerdeContext
 ): Promise<GetDocumentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDocumentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2969,50 +1771,6 @@ export const de_GetDocumentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDocumentCommandError
- */
-const de_GetDocumentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.workdocs#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDocumentPathCommand
  */
 export const de_GetDocumentPathCommand = async (
@@ -3020,7 +1778,7 @@ export const de_GetDocumentPathCommand = async (
   context: __SerdeContext
 ): Promise<GetDocumentPathCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDocumentPathCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3034,44 +1792,6 @@ export const de_GetDocumentPathCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDocumentPathCommandError
- */
-const de_GetDocumentPathCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentPathCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDocumentVersionCommand
  */
 export const de_GetDocumentVersionCommand = async (
@@ -3079,7 +1799,7 @@ export const de_GetDocumentVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetDocumentVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDocumentVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3094,50 +1814,6 @@ export const de_GetDocumentVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDocumentVersionCommandError
- */
-const de_GetDocumentVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDocumentVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.workdocs#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFolderCommand
  */
 export const de_GetFolderCommand = async (
@@ -3145,7 +1821,7 @@ export const de_GetFolderCommand = async (
   context: __SerdeContext
 ): Promise<GetFolderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFolderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3160,50 +1836,6 @@ export const de_GetFolderCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFolderCommandError
- */
-const de_GetFolderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFolderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFolderPathCommand
  */
 export const de_GetFolderPathCommand = async (
@@ -3211,7 +1843,7 @@ export const de_GetFolderPathCommand = async (
   context: __SerdeContext
 ): Promise<GetFolderPathCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFolderPathCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3225,44 +1857,6 @@ export const de_GetFolderPathCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFolderPathCommandError
- */
-const de_GetFolderPathCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFolderPathCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetResourcesCommand
  */
 export const de_GetResourcesCommand = async (
@@ -3270,7 +1864,7 @@ export const de_GetResourcesCommand = async (
   context: __SerdeContext
 ): Promise<GetResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3286,44 +1880,6 @@ export const de_GetResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetResourcesCommandError
- */
-const de_GetResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1InitiateDocumentVersionUploadCommand
  */
 export const de_InitiateDocumentVersionUploadCommand = async (
@@ -3331,7 +1887,7 @@ export const de_InitiateDocumentVersionUploadCommand = async (
   context: __SerdeContext
 ): Promise<InitiateDocumentVersionUploadCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_InitiateDocumentVersionUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3346,71 +1902,6 @@ export const de_InitiateDocumentVersionUploadCommand = async (
 };
 
 /**
- * deserializeAws_restJson1InitiateDocumentVersionUploadCommandError
- */
-const de_InitiateDocumentVersionUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InitiateDocumentVersionUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DraftUploadOutOfSyncException":
-    case "com.amazonaws.workdocs#DraftUploadOutOfSyncException":
-      throw await de_DraftUploadOutOfSyncExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExistsException":
-    case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidPasswordException":
-    case "com.amazonaws.workdocs#InvalidPasswordException":
-      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workdocs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyCheckedOutException":
-    case "com.amazonaws.workdocs#ResourceAlreadyCheckedOutException":
-      throw await de_ResourceAlreadyCheckedOutExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "StorageLimitExceededException":
-    case "com.amazonaws.workdocs#StorageLimitExceededException":
-      throw await de_StorageLimitExceededExceptionRes(parsedOutput, context);
-    case "StorageLimitWillExceedException":
-    case "com.amazonaws.workdocs#StorageLimitWillExceedException":
-      throw await de_StorageLimitWillExceedExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RemoveAllResourcePermissionsCommand
  */
 export const de_RemoveAllResourcePermissionsCommand = async (
@@ -3418,48 +1909,13 @@ export const de_RemoveAllResourcePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<RemoveAllResourcePermissionsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_RemoveAllResourcePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RemoveAllResourcePermissionsCommandError
- */
-const de_RemoveAllResourcePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveAllResourcePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3470,48 +1926,13 @@ export const de_RemoveResourcePermissionCommand = async (
   context: __SerdeContext
 ): Promise<RemoveResourcePermissionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_RemoveResourcePermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RemoveResourcePermissionCommandError
- */
-const de_RemoveResourcePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveResourcePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3522,60 +1943,13 @@ export const de_RestoreDocumentVersionsCommand = async (
   context: __SerdeContext
 ): Promise<RestoreDocumentVersionsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_RestoreDocumentVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RestoreDocumentVersionsCommandError
- */
-const de_RestoreDocumentVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreDocumentVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConflictingOperationException":
-    case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.workdocs#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3586,7 +1960,7 @@ export const de_SearchResourcesCommand = async (
   context: __SerdeContext
 ): Promise<SearchResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SearchResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3601,41 +1975,6 @@ export const de_SearchResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SearchResourcesCommandError
- */
-const de_SearchResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateDocumentCommand
  */
 export const de_UpdateDocumentCommand = async (
@@ -3643,66 +1982,13 @@ export const de_UpdateDocumentCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDocumentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDocumentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateDocumentCommandError
- */
-const de_UpdateDocumentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDocumentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConflictingOperationException":
-    case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExistsException":
-    case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workdocs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3713,60 +1999,13 @@ export const de_UpdateDocumentVersionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDocumentVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDocumentVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateDocumentVersionCommandError
- */
-const de_UpdateDocumentVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDocumentVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "InvalidOperationException":
-    case "com.amazonaws.workdocs#InvalidOperationException":
-      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3777,66 +2016,13 @@ export const de_UpdateFolderCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFolderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFolderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateFolderCommandError
- */
-const de_UpdateFolderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFolderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.workdocs#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ConflictingOperationException":
-    case "com.amazonaws.workdocs#ConflictingOperationException":
-      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExistsException":
-    case "com.amazonaws.workdocs#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityNotExistsException":
-    case "com.amazonaws.workdocs#EntityNotExistsException":
-      throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
-    case "FailedDependencyException":
-    case "com.amazonaws.workdocs#FailedDependencyException":
-      throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.workdocs#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProhibitedStateException":
-    case "com.amazonaws.workdocs#ProhibitedStateException":
-      throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.workdocs#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperationException":
-    case "com.amazonaws.workdocs#UnauthorizedOperationException":
-      throw await de_UnauthorizedOperationExceptionRes(parsedOutput, context);
-    case "UnauthorizedResourceAccessException":
-    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
-      throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3847,7 +2033,7 @@ export const de_UpdateUserCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3861,33 +2047,24 @@ export const de_UpdateUserCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateUserCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DeactivatingLastSystemUserException":
-    case "com.amazonaws.workdocs#DeactivatingLastSystemUserException":
-      throw await de_DeactivatingLastSystemUserExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.workdocs#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
       throw await de_EntityNotExistsExceptionRes(parsedOutput, context);
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
       throw await de_FailedDependencyExceptionRes(parsedOutput, context);
-    case "IllegalUserStateException":
-    case "com.amazonaws.workdocs#IllegalUserStateException":
-      throw await de_IllegalUserStateExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.workdocs#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
       throw await de_ProhibitedStateExceptionRes(parsedOutput, context);
@@ -3900,13 +2077,67 @@ const de_UpdateUserCommandError = async (
     case "UnauthorizedResourceAccessException":
     case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
       throw await de_UnauthorizedResourceAccessExceptionRes(parsedOutput, context);
+    case "DocumentLockedForCommentsException":
+    case "com.amazonaws.workdocs#DocumentLockedForCommentsException":
+      throw await de_DocumentLockedForCommentsExceptionRes(parsedOutput, context);
+    case "InvalidCommentOperationException":
+    case "com.amazonaws.workdocs#InvalidCommentOperationException":
+      throw await de_InvalidCommentOperationExceptionRes(parsedOutput, context);
+    case "CustomMetadataLimitExceededException":
+    case "com.amazonaws.workdocs#CustomMetadataLimitExceededException":
+      throw await de_CustomMetadataLimitExceededExceptionRes(parsedOutput, context);
+    case "ConflictingOperationException":
+    case "com.amazonaws.workdocs#ConflictingOperationException":
+      throw await de_ConflictingOperationExceptionRes(parsedOutput, context);
+    case "EntityAlreadyExistsException":
+    case "com.amazonaws.workdocs#EntityAlreadyExistsException":
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.workdocs#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "TooManyLabelsException":
+    case "com.amazonaws.workdocs#TooManyLabelsException":
+      throw await de_TooManyLabelsExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.workdocs#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "TooManySubscriptionsException":
+    case "com.amazonaws.workdocs#TooManySubscriptionsException":
+      throw await de_TooManySubscriptionsExceptionRes(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.workdocs#InvalidOperationException":
+      throw await de_InvalidOperationExceptionRes(parsedOutput, context);
+    case "InvalidPasswordException":
+    case "com.amazonaws.workdocs#InvalidPasswordException":
+      throw await de_InvalidPasswordExceptionRes(parsedOutput, context);
+    case "RequestedEntityTooLargeException":
+    case "com.amazonaws.workdocs#RequestedEntityTooLargeException":
+      throw await de_RequestedEntityTooLargeExceptionRes(parsedOutput, context);
+    case "DraftUploadOutOfSyncException":
+    case "com.amazonaws.workdocs#DraftUploadOutOfSyncException":
+      throw await de_DraftUploadOutOfSyncExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyCheckedOutException":
+    case "com.amazonaws.workdocs#ResourceAlreadyCheckedOutException":
+      throw await de_ResourceAlreadyCheckedOutExceptionRes(parsedOutput, context);
+    case "StorageLimitExceededException":
+    case "com.amazonaws.workdocs#StorageLimitExceededException":
+      throw await de_StorageLimitExceededExceptionRes(parsedOutput, context);
+    case "StorageLimitWillExceedException":
+    case "com.amazonaws.workdocs#StorageLimitWillExceedException":
+      throw await de_StorageLimitWillExceedExceptionRes(parsedOutput, context);
+    case "DeactivatingLastSystemUserException":
+    case "com.amazonaws.workdocs#DeactivatingLastSystemUserException":
+      throw await de_DeactivatingLastSystemUserExceptionRes(parsedOutput, context);
+    case "IllegalUserStateException":
+    case "com.amazonaws.workdocs#IllegalUserStateException":
+      throw await de_IllegalUserStateExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

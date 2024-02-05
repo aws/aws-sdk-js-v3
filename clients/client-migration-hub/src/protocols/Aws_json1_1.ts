@@ -355,7 +355,7 @@ export const de_AssociateCreatedArtifactCommand = async (
   context: __SerdeContext
 ): Promise<AssociateCreatedArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateCreatedArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -368,56 +368,6 @@ export const de_AssociateCreatedArtifactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateCreatedArtifactCommandError
- */
-const de_AssociateCreatedArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateCreatedArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DryRunOperation":
-    case "com.amazonaws.migrationhub#DryRunOperation":
-      throw await de_DryRunOperationRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.migrationhub#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateDiscoveredResourceCommand
  */
 export const de_AssociateDiscoveredResourceCommand = async (
@@ -425,7 +375,7 @@ export const de_AssociateDiscoveredResourceCommand = async (
   context: __SerdeContext
 ): Promise<AssociateDiscoveredResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateDiscoveredResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -438,59 +388,6 @@ export const de_AssociateDiscoveredResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateDiscoveredResourceCommandError
- */
-const de_AssociateDiscoveredResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateDiscoveredResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DryRunOperation":
-    case "com.amazonaws.migrationhub#DryRunOperation":
-      throw await de_DryRunOperationRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "PolicyErrorException":
-    case "com.amazonaws.migrationhub#PolicyErrorException":
-      throw await de_PolicyErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.migrationhub#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProgressUpdateStreamCommand
  */
 export const de_CreateProgressUpdateStreamCommand = async (
@@ -498,7 +395,7 @@ export const de_CreateProgressUpdateStreamCommand = async (
   context: __SerdeContext
 ): Promise<CreateProgressUpdateStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProgressUpdateStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -511,53 +408,6 @@ export const de_CreateProgressUpdateStreamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProgressUpdateStreamCommandError
- */
-const de_CreateProgressUpdateStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProgressUpdateStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DryRunOperation":
-    case "com.amazonaws.migrationhub#DryRunOperation":
-      throw await de_DryRunOperationRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.migrationhub#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProgressUpdateStreamCommand
  */
 export const de_DeleteProgressUpdateStreamCommand = async (
@@ -565,7 +415,7 @@ export const de_DeleteProgressUpdateStreamCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProgressUpdateStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProgressUpdateStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -578,56 +428,6 @@ export const de_DeleteProgressUpdateStreamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteProgressUpdateStreamCommandError
- */
-const de_DeleteProgressUpdateStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProgressUpdateStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DryRunOperation":
-    case "com.amazonaws.migrationhub#DryRunOperation":
-      throw await de_DryRunOperationRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.migrationhub#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeApplicationStateCommand
  */
 export const de_DescribeApplicationStateCommand = async (
@@ -635,7 +435,7 @@ export const de_DescribeApplicationStateCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicationStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeApplicationStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -648,53 +448,6 @@ export const de_DescribeApplicationStateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeApplicationStateCommandError
- */
-const de_DescribeApplicationStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicationStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "PolicyErrorException":
-    case "com.amazonaws.migrationhub#PolicyErrorException":
-      throw await de_PolicyErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMigrationTaskCommand
  */
 export const de_DescribeMigrationTaskCommand = async (
@@ -702,7 +455,7 @@ export const de_DescribeMigrationTaskCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMigrationTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMigrationTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -715,50 +468,6 @@ export const de_DescribeMigrationTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMigrationTaskCommandError
- */
-const de_DescribeMigrationTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMigrationTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateCreatedArtifactCommand
  */
 export const de_DisassociateCreatedArtifactCommand = async (
@@ -766,7 +475,7 @@ export const de_DisassociateCreatedArtifactCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateCreatedArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateCreatedArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -779,56 +488,6 @@ export const de_DisassociateCreatedArtifactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateCreatedArtifactCommandError
- */
-const de_DisassociateCreatedArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateCreatedArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DryRunOperation":
-    case "com.amazonaws.migrationhub#DryRunOperation":
-      throw await de_DryRunOperationRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.migrationhub#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateDiscoveredResourceCommand
  */
 export const de_DisassociateDiscoveredResourceCommand = async (
@@ -836,7 +495,7 @@ export const de_DisassociateDiscoveredResourceCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateDiscoveredResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateDiscoveredResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -849,56 +508,6 @@ export const de_DisassociateDiscoveredResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateDiscoveredResourceCommandError
- */
-const de_DisassociateDiscoveredResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateDiscoveredResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DryRunOperation":
-    case "com.amazonaws.migrationhub#DryRunOperation":
-      throw await de_DryRunOperationRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.migrationhub#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportMigrationTaskCommand
  */
 export const de_ImportMigrationTaskCommand = async (
@@ -906,7 +515,7 @@ export const de_ImportMigrationTaskCommand = async (
   context: __SerdeContext
 ): Promise<ImportMigrationTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportMigrationTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -919,56 +528,6 @@ export const de_ImportMigrationTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportMigrationTaskCommandError
- */
-const de_ImportMigrationTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportMigrationTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DryRunOperation":
-    case "com.amazonaws.migrationhub#DryRunOperation":
-      throw await de_DryRunOperationRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.migrationhub#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListApplicationStatesCommand
  */
 export const de_ListApplicationStatesCommand = async (
@@ -976,7 +535,7 @@ export const de_ListApplicationStatesCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationStatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListApplicationStatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -989,47 +548,6 @@ export const de_ListApplicationStatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListApplicationStatesCommandError
- */
-const de_ListApplicationStatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationStatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCreatedArtifactsCommand
  */
 export const de_ListCreatedArtifactsCommand = async (
@@ -1037,7 +555,7 @@ export const de_ListCreatedArtifactsCommand = async (
   context: __SerdeContext
 ): Promise<ListCreatedArtifactsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCreatedArtifactsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1050,50 +568,6 @@ export const de_ListCreatedArtifactsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCreatedArtifactsCommandError
- */
-const de_ListCreatedArtifactsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCreatedArtifactsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDiscoveredResourcesCommand
  */
 export const de_ListDiscoveredResourcesCommand = async (
@@ -1101,7 +575,7 @@ export const de_ListDiscoveredResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListDiscoveredResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDiscoveredResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1114,50 +588,6 @@ export const de_ListDiscoveredResourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDiscoveredResourcesCommandError
- */
-const de_ListDiscoveredResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDiscoveredResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMigrationTasksCommand
  */
 export const de_ListMigrationTasksCommand = async (
@@ -1165,7 +595,7 @@ export const de_ListMigrationTasksCommand = async (
   context: __SerdeContext
 ): Promise<ListMigrationTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMigrationTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1178,53 +608,6 @@ export const de_ListMigrationTasksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMigrationTasksCommandError
- */
-const de_ListMigrationTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMigrationTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "PolicyErrorException":
-    case "com.amazonaws.migrationhub#PolicyErrorException":
-      throw await de_PolicyErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListProgressUpdateStreamsCommand
  */
 export const de_ListProgressUpdateStreamsCommand = async (
@@ -1232,7 +615,7 @@ export const de_ListProgressUpdateStreamsCommand = async (
   context: __SerdeContext
 ): Promise<ListProgressUpdateStreamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListProgressUpdateStreamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1245,47 +628,6 @@ export const de_ListProgressUpdateStreamsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListProgressUpdateStreamsCommandError
- */
-const de_ListProgressUpdateStreamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProgressUpdateStreamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1NotifyApplicationStateCommand
  */
 export const de_NotifyApplicationStateCommand = async (
@@ -1293,7 +635,7 @@ export const de_NotifyApplicationStateCommand = async (
   context: __SerdeContext
 ): Promise<NotifyApplicationStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_NotifyApplicationStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1306,59 +648,6 @@ export const de_NotifyApplicationStateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1NotifyApplicationStateCommandError
- */
-const de_NotifyApplicationStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NotifyApplicationStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DryRunOperation":
-    case "com.amazonaws.migrationhub#DryRunOperation":
-      throw await de_DryRunOperationRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "PolicyErrorException":
-    case "com.amazonaws.migrationhub#PolicyErrorException":
-      throw await de_PolicyErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.migrationhub#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1NotifyMigrationTaskStateCommand
  */
 export const de_NotifyMigrationTaskStateCommand = async (
@@ -1366,7 +655,7 @@ export const de_NotifyMigrationTaskStateCommand = async (
   context: __SerdeContext
 ): Promise<NotifyMigrationTaskStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_NotifyMigrationTaskStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1379,56 +668,6 @@ export const de_NotifyMigrationTaskStateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1NotifyMigrationTaskStateCommandError
- */
-const de_NotifyMigrationTaskStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NotifyMigrationTaskStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DryRunOperation":
-    case "com.amazonaws.migrationhub#DryRunOperation":
-      throw await de_DryRunOperationRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.migrationhub#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhub#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhub#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.migrationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhub#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnauthorizedOperation":
-    case "com.amazonaws.migrationhub#UnauthorizedOperation":
-      throw await de_UnauthorizedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutResourceAttributesCommand
  */
 export const de_PutResourceAttributesCommand = async (
@@ -1436,7 +675,7 @@ export const de_PutResourceAttributesCommand = async (
   context: __SerdeContext
 ): Promise<PutResourceAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutResourceAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1449,12 +688,9 @@ export const de_PutResourceAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutResourceAttributesCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_PutResourceAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourceAttributesCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1488,13 +724,16 @@ const de_PutResourceAttributesCommandError = async (
     case "UnauthorizedOperation":
     case "com.amazonaws.migrationhub#UnauthorizedOperation":
       throw await de_UnauthorizedOperationRes(parsedOutput, context);
+    case "PolicyErrorException":
+    case "com.amazonaws.migrationhub#PolicyErrorException":
+      throw await de_PolicyErrorExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

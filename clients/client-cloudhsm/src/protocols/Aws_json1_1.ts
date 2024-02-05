@@ -335,7 +335,7 @@ export const de_AddTagsToResourceCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsToResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -348,38 +348,6 @@ export const de_AddTagsToResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddTagsToResourceCommandError
- */
-const de_AddTagsToResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateHapgCommand
  */
 export const de_CreateHapgCommand = async (
@@ -387,7 +355,7 @@ export const de_CreateHapgCommand = async (
   context: __SerdeContext
 ): Promise<CreateHapgCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateHapgCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -400,38 +368,6 @@ export const de_CreateHapgCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateHapgCommandError
- */
-const de_CreateHapgCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHapgCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateHsmCommand
  */
 export const de_CreateHsmCommand = async (
@@ -439,7 +375,7 @@ export const de_CreateHsmCommand = async (
   context: __SerdeContext
 ): Promise<CreateHsmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateHsmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -452,38 +388,6 @@ export const de_CreateHsmCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateHsmCommandError
- */
-const de_CreateHsmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateHsmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLunaClientCommand
  */
 export const de_CreateLunaClientCommand = async (
@@ -491,7 +395,7 @@ export const de_CreateLunaClientCommand = async (
   context: __SerdeContext
 ): Promise<CreateLunaClientCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLunaClientCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -504,38 +408,6 @@ export const de_CreateLunaClientCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLunaClientCommandError
- */
-const de_CreateLunaClientCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLunaClientCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteHapgCommand
  */
 export const de_DeleteHapgCommand = async (
@@ -543,7 +415,7 @@ export const de_DeleteHapgCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHapgCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteHapgCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -556,38 +428,6 @@ export const de_DeleteHapgCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteHapgCommandError
- */
-const de_DeleteHapgCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHapgCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteHsmCommand
  */
 export const de_DeleteHsmCommand = async (
@@ -595,7 +435,7 @@ export const de_DeleteHsmCommand = async (
   context: __SerdeContext
 ): Promise<DeleteHsmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteHsmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -608,38 +448,6 @@ export const de_DeleteHsmCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteHsmCommandError
- */
-const de_DeleteHsmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHsmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteLunaClientCommand
  */
 export const de_DeleteLunaClientCommand = async (
@@ -647,7 +455,7 @@ export const de_DeleteLunaClientCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLunaClientCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLunaClientCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -660,38 +468,6 @@ export const de_DeleteLunaClientCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteLunaClientCommandError
- */
-const de_DeleteLunaClientCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLunaClientCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeHapgCommand
  */
 export const de_DescribeHapgCommand = async (
@@ -699,7 +475,7 @@ export const de_DescribeHapgCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHapgCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeHapgCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -712,38 +488,6 @@ export const de_DescribeHapgCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeHapgCommandError
- */
-const de_DescribeHapgCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHapgCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeHsmCommand
  */
 export const de_DescribeHsmCommand = async (
@@ -751,7 +495,7 @@ export const de_DescribeHsmCommand = async (
   context: __SerdeContext
 ): Promise<DescribeHsmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeHsmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -764,38 +508,6 @@ export const de_DescribeHsmCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeHsmCommandError
- */
-const de_DescribeHsmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHsmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeLunaClientCommand
  */
 export const de_DescribeLunaClientCommand = async (
@@ -803,7 +515,7 @@ export const de_DescribeLunaClientCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLunaClientCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLunaClientCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -816,38 +528,6 @@ export const de_DescribeLunaClientCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeLunaClientCommandError
- */
-const de_DescribeLunaClientCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLunaClientCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetConfigCommand
  */
 export const de_GetConfigCommand = async (
@@ -855,7 +535,7 @@ export const de_GetConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -868,38 +548,6 @@ export const de_GetConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetConfigCommandError
- */
-const de_GetConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAvailableZonesCommand
  */
 export const de_ListAvailableZonesCommand = async (
@@ -907,7 +555,7 @@ export const de_ListAvailableZonesCommand = async (
   context: __SerdeContext
 ): Promise<ListAvailableZonesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAvailableZonesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -920,38 +568,6 @@ export const de_ListAvailableZonesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAvailableZonesCommandError
- */
-const de_ListAvailableZonesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAvailableZonesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListHapgsCommand
  */
 export const de_ListHapgsCommand = async (
@@ -959,7 +575,7 @@ export const de_ListHapgsCommand = async (
   context: __SerdeContext
 ): Promise<ListHapgsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListHapgsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -972,38 +588,6 @@ export const de_ListHapgsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListHapgsCommandError
- */
-const de_ListHapgsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHapgsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListHsmsCommand
  */
 export const de_ListHsmsCommand = async (
@@ -1011,7 +595,7 @@ export const de_ListHsmsCommand = async (
   context: __SerdeContext
 ): Promise<ListHsmsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListHsmsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1024,38 +608,6 @@ export const de_ListHsmsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListHsmsCommandError
- */
-const de_ListHsmsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListHsmsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLunaClientsCommand
  */
 export const de_ListLunaClientsCommand = async (
@@ -1063,7 +615,7 @@ export const de_ListLunaClientsCommand = async (
   context: __SerdeContext
 ): Promise<ListLunaClientsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLunaClientsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1076,38 +628,6 @@ export const de_ListLunaClientsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLunaClientsCommandError
- */
-const de_ListLunaClientsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLunaClientsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1115,7 +635,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1128,38 +648,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyHapgCommand
  */
 export const de_ModifyHapgCommand = async (
@@ -1167,7 +655,7 @@ export const de_ModifyHapgCommand = async (
   context: __SerdeContext
 ): Promise<ModifyHapgCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyHapgCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1180,38 +668,6 @@ export const de_ModifyHapgCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyHapgCommandError
- */
-const de_ModifyHapgCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyHapgCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyHsmCommand
  */
 export const de_ModifyHsmCommand = async (
@@ -1219,7 +675,7 @@ export const de_ModifyHsmCommand = async (
   context: __SerdeContext
 ): Promise<ModifyHsmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyHsmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1232,38 +688,6 @@ export const de_ModifyHsmCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyHsmCommandError
- */
-const de_ModifyHsmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyHsmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmInternalException":
-    case "com.amazonaws.cloudhsm#CloudHsmInternalException":
-      throw await de_CloudHsmInternalExceptionRes(parsedOutput, context);
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.cloudhsm#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyLunaClientCommand
  */
 export const de_ModifyLunaClientCommand = async (
@@ -1271,7 +695,7 @@ export const de_ModifyLunaClientCommand = async (
   context: __SerdeContext
 ): Promise<ModifyLunaClientCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyLunaClientCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1284,32 +708,6 @@ export const de_ModifyLunaClientCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyLunaClientCommandError
- */
-const de_ModifyLunaClientCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyLunaClientCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudHsmServiceException":
-    case "com.amazonaws.cloudhsm#CloudHsmServiceException":
-      throw await de_CloudHsmServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RemoveTagsFromResourceCommand
  */
 export const de_RemoveTagsFromResourceCommand = async (
@@ -1317,7 +715,7 @@ export const de_RemoveTagsFromResourceCommand = async (
   context: __SerdeContext
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveTagsFromResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1330,12 +728,9 @@ export const de_RemoveTagsFromResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveTagsFromResourceCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_RemoveTagsFromResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1357,7 +752,7 @@ const de_RemoveTagsFromResourceCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

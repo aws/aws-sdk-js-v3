@@ -808,48 +808,13 @@ export const de_AbortMultipartUploadCommand = async (
   context: __SerdeContext
 ): Promise<AbortMultipartUploadCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_AbortMultipartUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AbortMultipartUploadCommandError
- */
-const de_AbortMultipartUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AbortMultipartUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -860,48 +825,13 @@ export const de_AbortVaultLockCommand = async (
   context: __SerdeContext
 ): Promise<AbortVaultLockCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_AbortVaultLockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AbortVaultLockCommandError
- */
-const de_AbortVaultLockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AbortVaultLockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -912,51 +842,13 @@ export const de_AddTagsToVaultCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsToVaultCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_AddTagsToVaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AddTagsToVaultCommandError
- */
-const de_AddTagsToVaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsToVaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.glacier#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -967,7 +859,7 @@ export const de_CompleteMultipartUploadCommand = async (
   context: __SerdeContext
 ): Promise<CompleteMultipartUploadCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CompleteMultipartUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -980,41 +872,6 @@ export const de_CompleteMultipartUploadCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CompleteMultipartUploadCommandError
- */
-const de_CompleteMultipartUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CompleteMultipartUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CompleteVaultLockCommand
  */
 export const de_CompleteVaultLockCommand = async (
@@ -1022,48 +879,13 @@ export const de_CompleteVaultLockCommand = async (
   context: __SerdeContext
 ): Promise<CompleteVaultLockCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_CompleteVaultLockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CompleteVaultLockCommandError
- */
-const de_CompleteVaultLockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CompleteVaultLockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1074,7 +896,7 @@ export const de_CreateVaultCommand = async (
   context: __SerdeContext
 ): Promise<CreateVaultCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateVaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1085,41 +907,6 @@ export const de_CreateVaultCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateVaultCommandError
- */
-const de_CreateVaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.glacier#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteArchiveCommand
  */
 export const de_DeleteArchiveCommand = async (
@@ -1127,48 +914,13 @@ export const de_DeleteArchiveCommand = async (
   context: __SerdeContext
 ): Promise<DeleteArchiveCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteArchiveCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteArchiveCommandError
- */
-const de_DeleteArchiveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteArchiveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1179,48 +931,13 @@ export const de_DeleteVaultCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVaultCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteVaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteVaultCommandError
- */
-const de_DeleteVaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1231,48 +948,13 @@ export const de_DeleteVaultAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteVaultAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteVaultAccessPolicyCommandError
- */
-const de_DeleteVaultAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVaultAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1283,48 +965,13 @@ export const de_DeleteVaultNotificationsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteVaultNotificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteVaultNotificationsCommandError
- */
-const de_DeleteVaultNotificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVaultNotificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1335,7 +982,7 @@ export const de_DescribeJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1369,41 +1016,6 @@ export const de_DescribeJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeJobCommandError
- */
-const de_DescribeJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeVaultCommand
  */
 export const de_DescribeVaultCommand = async (
@@ -1411,7 +1023,7 @@ export const de_DescribeVaultCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeVaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1430,41 +1042,6 @@ export const de_DescribeVaultCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeVaultCommandError
- */
-const de_DescribeVaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDataRetrievalPolicyCommand
  */
 export const de_GetDataRetrievalPolicyCommand = async (
@@ -1472,7 +1049,7 @@ export const de_GetDataRetrievalPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetDataRetrievalPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDataRetrievalPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1486,38 +1063,6 @@ export const de_GetDataRetrievalPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDataRetrievalPolicyCommandError
- */
-const de_GetDataRetrievalPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataRetrievalPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetJobOutputCommand
  */
 export const de_GetJobOutputCommand = async (
@@ -1525,7 +1070,7 @@ export const de_GetJobOutputCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetJobOutputCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetJobOutputCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1545,41 +1090,6 @@ export const de_GetJobOutputCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetJobOutputCommandError
- */
-const de_GetJobOutputCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJobOutputCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetVaultAccessPolicyCommand
  */
 export const de_GetVaultAccessPolicyCommand = async (
@@ -1587,7 +1097,7 @@ export const de_GetVaultAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetVaultAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1598,41 +1108,6 @@ export const de_GetVaultAccessPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetVaultAccessPolicyCommandError
- */
-const de_GetVaultAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVaultAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetVaultLockCommand
  */
 export const de_GetVaultLockCommand = async (
@@ -1640,7 +1115,7 @@ export const de_GetVaultLockCommand = async (
   context: __SerdeContext
 ): Promise<GetVaultLockCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetVaultLockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1657,41 +1132,6 @@ export const de_GetVaultLockCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetVaultLockCommandError
- */
-const de_GetVaultLockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVaultLockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetVaultNotificationsCommand
  */
 export const de_GetVaultNotificationsCommand = async (
@@ -1699,7 +1139,7 @@ export const de_GetVaultNotificationsCommand = async (
   context: __SerdeContext
 ): Promise<GetVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetVaultNotificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1710,41 +1150,6 @@ export const de_GetVaultNotificationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetVaultNotificationsCommandError
- */
-const de_GetVaultNotificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVaultNotificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1InitiateJobCommand
  */
 export const de_InitiateJobCommand = async (
@@ -1752,7 +1157,7 @@ export const de_InitiateJobCommand = async (
   context: __SerdeContext
 ): Promise<InitiateJobCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
-    return de_InitiateJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1765,47 +1170,6 @@ export const de_InitiateJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1InitiateJobCommandError
- */
-const de_InitiateJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InitiateJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientCapacityException":
-    case "com.amazonaws.glacier#InsufficientCapacityException":
-      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "PolicyEnforcedException":
-    case "com.amazonaws.glacier#PolicyEnforcedException":
-      throw await de_PolicyEnforcedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1InitiateMultipartUploadCommand
  */
 export const de_InitiateMultipartUploadCommand = async (
@@ -1813,7 +1177,7 @@ export const de_InitiateMultipartUploadCommand = async (
   context: __SerdeContext
 ): Promise<InitiateMultipartUploadCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_InitiateMultipartUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1825,41 +1189,6 @@ export const de_InitiateMultipartUploadCommand = async (
 };
 
 /**
- * deserializeAws_restJson1InitiateMultipartUploadCommandError
- */
-const de_InitiateMultipartUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InitiateMultipartUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1InitiateVaultLockCommand
  */
 export const de_InitiateVaultLockCommand = async (
@@ -1867,7 +1196,7 @@ export const de_InitiateVaultLockCommand = async (
   context: __SerdeContext
 ): Promise<InitiateVaultLockCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_InitiateVaultLockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1878,41 +1207,6 @@ export const de_InitiateVaultLockCommand = async (
 };
 
 /**
- * deserializeAws_restJson1InitiateVaultLockCommandError
- */
-const de_InitiateVaultLockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InitiateVaultLockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListJobsCommand
  */
 export const de_ListJobsCommand = async (
@@ -1920,7 +1214,7 @@ export const de_ListJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1935,41 +1229,6 @@ export const de_ListJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListJobsCommandError
- */
-const de_ListJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListMultipartUploadsCommand
  */
 export const de_ListMultipartUploadsCommand = async (
@@ -1977,7 +1236,7 @@ export const de_ListMultipartUploadsCommand = async (
   context: __SerdeContext
 ): Promise<ListMultipartUploadsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMultipartUploadsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1992,41 +1251,6 @@ export const de_ListMultipartUploadsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListMultipartUploadsCommandError
- */
-const de_ListMultipartUploadsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMultipartUploadsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPartsCommand
  */
 export const de_ListPartsCommand = async (
@@ -2034,7 +1258,7 @@ export const de_ListPartsCommand = async (
   context: __SerdeContext
 ): Promise<ListPartsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPartsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2054,41 +1278,6 @@ export const de_ListPartsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPartsCommandError
- */
-const de_ListPartsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPartsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProvisionedCapacityCommand
  */
 export const de_ListProvisionedCapacityCommand = async (
@@ -2096,7 +1285,7 @@ export const de_ListProvisionedCapacityCommand = async (
   context: __SerdeContext
 ): Promise<ListProvisionedCapacityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProvisionedCapacityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2110,38 +1299,6 @@ export const de_ListProvisionedCapacityCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProvisionedCapacityCommandError
- */
-const de_ListProvisionedCapacityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProvisionedCapacityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForVaultCommand
  */
 export const de_ListTagsForVaultCommand = async (
@@ -2149,7 +1306,7 @@ export const de_ListTagsForVaultCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForVaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2163,41 +1320,6 @@ export const de_ListTagsForVaultCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForVaultCommandError
- */
-const de_ListTagsForVaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForVaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListVaultsCommand
  */
 export const de_ListVaultsCommand = async (
@@ -2205,7 +1327,7 @@ export const de_ListVaultsCommand = async (
   context: __SerdeContext
 ): Promise<ListVaultsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListVaultsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2220,41 +1342,6 @@ export const de_ListVaultsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListVaultsCommandError
- */
-const de_ListVaultsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVaultsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PurchaseProvisionedCapacityCommand
  */
 export const de_PurchaseProvisionedCapacityCommand = async (
@@ -2262,7 +1349,7 @@ export const de_PurchaseProvisionedCapacityCommand = async (
   context: __SerdeContext
 ): Promise<PurchaseProvisionedCapacityCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_PurchaseProvisionedCapacityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2273,41 +1360,6 @@ export const de_PurchaseProvisionedCapacityCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PurchaseProvisionedCapacityCommandError
- */
-const de_PurchaseProvisionedCapacityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PurchaseProvisionedCapacityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.glacier#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RemoveTagsFromVaultCommand
  */
 export const de_RemoveTagsFromVaultCommand = async (
@@ -2315,48 +1367,13 @@ export const de_RemoveTagsFromVaultCommand = async (
   context: __SerdeContext
 ): Promise<RemoveTagsFromVaultCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_RemoveTagsFromVaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1RemoveTagsFromVaultCommandError
- */
-const de_RemoveTagsFromVaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromVaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2367,45 +1384,13 @@ export const de_SetDataRetrievalPolicyCommand = async (
   context: __SerdeContext
 ): Promise<SetDataRetrievalPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_SetDataRetrievalPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1SetDataRetrievalPolicyCommandError
- */
-const de_SetDataRetrievalPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetDataRetrievalPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2416,48 +1401,13 @@ export const de_SetVaultAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<SetVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_SetVaultAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1SetVaultAccessPolicyCommandError
- */
-const de_SetVaultAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetVaultAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2468,48 +1418,13 @@ export const de_SetVaultNotificationsCommand = async (
   context: __SerdeContext
 ): Promise<SetVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_SetVaultNotificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1SetVaultNotificationsCommandError
- */
-const de_SetVaultNotificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetVaultNotificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2520,7 +1435,7 @@ export const de_UploadArchiveCommand = async (
   context: __SerdeContext
 ): Promise<UploadArchiveCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_UploadArchiveCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2533,44 +1448,6 @@ export const de_UploadArchiveCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UploadArchiveCommandError
- */
-const de_UploadArchiveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UploadArchiveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.glacier#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.glacier#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "RequestTimeoutException":
-    case "com.amazonaws.glacier#RequestTimeoutException":
-      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.glacier#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.glacier#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UploadMultipartPartCommand
  */
 export const de_UploadMultipartPartCommand = async (
@@ -2578,7 +1455,7 @@ export const de_UploadMultipartPartCommand = async (
   context: __SerdeContext
 ): Promise<UploadMultipartPartCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UploadMultipartPartCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2589,12 +1466,9 @@ export const de_UploadMultipartPartCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UploadMultipartPartCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UploadMultipartPartCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UploadMultipartPartCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2607,22 +1481,31 @@ const de_UploadMultipartPartCommandError = async (
     case "MissingParameterValueException":
     case "com.amazonaws.glacier#MissingParameterValueException":
       throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "RequestTimeoutException":
-    case "com.amazonaws.glacier#RequestTimeoutException":
-      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.glacier#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.glacier#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.glacier#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "InsufficientCapacityException":
+    case "com.amazonaws.glacier#InsufficientCapacityException":
+      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
+    case "PolicyEnforcedException":
+    case "com.amazonaws.glacier#PolicyEnforcedException":
+      throw await de_PolicyEnforcedExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.glacier#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

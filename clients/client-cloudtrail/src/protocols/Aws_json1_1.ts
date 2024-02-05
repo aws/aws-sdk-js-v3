@@ -926,7 +926,7 @@ export const de_AddTagsCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -939,77 +939,6 @@ export const de_AddTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddTagsCommandError
- */
-const de_AddTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChannelARNInvalidException":
-    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
-      throw await de_ChannelARNInvalidExceptionRes(parsedOutput, context);
-    case "ChannelNotFoundException":
-    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
-      throw await de_ChannelNotFoundExceptionRes(parsedOutput, context);
-    case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudtrail#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
-    case "InvalidTagParameterException":
-    case "com.amazonaws.cloudtrail#InvalidTagParameterException":
-      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceTypeNotSupportedException":
-    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
-      throw await de_ResourceTypeNotSupportedExceptionRes(parsedOutput, context);
-    case "TagsLimitExceededException":
-    case "com.amazonaws.cloudtrail#TagsLimitExceededException":
-      throw await de_TagsLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelQueryCommand
  */
 export const de_CancelQueryCommand = async (
@@ -1017,7 +946,7 @@ export const de_CancelQueryCommand = async (
   context: __SerdeContext
 ): Promise<CancelQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1030,59 +959,6 @@ export const de_CancelQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelQueryCommandError
- */
-const de_CancelQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.cloudtrail#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
-    case "InactiveQueryException":
-    case "com.amazonaws.cloudtrail#InactiveQueryException":
-      throw await de_InactiveQueryExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "QueryIdNotFoundException":
-    case "com.amazonaws.cloudtrail#QueryIdNotFoundException":
-      throw await de_QueryIdNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateChannelCommand
  */
 export const de_CreateChannelCommand = async (
@@ -1090,7 +966,7 @@ export const de_CreateChannelCommand = async (
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1103,65 +979,6 @@ export const de_CreateChannelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateChannelCommandError
- */
-const de_CreateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChannelAlreadyExistsException":
-    case "com.amazonaws.cloudtrail#ChannelAlreadyExistsException":
-      throw await de_ChannelAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ChannelMaxLimitExceededException":
-    case "com.amazonaws.cloudtrail#ChannelMaxLimitExceededException":
-      throw await de_ChannelMaxLimitExceededExceptionRes(parsedOutput, context);
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
-    case "InvalidEventDataStoreCategoryException":
-    case "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException":
-      throw await de_InvalidEventDataStoreCategoryExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidSourceException":
-    case "com.amazonaws.cloudtrail#InvalidSourceException":
-      throw await de_InvalidSourceExceptionRes(parsedOutput, context);
-    case "InvalidTagParameterException":
-    case "com.amazonaws.cloudtrail#InvalidTagParameterException":
-      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "TagsLimitExceededException":
-    case "com.amazonaws.cloudtrail#TagsLimitExceededException":
-      throw await de_TagsLimitExceededExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateEventDataStoreCommand
  */
 export const de_CreateEventDataStoreCommand = async (
@@ -1169,7 +986,7 @@ export const de_CreateEventDataStoreCommand = async (
   context: __SerdeContext
 ): Promise<CreateEventDataStoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEventDataStoreCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1182,83 +999,6 @@ export const de_CreateEventDataStoreCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateEventDataStoreCommandError
- */
-const de_CreateEventDataStoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventDataStoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailAccessNotEnabledException":
-    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      throw await de_CloudTrailAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudtrail#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "EventDataStoreAlreadyExistsException":
-    case "com.amazonaws.cloudtrail#EventDataStoreAlreadyExistsException":
-      throw await de_EventDataStoreAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EventDataStoreMaxLimitExceededException":
-    case "com.amazonaws.cloudtrail#EventDataStoreMaxLimitExceededException":
-      throw await de_EventDataStoreMaxLimitExceededExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InsufficientEncryptionPolicyException":
-    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
-      throw await de_InsufficientEncryptionPolicyExceptionRes(parsedOutput, context);
-    case "InvalidEventSelectorsException":
-    case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
-      throw await de_InvalidEventSelectorsExceptionRes(parsedOutput, context);
-    case "InvalidKmsKeyIdException":
-    case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
-      throw await de_InvalidKmsKeyIdExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTagParameterException":
-    case "com.amazonaws.cloudtrail#InvalidTagParameterException":
-      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
-    case "KmsException":
-    case "com.amazonaws.cloudtrail#KmsException":
-      throw await de_KmsExceptionRes(parsedOutput, context);
-    case "KmsKeyNotFoundException":
-    case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
-      throw await de_KmsKeyNotFoundExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "OrganizationNotInAllFeaturesModeException":
-    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      throw await de_OrganizationNotInAllFeaturesModeExceptionRes(parsedOutput, context);
-    case "OrganizationsNotInUseException":
-    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      throw await de_OrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTrailCommand
  */
 export const de_CreateTrailCommand = async (
@@ -1266,7 +1006,7 @@ export const de_CreateTrailCommand = async (
   context: __SerdeContext
 ): Promise<CreateTrailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTrailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1279,125 +1019,6 @@ export const de_CreateTrailCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTrailCommandError
- */
-const de_CreateTrailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailAccessNotEnabledException":
-    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      throw await de_CloudTrailAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "CloudTrailInvalidClientTokenIdException":
-    case "com.amazonaws.cloudtrail#CloudTrailInvalidClientTokenIdException":
-      throw await de_CloudTrailInvalidClientTokenIdExceptionRes(parsedOutput, context);
-    case "CloudWatchLogsDeliveryUnavailableException":
-    case "com.amazonaws.cloudtrail#CloudWatchLogsDeliveryUnavailableException":
-      throw await de_CloudWatchLogsDeliveryUnavailableExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudtrail#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InsufficientEncryptionPolicyException":
-    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
-      throw await de_InsufficientEncryptionPolicyExceptionRes(parsedOutput, context);
-    case "InsufficientS3BucketPolicyException":
-    case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
-      throw await de_InsufficientS3BucketPolicyExceptionRes(parsedOutput, context);
-    case "InsufficientSnsTopicPolicyException":
-    case "com.amazonaws.cloudtrail#InsufficientSnsTopicPolicyException":
-      throw await de_InsufficientSnsTopicPolicyExceptionRes(parsedOutput, context);
-    case "InvalidCloudWatchLogsLogGroupArnException":
-    case "com.amazonaws.cloudtrail#InvalidCloudWatchLogsLogGroupArnException":
-      throw await de_InvalidCloudWatchLogsLogGroupArnExceptionRes(parsedOutput, context);
-    case "InvalidCloudWatchLogsRoleArnException":
-    case "com.amazonaws.cloudtrail#InvalidCloudWatchLogsRoleArnException":
-      throw await de_InvalidCloudWatchLogsRoleArnExceptionRes(parsedOutput, context);
-    case "InvalidKmsKeyIdException":
-    case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
-      throw await de_InvalidKmsKeyIdExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.cloudtrail#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidS3BucketNameException":
-    case "com.amazonaws.cloudtrail#InvalidS3BucketNameException":
-      throw await de_InvalidS3BucketNameExceptionRes(parsedOutput, context);
-    case "InvalidS3PrefixException":
-    case "com.amazonaws.cloudtrail#InvalidS3PrefixException":
-      throw await de_InvalidS3PrefixExceptionRes(parsedOutput, context);
-    case "InvalidSnsTopicNameException":
-    case "com.amazonaws.cloudtrail#InvalidSnsTopicNameException":
-      throw await de_InvalidSnsTopicNameExceptionRes(parsedOutput, context);
-    case "InvalidTagParameterException":
-    case "com.amazonaws.cloudtrail#InvalidTagParameterException":
-      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "KmsException":
-    case "com.amazonaws.cloudtrail#KmsException":
-      throw await de_KmsExceptionRes(parsedOutput, context);
-    case "KmsKeyDisabledException":
-    case "com.amazonaws.cloudtrail#KmsKeyDisabledException":
-      throw await de_KmsKeyDisabledExceptionRes(parsedOutput, context);
-    case "KmsKeyNotFoundException":
-    case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
-      throw await de_KmsKeyNotFoundExceptionRes(parsedOutput, context);
-    case "MaximumNumberOfTrailsExceededException":
-    case "com.amazonaws.cloudtrail#MaximumNumberOfTrailsExceededException":
-      throw await de_MaximumNumberOfTrailsExceededExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "OrganizationNotInAllFeaturesModeException":
-    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      throw await de_OrganizationNotInAllFeaturesModeExceptionRes(parsedOutput, context);
-    case "OrganizationsNotInUseException":
-    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      throw await de_OrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "S3BucketDoesNotExistException":
-    case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
-      throw await de_S3BucketDoesNotExistExceptionRes(parsedOutput, context);
-    case "TagsLimitExceededException":
-    case "com.amazonaws.cloudtrail#TagsLimitExceededException":
-      throw await de_TagsLimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudtrail#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TrailAlreadyExistsException":
-    case "com.amazonaws.cloudtrail#TrailAlreadyExistsException":
-      throw await de_TrailAlreadyExistsExceptionRes(parsedOutput, context);
-    case "TrailNotProvidedException":
-    case "com.amazonaws.cloudtrail#TrailNotProvidedException":
-      throw await de_TrailNotProvidedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteChannelCommand
  */
 export const de_DeleteChannelCommand = async (
@@ -1405,7 +1026,7 @@ export const de_DeleteChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1418,41 +1039,6 @@ export const de_DeleteChannelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteChannelCommandError
- */
-const de_DeleteChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChannelARNInvalidException":
-    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
-      throw await de_ChannelARNInvalidExceptionRes(parsedOutput, context);
-    case "ChannelNotFoundException":
-    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
-      throw await de_ChannelNotFoundExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteEventDataStoreCommand
  */
 export const de_DeleteEventDataStoreCommand = async (
@@ -1460,7 +1046,7 @@ export const de_DeleteEventDataStoreCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEventDataStoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEventDataStoreCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1473,71 +1059,6 @@ export const de_DeleteEventDataStoreCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteEventDataStoreCommandError
- */
-const de_DeleteEventDataStoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventDataStoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChannelExistsForEDSException":
-    case "com.amazonaws.cloudtrail#ChannelExistsForEDSException":
-      throw await de_ChannelExistsForEDSExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudtrail#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreFederationEnabledException":
-    case "com.amazonaws.cloudtrail#EventDataStoreFederationEnabledException":
-      throw await de_EventDataStoreFederationEnabledExceptionRes(parsedOutput, context);
-    case "EventDataStoreHasOngoingImportException":
-    case "com.amazonaws.cloudtrail#EventDataStoreHasOngoingImportException":
-      throw await de_EventDataStoreHasOngoingImportExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "EventDataStoreTerminationProtectedException":
-    case "com.amazonaws.cloudtrail#EventDataStoreTerminationProtectedException":
-      throw await de_EventDataStoreTerminationProtectedExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteResourcePolicyCommand
  */
 export const de_DeleteResourcePolicyCommand = async (
@@ -1545,7 +1066,7 @@ export const de_DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1558,47 +1079,6 @@ export const de_DeleteResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceARNNotValidException":
-    case "com.amazonaws.cloudtrail#ResourceARNNotValidException":
-      throw await de_ResourceARNNotValidExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourcePolicyNotFoundException":
-    case "com.amazonaws.cloudtrail#ResourcePolicyNotFoundException":
-      throw await de_ResourcePolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceTypeNotSupportedException":
-    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
-      throw await de_ResourceTypeNotSupportedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTrailCommand
  */
 export const de_DeleteTrailCommand = async (
@@ -1606,7 +1086,7 @@ export const de_DeleteTrailCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTrailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTrailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1619,62 +1099,6 @@ export const de_DeleteTrailCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTrailCommandError
- */
-const de_DeleteTrailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTrailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudtrail#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InvalidHomeRegionException":
-    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
-      throw await de_InvalidHomeRegionExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudtrail#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand
  */
 export const de_DeregisterOrganizationDelegatedAdminCommand = async (
@@ -1682,7 +1106,7 @@ export const de_DeregisterOrganizationDelegatedAdminCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterOrganizationDelegatedAdminCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterOrganizationDelegatedAdminCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1695,62 +1119,6 @@ export const de_DeregisterOrganizationDelegatedAdminCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommandError
- */
-const de_DeregisterOrganizationDelegatedAdminCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterOrganizationDelegatedAdminCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountNotFoundException":
-    case "com.amazonaws.cloudtrail#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "AccountNotRegisteredException":
-    case "com.amazonaws.cloudtrail#AccountNotRegisteredException":
-      throw await de_AccountNotRegisteredExceptionRes(parsedOutput, context);
-    case "CloudTrailAccessNotEnabledException":
-    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      throw await de_CloudTrailAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudtrail#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotOrganizationManagementAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationManagementAccountException":
-      throw await de_NotOrganizationManagementAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "OrganizationNotInAllFeaturesModeException":
-    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      throw await de_OrganizationNotInAllFeaturesModeExceptionRes(parsedOutput, context);
-    case "OrganizationsNotInUseException":
-    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      throw await de_OrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeQueryCommand
  */
 export const de_DescribeQueryCommand = async (
@@ -1758,7 +1126,7 @@ export const de_DescribeQueryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1771,53 +1139,6 @@ export const de_DescribeQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeQueryCommandError
- */
-const de_DescribeQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "QueryIdNotFoundException":
-    case "com.amazonaws.cloudtrail#QueryIdNotFoundException":
-      throw await de_QueryIdNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTrailsCommand
  */
 export const de_DescribeTrailsCommand = async (
@@ -1825,7 +1146,7 @@ export const de_DescribeTrailsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTrailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTrailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1838,41 +1159,6 @@ export const de_DescribeTrailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTrailsCommandError
- */
-const de_DescribeTrailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableFederationCommand
  */
 export const de_DisableFederationCommand = async (
@@ -1880,7 +1166,7 @@ export const de_DisableFederationCommand = async (
   context: __SerdeContext
 ): Promise<DisableFederationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableFederationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1893,71 +1179,6 @@ export const de_DisableFederationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableFederationCommandError
- */
-const de_DisableFederationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableFederationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.cloudtrail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudTrailAccessNotEnabledException":
-    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      throw await de_CloudTrailAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.cloudtrail#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "OrganizationNotInAllFeaturesModeException":
-    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      throw await de_OrganizationNotInAllFeaturesModeExceptionRes(parsedOutput, context);
-    case "OrganizationsNotInUseException":
-    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      throw await de_OrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EnableFederationCommand
  */
 export const de_EnableFederationCommand = async (
@@ -1965,7 +1186,7 @@ export const de_EnableFederationCommand = async (
   context: __SerdeContext
 ): Promise<EnableFederationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableFederationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1978,74 +1199,6 @@ export const de_EnableFederationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableFederationCommandError
- */
-const de_EnableFederationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableFederationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.cloudtrail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "CloudTrailAccessNotEnabledException":
-    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      throw await de_CloudTrailAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "ConcurrentModificationException":
-    case "com.amazonaws.cloudtrail#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreFederationEnabledException":
-    case "com.amazonaws.cloudtrail#EventDataStoreFederationEnabledException":
-      throw await de_EventDataStoreFederationEnabledExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "OrganizationNotInAllFeaturesModeException":
-    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      throw await de_OrganizationNotInAllFeaturesModeExceptionRes(parsedOutput, context);
-    case "OrganizationsNotInUseException":
-    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      throw await de_OrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetChannelCommand
  */
 export const de_GetChannelCommand = async (
@@ -2053,7 +1206,7 @@ export const de_GetChannelCommand = async (
   context: __SerdeContext
 ): Promise<GetChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2066,41 +1219,6 @@ export const de_GetChannelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetChannelCommandError
- */
-const de_GetChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChannelARNInvalidException":
-    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
-      throw await de_ChannelARNInvalidExceptionRes(parsedOutput, context);
-    case "ChannelNotFoundException":
-    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
-      throw await de_ChannelNotFoundExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetEventDataStoreCommand
  */
 export const de_GetEventDataStoreCommand = async (
@@ -2108,7 +1226,7 @@ export const de_GetEventDataStoreCommand = async (
   context: __SerdeContext
 ): Promise<GetEventDataStoreCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEventDataStoreCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2121,47 +1239,6 @@ export const de_GetEventDataStoreCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetEventDataStoreCommandError
- */
-const de_GetEventDataStoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEventDataStoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetEventSelectorsCommand
  */
 export const de_GetEventSelectorsCommand = async (
@@ -2169,7 +1246,7 @@ export const de_GetEventSelectorsCommand = async (
   context: __SerdeContext
 ): Promise<GetEventSelectorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEventSelectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2182,47 +1259,6 @@ export const de_GetEventSelectorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetEventSelectorsCommandError
- */
-const de_GetEventSelectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEventSelectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetImportCommand
  */
 export const de_GetImportCommand = async (
@@ -2230,7 +1266,7 @@ export const de_GetImportCommand = async (
   context: __SerdeContext
 ): Promise<GetImportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetImportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2243,41 +1279,6 @@ export const de_GetImportCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetImportCommandError
- */
-const de_GetImportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetImportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ImportNotFoundException":
-    case "com.amazonaws.cloudtrail#ImportNotFoundException":
-      throw await de_ImportNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetInsightSelectorsCommand
  */
 export const de_GetInsightSelectorsCommand = async (
@@ -2285,7 +1286,7 @@ export const de_GetInsightSelectorsCommand = async (
   context: __SerdeContext
 ): Promise<GetInsightSelectorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInsightSelectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2298,59 +1299,6 @@ export const de_GetInsightSelectorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetInsightSelectorsCommandError
- */
-const de_GetInsightSelectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInsightSelectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
-    case "InsightNotEnabledException":
-    case "com.amazonaws.cloudtrail#InsightNotEnabledException":
-      throw await de_InsightNotEnabledExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.cloudtrail#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudtrail#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetQueryResultsCommand
  */
 export const de_GetQueryResultsCommand = async (
@@ -2358,7 +1306,7 @@ export const de_GetQueryResultsCommand = async (
   context: __SerdeContext
 ): Promise<GetQueryResultsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetQueryResultsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2371,62 +1319,6 @@ export const de_GetQueryResultsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetQueryResultsCommandError
- */
-const de_GetQueryResultsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQueryResultsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
-    case "InsufficientEncryptionPolicyException":
-    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
-      throw await de_InsufficientEncryptionPolicyExceptionRes(parsedOutput, context);
-    case "InvalidMaxResultsException":
-    case "com.amazonaws.cloudtrail#InvalidMaxResultsException":
-      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "QueryIdNotFoundException":
-    case "com.amazonaws.cloudtrail#QueryIdNotFoundException":
-      throw await de_QueryIdNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourcePolicyCommand
  */
 export const de_GetResourcePolicyCommand = async (
@@ -2434,7 +1326,7 @@ export const de_GetResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2447,47 +1339,6 @@ export const de_GetResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourcePolicyCommandError
- */
-const de_GetResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceARNNotValidException":
-    case "com.amazonaws.cloudtrail#ResourceARNNotValidException":
-      throw await de_ResourceARNNotValidExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourcePolicyNotFoundException":
-    case "com.amazonaws.cloudtrail#ResourcePolicyNotFoundException":
-      throw await de_ResourcePolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceTypeNotSupportedException":
-    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
-      throw await de_ResourceTypeNotSupportedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTrailCommand
  */
 export const de_GetTrailCommand = async (
@@ -2495,7 +1346,7 @@ export const de_GetTrailCommand = async (
   context: __SerdeContext
 ): Promise<GetTrailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTrailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2508,44 +1359,6 @@ export const de_GetTrailCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTrailCommandError
- */
-const de_GetTrailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTrailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTrailStatusCommand
  */
 export const de_GetTrailStatusCommand = async (
@@ -2553,7 +1366,7 @@ export const de_GetTrailStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetTrailStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTrailStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2566,44 +1379,6 @@ export const de_GetTrailStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTrailStatusCommandError
- */
-const de_GetTrailStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTrailStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListChannelsCommand
  */
 export const de_ListChannelsCommand = async (
@@ -2611,7 +1386,7 @@ export const de_ListChannelsCommand = async (
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListChannelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2624,38 +1399,6 @@ export const de_ListChannelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListChannelsCommandError
- */
-const de_ListChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListEventDataStoresCommand
  */
 export const de_ListEventDataStoresCommand = async (
@@ -2663,7 +1406,7 @@ export const de_ListEventDataStoresCommand = async (
   context: __SerdeContext
 ): Promise<ListEventDataStoresCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEventDataStoresCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2676,44 +1419,6 @@ export const de_ListEventDataStoresCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEventDataStoresCommandError
- */
-const de_ListEventDataStoresCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventDataStoresCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidMaxResultsException":
-    case "com.amazonaws.cloudtrail#InvalidMaxResultsException":
-      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListImportFailuresCommand
  */
 export const de_ListImportFailuresCommand = async (
@@ -2721,7 +1426,7 @@ export const de_ListImportFailuresCommand = async (
   context: __SerdeContext
 ): Promise<ListImportFailuresCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListImportFailuresCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2734,38 +1439,6 @@ export const de_ListImportFailuresCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListImportFailuresCommandError
- */
-const de_ListImportFailuresCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImportFailuresCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListImportsCommand
  */
 export const de_ListImportsCommand = async (
@@ -2773,7 +1446,7 @@ export const de_ListImportsCommand = async (
   context: __SerdeContext
 ): Promise<ListImportsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListImportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2786,44 +1459,6 @@ export const de_ListImportsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListImportsCommandError
- */
-const de_ListImportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListInsightsMetricDataCommand
  */
 export const de_ListInsightsMetricDataCommand = async (
@@ -2831,7 +1466,7 @@ export const de_ListInsightsMetricDataCommand = async (
   context: __SerdeContext
 ): Promise<ListInsightsMetricDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListInsightsMetricDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2844,38 +1479,6 @@ export const de_ListInsightsMetricDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListInsightsMetricDataCommandError
- */
-const de_ListInsightsMetricDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInsightsMetricDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPublicKeysCommand
  */
 export const de_ListPublicKeysCommand = async (
@@ -2883,7 +1486,7 @@ export const de_ListPublicKeysCommand = async (
   context: __SerdeContext
 ): Promise<ListPublicKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPublicKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2896,41 +1499,6 @@ export const de_ListPublicKeysCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPublicKeysCommandError
- */
-const de_ListPublicKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPublicKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidTimeRangeException":
-    case "com.amazonaws.cloudtrail#InvalidTimeRangeException":
-      throw await de_InvalidTimeRangeExceptionRes(parsedOutput, context);
-    case "InvalidTokenException":
-    case "com.amazonaws.cloudtrail#InvalidTokenException":
-      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListQueriesCommand
  */
 export const de_ListQueriesCommand = async (
@@ -2938,7 +1506,7 @@ export const de_ListQueriesCommand = async (
   context: __SerdeContext
 ): Promise<ListQueriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListQueriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2951,62 +1519,6 @@ export const de_ListQueriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListQueriesCommandError
- */
-const de_ListQueriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListQueriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
-    case "InvalidDateRangeException":
-    case "com.amazonaws.cloudtrail#InvalidDateRangeException":
-      throw await de_InvalidDateRangeExceptionRes(parsedOutput, context);
-    case "InvalidMaxResultsException":
-    case "com.amazonaws.cloudtrail#InvalidMaxResultsException":
-      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidQueryStatusException":
-    case "com.amazonaws.cloudtrail#InvalidQueryStatusException":
-      throw await de_InvalidQueryStatusExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsCommand
  */
 export const de_ListTagsCommand = async (
@@ -3014,7 +1526,7 @@ export const de_ListTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3027,65 +1539,6 @@ export const de_ListTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsCommandError
- */
-const de_ListTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChannelARNInvalidException":
-    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
-      throw await de_ChannelARNInvalidExceptionRes(parsedOutput, context);
-    case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
-    case "InvalidTokenException":
-    case "com.amazonaws.cloudtrail#InvalidTokenException":
-      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceTypeNotSupportedException":
-    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
-      throw await de_ResourceTypeNotSupportedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTrailsCommand
  */
 export const de_ListTrailsCommand = async (
@@ -3093,7 +1546,7 @@ export const de_ListTrailsCommand = async (
   context: __SerdeContext
 ): Promise<ListTrailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTrailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3106,35 +1559,6 @@ export const de_ListTrailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTrailsCommandError
- */
-const de_ListTrailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTrailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1LookupEventsCommand
  */
 export const de_LookupEventsCommand = async (
@@ -3142,7 +1566,7 @@ export const de_LookupEventsCommand = async (
   context: __SerdeContext
 ): Promise<LookupEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_LookupEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3155,50 +1579,6 @@ export const de_LookupEventsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1LookupEventsCommandError
- */
-const de_LookupEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<LookupEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidEventCategoryException":
-    case "com.amazonaws.cloudtrail#InvalidEventCategoryException":
-      throw await de_InvalidEventCategoryExceptionRes(parsedOutput, context);
-    case "InvalidLookupAttributesException":
-    case "com.amazonaws.cloudtrail#InvalidLookupAttributesException":
-      throw await de_InvalidLookupAttributesExceptionRes(parsedOutput, context);
-    case "InvalidMaxResultsException":
-    case "com.amazonaws.cloudtrail#InvalidMaxResultsException":
-      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidTimeRangeException":
-    case "com.amazonaws.cloudtrail#InvalidTimeRangeException":
-      throw await de_InvalidTimeRangeExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutEventSelectorsCommand
  */
 export const de_PutEventSelectorsCommand = async (
@@ -3206,7 +1586,7 @@ export const de_PutEventSelectorsCommand = async (
   context: __SerdeContext
 ): Promise<PutEventSelectorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutEventSelectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3219,65 +1599,6 @@ export const de_PutEventSelectorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutEventSelectorsCommandError
- */
-const de_PutEventSelectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEventSelectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudtrail#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InvalidEventSelectorsException":
-    case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
-      throw await de_InvalidEventSelectorsExceptionRes(parsedOutput, context);
-    case "InvalidHomeRegionException":
-    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
-      throw await de_InvalidHomeRegionExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudtrail#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutInsightSelectorsCommand
  */
 export const de_PutInsightSelectorsCommand = async (
@@ -3285,7 +1606,7 @@ export const de_PutInsightSelectorsCommand = async (
   context: __SerdeContext
 ): Promise<PutInsightSelectorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutInsightSelectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3298,77 +1619,6 @@ export const de_PutInsightSelectorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutInsightSelectorsCommandError
- */
-const de_PutInsightSelectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutInsightSelectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
-    case "InsufficientEncryptionPolicyException":
-    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
-      throw await de_InsufficientEncryptionPolicyExceptionRes(parsedOutput, context);
-    case "InsufficientS3BucketPolicyException":
-    case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
-      throw await de_InsufficientS3BucketPolicyExceptionRes(parsedOutput, context);
-    case "InvalidHomeRegionException":
-    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
-      throw await de_InvalidHomeRegionExceptionRes(parsedOutput, context);
-    case "InvalidInsightSelectorsException":
-    case "com.amazonaws.cloudtrail#InvalidInsightSelectorsException":
-      throw await de_InvalidInsightSelectorsExceptionRes(parsedOutput, context);
-    case "InvalidParameterCombinationException":
-    case "com.amazonaws.cloudtrail#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "KmsException":
-    case "com.amazonaws.cloudtrail#KmsException":
-      throw await de_KmsExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "S3BucketDoesNotExistException":
-    case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
-      throw await de_S3BucketDoesNotExistExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudtrail#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutResourcePolicyCommand
  */
 export const de_PutResourcePolicyCommand = async (
@@ -3376,7 +1626,7 @@ export const de_PutResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3389,47 +1639,6 @@ export const de_PutResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutResourcePolicyCommandError
- */
-const de_PutResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceARNNotValidException":
-    case "com.amazonaws.cloudtrail#ResourceARNNotValidException":
-      throw await de_ResourceARNNotValidExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudtrail#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourcePolicyNotValidException":
-    case "com.amazonaws.cloudtrail#ResourcePolicyNotValidException":
-      throw await de_ResourcePolicyNotValidExceptionRes(parsedOutput, context);
-    case "ResourceTypeNotSupportedException":
-    case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
-      throw await de_ResourceTypeNotSupportedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommand
  */
 export const de_RegisterOrganizationDelegatedAdminCommand = async (
@@ -3437,7 +1646,7 @@ export const de_RegisterOrganizationDelegatedAdminCommand = async (
   context: __SerdeContext
 ): Promise<RegisterOrganizationDelegatedAdminCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterOrganizationDelegatedAdminCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3450,68 +1659,6 @@ export const de_RegisterOrganizationDelegatedAdminCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterOrganizationDelegatedAdminCommandError
- */
-const de_RegisterOrganizationDelegatedAdminCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterOrganizationDelegatedAdminCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountNotFoundException":
-    case "com.amazonaws.cloudtrail#AccountNotFoundException":
-      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
-    case "AccountRegisteredException":
-    case "com.amazonaws.cloudtrail#AccountRegisteredException":
-      throw await de_AccountRegisteredExceptionRes(parsedOutput, context);
-    case "CannotDelegateManagementAccountException":
-    case "com.amazonaws.cloudtrail#CannotDelegateManagementAccountException":
-      throw await de_CannotDelegateManagementAccountExceptionRes(parsedOutput, context);
-    case "CloudTrailAccessNotEnabledException":
-    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      throw await de_CloudTrailAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudtrail#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DelegatedAdminAccountLimitExceededException":
-    case "com.amazonaws.cloudtrail#DelegatedAdminAccountLimitExceededException":
-      throw await de_DelegatedAdminAccountLimitExceededExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotOrganizationManagementAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationManagementAccountException":
-      throw await de_NotOrganizationManagementAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "OrganizationNotInAllFeaturesModeException":
-    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      throw await de_OrganizationNotInAllFeaturesModeExceptionRes(parsedOutput, context);
-    case "OrganizationsNotInUseException":
-    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      throw await de_OrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RemoveTagsCommand
  */
 export const de_RemoveTagsCommand = async (
@@ -3519,7 +1666,7 @@ export const de_RemoveTagsCommand = async (
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3532,12 +1679,229 @@ export const de_RemoveTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RemoveTagsCommandError
+ * deserializeAws_json1_1RestoreEventDataStoreCommand
  */
-const de_RemoveTagsCommandError = async (
+export const de_RestoreEventDataStoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RemoveTagsCommandOutput> => {
+): Promise<RestoreEventDataStoreCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreEventDataStoreResponse(data, context);
+  const response: RestoreEventDataStoreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartEventDataStoreIngestionCommand
+ */
+export const de_StartEventDataStoreIngestionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartEventDataStoreIngestionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartEventDataStoreIngestionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartImportCommand
+ */
+export const de_StartImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartImportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartImportResponse(data, context);
+  const response: StartImportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartLoggingCommand
+ */
+export const de_StartLoggingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartLoggingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartLoggingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartQueryCommand
+ */
+export const de_StartQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartQueryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartQueryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopEventDataStoreIngestionCommand
+ */
+export const de_StopEventDataStoreIngestionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopEventDataStoreIngestionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopEventDataStoreIngestionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopImportCommand
+ */
+export const de_StopImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopImportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopImportResponse(data, context);
+  const response: StopImportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopLoggingCommand
+ */
+export const de_StopLoggingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopLoggingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopLoggingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateChannelCommand
+ */
+export const de_UpdateChannelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateChannelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateEventDataStoreCommand
+ */
+export const de_UpdateEventDataStoreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEventDataStoreCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateEventDataStoreResponse(data, context);
+  const response: UpdateEventDataStoreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateTrailCommand
+ */
+export const de_UpdateTrailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTrailCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateTrailCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3553,6 +1917,9 @@ const de_RemoveTagsCommandError = async (
     case "CloudTrailARNInvalidException":
     case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
       throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cloudtrail#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "EventDataStoreARNInvalidException":
     case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
       throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
@@ -3583,742 +1950,42 @@ const de_RemoveTagsCommandError = async (
     case "ResourceTypeNotSupportedException":
     case "com.amazonaws.cloudtrail#ResourceTypeNotSupportedException":
       throw await de_ResourceTypeNotSupportedExceptionRes(parsedOutput, context);
+    case "TagsLimitExceededException":
+    case "com.amazonaws.cloudtrail#TagsLimitExceededException":
+      throw await de_TagsLimitExceededExceptionRes(parsedOutput, context);
     case "UnsupportedOperationException":
     case "com.amazonaws.cloudtrail#UnsupportedOperationException":
       throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RestoreEventDataStoreCommand
- */
-export const de_RestoreEventDataStoreCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreEventDataStoreCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreEventDataStoreCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreEventDataStoreResponse(data, context);
-  const response: RestoreEventDataStoreCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RestoreEventDataStoreCommandError
- */
-const de_RestoreEventDataStoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreEventDataStoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailAccessNotEnabledException":
-    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      throw await de_CloudTrailAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreMaxLimitExceededException":
-    case "com.amazonaws.cloudtrail#EventDataStoreMaxLimitExceededException":
-      throw await de_EventDataStoreMaxLimitExceededExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InvalidEventDataStoreStatusException":
-    case "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException":
-      throw await de_InvalidEventDataStoreStatusExceptionRes(parsedOutput, context);
+    case "InactiveQueryException":
+    case "com.amazonaws.cloudtrail#InactiveQueryException":
+      throw await de_InactiveQueryExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.cloudtrail#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "OrganizationNotInAllFeaturesModeException":
-    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      throw await de_OrganizationNotInAllFeaturesModeExceptionRes(parsedOutput, context);
-    case "OrganizationsNotInUseException":
-    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      throw await de_OrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartEventDataStoreIngestionCommand
- */
-export const de_StartEventDataStoreIngestionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartEventDataStoreIngestionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartEventDataStoreIngestionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartEventDataStoreIngestionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartEventDataStoreIngestionCommandError
- */
-const de_StartEventDataStoreIngestionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartEventDataStoreIngestionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InvalidEventDataStoreCategoryException":
-    case "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException":
-      throw await de_InvalidEventDataStoreCategoryExceptionRes(parsedOutput, context);
-    case "InvalidEventDataStoreStatusException":
-    case "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException":
-      throw await de_InvalidEventDataStoreStatusExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartImportCommand
- */
-export const de_StartImportCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartImportCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartImportCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartImportResponse(data, context);
-  const response: StartImportCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartImportCommandError
- */
-const de_StartImportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartImportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccountHasOngoingImportException":
-    case "com.amazonaws.cloudtrail#AccountHasOngoingImportException":
-      throw await de_AccountHasOngoingImportExceptionRes(parsedOutput, context);
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "ImportNotFoundException":
-    case "com.amazonaws.cloudtrail#ImportNotFoundException":
-      throw await de_ImportNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
-    case "InsufficientEncryptionPolicyException":
-    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
-      throw await de_InsufficientEncryptionPolicyExceptionRes(parsedOutput, context);
-    case "InvalidEventDataStoreCategoryException":
-    case "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException":
-      throw await de_InvalidEventDataStoreCategoryExceptionRes(parsedOutput, context);
-    case "InvalidEventDataStoreStatusException":
-    case "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException":
-      throw await de_InvalidEventDataStoreStatusExceptionRes(parsedOutput, context);
-    case "InvalidImportSourceException":
-    case "com.amazonaws.cloudtrail#InvalidImportSourceException":
-      throw await de_InvalidImportSourceExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartLoggingCommand
- */
-export const de_StartLoggingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartLoggingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartLoggingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartLoggingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartLoggingCommandError
- */
-const de_StartLoggingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartLoggingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudtrail#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InvalidHomeRegionException":
-    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
-      throw await de_InvalidHomeRegionExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudtrail#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartQueryCommand
- */
-export const de_StartQueryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartQueryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartQueryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartQueryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartQueryCommandError
- */
-const de_StartQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
-    case "InsufficientEncryptionPolicyException":
-    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
-      throw await de_InsufficientEncryptionPolicyExceptionRes(parsedOutput, context);
-    case "InsufficientS3BucketPolicyException":
-    case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
-      throw await de_InsufficientS3BucketPolicyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidQueryStatementException":
-    case "com.amazonaws.cloudtrail#InvalidQueryStatementException":
-      throw await de_InvalidQueryStatementExceptionRes(parsedOutput, context);
-    case "InvalidS3BucketNameException":
-    case "com.amazonaws.cloudtrail#InvalidS3BucketNameException":
-      throw await de_InvalidS3BucketNameExceptionRes(parsedOutput, context);
-    case "InvalidS3PrefixException":
-    case "com.amazonaws.cloudtrail#InvalidS3PrefixException":
-      throw await de_InvalidS3PrefixExceptionRes(parsedOutput, context);
-    case "MaxConcurrentQueriesException":
-    case "com.amazonaws.cloudtrail#MaxConcurrentQueriesException":
-      throw await de_MaxConcurrentQueriesExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "S3BucketDoesNotExistException":
-    case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
-      throw await de_S3BucketDoesNotExistExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopEventDataStoreIngestionCommand
- */
-export const de_StopEventDataStoreIngestionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopEventDataStoreIngestionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopEventDataStoreIngestionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopEventDataStoreIngestionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopEventDataStoreIngestionCommandError
- */
-const de_StopEventDataStoreIngestionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopEventDataStoreIngestionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InvalidEventDataStoreCategoryException":
-    case "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException":
-      throw await de_InvalidEventDataStoreCategoryExceptionRes(parsedOutput, context);
-    case "InvalidEventDataStoreStatusException":
-    case "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException":
-      throw await de_InvalidEventDataStoreStatusExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopImportCommand
- */
-export const de_StopImportCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopImportCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopImportCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StopImportResponse(data, context);
-  const response: StopImportCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopImportCommandError
- */
-const de_StopImportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopImportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ImportNotFoundException":
-    case "com.amazonaws.cloudtrail#ImportNotFoundException":
-      throw await de_ImportNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopLoggingCommand
- */
-export const de_StopLoggingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopLoggingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopLoggingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopLoggingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopLoggingCommandError
- */
-const de_StopLoggingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopLoggingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudtrail#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InvalidHomeRegionException":
-    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
-      throw await de_InvalidHomeRegionExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.cloudtrail#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateChannelCommand
- */
-export const de_UpdateChannelCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateChannelCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateChannelCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateChannelCommandError
- */
-const de_UpdateChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ChannelARNInvalidException":
-    case "com.amazonaws.cloudtrail#ChannelARNInvalidException":
-      throw await de_ChannelARNInvalidExceptionRes(parsedOutput, context);
+    case "QueryIdNotFoundException":
+    case "com.amazonaws.cloudtrail#QueryIdNotFoundException":
+      throw await de_QueryIdNotFoundExceptionRes(parsedOutput, context);
     case "ChannelAlreadyExistsException":
     case "com.amazonaws.cloudtrail#ChannelAlreadyExistsException":
       throw await de_ChannelAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ChannelNotFoundException":
-    case "com.amazonaws.cloudtrail#ChannelNotFoundException":
-      throw await de_ChannelNotFoundExceptionRes(parsedOutput, context);
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
+    case "ChannelMaxLimitExceededException":
+    case "com.amazonaws.cloudtrail#ChannelMaxLimitExceededException":
+      throw await de_ChannelMaxLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidEventDataStoreCategoryException":
     case "com.amazonaws.cloudtrail#InvalidEventDataStoreCategoryException":
       throw await de_InvalidEventDataStoreCategoryExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateEventDataStoreCommand
- */
-export const de_UpdateEventDataStoreCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEventDataStoreCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateEventDataStoreCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateEventDataStoreResponse(data, context);
-  const response: UpdateEventDataStoreCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateEventDataStoreCommandError
- */
-const de_UpdateEventDataStoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEventDataStoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
+    case "InvalidSourceException":
+    case "com.amazonaws.cloudtrail#InvalidSourceException":
+      throw await de_InvalidSourceExceptionRes(parsedOutput, context);
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
       throw await de_CloudTrailAccessNotEnabledExceptionRes(parsedOutput, context);
-    case "EventDataStoreARNInvalidException":
-    case "com.amazonaws.cloudtrail#EventDataStoreARNInvalidException":
-      throw await de_EventDataStoreARNInvalidExceptionRes(parsedOutput, context);
     case "EventDataStoreAlreadyExistsException":
     case "com.amazonaws.cloudtrail#EventDataStoreAlreadyExistsException":
       throw await de_EventDataStoreAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EventDataStoreHasOngoingImportException":
-    case "com.amazonaws.cloudtrail#EventDataStoreHasOngoingImportException":
-      throw await de_EventDataStoreHasOngoingImportExceptionRes(parsedOutput, context);
-    case "EventDataStoreNotFoundException":
-    case "com.amazonaws.cloudtrail#EventDataStoreNotFoundException":
-      throw await de_EventDataStoreNotFoundExceptionRes(parsedOutput, context);
-    case "InactiveEventDataStoreException":
-    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
-      throw await de_InactiveEventDataStoreExceptionRes(parsedOutput, context);
+    case "EventDataStoreMaxLimitExceededException":
+    case "com.amazonaws.cloudtrail#EventDataStoreMaxLimitExceededException":
+      throw await de_EventDataStoreMaxLimitExceededExceptionRes(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
@@ -4328,103 +1995,27 @@ const de_UpdateEventDataStoreCommandError = async (
     case "InvalidEventSelectorsException":
     case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
       throw await de_InvalidEventSelectorsExceptionRes(parsedOutput, context);
-    case "InvalidInsightSelectorsException":
-    case "com.amazonaws.cloudtrail#InvalidInsightSelectorsException":
-      throw await de_InvalidInsightSelectorsExceptionRes(parsedOutput, context);
     case "InvalidKmsKeyIdException":
     case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
       throw await de_InvalidKmsKeyIdExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "KmsException":
     case "com.amazonaws.cloudtrail#KmsException":
       throw await de_KmsExceptionRes(parsedOutput, context);
     case "KmsKeyNotFoundException":
     case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
       throw await de_KmsKeyNotFoundExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "OrganizationNotInAllFeaturesModeException":
     case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
       throw await de_OrganizationNotInAllFeaturesModeExceptionRes(parsedOutput, context);
     case "OrganizationsNotInUseException":
     case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
       throw await de_OrganizationsNotInUseExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateTrailCommand
- */
-export const de_UpdateTrailCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTrailCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateTrailCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateTrailCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateTrailCommandError
- */
-const de_UpdateTrailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTrailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CloudTrailARNInvalidException":
-    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
-      throw await de_CloudTrailARNInvalidExceptionRes(parsedOutput, context);
-    case "CloudTrailAccessNotEnabledException":
-    case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
-      throw await de_CloudTrailAccessNotEnabledExceptionRes(parsedOutput, context);
     case "CloudTrailInvalidClientTokenIdException":
     case "com.amazonaws.cloudtrail#CloudTrailInvalidClientTokenIdException":
       throw await de_CloudTrailInvalidClientTokenIdExceptionRes(parsedOutput, context);
     case "CloudWatchLogsDeliveryUnavailableException":
     case "com.amazonaws.cloudtrail#CloudWatchLogsDeliveryUnavailableException":
       throw await de_CloudWatchLogsDeliveryUnavailableExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.cloudtrail#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InsufficientDependencyServiceAccessPermissionException":
-    case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
-      throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InsufficientEncryptionPolicyException":
-    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
-      throw await de_InsufficientEncryptionPolicyExceptionRes(parsedOutput, context);
     case "InsufficientS3BucketPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientS3BucketPolicyException":
       throw await de_InsufficientS3BucketPolicyExceptionRes(parsedOutput, context);
@@ -4437,21 +2028,9 @@ const de_UpdateTrailCommandError = async (
     case "InvalidCloudWatchLogsRoleArnException":
     case "com.amazonaws.cloudtrail#InvalidCloudWatchLogsRoleArnException":
       throw await de_InvalidCloudWatchLogsRoleArnExceptionRes(parsedOutput, context);
-    case "InvalidEventSelectorsException":
-    case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
-      throw await de_InvalidEventSelectorsExceptionRes(parsedOutput, context);
-    case "InvalidHomeRegionException":
-    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
-      throw await de_InvalidHomeRegionExceptionRes(parsedOutput, context);
-    case "InvalidKmsKeyIdException":
-    case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
-      throw await de_InvalidKmsKeyIdExceptionRes(parsedOutput, context);
     case "InvalidParameterCombinationException":
     case "com.amazonaws.cloudtrail#InvalidParameterCombinationException":
       throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.cloudtrail#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidS3BucketNameException":
     case "com.amazonaws.cloudtrail#InvalidS3BucketNameException":
       throw await de_InvalidS3BucketNameExceptionRes(parsedOutput, context);
@@ -4461,55 +2040,130 @@ const de_UpdateTrailCommandError = async (
     case "InvalidSnsTopicNameException":
     case "com.amazonaws.cloudtrail#InvalidSnsTopicNameException":
       throw await de_InvalidSnsTopicNameExceptionRes(parsedOutput, context);
-    case "InvalidTrailNameException":
-    case "com.amazonaws.cloudtrail#InvalidTrailNameException":
-      throw await de_InvalidTrailNameExceptionRes(parsedOutput, context);
-    case "KmsException":
-    case "com.amazonaws.cloudtrail#KmsException":
-      throw await de_KmsExceptionRes(parsedOutput, context);
     case "KmsKeyDisabledException":
     case "com.amazonaws.cloudtrail#KmsKeyDisabledException":
       throw await de_KmsKeyDisabledExceptionRes(parsedOutput, context);
-    case "KmsKeyNotFoundException":
-    case "com.amazonaws.cloudtrail#KmsKeyNotFoundException":
-      throw await de_KmsKeyNotFoundExceptionRes(parsedOutput, context);
-    case "NoManagementAccountSLRExistsException":
-    case "com.amazonaws.cloudtrail#NoManagementAccountSLRExistsException":
-      throw await de_NoManagementAccountSLRExistsExceptionRes(parsedOutput, context);
-    case "NotOrganizationMasterAccountException":
-    case "com.amazonaws.cloudtrail#NotOrganizationMasterAccountException":
-      throw await de_NotOrganizationMasterAccountExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.cloudtrail#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "OrganizationNotInAllFeaturesModeException":
-    case "com.amazonaws.cloudtrail#OrganizationNotInAllFeaturesModeException":
-      throw await de_OrganizationNotInAllFeaturesModeExceptionRes(parsedOutput, context);
-    case "OrganizationsNotInUseException":
-    case "com.amazonaws.cloudtrail#OrganizationsNotInUseException":
-      throw await de_OrganizationsNotInUseExceptionRes(parsedOutput, context);
+    case "MaximumNumberOfTrailsExceededException":
+    case "com.amazonaws.cloudtrail#MaximumNumberOfTrailsExceededException":
+      throw await de_MaximumNumberOfTrailsExceededExceptionRes(parsedOutput, context);
     case "S3BucketDoesNotExistException":
     case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
       throw await de_S3BucketDoesNotExistExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cloudtrail#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TrailNotFoundException":
-    case "com.amazonaws.cloudtrail#TrailNotFoundException":
-      throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
+    case "TrailAlreadyExistsException":
+    case "com.amazonaws.cloudtrail#TrailAlreadyExistsException":
+      throw await de_TrailAlreadyExistsExceptionRes(parsedOutput, context);
     case "TrailNotProvidedException":
     case "com.amazonaws.cloudtrail#TrailNotProvidedException":
       throw await de_TrailNotProvidedExceptionRes(parsedOutput, context);
-    case "UnsupportedOperationException":
-    case "com.amazonaws.cloudtrail#UnsupportedOperationException":
-      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
+    case "ChannelExistsForEDSException":
+    case "com.amazonaws.cloudtrail#ChannelExistsForEDSException":
+      throw await de_ChannelExistsForEDSExceptionRes(parsedOutput, context);
+    case "EventDataStoreFederationEnabledException":
+    case "com.amazonaws.cloudtrail#EventDataStoreFederationEnabledException":
+      throw await de_EventDataStoreFederationEnabledExceptionRes(parsedOutput, context);
+    case "EventDataStoreHasOngoingImportException":
+    case "com.amazonaws.cloudtrail#EventDataStoreHasOngoingImportException":
+      throw await de_EventDataStoreHasOngoingImportExceptionRes(parsedOutput, context);
+    case "EventDataStoreTerminationProtectedException":
+    case "com.amazonaws.cloudtrail#EventDataStoreTerminationProtectedException":
+      throw await de_EventDataStoreTerminationProtectedExceptionRes(parsedOutput, context);
+    case "ResourceARNNotValidException":
+    case "com.amazonaws.cloudtrail#ResourceARNNotValidException":
+      throw await de_ResourceARNNotValidExceptionRes(parsedOutput, context);
+    case "ResourcePolicyNotFoundException":
+    case "com.amazonaws.cloudtrail#ResourcePolicyNotFoundException":
+      throw await de_ResourcePolicyNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidHomeRegionException":
+    case "com.amazonaws.cloudtrail#InvalidHomeRegionException":
+      throw await de_InvalidHomeRegionExceptionRes(parsedOutput, context);
+    case "TrailNotFoundException":
+    case "com.amazonaws.cloudtrail#TrailNotFoundException":
+      throw await de_TrailNotFoundExceptionRes(parsedOutput, context);
+    case "AccountNotFoundException":
+    case "com.amazonaws.cloudtrail#AccountNotFoundException":
+      throw await de_AccountNotFoundExceptionRes(parsedOutput, context);
+    case "AccountNotRegisteredException":
+    case "com.amazonaws.cloudtrail#AccountNotRegisteredException":
+      throw await de_AccountNotRegisteredExceptionRes(parsedOutput, context);
+    case "NotOrganizationManagementAccountException":
+    case "com.amazonaws.cloudtrail#NotOrganizationManagementAccountException":
+      throw await de_NotOrganizationManagementAccountExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.cloudtrail#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cloudtrail#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "ImportNotFoundException":
+    case "com.amazonaws.cloudtrail#ImportNotFoundException":
+      throw await de_ImportNotFoundExceptionRes(parsedOutput, context);
+    case "InsightNotEnabledException":
+    case "com.amazonaws.cloudtrail#InsightNotEnabledException":
+      throw await de_InsightNotEnabledExceptionRes(parsedOutput, context);
+    case "InvalidMaxResultsException":
+    case "com.amazonaws.cloudtrail#InvalidMaxResultsException":
+      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.cloudtrail#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidTimeRangeException":
+    case "com.amazonaws.cloudtrail#InvalidTimeRangeException":
+      throw await de_InvalidTimeRangeExceptionRes(parsedOutput, context);
+    case "InvalidTokenException":
+    case "com.amazonaws.cloudtrail#InvalidTokenException":
+      throw await de_InvalidTokenExceptionRes(parsedOutput, context);
+    case "InvalidDateRangeException":
+    case "com.amazonaws.cloudtrail#InvalidDateRangeException":
+      throw await de_InvalidDateRangeExceptionRes(parsedOutput, context);
+    case "InvalidQueryStatusException":
+    case "com.amazonaws.cloudtrail#InvalidQueryStatusException":
+      throw await de_InvalidQueryStatusExceptionRes(parsedOutput, context);
+    case "InvalidEventCategoryException":
+    case "com.amazonaws.cloudtrail#InvalidEventCategoryException":
+      throw await de_InvalidEventCategoryExceptionRes(parsedOutput, context);
+    case "InvalidLookupAttributesException":
+    case "com.amazonaws.cloudtrail#InvalidLookupAttributesException":
+      throw await de_InvalidLookupAttributesExceptionRes(parsedOutput, context);
+    case "InvalidInsightSelectorsException":
+    case "com.amazonaws.cloudtrail#InvalidInsightSelectorsException":
+      throw await de_InvalidInsightSelectorsExceptionRes(parsedOutput, context);
+    case "ResourcePolicyNotValidException":
+    case "com.amazonaws.cloudtrail#ResourcePolicyNotValidException":
+      throw await de_ResourcePolicyNotValidExceptionRes(parsedOutput, context);
+    case "AccountRegisteredException":
+    case "com.amazonaws.cloudtrail#AccountRegisteredException":
+      throw await de_AccountRegisteredExceptionRes(parsedOutput, context);
+    case "CannotDelegateManagementAccountException":
+    case "com.amazonaws.cloudtrail#CannotDelegateManagementAccountException":
+      throw await de_CannotDelegateManagementAccountExceptionRes(parsedOutput, context);
+    case "DelegatedAdminAccountLimitExceededException":
+    case "com.amazonaws.cloudtrail#DelegatedAdminAccountLimitExceededException":
+      throw await de_DelegatedAdminAccountLimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidEventDataStoreStatusException":
+    case "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException":
+      throw await de_InvalidEventDataStoreStatusExceptionRes(parsedOutput, context);
+    case "AccountHasOngoingImportException":
+    case "com.amazonaws.cloudtrail#AccountHasOngoingImportException":
+      throw await de_AccountHasOngoingImportExceptionRes(parsedOutput, context);
+    case "InvalidImportSourceException":
+    case "com.amazonaws.cloudtrail#InvalidImportSourceException":
+      throw await de_InvalidImportSourceExceptionRes(parsedOutput, context);
+    case "InvalidQueryStatementException":
+    case "com.amazonaws.cloudtrail#InvalidQueryStatementException":
+      throw await de_InvalidQueryStatementExceptionRes(parsedOutput, context);
+    case "MaxConcurrentQueriesException":
+    case "com.amazonaws.cloudtrail#MaxConcurrentQueriesException":
+      throw await de_MaxConcurrentQueriesExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

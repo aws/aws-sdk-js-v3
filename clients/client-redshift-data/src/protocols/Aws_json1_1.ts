@@ -204,7 +204,7 @@ export const de_BatchExecuteStatementCommand = async (
   context: __SerdeContext
 ): Promise<BatchExecuteStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchExecuteStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -217,12 +217,189 @@ export const de_BatchExecuteStatementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchExecuteStatementCommandError
+ * deserializeAws_json1_1CancelStatementCommand
  */
-const de_BatchExecuteStatementCommandError = async (
+export const de_CancelStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<BatchExecuteStatementCommandOutput> => {
+): Promise<CancelStatementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CancelStatementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeStatementCommand
+ */
+export const de_DescribeStatementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStatementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeStatementResponse(data, context);
+  const response: DescribeStatementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTableCommand
+ */
+export const de_DescribeTableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTableCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeTableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ExecuteStatementCommand
+ */
+export const de_ExecuteStatementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteStatementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ExecuteStatementOutput(data, context);
+  const response: ExecuteStatementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetStatementResultCommand
+ */
+export const de_GetStatementResultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStatementResultCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetStatementResultResponse(data, context);
+  const response: GetStatementResultCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDatabasesCommand
+ */
+export const de_ListDatabasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatabasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListDatabasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListSchemasCommand
+ */
+export const de_ListSchemasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSchemasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListSchemasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListStatementsCommand
+ */
+export const de_ListStatementsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStatementsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListStatementsResponse(data, context);
+  const response: ListStatementsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTablesCommand
+ */
+export const de_ListTablesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTablesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTablesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -238,49 +415,6 @@ const de_BatchExecuteStatementCommandError = async (
     case "ValidationException":
     case "com.amazonaws.redshiftdata#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CancelStatementCommand
- */
-export const de_CancelStatementCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelStatementCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CancelStatementCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CancelStatementCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CancelStatementCommandError
- */
-const de_CancelStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DatabaseConnectionException":
     case "com.amazonaws.redshiftdata#DatabaseConnectionException":
       throw await de_DatabaseConnectionExceptionRes(parsedOutput, context);
@@ -290,429 +424,16 @@ const de_CancelStatementCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.redshiftdata#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftdata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeStatementCommand
- */
-export const de_DescribeStatementCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStatementCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeStatementCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeStatementResponse(data, context);
-  const response: DescribeStatementCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeStatementCommandError
- */
-const de_DescribeStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftdata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftdata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeTableCommand
- */
-export const de_DescribeTableCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTableCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTableCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeTableCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeTableCommandError
- */
-const de_DescribeTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DatabaseConnectionException":
-    case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      throw await de_DatabaseConnectionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftdata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ExecuteStatementCommand
- */
-export const de_ExecuteStatementCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteStatementCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ExecuteStatementCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ExecuteStatementOutput(data, context);
-  const response: ExecuteStatementCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ExecuteStatementCommandError
- */
-const de_ExecuteStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ActiveStatementsExceededException":
-    case "com.amazonaws.redshiftdata#ActiveStatementsExceededException":
-      throw await de_ActiveStatementsExceededExceptionRes(parsedOutput, context);
     case "ExecuteStatementException":
     case "com.amazonaws.redshiftdata#ExecuteStatementException":
       throw await de_ExecuteStatementExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftdata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetStatementResultCommand
- */
-export const de_GetStatementResultCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStatementResultCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetStatementResultCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetStatementResultResponse(data, context);
-  const response: GetStatementResultCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetStatementResultCommandError
- */
-const de_GetStatementResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStatementResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftdata#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftdata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDatabasesCommand
- */
-export const de_ListDatabasesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatabasesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDatabasesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListDatabasesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDatabasesCommandError
- */
-const de_ListDatabasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatabasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DatabaseConnectionException":
-    case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      throw await de_DatabaseConnectionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftdata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListSchemasCommand
- */
-export const de_ListSchemasCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSchemasCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListSchemasCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListSchemasCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListSchemasCommandError
- */
-const de_ListSchemasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSchemasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DatabaseConnectionException":
-    case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      throw await de_DatabaseConnectionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftdata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListStatementsCommand
- */
-export const de_ListStatementsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStatementsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListStatementsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListStatementsResponse(data, context);
-  const response: ListStatementsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListStatementsCommandError
- */
-const de_ListStatementsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStatementsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftdata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTablesCommand
- */
-export const de_ListTablesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTablesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTablesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTablesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTablesCommandError
- */
-const de_ListTablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DatabaseConnectionException":
-    case "com.amazonaws.redshiftdata#DatabaseConnectionException":
-      throw await de_DatabaseConnectionExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftdata#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftdata#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

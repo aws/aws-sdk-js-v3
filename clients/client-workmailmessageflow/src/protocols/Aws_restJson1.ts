@@ -83,7 +83,7 @@ export const de_GetRawMessageContentCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<GetRawMessageContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRawMessageContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -95,32 +95,6 @@ export const de_GetRawMessageContentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRawMessageContentCommandError
- */
-const de_GetRawMessageContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRawMessageContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmailmessageflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutRawMessageContentCommand
  */
 export const de_PutRawMessageContentCommand = async (
@@ -128,7 +102,7 @@ export const de_PutRawMessageContentCommand = async (
   context: __SerdeContext
 ): Promise<PutRawMessageContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutRawMessageContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -138,18 +112,18 @@ export const de_PutRawMessageContentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutRawMessageContentCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_PutRawMessageContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRawMessageContentCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workmailmessageflow#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "InvalidContentLocation":
     case "com.amazonaws.workmailmessageflow#InvalidContentLocation":
       throw await de_InvalidContentLocationRes(parsedOutput, context);
@@ -159,16 +133,13 @@ const de_PutRawMessageContentCommandError = async (
     case "MessageRejected":
     case "com.amazonaws.workmailmessageflow#MessageRejected":
       throw await de_MessageRejectedRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.workmailmessageflow#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -109,7 +109,7 @@ export const de_CreateHomeRegionControlCommand = async (
   context: __SerdeContext
 ): Promise<CreateHomeRegionControlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateHomeRegionControlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -122,12 +122,69 @@ export const de_CreateHomeRegionControlCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateHomeRegionControlCommandError
+ * deserializeAws_json1_1DeleteHomeRegionControlCommand
  */
-const de_CreateHomeRegionControlCommandError = async (
+export const de_DeleteHomeRegionControlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateHomeRegionControlCommandOutput> => {
+): Promise<DeleteHomeRegionControlCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteHomeRegionControlCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeHomeRegionControlsCommand
+ */
+export const de_DescribeHomeRegionControlsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeHomeRegionControlsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeHomeRegionControlsResult(data, context);
+  const response: DescribeHomeRegionControlsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetHomeRegionCommand
+ */
+export const de_GetHomeRegionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetHomeRegionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetHomeRegionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -158,181 +215,7 @@ const de_CreateHomeRegionControlCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteHomeRegionControlCommand
- */
-export const de_DeleteHomeRegionControlCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHomeRegionControlCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteHomeRegionControlCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteHomeRegionControlCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteHomeRegionControlCommandError
- */
-const de_DeleteHomeRegionControlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteHomeRegionControlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubconfig#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhubconfig#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhubconfig#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhubconfig#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubconfig#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeHomeRegionControlsCommand
- */
-export const de_DescribeHomeRegionControlsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHomeRegionControlsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeHomeRegionControlsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeHomeRegionControlsResult(data, context);
-  const response: DescribeHomeRegionControlsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeHomeRegionControlsCommandError
- */
-const de_DescribeHomeRegionControlsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeHomeRegionControlsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubconfig#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhubconfig#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhubconfig#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhubconfig#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubconfig#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetHomeRegionCommand
- */
-export const de_GetHomeRegionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHomeRegionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetHomeRegionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetHomeRegionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetHomeRegionCommandError
- */
-const de_GetHomeRegionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetHomeRegionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.migrationhubconfig#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.migrationhubconfig#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.migrationhubconfig#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.migrationhubconfig#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.migrationhubconfig#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

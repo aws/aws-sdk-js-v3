@@ -773,7 +773,7 @@ export const de_AcknowledgeJobCommand = async (
   context: __SerdeContext
 ): Promise<AcknowledgeJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcknowledgeJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -786,38 +786,6 @@ export const de_AcknowledgeJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AcknowledgeJobCommandError
- */
-const de_AcknowledgeJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcknowledgeJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNonceException":
-    case "com.amazonaws.codepipeline#InvalidNonceException":
-      throw await de_InvalidNonceExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.codepipeline#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AcknowledgeThirdPartyJobCommand
  */
 export const de_AcknowledgeThirdPartyJobCommand = async (
@@ -825,7 +793,7 @@ export const de_AcknowledgeThirdPartyJobCommand = async (
   context: __SerdeContext
 ): Promise<AcknowledgeThirdPartyJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcknowledgeThirdPartyJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -838,41 +806,6 @@ export const de_AcknowledgeThirdPartyJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AcknowledgeThirdPartyJobCommandError
- */
-const de_AcknowledgeThirdPartyJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcknowledgeThirdPartyJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidClientTokenException":
-    case "com.amazonaws.codepipeline#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidNonceException":
-    case "com.amazonaws.codepipeline#InvalidNonceException":
-      throw await de_InvalidNonceExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.codepipeline#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateCustomActionTypeCommand
  */
 export const de_CreateCustomActionTypeCommand = async (
@@ -880,7 +813,7 @@ export const de_CreateCustomActionTypeCommand = async (
   context: __SerdeContext
 ): Promise<CreateCustomActionTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCustomActionTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -893,44 +826,6 @@ export const de_CreateCustomActionTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCustomActionTypeCommandError
- */
-const de_CreateCustomActionTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomActionTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidTagsException":
-    case "com.amazonaws.codepipeline#InvalidTagsException":
-      throw await de_InvalidTagsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codepipeline#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.codepipeline#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePipelineCommand
  */
 export const de_CreatePipelineCommand = async (
@@ -938,7 +833,7 @@ export const de_CreatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -951,59 +846,6 @@ export const de_CreatePipelineCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePipelineCommandError
- */
-const de_CreatePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidActionDeclarationException":
-    case "com.amazonaws.codepipeline#InvalidActionDeclarationException":
-      throw await de_InvalidActionDeclarationExceptionRes(parsedOutput, context);
-    case "InvalidBlockerDeclarationException":
-    case "com.amazonaws.codepipeline#InvalidBlockerDeclarationException":
-      throw await de_InvalidBlockerDeclarationExceptionRes(parsedOutput, context);
-    case "InvalidStageDeclarationException":
-    case "com.amazonaws.codepipeline#InvalidStageDeclarationException":
-      throw await de_InvalidStageDeclarationExceptionRes(parsedOutput, context);
-    case "InvalidStructureException":
-    case "com.amazonaws.codepipeline#InvalidStructureException":
-      throw await de_InvalidStructureExceptionRes(parsedOutput, context);
-    case "InvalidTagsException":
-    case "com.amazonaws.codepipeline#InvalidTagsException":
-      throw await de_InvalidTagsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codepipeline#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PipelineNameInUseException":
-    case "com.amazonaws.codepipeline#PipelineNameInUseException":
-      throw await de_PipelineNameInUseExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.codepipeline#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCustomActionTypeCommand
  */
 export const de_DeleteCustomActionTypeCommand = async (
@@ -1011,42 +853,13 @@ export const de_DeleteCustomActionTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCustomActionTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCustomActionTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCustomActionTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteCustomActionTypeCommandError
- */
-const de_DeleteCustomActionTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomActionTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1057,42 +870,13 @@ export const de_DeletePipelineCommand = async (
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePipelineCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeletePipelineCommandError
- */
-const de_DeletePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1103,7 +887,7 @@ export const de_DeleteWebhookCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWebhookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWebhookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1116,35 +900,6 @@ export const de_DeleteWebhookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteWebhookCommandError
- */
-const de_DeleteWebhookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWebhookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommand
  */
 export const de_DeregisterWebhookWithThirdPartyCommand = async (
@@ -1152,7 +907,7 @@ export const de_DeregisterWebhookWithThirdPartyCommand = async (
   context: __SerdeContext
 ): Promise<DeregisterWebhookWithThirdPartyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeregisterWebhookWithThirdPartyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1165,35 +920,6 @@ export const de_DeregisterWebhookWithThirdPartyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommandError
- */
-const de_DeregisterWebhookWithThirdPartyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterWebhookWithThirdPartyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "WebhookNotFoundException":
-    case "com.amazonaws.codepipeline#WebhookNotFoundException":
-      throw await de_WebhookNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableStageTransitionCommand
  */
 export const de_DisableStageTransitionCommand = async (
@@ -1201,45 +927,13 @@ export const de_DisableStageTransitionCommand = async (
   context: __SerdeContext
 ): Promise<DisableStageTransitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableStageTransitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisableStageTransitionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DisableStageTransitionCommandError
- */
-const de_DisableStageTransitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableStageTransitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "StageNotFoundException":
-    case "com.amazonaws.codepipeline#StageNotFoundException":
-      throw await de_StageNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1250,45 +944,13 @@ export const de_EnableStageTransitionCommand = async (
   context: __SerdeContext
 ): Promise<EnableStageTransitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableStageTransitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableStageTransitionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1EnableStageTransitionCommandError
- */
-const de_EnableStageTransitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableStageTransitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "StageNotFoundException":
-    case "com.amazonaws.codepipeline#StageNotFoundException":
-      throw await de_StageNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1299,7 +961,7 @@ export const de_GetActionTypeCommand = async (
   context: __SerdeContext
 ): Promise<GetActionTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetActionTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1312,35 +974,6 @@ export const de_GetActionTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetActionTypeCommandError
- */
-const de_GetActionTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetActionTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ActionTypeNotFoundException":
-    case "com.amazonaws.codepipeline#ActionTypeNotFoundException":
-      throw await de_ActionTypeNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetJobDetailsCommand
  */
 export const de_GetJobDetailsCommand = async (
@@ -1348,7 +981,7 @@ export const de_GetJobDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetJobDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetJobDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1361,35 +994,6 @@ export const de_GetJobDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetJobDetailsCommandError
- */
-const de_GetJobDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetJobDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "JobNotFoundException":
-    case "com.amazonaws.codepipeline#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPipelineCommand
  */
 export const de_GetPipelineCommand = async (
@@ -1397,7 +1001,7 @@ export const de_GetPipelineCommand = async (
   context: __SerdeContext
 ): Promise<GetPipelineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1410,38 +1014,6 @@ export const de_GetPipelineCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPipelineCommandError
- */
-const de_GetPipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPipelineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "PipelineVersionNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineVersionNotFoundException":
-      throw await de_PipelineVersionNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPipelineExecutionCommand
  */
 export const de_GetPipelineExecutionCommand = async (
@@ -1449,7 +1021,7 @@ export const de_GetPipelineExecutionCommand = async (
   context: __SerdeContext
 ): Promise<GetPipelineExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPipelineExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1462,38 +1034,6 @@ export const de_GetPipelineExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPipelineExecutionCommandError
- */
-const de_GetPipelineExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPipelineExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "PipelineExecutionNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineExecutionNotFoundException":
-      throw await de_PipelineExecutionNotFoundExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPipelineStateCommand
  */
 export const de_GetPipelineStateCommand = async (
@@ -1501,7 +1041,7 @@ export const de_GetPipelineStateCommand = async (
   context: __SerdeContext
 ): Promise<GetPipelineStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPipelineStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1514,35 +1054,6 @@ export const de_GetPipelineStateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPipelineStateCommandError
- */
-const de_GetPipelineStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPipelineStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetThirdPartyJobDetailsCommand
  */
 export const de_GetThirdPartyJobDetailsCommand = async (
@@ -1550,7 +1061,7 @@ export const de_GetThirdPartyJobDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetThirdPartyJobDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetThirdPartyJobDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1563,41 +1074,6 @@ export const de_GetThirdPartyJobDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetThirdPartyJobDetailsCommandError
- */
-const de_GetThirdPartyJobDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetThirdPartyJobDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidClientTokenException":
-    case "com.amazonaws.codepipeline#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidJobException":
-    case "com.amazonaws.codepipeline#InvalidJobException":
-      throw await de_InvalidJobExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.codepipeline#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListActionExecutionsCommand
  */
 export const de_ListActionExecutionsCommand = async (
@@ -1605,7 +1081,7 @@ export const de_ListActionExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListActionExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListActionExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1618,41 +1094,6 @@ export const de_ListActionExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListActionExecutionsCommandError
- */
-const de_ListActionExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListActionExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "PipelineExecutionNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineExecutionNotFoundException":
-      throw await de_PipelineExecutionNotFoundExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListActionTypesCommand
  */
 export const de_ListActionTypesCommand = async (
@@ -1660,7 +1101,7 @@ export const de_ListActionTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListActionTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListActionTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1673,35 +1114,6 @@ export const de_ListActionTypesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListActionTypesCommandError
- */
-const de_ListActionTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListActionTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPipelineExecutionsCommand
  */
 export const de_ListPipelineExecutionsCommand = async (
@@ -1709,7 +1121,7 @@ export const de_ListPipelineExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListPipelineExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPipelineExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1722,38 +1134,6 @@ export const de_ListPipelineExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPipelineExecutionsCommandError
- */
-const de_ListPipelineExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPipelineExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPipelinesCommand
  */
 export const de_ListPipelinesCommand = async (
@@ -1761,7 +1141,7 @@ export const de_ListPipelinesCommand = async (
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPipelinesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1774,35 +1154,6 @@ export const de_ListPipelinesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPipelinesCommandError
- */
-const de_ListPipelinesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPipelinesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1810,7 +1161,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1823,41 +1174,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArnException":
-    case "com.amazonaws.codepipeline#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codepipeline#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListWebhooksCommand
  */
 export const de_ListWebhooksCommand = async (
@@ -1865,7 +1181,7 @@ export const de_ListWebhooksCommand = async (
   context: __SerdeContext
 ): Promise<ListWebhooksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListWebhooksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1878,35 +1194,6 @@ export const de_ListWebhooksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListWebhooksCommandError
- */
-const de_ListWebhooksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWebhooksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codepipeline#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PollForJobsCommand
  */
 export const de_PollForJobsCommand = async (
@@ -1914,7 +1201,7 @@ export const de_PollForJobsCommand = async (
   context: __SerdeContext
 ): Promise<PollForJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PollForJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1927,35 +1214,6 @@ export const de_PollForJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PollForJobsCommandError
- */
-const de_PollForJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PollForJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ActionTypeNotFoundException":
-    case "com.amazonaws.codepipeline#ActionTypeNotFoundException":
-      throw await de_ActionTypeNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PollForThirdPartyJobsCommand
  */
 export const de_PollForThirdPartyJobsCommand = async (
@@ -1963,7 +1221,7 @@ export const de_PollForThirdPartyJobsCommand = async (
   context: __SerdeContext
 ): Promise<PollForThirdPartyJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PollForThirdPartyJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1976,35 +1234,6 @@ export const de_PollForThirdPartyJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PollForThirdPartyJobsCommandError
- */
-const de_PollForThirdPartyJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PollForThirdPartyJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ActionTypeNotFoundException":
-    case "com.amazonaws.codepipeline#ActionTypeNotFoundException":
-      throw await de_ActionTypeNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutActionRevisionCommand
  */
 export const de_PutActionRevisionCommand = async (
@@ -2012,7 +1241,7 @@ export const de_PutActionRevisionCommand = async (
   context: __SerdeContext
 ): Promise<PutActionRevisionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutActionRevisionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2025,41 +1254,6 @@ export const de_PutActionRevisionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutActionRevisionCommandError
- */
-const de_PutActionRevisionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutActionRevisionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ActionNotFoundException":
-    case "com.amazonaws.codepipeline#ActionNotFoundException":
-      throw await de_ActionNotFoundExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "StageNotFoundException":
-    case "com.amazonaws.codepipeline#StageNotFoundException":
-      throw await de_StageNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutApprovalResultCommand
  */
 export const de_PutApprovalResultCommand = async (
@@ -2067,7 +1261,7 @@ export const de_PutApprovalResultCommand = async (
   context: __SerdeContext
 ): Promise<PutApprovalResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutApprovalResultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2080,47 +1274,6 @@ export const de_PutApprovalResultCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutApprovalResultCommandError
- */
-const de_PutApprovalResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutApprovalResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ActionNotFoundException":
-    case "com.amazonaws.codepipeline#ActionNotFoundException":
-      throw await de_ActionNotFoundExceptionRes(parsedOutput, context);
-    case "ApprovalAlreadyCompletedException":
-    case "com.amazonaws.codepipeline#ApprovalAlreadyCompletedException":
-      throw await de_ApprovalAlreadyCompletedExceptionRes(parsedOutput, context);
-    case "InvalidApprovalTokenException":
-    case "com.amazonaws.codepipeline#InvalidApprovalTokenException":
-      throw await de_InvalidApprovalTokenExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "StageNotFoundException":
-    case "com.amazonaws.codepipeline#StageNotFoundException":
-      throw await de_StageNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutJobFailureResultCommand
  */
 export const de_PutJobFailureResultCommand = async (
@@ -2128,45 +1281,13 @@ export const de_PutJobFailureResultCommand = async (
   context: __SerdeContext
 ): Promise<PutJobFailureResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutJobFailureResultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutJobFailureResultCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutJobFailureResultCommandError
- */
-const de_PutJobFailureResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutJobFailureResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidJobStateException":
-    case "com.amazonaws.codepipeline#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.codepipeline#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2177,48 +1298,13 @@ export const de_PutJobSuccessResultCommand = async (
   context: __SerdeContext
 ): Promise<PutJobSuccessResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutJobSuccessResultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutJobSuccessResultCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutJobSuccessResultCommandError
- */
-const de_PutJobSuccessResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutJobSuccessResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidJobStateException":
-    case "com.amazonaws.codepipeline#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.codepipeline#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "OutputVariablesSizeExceededException":
-    case "com.amazonaws.codepipeline#OutputVariablesSizeExceededException":
-      throw await de_OutputVariablesSizeExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2229,48 +1315,13 @@ export const de_PutThirdPartyJobFailureResultCommand = async (
   context: __SerdeContext
 ): Promise<PutThirdPartyJobFailureResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutThirdPartyJobFailureResultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutThirdPartyJobFailureResultCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutThirdPartyJobFailureResultCommandError
- */
-const de_PutThirdPartyJobFailureResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutThirdPartyJobFailureResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidClientTokenException":
-    case "com.amazonaws.codepipeline#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidJobStateException":
-    case "com.amazonaws.codepipeline#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.codepipeline#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2281,48 +1332,13 @@ export const de_PutThirdPartyJobSuccessResultCommand = async (
   context: __SerdeContext
 ): Promise<PutThirdPartyJobSuccessResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutThirdPartyJobSuccessResultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutThirdPartyJobSuccessResultCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutThirdPartyJobSuccessResultCommandError
- */
-const de_PutThirdPartyJobSuccessResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutThirdPartyJobSuccessResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidClientTokenException":
-    case "com.amazonaws.codepipeline#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidJobStateException":
-    case "com.amazonaws.codepipeline#InvalidJobStateException":
-      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
-    case "JobNotFoundException":
-    case "com.amazonaws.codepipeline#JobNotFoundException":
-      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2333,7 +1349,7 @@ export const de_PutWebhookCommand = async (
   context: __SerdeContext
 ): Promise<PutWebhookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutWebhookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2346,53 +1362,6 @@ export const de_PutWebhookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutWebhookCommandError
- */
-const de_PutWebhookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutWebhookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidTagsException":
-    case "com.amazonaws.codepipeline#InvalidTagsException":
-      throw await de_InvalidTagsExceptionRes(parsedOutput, context);
-    case "InvalidWebhookAuthenticationParametersException":
-    case "com.amazonaws.codepipeline#InvalidWebhookAuthenticationParametersException":
-      throw await de_InvalidWebhookAuthenticationParametersExceptionRes(parsedOutput, context);
-    case "InvalidWebhookFilterPatternException":
-    case "com.amazonaws.codepipeline#InvalidWebhookFilterPatternException":
-      throw await de_InvalidWebhookFilterPatternExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codepipeline#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.codepipeline#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand
  */
 export const de_RegisterWebhookWithThirdPartyCommand = async (
@@ -2400,7 +1369,7 @@ export const de_RegisterWebhookWithThirdPartyCommand = async (
   context: __SerdeContext
 ): Promise<RegisterWebhookWithThirdPartyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterWebhookWithThirdPartyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2413,35 +1382,6 @@ export const de_RegisterWebhookWithThirdPartyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterWebhookWithThirdPartyCommandError
- */
-const de_RegisterWebhookWithThirdPartyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterWebhookWithThirdPartyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "WebhookNotFoundException":
-    case "com.amazonaws.codepipeline#WebhookNotFoundException":
-      throw await de_WebhookNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RetryStageExecutionCommand
  */
 export const de_RetryStageExecutionCommand = async (
@@ -2449,7 +1389,7 @@ export const de_RetryStageExecutionCommand = async (
   context: __SerdeContext
 ): Promise<RetryStageExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RetryStageExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2462,47 +1402,6 @@ export const de_RetryStageExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RetryStageExecutionCommandError
- */
-const de_RetryStageExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetryStageExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.codepipeline#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "NotLatestPipelineExecutionException":
-    case "com.amazonaws.codepipeline#NotLatestPipelineExecutionException":
-      throw await de_NotLatestPipelineExecutionExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "StageNotFoundException":
-    case "com.amazonaws.codepipeline#StageNotFoundException":
-      throw await de_StageNotFoundExceptionRes(parsedOutput, context);
-    case "StageNotRetryableException":
-    case "com.amazonaws.codepipeline#StageNotRetryableException":
-      throw await de_StageNotRetryableExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartPipelineExecutionCommand
  */
 export const de_StartPipelineExecutionCommand = async (
@@ -2510,7 +1409,7 @@ export const de_StartPipelineExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StartPipelineExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartPipelineExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2523,38 +1422,6 @@ export const de_StartPipelineExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartPipelineExecutionCommandError
- */
-const de_StartPipelineExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartPipelineExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.codepipeline#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopPipelineExecutionCommand
  */
 export const de_StopPipelineExecutionCommand = async (
@@ -2562,7 +1429,7 @@ export const de_StopPipelineExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StopPipelineExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopPipelineExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2575,44 +1442,6 @@ export const de_StopPipelineExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopPipelineExecutionCommandError
- */
-const de_StopPipelineExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopPipelineExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.codepipeline#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DuplicatedStopRequestException":
-    case "com.amazonaws.codepipeline#DuplicatedStopRequestException":
-      throw await de_DuplicatedStopRequestExceptionRes(parsedOutput, context);
-    case "PipelineExecutionNotStoppableException":
-    case "com.amazonaws.codepipeline#PipelineExecutionNotStoppableException":
-      throw await de_PipelineExecutionNotStoppableExceptionRes(parsedOutput, context);
-    case "PipelineNotFoundException":
-    case "com.amazonaws.codepipeline#PipelineNotFoundException":
-      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2620,7 +1449,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2633,47 +1462,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.codepipeline#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidTagsException":
-    case "com.amazonaws.codepipeline#InvalidTagsException":
-      throw await de_InvalidTagsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codepipeline#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.codepipeline#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -2681,7 +1469,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2694,44 +1482,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codepipeline#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.codepipeline#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidTagsException":
-    case "com.amazonaws.codepipeline#InvalidTagsException":
-      throw await de_InvalidTagsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.codepipeline#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateActionTypeCommand
  */
 export const de_UpdateActionTypeCommand = async (
@@ -2739,45 +1489,13 @@ export const de_UpdateActionTypeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateActionTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateActionTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateActionTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateActionTypeCommandError
- */
-const de_UpdateActionTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateActionTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ActionTypeNotFoundException":
-    case "com.amazonaws.codepipeline#ActionTypeNotFoundException":
-      throw await de_ActionTypeNotFoundExceptionRes(parsedOutput, context);
-    case "RequestFailedException":
-    case "com.amazonaws.codepipeline#RequestFailedException":
-      throw await de_RequestFailedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2788,7 +1506,7 @@ export const de_UpdatePipelineCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdatePipelineCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2801,18 +1519,39 @@ export const de_UpdatePipelineCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdatePipelineCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdatePipelineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePipelineCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidNonceException":
+    case "com.amazonaws.codepipeline#InvalidNonceException":
+      throw await de_InvalidNonceExceptionRes(parsedOutput, context);
+    case "JobNotFoundException":
+    case "com.amazonaws.codepipeline#JobNotFoundException":
+      throw await de_JobNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.codepipeline#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "InvalidClientTokenException":
+    case "com.amazonaws.codepipeline#InvalidClientTokenException":
+      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.codepipeline#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InvalidTagsException":
+    case "com.amazonaws.codepipeline#InvalidTagsException":
+      throw await de_InvalidTagsExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.codepipeline#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.codepipeline#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "InvalidActionDeclarationException":
     case "com.amazonaws.codepipeline#InvalidActionDeclarationException":
       throw await de_InvalidActionDeclarationExceptionRes(parsedOutput, context);
@@ -2825,19 +1564,85 @@ const de_UpdatePipelineCommandError = async (
     case "InvalidStructureException":
     case "com.amazonaws.codepipeline#InvalidStructureException":
       throw await de_InvalidStructureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codepipeline#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codepipeline#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "PipelineNameInUseException":
+    case "com.amazonaws.codepipeline#PipelineNameInUseException":
+      throw await de_PipelineNameInUseExceptionRes(parsedOutput, context);
+    case "WebhookNotFoundException":
+    case "com.amazonaws.codepipeline#WebhookNotFoundException":
+      throw await de_WebhookNotFoundExceptionRes(parsedOutput, context);
+    case "PipelineNotFoundException":
+    case "com.amazonaws.codepipeline#PipelineNotFoundException":
+      throw await de_PipelineNotFoundExceptionRes(parsedOutput, context);
+    case "StageNotFoundException":
+    case "com.amazonaws.codepipeline#StageNotFoundException":
+      throw await de_StageNotFoundExceptionRes(parsedOutput, context);
+    case "ActionTypeNotFoundException":
+    case "com.amazonaws.codepipeline#ActionTypeNotFoundException":
+      throw await de_ActionTypeNotFoundExceptionRes(parsedOutput, context);
+    case "PipelineVersionNotFoundException":
+    case "com.amazonaws.codepipeline#PipelineVersionNotFoundException":
+      throw await de_PipelineVersionNotFoundExceptionRes(parsedOutput, context);
+    case "PipelineExecutionNotFoundException":
+    case "com.amazonaws.codepipeline#PipelineExecutionNotFoundException":
+      throw await de_PipelineExecutionNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidJobException":
+    case "com.amazonaws.codepipeline#InvalidJobException":
+      throw await de_InvalidJobExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.codepipeline#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidArnException":
+    case "com.amazonaws.codepipeline#InvalidArnException":
+      throw await de_InvalidArnExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.codepipeline#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ActionNotFoundException":
+    case "com.amazonaws.codepipeline#ActionNotFoundException":
+      throw await de_ActionNotFoundExceptionRes(parsedOutput, context);
+    case "ApprovalAlreadyCompletedException":
+    case "com.amazonaws.codepipeline#ApprovalAlreadyCompletedException":
+      throw await de_ApprovalAlreadyCompletedExceptionRes(parsedOutput, context);
+    case "InvalidApprovalTokenException":
+    case "com.amazonaws.codepipeline#InvalidApprovalTokenException":
+      throw await de_InvalidApprovalTokenExceptionRes(parsedOutput, context);
+    case "InvalidJobStateException":
+    case "com.amazonaws.codepipeline#InvalidJobStateException":
+      throw await de_InvalidJobStateExceptionRes(parsedOutput, context);
+    case "OutputVariablesSizeExceededException":
+    case "com.amazonaws.codepipeline#OutputVariablesSizeExceededException":
+      throw await de_OutputVariablesSizeExceededExceptionRes(parsedOutput, context);
+    case "InvalidWebhookAuthenticationParametersException":
+    case "com.amazonaws.codepipeline#InvalidWebhookAuthenticationParametersException":
+      throw await de_InvalidWebhookAuthenticationParametersExceptionRes(parsedOutput, context);
+    case "InvalidWebhookFilterPatternException":
+    case "com.amazonaws.codepipeline#InvalidWebhookFilterPatternException":
+      throw await de_InvalidWebhookFilterPatternExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.codepipeline#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "NotLatestPipelineExecutionException":
+    case "com.amazonaws.codepipeline#NotLatestPipelineExecutionException":
+      throw await de_NotLatestPipelineExecutionExceptionRes(parsedOutput, context);
+    case "StageNotRetryableException":
+    case "com.amazonaws.codepipeline#StageNotRetryableException":
+      throw await de_StageNotRetryableExceptionRes(parsedOutput, context);
+    case "DuplicatedStopRequestException":
+    case "com.amazonaws.codepipeline#DuplicatedStopRequestException":
+      throw await de_DuplicatedStopRequestExceptionRes(parsedOutput, context);
+    case "PipelineExecutionNotStoppableException":
+    case "com.amazonaws.codepipeline#PipelineExecutionNotStoppableException":
+      throw await de_PipelineExecutionNotStoppableExceptionRes(parsedOutput, context);
+    case "RequestFailedException":
+    case "com.amazonaws.codepipeline#RequestFailedException":
+      throw await de_RequestFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

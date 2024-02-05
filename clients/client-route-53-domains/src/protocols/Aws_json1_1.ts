@@ -637,7 +637,7 @@ export const de_AcceptDomainTransferFromAnotherAwsAccountCommand = async (
   context: __SerdeContext
 ): Promise<AcceptDomainTransferFromAnotherAwsAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptDomainTransferFromAnotherAwsAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -650,41 +650,6 @@ export const de_AcceptDomainTransferFromAnotherAwsAccountCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommandError
- */
-const de_AcceptDomainTransferFromAnotherAwsAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptDomainTransferFromAnotherAwsAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DomainLimitExceeded":
-    case "com.amazonaws.route53domains#DomainLimitExceeded":
-      throw await de_DomainLimitExceededRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateDelegationSignerToDomainCommand
  */
 export const de_AssociateDelegationSignerToDomainCommand = async (
@@ -692,7 +657,7 @@ export const de_AssociateDelegationSignerToDomainCommand = async (
   context: __SerdeContext
 ): Promise<AssociateDelegationSignerToDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateDelegationSignerToDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -705,47 +670,6 @@ export const de_AssociateDelegationSignerToDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateDelegationSignerToDomainCommandError
- */
-const de_AssociateDelegationSignerToDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateDelegationSignerToDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DnssecLimitExceeded":
-    case "com.amazonaws.route53domains#DnssecLimitExceeded":
-      throw await de_DnssecLimitExceededRes(parsedOutput, context);
-    case "DuplicateRequest":
-    case "com.amazonaws.route53domains#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "TLDRulesViolation":
-    case "com.amazonaws.route53domains#TLDRulesViolation":
-      throw await de_TLDRulesViolationRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommand
  */
 export const de_CancelDomainTransferToAnotherAwsAccountCommand = async (
@@ -753,7 +677,7 @@ export const de_CancelDomainTransferToAnotherAwsAccountCommand = async (
   context: __SerdeContext
 ): Promise<CancelDomainTransferToAnotherAwsAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelDomainTransferToAnotherAwsAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -766,38 +690,6 @@ export const de_CancelDomainTransferToAnotherAwsAccountCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommandError
- */
-const de_CancelDomainTransferToAnotherAwsAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelDomainTransferToAnotherAwsAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CheckDomainAvailabilityCommand
  */
 export const de_CheckDomainAvailabilityCommand = async (
@@ -805,7 +697,7 @@ export const de_CheckDomainAvailabilityCommand = async (
   context: __SerdeContext
 ): Promise<CheckDomainAvailabilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CheckDomainAvailabilityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -818,35 +710,6 @@ export const de_CheckDomainAvailabilityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CheckDomainAvailabilityCommandError
- */
-const de_CheckDomainAvailabilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CheckDomainAvailabilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CheckDomainTransferabilityCommand
  */
 export const de_CheckDomainTransferabilityCommand = async (
@@ -854,7 +717,7 @@ export const de_CheckDomainTransferabilityCommand = async (
   context: __SerdeContext
 ): Promise<CheckDomainTransferabilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CheckDomainTransferabilityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -867,35 +730,6 @@ export const de_CheckDomainTransferabilityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CheckDomainTransferabilityCommandError
- */
-const de_CheckDomainTransferabilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CheckDomainTransferabilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDomainCommand
  */
 export const de_DeleteDomainCommand = async (
@@ -903,7 +737,7 @@ export const de_DeleteDomainCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -916,41 +750,6 @@ export const de_DeleteDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDomainCommandError
- */
-const de_DeleteDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.route53domains#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "TLDRulesViolation":
-    case "com.amazonaws.route53domains#TLDRulesViolation":
-      throw await de_TLDRulesViolationRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTagsForDomainCommand
  */
 export const de_DeleteTagsForDomainCommand = async (
@@ -958,7 +757,7 @@ export const de_DeleteTagsForDomainCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTagsForDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTagsForDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -971,38 +770,6 @@ export const de_DeleteTagsForDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTagsForDomainCommandError
- */
-const de_DeleteTagsForDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTagsForDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableDomainAutoRenewCommand
  */
 export const de_DisableDomainAutoRenewCommand = async (
@@ -1010,7 +777,7 @@ export const de_DisableDomainAutoRenewCommand = async (
   context: __SerdeContext
 ): Promise<DisableDomainAutoRenewCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableDomainAutoRenewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1023,35 +790,6 @@ export const de_DisableDomainAutoRenewCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableDomainAutoRenewCommandError
- */
-const de_DisableDomainAutoRenewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableDomainAutoRenewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableDomainTransferLockCommand
  */
 export const de_DisableDomainTransferLockCommand = async (
@@ -1059,7 +797,7 @@ export const de_DisableDomainTransferLockCommand = async (
   context: __SerdeContext
 ): Promise<DisableDomainTransferLockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableDomainTransferLockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1072,44 +810,6 @@ export const de_DisableDomainTransferLockCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableDomainTransferLockCommandError
- */
-const de_DisableDomainTransferLockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableDomainTransferLockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.route53domains#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "TLDRulesViolation":
-    case "com.amazonaws.route53domains#TLDRulesViolation":
-      throw await de_TLDRulesViolationRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateDelegationSignerFromDomainCommand
  */
 export const de_DisassociateDelegationSignerFromDomainCommand = async (
@@ -1117,7 +817,7 @@ export const de_DisassociateDelegationSignerFromDomainCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateDelegationSignerFromDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateDelegationSignerFromDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1130,44 +830,6 @@ export const de_DisassociateDelegationSignerFromDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateDelegationSignerFromDomainCommandError
- */
-const de_DisassociateDelegationSignerFromDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateDelegationSignerFromDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.route53domains#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "TLDRulesViolation":
-    case "com.amazonaws.route53domains#TLDRulesViolation":
-      throw await de_TLDRulesViolationRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EnableDomainAutoRenewCommand
  */
 export const de_EnableDomainAutoRenewCommand = async (
@@ -1175,7 +837,7 @@ export const de_EnableDomainAutoRenewCommand = async (
   context: __SerdeContext
 ): Promise<EnableDomainAutoRenewCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableDomainAutoRenewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1188,38 +850,6 @@ export const de_EnableDomainAutoRenewCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableDomainAutoRenewCommandError
- */
-const de_EnableDomainAutoRenewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableDomainAutoRenewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "TLDRulesViolation":
-    case "com.amazonaws.route53domains#TLDRulesViolation":
-      throw await de_TLDRulesViolationRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EnableDomainTransferLockCommand
  */
 export const de_EnableDomainTransferLockCommand = async (
@@ -1227,7 +857,7 @@ export const de_EnableDomainTransferLockCommand = async (
   context: __SerdeContext
 ): Promise<EnableDomainTransferLockCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableDomainTransferLockCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1240,44 +870,6 @@ export const de_EnableDomainTransferLockCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableDomainTransferLockCommandError
- */
-const de_EnableDomainTransferLockCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableDomainTransferLockCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.route53domains#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "TLDRulesViolation":
-    case "com.amazonaws.route53domains#TLDRulesViolation":
-      throw await de_TLDRulesViolationRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContactReachabilityStatusCommand
  */
 export const de_GetContactReachabilityStatusCommand = async (
@@ -1285,7 +877,7 @@ export const de_GetContactReachabilityStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetContactReachabilityStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContactReachabilityStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1298,38 +890,6 @@ export const de_GetContactReachabilityStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContactReachabilityStatusCommandError
- */
-const de_GetContactReachabilityStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContactReachabilityStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDomainDetailCommand
  */
 export const de_GetDomainDetailCommand = async (
@@ -1337,7 +897,7 @@ export const de_GetDomainDetailCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainDetailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDomainDetailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1350,35 +910,6 @@ export const de_GetDomainDetailCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDomainDetailCommandError
- */
-const de_GetDomainDetailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainDetailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDomainSuggestionsCommand
  */
 export const de_GetDomainSuggestionsCommand = async (
@@ -1386,7 +917,7 @@ export const de_GetDomainSuggestionsCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainSuggestionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDomainSuggestionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1399,35 +930,6 @@ export const de_GetDomainSuggestionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDomainSuggestionsCommandError
- */
-const de_GetDomainSuggestionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainSuggestionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetOperationDetailCommand
  */
 export const de_GetOperationDetailCommand = async (
@@ -1435,7 +937,7 @@ export const de_GetOperationDetailCommand = async (
   context: __SerdeContext
 ): Promise<GetOperationDetailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetOperationDetailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1448,32 +950,6 @@ export const de_GetOperationDetailCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetOperationDetailCommandError
- */
-const de_GetOperationDetailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOperationDetailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDomainsCommand
  */
 export const de_ListDomainsCommand = async (
@@ -1481,7 +957,7 @@ export const de_ListDomainsCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDomainsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1494,32 +970,6 @@ export const de_ListDomainsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDomainsCommandError
- */
-const de_ListDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListOperationsCommand
  */
 export const de_ListOperationsCommand = async (
@@ -1527,7 +977,7 @@ export const de_ListOperationsCommand = async (
   context: __SerdeContext
 ): Promise<ListOperationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListOperationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1540,32 +990,6 @@ export const de_ListOperationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListOperationsCommandError
- */
-const de_ListOperationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOperationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPricesCommand
  */
 export const de_ListPricesCommand = async (
@@ -1573,7 +997,7 @@ export const de_ListPricesCommand = async (
   context: __SerdeContext
 ): Promise<ListPricesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPricesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1586,35 +1010,6 @@ export const de_ListPricesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPricesCommandError
- */
-const de_ListPricesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPricesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForDomainCommand
  */
 export const de_ListTagsForDomainCommand = async (
@@ -1622,7 +1017,7 @@ export const de_ListTagsForDomainCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1635,38 +1030,6 @@ export const de_ListTagsForDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForDomainCommandError
- */
-const de_ListTagsForDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PushDomainCommand
  */
 export const de_PushDomainCommand = async (
@@ -1674,45 +1037,13 @@ export const de_PushDomainCommand = async (
   context: __SerdeContext
 ): Promise<PushDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PushDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PushDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PushDomainCommandError
- */
-const de_PushDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PushDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1723,7 +1054,7 @@ export const de_RegisterDomainCommand = async (
   context: __SerdeContext
 ): Promise<RegisterDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1736,47 +1067,6 @@ export const de_RegisterDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterDomainCommandError
- */
-const de_RegisterDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DomainLimitExceeded":
-    case "com.amazonaws.route53domains#DomainLimitExceeded":
-      throw await de_DomainLimitExceededRes(parsedOutput, context);
-    case "DuplicateRequest":
-    case "com.amazonaws.route53domains#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "TLDRulesViolation":
-    case "com.amazonaws.route53domains#TLDRulesViolation":
-      throw await de_TLDRulesViolationRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommand
  */
 export const de_RejectDomainTransferFromAnotherAwsAccountCommand = async (
@@ -1784,7 +1074,7 @@ export const de_RejectDomainTransferFromAnotherAwsAccountCommand = async (
   context: __SerdeContext
 ): Promise<RejectDomainTransferFromAnotherAwsAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RejectDomainTransferFromAnotherAwsAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1797,38 +1087,6 @@ export const de_RejectDomainTransferFromAnotherAwsAccountCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommandError
- */
-const de_RejectDomainTransferFromAnotherAwsAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectDomainTransferFromAnotherAwsAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RenewDomainCommand
  */
 export const de_RenewDomainCommand = async (
@@ -1836,7 +1094,7 @@ export const de_RenewDomainCommand = async (
   context: __SerdeContext
 ): Promise<RenewDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RenewDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1849,44 +1107,6 @@ export const de_RenewDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RenewDomainCommandError
- */
-const de_RenewDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RenewDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.route53domains#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "TLDRulesViolation":
-    case "com.amazonaws.route53domains#TLDRulesViolation":
-      throw await de_TLDRulesViolationRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ResendContactReachabilityEmailCommand
  */
 export const de_ResendContactReachabilityEmailCommand = async (
@@ -1894,7 +1114,7 @@ export const de_ResendContactReachabilityEmailCommand = async (
   context: __SerdeContext
 ): Promise<ResendContactReachabilityEmailCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResendContactReachabilityEmailCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1907,38 +1127,6 @@ export const de_ResendContactReachabilityEmailCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ResendContactReachabilityEmailCommandError
- */
-const de_ResendContactReachabilityEmailCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResendContactReachabilityEmailCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ResendOperationAuthorizationCommand
  */
 export const de_ResendOperationAuthorizationCommand = async (
@@ -1946,39 +1134,13 @@ export const de_ResendOperationAuthorizationCommand = async (
   context: __SerdeContext
 ): Promise<ResendOperationAuthorizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResendOperationAuthorizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ResendOperationAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1ResendOperationAuthorizationCommandError
- */
-const de_ResendOperationAuthorizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResendOperationAuthorizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1989,7 +1151,7 @@ export const de_RetrieveDomainAuthCodeCommand = async (
   context: __SerdeContext
 ): Promise<RetrieveDomainAuthCodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RetrieveDomainAuthCodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2002,35 +1164,6 @@ export const de_RetrieveDomainAuthCodeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RetrieveDomainAuthCodeCommandError
- */
-const de_RetrieveDomainAuthCodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RetrieveDomainAuthCodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TransferDomainCommand
  */
 export const de_TransferDomainCommand = async (
@@ -2038,7 +1171,7 @@ export const de_TransferDomainCommand = async (
   context: __SerdeContext
 ): Promise<TransferDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TransferDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2051,47 +1184,6 @@ export const de_TransferDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TransferDomainCommandError
- */
-const de_TransferDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TransferDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DomainLimitExceeded":
-    case "com.amazonaws.route53domains#DomainLimitExceeded":
-      throw await de_DomainLimitExceededRes(parsedOutput, context);
-    case "DuplicateRequest":
-    case "com.amazonaws.route53domains#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "TLDRulesViolation":
-    case "com.amazonaws.route53domains#TLDRulesViolation":
-      throw await de_TLDRulesViolationRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommand
  */
 export const de_TransferDomainToAnotherAwsAccountCommand = async (
@@ -2099,7 +1191,7 @@ export const de_TransferDomainToAnotherAwsAccountCommand = async (
   context: __SerdeContext
 ): Promise<TransferDomainToAnotherAwsAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TransferDomainToAnotherAwsAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2112,41 +1204,6 @@ export const de_TransferDomainToAnotherAwsAccountCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommandError
- */
-const de_TransferDomainToAnotherAwsAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TransferDomainToAnotherAwsAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.route53domains#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDomainContactCommand
  */
 export const de_UpdateDomainContactCommand = async (
@@ -2154,7 +1211,7 @@ export const de_UpdateDomainContactCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainContactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDomainContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2167,44 +1224,6 @@ export const de_UpdateDomainContactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDomainContactCommandError
- */
-const de_UpdateDomainContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDomainContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.route53domains#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "TLDRulesViolation":
-    case "com.amazonaws.route53domains#TLDRulesViolation":
-      throw await de_TLDRulesViolationRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDomainContactPrivacyCommand
  */
 export const de_UpdateDomainContactPrivacyCommand = async (
@@ -2212,7 +1231,7 @@ export const de_UpdateDomainContactPrivacyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainContactPrivacyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDomainContactPrivacyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2225,44 +1244,6 @@ export const de_UpdateDomainContactPrivacyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDomainContactPrivacyCommandError
- */
-const de_UpdateDomainContactPrivacyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDomainContactPrivacyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.route53domains#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "TLDRulesViolation":
-    case "com.amazonaws.route53domains#TLDRulesViolation":
-      throw await de_TLDRulesViolationRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDomainNameserversCommand
  */
 export const de_UpdateDomainNameserversCommand = async (
@@ -2270,7 +1251,7 @@ export const de_UpdateDomainNameserversCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainNameserversCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDomainNameserversCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2283,44 +1264,6 @@ export const de_UpdateDomainNameserversCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDomainNameserversCommandError
- */
-const de_UpdateDomainNameserversCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDomainNameserversCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateRequest":
-    case "com.amazonaws.route53domains#DuplicateRequest":
-      throw await de_DuplicateRequestRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "TLDRulesViolation":
-    case "com.amazonaws.route53domains#TLDRulesViolation":
-      throw await de_TLDRulesViolationRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateTagsForDomainCommand
  */
 export const de_UpdateTagsForDomainCommand = async (
@@ -2328,7 +1271,7 @@ export const de_UpdateTagsForDomainCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTagsForDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTagsForDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2341,38 +1284,6 @@ export const de_UpdateTagsForDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateTagsForDomainCommandError
- */
-const de_UpdateTagsForDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTagsForDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.route53domains#InvalidInput":
-      throw await de_InvalidInputRes(parsedOutput, context);
-    case "OperationLimitExceeded":
-    case "com.amazonaws.route53domains#OperationLimitExceeded":
-      throw await de_OperationLimitExceededRes(parsedOutput, context);
-    case "UnsupportedTLD":
-    case "com.amazonaws.route53domains#UnsupportedTLD":
-      throw await de_UnsupportedTLDRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ViewBillingCommand
  */
 export const de_ViewBillingCommand = async (
@@ -2380,7 +1291,7 @@ export const de_ViewBillingCommand = async (
   context: __SerdeContext
 ): Promise<ViewBillingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ViewBillingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2393,28 +1304,43 @@ export const de_ViewBillingCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ViewBillingCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_ViewBillingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ViewBillingCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "DomainLimitExceeded":
+    case "com.amazonaws.route53domains#DomainLimitExceeded":
+      throw await de_DomainLimitExceededRes(parsedOutput, context);
     case "InvalidInput":
     case "com.amazonaws.route53domains#InvalidInput":
       throw await de_InvalidInputRes(parsedOutput, context);
+    case "OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
+      throw await de_OperationLimitExceededRes(parsedOutput, context);
+    case "UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
+      throw await de_UnsupportedTLDRes(parsedOutput, context);
+    case "DnssecLimitExceeded":
+    case "com.amazonaws.route53domains#DnssecLimitExceeded":
+      throw await de_DnssecLimitExceededRes(parsedOutput, context);
+    case "DuplicateRequest":
+    case "com.amazonaws.route53domains#DuplicateRequest":
+      throw await de_DuplicateRequestRes(parsedOutput, context);
+    case "TLDRulesViolation":
+    case "com.amazonaws.route53domains#TLDRulesViolation":
+      throw await de_TLDRulesViolationRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

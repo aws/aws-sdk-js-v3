@@ -727,7 +727,7 @@ export const de_CreateAnomalyMonitorCommand = async (
   context: __SerdeContext
 ): Promise<CreateAnomalyMonitorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAnomalyMonitorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -740,32 +740,6 @@ export const de_CreateAnomalyMonitorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAnomalyMonitorCommandError
- */
-const de_CreateAnomalyMonitorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAnomalyMonitorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateAnomalySubscriptionCommand
  */
 export const de_CreateAnomalySubscriptionCommand = async (
@@ -773,7 +747,7 @@ export const de_CreateAnomalySubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<CreateAnomalySubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAnomalySubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -786,35 +760,6 @@ export const de_CreateAnomalySubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateAnomalySubscriptionCommandError
- */
-const de_CreateAnomalySubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAnomalySubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnknownMonitorException":
-    case "com.amazonaws.costexplorer#UnknownMonitorException":
-      throw await de_UnknownMonitorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateCostCategoryDefinitionCommand
  */
 export const de_CreateCostCategoryDefinitionCommand = async (
@@ -822,7 +767,7 @@ export const de_CreateCostCategoryDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateCostCategoryDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCostCategoryDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -835,35 +780,6 @@ export const de_CreateCostCategoryDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCostCategoryDefinitionCommandError
- */
-const de_CreateCostCategoryDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCostCategoryDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.costexplorer#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAnomalyMonitorCommand
  */
 export const de_DeleteAnomalyMonitorCommand = async (
@@ -871,7 +787,7 @@ export const de_DeleteAnomalyMonitorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAnomalyMonitorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAnomalyMonitorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -884,35 +800,6 @@ export const de_DeleteAnomalyMonitorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAnomalyMonitorCommandError
- */
-const de_DeleteAnomalyMonitorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAnomalyMonitorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnknownMonitorException":
-    case "com.amazonaws.costexplorer#UnknownMonitorException":
-      throw await de_UnknownMonitorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAnomalySubscriptionCommand
  */
 export const de_DeleteAnomalySubscriptionCommand = async (
@@ -920,7 +807,7 @@ export const de_DeleteAnomalySubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAnomalySubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAnomalySubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -933,35 +820,6 @@ export const de_DeleteAnomalySubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAnomalySubscriptionCommandError
- */
-const de_DeleteAnomalySubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAnomalySubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnknownSubscriptionException":
-    case "com.amazonaws.costexplorer#UnknownSubscriptionException":
-      throw await de_UnknownSubscriptionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCostCategoryDefinitionCommand
  */
 export const de_DeleteCostCategoryDefinitionCommand = async (
@@ -969,7 +827,7 @@ export const de_DeleteCostCategoryDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCostCategoryDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCostCategoryDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -982,35 +840,6 @@ export const de_DeleteCostCategoryDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteCostCategoryDefinitionCommandError
- */
-const de_DeleteCostCategoryDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCostCategoryDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.costexplorer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeCostCategoryDefinitionCommand
  */
 export const de_DescribeCostCategoryDefinitionCommand = async (
@@ -1018,7 +847,7 @@ export const de_DescribeCostCategoryDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCostCategoryDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCostCategoryDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1031,35 +860,6 @@ export const de_DescribeCostCategoryDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCostCategoryDefinitionCommandError
- */
-const de_DescribeCostCategoryDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCostCategoryDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.costexplorer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAnomaliesCommand
  */
 export const de_GetAnomaliesCommand = async (
@@ -1067,7 +867,7 @@ export const de_GetAnomaliesCommand = async (
   context: __SerdeContext
 ): Promise<GetAnomaliesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAnomaliesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1080,35 +880,6 @@ export const de_GetAnomaliesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAnomaliesCommandError
- */
-const de_GetAnomaliesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAnomaliesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAnomalyMonitorsCommand
  */
 export const de_GetAnomalyMonitorsCommand = async (
@@ -1116,7 +887,7 @@ export const de_GetAnomalyMonitorsCommand = async (
   context: __SerdeContext
 ): Promise<GetAnomalyMonitorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAnomalyMonitorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1129,38 +900,6 @@ export const de_GetAnomalyMonitorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAnomalyMonitorsCommandError
- */
-const de_GetAnomalyMonitorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAnomalyMonitorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnknownMonitorException":
-    case "com.amazonaws.costexplorer#UnknownMonitorException":
-      throw await de_UnknownMonitorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAnomalySubscriptionsCommand
  */
 export const de_GetAnomalySubscriptionsCommand = async (
@@ -1168,7 +907,7 @@ export const de_GetAnomalySubscriptionsCommand = async (
   context: __SerdeContext
 ): Promise<GetAnomalySubscriptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAnomalySubscriptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1181,38 +920,6 @@ export const de_GetAnomalySubscriptionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAnomalySubscriptionsCommandError
- */
-const de_GetAnomalySubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAnomalySubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnknownSubscriptionException":
-    case "com.amazonaws.costexplorer#UnknownSubscriptionException":
-      throw await de_UnknownSubscriptionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCostAndUsageCommand
  */
 export const de_GetCostAndUsageCommand = async (
@@ -1220,7 +927,7 @@ export const de_GetCostAndUsageCommand = async (
   context: __SerdeContext
 ): Promise<GetCostAndUsageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCostAndUsageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1233,44 +940,6 @@ export const de_GetCostAndUsageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCostAndUsageCommandError
- */
-const de_GetCostAndUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCostAndUsageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BillExpirationException":
-    case "com.amazonaws.costexplorer#BillExpirationException":
-      throw await de_BillExpirationExceptionRes(parsedOutput, context);
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RequestChangedException":
-    case "com.amazonaws.costexplorer#RequestChangedException":
-      throw await de_RequestChangedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCostAndUsageWithResourcesCommand
  */
 export const de_GetCostAndUsageWithResourcesCommand = async (
@@ -1278,7 +947,7 @@ export const de_GetCostAndUsageWithResourcesCommand = async (
   context: __SerdeContext
 ): Promise<GetCostAndUsageWithResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCostAndUsageWithResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1291,44 +960,6 @@ export const de_GetCostAndUsageWithResourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCostAndUsageWithResourcesCommandError
- */
-const de_GetCostAndUsageWithResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCostAndUsageWithResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BillExpirationException":
-    case "com.amazonaws.costexplorer#BillExpirationException":
-      throw await de_BillExpirationExceptionRes(parsedOutput, context);
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RequestChangedException":
-    case "com.amazonaws.costexplorer#RequestChangedException":
-      throw await de_RequestChangedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCostCategoriesCommand
  */
 export const de_GetCostCategoriesCommand = async (
@@ -1336,7 +967,7 @@ export const de_GetCostCategoriesCommand = async (
   context: __SerdeContext
 ): Promise<GetCostCategoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCostCategoriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1349,44 +980,6 @@ export const de_GetCostCategoriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCostCategoriesCommandError
- */
-const de_GetCostCategoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCostCategoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BillExpirationException":
-    case "com.amazonaws.costexplorer#BillExpirationException":
-      throw await de_BillExpirationExceptionRes(parsedOutput, context);
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RequestChangedException":
-    case "com.amazonaws.costexplorer#RequestChangedException":
-      throw await de_RequestChangedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCostForecastCommand
  */
 export const de_GetCostForecastCommand = async (
@@ -1394,7 +987,7 @@ export const de_GetCostForecastCommand = async (
   context: __SerdeContext
 ): Promise<GetCostForecastCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCostForecastCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1407,35 +1000,6 @@ export const de_GetCostForecastCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCostForecastCommandError
- */
-const de_GetCostForecastCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCostForecastCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDimensionValuesCommand
  */
 export const de_GetDimensionValuesCommand = async (
@@ -1443,7 +1007,7 @@ export const de_GetDimensionValuesCommand = async (
   context: __SerdeContext
 ): Promise<GetDimensionValuesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDimensionValuesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1456,44 +1020,6 @@ export const de_GetDimensionValuesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDimensionValuesCommandError
- */
-const de_GetDimensionValuesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDimensionValuesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BillExpirationException":
-    case "com.amazonaws.costexplorer#BillExpirationException":
-      throw await de_BillExpirationExceptionRes(parsedOutput, context);
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RequestChangedException":
-    case "com.amazonaws.costexplorer#RequestChangedException":
-      throw await de_RequestChangedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetReservationCoverageCommand
  */
 export const de_GetReservationCoverageCommand = async (
@@ -1501,7 +1027,7 @@ export const de_GetReservationCoverageCommand = async (
   context: __SerdeContext
 ): Promise<GetReservationCoverageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetReservationCoverageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1514,38 +1040,6 @@ export const de_GetReservationCoverageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetReservationCoverageCommandError
- */
-const de_GetReservationCoverageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReservationCoverageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetReservationPurchaseRecommendationCommand
  */
 export const de_GetReservationPurchaseRecommendationCommand = async (
@@ -1553,7 +1047,7 @@ export const de_GetReservationPurchaseRecommendationCommand = async (
   context: __SerdeContext
 ): Promise<GetReservationPurchaseRecommendationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetReservationPurchaseRecommendationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1566,38 +1060,6 @@ export const de_GetReservationPurchaseRecommendationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetReservationPurchaseRecommendationCommandError
- */
-const de_GetReservationPurchaseRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReservationPurchaseRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetReservationUtilizationCommand
  */
 export const de_GetReservationUtilizationCommand = async (
@@ -1605,7 +1067,7 @@ export const de_GetReservationUtilizationCommand = async (
   context: __SerdeContext
 ): Promise<GetReservationUtilizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetReservationUtilizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1618,38 +1080,6 @@ export const de_GetReservationUtilizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetReservationUtilizationCommandError
- */
-const de_GetReservationUtilizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetReservationUtilizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRightsizingRecommendationCommand
  */
 export const de_GetRightsizingRecommendationCommand = async (
@@ -1657,7 +1087,7 @@ export const de_GetRightsizingRecommendationCommand = async (
   context: __SerdeContext
 ): Promise<GetRightsizingRecommendationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRightsizingRecommendationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1670,35 +1100,6 @@ export const de_GetRightsizingRecommendationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRightsizingRecommendationCommandError
- */
-const de_GetRightsizingRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRightsizingRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSavingsPlanPurchaseRecommendationDetailsCommand
  */
 export const de_GetSavingsPlanPurchaseRecommendationDetailsCommand = async (
@@ -1706,7 +1107,7 @@ export const de_GetSavingsPlanPurchaseRecommendationDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetSavingsPlanPurchaseRecommendationDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSavingsPlanPurchaseRecommendationDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1719,35 +1120,6 @@ export const de_GetSavingsPlanPurchaseRecommendationDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSavingsPlanPurchaseRecommendationDetailsCommandError
- */
-const de_GetSavingsPlanPurchaseRecommendationDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSavingsPlanPurchaseRecommendationDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSavingsPlansCoverageCommand
  */
 export const de_GetSavingsPlansCoverageCommand = async (
@@ -1755,7 +1127,7 @@ export const de_GetSavingsPlansCoverageCommand = async (
   context: __SerdeContext
 ): Promise<GetSavingsPlansCoverageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSavingsPlansCoverageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1768,38 +1140,6 @@ export const de_GetSavingsPlansCoverageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSavingsPlansCoverageCommandError
- */
-const de_GetSavingsPlansCoverageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSavingsPlansCoverageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand
  */
 export const de_GetSavingsPlansPurchaseRecommendationCommand = async (
@@ -1807,7 +1147,7 @@ export const de_GetSavingsPlansPurchaseRecommendationCommand = async (
   context: __SerdeContext
 ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSavingsPlansPurchaseRecommendationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1820,35 +1160,6 @@ export const de_GetSavingsPlansPurchaseRecommendationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommandError
- */
-const de_GetSavingsPlansPurchaseRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSavingsPlansUtilizationCommand
  */
 export const de_GetSavingsPlansUtilizationCommand = async (
@@ -1856,7 +1167,7 @@ export const de_GetSavingsPlansUtilizationCommand = async (
   context: __SerdeContext
 ): Promise<GetSavingsPlansUtilizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSavingsPlansUtilizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1869,35 +1180,6 @@ export const de_GetSavingsPlansUtilizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSavingsPlansUtilizationCommandError
- */
-const de_GetSavingsPlansUtilizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSavingsPlansUtilizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand
  */
 export const de_GetSavingsPlansUtilizationDetailsCommand = async (
@@ -1905,7 +1187,7 @@ export const de_GetSavingsPlansUtilizationDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSavingsPlansUtilizationDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1918,38 +1200,6 @@ export const de_GetSavingsPlansUtilizationDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommandError
- */
-const de_GetSavingsPlansUtilizationDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTagsCommand
  */
 export const de_GetTagsCommand = async (
@@ -1957,7 +1207,7 @@ export const de_GetTagsCommand = async (
   context: __SerdeContext
 ): Promise<GetTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1970,44 +1220,6 @@ export const de_GetTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTagsCommandError
- */
-const de_GetTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BillExpirationException":
-    case "com.amazonaws.costexplorer#BillExpirationException":
-      throw await de_BillExpirationExceptionRes(parsedOutput, context);
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RequestChangedException":
-    case "com.amazonaws.costexplorer#RequestChangedException":
-      throw await de_RequestChangedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUsageForecastCommand
  */
 export const de_GetUsageForecastCommand = async (
@@ -2015,7 +1227,7 @@ export const de_GetUsageForecastCommand = async (
   context: __SerdeContext
 ): Promise<GetUsageForecastCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUsageForecastCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2028,38 +1240,6 @@ export const de_GetUsageForecastCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUsageForecastCommandError
- */
-const de_GetUsageForecastCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUsageForecastCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnresolvableUsageUnitException":
-    case "com.amazonaws.costexplorer#UnresolvableUsageUnitException":
-      throw await de_UnresolvableUsageUnitExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCostAllocationTagsCommand
  */
 export const de_ListCostAllocationTagsCommand = async (
@@ -2067,7 +1247,7 @@ export const de_ListCostAllocationTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListCostAllocationTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCostAllocationTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2080,35 +1260,6 @@ export const de_ListCostAllocationTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCostAllocationTagsCommandError
- */
-const de_ListCostAllocationTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCostAllocationTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCostCategoryDefinitionsCommand
  */
 export const de_ListCostCategoryDefinitionsCommand = async (
@@ -2116,7 +1267,7 @@ export const de_ListCostCategoryDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListCostCategoryDefinitionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCostCategoryDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2129,32 +1280,6 @@ export const de_ListCostCategoryDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCostCategoryDefinitionsCommandError
- */
-const de_ListCostCategoryDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCostCategoryDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand
  */
 export const de_ListSavingsPlansPurchaseRecommendationGenerationCommand = async (
@@ -2162,7 +1287,7 @@ export const de_ListSavingsPlansPurchaseRecommendationGenerationCommand = async 
   context: __SerdeContext
 ): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSavingsPlansPurchaseRecommendationGenerationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2175,38 +1300,6 @@ export const de_ListSavingsPlansPurchaseRecommendationGenerationCommand = async 
 };
 
 /**
- * deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommandError
- */
-const de_ListSavingsPlansPurchaseRecommendationGenerationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.costexplorer#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2214,7 +1307,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2227,35 +1320,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.costexplorer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ProvideAnomalyFeedbackCommand
  */
 export const de_ProvideAnomalyFeedbackCommand = async (
@@ -2263,7 +1327,7 @@ export const de_ProvideAnomalyFeedbackCommand = async (
   context: __SerdeContext
 ): Promise<ProvideAnomalyFeedbackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ProvideAnomalyFeedbackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2276,32 +1340,6 @@ export const de_ProvideAnomalyFeedbackCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ProvideAnomalyFeedbackCommandError
- */
-const de_ProvideAnomalyFeedbackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ProvideAnomalyFeedbackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommand
  */
 export const de_StartSavingsPlansPurchaseRecommendationGenerationCommand = async (
@@ -2309,7 +1347,7 @@ export const de_StartSavingsPlansPurchaseRecommendationGenerationCommand = async
   context: __SerdeContext
 ): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartSavingsPlansPurchaseRecommendationGenerationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2322,41 +1360,6 @@ export const de_StartSavingsPlansPurchaseRecommendationGenerationCommand = async
 };
 
 /**
- * deserializeAws_json1_1StartSavingsPlansPurchaseRecommendationGenerationCommandError
- */
-const de_StartSavingsPlansPurchaseRecommendationGenerationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DataUnavailableException":
-    case "com.amazonaws.costexplorer#DataUnavailableException":
-      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
-    case "GenerationExistsException":
-    case "com.amazonaws.costexplorer#GenerationExistsException":
-      throw await de_GenerationExistsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.costexplorer#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2364,7 +1367,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2377,38 +1380,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.costexplorer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.costexplorer#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -2416,7 +1387,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2429,35 +1400,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.costexplorer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateAnomalyMonitorCommand
  */
 export const de_UpdateAnomalyMonitorCommand = async (
@@ -2465,7 +1407,7 @@ export const de_UpdateAnomalyMonitorCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAnomalyMonitorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAnomalyMonitorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2478,35 +1420,6 @@ export const de_UpdateAnomalyMonitorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAnomalyMonitorCommandError
- */
-const de_UpdateAnomalyMonitorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAnomalyMonitorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnknownMonitorException":
-    case "com.amazonaws.costexplorer#UnknownMonitorException":
-      throw await de_UnknownMonitorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateAnomalySubscriptionCommand
  */
 export const de_UpdateAnomalySubscriptionCommand = async (
@@ -2514,7 +1427,7 @@ export const de_UpdateAnomalySubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAnomalySubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAnomalySubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2527,38 +1440,6 @@ export const de_UpdateAnomalySubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateAnomalySubscriptionCommandError
- */
-const de_UpdateAnomalySubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAnomalySubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "UnknownMonitorException":
-    case "com.amazonaws.costexplorer#UnknownMonitorException":
-      throw await de_UnknownMonitorExceptionRes(parsedOutput, context);
-    case "UnknownSubscriptionException":
-    case "com.amazonaws.costexplorer#UnknownSubscriptionException":
-      throw await de_UnknownSubscriptionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateCostAllocationTagsStatusCommand
  */
 export const de_UpdateCostAllocationTagsStatusCommand = async (
@@ -2566,7 +1447,7 @@ export const de_UpdateCostAllocationTagsStatusCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCostAllocationTagsStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCostAllocationTagsStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2579,32 +1460,6 @@ export const de_UpdateCostAllocationTagsStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateCostAllocationTagsStatusCommandError
- */
-const de_UpdateCostAllocationTagsStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCostAllocationTagsStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.costexplorer#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateCostCategoryDefinitionCommand
  */
 export const de_UpdateCostCategoryDefinitionCommand = async (
@@ -2612,7 +1467,7 @@ export const de_UpdateCostCategoryDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCostCategoryDefinitionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCostCategoryDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2625,12 +1480,9 @@ export const de_UpdateCostCategoryDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateCostCategoryDefinitionCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateCostCategoryDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCostCategoryDefinitionCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2640,19 +1492,46 @@ const de_UpdateCostCategoryDefinitionCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.costexplorer#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.costexplorer#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "UnknownMonitorException":
+    case "com.amazonaws.costexplorer#UnknownMonitorException":
+      throw await de_UnknownMonitorExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.costexplorer#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "UnknownSubscriptionException":
+    case "com.amazonaws.costexplorer#UnknownSubscriptionException":
+      throw await de_UnknownSubscriptionExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.costexplorer#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.costexplorer#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "BillExpirationException":
+    case "com.amazonaws.costexplorer#BillExpirationException":
+      throw await de_BillExpirationExceptionRes(parsedOutput, context);
+    case "DataUnavailableException":
+    case "com.amazonaws.costexplorer#DataUnavailableException":
+      throw await de_DataUnavailableExceptionRes(parsedOutput, context);
+    case "RequestChangedException":
+    case "com.amazonaws.costexplorer#RequestChangedException":
+      throw await de_RequestChangedExceptionRes(parsedOutput, context);
+    case "UnresolvableUsageUnitException":
+    case "com.amazonaws.costexplorer#UnresolvableUsageUnitException":
+      throw await de_UnresolvableUsageUnitExceptionRes(parsedOutput, context);
+    case "GenerationExistsException":
+    case "com.amazonaws.costexplorer#GenerationExistsException":
+      throw await de_GenerationExistsExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.costexplorer#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -958,7 +958,7 @@ export const de_AssociateVehicleFleetCommand = async (
   context: __SerdeContext
 ): Promise<AssociateVehicleFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateVehicleFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -971,47 +971,6 @@ export const de_AssociateVehicleFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_0AssociateVehicleFleetCommandError
- */
-const de_AssociateVehicleFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateVehicleFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0BatchCreateVehicleCommand
  */
 export const de_BatchCreateVehicleCommand = async (
@@ -1019,7 +978,7 @@ export const de_BatchCreateVehicleCommand = async (
   context: __SerdeContext
 ): Promise<BatchCreateVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchCreateVehicleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1032,44 +991,6 @@ export const de_BatchCreateVehicleCommand = async (
 };
 
 /**
- * deserializeAws_json1_0BatchCreateVehicleCommandError
- */
-const de_BatchCreateVehicleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchCreateVehicleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0BatchUpdateVehicleCommand
  */
 export const de_BatchUpdateVehicleCommand = async (
@@ -1077,7 +998,7 @@ export const de_BatchUpdateVehicleCommand = async (
   context: __SerdeContext
 ): Promise<BatchUpdateVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchUpdateVehicleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1090,41 +1011,6 @@ export const de_BatchUpdateVehicleCommand = async (
 };
 
 /**
- * deserializeAws_json1_0BatchUpdateVehicleCommandError
- */
-const de_BatchUpdateVehicleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchUpdateVehicleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateCampaignCommand
  */
 export const de_CreateCampaignCommand = async (
@@ -1132,7 +1018,7 @@ export const de_CreateCampaignCommand = async (
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1145,50 +1031,6 @@ export const de_CreateCampaignCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateCampaignCommandError
- */
-const de_CreateCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateDecoderManifestCommand
  */
 export const de_CreateDecoderManifestCommand = async (
@@ -1196,7 +1038,7 @@ export const de_CreateDecoderManifestCommand = async (
   context: __SerdeContext
 ): Promise<CreateDecoderManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDecoderManifestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1209,53 +1051,6 @@ export const de_CreateDecoderManifestCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateDecoderManifestCommandError
- */
-const de_CreateDecoderManifestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDecoderManifestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DecoderManifestValidationException":
-    case "com.amazonaws.iotfleetwise#DecoderManifestValidationException":
-      throw await de_DecoderManifestValidationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateFleetCommand
  */
 export const de_CreateFleetCommand = async (
@@ -1263,7 +1058,7 @@ export const de_CreateFleetCommand = async (
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1276,50 +1071,6 @@ export const de_CreateFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateFleetCommandError
- */
-const de_CreateFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateModelManifestCommand
  */
 export const de_CreateModelManifestCommand = async (
@@ -1327,7 +1078,7 @@ export const de_CreateModelManifestCommand = async (
   context: __SerdeContext
 ): Promise<CreateModelManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateModelManifestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1340,53 +1091,6 @@ export const de_CreateModelManifestCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateModelManifestCommandError
- */
-const de_CreateModelManifestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateModelManifestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidSignalsException":
-    case "com.amazonaws.iotfleetwise#InvalidSignalsException":
-      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateSignalCatalogCommand
  */
 export const de_CreateSignalCatalogCommand = async (
@@ -1394,7 +1098,7 @@ export const de_CreateSignalCatalogCommand = async (
   context: __SerdeContext
 ): Promise<CreateSignalCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSignalCatalogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1407,53 +1111,6 @@ export const de_CreateSignalCatalogCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateSignalCatalogCommandError
- */
-const de_CreateSignalCatalogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSignalCatalogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidNodeException":
-    case "com.amazonaws.iotfleetwise#InvalidNodeException":
-      throw await de_InvalidNodeExceptionRes(parsedOutput, context);
-    case "InvalidSignalsException":
-    case "com.amazonaws.iotfleetwise#InvalidSignalsException":
-      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateVehicleCommand
  */
 export const de_CreateVehicleCommand = async (
@@ -1461,7 +1118,7 @@ export const de_CreateVehicleCommand = async (
   context: __SerdeContext
 ): Promise<CreateVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVehicleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1474,50 +1131,6 @@ export const de_CreateVehicleCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateVehicleCommandError
- */
-const de_CreateVehicleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVehicleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteCampaignCommand
  */
 export const de_DeleteCampaignCommand = async (
@@ -1525,7 +1138,7 @@ export const de_DeleteCampaignCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1538,44 +1151,6 @@ export const de_DeleteCampaignCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteCampaignCommandError
- */
-const de_DeleteCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteDecoderManifestCommand
  */
 export const de_DeleteDecoderManifestCommand = async (
@@ -1583,7 +1158,7 @@ export const de_DeleteDecoderManifestCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDecoderManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDecoderManifestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1596,44 +1171,6 @@ export const de_DeleteDecoderManifestCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteDecoderManifestCommandError
- */
-const de_DeleteDecoderManifestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDecoderManifestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteFleetCommand
  */
 export const de_DeleteFleetCommand = async (
@@ -1641,7 +1178,7 @@ export const de_DeleteFleetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1654,41 +1191,6 @@ export const de_DeleteFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteFleetCommandError
- */
-const de_DeleteFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteModelManifestCommand
  */
 export const de_DeleteModelManifestCommand = async (
@@ -1696,7 +1198,7 @@ export const de_DeleteModelManifestCommand = async (
   context: __SerdeContext
 ): Promise<DeleteModelManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteModelManifestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1709,44 +1211,6 @@ export const de_DeleteModelManifestCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteModelManifestCommandError
- */
-const de_DeleteModelManifestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteModelManifestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteSignalCatalogCommand
  */
 export const de_DeleteSignalCatalogCommand = async (
@@ -1754,7 +1218,7 @@ export const de_DeleteSignalCatalogCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSignalCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSignalCatalogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1767,44 +1231,6 @@ export const de_DeleteSignalCatalogCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteSignalCatalogCommandError
- */
-const de_DeleteSignalCatalogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSignalCatalogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteVehicleCommand
  */
 export const de_DeleteVehicleCommand = async (
@@ -1812,7 +1238,7 @@ export const de_DeleteVehicleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVehicleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1825,41 +1251,6 @@ export const de_DeleteVehicleCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteVehicleCommandError
- */
-const de_DeleteVehicleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVehicleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DisassociateVehicleFleetCommand
  */
 export const de_DisassociateVehicleFleetCommand = async (
@@ -1867,7 +1258,7 @@ export const de_DisassociateVehicleFleetCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateVehicleFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateVehicleFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1880,44 +1271,6 @@ export const de_DisassociateVehicleFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DisassociateVehicleFleetCommandError
- */
-const de_DisassociateVehicleFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateVehicleFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetCampaignCommand
  */
 export const de_GetCampaignCommand = async (
@@ -1925,7 +1278,7 @@ export const de_GetCampaignCommand = async (
   context: __SerdeContext
 ): Promise<GetCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1938,44 +1291,6 @@ export const de_GetCampaignCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetCampaignCommandError
- */
-const de_GetCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetDecoderManifestCommand
  */
 export const de_GetDecoderManifestCommand = async (
@@ -1983,7 +1298,7 @@ export const de_GetDecoderManifestCommand = async (
   context: __SerdeContext
 ): Promise<GetDecoderManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDecoderManifestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1996,44 +1311,6 @@ export const de_GetDecoderManifestCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetDecoderManifestCommandError
- */
-const de_GetDecoderManifestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDecoderManifestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetEncryptionConfigurationCommand
  */
 export const de_GetEncryptionConfigurationCommand = async (
@@ -2041,7 +1318,7 @@ export const de_GetEncryptionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetEncryptionConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEncryptionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2054,44 +1331,6 @@ export const de_GetEncryptionConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetEncryptionConfigurationCommandError
- */
-const de_GetEncryptionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEncryptionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetFleetCommand
  */
 export const de_GetFleetCommand = async (
@@ -2099,7 +1338,7 @@ export const de_GetFleetCommand = async (
   context: __SerdeContext
 ): Promise<GetFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2112,44 +1351,6 @@ export const de_GetFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetFleetCommandError
- */
-const de_GetFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetLoggingOptionsCommand
  */
 export const de_GetLoggingOptionsCommand = async (
@@ -2157,7 +1358,7 @@ export const de_GetLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<GetLoggingOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLoggingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2170,38 +1371,6 @@ export const de_GetLoggingOptionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetLoggingOptionsCommandError
- */
-const de_GetLoggingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLoggingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetModelManifestCommand
  */
 export const de_GetModelManifestCommand = async (
@@ -2209,7 +1378,7 @@ export const de_GetModelManifestCommand = async (
   context: __SerdeContext
 ): Promise<GetModelManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetModelManifestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2222,44 +1391,6 @@ export const de_GetModelManifestCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetModelManifestCommandError
- */
-const de_GetModelManifestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetModelManifestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetRegisterAccountStatusCommand
  */
 export const de_GetRegisterAccountStatusCommand = async (
@@ -2267,7 +1398,7 @@ export const de_GetRegisterAccountStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetRegisterAccountStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRegisterAccountStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2280,44 +1411,6 @@ export const de_GetRegisterAccountStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetRegisterAccountStatusCommandError
- */
-const de_GetRegisterAccountStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRegisterAccountStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetSignalCatalogCommand
  */
 export const de_GetSignalCatalogCommand = async (
@@ -2325,7 +1418,7 @@ export const de_GetSignalCatalogCommand = async (
   context: __SerdeContext
 ): Promise<GetSignalCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSignalCatalogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2338,44 +1431,6 @@ export const de_GetSignalCatalogCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetSignalCatalogCommandError
- */
-const de_GetSignalCatalogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSignalCatalogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetVehicleCommand
  */
 export const de_GetVehicleCommand = async (
@@ -2383,7 +1438,7 @@ export const de_GetVehicleCommand = async (
   context: __SerdeContext
 ): Promise<GetVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetVehicleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2396,44 +1451,6 @@ export const de_GetVehicleCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetVehicleCommandError
- */
-const de_GetVehicleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVehicleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetVehicleStatusCommand
  */
 export const de_GetVehicleStatusCommand = async (
@@ -2441,7 +1458,7 @@ export const de_GetVehicleStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetVehicleStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetVehicleStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2454,44 +1471,6 @@ export const de_GetVehicleStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetVehicleStatusCommandError
- */
-const de_GetVehicleStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetVehicleStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ImportDecoderManifestCommand
  */
 export const de_ImportDecoderManifestCommand = async (
@@ -2499,7 +1478,7 @@ export const de_ImportDecoderManifestCommand = async (
   context: __SerdeContext
 ): Promise<ImportDecoderManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportDecoderManifestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2512,53 +1491,6 @@ export const de_ImportDecoderManifestCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ImportDecoderManifestCommandError
- */
-const de_ImportDecoderManifestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportDecoderManifestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DecoderManifestValidationException":
-    case "com.amazonaws.iotfleetwise#DecoderManifestValidationException":
-      throw await de_DecoderManifestValidationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidSignalsException":
-    case "com.amazonaws.iotfleetwise#InvalidSignalsException":
-      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ImportSignalCatalogCommand
  */
 export const de_ImportSignalCatalogCommand = async (
@@ -2566,7 +1498,7 @@ export const de_ImportSignalCatalogCommand = async (
   context: __SerdeContext
 ): Promise<ImportSignalCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportSignalCatalogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2579,53 +1511,6 @@ export const de_ImportSignalCatalogCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ImportSignalCatalogCommandError
- */
-const de_ImportSignalCatalogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportSignalCatalogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidSignalsException":
-    case "com.amazonaws.iotfleetwise#InvalidSignalsException":
-      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListCampaignsCommand
  */
 export const de_ListCampaignsCommand = async (
@@ -2633,7 +1518,7 @@ export const de_ListCampaignsCommand = async (
   context: __SerdeContext
 ): Promise<ListCampaignsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCampaignsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2646,41 +1531,6 @@ export const de_ListCampaignsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListCampaignsCommandError
- */
-const de_ListCampaignsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCampaignsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommand
  */
 export const de_ListDecoderManifestNetworkInterfacesCommand = async (
@@ -2688,7 +1538,7 @@ export const de_ListDecoderManifestNetworkInterfacesCommand = async (
   context: __SerdeContext
 ): Promise<ListDecoderManifestNetworkInterfacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDecoderManifestNetworkInterfacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2701,44 +1551,6 @@ export const de_ListDecoderManifestNetworkInterfacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListDecoderManifestNetworkInterfacesCommandError
- */
-const de_ListDecoderManifestNetworkInterfacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDecoderManifestNetworkInterfacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListDecoderManifestsCommand
  */
 export const de_ListDecoderManifestsCommand = async (
@@ -2746,7 +1558,7 @@ export const de_ListDecoderManifestsCommand = async (
   context: __SerdeContext
 ): Promise<ListDecoderManifestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDecoderManifestsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2759,41 +1571,6 @@ export const de_ListDecoderManifestsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListDecoderManifestsCommandError
- */
-const de_ListDecoderManifestsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDecoderManifestsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListDecoderManifestSignalsCommand
  */
 export const de_ListDecoderManifestSignalsCommand = async (
@@ -2801,7 +1578,7 @@ export const de_ListDecoderManifestSignalsCommand = async (
   context: __SerdeContext
 ): Promise<ListDecoderManifestSignalsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDecoderManifestSignalsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2814,44 +1591,6 @@ export const de_ListDecoderManifestSignalsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListDecoderManifestSignalsCommandError
- */
-const de_ListDecoderManifestSignalsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDecoderManifestSignalsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListFleetsCommand
  */
 export const de_ListFleetsCommand = async (
@@ -2859,7 +1598,7 @@ export const de_ListFleetsCommand = async (
   context: __SerdeContext
 ): Promise<ListFleetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFleetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2872,44 +1611,6 @@ export const de_ListFleetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListFleetsCommandError
- */
-const de_ListFleetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFleetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListFleetsForVehicleCommand
  */
 export const de_ListFleetsForVehicleCommand = async (
@@ -2917,7 +1618,7 @@ export const de_ListFleetsForVehicleCommand = async (
   context: __SerdeContext
 ): Promise<ListFleetsForVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFleetsForVehicleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2930,44 +1631,6 @@ export const de_ListFleetsForVehicleCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListFleetsForVehicleCommandError
- */
-const de_ListFleetsForVehicleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFleetsForVehicleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListModelManifestNodesCommand
  */
 export const de_ListModelManifestNodesCommand = async (
@@ -2975,7 +1638,7 @@ export const de_ListModelManifestNodesCommand = async (
   context: __SerdeContext
 ): Promise<ListModelManifestNodesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListModelManifestNodesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2988,47 +1651,6 @@ export const de_ListModelManifestNodesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListModelManifestNodesCommandError
- */
-const de_ListModelManifestNodesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListModelManifestNodesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListModelManifestsCommand
  */
 export const de_ListModelManifestsCommand = async (
@@ -3036,7 +1658,7 @@ export const de_ListModelManifestsCommand = async (
   context: __SerdeContext
 ): Promise<ListModelManifestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListModelManifestsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3049,41 +1671,6 @@ export const de_ListModelManifestsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListModelManifestsCommandError
- */
-const de_ListModelManifestsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListModelManifestsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListSignalCatalogNodesCommand
  */
 export const de_ListSignalCatalogNodesCommand = async (
@@ -3091,7 +1678,7 @@ export const de_ListSignalCatalogNodesCommand = async (
   context: __SerdeContext
 ): Promise<ListSignalCatalogNodesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSignalCatalogNodesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3104,47 +1691,6 @@ export const de_ListSignalCatalogNodesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListSignalCatalogNodesCommandError
- */
-const de_ListSignalCatalogNodesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSignalCatalogNodesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListSignalCatalogsCommand
  */
 export const de_ListSignalCatalogsCommand = async (
@@ -3152,7 +1698,7 @@ export const de_ListSignalCatalogsCommand = async (
   context: __SerdeContext
 ): Promise<ListSignalCatalogsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSignalCatalogsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3165,41 +1711,6 @@ export const de_ListSignalCatalogsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListSignalCatalogsCommandError
- */
-const de_ListSignalCatalogsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSignalCatalogsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3207,7 +1718,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3220,44 +1731,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListVehiclesCommand
  */
 export const de_ListVehiclesCommand = async (
@@ -3265,7 +1738,7 @@ export const de_ListVehiclesCommand = async (
   context: __SerdeContext
 ): Promise<ListVehiclesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListVehiclesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3278,41 +1751,6 @@ export const de_ListVehiclesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListVehiclesCommandError
- */
-const de_ListVehiclesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVehiclesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListVehiclesInFleetCommand
  */
 export const de_ListVehiclesInFleetCommand = async (
@@ -3320,7 +1758,7 @@ export const de_ListVehiclesInFleetCommand = async (
   context: __SerdeContext
 ): Promise<ListVehiclesInFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListVehiclesInFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3333,44 +1771,6 @@ export const de_ListVehiclesInFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListVehiclesInFleetCommandError
- */
-const de_ListVehiclesInFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVehiclesInFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PutEncryptionConfigurationCommand
  */
 export const de_PutEncryptionConfigurationCommand = async (
@@ -3378,7 +1778,7 @@ export const de_PutEncryptionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutEncryptionConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutEncryptionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3391,47 +1791,6 @@ export const de_PutEncryptionConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PutEncryptionConfigurationCommandError
- */
-const de_PutEncryptionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEncryptionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PutLoggingOptionsCommand
  */
 export const de_PutLoggingOptionsCommand = async (
@@ -3439,7 +1798,7 @@ export const de_PutLoggingOptionsCommand = async (
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutLoggingOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3452,47 +1811,6 @@ export const de_PutLoggingOptionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PutLoggingOptionsCommandError
- */
-const de_PutLoggingOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLoggingOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0RegisterAccountCommand
  */
 export const de_RegisterAccountCommand = async (
@@ -3500,7 +1818,7 @@ export const de_RegisterAccountCommand = async (
   context: __SerdeContext
 ): Promise<RegisterAccountCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3513,47 +1831,6 @@ export const de_RegisterAccountCommand = async (
 };
 
 /**
- * deserializeAws_json1_0RegisterAccountCommandError
- */
-const de_RegisterAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -3561,7 +1838,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3574,44 +1851,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -3619,7 +1858,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3632,44 +1871,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateCampaignCommand
  */
 export const de_UpdateCampaignCommand = async (
@@ -3677,7 +1878,7 @@ export const de_UpdateCampaignCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3690,47 +1891,6 @@ export const de_UpdateCampaignCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateCampaignCommandError
- */
-const de_UpdateCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateDecoderManifestCommand
  */
 export const de_UpdateDecoderManifestCommand = async (
@@ -3738,7 +1898,7 @@ export const de_UpdateDecoderManifestCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDecoderManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDecoderManifestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3751,53 +1911,6 @@ export const de_UpdateDecoderManifestCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateDecoderManifestCommandError
- */
-const de_UpdateDecoderManifestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDecoderManifestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DecoderManifestValidationException":
-    case "com.amazonaws.iotfleetwise#DecoderManifestValidationException":
-      throw await de_DecoderManifestValidationExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateFleetCommand
  */
 export const de_UpdateFleetCommand = async (
@@ -3805,7 +1918,7 @@ export const de_UpdateFleetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFleetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFleetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3818,47 +1931,6 @@ export const de_UpdateFleetCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateFleetCommandError
- */
-const de_UpdateFleetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFleetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateModelManifestCommand
  */
 export const de_UpdateModelManifestCommand = async (
@@ -3866,7 +1938,7 @@ export const de_UpdateModelManifestCommand = async (
   context: __SerdeContext
 ): Promise<UpdateModelManifestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateModelManifestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3879,50 +1951,6 @@ export const de_UpdateModelManifestCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateModelManifestCommandError
- */
-const de_UpdateModelManifestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateModelManifestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidSignalsException":
-    case "com.amazonaws.iotfleetwise#InvalidSignalsException":
-      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateSignalCatalogCommand
  */
 export const de_UpdateSignalCatalogCommand = async (
@@ -3930,7 +1958,7 @@ export const de_UpdateSignalCatalogCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSignalCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSignalCatalogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3943,56 +1971,6 @@ export const de_UpdateSignalCatalogCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateSignalCatalogCommandError
- */
-const de_UpdateSignalCatalogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSignalCatalogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.iotfleetwise#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.iotfleetwise#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidNodeException":
-    case "com.amazonaws.iotfleetwise#InvalidNodeException":
-      throw await de_InvalidNodeExceptionRes(parsedOutput, context);
-    case "InvalidSignalsException":
-    case "com.amazonaws.iotfleetwise#InvalidSignalsException":
-      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.iotfleetwise#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.iotfleetwise#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.iotfleetwise#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateVehicleCommand
  */
 export const de_UpdateVehicleCommand = async (
@@ -4000,7 +1978,7 @@ export const de_UpdateVehicleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVehicleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateVehicleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4013,12 +1991,9 @@ export const de_UpdateVehicleCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateVehicleCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_UpdateVehicleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVehicleCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4028,12 +2003,12 @@ const de_UpdateVehicleCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.iotfleetwise#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.iotfleetwise#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iotfleetwise#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -4043,13 +2018,25 @@ const de_UpdateVehicleCommandError = async (
     case "ValidationException":
     case "com.amazonaws.iotfleetwise#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotfleetwise#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "DecoderManifestValidationException":
+    case "com.amazonaws.iotfleetwise#DecoderManifestValidationException":
+      throw await de_DecoderManifestValidationExceptionRes(parsedOutput, context);
+    case "InvalidSignalsException":
+    case "com.amazonaws.iotfleetwise#InvalidSignalsException":
+      throw await de_InvalidSignalsExceptionRes(parsedOutput, context);
+    case "InvalidNodeException":
+    case "com.amazonaws.iotfleetwise#InvalidNodeException":
+      throw await de_InvalidNodeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -915,7 +915,7 @@ export const de_AssociateFileSystemAliasesCommand = async (
   context: __SerdeContext
 ): Promise<AssociateFileSystemAliasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateFileSystemAliasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -928,12 +928,889 @@ export const de_AssociateFileSystemAliasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateFileSystemAliasesCommandError
+ * deserializeAws_json1_1CancelDataRepositoryTaskCommand
  */
-const de_AssociateFileSystemAliasesCommandError = async (
+export const de_CancelDataRepositoryTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateFileSystemAliasesCommandOutput> => {
+): Promise<CancelDataRepositoryTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CancelDataRepositoryTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CopyBackupCommand
+ */
+export const de_CopyBackupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyBackupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopyBackupResponse(data, context);
+  const response: CopyBackupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CopySnapshotAndUpdateVolumeCommand
+ */
+export const de_CopySnapshotAndUpdateVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopySnapshotAndUpdateVolumeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CopySnapshotAndUpdateVolumeResponse(data, context);
+  const response: CopySnapshotAndUpdateVolumeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateBackupCommand
+ */
+export const de_CreateBackupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBackupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateBackupResponse(data, context);
+  const response: CreateBackupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDataRepositoryAssociationCommand
+ */
+export const de_CreateDataRepositoryAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataRepositoryAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDataRepositoryAssociationResponse(data, context);
+  const response: CreateDataRepositoryAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDataRepositoryTaskCommand
+ */
+export const de_CreateDataRepositoryTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataRepositoryTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateDataRepositoryTaskResponse(data, context);
+  const response: CreateDataRepositoryTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateFileCacheCommand
+ */
+export const de_CreateFileCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFileCacheCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateFileCacheResponse(data, context);
+  const response: CreateFileCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateFileSystemCommand
+ */
+export const de_CreateFileSystemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFileSystemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateFileSystemResponse(data, context);
+  const response: CreateFileSystemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateFileSystemFromBackupCommand
+ */
+export const de_CreateFileSystemFromBackupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateFileSystemFromBackupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateFileSystemFromBackupResponse(data, context);
+  const response: CreateFileSystemFromBackupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateSnapshotCommand
+ */
+export const de_CreateSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateSnapshotResponse(data, context);
+  const response: CreateSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateStorageVirtualMachineCommand
+ */
+export const de_CreateStorageVirtualMachineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateStorageVirtualMachineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateStorageVirtualMachineResponse(data, context);
+  const response: CreateStorageVirtualMachineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateVolumeCommand
+ */
+export const de_CreateVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVolumeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateVolumeResponse(data, context);
+  const response: CreateVolumeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateVolumeFromBackupCommand
+ */
+export const de_CreateVolumeFromBackupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVolumeFromBackupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateVolumeFromBackupResponse(data, context);
+  const response: CreateVolumeFromBackupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteBackupCommand
+ */
+export const de_DeleteBackupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBackupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteBackupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDataRepositoryAssociationCommand
+ */
+export const de_DeleteDataRepositoryAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDataRepositoryAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteDataRepositoryAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteFileCacheCommand
+ */
+export const de_DeleteFileCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFileCacheCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteFileCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteFileSystemCommand
+ */
+export const de_DeleteFileSystemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteFileSystemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteFileSystemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteSnapshotCommand
+ */
+export const de_DeleteSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteStorageVirtualMachineCommand
+ */
+export const de_DeleteStorageVirtualMachineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteStorageVirtualMachineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteStorageVirtualMachineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteVolumeCommand
+ */
+export const de_DeleteVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVolumeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteVolumeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBackupsCommand
+ */
+export const de_DescribeBackupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBackupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBackupsResponse(data, context);
+  const response: DescribeBackupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDataRepositoryAssociationsCommand
+ */
+export const de_DescribeDataRepositoryAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataRepositoryAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDataRepositoryAssociationsResponse(data, context);
+  const response: DescribeDataRepositoryAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeDataRepositoryTasksCommand
+ */
+export const de_DescribeDataRepositoryTasksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDataRepositoryTasksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeDataRepositoryTasksResponse(data, context);
+  const response: DescribeDataRepositoryTasksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeFileCachesCommand
+ */
+export const de_DescribeFileCachesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFileCachesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeFileCachesResponse(data, context);
+  const response: DescribeFileCachesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeFileSystemAliasesCommand
+ */
+export const de_DescribeFileSystemAliasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFileSystemAliasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeFileSystemAliasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeFileSystemsCommand
+ */
+export const de_DescribeFileSystemsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFileSystemsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeFileSystemsResponse(data, context);
+  const response: DescribeFileSystemsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSharedVpcConfigurationCommand
+ */
+export const de_DescribeSharedVpcConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSharedVpcConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeSharedVpcConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSnapshotsCommand
+ */
+export const de_DescribeSnapshotsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSnapshotsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeSnapshotsResponse(data, context);
+  const response: DescribeSnapshotsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeStorageVirtualMachinesCommand
+ */
+export const de_DescribeStorageVirtualMachinesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeStorageVirtualMachinesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeStorageVirtualMachinesResponse(data, context);
+  const response: DescribeStorageVirtualMachinesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeVolumesCommand
+ */
+export const de_DescribeVolumesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVolumesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeVolumesResponse(data, context);
+  const response: DescribeVolumesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisassociateFileSystemAliasesCommand
+ */
+export const de_DisassociateFileSystemAliasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFileSystemAliasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateFileSystemAliasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand
+ */
+export const de_ReleaseFileSystemNfsV3LocksCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReleaseFileSystemNfsV3LocksCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ReleaseFileSystemNfsV3LocksResponse(data, context);
+  const response: ReleaseFileSystemNfsV3LocksCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RestoreVolumeFromSnapshotCommand
+ */
+export const de_RestoreVolumeFromSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreVolumeFromSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreVolumeFromSnapshotResponse(data, context);
+  const response: RestoreVolumeFromSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMisconfiguredStateRecoveryCommand
+ */
+export const de_StartMisconfiguredStateRecoveryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMisconfiguredStateRecoveryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartMisconfiguredStateRecoveryResponse(data, context);
+  const response: StartMisconfiguredStateRecoveryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDataRepositoryAssociationCommand
+ */
+export const de_UpdateDataRepositoryAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataRepositoryAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateDataRepositoryAssociationResponse(data, context);
+  const response: UpdateDataRepositoryAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateFileCacheCommand
+ */
+export const de_UpdateFileCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFileCacheCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateFileCacheResponse(data, context);
+  const response: UpdateFileCacheCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateFileSystemCommand
+ */
+export const de_UpdateFileSystemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFileSystemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateFileSystemResponse(data, context);
+  const response: UpdateFileSystemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSharedVpcConfigurationCommand
+ */
+export const de_UpdateSharedVpcConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSharedVpcConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSharedVpcConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSnapshotCommand
+ */
+export const de_UpdateSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateSnapshotResponse(data, context);
+  const response: UpdateSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateStorageVirtualMachineCommand
+ */
+export const de_UpdateStorageVirtualMachineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStorageVirtualMachineCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateStorageVirtualMachineResponse(data, context);
+  const response: UpdateStorageVirtualMachineCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateVolumeCommand
+ */
+export const de_UpdateVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVolumeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateVolumeResponse(data, context);
+  const response: UpdateVolumeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -949,122 +1826,24 @@ const de_AssociateFileSystemAliasesCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.fsx#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CancelDataRepositoryTaskCommand
- */
-export const de_CancelDataRepositoryTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelDataRepositoryTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CancelDataRepositoryTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CancelDataRepositoryTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CancelDataRepositoryTaskCommandError
- */
-const de_CancelDataRepositoryTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelDataRepositoryTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
     case "DataRepositoryTaskEnded":
     case "com.amazonaws.fsx#DataRepositoryTaskEnded":
       throw await de_DataRepositoryTaskEndedRes(parsedOutput, context);
     case "DataRepositoryTaskNotFound":
     case "com.amazonaws.fsx#DataRepositoryTaskNotFound":
       throw await de_DataRepositoryTaskNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "UnsupportedOperation":
     case "com.amazonaws.fsx#UnsupportedOperation":
       throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CopyBackupCommand
- */
-export const de_CopyBackupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyBackupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CopyBackupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CopyBackupResponse(data, context);
-  const response: CopyBackupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CopyBackupCommandError
- */
-const de_CopyBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "BackupNotFound":
     case "com.amazonaws.fsx#BackupNotFound":
       throw await de_BackupNotFoundRes(parsedOutput, context);
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
     case "IncompatibleParameterError":
     case "com.amazonaws.fsx#IncompatibleParameterError":
       throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
     case "IncompatibleRegionForMultiAZ":
     case "com.amazonaws.fsx#IncompatibleRegionForMultiAZ":
       throw await de_IncompatibleRegionForMultiAZRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidDestinationKmsKey":
     case "com.amazonaws.fsx#InvalidDestinationKmsKey":
       throw await de_InvalidDestinationKmsKeyRes(parsedOutput, context);
@@ -1080,308 +1859,15 @@ const de_CopyBackupCommandError = async (
     case "SourceBackupUnavailable":
     case "com.amazonaws.fsx#SourceBackupUnavailable":
       throw await de_SourceBackupUnavailableRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.fsx#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CopySnapshotAndUpdateVolumeCommand
- */
-export const de_CopySnapshotAndUpdateVolumeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopySnapshotAndUpdateVolumeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CopySnapshotAndUpdateVolumeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CopySnapshotAndUpdateVolumeResponse(data, context);
-  const response: CopySnapshotAndUpdateVolumeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CopySnapshotAndUpdateVolumeCommandError
- */
-const de_CopySnapshotAndUpdateVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopySnapshotAndUpdateVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateBackupCommand
- */
-export const de_CreateBackupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateBackupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateBackupResponse(data, context);
-  const response: CreateBackupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateBackupCommandError
- */
-const de_CreateBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "BackupInProgress":
     case "com.amazonaws.fsx#BackupInProgress":
       throw await de_BackupInProgressRes(parsedOutput, context);
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.fsx#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
     case "VolumeNotFound":
     case "com.amazonaws.fsx#VolumeNotFound":
       throw await de_VolumeNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateDataRepositoryAssociationCommand
- */
-export const de_CreateDataRepositoryAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataRepositoryAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDataRepositoryAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDataRepositoryAssociationResponse(data, context);
-  const response: CreateDataRepositoryAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateDataRepositoryAssociationCommandError
- */
-const de_CreateDataRepositoryAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataRepositoryAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.fsx#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateDataRepositoryTaskCommand
- */
-export const de_CreateDataRepositoryTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataRepositoryTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDataRepositoryTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateDataRepositoryTaskResponse(data, context);
-  const response: CreateDataRepositoryTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateDataRepositoryTaskCommandError
- */
-const de_CreateDataRepositoryTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataRepositoryTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
     case "DataRepositoryTaskExecuting":
     case "com.amazonaws.fsx#DataRepositoryTaskExecuting":
       throw await de_DataRepositoryTaskExecutingRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.fsx#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateFileCacheCommand
- */
-export const de_CreateFileCacheCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFileCacheCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateFileCacheCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateFileCacheResponse(data, context);
-  const response: CreateFileCacheCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateFileCacheCommandError
- */
-const de_CreateFileCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFileCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidNetworkSettings":
     case "com.amazonaws.fsx#InvalidNetworkSettings":
       throw await de_InvalidNetworkSettingsRes(parsedOutput, context);
@@ -1391,1441 +1877,42 @@ const de_CreateFileCacheCommandError = async (
     case "MissingFileCacheConfiguration":
     case "com.amazonaws.fsx#MissingFileCacheConfiguration":
       throw await de_MissingFileCacheConfigurationRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateFileSystemCommand
- */
-export const de_CreateFileSystemCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFileSystemCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateFileSystemCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateFileSystemResponse(data, context);
-  const response: CreateFileSystemCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateFileSystemCommandError
- */
-const de_CreateFileSystemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFileSystemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ActiveDirectoryError":
     case "com.amazonaws.fsx#ActiveDirectoryError":
       throw await de_ActiveDirectoryErrorRes(parsedOutput, context);
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidExportPath":
     case "com.amazonaws.fsx#InvalidExportPath":
       throw await de_InvalidExportPathRes(parsedOutput, context);
     case "InvalidImportPath":
     case "com.amazonaws.fsx#InvalidImportPath":
       throw await de_InvalidImportPathRes(parsedOutput, context);
-    case "InvalidNetworkSettings":
-    case "com.amazonaws.fsx#InvalidNetworkSettings":
-      throw await de_InvalidNetworkSettingsRes(parsedOutput, context);
-    case "InvalidPerUnitStorageThroughput":
-    case "com.amazonaws.fsx#InvalidPerUnitStorageThroughput":
-      throw await de_InvalidPerUnitStorageThroughputRes(parsedOutput, context);
     case "MissingFileSystemConfiguration":
     case "com.amazonaws.fsx#MissingFileSystemConfiguration":
       throw await de_MissingFileSystemConfigurationRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateFileSystemFromBackupCommand
- */
-export const de_CreateFileSystemFromBackupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFileSystemFromBackupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateFileSystemFromBackupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateFileSystemFromBackupResponse(data, context);
-  const response: CreateFileSystemFromBackupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateFileSystemFromBackupCommandError
- */
-const de_CreateFileSystemFromBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFileSystemFromBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ActiveDirectoryError":
-    case "com.amazonaws.fsx#ActiveDirectoryError":
-      throw await de_ActiveDirectoryErrorRes(parsedOutput, context);
-    case "BackupNotFound":
-    case "com.amazonaws.fsx#BackupNotFound":
-      throw await de_BackupNotFoundRes(parsedOutput, context);
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidNetworkSettings":
-    case "com.amazonaws.fsx#InvalidNetworkSettings":
-      throw await de_InvalidNetworkSettingsRes(parsedOutput, context);
-    case "InvalidPerUnitStorageThroughput":
-    case "com.amazonaws.fsx#InvalidPerUnitStorageThroughput":
-      throw await de_InvalidPerUnitStorageThroughputRes(parsedOutput, context);
-    case "MissingFileSystemConfiguration":
-    case "com.amazonaws.fsx#MissingFileSystemConfiguration":
-      throw await de_MissingFileSystemConfigurationRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateSnapshotCommand
- */
-export const de_CreateSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateSnapshotResponse(data, context);
-  const response: CreateSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateSnapshotCommandError
- */
-const de_CreateSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    case "VolumeNotFound":
-    case "com.amazonaws.fsx#VolumeNotFound":
-      throw await de_VolumeNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateStorageVirtualMachineCommand
- */
-export const de_CreateStorageVirtualMachineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStorageVirtualMachineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateStorageVirtualMachineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateStorageVirtualMachineResponse(data, context);
-  const response: CreateStorageVirtualMachineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateStorageVirtualMachineCommandError
- */
-const de_CreateStorageVirtualMachineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStorageVirtualMachineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ActiveDirectoryError":
-    case "com.amazonaws.fsx#ActiveDirectoryError":
-      throw await de_ActiveDirectoryErrorRes(parsedOutput, context);
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.fsx#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateVolumeCommand
- */
-export const de_CreateVolumeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVolumeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateVolumeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateVolumeResponse(data, context);
-  const response: CreateVolumeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateVolumeCommandError
- */
-const de_CreateVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "MissingVolumeConfiguration":
     case "com.amazonaws.fsx#MissingVolumeConfiguration":
       throw await de_MissingVolumeConfigurationRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
     case "StorageVirtualMachineNotFound":
     case "com.amazonaws.fsx#StorageVirtualMachineNotFound":
       throw await de_StorageVirtualMachineNotFoundRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.fsx#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateVolumeFromBackupCommand
- */
-export const de_CreateVolumeFromBackupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVolumeFromBackupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateVolumeFromBackupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateVolumeFromBackupResponse(data, context);
-  const response: CreateVolumeFromBackupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateVolumeFromBackupCommandError
- */
-const de_CreateVolumeFromBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVolumeFromBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BackupNotFound":
-    case "com.amazonaws.fsx#BackupNotFound":
-      throw await de_BackupNotFoundRes(parsedOutput, context);
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "MissingVolumeConfiguration":
-    case "com.amazonaws.fsx#MissingVolumeConfiguration":
-      throw await de_MissingVolumeConfigurationRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    case "StorageVirtualMachineNotFound":
-    case "com.amazonaws.fsx#StorageVirtualMachineNotFound":
-      throw await de_StorageVirtualMachineNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteBackupCommand
- */
-export const de_DeleteBackupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteBackupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteBackupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteBackupCommandError
- */
-const de_DeleteBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "BackupBeingCopied":
     case "com.amazonaws.fsx#BackupBeingCopied":
       throw await de_BackupBeingCopiedRes(parsedOutput, context);
-    case "BackupInProgress":
-    case "com.amazonaws.fsx#BackupInProgress":
-      throw await de_BackupInProgressRes(parsedOutput, context);
-    case "BackupNotFound":
-    case "com.amazonaws.fsx#BackupNotFound":
-      throw await de_BackupNotFoundRes(parsedOutput, context);
     case "BackupRestoring":
     case "com.amazonaws.fsx#BackupRestoring":
       throw await de_BackupRestoringRes(parsedOutput, context);
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteDataRepositoryAssociationCommand
- */
-export const de_DeleteDataRepositoryAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataRepositoryAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDataRepositoryAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteDataRepositoryAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDataRepositoryAssociationCommandError
- */
-const de_DeleteDataRepositoryAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataRepositoryAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
     case "DataRepositoryAssociationNotFound":
     case "com.amazonaws.fsx#DataRepositoryAssociationNotFound":
       throw await de_DataRepositoryAssociationNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteFileCacheCommand
- */
-export const de_DeleteFileCacheCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFileCacheCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteFileCacheCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteFileCacheCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteFileCacheCommandError
- */
-const de_DeleteFileCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFileCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
     case "FileCacheNotFound":
     case "com.amazonaws.fsx#FileCacheNotFound":
       throw await de_FileCacheNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteFileSystemCommand
- */
-export const de_DeleteFileSystemCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFileSystemCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteFileSystemCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteFileSystemCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteFileSystemCommandError
- */
-const de_DeleteFileSystemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFileSystemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteSnapshotCommand
- */
-export const de_DeleteSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteSnapshotCommandError
- */
-const de_DeleteSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "SnapshotNotFound":
     case "com.amazonaws.fsx#SnapshotNotFound":
       throw await de_SnapshotNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteStorageVirtualMachineCommand
- */
-export const de_DeleteStorageVirtualMachineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStorageVirtualMachineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteStorageVirtualMachineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteStorageVirtualMachineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteStorageVirtualMachineCommandError
- */
-const de_DeleteStorageVirtualMachineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStorageVirtualMachineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "StorageVirtualMachineNotFound":
-    case "com.amazonaws.fsx#StorageVirtualMachineNotFound":
-      throw await de_StorageVirtualMachineNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteVolumeCommand
- */
-export const de_DeleteVolumeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVolumeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteVolumeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteVolumeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteVolumeCommandError
- */
-const de_DeleteVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    case "VolumeNotFound":
-    case "com.amazonaws.fsx#VolumeNotFound":
-      throw await de_VolumeNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeBackupsCommand
- */
-export const de_DescribeBackupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBackupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBackupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeBackupsResponse(data, context);
-  const response: DescribeBackupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeBackupsCommandError
- */
-const de_DescribeBackupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBackupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BackupNotFound":
-    case "com.amazonaws.fsx#BackupNotFound":
-      throw await de_BackupNotFoundRes(parsedOutput, context);
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "VolumeNotFound":
-    case "com.amazonaws.fsx#VolumeNotFound":
-      throw await de_VolumeNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeDataRepositoryAssociationsCommand
- */
-export const de_DescribeDataRepositoryAssociationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataRepositoryAssociationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDataRepositoryAssociationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDataRepositoryAssociationsResponse(data, context);
-  const response: DescribeDataRepositoryAssociationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeDataRepositoryAssociationsCommandError
- */
-const de_DescribeDataRepositoryAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataRepositoryAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "DataRepositoryAssociationNotFound":
-    case "com.amazonaws.fsx#DataRepositoryAssociationNotFound":
-      throw await de_DataRepositoryAssociationNotFoundRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidDataRepositoryType":
     case "com.amazonaws.fsx#InvalidDataRepositoryType":
       throw await de_InvalidDataRepositoryTypeRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeDataRepositoryTasksCommand
- */
-export const de_DescribeDataRepositoryTasksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataRepositoryTasksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeDataRepositoryTasksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeDataRepositoryTasksResponse(data, context);
-  const response: DescribeDataRepositoryTasksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeDataRepositoryTasksCommandError
- */
-const de_DescribeDataRepositoryTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataRepositoryTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "DataRepositoryTaskNotFound":
-    case "com.amazonaws.fsx#DataRepositoryTaskNotFound":
-      throw await de_DataRepositoryTaskNotFoundRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeFileCachesCommand
- */
-export const de_DescribeFileCachesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFileCachesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeFileCachesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeFileCachesResponse(data, context);
-  const response: DescribeFileCachesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeFileCachesCommandError
- */
-const de_DescribeFileCachesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFileCachesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileCacheNotFound":
-    case "com.amazonaws.fsx#FileCacheNotFound":
-      throw await de_FileCacheNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeFileSystemAliasesCommand
- */
-export const de_DescribeFileSystemAliasesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFileSystemAliasesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeFileSystemAliasesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeFileSystemAliasesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeFileSystemAliasesCommandError
- */
-const de_DescribeFileSystemAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFileSystemAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeFileSystemsCommand
- */
-export const de_DescribeFileSystemsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFileSystemsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeFileSystemsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeFileSystemsResponse(data, context);
-  const response: DescribeFileSystemsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeFileSystemsCommandError
- */
-const de_DescribeFileSystemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFileSystemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeSharedVpcConfigurationCommand
- */
-export const de_DescribeSharedVpcConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSharedVpcConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSharedVpcConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeSharedVpcConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeSharedVpcConfigurationCommandError
- */
-const de_DescribeSharedVpcConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSharedVpcConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeSnapshotsCommand
- */
-export const de_DescribeSnapshotsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSnapshotsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeSnapshotsResponse(data, context);
-  const response: DescribeSnapshotsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeSnapshotsCommandError
- */
-const de_DescribeSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "SnapshotNotFound":
-    case "com.amazonaws.fsx#SnapshotNotFound":
-      throw await de_SnapshotNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeStorageVirtualMachinesCommand
- */
-export const de_DescribeStorageVirtualMachinesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStorageVirtualMachinesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeStorageVirtualMachinesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeStorageVirtualMachinesResponse(data, context);
-  const response: DescribeStorageVirtualMachinesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeStorageVirtualMachinesCommandError
- */
-const de_DescribeStorageVirtualMachinesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStorageVirtualMachinesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "StorageVirtualMachineNotFound":
-    case "com.amazonaws.fsx#StorageVirtualMachineNotFound":
-      throw await de_StorageVirtualMachineNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeVolumesCommand
- */
-export const de_DescribeVolumesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVolumesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeVolumesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeVolumesResponse(data, context);
-  const response: DescribeVolumesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeVolumesCommandError
- */
-const de_DescribeVolumesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVolumesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "VolumeNotFound":
-    case "com.amazonaws.fsx#VolumeNotFound":
-      throw await de_VolumeNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DisassociateFileSystemAliasesCommand
- */
-export const de_DisassociateFileSystemAliasesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateFileSystemAliasesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisassociateFileSystemAliasesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DisassociateFileSystemAliasesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DisassociateFileSystemAliasesCommandError
- */
-const de_DisassociateFileSystemAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateFileSystemAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "NotServiceResourceError":
     case "com.amazonaws.fsx#NotServiceResourceError":
       throw await de_NotServiceResourceErrorRes(parsedOutput, context);
@@ -2841,694 +1928,7 @@ const de_ListTagsForResourceCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ReleaseFileSystemNfsV3LocksCommand
- */
-export const de_ReleaseFileSystemNfsV3LocksCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReleaseFileSystemNfsV3LocksCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ReleaseFileSystemNfsV3LocksCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ReleaseFileSystemNfsV3LocksResponse(data, context);
-  const response: ReleaseFileSystemNfsV3LocksCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ReleaseFileSystemNfsV3LocksCommandError
- */
-const de_ReleaseFileSystemNfsV3LocksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReleaseFileSystemNfsV3LocksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RestoreVolumeFromSnapshotCommand
- */
-export const de_RestoreVolumeFromSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreVolumeFromSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreVolumeFromSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreVolumeFromSnapshotResponse(data, context);
-  const response: RestoreVolumeFromSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RestoreVolumeFromSnapshotCommandError
- */
-const de_RestoreVolumeFromSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreVolumeFromSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "VolumeNotFound":
-    case "com.amazonaws.fsx#VolumeNotFound":
-      throw await de_VolumeNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartMisconfiguredStateRecoveryCommand
- */
-export const de_StartMisconfiguredStateRecoveryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMisconfiguredStateRecoveryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartMisconfiguredStateRecoveryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartMisconfiguredStateRecoveryResponse(data, context);
-  const response: StartMisconfiguredStateRecoveryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartMisconfiguredStateRecoveryCommandError
- */
-const de_StartMisconfiguredStateRecoveryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMisconfiguredStateRecoveryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "NotServiceResourceError":
-    case "com.amazonaws.fsx#NotServiceResourceError":
-      throw await de_NotServiceResourceErrorRes(parsedOutput, context);
-    case "ResourceDoesNotSupportTagging":
-    case "com.amazonaws.fsx#ResourceDoesNotSupportTagging":
-      throw await de_ResourceDoesNotSupportTaggingRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.fsx#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "NotServiceResourceError":
-    case "com.amazonaws.fsx#NotServiceResourceError":
-      throw await de_NotServiceResourceErrorRes(parsedOutput, context);
-    case "ResourceDoesNotSupportTagging":
-    case "com.amazonaws.fsx#ResourceDoesNotSupportTagging":
-      throw await de_ResourceDoesNotSupportTaggingRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.fsx#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateDataRepositoryAssociationCommand
- */
-export const de_UpdateDataRepositoryAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataRepositoryAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDataRepositoryAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateDataRepositoryAssociationResponse(data, context);
-  const response: UpdateDataRepositoryAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDataRepositoryAssociationCommandError
- */
-const de_UpdateDataRepositoryAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataRepositoryAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "DataRepositoryAssociationNotFound":
-    case "com.amazonaws.fsx#DataRepositoryAssociationNotFound":
-      throw await de_DataRepositoryAssociationNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateFileCacheCommand
- */
-export const de_UpdateFileCacheCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFileCacheCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateFileCacheCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateFileCacheResponse(data, context);
-  const response: UpdateFileCacheCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateFileCacheCommandError
- */
-const de_UpdateFileCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFileCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileCacheNotFound":
-    case "com.amazonaws.fsx#FileCacheNotFound":
-      throw await de_FileCacheNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "MissingFileCacheConfiguration":
-    case "com.amazonaws.fsx#MissingFileCacheConfiguration":
-      throw await de_MissingFileCacheConfigurationRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.fsx#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateFileSystemCommand
- */
-export const de_UpdateFileSystemCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFileSystemCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateFileSystemCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateFileSystemResponse(data, context);
-  const response: UpdateFileSystemCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateFileSystemCommandError
- */
-const de_UpdateFileSystemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFileSystemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "FileSystemNotFound":
-    case "com.amazonaws.fsx#FileSystemNotFound":
-      throw await de_FileSystemNotFoundRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidNetworkSettings":
-    case "com.amazonaws.fsx#InvalidNetworkSettings":
-      throw await de_InvalidNetworkSettingsRes(parsedOutput, context);
-    case "MissingFileSystemConfiguration":
-    case "com.amazonaws.fsx#MissingFileSystemConfiguration":
-      throw await de_MissingFileSystemConfigurationRes(parsedOutput, context);
-    case "ServiceLimitExceeded":
-    case "com.amazonaws.fsx#ServiceLimitExceeded":
-      throw await de_ServiceLimitExceededRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.fsx#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSharedVpcConfigurationCommand
- */
-export const de_UpdateSharedVpcConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSharedVpcConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSharedVpcConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateSharedVpcConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSharedVpcConfigurationCommandError
- */
-const de_UpdateSharedVpcConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSharedVpcConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSnapshotCommand
- */
-export const de_UpdateSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateSnapshotResponse(data, context);
-  const response: UpdateSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSnapshotCommandError
- */
-const de_UpdateSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "SnapshotNotFound":
-    case "com.amazonaws.fsx#SnapshotNotFound":
-      throw await de_SnapshotNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateStorageVirtualMachineCommand
- */
-export const de_UpdateStorageVirtualMachineCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStorageVirtualMachineCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateStorageVirtualMachineCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateStorageVirtualMachineResponse(data, context);
-  const response: UpdateStorageVirtualMachineCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateStorageVirtualMachineCommandError
- */
-const de_UpdateStorageVirtualMachineCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStorageVirtualMachineCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "StorageVirtualMachineNotFound":
-    case "com.amazonaws.fsx#StorageVirtualMachineNotFound":
-      throw await de_StorageVirtualMachineNotFoundRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.fsx#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateVolumeCommand
- */
-export const de_UpdateVolumeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVolumeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateVolumeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateVolumeResponse(data, context);
-  const response: UpdateVolumeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateVolumeCommandError
- */
-const de_UpdateVolumeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVolumeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequest":
-    case "com.amazonaws.fsx#BadRequest":
-      throw await de_BadRequestRes(parsedOutput, context);
-    case "IncompatibleParameterError":
-    case "com.amazonaws.fsx#IncompatibleParameterError":
-      throw await de_IncompatibleParameterErrorRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.fsx#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "MissingVolumeConfiguration":
-    case "com.amazonaws.fsx#MissingVolumeConfiguration":
-      throw await de_MissingVolumeConfigurationRes(parsedOutput, context);
-    case "VolumeNotFound":
-    case "com.amazonaws.fsx#VolumeNotFound":
-      throw await de_VolumeNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

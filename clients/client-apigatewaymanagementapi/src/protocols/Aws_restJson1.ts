@@ -93,45 +93,13 @@ export const de_DeleteConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteConnectionCommandError
- */
-const de_DeleteConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GoneException":
-    case "com.amazonaws.apigatewaymanagementapi#GoneException":
-      throw await de_GoneExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigatewaymanagementapi#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -142,7 +110,7 @@ export const de_GetConnectionCommand = async (
   context: __SerdeContext
 ): Promise<GetConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -158,38 +126,6 @@ export const de_GetConnectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConnectionCommandError
- */
-const de_GetConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ForbiddenException":
-    case "com.amazonaws.apigatewaymanagementapi#ForbiddenException":
-      throw await de_ForbiddenExceptionRes(parsedOutput, context);
-    case "GoneException":
-    case "com.amazonaws.apigatewaymanagementapi#GoneException":
-      throw await de_GoneExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.apigatewaymanagementapi#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PostToConnectionCommand
  */
 export const de_PostToConnectionCommand = async (
@@ -197,7 +133,7 @@ export const de_PostToConnectionCommand = async (
   context: __SerdeContext
 ): Promise<PostToConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PostToConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -207,12 +143,9 @@ export const de_PostToConnectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PostToConnectionCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_PostToConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PostToConnectionCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -237,7 +170,7 @@ const de_PostToConnectionCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -1057,7 +1057,7 @@ export const de_BatchExecuteStatementCommand = async (
   context: __SerdeContext
 ): Promise<BatchExecuteStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchExecuteStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1070,35 +1070,6 @@ export const de_BatchExecuteStatementCommand = async (
 };
 
 /**
- * deserializeAws_json1_0BatchExecuteStatementCommandError
- */
-const de_BatchExecuteStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchExecuteStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0BatchGetItemCommand
  */
 export const de_BatchGetItemCommand = async (
@@ -1106,7 +1077,7 @@ export const de_BatchGetItemCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetItemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetItemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1119,44 +1090,6 @@ export const de_BatchGetItemCommand = async (
 };
 
 /**
- * deserializeAws_json1_0BatchGetItemCommandError
- */
-const de_BatchGetItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0BatchWriteItemCommand
  */
 export const de_BatchWriteItemCommand = async (
@@ -1164,7 +1097,7 @@ export const de_BatchWriteItemCommand = async (
   context: __SerdeContext
 ): Promise<BatchWriteItemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchWriteItemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1177,47 +1110,6 @@ export const de_BatchWriteItemCommand = async (
 };
 
 /**
- * deserializeAws_json1_0BatchWriteItemCommandError
- */
-const de_BatchWriteItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchWriteItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ItemCollectionSizeLimitExceededException":
-    case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
-      throw await de_ItemCollectionSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateBackupCommand
  */
 export const de_CreateBackupCommand = async (
@@ -1225,7 +1117,7 @@ export const de_CreateBackupCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBackupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1238,50 +1130,6 @@ export const de_CreateBackupCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateBackupCommandError
- */
-const de_CreateBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BackupInUseException":
-    case "com.amazonaws.dynamodb#BackupInUseException":
-      throw await de_BackupInUseExceptionRes(parsedOutput, context);
-    case "ContinuousBackupsUnavailableException":
-    case "com.amazonaws.dynamodb#ContinuousBackupsUnavailableException":
-      throw await de_ContinuousBackupsUnavailableExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TableInUseException":
-    case "com.amazonaws.dynamodb#TableInUseException":
-      throw await de_TableInUseExceptionRes(parsedOutput, context);
-    case "TableNotFoundException":
-    case "com.amazonaws.dynamodb#TableNotFoundException":
-      throw await de_TableNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateGlobalTableCommand
  */
 export const de_CreateGlobalTableCommand = async (
@@ -1289,7 +1137,7 @@ export const de_CreateGlobalTableCommand = async (
   context: __SerdeContext
 ): Promise<CreateGlobalTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGlobalTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1302,44 +1150,6 @@ export const de_CreateGlobalTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateGlobalTableCommandError
- */
-const de_CreateGlobalTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGlobalTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalTableAlreadyExistsException":
-    case "com.amazonaws.dynamodb#GlobalTableAlreadyExistsException":
-      throw await de_GlobalTableAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TableNotFoundException":
-    case "com.amazonaws.dynamodb#TableNotFoundException":
-      throw await de_TableNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateTableCommand
  */
 export const de_CreateTableCommand = async (
@@ -1347,7 +1157,7 @@ export const de_CreateTableCommand = async (
   context: __SerdeContext
 ): Promise<CreateTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1360,41 +1170,6 @@ export const de_CreateTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateTableCommandError
- */
-const de_CreateTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.dynamodb#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteBackupCommand
  */
 export const de_DeleteBackupCommand = async (
@@ -1402,7 +1177,7 @@ export const de_DeleteBackupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteBackupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1415,44 +1190,6 @@ export const de_DeleteBackupCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteBackupCommandError
- */
-const de_DeleteBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BackupInUseException":
-    case "com.amazonaws.dynamodb#BackupInUseException":
-      throw await de_BackupInUseExceptionRes(parsedOutput, context);
-    case "BackupNotFoundException":
-    case "com.amazonaws.dynamodb#BackupNotFoundException":
-      throw await de_BackupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteItemCommand
  */
 export const de_DeleteItemCommand = async (
@@ -1460,7 +1197,7 @@ export const de_DeleteItemCommand = async (
   context: __SerdeContext
 ): Promise<DeleteItemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteItemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1473,53 +1210,6 @@ export const de_DeleteItemCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteItemCommandError
- */
-const de_DeleteItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConditionalCheckFailedException":
-    case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
-      throw await de_ConditionalCheckFailedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ItemCollectionSizeLimitExceededException":
-    case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
-      throw await de_ItemCollectionSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TransactionConflictException":
-    case "com.amazonaws.dynamodb#TransactionConflictException":
-      throw await de_TransactionConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteTableCommand
  */
 export const de_DeleteTableCommand = async (
@@ -1527,7 +1217,7 @@ export const de_DeleteTableCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1540,44 +1230,6 @@ export const de_DeleteTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteTableCommandError
- */
-const de_DeleteTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.dynamodb#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeBackupCommand
  */
 export const de_DescribeBackupCommand = async (
@@ -1585,7 +1237,7 @@ export const de_DescribeBackupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBackupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeBackupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1598,38 +1250,6 @@ export const de_DescribeBackupCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeBackupCommandError
- */
-const de_DescribeBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BackupNotFoundException":
-    case "com.amazonaws.dynamodb#BackupNotFoundException":
-      throw await de_BackupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeContinuousBackupsCommand
  */
 export const de_DescribeContinuousBackupsCommand = async (
@@ -1637,7 +1257,7 @@ export const de_DescribeContinuousBackupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeContinuousBackupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeContinuousBackupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1650,38 +1270,6 @@ export const de_DescribeContinuousBackupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeContinuousBackupsCommandError
- */
-const de_DescribeContinuousBackupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeContinuousBackupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "TableNotFoundException":
-    case "com.amazonaws.dynamodb#TableNotFoundException":
-      throw await de_TableNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeContributorInsightsCommand
  */
 export const de_DescribeContributorInsightsCommand = async (
@@ -1689,7 +1277,7 @@ export const de_DescribeContributorInsightsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeContributorInsightsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeContributorInsightsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1702,35 +1290,6 @@ export const de_DescribeContributorInsightsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeContributorInsightsCommandError
- */
-const de_DescribeContributorInsightsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeContributorInsightsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeEndpointsCommand
  */
 export const de_DescribeEndpointsCommand = async (
@@ -1738,7 +1297,7 @@ export const de_DescribeEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1751,26 +1310,6 @@ export const de_DescribeEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeEndpointsCommandError
- */
-const de_DescribeEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_0DescribeExportCommand
  */
 export const de_DescribeExportCommand = async (
@@ -1778,7 +1317,7 @@ export const de_DescribeExportCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeExportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1791,38 +1330,6 @@ export const de_DescribeExportCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeExportCommandError
- */
-const de_DescribeExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExportNotFoundException":
-    case "com.amazonaws.dynamodb#ExportNotFoundException":
-      throw await de_ExportNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeGlobalTableCommand
  */
 export const de_DescribeGlobalTableCommand = async (
@@ -1830,7 +1337,7 @@ export const de_DescribeGlobalTableCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGlobalTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeGlobalTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1843,38 +1350,6 @@ export const de_DescribeGlobalTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeGlobalTableCommandError
- */
-const de_DescribeGlobalTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGlobalTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalTableNotFoundException":
-    case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
-      throw await de_GlobalTableNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeGlobalTableSettingsCommand
  */
 export const de_DescribeGlobalTableSettingsCommand = async (
@@ -1882,7 +1357,7 @@ export const de_DescribeGlobalTableSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGlobalTableSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeGlobalTableSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1895,38 +1370,6 @@ export const de_DescribeGlobalTableSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeGlobalTableSettingsCommandError
- */
-const de_DescribeGlobalTableSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGlobalTableSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalTableNotFoundException":
-    case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
-      throw await de_GlobalTableNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeImportCommand
  */
 export const de_DescribeImportCommand = async (
@@ -1934,7 +1377,7 @@ export const de_DescribeImportCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1947,32 +1390,6 @@ export const de_DescribeImportCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeImportCommandError
- */
-const de_DescribeImportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ImportNotFoundException":
-    case "com.amazonaws.dynamodb#ImportNotFoundException":
-      throw await de_ImportNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeKinesisStreamingDestinationCommand
  */
 export const de_DescribeKinesisStreamingDestinationCommand = async (
@@ -1980,7 +1397,7 @@ export const de_DescribeKinesisStreamingDestinationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeKinesisStreamingDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeKinesisStreamingDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1993,38 +1410,6 @@ export const de_DescribeKinesisStreamingDestinationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeKinesisStreamingDestinationCommandError
- */
-const de_DescribeKinesisStreamingDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeKinesisStreamingDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeLimitsCommand
  */
 export const de_DescribeLimitsCommand = async (
@@ -2032,7 +1417,7 @@ export const de_DescribeLimitsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2045,35 +1430,6 @@ export const de_DescribeLimitsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeLimitsCommandError
- */
-const de_DescribeLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeTableCommand
  */
 export const de_DescribeTableCommand = async (
@@ -2081,7 +1437,7 @@ export const de_DescribeTableCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2094,38 +1450,6 @@ export const de_DescribeTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeTableCommandError
- */
-const de_DescribeTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand
  */
 export const de_DescribeTableReplicaAutoScalingCommand = async (
@@ -2133,7 +1457,7 @@ export const de_DescribeTableReplicaAutoScalingCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTableReplicaAutoScalingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTableReplicaAutoScalingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2146,35 +1470,6 @@ export const de_DescribeTableReplicaAutoScalingCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeTableReplicaAutoScalingCommandError
- */
-const de_DescribeTableReplicaAutoScalingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTableReplicaAutoScalingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeTimeToLiveCommand
  */
 export const de_DescribeTimeToLiveCommand = async (
@@ -2182,7 +1477,7 @@ export const de_DescribeTimeToLiveCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTimeToLiveCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTimeToLiveCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2195,38 +1490,6 @@ export const de_DescribeTimeToLiveCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeTimeToLiveCommandError
- */
-const de_DescribeTimeToLiveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTimeToLiveCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DisableKinesisStreamingDestinationCommand
  */
 export const de_DisableKinesisStreamingDestinationCommand = async (
@@ -2234,7 +1497,7 @@ export const de_DisableKinesisStreamingDestinationCommand = async (
   context: __SerdeContext
 ): Promise<DisableKinesisStreamingDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableKinesisStreamingDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2247,44 +1510,6 @@ export const de_DisableKinesisStreamingDestinationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DisableKinesisStreamingDestinationCommandError
- */
-const de_DisableKinesisStreamingDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableKinesisStreamingDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.dynamodb#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0EnableKinesisStreamingDestinationCommand
  */
 export const de_EnableKinesisStreamingDestinationCommand = async (
@@ -2292,7 +1517,7 @@ export const de_EnableKinesisStreamingDestinationCommand = async (
   context: __SerdeContext
 ): Promise<EnableKinesisStreamingDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableKinesisStreamingDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2305,44 +1530,6 @@ export const de_EnableKinesisStreamingDestinationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0EnableKinesisStreamingDestinationCommandError
- */
-const de_EnableKinesisStreamingDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableKinesisStreamingDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.dynamodb#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ExecuteStatementCommand
  */
 export const de_ExecuteStatementCommand = async (
@@ -2350,7 +1537,7 @@ export const de_ExecuteStatementCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExecuteStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2363,53 +1550,6 @@ export const de_ExecuteStatementCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ExecuteStatementCommandError
- */
-const de_ExecuteStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConditionalCheckFailedException":
-    case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
-      throw await de_ConditionalCheckFailedExceptionRes(parsedOutput, context);
-    case "DuplicateItemException":
-    case "com.amazonaws.dynamodb#DuplicateItemException":
-      throw await de_DuplicateItemExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ItemCollectionSizeLimitExceededException":
-    case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
-      throw await de_ItemCollectionSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TransactionConflictException":
-    case "com.amazonaws.dynamodb#TransactionConflictException":
-      throw await de_TransactionConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ExecuteTransactionCommand
  */
 export const de_ExecuteTransactionCommand = async (
@@ -2417,7 +1557,7 @@ export const de_ExecuteTransactionCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteTransactionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExecuteTransactionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2430,50 +1570,6 @@ export const de_ExecuteTransactionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ExecuteTransactionCommandError
- */
-const de_ExecuteTransactionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteTransactionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.dynamodb#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TransactionCanceledException":
-    case "com.amazonaws.dynamodb#TransactionCanceledException":
-      throw await de_TransactionCanceledExceptionRes(parsedOutput, context);
-    case "TransactionInProgressException":
-    case "com.amazonaws.dynamodb#TransactionInProgressException":
-      throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ExportTableToPointInTimeCommand
  */
 export const de_ExportTableToPointInTimeCommand = async (
@@ -2481,7 +1577,7 @@ export const de_ExportTableToPointInTimeCommand = async (
   context: __SerdeContext
 ): Promise<ExportTableToPointInTimeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportTableToPointInTimeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2494,47 +1590,6 @@ export const de_ExportTableToPointInTimeCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ExportTableToPointInTimeCommandError
- */
-const de_ExportTableToPointInTimeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportTableToPointInTimeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ExportConflictException":
-    case "com.amazonaws.dynamodb#ExportConflictException":
-      throw await de_ExportConflictExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidExportTimeException":
-    case "com.amazonaws.dynamodb#InvalidExportTimeException":
-      throw await de_InvalidExportTimeExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PointInTimeRecoveryUnavailableException":
-    case "com.amazonaws.dynamodb#PointInTimeRecoveryUnavailableException":
-      throw await de_PointInTimeRecoveryUnavailableExceptionRes(parsedOutput, context);
-    case "TableNotFoundException":
-    case "com.amazonaws.dynamodb#TableNotFoundException":
-      throw await de_TableNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetItemCommand
  */
 export const de_GetItemCommand = async (
@@ -2542,7 +1597,7 @@ export const de_GetItemCommand = async (
   context: __SerdeContext
 ): Promise<GetItemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetItemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2555,44 +1610,6 @@ export const de_GetItemCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetItemCommandError
- */
-const de_GetItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ImportTableCommand
  */
 export const de_ImportTableCommand = async (
@@ -2600,7 +1617,7 @@ export const de_ImportTableCommand = async (
   context: __SerdeContext
 ): Promise<ImportTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2613,38 +1630,6 @@ export const de_ImportTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ImportTableCommandError
- */
-const de_ImportTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ImportConflictException":
-    case "com.amazonaws.dynamodb#ImportConflictException":
-      throw await de_ImportConflictExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.dynamodb#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListBackupsCommand
  */
 export const de_ListBackupsCommand = async (
@@ -2652,7 +1637,7 @@ export const de_ListBackupsCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBackupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2665,35 +1650,6 @@ export const de_ListBackupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListBackupsCommandError
- */
-const de_ListBackupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBackupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListContributorInsightsCommand
  */
 export const de_ListContributorInsightsCommand = async (
@@ -2701,7 +1657,7 @@ export const de_ListContributorInsightsCommand = async (
   context: __SerdeContext
 ): Promise<ListContributorInsightsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListContributorInsightsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2714,35 +1670,6 @@ export const de_ListContributorInsightsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListContributorInsightsCommandError
- */
-const de_ListContributorInsightsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContributorInsightsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListExportsCommand
  */
 export const de_ListExportsCommand = async (
@@ -2750,7 +1677,7 @@ export const de_ListExportsCommand = async (
   context: __SerdeContext
 ): Promise<ListExportsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListExportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2763,35 +1690,6 @@ export const de_ListExportsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListExportsCommandError
- */
-const de_ListExportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListGlobalTablesCommand
  */
 export const de_ListGlobalTablesCommand = async (
@@ -2799,7 +1697,7 @@ export const de_ListGlobalTablesCommand = async (
   context: __SerdeContext
 ): Promise<ListGlobalTablesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGlobalTablesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2812,35 +1710,6 @@ export const de_ListGlobalTablesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListGlobalTablesCommandError
- */
-const de_ListGlobalTablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGlobalTablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListImportsCommand
  */
 export const de_ListImportsCommand = async (
@@ -2848,7 +1717,7 @@ export const de_ListImportsCommand = async (
   context: __SerdeContext
 ): Promise<ListImportsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListImportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2861,32 +1730,6 @@ export const de_ListImportsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListImportsCommandError
- */
-const de_ListImportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListImportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListTablesCommand
  */
 export const de_ListTablesCommand = async (
@@ -2894,7 +1737,7 @@ export const de_ListTablesCommand = async (
   context: __SerdeContext
 ): Promise<ListTablesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTablesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2907,35 +1750,6 @@ export const de_ListTablesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListTablesCommandError
- */
-const de_ListTablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListTagsOfResourceCommand
  */
 export const de_ListTagsOfResourceCommand = async (
@@ -2943,7 +1757,7 @@ export const de_ListTagsOfResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsOfResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsOfResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2956,38 +1770,6 @@ export const de_ListTagsOfResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListTagsOfResourceCommandError
- */
-const de_ListTagsOfResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsOfResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PutItemCommand
  */
 export const de_PutItemCommand = async (
@@ -2995,7 +1777,7 @@ export const de_PutItemCommand = async (
   context: __SerdeContext
 ): Promise<PutItemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutItemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3008,58 +1790,11 @@ export const de_PutItemCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PutItemCommandError
- */
-const de_PutItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConditionalCheckFailedException":
-    case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
-      throw await de_ConditionalCheckFailedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ItemCollectionSizeLimitExceededException":
-    case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
-      throw await de_ItemCollectionSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TransactionConflictException":
-    case "com.amazonaws.dynamodb#TransactionConflictException":
-      throw await de_TransactionConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0QueryCommand
  */
 export const de_QueryCommand = async (output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_QueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3072,41 +1807,6 @@ export const de_QueryCommand = async (output: __HttpResponse, context: __SerdeCo
 };
 
 /**
- * deserializeAws_json1_0QueryCommandError
- */
-const de_QueryCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0RestoreTableFromBackupCommand
  */
 export const de_RestoreTableFromBackupCommand = async (
@@ -3114,7 +1814,7 @@ export const de_RestoreTableFromBackupCommand = async (
   context: __SerdeContext
 ): Promise<RestoreTableFromBackupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreTableFromBackupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3127,50 +1827,6 @@ export const de_RestoreTableFromBackupCommand = async (
 };
 
 /**
- * deserializeAws_json1_0RestoreTableFromBackupCommandError
- */
-const de_RestoreTableFromBackupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreTableFromBackupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BackupInUseException":
-    case "com.amazonaws.dynamodb#BackupInUseException":
-      throw await de_BackupInUseExceptionRes(parsedOutput, context);
-    case "BackupNotFoundException":
-    case "com.amazonaws.dynamodb#BackupNotFoundException":
-      throw await de_BackupNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TableAlreadyExistsException":
-    case "com.amazonaws.dynamodb#TableAlreadyExistsException":
-      throw await de_TableAlreadyExistsExceptionRes(parsedOutput, context);
-    case "TableInUseException":
-    case "com.amazonaws.dynamodb#TableInUseException":
-      throw await de_TableInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0RestoreTableToPointInTimeCommand
  */
 export const de_RestoreTableToPointInTimeCommand = async (
@@ -3178,7 +1834,7 @@ export const de_RestoreTableToPointInTimeCommand = async (
   context: __SerdeContext
 ): Promise<RestoreTableToPointInTimeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreTableToPointInTimeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3191,58 +1847,11 @@ export const de_RestoreTableToPointInTimeCommand = async (
 };
 
 /**
- * deserializeAws_json1_0RestoreTableToPointInTimeCommandError
- */
-const de_RestoreTableToPointInTimeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreTableToPointInTimeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "InvalidRestoreTimeException":
-    case "com.amazonaws.dynamodb#InvalidRestoreTimeException":
-      throw await de_InvalidRestoreTimeExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "PointInTimeRecoveryUnavailableException":
-    case "com.amazonaws.dynamodb#PointInTimeRecoveryUnavailableException":
-      throw await de_PointInTimeRecoveryUnavailableExceptionRes(parsedOutput, context);
-    case "TableAlreadyExistsException":
-    case "com.amazonaws.dynamodb#TableAlreadyExistsException":
-      throw await de_TableAlreadyExistsExceptionRes(parsedOutput, context);
-    case "TableInUseException":
-    case "com.amazonaws.dynamodb#TableInUseException":
-      throw await de_TableInUseExceptionRes(parsedOutput, context);
-    case "TableNotFoundException":
-    case "com.amazonaws.dynamodb#TableNotFoundException":
-      throw await de_TableNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ScanCommand
  */
 export const de_ScanCommand = async (output: __HttpResponse, context: __SerdeContext): Promise<ScanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ScanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3255,41 +1864,6 @@ export const de_ScanCommand = async (output: __HttpResponse, context: __SerdeCon
 };
 
 /**
- * deserializeAws_json1_0ScanCommandError
- */
-const de_ScanCommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<ScanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -3297,51 +1871,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.dynamodb#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3352,7 +1888,7 @@ export const de_TransactGetItemsCommand = async (
   context: __SerdeContext
 ): Promise<TransactGetItemsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TransactGetItemsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3365,47 +1901,6 @@ export const de_TransactGetItemsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0TransactGetItemsCommandError
- */
-const de_TransactGetItemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TransactGetItemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TransactionCanceledException":
-    case "com.amazonaws.dynamodb#TransactionCanceledException":
-      throw await de_TransactionCanceledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0TransactWriteItemsCommand
  */
 export const de_TransactWriteItemsCommand = async (
@@ -3413,7 +1908,7 @@ export const de_TransactWriteItemsCommand = async (
   context: __SerdeContext
 ): Promise<TransactWriteItemsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TransactWriteItemsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3426,53 +1921,6 @@ export const de_TransactWriteItemsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0TransactWriteItemsCommandError
- */
-const de_TransactWriteItemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TransactWriteItemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.dynamodb#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TransactionCanceledException":
-    case "com.amazonaws.dynamodb#TransactionCanceledException":
-      throw await de_TransactionCanceledExceptionRes(parsedOutput, context);
-    case "TransactionInProgressException":
-    case "com.amazonaws.dynamodb#TransactionInProgressException":
-      throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -3480,51 +1928,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.dynamodb#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3535,7 +1945,7 @@ export const de_UpdateContinuousBackupsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateContinuousBackupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateContinuousBackupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3548,41 +1958,6 @@ export const de_UpdateContinuousBackupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateContinuousBackupsCommandError
- */
-const de_UpdateContinuousBackupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContinuousBackupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContinuousBackupsUnavailableException":
-    case "com.amazonaws.dynamodb#ContinuousBackupsUnavailableException":
-      throw await de_ContinuousBackupsUnavailableExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "TableNotFoundException":
-    case "com.amazonaws.dynamodb#TableNotFoundException":
-      throw await de_TableNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateContributorInsightsCommand
  */
 export const de_UpdateContributorInsightsCommand = async (
@@ -3590,7 +1965,7 @@ export const de_UpdateContributorInsightsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateContributorInsightsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateContributorInsightsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3603,35 +1978,6 @@ export const de_UpdateContributorInsightsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateContributorInsightsCommandError
- */
-const de_UpdateContributorInsightsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContributorInsightsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateGlobalTableCommand
  */
 export const de_UpdateGlobalTableCommand = async (
@@ -3639,7 +1985,7 @@ export const de_UpdateGlobalTableCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGlobalTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGlobalTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3652,47 +1998,6 @@ export const de_UpdateGlobalTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateGlobalTableCommandError
- */
-const de_UpdateGlobalTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGlobalTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalTableNotFoundException":
-    case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
-      throw await de_GlobalTableNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ReplicaAlreadyExistsException":
-    case "com.amazonaws.dynamodb#ReplicaAlreadyExistsException":
-      throw await de_ReplicaAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ReplicaNotFoundException":
-    case "com.amazonaws.dynamodb#ReplicaNotFoundException":
-      throw await de_ReplicaNotFoundExceptionRes(parsedOutput, context);
-    case "TableNotFoundException":
-    case "com.amazonaws.dynamodb#TableNotFoundException":
-      throw await de_TableNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateGlobalTableSettingsCommand
  */
 export const de_UpdateGlobalTableSettingsCommand = async (
@@ -3700,7 +2005,7 @@ export const de_UpdateGlobalTableSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGlobalTableSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGlobalTableSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3713,50 +2018,6 @@ export const de_UpdateGlobalTableSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateGlobalTableSettingsCommandError
- */
-const de_UpdateGlobalTableSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGlobalTableSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "GlobalTableNotFoundException":
-    case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
-      throw await de_GlobalTableNotFoundExceptionRes(parsedOutput, context);
-    case "IndexNotFoundException":
-    case "com.amazonaws.dynamodb#IndexNotFoundException":
-      throw await de_IndexNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ReplicaNotFoundException":
-    case "com.amazonaws.dynamodb#ReplicaNotFoundException":
-      throw await de_ReplicaNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.dynamodb#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateItemCommand
  */
 export const de_UpdateItemCommand = async (
@@ -3764,7 +2025,7 @@ export const de_UpdateItemCommand = async (
   context: __SerdeContext
 ): Promise<UpdateItemCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateItemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3777,53 +2038,6 @@ export const de_UpdateItemCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateItemCommandError
- */
-const de_UpdateItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConditionalCheckFailedException":
-    case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
-      throw await de_ConditionalCheckFailedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "ItemCollectionSizeLimitExceededException":
-    case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
-      throw await de_ItemCollectionSizeLimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "RequestLimitExceeded":
-    case "com.amazonaws.dynamodb#RequestLimitExceeded":
-      throw await de_RequestLimitExceededRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TransactionConflictException":
-    case "com.amazonaws.dynamodb#TransactionConflictException":
-      throw await de_TransactionConflictExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateKinesisStreamingDestinationCommand
  */
 export const de_UpdateKinesisStreamingDestinationCommand = async (
@@ -3831,7 +2045,7 @@ export const de_UpdateKinesisStreamingDestinationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateKinesisStreamingDestinationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateKinesisStreamingDestinationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3844,44 +2058,6 @@ export const de_UpdateKinesisStreamingDestinationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateKinesisStreamingDestinationCommandError
- */
-const de_UpdateKinesisStreamingDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateKinesisStreamingDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.dynamodb#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateTableCommand
  */
 export const de_UpdateTableCommand = async (
@@ -3889,7 +2065,7 @@ export const de_UpdateTableCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTableCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTableCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3902,44 +2078,6 @@ export const de_UpdateTableCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateTableCommandError
- */
-const de_UpdateTableCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTableCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidEndpointException":
-    case "com.amazonaws.dynamodb#InvalidEndpointException":
-      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.dynamodb#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand
  */
 export const de_UpdateTableReplicaAutoScalingCommand = async (
@@ -3947,7 +2085,7 @@ export const de_UpdateTableReplicaAutoScalingCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTableReplicaAutoScalingCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTableReplicaAutoScalingCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3960,41 +2098,6 @@ export const de_UpdateTableReplicaAutoScalingCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateTableReplicaAutoScalingCommandError
- */
-const de_UpdateTableReplicaAutoScalingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTableReplicaAutoScalingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.dynamodb#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.dynamodb#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.dynamodb#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateTimeToLiveCommand
  */
 export const de_UpdateTimeToLiveCommand = async (
@@ -4002,7 +2105,7 @@ export const de_UpdateTimeToLiveCommand = async (
   context: __SerdeContext
 ): Promise<UpdateTimeToLiveCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateTimeToLiveCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4015,12 +2118,9 @@ export const de_UpdateTimeToLiveCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateTimeToLiveCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_UpdateTimeToLiveCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTimeToLiveCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4030,25 +2130,106 @@ const de_UpdateTimeToLiveCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.dynamodb#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "RequestLimitExceeded":
+    case "com.amazonaws.dynamodb#RequestLimitExceeded":
+      throw await de_RequestLimitExceededRes(parsedOutput, context);
     case "InvalidEndpointException":
     case "com.amazonaws.dynamodb#InvalidEndpointException":
       throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.dynamodb#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.dynamodb#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.dynamodb#ProvisionedThroughputExceededException":
+      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.dynamodb#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ItemCollectionSizeLimitExceededException":
+    case "com.amazonaws.dynamodb#ItemCollectionSizeLimitExceededException":
+      throw await de_ItemCollectionSizeLimitExceededExceptionRes(parsedOutput, context);
+    case "BackupInUseException":
+    case "com.amazonaws.dynamodb#BackupInUseException":
+      throw await de_BackupInUseExceptionRes(parsedOutput, context);
+    case "ContinuousBackupsUnavailableException":
+    case "com.amazonaws.dynamodb#ContinuousBackupsUnavailableException":
+      throw await de_ContinuousBackupsUnavailableExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "TableInUseException":
+    case "com.amazonaws.dynamodb#TableInUseException":
+      throw await de_TableInUseExceptionRes(parsedOutput, context);
+    case "TableNotFoundException":
+    case "com.amazonaws.dynamodb#TableNotFoundException":
+      throw await de_TableNotFoundExceptionRes(parsedOutput, context);
+    case "GlobalTableAlreadyExistsException":
+    case "com.amazonaws.dynamodb#GlobalTableAlreadyExistsException":
+      throw await de_GlobalTableAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "BackupNotFoundException":
+    case "com.amazonaws.dynamodb#BackupNotFoundException":
+      throw await de_BackupNotFoundExceptionRes(parsedOutput, context);
+    case "ConditionalCheckFailedException":
+    case "com.amazonaws.dynamodb#ConditionalCheckFailedException":
+      throw await de_ConditionalCheckFailedExceptionRes(parsedOutput, context);
+    case "TransactionConflictException":
+    case "com.amazonaws.dynamodb#TransactionConflictException":
+      throw await de_TransactionConflictExceptionRes(parsedOutput, context);
+    case "ExportNotFoundException":
+    case "com.amazonaws.dynamodb#ExportNotFoundException":
+      throw await de_ExportNotFoundExceptionRes(parsedOutput, context);
+    case "GlobalTableNotFoundException":
+    case "com.amazonaws.dynamodb#GlobalTableNotFoundException":
+      throw await de_GlobalTableNotFoundExceptionRes(parsedOutput, context);
+    case "ImportNotFoundException":
+    case "com.amazonaws.dynamodb#ImportNotFoundException":
+      throw await de_ImportNotFoundExceptionRes(parsedOutput, context);
+    case "DuplicateItemException":
+    case "com.amazonaws.dynamodb#DuplicateItemException":
+      throw await de_DuplicateItemExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.dynamodb#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "TransactionCanceledException":
+    case "com.amazonaws.dynamodb#TransactionCanceledException":
+      throw await de_TransactionCanceledExceptionRes(parsedOutput, context);
+    case "TransactionInProgressException":
+    case "com.amazonaws.dynamodb#TransactionInProgressException":
+      throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
+    case "ExportConflictException":
+    case "com.amazonaws.dynamodb#ExportConflictException":
+      throw await de_ExportConflictExceptionRes(parsedOutput, context);
+    case "InvalidExportTimeException":
+    case "com.amazonaws.dynamodb#InvalidExportTimeException":
+      throw await de_InvalidExportTimeExceptionRes(parsedOutput, context);
+    case "PointInTimeRecoveryUnavailableException":
+    case "com.amazonaws.dynamodb#PointInTimeRecoveryUnavailableException":
+      throw await de_PointInTimeRecoveryUnavailableExceptionRes(parsedOutput, context);
+    case "ImportConflictException":
+    case "com.amazonaws.dynamodb#ImportConflictException":
+      throw await de_ImportConflictExceptionRes(parsedOutput, context);
+    case "TableAlreadyExistsException":
+    case "com.amazonaws.dynamodb#TableAlreadyExistsException":
+      throw await de_TableAlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidRestoreTimeException":
+    case "com.amazonaws.dynamodb#InvalidRestoreTimeException":
+      throw await de_InvalidRestoreTimeExceptionRes(parsedOutput, context);
+    case "ReplicaAlreadyExistsException":
+    case "com.amazonaws.dynamodb#ReplicaAlreadyExistsException":
+      throw await de_ReplicaAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ReplicaNotFoundException":
+    case "com.amazonaws.dynamodb#ReplicaNotFoundException":
+      throw await de_ReplicaNotFoundExceptionRes(parsedOutput, context);
+    case "IndexNotFoundException":
+    case "com.amazonaws.dynamodb#IndexNotFoundException":
+      throw await de_IndexNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

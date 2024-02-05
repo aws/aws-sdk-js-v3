@@ -998,7 +998,7 @@ export const de_ConvertRecoveryPointToSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<ConvertRecoveryPointToSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ConvertRecoveryPointToSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1011,47 +1011,6 @@ export const de_ConvertRecoveryPointToSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ConvertRecoveryPointToSnapshotCommandError
- */
-const de_ConvertRecoveryPointToSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ConvertRecoveryPointToSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.redshiftserverless#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateCustomDomainAssociationCommand
  */
 export const de_CreateCustomDomainAssociationCommand = async (
@@ -1059,7 +1018,7 @@ export const de_CreateCustomDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<CreateCustomDomainAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCustomDomainAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1072,47 +1031,6 @@ export const de_CreateCustomDomainAssociationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCustomDomainAssociationCommandError
- */
-const de_CreateCustomDomainAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCustomDomainAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.redshiftserverless#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.redshiftserverless#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateEndpointAccessCommand
  */
 export const de_CreateEndpointAccessCommand = async (
@@ -1120,7 +1038,7 @@ export const de_CreateEndpointAccessCommand = async (
   context: __SerdeContext
 ): Promise<CreateEndpointAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEndpointAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1133,47 +1051,6 @@ export const de_CreateEndpointAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateEndpointAccessCommandError
- */
-const de_CreateEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.redshiftserverless#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateNamespaceCommand
  */
 export const de_CreateNamespaceCommand = async (
@@ -1181,7 +1058,7 @@ export const de_CreateNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<CreateNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1194,41 +1071,6 @@ export const de_CreateNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateNamespaceCommandError
- */
-const de_CreateNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.redshiftserverless#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateScheduledActionCommand
  */
 export const de_CreateScheduledActionCommand = async (
@@ -1236,7 +1078,7 @@ export const de_CreateScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<CreateScheduledActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateScheduledActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1249,41 +1091,6 @@ export const de_CreateScheduledActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateScheduledActionCommandError
- */
-const de_CreateScheduledActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateScheduledActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSnapshotCommand
  */
 export const de_CreateSnapshotCommand = async (
@@ -1291,7 +1098,7 @@ export const de_CreateSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1304,47 +1111,6 @@ export const de_CreateSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSnapshotCommandError
- */
-const de_CreateSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.redshiftserverless#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSnapshotCopyConfigurationCommand
  */
 export const de_CreateSnapshotCopyConfigurationCommand = async (
@@ -1352,7 +1118,7 @@ export const de_CreateSnapshotCopyConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<CreateSnapshotCopyConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSnapshotCopyConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1365,47 +1131,6 @@ export const de_CreateSnapshotCopyConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSnapshotCopyConfigurationCommandError
- */
-const de_CreateSnapshotCopyConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSnapshotCopyConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.redshiftserverless#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUsageLimitCommand
  */
 export const de_CreateUsageLimitCommand = async (
@@ -1413,7 +1138,7 @@ export const de_CreateUsageLimitCommand = async (
   context: __SerdeContext
 ): Promise<CreateUsageLimitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUsageLimitCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1426,44 +1151,6 @@ export const de_CreateUsageLimitCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUsageLimitCommandError
- */
-const de_CreateUsageLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUsageLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWorkgroupCommand
  */
 export const de_CreateWorkgroupCommand = async (
@@ -1471,7 +1158,7 @@ export const de_CreateWorkgroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorkgroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWorkgroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1484,47 +1171,6 @@ export const de_CreateWorkgroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWorkgroupCommandError
- */
-const de_CreateWorkgroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorkgroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InsufficientCapacityException":
-    case "com.amazonaws.redshiftserverless#InsufficientCapacityException":
-      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.redshiftserverless#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCustomDomainAssociationCommand
  */
 export const de_DeleteCustomDomainAssociationCommand = async (
@@ -1532,7 +1178,7 @@ export const de_DeleteCustomDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCustomDomainAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCustomDomainAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1545,47 +1191,6 @@ export const de_DeleteCustomDomainAssociationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteCustomDomainAssociationCommandError
- */
-const de_DeleteCustomDomainAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCustomDomainAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.redshiftserverless#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.redshiftserverless#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteEndpointAccessCommand
  */
 export const de_DeleteEndpointAccessCommand = async (
@@ -1593,7 +1198,7 @@ export const de_DeleteEndpointAccessCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEndpointAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEndpointAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1606,41 +1211,6 @@ export const de_DeleteEndpointAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteEndpointAccessCommandError
- */
-const de_DeleteEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteNamespaceCommand
  */
 export const de_DeleteNamespaceCommand = async (
@@ -1648,7 +1218,7 @@ export const de_DeleteNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1661,41 +1231,6 @@ export const de_DeleteNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteNamespaceCommandError
- */
-const de_DeleteNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteResourcePolicyCommand
  */
 export const de_DeleteResourcePolicyCommand = async (
@@ -1703,7 +1238,7 @@ export const de_DeleteResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1716,38 +1251,6 @@ export const de_DeleteResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteResourcePolicyCommandError
- */
-const de_DeleteResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteScheduledActionCommand
  */
 export const de_DeleteScheduledActionCommand = async (
@@ -1755,7 +1258,7 @@ export const de_DeleteScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteScheduledActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteScheduledActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1768,38 +1271,6 @@ export const de_DeleteScheduledActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteScheduledActionCommandError
- */
-const de_DeleteScheduledActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteScheduledActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSnapshotCommand
  */
 export const de_DeleteSnapshotCommand = async (
@@ -1807,7 +1278,7 @@ export const de_DeleteSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1820,41 +1291,6 @@ export const de_DeleteSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSnapshotCommandError
- */
-const de_DeleteSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteSnapshotCopyConfigurationCommand
  */
 export const de_DeleteSnapshotCopyConfigurationCommand = async (
@@ -1862,7 +1298,7 @@ export const de_DeleteSnapshotCopyConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSnapshotCopyConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSnapshotCopyConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1875,44 +1311,6 @@ export const de_DeleteSnapshotCopyConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteSnapshotCopyConfigurationCommandError
- */
-const de_DeleteSnapshotCopyConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSnapshotCopyConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.redshiftserverless#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteUsageLimitCommand
  */
 export const de_DeleteUsageLimitCommand = async (
@@ -1920,7 +1318,7 @@ export const de_DeleteUsageLimitCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUsageLimitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUsageLimitCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1933,41 +1331,6 @@ export const de_DeleteUsageLimitCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteUsageLimitCommandError
- */
-const de_DeleteUsageLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUsageLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteWorkgroupCommand
  */
 export const de_DeleteWorkgroupCommand = async (
@@ -1975,7 +1338,7 @@ export const de_DeleteWorkgroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorkgroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWorkgroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1988,41 +1351,6 @@ export const de_DeleteWorkgroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteWorkgroupCommandError
- */
-const de_DeleteWorkgroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWorkgroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCredentialsCommand
  */
 export const de_GetCredentialsCommand = async (
@@ -2030,7 +1358,7 @@ export const de_GetCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<GetCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2043,38 +1371,6 @@ export const de_GetCredentialsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCredentialsCommandError
- */
-const de_GetCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCustomDomainAssociationCommand
  */
 export const de_GetCustomDomainAssociationCommand = async (
@@ -2082,7 +1378,7 @@ export const de_GetCustomDomainAssociationCommand = async (
   context: __SerdeContext
 ): Promise<GetCustomDomainAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCustomDomainAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2095,47 +1391,6 @@ export const de_GetCustomDomainAssociationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCustomDomainAssociationCommandError
- */
-const de_GetCustomDomainAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCustomDomainAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.redshiftserverless#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.redshiftserverless#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetEndpointAccessCommand
  */
 export const de_GetEndpointAccessCommand = async (
@@ -2143,7 +1398,7 @@ export const de_GetEndpointAccessCommand = async (
   context: __SerdeContext
 ): Promise<GetEndpointAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetEndpointAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2156,41 +1411,6 @@ export const de_GetEndpointAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetEndpointAccessCommandError
- */
-const de_GetEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetNamespaceCommand
  */
 export const de_GetNamespaceCommand = async (
@@ -2198,7 +1418,7 @@ export const de_GetNamespaceCommand = async (
   context: __SerdeContext
 ): Promise<GetNamespaceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetNamespaceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2211,38 +1431,6 @@ export const de_GetNamespaceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetNamespaceCommandError
- */
-const de_GetNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRecoveryPointCommand
  */
 export const de_GetRecoveryPointCommand = async (
@@ -2250,7 +1438,7 @@ export const de_GetRecoveryPointCommand = async (
   context: __SerdeContext
 ): Promise<GetRecoveryPointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRecoveryPointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2263,41 +1451,6 @@ export const de_GetRecoveryPointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRecoveryPointCommandError
- */
-const de_GetRecoveryPointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecoveryPointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourcePolicyCommand
  */
 export const de_GetResourcePolicyCommand = async (
@@ -2305,7 +1458,7 @@ export const de_GetResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2318,38 +1471,6 @@ export const de_GetResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourcePolicyCommandError
- */
-const de_GetResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetScheduledActionCommand
  */
 export const de_GetScheduledActionCommand = async (
@@ -2357,7 +1478,7 @@ export const de_GetScheduledActionCommand = async (
   context: __SerdeContext
 ): Promise<GetScheduledActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetScheduledActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2370,38 +1491,6 @@ export const de_GetScheduledActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetScheduledActionCommandError
- */
-const de_GetScheduledActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetScheduledActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSnapshotCommand
  */
 export const de_GetSnapshotCommand = async (
@@ -2409,7 +1498,7 @@ export const de_GetSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<GetSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2422,38 +1511,6 @@ export const de_GetSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSnapshotCommandError
- */
-const de_GetSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTableRestoreStatusCommand
  */
 export const de_GetTableRestoreStatusCommand = async (
@@ -2461,7 +1518,7 @@ export const de_GetTableRestoreStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetTableRestoreStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTableRestoreStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2474,35 +1531,6 @@ export const de_GetTableRestoreStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTableRestoreStatusCommandError
- */
-const de_GetTableRestoreStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTableRestoreStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetUsageLimitCommand
  */
 export const de_GetUsageLimitCommand = async (
@@ -2510,7 +1538,7 @@ export const de_GetUsageLimitCommand = async (
   context: __SerdeContext
 ): Promise<GetUsageLimitCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUsageLimitCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2523,41 +1551,6 @@ export const de_GetUsageLimitCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetUsageLimitCommandError
- */
-const de_GetUsageLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUsageLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetWorkgroupCommand
  */
 export const de_GetWorkgroupCommand = async (
@@ -2565,7 +1558,7 @@ export const de_GetWorkgroupCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkgroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetWorkgroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2578,38 +1571,6 @@ export const de_GetWorkgroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetWorkgroupCommandError
- */
-const de_GetWorkgroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkgroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCustomDomainAssociationsCommand
  */
 export const de_ListCustomDomainAssociationsCommand = async (
@@ -2617,7 +1578,7 @@ export const de_ListCustomDomainAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListCustomDomainAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCustomDomainAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2630,44 +1591,6 @@ export const de_ListCustomDomainAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCustomDomainAssociationsCommandError
- */
-const de_ListCustomDomainAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCustomDomainAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.redshiftserverless#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidPaginationException":
-    case "com.amazonaws.redshiftserverless#InvalidPaginationException":
-      throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.redshiftserverless#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListEndpointAccessCommand
  */
 export const de_ListEndpointAccessCommand = async (
@@ -2675,7 +1598,7 @@ export const de_ListEndpointAccessCommand = async (
   context: __SerdeContext
 ): Promise<ListEndpointAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEndpointAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2688,41 +1611,6 @@ export const de_ListEndpointAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEndpointAccessCommandError
- */
-const de_ListEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListNamespacesCommand
  */
 export const de_ListNamespacesCommand = async (
@@ -2730,7 +1618,7 @@ export const de_ListNamespacesCommand = async (
   context: __SerdeContext
 ): Promise<ListNamespacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListNamespacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2743,35 +1631,6 @@ export const de_ListNamespacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListNamespacesCommandError
- */
-const de_ListNamespacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNamespacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRecoveryPointsCommand
  */
 export const de_ListRecoveryPointsCommand = async (
@@ -2779,7 +1638,7 @@ export const de_ListRecoveryPointsCommand = async (
   context: __SerdeContext
 ): Promise<ListRecoveryPointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRecoveryPointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2792,35 +1651,6 @@ export const de_ListRecoveryPointsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRecoveryPointsCommandError
- */
-const de_ListRecoveryPointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecoveryPointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListScheduledActionsCommand
  */
 export const de_ListScheduledActionsCommand = async (
@@ -2828,7 +1658,7 @@ export const de_ListScheduledActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListScheduledActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListScheduledActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2841,41 +1671,6 @@ export const de_ListScheduledActionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListScheduledActionsCommandError
- */
-const de_ListScheduledActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListScheduledActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidPaginationException":
-    case "com.amazonaws.redshiftserverless#InvalidPaginationException":
-      throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSnapshotCopyConfigurationsCommand
  */
 export const de_ListSnapshotCopyConfigurationsCommand = async (
@@ -2883,7 +1678,7 @@ export const de_ListSnapshotCopyConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListSnapshotCopyConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSnapshotCopyConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2896,44 +1691,6 @@ export const de_ListSnapshotCopyConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSnapshotCopyConfigurationsCommandError
- */
-const de_ListSnapshotCopyConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSnapshotCopyConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidPaginationException":
-    case "com.amazonaws.redshiftserverless#InvalidPaginationException":
-      throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSnapshotsCommand
  */
 export const de_ListSnapshotsCommand = async (
@@ -2941,7 +1698,7 @@ export const de_ListSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<ListSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2954,38 +1711,6 @@ export const de_ListSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSnapshotsCommandError
- */
-const de_ListSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTableRestoreStatusCommand
  */
 export const de_ListTableRestoreStatusCommand = async (
@@ -2993,7 +1718,7 @@ export const de_ListTableRestoreStatusCommand = async (
   context: __SerdeContext
 ): Promise<ListTableRestoreStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTableRestoreStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3006,38 +1731,6 @@ export const de_ListTableRestoreStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTableRestoreStatusCommandError
- */
-const de_ListTableRestoreStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTableRestoreStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidPaginationException":
-    case "com.amazonaws.redshiftserverless#InvalidPaginationException":
-      throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3045,7 +1738,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3058,41 +1751,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.redshiftserverless#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListUsageLimitsCommand
  */
 export const de_ListUsageLimitsCommand = async (
@@ -3100,7 +1758,7 @@ export const de_ListUsageLimitsCommand = async (
   context: __SerdeContext
 ): Promise<ListUsageLimitsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUsageLimitsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3113,44 +1771,6 @@ export const de_ListUsageLimitsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListUsageLimitsCommandError
- */
-const de_ListUsageLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUsageLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidPaginationException":
-    case "com.amazonaws.redshiftserverless#InvalidPaginationException":
-      throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListWorkgroupsCommand
  */
 export const de_ListWorkgroupsCommand = async (
@@ -3158,7 +1778,7 @@ export const de_ListWorkgroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkgroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListWorkgroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3171,35 +1791,6 @@ export const de_ListWorkgroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListWorkgroupsCommandError
- */
-const de_ListWorkgroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkgroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutResourcePolicyCommand
  */
 export const de_PutResourcePolicyCommand = async (
@@ -3207,7 +1798,7 @@ export const de_PutResourcePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutResourcePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutResourcePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3220,44 +1811,6 @@ export const de_PutResourcePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutResourcePolicyCommandError
- */
-const de_PutResourcePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourcePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RestoreFromRecoveryPointCommand
  */
 export const de_RestoreFromRecoveryPointCommand = async (
@@ -3265,7 +1818,7 @@ export const de_RestoreFromRecoveryPointCommand = async (
   context: __SerdeContext
 ): Promise<RestoreFromRecoveryPointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreFromRecoveryPointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3278,41 +1831,6 @@ export const de_RestoreFromRecoveryPointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RestoreFromRecoveryPointCommandError
- */
-const de_RestoreFromRecoveryPointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreFromRecoveryPointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RestoreFromSnapshotCommand
  */
 export const de_RestoreFromSnapshotCommand = async (
@@ -3320,7 +1838,7 @@ export const de_RestoreFromSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<RestoreFromSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RestoreFromSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3333,12 +1851,249 @@ export const de_RestoreFromSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RestoreFromSnapshotCommandError
+ * deserializeAws_json1_1RestoreTableFromRecoveryPointCommand
  */
-const de_RestoreFromSnapshotCommandError = async (
+export const de_RestoreTableFromRecoveryPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RestoreFromSnapshotCommandOutput> => {
+): Promise<RestoreTableFromRecoveryPointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreTableFromRecoveryPointResponse(data, context);
+  const response: RestoreTableFromRecoveryPointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RestoreTableFromSnapshotCommand
+ */
+export const de_RestoreTableFromSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreTableFromSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RestoreTableFromSnapshotResponse(data, context);
+  const response: RestoreTableFromSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateCustomDomainAssociationCommand
+ */
+export const de_UpdateCustomDomainAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCustomDomainAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateCustomDomainAssociationResponse(data, context);
+  const response: UpdateCustomDomainAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateEndpointAccessCommand
+ */
+export const de_UpdateEndpointAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEndpointAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateEndpointAccessResponse(data, context);
+  const response: UpdateEndpointAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateNamespaceCommand
+ */
+export const de_UpdateNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateNamespaceResponse(data, context);
+  const response: UpdateNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateScheduledActionCommand
+ */
+export const de_UpdateScheduledActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateScheduledActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateScheduledActionResponse(data, context);
+  const response: UpdateScheduledActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSnapshotCommand
+ */
+export const de_UpdateSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSnapshotCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateSnapshotResponse(data, context);
+  const response: UpdateSnapshotCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSnapshotCopyConfigurationCommand
+ */
+export const de_UpdateSnapshotCopyConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSnapshotCopyConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSnapshotCopyConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateUsageLimitCommand
+ */
+export const de_UpdateUsageLimitCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUsageLimitCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateUsageLimitCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateWorkgroupCommand
+ */
+export const de_UpdateWorkgroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkgroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateWorkgroupResponse(data, context);
+  const response: UpdateWorkgroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3357,694 +2112,31 @@ const de_RestoreFromSnapshotCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.redshiftserverless#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RestoreTableFromRecoveryPointCommand
- */
-export const de_RestoreTableFromRecoveryPointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreTableFromRecoveryPointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreTableFromRecoveryPointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreTableFromRecoveryPointResponse(data, context);
-  const response: RestoreTableFromRecoveryPointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RestoreTableFromRecoveryPointCommandError
- */
-const de_RestoreTableFromRecoveryPointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreTableFromRecoveryPointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RestoreTableFromSnapshotCommand
- */
-export const de_RestoreTableFromSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreTableFromSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RestoreTableFromSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RestoreTableFromSnapshotResponse(data, context);
-  const response: RestoreTableFromSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RestoreTableFromSnapshotCommandError
- */
-const de_RestoreTableFromSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RestoreTableFromSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.redshiftserverless#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.redshiftserverless#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.redshiftserverless#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.redshiftserverless#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.redshiftserverless#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateCustomDomainAssociationCommand
- */
-export const de_UpdateCustomDomainAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCustomDomainAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateCustomDomainAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateCustomDomainAssociationResponse(data, context);
-  const response: UpdateCustomDomainAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateCustomDomainAssociationCommandError
- */
-const de_UpdateCustomDomainAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCustomDomainAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.redshiftserverless#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.redshiftserverless#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateEndpointAccessCommand
- */
-export const de_UpdateEndpointAccessCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEndpointAccessCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateEndpointAccessCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateEndpointAccessResponse(data, context);
-  const response: UpdateEndpointAccessCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateEndpointAccessCommandError
- */
-const de_UpdateEndpointAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEndpointAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.redshiftserverless#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateNamespaceCommand
- */
-export const de_UpdateNamespaceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNamespaceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateNamespaceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateNamespaceResponse(data, context);
-  const response: UpdateNamespaceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateNamespaceCommandError
- */
-const de_UpdateNamespaceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNamespaceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateScheduledActionCommand
- */
-export const de_UpdateScheduledActionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateScheduledActionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateScheduledActionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateScheduledActionResponse(data, context);
-  const response: UpdateScheduledActionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateScheduledActionCommandError
- */
-const de_UpdateScheduledActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateScheduledActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSnapshotCommand
- */
-export const de_UpdateSnapshotCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSnapshotCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSnapshotCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateSnapshotResponse(data, context);
-  const response: UpdateSnapshotCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSnapshotCommandError
- */
-const de_UpdateSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSnapshotCopyConfigurationCommand
- */
-export const de_UpdateSnapshotCopyConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSnapshotCopyConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSnapshotCopyConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateSnapshotCopyConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSnapshotCopyConfigurationCommandError
- */
-const de_UpdateSnapshotCopyConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSnapshotCopyConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.redshiftserverless#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateUsageLimitCommand
- */
-export const de_UpdateUsageLimitCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUsageLimitCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateUsageLimitCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateUsageLimitCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateUsageLimitCommandError
- */
-const de_UpdateUsageLimitCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUsageLimitCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateWorkgroupCommand
- */
-export const de_UpdateWorkgroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkgroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateWorkgroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateWorkgroupResponse(data, context);
-  const response: UpdateWorkgroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateWorkgroupCommandError
- */
-const de_UpdateWorkgroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkgroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.redshiftserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InsufficientCapacityException":
     case "com.amazonaws.redshiftserverless#InsufficientCapacityException":
       throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.redshiftserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.redshiftserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.redshiftserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "InvalidPaginationException":
+    case "com.amazonaws.redshiftserverless#InvalidPaginationException":
+      throw await de_InvalidPaginationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

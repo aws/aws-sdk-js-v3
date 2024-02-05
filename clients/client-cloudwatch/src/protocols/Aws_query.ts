@@ -112,7 +112,6 @@ import {
   ConcurrentModificationException,
   DashboardEntry,
   DashboardInvalidInputError,
-  DashboardNotFoundError,
   DashboardValidationMessage,
   Datapoint,
   DeleteAlarmsInput,
@@ -878,39 +877,13 @@ export const de_DeleteAlarmsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAlarmsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAlarmsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAlarmsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteAlarmsCommandError
- */
-const de_DeleteAlarmsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAlarmsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudwatch#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -921,7 +894,7 @@ export const de_DeleteAnomalyDetectorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAnomalyDetectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAnomalyDetectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -934,44 +907,6 @@ export const de_DeleteAnomalyDetectorCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteAnomalyDetectorCommandError
- */
-const de_DeleteAnomalyDetectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAnomalyDetectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteDashboardsCommand
  */
 export const de_DeleteDashboardsCommand = async (
@@ -979,7 +914,7 @@ export const de_DeleteDashboardsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDashboardsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDashboardsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -992,38 +927,6 @@ export const de_DeleteDashboardsCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteDashboardsCommandError
- */
-const de_DeleteDashboardsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDashboardsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudwatch#DashboardNotFoundError":
-      throw await de_DashboardNotFoundErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteInsightRulesCommand
  */
 export const de_DeleteInsightRulesCommand = async (
@@ -1031,7 +934,7 @@ export const de_DeleteInsightRulesCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInsightRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteInsightRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1044,35 +947,6 @@ export const de_DeleteInsightRulesCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteInsightRulesCommandError
- */
-const de_DeleteInsightRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInsightRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteMetricStreamCommand
  */
 export const de_DeleteMetricStreamCommand = async (
@@ -1080,7 +954,7 @@ export const de_DeleteMetricStreamCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMetricStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMetricStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1093,38 +967,6 @@ export const de_DeleteMetricStreamCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteMetricStreamCommandError
- */
-const de_DeleteMetricStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMetricStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAlarmHistoryCommand
  */
 export const de_DescribeAlarmHistoryCommand = async (
@@ -1132,7 +974,7 @@ export const de_DescribeAlarmHistoryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAlarmHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAlarmHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1145,32 +987,6 @@ export const de_DescribeAlarmHistoryCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAlarmHistoryCommandError
- */
-const de_DescribeAlarmHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAlarmHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.cloudwatch#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAlarmsCommand
  */
 export const de_DescribeAlarmsCommand = async (
@@ -1178,7 +994,7 @@ export const de_DescribeAlarmsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAlarmsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAlarmsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1191,32 +1007,6 @@ export const de_DescribeAlarmsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAlarmsCommandError
- */
-const de_DescribeAlarmsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAlarmsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.cloudwatch#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeAlarmsForMetricCommand
  */
 export const de_DescribeAlarmsForMetricCommand = async (
@@ -1224,7 +1014,7 @@ export const de_DescribeAlarmsForMetricCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAlarmsForMetricCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAlarmsForMetricCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1237,26 +1027,6 @@ export const de_DescribeAlarmsForMetricCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAlarmsForMetricCommandError
- */
-const de_DescribeAlarmsForMetricCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAlarmsForMetricCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryDescribeAnomalyDetectorsCommand
  */
 export const de_DescribeAnomalyDetectorsCommand = async (
@@ -1264,7 +1034,7 @@ export const de_DescribeAnomalyDetectorsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAnomalyDetectorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAnomalyDetectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1277,41 +1047,6 @@ export const de_DescribeAnomalyDetectorsCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeAnomalyDetectorsCommandError
- */
-const de_DescribeAnomalyDetectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAnomalyDetectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.cloudwatch#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDescribeInsightRulesCommand
  */
 export const de_DescribeInsightRulesCommand = async (
@@ -1319,7 +1054,7 @@ export const de_DescribeInsightRulesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInsightRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInsightRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1332,32 +1067,6 @@ export const de_DescribeInsightRulesCommand = async (
 };
 
 /**
- * deserializeAws_queryDescribeInsightRulesCommandError
- */
-const de_DescribeInsightRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInsightRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.cloudwatch#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDisableAlarmActionsCommand
  */
 export const de_DisableAlarmActionsCommand = async (
@@ -1365,33 +1074,13 @@ export const de_DisableAlarmActionsCommand = async (
   context: __SerdeContext
 ): Promise<DisableAlarmActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableAlarmActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DisableAlarmActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDisableAlarmActionsCommandError
- */
-const de_DisableAlarmActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableAlarmActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -1402,7 +1091,7 @@ export const de_DisableInsightRulesCommand = async (
   context: __SerdeContext
 ): Promise<DisableInsightRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableInsightRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1415,35 +1104,6 @@ export const de_DisableInsightRulesCommand = async (
 };
 
 /**
- * deserializeAws_queryDisableInsightRulesCommandError
- */
-const de_DisableInsightRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableInsightRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryEnableAlarmActionsCommand
  */
 export const de_EnableAlarmActionsCommand = async (
@@ -1451,33 +1111,13 @@ export const de_EnableAlarmActionsCommand = async (
   context: __SerdeContext
 ): Promise<EnableAlarmActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableAlarmActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableAlarmActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryEnableAlarmActionsCommandError
- */
-const de_EnableAlarmActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableAlarmActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
 };
 
 /**
@@ -1488,7 +1128,7 @@ export const de_EnableInsightRulesCommand = async (
   context: __SerdeContext
 ): Promise<EnableInsightRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableInsightRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1501,38 +1141,6 @@ export const de_EnableInsightRulesCommand = async (
 };
 
 /**
- * deserializeAws_queryEnableInsightRulesCommandError
- */
-const de_EnableInsightRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableInsightRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetDashboardCommand
  */
 export const de_GetDashboardCommand = async (
@@ -1540,7 +1148,7 @@ export const de_GetDashboardCommand = async (
   context: __SerdeContext
 ): Promise<GetDashboardCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDashboardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1553,38 +1161,6 @@ export const de_GetDashboardCommand = async (
 };
 
 /**
- * deserializeAws_queryGetDashboardCommandError
- */
-const de_GetDashboardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDashboardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudwatch#DashboardNotFoundError":
-      throw await de_DashboardNotFoundErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetInsightRuleReportCommand
  */
 export const de_GetInsightRuleReportCommand = async (
@@ -1592,7 +1168,7 @@ export const de_GetInsightRuleReportCommand = async (
   context: __SerdeContext
 ): Promise<GetInsightRuleReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInsightRuleReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1605,38 +1181,6 @@ export const de_GetInsightRuleReportCommand = async (
 };
 
 /**
- * deserializeAws_queryGetInsightRuleReportCommandError
- */
-const de_GetInsightRuleReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInsightRuleReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetMetricDataCommand
  */
 export const de_GetMetricDataCommand = async (
@@ -1644,7 +1188,7 @@ export const de_GetMetricDataCommand = async (
   context: __SerdeContext
 ): Promise<GetMetricDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMetricDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1657,32 +1201,6 @@ export const de_GetMetricDataCommand = async (
 };
 
 /**
- * deserializeAws_queryGetMetricDataCommandError
- */
-const de_GetMetricDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMetricDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.cloudwatch#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetMetricStatisticsCommand
  */
 export const de_GetMetricStatisticsCommand = async (
@@ -1690,7 +1208,7 @@ export const de_GetMetricStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<GetMetricStatisticsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMetricStatisticsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1703,41 +1221,6 @@ export const de_GetMetricStatisticsCommand = async (
 };
 
 /**
- * deserializeAws_queryGetMetricStatisticsCommandError
- */
-const de_GetMetricStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMetricStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetMetricStreamCommand
  */
 export const de_GetMetricStreamCommand = async (
@@ -1745,7 +1228,7 @@ export const de_GetMetricStreamCommand = async (
   context: __SerdeContext
 ): Promise<GetMetricStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMetricStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1758,44 +1241,6 @@ export const de_GetMetricStreamCommand = async (
 };
 
 /**
- * deserializeAws_queryGetMetricStreamCommandError
- */
-const de_GetMetricStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMetricStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetMetricWidgetImageCommand
  */
 export const de_GetMetricWidgetImageCommand = async (
@@ -1803,7 +1248,7 @@ export const de_GetMetricWidgetImageCommand = async (
   context: __SerdeContext
 ): Promise<GetMetricWidgetImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMetricWidgetImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1816,26 +1261,6 @@ export const de_GetMetricWidgetImageCommand = async (
 };
 
 /**
- * deserializeAws_queryGetMetricWidgetImageCommandError
- */
-const de_GetMetricWidgetImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMetricWidgetImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryListDashboardsCommand
  */
 export const de_ListDashboardsCommand = async (
@@ -1843,7 +1268,7 @@ export const de_ListDashboardsCommand = async (
   context: __SerdeContext
 ): Promise<ListDashboardsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDashboardsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1856,35 +1281,6 @@ export const de_ListDashboardsCommand = async (
 };
 
 /**
- * deserializeAws_queryListDashboardsCommandError
- */
-const de_ListDashboardsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDashboardsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListManagedInsightRulesCommand
  */
 export const de_ListManagedInsightRulesCommand = async (
@@ -1892,7 +1288,7 @@ export const de_ListManagedInsightRulesCommand = async (
   context: __SerdeContext
 ): Promise<ListManagedInsightRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListManagedInsightRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1905,38 +1301,6 @@ export const de_ListManagedInsightRulesCommand = async (
 };
 
 /**
- * deserializeAws_queryListManagedInsightRulesCommandError
- */
-const de_ListManagedInsightRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListManagedInsightRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextToken":
-    case "com.amazonaws.cloudwatch#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListMetricsCommand
  */
 export const de_ListMetricsCommand = async (
@@ -1944,7 +1308,7 @@ export const de_ListMetricsCommand = async (
   context: __SerdeContext
 ): Promise<ListMetricsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1957,35 +1321,6 @@ export const de_ListMetricsCommand = async (
 };
 
 /**
- * deserializeAws_queryListMetricsCommandError
- */
-const de_ListMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListMetricStreamsCommand
  */
 export const de_ListMetricStreamsCommand = async (
@@ -1993,7 +1328,7 @@ export const de_ListMetricStreamsCommand = async (
   context: __SerdeContext
 ): Promise<ListMetricStreamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMetricStreamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2006,41 +1341,6 @@ export const de_ListMetricStreamsCommand = async (
 };
 
 /**
- * deserializeAws_queryListMetricStreamsCommandError
- */
-const de_ListMetricStreamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMetricStreamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidNextToken":
-    case "com.amazonaws.cloudwatch#InvalidNextToken":
-      throw await de_InvalidNextTokenRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2048,7 +1348,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2061,38 +1361,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_queryListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryPutAnomalyDetectorCommand
  */
 export const de_PutAnomalyDetectorCommand = async (
@@ -2100,7 +1368,7 @@ export const de_PutAnomalyDetectorCommand = async (
   context: __SerdeContext
 ): Promise<PutAnomalyDetectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAnomalyDetectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2113,44 +1381,6 @@ export const de_PutAnomalyDetectorCommand = async (
 };
 
 /**
- * deserializeAws_queryPutAnomalyDetectorCommandError
- */
-const de_PutAnomalyDetectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAnomalyDetectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryPutCompositeAlarmCommand
  */
 export const de_PutCompositeAlarmCommand = async (
@@ -2158,39 +1388,13 @@ export const de_PutCompositeAlarmCommand = async (
   context: __SerdeContext
 ): Promise<PutCompositeAlarmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutCompositeAlarmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutCompositeAlarmCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryPutCompositeAlarmCommandError
- */
-const de_PutCompositeAlarmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutCompositeAlarmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.cloudwatch#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2201,7 +1405,7 @@ export const de_PutDashboardCommand = async (
   context: __SerdeContext
 ): Promise<PutDashboardCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutDashboardCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2214,35 +1418,6 @@ export const de_PutDashboardCommand = async (
 };
 
 /**
- * deserializeAws_queryPutDashboardCommandError
- */
-const de_PutDashboardCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutDashboardCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterInput":
-    case "com.amazonaws.cloudwatch#DashboardInvalidInputError":
-      throw await de_DashboardInvalidInputErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryPutInsightRuleCommand
  */
 export const de_PutInsightRuleCommand = async (
@@ -2250,7 +1425,7 @@ export const de_PutInsightRuleCommand = async (
   context: __SerdeContext
 ): Promise<PutInsightRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutInsightRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2263,38 +1438,6 @@ export const de_PutInsightRuleCommand = async (
 };
 
 /**
- * deserializeAws_queryPutInsightRuleCommandError
- */
-const de_PutInsightRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutInsightRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.cloudwatch#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryPutManagedInsightRulesCommand
  */
 export const de_PutManagedInsightRulesCommand = async (
@@ -2302,7 +1445,7 @@ export const de_PutManagedInsightRulesCommand = async (
   context: __SerdeContext
 ): Promise<PutManagedInsightRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutManagedInsightRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2315,35 +1458,6 @@ export const de_PutManagedInsightRulesCommand = async (
 };
 
 /**
- * deserializeAws_queryPutManagedInsightRulesCommandError
- */
-const de_PutManagedInsightRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutManagedInsightRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryPutMetricAlarmCommand
  */
 export const de_PutMetricAlarmCommand = async (
@@ -2351,39 +1465,13 @@ export const de_PutMetricAlarmCommand = async (
   context: __SerdeContext
 ): Promise<PutMetricAlarmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutMetricAlarmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutMetricAlarmCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryPutMetricAlarmCommandError
- */
-const de_PutMetricAlarmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMetricAlarmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.cloudwatch#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2394,48 +1482,13 @@ export const de_PutMetricDataCommand = async (
   context: __SerdeContext
 ): Promise<PutMetricDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutMetricDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutMetricDataCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryPutMetricDataCommandError
- */
-const de_PutMetricDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMetricDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2446,7 +1499,7 @@ export const de_PutMetricStreamCommand = async (
   context: __SerdeContext
 ): Promise<PutMetricStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutMetricStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2459,44 +1512,6 @@ export const de_PutMetricStreamCommand = async (
 };
 
 /**
- * deserializeAws_queryPutMetricStreamCommandError
- */
-const de_PutMetricStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMetricStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.cloudwatch#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterCombination":
-    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
-      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySetAlarmStateCommand
  */
 export const de_SetAlarmStateCommand = async (
@@ -2504,42 +1519,13 @@ export const de_SetAlarmStateCommand = async (
   context: __SerdeContext
 ): Promise<SetAlarmStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetAlarmStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetAlarmStateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_querySetAlarmStateCommandError
- */
-const de_SetAlarmStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetAlarmStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidFormat":
-    case "com.amazonaws.cloudwatch#InvalidFormatFault":
-      throw await de_InvalidFormatFaultRes(parsedOutput, context);
-    case "ResourceNotFound":
-    case "com.amazonaws.cloudwatch#ResourceNotFound":
-      throw await de_ResourceNotFoundRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2550,7 +1536,7 @@ export const de_StartMetricStreamsCommand = async (
   context: __SerdeContext
 ): Promise<StartMetricStreamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartMetricStreamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2563,38 +1549,6 @@ export const de_StartMetricStreamsCommand = async (
 };
 
 /**
- * deserializeAws_queryStartMetricStreamsCommandError
- */
-const de_StartMetricStreamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMetricStreamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryStopMetricStreamsCommand
  */
 export const de_StopMetricStreamsCommand = async (
@@ -2602,7 +1556,7 @@ export const de_StopMetricStreamsCommand = async (
   context: __SerdeContext
 ): Promise<StopMetricStreamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopMetricStreamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2615,38 +1569,6 @@ export const de_StopMetricStreamsCommand = async (
 };
 
 /**
- * deserializeAws_queryStopMetricStreamsCommandError
- */
-const de_StopMetricStreamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopMetricStreamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameter":
-    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryTagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2654,7 +1576,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2667,41 +1589,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_queryTagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.cloudwatch#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InternalServiceError":
-    case "com.amazonaws.cloudwatch#InternalServiceFault":
-      throw await de_InternalServiceFaultRes(parsedOutput, context);
-    case "InvalidParameterValue":
-    case "com.amazonaws.cloudwatch#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.cloudwatch#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -2709,7 +1596,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2722,37 +1609,58 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_queryUntagResourceCommandError
+ * deserialize_Aws_queryCommandError
  */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.cloudwatch#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.cloudwatch#ResourceNotFound":
+      throw await de_ResourceNotFoundRes(parsedOutput, context);
     case "InternalServiceError":
     case "com.amazonaws.cloudwatch#InternalServiceFault":
       throw await de_InternalServiceFaultRes(parsedOutput, context);
+    case "InvalidParameterCombination":
+    case "com.amazonaws.cloudwatch#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidParameterValue":
     case "com.amazonaws.cloudwatch#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameter":
+    case "com.amazonaws.cloudwatch#MissingRequiredParameterException":
+      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.cloudwatch#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidNextToken":
+    case "com.amazonaws.cloudwatch#InvalidNextToken":
+      throw await de_InvalidNextTokenRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.cloudwatch#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "LimitExceeded":
+    case "com.amazonaws.cloudwatch#LimitExceededFault":
+      throw await de_LimitExceededFaultRes(parsedOutput, context);
+    case "InvalidParameterInput":
+    case "com.amazonaws.cloudwatch#DashboardInvalidInputError":
+      throw await de_DashboardInvalidInputErrorRes(parsedOutput, context);
+    case "ConcurrentModificationException":
+    case "com.amazonaws.cloudwatch#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "InvalidFormat":
+    case "com.amazonaws.cloudwatch#InvalidFormatFault":
+      throw await de_InvalidFormatFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
         errorCode,
-      });
+      }) as never;
   }
 };
 
@@ -2782,22 +1690,6 @@ const de_DashboardInvalidInputErrorRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_DashboardInvalidInputError(body.Error, context);
   const exception = new DashboardInvalidInputError({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
-/**
- * deserializeAws_queryDashboardNotFoundErrorRes
- */
-const de_DashboardNotFoundErrorRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<DashboardNotFoundError> => {
-  const body = parsedOutput.body;
-  const deserialized: any = de_DashboardNotFoundError(body.Error, context);
-  const exception = new DashboardNotFoundError({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -5118,17 +4010,6 @@ const de_DashboardInvalidInputError = (output: any, context: __SerdeContext): Da
     contents[_dVM] = [];
   } else if (output[_dVM] != null && output[_dVM][_m] != null) {
     contents[_dVM] = de_DashboardValidationMessages(__getArrayIfSingleItem(output[_dVM][_m]), context);
-  }
-  return contents;
-};
-
-/**
- * deserializeAws_queryDashboardNotFoundError
- */
-const de_DashboardNotFoundError = (output: any, context: __SerdeContext): DashboardNotFoundError => {
-  const contents: any = {};
-  if (output[_me] != null) {
-    contents[_me] = __expectString(output[_me]);
   }
   return contents;
 };

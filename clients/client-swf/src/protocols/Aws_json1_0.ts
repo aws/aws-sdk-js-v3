@@ -717,7 +717,7 @@ export const de_CountClosedWorkflowExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<CountClosedWorkflowExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CountClosedWorkflowExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -730,35 +730,6 @@ export const de_CountClosedWorkflowExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CountClosedWorkflowExecutionsCommandError
- */
-const de_CountClosedWorkflowExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CountClosedWorkflowExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CountOpenWorkflowExecutionsCommand
  */
 export const de_CountOpenWorkflowExecutionsCommand = async (
@@ -766,7 +737,7 @@ export const de_CountOpenWorkflowExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<CountOpenWorkflowExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CountOpenWorkflowExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -779,35 +750,6 @@ export const de_CountOpenWorkflowExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CountOpenWorkflowExecutionsCommandError
- */
-const de_CountOpenWorkflowExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CountOpenWorkflowExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CountPendingActivityTasksCommand
  */
 export const de_CountPendingActivityTasksCommand = async (
@@ -815,7 +757,7 @@ export const de_CountPendingActivityTasksCommand = async (
   context: __SerdeContext
 ): Promise<CountPendingActivityTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CountPendingActivityTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -828,35 +770,6 @@ export const de_CountPendingActivityTasksCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CountPendingActivityTasksCommandError
- */
-const de_CountPendingActivityTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CountPendingActivityTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CountPendingDecisionTasksCommand
  */
 export const de_CountPendingDecisionTasksCommand = async (
@@ -864,7 +777,7 @@ export const de_CountPendingDecisionTasksCommand = async (
   context: __SerdeContext
 ): Promise<CountPendingDecisionTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CountPendingDecisionTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -877,35 +790,6 @@ export const de_CountPendingDecisionTasksCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CountPendingDecisionTasksCommandError
- */
-const de_CountPendingDecisionTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CountPendingDecisionTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeprecateActivityTypeCommand
  */
 export const de_DeprecateActivityTypeCommand = async (
@@ -913,45 +797,13 @@ export const de_DeprecateActivityTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeprecateActivityTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeprecateActivityTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeprecateActivityTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0DeprecateActivityTypeCommandError
- */
-const de_DeprecateActivityTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeprecateActivityTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "TypeDeprecatedFault":
-    case "com.amazonaws.swf#TypeDeprecatedFault":
-      throw await de_TypeDeprecatedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -962,45 +814,13 @@ export const de_DeprecateDomainCommand = async (
   context: __SerdeContext
 ): Promise<DeprecateDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeprecateDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeprecateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0DeprecateDomainCommandError
- */
-const de_DeprecateDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeprecateDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DomainDeprecatedFault":
-    case "com.amazonaws.swf#DomainDeprecatedFault":
-      throw await de_DomainDeprecatedFaultRes(parsedOutput, context);
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1011,45 +831,13 @@ export const de_DeprecateWorkflowTypeCommand = async (
   context: __SerdeContext
 ): Promise<DeprecateWorkflowTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeprecateWorkflowTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeprecateWorkflowTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0DeprecateWorkflowTypeCommandError
- */
-const de_DeprecateWorkflowTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeprecateWorkflowTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "TypeDeprecatedFault":
-    case "com.amazonaws.swf#TypeDeprecatedFault":
-      throw await de_TypeDeprecatedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1060,7 +848,7 @@ export const de_DescribeActivityTypeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeActivityTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeActivityTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1073,35 +861,6 @@ export const de_DescribeActivityTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeActivityTypeCommandError
- */
-const de_DescribeActivityTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeActivityTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeDomainCommand
  */
 export const de_DescribeDomainCommand = async (
@@ -1109,7 +868,7 @@ export const de_DescribeDomainCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1122,35 +881,6 @@ export const de_DescribeDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeDomainCommandError
- */
-const de_DescribeDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeWorkflowExecutionCommand
  */
 export const de_DescribeWorkflowExecutionCommand = async (
@@ -1158,7 +888,7 @@ export const de_DescribeWorkflowExecutionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkflowExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkflowExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1171,35 +901,6 @@ export const de_DescribeWorkflowExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeWorkflowExecutionCommandError
- */
-const de_DescribeWorkflowExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkflowExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DescribeWorkflowTypeCommand
  */
 export const de_DescribeWorkflowTypeCommand = async (
@@ -1207,7 +908,7 @@ export const de_DescribeWorkflowTypeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeWorkflowTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeWorkflowTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1220,35 +921,6 @@ export const de_DescribeWorkflowTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeWorkflowTypeCommandError
- */
-const de_DescribeWorkflowTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeWorkflowTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetWorkflowExecutionHistoryCommand
  */
 export const de_GetWorkflowExecutionHistoryCommand = async (
@@ -1256,7 +928,7 @@ export const de_GetWorkflowExecutionHistoryCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkflowExecutionHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetWorkflowExecutionHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1269,35 +941,6 @@ export const de_GetWorkflowExecutionHistoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetWorkflowExecutionHistoryCommandError
- */
-const de_GetWorkflowExecutionHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkflowExecutionHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListActivityTypesCommand
  */
 export const de_ListActivityTypesCommand = async (
@@ -1305,7 +948,7 @@ export const de_ListActivityTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListActivityTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListActivityTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1318,35 +961,6 @@ export const de_ListActivityTypesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListActivityTypesCommandError
- */
-const de_ListActivityTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListActivityTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListClosedWorkflowExecutionsCommand
  */
 export const de_ListClosedWorkflowExecutionsCommand = async (
@@ -1354,7 +968,7 @@ export const de_ListClosedWorkflowExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListClosedWorkflowExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListClosedWorkflowExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1367,35 +981,6 @@ export const de_ListClosedWorkflowExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListClosedWorkflowExecutionsCommandError
- */
-const de_ListClosedWorkflowExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListClosedWorkflowExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListDomainsCommand
  */
 export const de_ListDomainsCommand = async (
@@ -1403,7 +988,7 @@ export const de_ListDomainsCommand = async (
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDomainsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1416,32 +1001,6 @@ export const de_ListDomainsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListDomainsCommandError
- */
-const de_ListDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListOpenWorkflowExecutionsCommand
  */
 export const de_ListOpenWorkflowExecutionsCommand = async (
@@ -1449,7 +1008,7 @@ export const de_ListOpenWorkflowExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListOpenWorkflowExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListOpenWorkflowExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1462,35 +1021,6 @@ export const de_ListOpenWorkflowExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListOpenWorkflowExecutionsCommandError
- */
-const de_ListOpenWorkflowExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOpenWorkflowExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1498,7 +1028,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1511,38 +1041,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededFault":
-    case "com.amazonaws.swf#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListWorkflowTypesCommand
  */
 export const de_ListWorkflowTypesCommand = async (
@@ -1550,7 +1048,7 @@ export const de_ListWorkflowTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkflowTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListWorkflowTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1563,35 +1061,6 @@ export const de_ListWorkflowTypesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListWorkflowTypesCommandError
- */
-const de_ListWorkflowTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkflowTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PollForActivityTaskCommand
  */
 export const de_PollForActivityTaskCommand = async (
@@ -1599,7 +1068,7 @@ export const de_PollForActivityTaskCommand = async (
   context: __SerdeContext
 ): Promise<PollForActivityTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PollForActivityTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1612,38 +1081,6 @@ export const de_PollForActivityTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PollForActivityTaskCommandError
- */
-const de_PollForActivityTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PollForActivityTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededFault":
-    case "com.amazonaws.swf#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0PollForDecisionTaskCommand
  */
 export const de_PollForDecisionTaskCommand = async (
@@ -1651,7 +1088,7 @@ export const de_PollForDecisionTaskCommand = async (
   context: __SerdeContext
 ): Promise<PollForDecisionTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PollForDecisionTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1664,38 +1101,6 @@ export const de_PollForDecisionTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_0PollForDecisionTaskCommandError
- */
-const de_PollForDecisionTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PollForDecisionTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededFault":
-    case "com.amazonaws.swf#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0RecordActivityTaskHeartbeatCommand
  */
 export const de_RecordActivityTaskHeartbeatCommand = async (
@@ -1703,7 +1108,7 @@ export const de_RecordActivityTaskHeartbeatCommand = async (
   context: __SerdeContext
 ): Promise<RecordActivityTaskHeartbeatCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RecordActivityTaskHeartbeatCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1716,35 +1121,6 @@ export const de_RecordActivityTaskHeartbeatCommand = async (
 };
 
 /**
- * deserializeAws_json1_0RecordActivityTaskHeartbeatCommandError
- */
-const de_RecordActivityTaskHeartbeatCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RecordActivityTaskHeartbeatCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0RegisterActivityTypeCommand
  */
 export const de_RegisterActivityTypeCommand = async (
@@ -1752,48 +1128,13 @@ export const de_RegisterActivityTypeCommand = async (
   context: __SerdeContext
 ): Promise<RegisterActivityTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterActivityTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RegisterActivityTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0RegisterActivityTypeCommandError
- */
-const de_RegisterActivityTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterActivityTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededFault":
-    case "com.amazonaws.swf#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "TypeAlreadyExistsFault":
-    case "com.amazonaws.swf#TypeAlreadyExistsFault":
-      throw await de_TypeAlreadyExistsFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1804,48 +1145,13 @@ export const de_RegisterDomainCommand = async (
   context: __SerdeContext
 ): Promise<RegisterDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RegisterDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0RegisterDomainCommandError
- */
-const de_RegisterDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DomainAlreadyExistsFault":
-    case "com.amazonaws.swf#DomainAlreadyExistsFault":
-      throw await de_DomainAlreadyExistsFaultRes(parsedOutput, context);
-    case "LimitExceededFault":
-    case "com.amazonaws.swf#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "TooManyTagsFault":
-    case "com.amazonaws.swf#TooManyTagsFault":
-      throw await de_TooManyTagsFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1856,48 +1162,13 @@ export const de_RegisterWorkflowTypeCommand = async (
   context: __SerdeContext
 ): Promise<RegisterWorkflowTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterWorkflowTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RegisterWorkflowTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0RegisterWorkflowTypeCommandError
- */
-const de_RegisterWorkflowTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterWorkflowTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededFault":
-    case "com.amazonaws.swf#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "TypeAlreadyExistsFault":
-    case "com.amazonaws.swf#TypeAlreadyExistsFault":
-      throw await de_TypeAlreadyExistsFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1908,42 +1179,13 @@ export const de_RequestCancelWorkflowExecutionCommand = async (
   context: __SerdeContext
 ): Promise<RequestCancelWorkflowExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RequestCancelWorkflowExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RequestCancelWorkflowExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0RequestCancelWorkflowExecutionCommandError
- */
-const de_RequestCancelWorkflowExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RequestCancelWorkflowExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1954,42 +1196,13 @@ export const de_RespondActivityTaskCanceledCommand = async (
   context: __SerdeContext
 ): Promise<RespondActivityTaskCanceledCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RespondActivityTaskCanceledCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RespondActivityTaskCanceledCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0RespondActivityTaskCanceledCommandError
- */
-const de_RespondActivityTaskCanceledCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RespondActivityTaskCanceledCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2000,42 +1213,13 @@ export const de_RespondActivityTaskCompletedCommand = async (
   context: __SerdeContext
 ): Promise<RespondActivityTaskCompletedCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RespondActivityTaskCompletedCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RespondActivityTaskCompletedCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0RespondActivityTaskCompletedCommandError
- */
-const de_RespondActivityTaskCompletedCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RespondActivityTaskCompletedCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2046,42 +1230,13 @@ export const de_RespondActivityTaskFailedCommand = async (
   context: __SerdeContext
 ): Promise<RespondActivityTaskFailedCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RespondActivityTaskFailedCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RespondActivityTaskFailedCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0RespondActivityTaskFailedCommandError
- */
-const de_RespondActivityTaskFailedCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RespondActivityTaskFailedCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2092,42 +1247,13 @@ export const de_RespondDecisionTaskCompletedCommand = async (
   context: __SerdeContext
 ): Promise<RespondDecisionTaskCompletedCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RespondDecisionTaskCompletedCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RespondDecisionTaskCompletedCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0RespondDecisionTaskCompletedCommandError
- */
-const de_RespondDecisionTaskCompletedCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RespondDecisionTaskCompletedCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2138,42 +1264,13 @@ export const de_SignalWorkflowExecutionCommand = async (
   context: __SerdeContext
 ): Promise<SignalWorkflowExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SignalWorkflowExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SignalWorkflowExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0SignalWorkflowExecutionCommandError
- */
-const de_SignalWorkflowExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SignalWorkflowExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2184,7 +1281,7 @@ export const de_StartWorkflowExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StartWorkflowExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartWorkflowExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2197,47 +1294,6 @@ export const de_StartWorkflowExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0StartWorkflowExecutionCommandError
- */
-const de_StartWorkflowExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartWorkflowExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DefaultUndefinedFault":
-    case "com.amazonaws.swf#DefaultUndefinedFault":
-      throw await de_DefaultUndefinedFaultRes(parsedOutput, context);
-    case "LimitExceededFault":
-    case "com.amazonaws.swf#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "TypeDeprecatedFault":
-    case "com.amazonaws.swf#TypeDeprecatedFault":
-      throw await de_TypeDeprecatedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    case "WorkflowExecutionAlreadyStartedFault":
-    case "com.amazonaws.swf#WorkflowExecutionAlreadyStartedFault":
-      throw await de_WorkflowExecutionAlreadyStartedFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2245,48 +1301,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceededFault":
-    case "com.amazonaws.swf#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "TooManyTagsFault":
-    case "com.amazonaws.swf#TooManyTagsFault":
-      throw await de_TooManyTagsFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2297,42 +1318,13 @@ export const de_TerminateWorkflowExecutionCommand = async (
   context: __SerdeContext
 ): Promise<TerminateWorkflowExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TerminateWorkflowExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TerminateWorkflowExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0TerminateWorkflowExecutionCommandError
- */
-const de_TerminateWorkflowExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateWorkflowExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2343,45 +1335,13 @@ export const de_UndeprecateActivityTypeCommand = async (
   context: __SerdeContext
 ): Promise<UndeprecateActivityTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UndeprecateActivityTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UndeprecateActivityTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0UndeprecateActivityTypeCommandError
- */
-const de_UndeprecateActivityTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UndeprecateActivityTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "TypeAlreadyExistsFault":
-    case "com.amazonaws.swf#TypeAlreadyExistsFault":
-      throw await de_TypeAlreadyExistsFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2392,45 +1352,13 @@ export const de_UndeprecateDomainCommand = async (
   context: __SerdeContext
 ): Promise<UndeprecateDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UndeprecateDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UndeprecateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0UndeprecateDomainCommandError
- */
-const de_UndeprecateDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UndeprecateDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DomainAlreadyExistsFault":
-    case "com.amazonaws.swf#DomainAlreadyExistsFault":
-      throw await de_DomainAlreadyExistsFaultRes(parsedOutput, context);
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2441,45 +1369,13 @@ export const de_UndeprecateWorkflowTypeCommand = async (
   context: __SerdeContext
 ): Promise<UndeprecateWorkflowTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UndeprecateWorkflowTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UndeprecateWorkflowTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_0UndeprecateWorkflowTypeCommandError
- */
-const de_UndeprecateWorkflowTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UndeprecateWorkflowTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedFault":
-    case "com.amazonaws.swf#OperationNotPermittedFault":
-      throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
-    case "TypeAlreadyExistsFault":
-    case "com.amazonaws.swf#TypeAlreadyExistsFault":
-      throw await de_TypeAlreadyExistsFaultRes(parsedOutput, context);
-    case "UnknownResourceFault":
-    case "com.amazonaws.swf#UnknownResourceFault":
-      throw await de_UnknownResourceFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2490,7 +1386,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
@@ -2500,34 +1396,52 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UntagResourceCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "LimitExceededFault":
-    case "com.amazonaws.swf#LimitExceededFault":
-      throw await de_LimitExceededFaultRes(parsedOutput, context);
     case "OperationNotPermittedFault":
     case "com.amazonaws.swf#OperationNotPermittedFault":
       throw await de_OperationNotPermittedFaultRes(parsedOutput, context);
     case "UnknownResourceFault":
     case "com.amazonaws.swf#UnknownResourceFault":
       throw await de_UnknownResourceFaultRes(parsedOutput, context);
+    case "TypeDeprecatedFault":
+    case "com.amazonaws.swf#TypeDeprecatedFault":
+      throw await de_TypeDeprecatedFaultRes(parsedOutput, context);
+    case "DomainDeprecatedFault":
+    case "com.amazonaws.swf#DomainDeprecatedFault":
+      throw await de_DomainDeprecatedFaultRes(parsedOutput, context);
+    case "LimitExceededFault":
+    case "com.amazonaws.swf#LimitExceededFault":
+      throw await de_LimitExceededFaultRes(parsedOutput, context);
+    case "TypeAlreadyExistsFault":
+    case "com.amazonaws.swf#TypeAlreadyExistsFault":
+      throw await de_TypeAlreadyExistsFaultRes(parsedOutput, context);
+    case "DomainAlreadyExistsFault":
+    case "com.amazonaws.swf#DomainAlreadyExistsFault":
+      throw await de_DomainAlreadyExistsFaultRes(parsedOutput, context);
+    case "TooManyTagsFault":
+    case "com.amazonaws.swf#TooManyTagsFault":
+      throw await de_TooManyTagsFaultRes(parsedOutput, context);
+    case "DefaultUndefinedFault":
+    case "com.amazonaws.swf#DefaultUndefinedFault":
+      throw await de_DefaultUndefinedFaultRes(parsedOutput, context);
+    case "WorkflowExecutionAlreadyStartedFault":
+    case "com.amazonaws.swf#WorkflowExecutionAlreadyStartedFault":
+      throw await de_WorkflowExecutionAlreadyStartedFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

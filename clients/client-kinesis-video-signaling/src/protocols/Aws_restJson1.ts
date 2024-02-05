@@ -90,7 +90,7 @@ export const de_GetIceServerConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetIceServerConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetIceServerConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -104,12 +104,30 @@ export const de_GetIceServerConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetIceServerConfigCommandError
+ * deserializeAws_restJson1SendAlexaOfferToMasterCommand
  */
-const de_GetIceServerConfigCommandError = async (
+export const de_SendAlexaOfferToMasterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetIceServerConfigCommandOutput> => {
+): Promise<SendAlexaOfferToMasterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Answer: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -140,63 +158,7 @@ const de_GetIceServerConfigCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1SendAlexaOfferToMasterCommand
- */
-export const de_SendAlexaOfferToMasterCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendAlexaOfferToMasterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SendAlexaOfferToMasterCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    Answer: __expectString,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1SendAlexaOfferToMasterCommandError
- */
-const de_SendAlexaOfferToMasterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendAlexaOfferToMasterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ClientLimitExceededException":
-    case "com.amazonaws.kinesisvideosignaling#ClientLimitExceededException":
-      throw await de_ClientLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.kinesisvideosignaling#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.kinesisvideosignaling#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.kinesisvideosignaling#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

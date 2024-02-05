@@ -2252,7 +2252,7 @@ export const de_AssociateRoleToGroupCommand = async (
   context: __SerdeContext
 ): Promise<AssociateRoleToGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateRoleToGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2263,35 +2263,6 @@ export const de_AssociateRoleToGroupCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1AssociateRoleToGroupCommandError
- */
-const de_AssociateRoleToGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateRoleToGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2302,7 +2273,7 @@ export const de_AssociateServiceRoleToAccountCommand = async (
   context: __SerdeContext
 ): Promise<AssociateServiceRoleToAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateServiceRoleToAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2316,35 +2287,6 @@ export const de_AssociateServiceRoleToAccountCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssociateServiceRoleToAccountCommandError
- */
-const de_AssociateServiceRoleToAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateServiceRoleToAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateConnectorDefinitionCommand
  */
 export const de_CreateConnectorDefinitionCommand = async (
@@ -2352,7 +2294,7 @@ export const de_CreateConnectorDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectorDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateConnectorDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2369,32 +2311,6 @@ export const de_CreateConnectorDefinitionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateConnectorDefinitionCommandError
- */
-const de_CreateConnectorDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectorDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2405,7 +2321,7 @@ export const de_CreateConnectorDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateConnectorDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateConnectorDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2422,32 +2338,6 @@ export const de_CreateConnectorDefinitionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateConnectorDefinitionVersionCommandError
- */
-const de_CreateConnectorDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConnectorDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateCoreDefinitionCommand
  */
 export const de_CreateCoreDefinitionCommand = async (
@@ -2455,7 +2345,7 @@ export const de_CreateCoreDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateCoreDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateCoreDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2475,32 +2365,6 @@ export const de_CreateCoreDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateCoreDefinitionCommandError
- */
-const de_CreateCoreDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCoreDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateCoreDefinitionVersionCommand
  */
 export const de_CreateCoreDefinitionVersionCommand = async (
@@ -2508,7 +2372,7 @@ export const de_CreateCoreDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateCoreDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateCoreDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2525,32 +2389,6 @@ export const de_CreateCoreDefinitionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateCoreDefinitionVersionCommandError
- */
-const de_CreateCoreDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCoreDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDeploymentCommand
  */
 export const de_CreateDeploymentCommand = async (
@@ -2558,7 +2396,7 @@ export const de_CreateDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2573,32 +2411,6 @@ export const de_CreateDeploymentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDeploymentCommandError
- */
-const de_CreateDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateDeviceDefinitionCommand
  */
 export const de_CreateDeviceDefinitionCommand = async (
@@ -2606,7 +2418,7 @@ export const de_CreateDeviceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeviceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDeviceDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2623,32 +2435,6 @@ export const de_CreateDeviceDefinitionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateDeviceDefinitionCommandError
- */
-const de_CreateDeviceDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeviceDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2659,7 +2445,7 @@ export const de_CreateDeviceDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeviceDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDeviceDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2673,32 +2459,6 @@ export const de_CreateDeviceDefinitionVersionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateDeviceDefinitionVersionCommandError
- */
-const de_CreateDeviceDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeviceDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2709,7 +2469,7 @@ export const de_CreateFunctionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateFunctionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateFunctionDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2729,32 +2489,6 @@ export const de_CreateFunctionDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFunctionDefinitionCommandError
- */
-const de_CreateFunctionDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFunctionDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFunctionDefinitionVersionCommand
  */
 export const de_CreateFunctionDefinitionVersionCommand = async (
@@ -2762,7 +2496,7 @@ export const de_CreateFunctionDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateFunctionDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateFunctionDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2779,32 +2513,6 @@ export const de_CreateFunctionDefinitionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFunctionDefinitionVersionCommandError
- */
-const de_CreateFunctionDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFunctionDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateGroupCommand
  */
 export const de_CreateGroupCommand = async (
@@ -2812,7 +2520,7 @@ export const de_CreateGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2832,32 +2540,6 @@ export const de_CreateGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateGroupCommandError
- */
-const de_CreateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateGroupCertificateAuthorityCommand
  */
 export const de_CreateGroupCertificateAuthorityCommand = async (
@@ -2865,7 +2547,7 @@ export const de_CreateGroupCertificateAuthorityCommand = async (
   context: __SerdeContext
 ): Promise<CreateGroupCertificateAuthorityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateGroupCertificateAuthorityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2879,35 +2561,6 @@ export const de_CreateGroupCertificateAuthorityCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateGroupCertificateAuthorityCommandError
- */
-const de_CreateGroupCertificateAuthorityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGroupCertificateAuthorityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateGroupVersionCommand
  */
 export const de_CreateGroupVersionCommand = async (
@@ -2915,7 +2568,7 @@ export const de_CreateGroupVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateGroupVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateGroupVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2929,32 +2582,6 @@ export const de_CreateGroupVersionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateGroupVersionCommandError
- */
-const de_CreateGroupVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGroupVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2965,7 +2592,7 @@ export const de_CreateLoggerDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateLoggerDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateLoggerDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2982,32 +2609,6 @@ export const de_CreateLoggerDefinitionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateLoggerDefinitionCommandError
- */
-const de_CreateLoggerDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLoggerDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3018,7 +2619,7 @@ export const de_CreateLoggerDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateLoggerDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateLoggerDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3035,32 +2636,6 @@ export const de_CreateLoggerDefinitionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateLoggerDefinitionVersionCommandError
- */
-const de_CreateLoggerDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLoggerDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateResourceDefinitionCommand
  */
 export const de_CreateResourceDefinitionCommand = async (
@@ -3068,7 +2643,7 @@ export const de_CreateResourceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateResourceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateResourceDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3088,32 +2663,6 @@ export const de_CreateResourceDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateResourceDefinitionCommandError
- */
-const de_CreateResourceDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResourceDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateResourceDefinitionVersionCommand
  */
 export const de_CreateResourceDefinitionVersionCommand = async (
@@ -3121,7 +2670,7 @@ export const de_CreateResourceDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateResourceDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateResourceDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3138,32 +2687,6 @@ export const de_CreateResourceDefinitionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateResourceDefinitionVersionCommandError
- */
-const de_CreateResourceDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResourceDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSoftwareUpdateJobCommand
  */
 export const de_CreateSoftwareUpdateJobCommand = async (
@@ -3171,7 +2694,7 @@ export const de_CreateSoftwareUpdateJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateSoftwareUpdateJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSoftwareUpdateJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3187,35 +2710,6 @@ export const de_CreateSoftwareUpdateJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSoftwareUpdateJobCommandError
- */
-const de_CreateSoftwareUpdateJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSoftwareUpdateJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSubscriptionDefinitionCommand
  */
 export const de_CreateSubscriptionDefinitionCommand = async (
@@ -3223,7 +2717,7 @@ export const de_CreateSubscriptionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<CreateSubscriptionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSubscriptionDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3243,32 +2737,6 @@ export const de_CreateSubscriptionDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSubscriptionDefinitionCommandError
- */
-const de_CreateSubscriptionDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSubscriptionDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommand
  */
 export const de_CreateSubscriptionDefinitionVersionCommand = async (
@@ -3276,7 +2744,7 @@ export const de_CreateSubscriptionDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateSubscriptionDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSubscriptionDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3293,32 +2761,6 @@ export const de_CreateSubscriptionDefinitionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommandError
- */
-const de_CreateSubscriptionDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSubscriptionDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteConnectorDefinitionCommand
  */
 export const de_DeleteConnectorDefinitionCommand = async (
@@ -3326,39 +2768,13 @@ export const de_DeleteConnectorDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectorDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteConnectorDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteConnectorDefinitionCommandError
- */
-const de_DeleteConnectorDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectorDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3369,39 +2785,13 @@ export const de_DeleteCoreDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCoreDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteCoreDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteCoreDefinitionCommandError
- */
-const de_DeleteCoreDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCoreDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3412,39 +2802,13 @@ export const de_DeleteDeviceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeviceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDeviceDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteDeviceDefinitionCommandError
- */
-const de_DeleteDeviceDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeviceDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3455,39 +2819,13 @@ export const de_DeleteFunctionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFunctionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteFunctionDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFunctionDefinitionCommandError
- */
-const de_DeleteFunctionDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFunctionDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3498,39 +2836,13 @@ export const de_DeleteGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteGroupCommandError
- */
-const de_DeleteGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3541,39 +2853,13 @@ export const de_DeleteLoggerDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLoggerDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteLoggerDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteLoggerDefinitionCommandError
- */
-const de_DeleteLoggerDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLoggerDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3584,39 +2870,13 @@ export const de_DeleteResourceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteResourceDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteResourceDefinitionCommandError
- */
-const de_DeleteResourceDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourceDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3627,39 +2887,13 @@ export const de_DeleteSubscriptionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSubscriptionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSubscriptionDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteSubscriptionDefinitionCommandError
- */
-const de_DeleteSubscriptionDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSubscriptionDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3670,7 +2904,7 @@ export const de_DisassociateRoleFromGroupCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateRoleFromGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateRoleFromGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3681,35 +2915,6 @@ export const de_DisassociateRoleFromGroupCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateRoleFromGroupCommandError
- */
-const de_DisassociateRoleFromGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateRoleFromGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3720,7 +2925,7 @@ export const de_DisassociateServiceRoleFromAccountCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateServiceRoleFromAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateServiceRoleFromAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3734,32 +2939,6 @@ export const de_DisassociateServiceRoleFromAccountCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DisassociateServiceRoleFromAccountCommandError
- */
-const de_DisassociateServiceRoleFromAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateServiceRoleFromAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAssociatedRoleCommand
  */
 export const de_GetAssociatedRoleCommand = async (
@@ -3767,7 +2946,7 @@ export const de_GetAssociatedRoleCommand = async (
   context: __SerdeContext
 ): Promise<GetAssociatedRoleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAssociatedRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3782,35 +2961,6 @@ export const de_GetAssociatedRoleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAssociatedRoleCommandError
- */
-const de_GetAssociatedRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAssociatedRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBulkDeploymentStatusCommand
  */
 export const de_GetBulkDeploymentStatusCommand = async (
@@ -3818,7 +2968,7 @@ export const de_GetBulkDeploymentStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetBulkDeploymentStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBulkDeploymentStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3837,32 +2987,6 @@ export const de_GetBulkDeploymentStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBulkDeploymentStatusCommandError
- */
-const de_GetBulkDeploymentStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBulkDeploymentStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetConnectivityInfoCommand
  */
 export const de_GetConnectivityInfoCommand = async (
@@ -3870,7 +2994,7 @@ export const de_GetConnectivityInfoCommand = async (
   context: __SerdeContext
 ): Promise<GetConnectivityInfoCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConnectivityInfoCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3885,35 +3009,6 @@ export const de_GetConnectivityInfoCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConnectivityInfoCommandError
- */
-const de_GetConnectivityInfoCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConnectivityInfoCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetConnectorDefinitionCommand
  */
 export const de_GetConnectorDefinitionCommand = async (
@@ -3921,7 +3016,7 @@ export const de_GetConnectorDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetConnectorDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConnectorDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3939,32 +3034,6 @@ export const de_GetConnectorDefinitionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetConnectorDefinitionCommandError
- */
-const de_GetConnectorDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConnectorDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3975,7 +3044,7 @@ export const de_GetConnectorDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetConnectorDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConnectorDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3994,32 +3063,6 @@ export const de_GetConnectorDefinitionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConnectorDefinitionVersionCommandError
- */
-const de_GetConnectorDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConnectorDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetCoreDefinitionCommand
  */
 export const de_GetCoreDefinitionCommand = async (
@@ -4027,7 +3070,7 @@ export const de_GetCoreDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetCoreDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCoreDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4048,32 +3091,6 @@ export const de_GetCoreDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCoreDefinitionCommandError
- */
-const de_GetCoreDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCoreDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetCoreDefinitionVersionCommand
  */
 export const de_GetCoreDefinitionVersionCommand = async (
@@ -4081,7 +3098,7 @@ export const de_GetCoreDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetCoreDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCoreDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4100,32 +3117,6 @@ export const de_GetCoreDefinitionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCoreDefinitionVersionCommandError
- */
-const de_GetCoreDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCoreDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDeploymentStatusCommand
  */
 export const de_GetDeploymentStatusCommand = async (
@@ -4133,7 +3124,7 @@ export const de_GetDeploymentStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetDeploymentStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeploymentStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4151,32 +3142,6 @@ export const de_GetDeploymentStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDeploymentStatusCommandError
- */
-const de_GetDeploymentStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDeviceDefinitionCommand
  */
 export const de_GetDeviceDefinitionCommand = async (
@@ -4184,7 +3149,7 @@ export const de_GetDeviceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetDeviceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeviceDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4202,32 +3167,6 @@ export const de_GetDeviceDefinitionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetDeviceDefinitionCommandError
- */
-const de_GetDeviceDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeviceDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4238,7 +3177,7 @@ export const de_GetDeviceDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetDeviceDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeviceDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4254,32 +3193,6 @@ export const de_GetDeviceDefinitionVersionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetDeviceDefinitionVersionCommandError
- */
-const de_GetDeviceDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeviceDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4290,7 +3203,7 @@ export const de_GetFunctionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetFunctionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFunctionDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4311,32 +3224,6 @@ export const de_GetFunctionDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFunctionDefinitionCommandError
- */
-const de_GetFunctionDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFunctionDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetFunctionDefinitionVersionCommand
  */
 export const de_GetFunctionDefinitionVersionCommand = async (
@@ -4344,7 +3231,7 @@ export const de_GetFunctionDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetFunctionDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetFunctionDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4363,32 +3250,6 @@ export const de_GetFunctionDefinitionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetFunctionDefinitionVersionCommandError
- */
-const de_GetFunctionDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFunctionDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGroupCommand
  */
 export const de_GetGroupCommand = async (
@@ -4396,7 +3257,7 @@ export const de_GetGroupCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4417,32 +3278,6 @@ export const de_GetGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetGroupCommandError
- */
-const de_GetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGroupCertificateAuthorityCommand
  */
 export const de_GetGroupCertificateAuthorityCommand = async (
@@ -4450,7 +3285,7 @@ export const de_GetGroupCertificateAuthorityCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupCertificateAuthorityCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGroupCertificateAuthorityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4466,35 +3301,6 @@ export const de_GetGroupCertificateAuthorityCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetGroupCertificateAuthorityCommandError
- */
-const de_GetGroupCertificateAuthorityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupCertificateAuthorityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGroupCertificateConfigurationCommand
  */
 export const de_GetGroupCertificateConfigurationCommand = async (
@@ -4502,7 +3308,7 @@ export const de_GetGroupCertificateConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupCertificateConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGroupCertificateConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4518,35 +3324,6 @@ export const de_GetGroupCertificateConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetGroupCertificateConfigurationCommandError
- */
-const de_GetGroupCertificateConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupCertificateConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetGroupVersionCommand
  */
 export const de_GetGroupVersionCommand = async (
@@ -4554,7 +3331,7 @@ export const de_GetGroupVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetGroupVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4569,32 +3346,6 @@ export const de_GetGroupVersionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetGroupVersionCommandError
- */
-const de_GetGroupVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4605,7 +3356,7 @@ export const de_GetLoggerDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetLoggerDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLoggerDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4623,32 +3374,6 @@ export const de_GetLoggerDefinitionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1GetLoggerDefinitionCommandError
- */
-const de_GetLoggerDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLoggerDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4659,7 +3384,7 @@ export const de_GetLoggerDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetLoggerDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLoggerDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4677,32 +3402,6 @@ export const de_GetLoggerDefinitionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetLoggerDefinitionVersionCommandError
- */
-const de_GetLoggerDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLoggerDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetResourceDefinitionCommand
  */
 export const de_GetResourceDefinitionCommand = async (
@@ -4710,7 +3409,7 @@ export const de_GetResourceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResourceDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4731,32 +3430,6 @@ export const de_GetResourceDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetResourceDefinitionCommandError
- */
-const de_GetResourceDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetResourceDefinitionVersionCommand
  */
 export const de_GetResourceDefinitionVersionCommand = async (
@@ -4764,7 +3437,7 @@ export const de_GetResourceDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResourceDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4782,32 +3455,6 @@ export const de_GetResourceDefinitionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetResourceDefinitionVersionCommandError
- */
-const de_GetResourceDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetServiceRoleForAccountCommand
  */
 export const de_GetServiceRoleForAccountCommand = async (
@@ -4815,7 +3462,7 @@ export const de_GetServiceRoleForAccountCommand = async (
   context: __SerdeContext
 ): Promise<GetServiceRoleForAccountCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetServiceRoleForAccountCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4830,32 +3477,6 @@ export const de_GetServiceRoleForAccountCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetServiceRoleForAccountCommandError
- */
-const de_GetServiceRoleForAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceRoleForAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSubscriptionDefinitionCommand
  */
 export const de_GetSubscriptionDefinitionCommand = async (
@@ -4863,7 +3484,7 @@ export const de_GetSubscriptionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<GetSubscriptionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSubscriptionDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4884,32 +3505,6 @@ export const de_GetSubscriptionDefinitionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSubscriptionDefinitionCommandError
- */
-const de_GetSubscriptionDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSubscriptionDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSubscriptionDefinitionVersionCommand
  */
 export const de_GetSubscriptionDefinitionVersionCommand = async (
@@ -4917,7 +3512,7 @@ export const de_GetSubscriptionDefinitionVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetSubscriptionDefinitionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSubscriptionDefinitionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4936,32 +3531,6 @@ export const de_GetSubscriptionDefinitionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSubscriptionDefinitionVersionCommandError
- */
-const de_GetSubscriptionDefinitionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSubscriptionDefinitionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetThingRuntimeConfigurationCommand
  */
 export const de_GetThingRuntimeConfigurationCommand = async (
@@ -4969,7 +3538,7 @@ export const de_GetThingRuntimeConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetThingRuntimeConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetThingRuntimeConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4983,35 +3552,6 @@ export const de_GetThingRuntimeConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetThingRuntimeConfigurationCommandError
- */
-const de_GetThingRuntimeConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetThingRuntimeConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand
  */
 export const de_ListBulkDeploymentDetailedReportsCommand = async (
@@ -5019,7 +3559,7 @@ export const de_ListBulkDeploymentDetailedReportsCommand = async (
   context: __SerdeContext
 ): Promise<ListBulkDeploymentDetailedReportsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBulkDeploymentDetailedReportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5034,32 +3574,6 @@ export const de_ListBulkDeploymentDetailedReportsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommandError
- */
-const de_ListBulkDeploymentDetailedReportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBulkDeploymentDetailedReportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBulkDeploymentsCommand
  */
 export const de_ListBulkDeploymentsCommand = async (
@@ -5067,7 +3581,7 @@ export const de_ListBulkDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<ListBulkDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBulkDeploymentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5082,32 +3596,6 @@ export const de_ListBulkDeploymentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBulkDeploymentsCommandError
- */
-const de_ListBulkDeploymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBulkDeploymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListConnectorDefinitionsCommand
  */
 export const de_ListConnectorDefinitionsCommand = async (
@@ -5115,7 +3603,7 @@ export const de_ListConnectorDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListConnectorDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListConnectorDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5127,26 +3615,6 @@ export const de_ListConnectorDefinitionsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListConnectorDefinitionsCommandError
- */
-const de_ListConnectorDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConnectorDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -5157,7 +3625,7 @@ export const de_ListConnectorDefinitionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListConnectorDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListConnectorDefinitionVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5172,32 +3640,6 @@ export const de_ListConnectorDefinitionVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListConnectorDefinitionVersionsCommandError
- */
-const de_ListConnectorDefinitionVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConnectorDefinitionVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListCoreDefinitionsCommand
  */
 export const de_ListCoreDefinitionsCommand = async (
@@ -5205,7 +3647,7 @@ export const de_ListCoreDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListCoreDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCoreDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5220,26 +3662,6 @@ export const de_ListCoreDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCoreDefinitionsCommandError
- */
-const de_ListCoreDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCoreDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restJson1ListCoreDefinitionVersionsCommand
  */
 export const de_ListCoreDefinitionVersionsCommand = async (
@@ -5247,7 +3669,7 @@ export const de_ListCoreDefinitionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListCoreDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCoreDefinitionVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5262,32 +3684,6 @@ export const de_ListCoreDefinitionVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCoreDefinitionVersionsCommandError
- */
-const de_ListCoreDefinitionVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCoreDefinitionVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDeploymentsCommand
  */
 export const de_ListDeploymentsCommand = async (
@@ -5295,7 +3691,7 @@ export const de_ListDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDeploymentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5310,32 +3706,6 @@ export const de_ListDeploymentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDeploymentsCommandError
- */
-const de_ListDeploymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDeviceDefinitionsCommand
  */
 export const de_ListDeviceDefinitionsCommand = async (
@@ -5343,7 +3713,7 @@ export const de_ListDeviceDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListDeviceDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDeviceDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5355,26 +3725,6 @@ export const de_ListDeviceDefinitionsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListDeviceDefinitionsCommandError
- */
-const de_ListDeviceDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeviceDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -5385,7 +3735,7 @@ export const de_ListDeviceDefinitionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListDeviceDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDeviceDefinitionVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5400,32 +3750,6 @@ export const de_ListDeviceDefinitionVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDeviceDefinitionVersionsCommandError
- */
-const de_ListDeviceDefinitionVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeviceDefinitionVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFunctionDefinitionsCommand
  */
 export const de_ListFunctionDefinitionsCommand = async (
@@ -5433,7 +3757,7 @@ export const de_ListFunctionDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListFunctionDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFunctionDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5448,26 +3772,6 @@ export const de_ListFunctionDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFunctionDefinitionsCommandError
- */
-const de_ListFunctionDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFunctionDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restJson1ListFunctionDefinitionVersionsCommand
  */
 export const de_ListFunctionDefinitionVersionsCommand = async (
@@ -5475,7 +3779,7 @@ export const de_ListFunctionDefinitionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListFunctionDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFunctionDefinitionVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5490,32 +3794,6 @@ export const de_ListFunctionDefinitionVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFunctionDefinitionVersionsCommandError
- */
-const de_ListFunctionDefinitionVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFunctionDefinitionVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListGroupCertificateAuthoritiesCommand
  */
 export const de_ListGroupCertificateAuthoritiesCommand = async (
@@ -5523,7 +3801,7 @@ export const de_ListGroupCertificateAuthoritiesCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupCertificateAuthoritiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGroupCertificateAuthoritiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5537,35 +3815,6 @@ export const de_ListGroupCertificateAuthoritiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListGroupCertificateAuthoritiesCommandError
- */
-const de_ListGroupCertificateAuthoritiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupCertificateAuthoritiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListGroupsCommand
  */
 export const de_ListGroupsCommand = async (
@@ -5573,7 +3822,7 @@ export const de_ListGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5588,26 +3837,6 @@ export const de_ListGroupsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListGroupsCommandError
- */
-const de_ListGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restJson1ListGroupVersionsCommand
  */
 export const de_ListGroupVersionsCommand = async (
@@ -5615,7 +3844,7 @@ export const de_ListGroupVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGroupVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5627,32 +3856,6 @@ export const de_ListGroupVersionsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListGroupVersionsCommandError
- */
-const de_ListGroupVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5663,7 +3866,7 @@ export const de_ListLoggerDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListLoggerDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLoggerDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5675,26 +3878,6 @@ export const de_ListLoggerDefinitionsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListLoggerDefinitionsCommandError
- */
-const de_ListLoggerDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLoggerDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -5705,7 +3888,7 @@ export const de_ListLoggerDefinitionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListLoggerDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLoggerDefinitionVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5717,32 +3900,6 @@ export const de_ListLoggerDefinitionVersionsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListLoggerDefinitionVersionsCommandError
- */
-const de_ListLoggerDefinitionVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLoggerDefinitionVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5753,7 +3910,7 @@ export const de_ListResourceDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListResourceDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5765,26 +3922,6 @@ export const de_ListResourceDefinitionsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListResourceDefinitionsCommandError
- */
-const de_ListResourceDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
 };
 
 /**
@@ -5795,7 +3932,7 @@ export const de_ListResourceDefinitionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListResourceDefinitionVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5810,32 +3947,6 @@ export const de_ListResourceDefinitionVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListResourceDefinitionVersionsCommandError
- */
-const de_ListResourceDefinitionVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceDefinitionVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSubscriptionDefinitionsCommand
  */
 export const de_ListSubscriptionDefinitionsCommand = async (
@@ -5843,7 +3954,7 @@ export const de_ListSubscriptionDefinitionsCommand = async (
   context: __SerdeContext
 ): Promise<ListSubscriptionDefinitionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSubscriptionDefinitionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5858,26 +3969,6 @@ export const de_ListSubscriptionDefinitionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSubscriptionDefinitionsCommandError
- */
-const de_ListSubscriptionDefinitionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSubscriptionDefinitionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommand
  */
 export const de_ListSubscriptionDefinitionVersionsCommand = async (
@@ -5885,7 +3976,7 @@ export const de_ListSubscriptionDefinitionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListSubscriptionDefinitionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSubscriptionDefinitionVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5900,32 +3991,6 @@ export const de_ListSubscriptionDefinitionVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSubscriptionDefinitionVersionsCommandError
- */
-const de_ListSubscriptionDefinitionVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSubscriptionDefinitionVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -5933,7 +3998,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5947,32 +4012,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ResetDeploymentsCommand
  */
 export const de_ResetDeploymentsCommand = async (
@@ -5980,7 +4019,7 @@ export const de_ResetDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<ResetDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ResetDeploymentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5995,32 +4034,6 @@ export const de_ResetDeploymentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ResetDeploymentsCommandError
- */
-const de_ResetDeploymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetDeploymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartBulkDeploymentCommand
  */
 export const de_StartBulkDeploymentCommand = async (
@@ -6028,7 +4041,7 @@ export const de_StartBulkDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<StartBulkDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartBulkDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6043,32 +4056,6 @@ export const de_StartBulkDeploymentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartBulkDeploymentCommandError
- */
-const de_StartBulkDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartBulkDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StopBulkDeploymentCommand
  */
 export const de_StopBulkDeploymentCommand = async (
@@ -6076,39 +4063,13 @@ export const de_StopBulkDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<StopBulkDeploymentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopBulkDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StopBulkDeploymentCommandError
- */
-const de_StopBulkDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopBulkDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6119,39 +4080,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6162,39 +4097,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6205,7 +4114,7 @@ export const de_UpdateConnectivityInfoCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConnectivityInfoCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateConnectivityInfoCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6220,35 +4129,6 @@ export const de_UpdateConnectivityInfoCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateConnectivityInfoCommandError
- */
-const de_UpdateConnectivityInfoCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConnectivityInfoCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateConnectorDefinitionCommand
  */
 export const de_UpdateConnectorDefinitionCommand = async (
@@ -6256,39 +4136,13 @@ export const de_UpdateConnectorDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConnectorDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateConnectorDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateConnectorDefinitionCommandError
- */
-const de_UpdateConnectorDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConnectorDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6299,39 +4153,13 @@ export const de_UpdateCoreDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCoreDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateCoreDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateCoreDefinitionCommandError
- */
-const de_UpdateCoreDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCoreDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6342,39 +4170,13 @@ export const de_UpdateDeviceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDeviceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateDeviceDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateDeviceDefinitionCommandError
- */
-const de_UpdateDeviceDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDeviceDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6385,39 +4187,13 @@ export const de_UpdateFunctionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFunctionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFunctionDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateFunctionDefinitionCommandError
- */
-const de_UpdateFunctionDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFunctionDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6428,39 +4204,13 @@ export const de_UpdateGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateGroupCommandError
- */
-const de_UpdateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6471,7 +4221,7 @@ export const de_UpdateGroupCertificateConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGroupCertificateConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateGroupCertificateConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6487,35 +4237,6 @@ export const de_UpdateGroupCertificateConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateGroupCertificateConfigurationCommandError
- */
-const de_UpdateGroupCertificateConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGroupCertificateConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalServerErrorException":
-    case "com.amazonaws.greengrass#InternalServerErrorException":
-      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateLoggerDefinitionCommand
  */
 export const de_UpdateLoggerDefinitionCommand = async (
@@ -6523,39 +4244,13 @@ export const de_UpdateLoggerDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLoggerDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateLoggerDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateLoggerDefinitionCommandError
- */
-const de_UpdateLoggerDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLoggerDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6566,39 +4261,13 @@ export const de_UpdateResourceDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateResourceDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateResourceDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateResourceDefinitionCommandError
- */
-const de_UpdateResourceDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourceDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6609,39 +4278,13 @@ export const de_UpdateSubscriptionDefinitionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSubscriptionDefinitionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSubscriptionDefinitionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateSubscriptionDefinitionCommandError
- */
-const de_UpdateSubscriptionDefinitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSubscriptionDefinitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.greengrass#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6652,7 +4295,7 @@ export const de_UpdateThingRuntimeConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateThingRuntimeConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateThingRuntimeConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6662,12 +4305,9 @@ export const de_UpdateThingRuntimeConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateThingRuntimeConfigurationCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateThingRuntimeConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateThingRuntimeConfigurationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6686,7 +4326,7 @@ const de_UpdateThingRuntimeConfigurationCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

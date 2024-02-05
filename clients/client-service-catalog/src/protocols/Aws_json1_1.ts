@@ -1652,7 +1652,7 @@ export const de_AcceptPortfolioShareCommand = async (
   context: __SerdeContext
 ): Promise<AcceptPortfolioShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AcceptPortfolioShareCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1665,38 +1665,6 @@ export const de_AcceptPortfolioShareCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AcceptPortfolioShareCommandError
- */
-const de_AcceptPortfolioShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptPortfolioShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateBudgetWithResourceCommand
  */
 export const de_AssociateBudgetWithResourceCommand = async (
@@ -1704,7 +1672,7 @@ export const de_AssociateBudgetWithResourceCommand = async (
   context: __SerdeContext
 ): Promise<AssociateBudgetWithResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateBudgetWithResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1717,41 +1685,6 @@ export const de_AssociateBudgetWithResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateBudgetWithResourceCommandError
- */
-const de_AssociateBudgetWithResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateBudgetWithResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateResourceException":
-    case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociatePrincipalWithPortfolioCommand
  */
 export const de_AssociatePrincipalWithPortfolioCommand = async (
@@ -1759,7 +1692,7 @@ export const de_AssociatePrincipalWithPortfolioCommand = async (
   context: __SerdeContext
 ): Promise<AssociatePrincipalWithPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociatePrincipalWithPortfolioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1772,38 +1705,6 @@ export const de_AssociatePrincipalWithPortfolioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError
- */
-const de_AssociatePrincipalWithPortfolioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociatePrincipalWithPortfolioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateProductWithPortfolioCommand
  */
 export const de_AssociateProductWithPortfolioCommand = async (
@@ -1811,7 +1712,7 @@ export const de_AssociateProductWithPortfolioCommand = async (
   context: __SerdeContext
 ): Promise<AssociateProductWithPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateProductWithPortfolioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1824,38 +1725,6 @@ export const de_AssociateProductWithPortfolioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateProductWithPortfolioCommandError
- */
-const de_AssociateProductWithPortfolioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateProductWithPortfolioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommand
  */
 export const de_AssociateServiceActionWithProvisioningArtifactCommand = async (
@@ -1863,7 +1732,7 @@ export const de_AssociateServiceActionWithProvisioningArtifactCommand = async (
   context: __SerdeContext
 ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateServiceActionWithProvisioningArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1876,41 +1745,6 @@ export const de_AssociateServiceActionWithProvisioningArtifactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommandError
- */
-const de_AssociateServiceActionWithProvisioningArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateResourceException":
-    case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateTagOptionWithResourceCommand
  */
 export const de_AssociateTagOptionWithResourceCommand = async (
@@ -1918,7 +1752,7 @@ export const de_AssociateTagOptionWithResourceCommand = async (
   context: __SerdeContext
 ): Promise<AssociateTagOptionWithResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateTagOptionWithResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1931,47 +1765,6 @@ export const de_AssociateTagOptionWithResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateTagOptionWithResourceCommandError
- */
-const de_AssociateTagOptionWithResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateTagOptionWithResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateResourceException":
-    case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand
  */
 export const de_BatchAssociateServiceActionWithProvisioningArtifactCommand = async (
@@ -1979,7 +1772,7 @@ export const de_BatchAssociateServiceActionWithProvisioningArtifactCommand = asy
   context: __SerdeContext
 ): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchAssociateServiceActionWithProvisioningArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1992,32 +1785,6 @@ export const de_BatchAssociateServiceActionWithProvisioningArtifactCommand = asy
 };
 
 /**
- * deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommandError
- */
-const de_BatchAssociateServiceActionWithProvisioningArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommand
  */
 export const de_BatchDisassociateServiceActionFromProvisioningArtifactCommand = async (
@@ -2025,7 +1792,7 @@ export const de_BatchDisassociateServiceActionFromProvisioningArtifactCommand = 
   context: __SerdeContext
 ): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDisassociateServiceActionFromProvisioningArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2038,32 +1805,6 @@ export const de_BatchDisassociateServiceActionFromProvisioningArtifactCommand = 
 };
 
 /**
- * deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommandError
- */
-const de_BatchDisassociateServiceActionFromProvisioningArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CopyProductCommand
  */
 export const de_CopyProductCommand = async (
@@ -2071,7 +1812,7 @@ export const de_CopyProductCommand = async (
   context: __SerdeContext
 ): Promise<CopyProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CopyProductCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2084,35 +1825,6 @@ export const de_CopyProductCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CopyProductCommandError
- */
-const de_CopyProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateConstraintCommand
  */
 export const de_CreateConstraintCommand = async (
@@ -2120,7 +1832,7 @@ export const de_CreateConstraintCommand = async (
   context: __SerdeContext
 ): Promise<CreateConstraintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateConstraintCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2133,41 +1845,6 @@ export const de_CreateConstraintCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateConstraintCommandError
- */
-const de_CreateConstraintCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConstraintCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateResourceException":
-    case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePortfolioCommand
  */
 export const de_CreatePortfolioCommand = async (
@@ -2175,7 +1852,7 @@ export const de_CreatePortfolioCommand = async (
   context: __SerdeContext
 ): Promise<CreatePortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePortfolioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2188,38 +1865,6 @@ export const de_CreatePortfolioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePortfolioCommandError
- */
-const de_CreatePortfolioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePortfolioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePortfolioShareCommand
  */
 export const de_CreatePortfolioShareCommand = async (
@@ -2227,7 +1872,7 @@ export const de_CreatePortfolioShareCommand = async (
   context: __SerdeContext
 ): Promise<CreatePortfolioShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePortfolioShareCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2240,44 +1885,6 @@ export const de_CreatePortfolioShareCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePortfolioShareCommandError
- */
-const de_CreatePortfolioShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePortfolioShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProductCommand
  */
 export const de_CreateProductCommand = async (
@@ -2285,7 +1892,7 @@ export const de_CreateProductCommand = async (
   context: __SerdeContext
 ): Promise<CreateProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProductCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2298,38 +1905,6 @@ export const de_CreateProductCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProductCommandError
- */
-const de_CreateProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProvisionedProductPlanCommand
  */
 export const de_CreateProvisionedProductPlanCommand = async (
@@ -2337,7 +1912,7 @@ export const de_CreateProvisionedProductPlanCommand = async (
   context: __SerdeContext
 ): Promise<CreateProvisionedProductPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProvisionedProductPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2350,38 +1925,6 @@ export const de_CreateProvisionedProductPlanCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProvisionedProductPlanCommandError
- */
-const de_CreateProvisionedProductPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProvisionedProductPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProvisioningArtifactCommand
  */
 export const de_CreateProvisioningArtifactCommand = async (
@@ -2389,7 +1932,7 @@ export const de_CreateProvisioningArtifactCommand = async (
   context: __SerdeContext
 ): Promise<CreateProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProvisioningArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2402,38 +1945,6 @@ export const de_CreateProvisioningArtifactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProvisioningArtifactCommandError
- */
-const de_CreateProvisioningArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProvisioningArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateServiceActionCommand
  */
 export const de_CreateServiceActionCommand = async (
@@ -2441,7 +1952,7 @@ export const de_CreateServiceActionCommand = async (
   context: __SerdeContext
 ): Promise<CreateServiceActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateServiceActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2454,35 +1965,6 @@ export const de_CreateServiceActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateServiceActionCommandError
- */
-const de_CreateServiceActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServiceActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTagOptionCommand
  */
 export const de_CreateTagOptionCommand = async (
@@ -2490,7 +1972,7 @@ export const de_CreateTagOptionCommand = async (
   context: __SerdeContext
 ): Promise<CreateTagOptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTagOptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2503,38 +1985,6 @@ export const de_CreateTagOptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTagOptionCommandError
- */
-const de_CreateTagOptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTagOptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateResourceException":
-    case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.servicecatalog#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteConstraintCommand
  */
 export const de_DeleteConstraintCommand = async (
@@ -2542,7 +1992,7 @@ export const de_DeleteConstraintCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConstraintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConstraintCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2555,35 +2005,6 @@ export const de_DeleteConstraintCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteConstraintCommandError
- */
-const de_DeleteConstraintCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConstraintCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeletePortfolioCommand
  */
 export const de_DeletePortfolioCommand = async (
@@ -2591,7 +2012,7 @@ export const de_DeletePortfolioCommand = async (
   context: __SerdeContext
 ): Promise<DeletePortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePortfolioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2604,41 +2025,6 @@ export const de_DeletePortfolioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeletePortfolioCommandError
- */
-const de_DeletePortfolioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePortfolioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.servicecatalog#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeletePortfolioShareCommand
  */
 export const de_DeletePortfolioShareCommand = async (
@@ -2646,7 +2032,7 @@ export const de_DeletePortfolioShareCommand = async (
   context: __SerdeContext
 ): Promise<DeletePortfolioShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePortfolioShareCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2659,41 +2045,6 @@ export const de_DeletePortfolioShareCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeletePortfolioShareCommandError
- */
-const de_DeletePortfolioShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePortfolioShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProductCommand
  */
 export const de_DeleteProductCommand = async (
@@ -2701,7 +2052,7 @@ export const de_DeleteProductCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProductCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2714,41 +2065,6 @@ export const de_DeleteProductCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteProductCommandError
- */
-const de_DeleteProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.servicecatalog#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProvisionedProductPlanCommand
  */
 export const de_DeleteProvisionedProductPlanCommand = async (
@@ -2756,7 +2072,7 @@ export const de_DeleteProvisionedProductPlanCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProvisionedProductPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProvisionedProductPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2769,35 +2085,6 @@ export const de_DeleteProvisionedProductPlanCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteProvisionedProductPlanCommandError
- */
-const de_DeleteProvisionedProductPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProvisionedProductPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProvisioningArtifactCommand
  */
 export const de_DeleteProvisioningArtifactCommand = async (
@@ -2805,7 +2092,7 @@ export const de_DeleteProvisioningArtifactCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProvisioningArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2818,38 +2105,6 @@ export const de_DeleteProvisioningArtifactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteProvisioningArtifactCommandError
- */
-const de_DeleteProvisioningArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProvisioningArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.servicecatalog#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteServiceActionCommand
  */
 export const de_DeleteServiceActionCommand = async (
@@ -2857,7 +2112,7 @@ export const de_DeleteServiceActionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteServiceActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteServiceActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2870,35 +2125,6 @@ export const de_DeleteServiceActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteServiceActionCommandError
- */
-const de_DeleteServiceActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServiceActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUseException":
-    case "com.amazonaws.servicecatalog#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTagOptionCommand
  */
 export const de_DeleteTagOptionCommand = async (
@@ -2906,7 +2132,7 @@ export const de_DeleteTagOptionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTagOptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTagOptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2919,38 +2145,6 @@ export const de_DeleteTagOptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTagOptionCommandError
- */
-const de_DeleteTagOptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTagOptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUseException":
-    case "com.amazonaws.servicecatalog#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConstraintCommand
  */
 export const de_DescribeConstraintCommand = async (
@@ -2958,7 +2152,7 @@ export const de_DescribeConstraintCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConstraintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConstraintCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2971,32 +2165,6 @@ export const de_DescribeConstraintCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConstraintCommandError
- */
-const de_DescribeConstraintCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConstraintCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeCopyProductStatusCommand
  */
 export const de_DescribeCopyProductStatusCommand = async (
@@ -3004,7 +2172,7 @@ export const de_DescribeCopyProductStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCopyProductStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCopyProductStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3017,32 +2185,6 @@ export const de_DescribeCopyProductStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCopyProductStatusCommandError
- */
-const de_DescribeCopyProductStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCopyProductStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribePortfolioCommand
  */
 export const de_DescribePortfolioCommand = async (
@@ -3050,7 +2192,7 @@ export const de_DescribePortfolioCommand = async (
   context: __SerdeContext
 ): Promise<DescribePortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePortfolioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3063,32 +2205,6 @@ export const de_DescribePortfolioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePortfolioCommandError
- */
-const de_DescribePortfolioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePortfolioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribePortfolioSharesCommand
  */
 export const de_DescribePortfolioSharesCommand = async (
@@ -3096,7 +2212,7 @@ export const de_DescribePortfolioSharesCommand = async (
   context: __SerdeContext
 ): Promise<DescribePortfolioSharesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePortfolioSharesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3109,35 +2225,6 @@ export const de_DescribePortfolioSharesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePortfolioSharesCommandError
- */
-const de_DescribePortfolioSharesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePortfolioSharesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribePortfolioShareStatusCommand
  */
 export const de_DescribePortfolioShareStatusCommand = async (
@@ -3145,7 +2232,7 @@ export const de_DescribePortfolioShareStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribePortfolioShareStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePortfolioShareStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3158,38 +2245,6 @@ export const de_DescribePortfolioShareStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePortfolioShareStatusCommandError
- */
-const de_DescribePortfolioShareStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePortfolioShareStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProductCommand
  */
 export const de_DescribeProductCommand = async (
@@ -3197,7 +2252,7 @@ export const de_DescribeProductCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProductCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3210,35 +2265,6 @@ export const de_DescribeProductCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProductCommandError
- */
-const de_DescribeProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProductAsAdminCommand
  */
 export const de_DescribeProductAsAdminCommand = async (
@@ -3246,7 +2272,7 @@ export const de_DescribeProductAsAdminCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProductAsAdminCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProductAsAdminCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3259,35 +2285,6 @@ export const de_DescribeProductAsAdminCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProductAsAdminCommandError
- */
-const de_DescribeProductAsAdminCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProductAsAdminCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProductViewCommand
  */
 export const de_DescribeProductViewCommand = async (
@@ -3295,7 +2292,7 @@ export const de_DescribeProductViewCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProductViewCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProductViewCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3308,35 +2305,6 @@ export const de_DescribeProductViewCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProductViewCommandError
- */
-const de_DescribeProductViewCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProductViewCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProvisionedProductCommand
  */
 export const de_DescribeProvisionedProductCommand = async (
@@ -3344,7 +2312,7 @@ export const de_DescribeProvisionedProductCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProvisionedProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProvisionedProductCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3357,35 +2325,6 @@ export const de_DescribeProvisionedProductCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProvisionedProductCommandError
- */
-const de_DescribeProvisionedProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProvisionedProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProvisionedProductPlanCommand
  */
 export const de_DescribeProvisionedProductPlanCommand = async (
@@ -3393,7 +2332,7 @@ export const de_DescribeProvisionedProductPlanCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProvisionedProductPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProvisionedProductPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3406,35 +2345,6 @@ export const de_DescribeProvisionedProductPlanCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProvisionedProductPlanCommandError
- */
-const de_DescribeProvisionedProductPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProvisionedProductPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProvisioningArtifactCommand
  */
 export const de_DescribeProvisioningArtifactCommand = async (
@@ -3442,7 +2352,7 @@ export const de_DescribeProvisioningArtifactCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProvisioningArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3455,35 +2365,6 @@ export const de_DescribeProvisioningArtifactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProvisioningArtifactCommandError
- */
-const de_DescribeProvisioningArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProvisioningArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProvisioningParametersCommand
  */
 export const de_DescribeProvisioningParametersCommand = async (
@@ -3491,7 +2372,7 @@ export const de_DescribeProvisioningParametersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProvisioningParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProvisioningParametersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3504,35 +2385,6 @@ export const de_DescribeProvisioningParametersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProvisioningParametersCommandError
- */
-const de_DescribeProvisioningParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProvisioningParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRecordCommand
  */
 export const de_DescribeRecordCommand = async (
@@ -3540,7 +2392,7 @@ export const de_DescribeRecordCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRecordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRecordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3553,32 +2405,6 @@ export const de_DescribeRecordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRecordCommandError
- */
-const de_DescribeRecordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRecordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeServiceActionCommand
  */
 export const de_DescribeServiceActionCommand = async (
@@ -3586,7 +2412,7 @@ export const de_DescribeServiceActionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeServiceActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeServiceActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3599,32 +2425,6 @@ export const de_DescribeServiceActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeServiceActionCommandError
- */
-const de_DescribeServiceActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServiceActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeServiceActionExecutionParametersCommand
  */
 export const de_DescribeServiceActionExecutionParametersCommand = async (
@@ -3632,7 +2432,7 @@ export const de_DescribeServiceActionExecutionParametersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeServiceActionExecutionParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeServiceActionExecutionParametersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3645,35 +2445,6 @@ export const de_DescribeServiceActionExecutionParametersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeServiceActionExecutionParametersCommandError
- */
-const de_DescribeServiceActionExecutionParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeServiceActionExecutionParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTagOptionCommand
  */
 export const de_DescribeTagOptionCommand = async (
@@ -3681,7 +2452,7 @@ export const de_DescribeTagOptionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTagOptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTagOptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3694,35 +2465,6 @@ export const de_DescribeTagOptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTagOptionCommandError
- */
-const de_DescribeTagOptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagOptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableAWSOrganizationsAccessCommand
  */
 export const de_DisableAWSOrganizationsAccessCommand = async (
@@ -3730,7 +2472,7 @@ export const de_DisableAWSOrganizationsAccessCommand = async (
   context: __SerdeContext
 ): Promise<DisableAWSOrganizationsAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableAWSOrganizationsAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3743,38 +2485,6 @@ export const de_DisableAWSOrganizationsAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError
- */
-const de_DisableAWSOrganizationsAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableAWSOrganizationsAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateBudgetFromResourceCommand
  */
 export const de_DisassociateBudgetFromResourceCommand = async (
@@ -3782,7 +2492,7 @@ export const de_DisassociateBudgetFromResourceCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateBudgetFromResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateBudgetFromResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3795,32 +2505,6 @@ export const de_DisassociateBudgetFromResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateBudgetFromResourceCommandError
- */
-const de_DisassociateBudgetFromResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateBudgetFromResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommand
  */
 export const de_DisassociatePrincipalFromPortfolioCommand = async (
@@ -3828,7 +2512,7 @@ export const de_DisassociatePrincipalFromPortfolioCommand = async (
   context: __SerdeContext
 ): Promise<DisassociatePrincipalFromPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociatePrincipalFromPortfolioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3841,35 +2525,6 @@ export const de_DisassociatePrincipalFromPortfolioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandError
- */
-const de_DisassociatePrincipalFromPortfolioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociatePrincipalFromPortfolioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateProductFromPortfolioCommand
  */
 export const de_DisassociateProductFromPortfolioCommand = async (
@@ -3877,7 +2532,7 @@ export const de_DisassociateProductFromPortfolioCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateProductFromPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateProductFromPortfolioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3890,38 +2545,6 @@ export const de_DisassociateProductFromPortfolioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateProductFromPortfolioCommandError
- */
-const de_DisassociateProductFromPortfolioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateProductFromPortfolioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.servicecatalog#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommand
  */
 export const de_DisassociateServiceActionFromProvisioningArtifactCommand = async (
@@ -3929,7 +2552,7 @@ export const de_DisassociateServiceActionFromProvisioningArtifactCommand = async
   context: __SerdeContext
 ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateServiceActionFromProvisioningArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3942,32 +2565,6 @@ export const de_DisassociateServiceActionFromProvisioningArtifactCommand = async
 };
 
 /**
- * deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommandError
- */
-const de_DisassociateServiceActionFromProvisioningArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateTagOptionFromResourceCommand
  */
 export const de_DisassociateTagOptionFromResourceCommand = async (
@@ -3975,7 +2572,7 @@ export const de_DisassociateTagOptionFromResourceCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateTagOptionFromResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateTagOptionFromResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3988,35 +2585,6 @@ export const de_DisassociateTagOptionFromResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateTagOptionFromResourceCommandError
- */
-const de_DisassociateTagOptionFromResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateTagOptionFromResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EnableAWSOrganizationsAccessCommand
  */
 export const de_EnableAWSOrganizationsAccessCommand = async (
@@ -4024,7 +2592,7 @@ export const de_EnableAWSOrganizationsAccessCommand = async (
   context: __SerdeContext
 ): Promise<EnableAWSOrganizationsAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableAWSOrganizationsAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4037,38 +2605,6 @@ export const de_EnableAWSOrganizationsAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError
- */
-const de_EnableAWSOrganizationsAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableAWSOrganizationsAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidStateException":
-    case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ExecuteProvisionedProductPlanCommand
  */
 export const de_ExecuteProvisionedProductPlanCommand = async (
@@ -4076,7 +2612,7 @@ export const de_ExecuteProvisionedProductPlanCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteProvisionedProductPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExecuteProvisionedProductPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4089,38 +2625,6 @@ export const de_ExecuteProvisionedProductPlanCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError
- */
-const de_ExecuteProvisionedProductPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteProvisionedProductPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand
  */
 export const de_ExecuteProvisionedProductServiceActionCommand = async (
@@ -4128,7 +2632,7 @@ export const de_ExecuteProvisionedProductServiceActionCommand = async (
   context: __SerdeContext
 ): Promise<ExecuteProvisionedProductServiceActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExecuteProvisionedProductServiceActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4141,38 +2645,6 @@ export const de_ExecuteProvisionedProductServiceActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommandError
- */
-const de_ExecuteProvisionedProductServiceActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteProvisionedProductServiceActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommand
  */
 export const de_GetAWSOrganizationsAccessStatusCommand = async (
@@ -4180,7 +2652,7 @@ export const de_GetAWSOrganizationsAccessStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetAWSOrganizationsAccessStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAWSOrganizationsAccessStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4193,35 +2665,6 @@ export const de_GetAWSOrganizationsAccessStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError
- */
-const de_GetAWSOrganizationsAccessStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAWSOrganizationsAccessStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotSupportedException":
-    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetProvisionedProductOutputsCommand
  */
 export const de_GetProvisionedProductOutputsCommand = async (
@@ -4229,7 +2672,7 @@ export const de_GetProvisionedProductOutputsCommand = async (
   context: __SerdeContext
 ): Promise<GetProvisionedProductOutputsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetProvisionedProductOutputsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4242,35 +2685,6 @@ export const de_GetProvisionedProductOutputsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetProvisionedProductOutputsCommandError
- */
-const de_GetProvisionedProductOutputsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetProvisionedProductOutputsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportAsProvisionedProductCommand
  */
 export const de_ImportAsProvisionedProductCommand = async (
@@ -4278,7 +2692,7 @@ export const de_ImportAsProvisionedProductCommand = async (
   context: __SerdeContext
 ): Promise<ImportAsProvisionedProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportAsProvisionedProductCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4291,41 +2705,6 @@ export const de_ImportAsProvisionedProductCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportAsProvisionedProductCommandError
- */
-const de_ImportAsProvisionedProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportAsProvisionedProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateResourceException":
-    case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAcceptedPortfolioSharesCommand
  */
 export const de_ListAcceptedPortfolioSharesCommand = async (
@@ -4333,7 +2712,7 @@ export const de_ListAcceptedPortfolioSharesCommand = async (
   context: __SerdeContext
 ): Promise<ListAcceptedPortfolioSharesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAcceptedPortfolioSharesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4346,35 +2725,6 @@ export const de_ListAcceptedPortfolioSharesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError
- */
-const de_ListAcceptedPortfolioSharesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAcceptedPortfolioSharesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListBudgetsForResourceCommand
  */
 export const de_ListBudgetsForResourceCommand = async (
@@ -4382,7 +2732,7 @@ export const de_ListBudgetsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListBudgetsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBudgetsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4395,35 +2745,6 @@ export const de_ListBudgetsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListBudgetsForResourceCommandError
- */
-const de_ListBudgetsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBudgetsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListConstraintsForPortfolioCommand
  */
 export const de_ListConstraintsForPortfolioCommand = async (
@@ -4431,7 +2752,7 @@ export const de_ListConstraintsForPortfolioCommand = async (
   context: __SerdeContext
 ): Promise<ListConstraintsForPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListConstraintsForPortfolioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4444,35 +2765,6 @@ export const de_ListConstraintsForPortfolioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListConstraintsForPortfolioCommandError
- */
-const de_ListConstraintsForPortfolioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConstraintsForPortfolioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListLaunchPathsCommand
  */
 export const de_ListLaunchPathsCommand = async (
@@ -4480,7 +2772,7 @@ export const de_ListLaunchPathsCommand = async (
   context: __SerdeContext
 ): Promise<ListLaunchPathsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLaunchPathsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4493,35 +2785,6 @@ export const de_ListLaunchPathsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListLaunchPathsCommandError
- */
-const de_ListLaunchPathsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLaunchPathsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListOrganizationPortfolioAccessCommand
  */
 export const de_ListOrganizationPortfolioAccessCommand = async (
@@ -4529,7 +2792,7 @@ export const de_ListOrganizationPortfolioAccessCommand = async (
   context: __SerdeContext
 ): Promise<ListOrganizationPortfolioAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListOrganizationPortfolioAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4542,38 +2805,6 @@ export const de_ListOrganizationPortfolioAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError
- */
-const de_ListOrganizationPortfolioAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOrganizationPortfolioAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPortfolioAccessCommand
  */
 export const de_ListPortfolioAccessCommand = async (
@@ -4581,7 +2812,7 @@ export const de_ListPortfolioAccessCommand = async (
   context: __SerdeContext
 ): Promise<ListPortfolioAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPortfolioAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4594,35 +2825,6 @@ export const de_ListPortfolioAccessCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPortfolioAccessCommandError
- */
-const de_ListPortfolioAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPortfolioAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPortfoliosCommand
  */
 export const de_ListPortfoliosCommand = async (
@@ -4630,7 +2832,7 @@ export const de_ListPortfoliosCommand = async (
   context: __SerdeContext
 ): Promise<ListPortfoliosCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPortfoliosCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4643,32 +2845,6 @@ export const de_ListPortfoliosCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPortfoliosCommandError
- */
-const de_ListPortfoliosCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPortfoliosCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPortfoliosForProductCommand
  */
 export const de_ListPortfoliosForProductCommand = async (
@@ -4676,7 +2852,7 @@ export const de_ListPortfoliosForProductCommand = async (
   context: __SerdeContext
 ): Promise<ListPortfoliosForProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPortfoliosForProductCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4689,35 +2865,6 @@ export const de_ListPortfoliosForProductCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPortfoliosForProductCommandError
- */
-const de_ListPortfoliosForProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPortfoliosForProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPrincipalsForPortfolioCommand
  */
 export const de_ListPrincipalsForPortfolioCommand = async (
@@ -4725,7 +2872,7 @@ export const de_ListPrincipalsForPortfolioCommand = async (
   context: __SerdeContext
 ): Promise<ListPrincipalsForPortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPrincipalsForPortfolioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4738,35 +2885,6 @@ export const de_ListPrincipalsForPortfolioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPrincipalsForPortfolioCommandError
- */
-const de_ListPrincipalsForPortfolioCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPrincipalsForPortfolioCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListProvisionedProductPlansCommand
  */
 export const de_ListProvisionedProductPlansCommand = async (
@@ -4774,7 +2892,7 @@ export const de_ListProvisionedProductPlansCommand = async (
   context: __SerdeContext
 ): Promise<ListProvisionedProductPlansCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListProvisionedProductPlansCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4787,35 +2905,6 @@ export const de_ListProvisionedProductPlansCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListProvisionedProductPlansCommandError
- */
-const de_ListProvisionedProductPlansCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProvisionedProductPlansCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListProvisioningArtifactsCommand
  */
 export const de_ListProvisioningArtifactsCommand = async (
@@ -4823,7 +2912,7 @@ export const de_ListProvisioningArtifactsCommand = async (
   context: __SerdeContext
 ): Promise<ListProvisioningArtifactsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListProvisioningArtifactsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4836,35 +2925,6 @@ export const de_ListProvisioningArtifactsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListProvisioningArtifactsCommandError
- */
-const de_ListProvisioningArtifactsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProvisioningArtifactsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommand
  */
 export const de_ListProvisioningArtifactsForServiceActionCommand = async (
@@ -4872,7 +2932,7 @@ export const de_ListProvisioningArtifactsForServiceActionCommand = async (
   context: __SerdeContext
 ): Promise<ListProvisioningArtifactsForServiceActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListProvisioningArtifactsForServiceActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4885,35 +2945,6 @@ export const de_ListProvisioningArtifactsForServiceActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommandError
- */
-const de_ListProvisioningArtifactsForServiceActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProvisioningArtifactsForServiceActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRecordHistoryCommand
  */
 export const de_ListRecordHistoryCommand = async (
@@ -4921,7 +2952,7 @@ export const de_ListRecordHistoryCommand = async (
   context: __SerdeContext
 ): Promise<ListRecordHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRecordHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4934,32 +2965,6 @@ export const de_ListRecordHistoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRecordHistoryCommandError
- */
-const de_ListRecordHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecordHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResourcesForTagOptionCommand
  */
 export const de_ListResourcesForTagOptionCommand = async (
@@ -4967,7 +2972,7 @@ export const de_ListResourcesForTagOptionCommand = async (
   context: __SerdeContext
 ): Promise<ListResourcesForTagOptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourcesForTagOptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4980,38 +2985,6 @@ export const de_ListResourcesForTagOptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResourcesForTagOptionCommandError
- */
-const de_ListResourcesForTagOptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourcesForTagOptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListServiceActionsCommand
  */
 export const de_ListServiceActionsCommand = async (
@@ -5019,7 +2992,7 @@ export const de_ListServiceActionsCommand = async (
   context: __SerdeContext
 ): Promise<ListServiceActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListServiceActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5032,32 +3005,6 @@ export const de_ListServiceActionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListServiceActionsCommandError
- */
-const de_ListServiceActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServiceActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommand
  */
 export const de_ListServiceActionsForProvisioningArtifactCommand = async (
@@ -5065,7 +3012,7 @@ export const de_ListServiceActionsForProvisioningArtifactCommand = async (
   context: __SerdeContext
 ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListServiceActionsForProvisioningArtifactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5078,35 +3025,6 @@ export const de_ListServiceActionsForProvisioningArtifactCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommandError
- */
-const de_ListServiceActionsForProvisioningArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListStackInstancesForProvisionedProductCommand
  */
 export const de_ListStackInstancesForProvisionedProductCommand = async (
@@ -5114,7 +3032,7 @@ export const de_ListStackInstancesForProvisionedProductCommand = async (
   context: __SerdeContext
 ): Promise<ListStackInstancesForProvisionedProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStackInstancesForProvisionedProductCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5127,35 +3045,6 @@ export const de_ListStackInstancesForProvisionedProductCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListStackInstancesForProvisionedProductCommandError
- */
-const de_ListStackInstancesForProvisionedProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStackInstancesForProvisionedProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagOptionsCommand
  */
 export const de_ListTagOptionsCommand = async (
@@ -5163,7 +3052,7 @@ export const de_ListTagOptionsCommand = async (
   context: __SerdeContext
 ): Promise<ListTagOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5176,35 +3065,6 @@ export const de_ListTagOptionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagOptionsCommandError
- */
-const de_ListTagOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommand
  */
 export const de_NotifyProvisionProductEngineWorkflowResultCommand = async (
@@ -5212,7 +3072,7 @@ export const de_NotifyProvisionProductEngineWorkflowResultCommand = async (
   context: __SerdeContext
 ): Promise<NotifyProvisionProductEngineWorkflowResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_NotifyProvisionProductEngineWorkflowResultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5225,35 +3085,6 @@ export const de_NotifyProvisionProductEngineWorkflowResultCommand = async (
 };
 
 /**
- * deserializeAws_json1_1NotifyProvisionProductEngineWorkflowResultCommandError
- */
-const de_NotifyProvisionProductEngineWorkflowResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NotifyProvisionProductEngineWorkflowResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommand
  */
 export const de_NotifyTerminateProvisionedProductEngineWorkflowResultCommand = async (
@@ -5261,7 +3092,7 @@ export const de_NotifyTerminateProvisionedProductEngineWorkflowResultCommand = a
   context: __SerdeContext
 ): Promise<NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_NotifyTerminateProvisionedProductEngineWorkflowResultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5274,35 +3105,6 @@ export const de_NotifyTerminateProvisionedProductEngineWorkflowResultCommand = a
 };
 
 /**
- * deserializeAws_json1_1NotifyTerminateProvisionedProductEngineWorkflowResultCommandError
- */
-const de_NotifyTerminateProvisionedProductEngineWorkflowResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommand
  */
 export const de_NotifyUpdateProvisionedProductEngineWorkflowResultCommand = async (
@@ -5310,7 +3112,7 @@ export const de_NotifyUpdateProvisionedProductEngineWorkflowResultCommand = asyn
   context: __SerdeContext
 ): Promise<NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_NotifyUpdateProvisionedProductEngineWorkflowResultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5323,35 +3125,6 @@ export const de_NotifyUpdateProvisionedProductEngineWorkflowResultCommand = asyn
 };
 
 /**
- * deserializeAws_json1_1NotifyUpdateProvisionedProductEngineWorkflowResultCommandError
- */
-const de_NotifyUpdateProvisionedProductEngineWorkflowResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ProvisionProductCommand
  */
 export const de_ProvisionProductCommand = async (
@@ -5359,7 +3132,7 @@ export const de_ProvisionProductCommand = async (
   context: __SerdeContext
 ): Promise<ProvisionProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ProvisionProductCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5372,38 +3145,6 @@ export const de_ProvisionProductCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ProvisionProductCommandError
- */
-const de_ProvisionProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ProvisionProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DuplicateResourceException":
-    case "com.amazonaws.servicecatalog#DuplicateResourceException":
-      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RejectPortfolioShareCommand
  */
 export const de_RejectPortfolioShareCommand = async (
@@ -5411,7 +3152,7 @@ export const de_RejectPortfolioShareCommand = async (
   context: __SerdeContext
 ): Promise<RejectPortfolioShareCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RejectPortfolioShareCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5424,32 +3165,6 @@ export const de_RejectPortfolioShareCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RejectPortfolioShareCommandError
- */
-const de_RejectPortfolioShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RejectPortfolioShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ScanProvisionedProductsCommand
  */
 export const de_ScanProvisionedProductsCommand = async (
@@ -5457,7 +3172,7 @@ export const de_ScanProvisionedProductsCommand = async (
   context: __SerdeContext
 ): Promise<ScanProvisionedProductsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ScanProvisionedProductsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5470,32 +3185,6 @@ export const de_ScanProvisionedProductsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ScanProvisionedProductsCommandError
- */
-const de_ScanProvisionedProductsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ScanProvisionedProductsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchProductsCommand
  */
 export const de_SearchProductsCommand = async (
@@ -5503,7 +3192,7 @@ export const de_SearchProductsCommand = async (
   context: __SerdeContext
 ): Promise<SearchProductsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchProductsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5516,32 +3205,6 @@ export const de_SearchProductsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchProductsCommandError
- */
-const de_SearchProductsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchProductsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchProductsAsAdminCommand
  */
 export const de_SearchProductsAsAdminCommand = async (
@@ -5549,7 +3212,7 @@ export const de_SearchProductsAsAdminCommand = async (
   context: __SerdeContext
 ): Promise<SearchProductsAsAdminCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchProductsAsAdminCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5562,35 +3225,6 @@ export const de_SearchProductsAsAdminCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchProductsAsAdminCommandError
- */
-const de_SearchProductsAsAdminCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchProductsAsAdminCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SearchProvisionedProductsCommand
  */
 export const de_SearchProvisionedProductsCommand = async (
@@ -5598,7 +3232,7 @@ export const de_SearchProvisionedProductsCommand = async (
   context: __SerdeContext
 ): Promise<SearchProvisionedProductsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SearchProvisionedProductsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5611,32 +3245,6 @@ export const de_SearchProvisionedProductsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SearchProvisionedProductsCommandError
- */
-const de_SearchProvisionedProductsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchProvisionedProductsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TerminateProvisionedProductCommand
  */
 export const de_TerminateProvisionedProductCommand = async (
@@ -5644,7 +3252,7 @@ export const de_TerminateProvisionedProductCommand = async (
   context: __SerdeContext
 ): Promise<TerminateProvisionedProductCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TerminateProvisionedProductCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5657,32 +3265,6 @@ export const de_TerminateProvisionedProductCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TerminateProvisionedProductCommandError
- */
-const de_TerminateProvisionedProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateProvisionedProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateConstraintCommand
  */
 export const de_UpdateConstraintCommand = async (
@@ -5690,7 +3272,7 @@ export const de_UpdateConstraintCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConstraintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateConstraintCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5703,35 +3285,6 @@ export const de_UpdateConstraintCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateConstraintCommandError
- */
-const de_UpdateConstraintCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConstraintCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdatePortfolioCommand
  */
 export const de_UpdatePortfolioCommand = async (
@@ -5739,7 +3292,7 @@ export const de_UpdatePortfolioCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePortfolioCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdatePortfolioCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5752,12 +3305,149 @@ export const de_UpdatePortfolioCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdatePortfolioCommandError
+ * deserializeAws_json1_1UpdatePortfolioShareCommand
  */
-const de_UpdatePortfolioCommandError = async (
+export const de_UpdatePortfolioShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdatePortfolioCommandOutput> => {
+): Promise<UpdatePortfolioShareCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdatePortfolioShareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateProductCommand
+ */
+export const de_UpdateProductCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProductCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateProductOutput(data, context);
+  const response: UpdateProductCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateProvisionedProductCommand
+ */
+export const de_UpdateProvisionedProductCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProvisionedProductCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateProvisionedProductOutput(data, context);
+  const response: UpdateProvisionedProductCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand
+ */
+export const de_UpdateProvisionedProductPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProvisionedProductPropertiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateProvisionedProductPropertiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateProvisioningArtifactCommand
+ */
+export const de_UpdateProvisioningArtifactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProvisioningArtifactCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateProvisioningArtifactOutput(data, context);
+  const response: UpdateProvisioningArtifactCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateServiceActionCommand
+ */
+export const de_UpdateServiceActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateServiceActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateServiceActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateTagOptionCommand
+ */
+export const de_UpdateTagOptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTagOptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateTagOptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5773,377 +3463,28 @@ const de_UpdatePortfolioCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdatePortfolioShareCommand
- */
-export const de_UpdatePortfolioShareCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePortfolioShareCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdatePortfolioShareCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdatePortfolioShareCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdatePortfolioShareCommandError
- */
-const de_UpdatePortfolioShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePortfolioShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateProductCommand
- */
-export const de_UpdateProductCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProductCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateProductCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateProductOutput(data, context);
-  const response: UpdateProductCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateProductCommandError
- */
-const de_UpdateProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TagOptionNotMigratedException":
-    case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
-      throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateProvisionedProductCommand
- */
-export const de_UpdateProvisionedProductCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProvisionedProductCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateProvisionedProductCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateProvisionedProductOutput(data, context);
-  const response: UpdateProvisionedProductCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateProvisionedProductCommandError
- */
-const de_UpdateProvisionedProductCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProvisionedProductCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand
- */
-export const de_UpdateProvisionedProductPropertiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProvisionedProductPropertiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateProvisionedProductPropertiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateProvisionedProductPropertiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandError
- */
-const de_UpdateProvisionedProductPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProvisionedProductPropertiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "InvalidStateException":
-    case "com.amazonaws.servicecatalog#InvalidStateException":
-      throw await de_InvalidStateExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateProvisioningArtifactCommand
- */
-export const de_UpdateProvisioningArtifactCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProvisioningArtifactCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateProvisioningArtifactCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateProvisioningArtifactOutput(data, context);
-  const response: UpdateProvisioningArtifactCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateProvisioningArtifactCommandError
- */
-const de_UpdateProvisioningArtifactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProvisioningArtifactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateServiceActionCommand
- */
-export const de_UpdateServiceActionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceActionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateServiceActionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateServiceActionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateServiceActionCommandError
- */
-const de_UpdateServiceActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateTagOptionCommand
- */
-export const de_UpdateTagOptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTagOptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateTagOptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateTagOptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateTagOptionCommandError
- */
-const de_UpdateTagOptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTagOptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DuplicateResourceException":
     case "com.amazonaws.servicecatalog#DuplicateResourceException":
       throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
-    case "InvalidParametersException":
-    case "com.amazonaws.servicecatalog#InvalidParametersException":
-      throw await de_InvalidParametersExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "TagOptionNotMigratedException":
     case "com.amazonaws.servicecatalog#TagOptionNotMigratedException":
       throw await de_TagOptionNotMigratedExceptionRes(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.servicecatalog#OperationNotSupportedException":
+      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.servicecatalog#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

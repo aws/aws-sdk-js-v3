@@ -197,7 +197,7 @@ export const de_GetPreferencesCommand = async (
   context: __SerdeContext
 ): Promise<GetPreferencesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPreferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -210,41 +210,6 @@ export const de_GetPreferencesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetPreferencesCommandError
- */
-const de_GetPreferencesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPreferencesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.costoptimizationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.costoptimizationhub#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.costoptimizationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.costoptimizationhub#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetRecommendationCommand
  */
 export const de_GetRecommendationCommand = async (
@@ -252,7 +217,7 @@ export const de_GetRecommendationCommand = async (
   context: __SerdeContext
 ): Promise<GetRecommendationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRecommendationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -265,44 +230,6 @@ export const de_GetRecommendationCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetRecommendationCommandError
- */
-const de_GetRecommendationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecommendationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.costoptimizationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.costoptimizationhub#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.costoptimizationhub#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.costoptimizationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.costoptimizationhub#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListEnrollmentStatusesCommand
  */
 export const de_ListEnrollmentStatusesCommand = async (
@@ -310,7 +237,7 @@ export const de_ListEnrollmentStatusesCommand = async (
   context: __SerdeContext
 ): Promise<ListEnrollmentStatusesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEnrollmentStatusesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -323,41 +250,6 @@ export const de_ListEnrollmentStatusesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListEnrollmentStatusesCommandError
- */
-const de_ListEnrollmentStatusesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEnrollmentStatusesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.costoptimizationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.costoptimizationhub#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.costoptimizationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.costoptimizationhub#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListRecommendationsCommand
  */
 export const de_ListRecommendationsCommand = async (
@@ -365,7 +257,7 @@ export const de_ListRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<ListRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -378,41 +270,6 @@ export const de_ListRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListRecommendationsCommandError
- */
-const de_ListRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.costoptimizationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.costoptimizationhub#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.costoptimizationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.costoptimizationhub#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListRecommendationSummariesCommand
  */
 export const de_ListRecommendationSummariesCommand = async (
@@ -420,7 +277,7 @@ export const de_ListRecommendationSummariesCommand = async (
   context: __SerdeContext
 ): Promise<ListRecommendationSummariesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRecommendationSummariesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -433,41 +290,6 @@ export const de_ListRecommendationSummariesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListRecommendationSummariesCommandError
- */
-const de_ListRecommendationSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecommendationSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.costoptimizationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.costoptimizationhub#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.costoptimizationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.costoptimizationhub#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateEnrollmentStatusCommand
  */
 export const de_UpdateEnrollmentStatusCommand = async (
@@ -475,7 +297,7 @@ export const de_UpdateEnrollmentStatusCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEnrollmentStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateEnrollmentStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -488,41 +310,6 @@ export const de_UpdateEnrollmentStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateEnrollmentStatusCommandError
- */
-const de_UpdateEnrollmentStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEnrollmentStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.costoptimizationhub#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.costoptimizationhub#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.costoptimizationhub#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.costoptimizationhub#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdatePreferencesCommand
  */
 export const de_UpdatePreferencesCommand = async (
@@ -530,7 +317,7 @@ export const de_UpdatePreferencesCommand = async (
   context: __SerdeContext
 ): Promise<UpdatePreferencesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdatePreferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -543,12 +330,9 @@ export const de_UpdatePreferencesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdatePreferencesCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_UpdatePreferencesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePreferencesCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -567,13 +351,16 @@ const de_UpdatePreferencesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.costoptimizationhub#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.costoptimizationhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -109,7 +109,7 @@ export const de_GetDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<GetDeploymentsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeploymentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -123,32 +123,6 @@ export const de_GetDeploymentsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDeploymentsCommandError
- */
-const de_GetDeploymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.sagemakeredge#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDeviceRegistrationCommand
  */
 export const de_GetDeviceRegistrationCommand = async (
@@ -156,7 +130,7 @@ export const de_GetDeviceRegistrationCommand = async (
   context: __SerdeContext
 ): Promise<GetDeviceRegistrationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDeviceRegistrationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -171,32 +145,6 @@ export const de_GetDeviceRegistrationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDeviceRegistrationCommandError
- */
-const de_GetDeviceRegistrationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeviceRegistrationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.sagemakeredge#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1SendHeartbeatCommand
  */
 export const de_SendHeartbeatCommand = async (
@@ -204,7 +152,7 @@ export const de_SendHeartbeatCommand = async (
   context: __SerdeContext
 ): Promise<SendHeartbeatCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SendHeartbeatCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -214,12 +162,9 @@ export const de_SendHeartbeatCommand = async (
 };
 
 /**
- * deserializeAws_restJson1SendHeartbeatCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_SendHeartbeatCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendHeartbeatCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -235,7 +180,7 @@ const de_SendHeartbeatCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

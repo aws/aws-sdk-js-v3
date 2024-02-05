@@ -2921,7 +2921,7 @@ export const de_AllocateStaticIpCommand = async (
   context: __SerdeContext
 ): Promise<AllocateStaticIpCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AllocateStaticIpCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2934,50 +2934,6 @@ export const de_AllocateStaticIpCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AllocateStaticIpCommandError
- */
-const de_AllocateStaticIpCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AllocateStaticIpCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AttachCertificateToDistributionCommand
  */
 export const de_AttachCertificateToDistributionCommand = async (
@@ -2985,7 +2941,7 @@ export const de_AttachCertificateToDistributionCommand = async (
   context: __SerdeContext
 ): Promise<AttachCertificateToDistributionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachCertificateToDistributionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2998,47 +2954,6 @@ export const de_AttachCertificateToDistributionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AttachCertificateToDistributionCommandError
- */
-const de_AttachCertificateToDistributionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachCertificateToDistributionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AttachDiskCommand
  */
 export const de_AttachDiskCommand = async (
@@ -3046,7 +2961,7 @@ export const de_AttachDiskCommand = async (
   context: __SerdeContext
 ): Promise<AttachDiskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachDiskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3059,50 +2974,6 @@ export const de_AttachDiskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AttachDiskCommandError
- */
-const de_AttachDiskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachDiskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AttachInstancesToLoadBalancerCommand
  */
 export const de_AttachInstancesToLoadBalancerCommand = async (
@@ -3110,7 +2981,7 @@ export const de_AttachInstancesToLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<AttachInstancesToLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachInstancesToLoadBalancerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3123,50 +2994,6 @@ export const de_AttachInstancesToLoadBalancerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AttachInstancesToLoadBalancerCommandError
- */
-const de_AttachInstancesToLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachInstancesToLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AttachLoadBalancerTlsCertificateCommand
  */
 export const de_AttachLoadBalancerTlsCertificateCommand = async (
@@ -3174,7 +3001,7 @@ export const de_AttachLoadBalancerTlsCertificateCommand = async (
   context: __SerdeContext
 ): Promise<AttachLoadBalancerTlsCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachLoadBalancerTlsCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3187,50 +3014,6 @@ export const de_AttachLoadBalancerTlsCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AttachLoadBalancerTlsCertificateCommandError
- */
-const de_AttachLoadBalancerTlsCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachLoadBalancerTlsCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AttachStaticIpCommand
  */
 export const de_AttachStaticIpCommand = async (
@@ -3238,7 +3021,7 @@ export const de_AttachStaticIpCommand = async (
   context: __SerdeContext
 ): Promise<AttachStaticIpCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachStaticIpCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3251,50 +3034,6 @@ export const de_AttachStaticIpCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AttachStaticIpCommandError
- */
-const de_AttachStaticIpCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachStaticIpCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CloseInstancePublicPortsCommand
  */
 export const de_CloseInstancePublicPortsCommand = async (
@@ -3302,7 +3041,7 @@ export const de_CloseInstancePublicPortsCommand = async (
   context: __SerdeContext
 ): Promise<CloseInstancePublicPortsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CloseInstancePublicPortsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3315,50 +3054,6 @@ export const de_CloseInstancePublicPortsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CloseInstancePublicPortsCommandError
- */
-const de_CloseInstancePublicPortsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CloseInstancePublicPortsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CopySnapshotCommand
  */
 export const de_CopySnapshotCommand = async (
@@ -3366,7 +3061,7 @@ export const de_CopySnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CopySnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CopySnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3379,50 +3074,6 @@ export const de_CopySnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CopySnapshotCommandError
- */
-const de_CopySnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopySnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateBucketCommand
  */
 export const de_CreateBucketCommand = async (
@@ -3430,7 +3081,7 @@ export const de_CreateBucketCommand = async (
   context: __SerdeContext
 ): Promise<CreateBucketCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBucketCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3443,41 +3094,6 @@ export const de_CreateBucketCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBucketCommandError
- */
-const de_CreateBucketCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBucketCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateBucketAccessKeyCommand
  */
 export const de_CreateBucketAccessKeyCommand = async (
@@ -3485,7 +3101,7 @@ export const de_CreateBucketAccessKeyCommand = async (
   context: __SerdeContext
 ): Promise<CreateBucketAccessKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBucketAccessKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3498,44 +3114,6 @@ export const de_CreateBucketAccessKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBucketAccessKeyCommandError
- */
-const de_CreateBucketAccessKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBucketAccessKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateCertificateCommand
  */
 export const de_CreateCertificateCommand = async (
@@ -3543,7 +3121,7 @@ export const de_CreateCertificateCommand = async (
   context: __SerdeContext
 ): Promise<CreateCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3556,44 +3134,6 @@ export const de_CreateCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCertificateCommandError
- */
-const de_CreateCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateCloudFormationStackCommand
  */
 export const de_CreateCloudFormationStackCommand = async (
@@ -3601,7 +3141,7 @@ export const de_CreateCloudFormationStackCommand = async (
   context: __SerdeContext
 ): Promise<CreateCloudFormationStackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCloudFormationStackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3614,50 +3154,6 @@ export const de_CreateCloudFormationStackCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCloudFormationStackCommandError
- */
-const de_CreateCloudFormationStackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCloudFormationStackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateContactMethodCommand
  */
 export const de_CreateContactMethodCommand = async (
@@ -3665,7 +3161,7 @@ export const de_CreateContactMethodCommand = async (
   context: __SerdeContext
 ): Promise<CreateContactMethodCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateContactMethodCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3678,47 +3174,6 @@ export const de_CreateContactMethodCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateContactMethodCommandError
- */
-const de_CreateContactMethodCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateContactMethodCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateContainerServiceCommand
  */
 export const de_CreateContainerServiceCommand = async (
@@ -3726,7 +3181,7 @@ export const de_CreateContainerServiceCommand = async (
   context: __SerdeContext
 ): Promise<CreateContainerServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateContainerServiceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3739,44 +3194,6 @@ export const de_CreateContainerServiceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateContainerServiceCommandError
- */
-const de_CreateContainerServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateContainerServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateContainerServiceDeploymentCommand
  */
 export const de_CreateContainerServiceDeploymentCommand = async (
@@ -3784,7 +3201,7 @@ export const de_CreateContainerServiceDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<CreateContainerServiceDeploymentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateContainerServiceDeploymentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3797,44 +3214,6 @@ export const de_CreateContainerServiceDeploymentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateContainerServiceDeploymentCommandError
- */
-const de_CreateContainerServiceDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateContainerServiceDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateContainerServiceRegistryLoginCommand
  */
 export const de_CreateContainerServiceRegistryLoginCommand = async (
@@ -3842,7 +3221,7 @@ export const de_CreateContainerServiceRegistryLoginCommand = async (
   context: __SerdeContext
 ): Promise<CreateContainerServiceRegistryLoginCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateContainerServiceRegistryLoginCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3855,44 +3234,6 @@ export const de_CreateContainerServiceRegistryLoginCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateContainerServiceRegistryLoginCommandError
- */
-const de_CreateContainerServiceRegistryLoginCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateContainerServiceRegistryLoginCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDiskCommand
  */
 export const de_CreateDiskCommand = async (
@@ -3900,7 +3241,7 @@ export const de_CreateDiskCommand = async (
   context: __SerdeContext
 ): Promise<CreateDiskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDiskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3913,50 +3254,6 @@ export const de_CreateDiskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDiskCommandError
- */
-const de_CreateDiskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDiskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDiskFromSnapshotCommand
  */
 export const de_CreateDiskFromSnapshotCommand = async (
@@ -3964,7 +3261,7 @@ export const de_CreateDiskFromSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateDiskFromSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDiskFromSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3977,50 +3274,6 @@ export const de_CreateDiskFromSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDiskFromSnapshotCommandError
- */
-const de_CreateDiskFromSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDiskFromSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDiskSnapshotCommand
  */
 export const de_CreateDiskSnapshotCommand = async (
@@ -4028,7 +3281,7 @@ export const de_CreateDiskSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateDiskSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDiskSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4041,50 +3294,6 @@ export const de_CreateDiskSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDiskSnapshotCommandError
- */
-const de_CreateDiskSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDiskSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDistributionCommand
  */
 export const de_CreateDistributionCommand = async (
@@ -4092,7 +3301,7 @@ export const de_CreateDistributionCommand = async (
   context: __SerdeContext
 ): Promise<CreateDistributionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDistributionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4105,47 +3314,6 @@ export const de_CreateDistributionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDistributionCommandError
- */
-const de_CreateDistributionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDistributionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDomainCommand
  */
 export const de_CreateDomainCommand = async (
@@ -4153,7 +3321,7 @@ export const de_CreateDomainCommand = async (
   context: __SerdeContext
 ): Promise<CreateDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4166,50 +3334,6 @@ export const de_CreateDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDomainCommandError
- */
-const de_CreateDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDomainEntryCommand
  */
 export const de_CreateDomainEntryCommand = async (
@@ -4217,7 +3341,7 @@ export const de_CreateDomainEntryCommand = async (
   context: __SerdeContext
 ): Promise<CreateDomainEntryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDomainEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4230,50 +3354,6 @@ export const de_CreateDomainEntryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDomainEntryCommandError
- */
-const de_CreateDomainEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDomainEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateGUISessionAccessDetailsCommand
  */
 export const de_CreateGUISessionAccessDetailsCommand = async (
@@ -4281,7 +3361,7 @@ export const de_CreateGUISessionAccessDetailsCommand = async (
   context: __SerdeContext
 ): Promise<CreateGUISessionAccessDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGUISessionAccessDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4294,44 +3374,6 @@ export const de_CreateGUISessionAccessDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateGUISessionAccessDetailsCommandError
- */
-const de_CreateGUISessionAccessDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGUISessionAccessDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateInstancesCommand
  */
 export const de_CreateInstancesCommand = async (
@@ -4339,7 +3381,7 @@ export const de_CreateInstancesCommand = async (
   context: __SerdeContext
 ): Promise<CreateInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4352,50 +3394,6 @@ export const de_CreateInstancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateInstancesCommandError
- */
-const de_CreateInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateInstancesFromSnapshotCommand
  */
 export const de_CreateInstancesFromSnapshotCommand = async (
@@ -4403,7 +3401,7 @@ export const de_CreateInstancesFromSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateInstancesFromSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInstancesFromSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4416,50 +3414,6 @@ export const de_CreateInstancesFromSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateInstancesFromSnapshotCommandError
- */
-const de_CreateInstancesFromSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInstancesFromSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateInstanceSnapshotCommand
  */
 export const de_CreateInstanceSnapshotCommand = async (
@@ -4467,7 +3421,7 @@ export const de_CreateInstanceSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateInstanceSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInstanceSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4480,50 +3434,6 @@ export const de_CreateInstanceSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateInstanceSnapshotCommandError
- */
-const de_CreateInstanceSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInstanceSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateKeyPairCommand
  */
 export const de_CreateKeyPairCommand = async (
@@ -4531,7 +3441,7 @@ export const de_CreateKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<CreateKeyPairCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateKeyPairCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4544,50 +3454,6 @@ export const de_CreateKeyPairCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateKeyPairCommandError
- */
-const de_CreateKeyPairCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateKeyPairCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLoadBalancerCommand
  */
 export const de_CreateLoadBalancerCommand = async (
@@ -4595,7 +3461,7 @@ export const de_CreateLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<CreateLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLoadBalancerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4608,50 +3474,6 @@ export const de_CreateLoadBalancerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLoadBalancerCommandError
- */
-const de_CreateLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommand
  */
 export const de_CreateLoadBalancerTlsCertificateCommand = async (
@@ -4659,7 +3481,7 @@ export const de_CreateLoadBalancerTlsCertificateCommand = async (
   context: __SerdeContext
 ): Promise<CreateLoadBalancerTlsCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLoadBalancerTlsCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4672,50 +3494,6 @@ export const de_CreateLoadBalancerTlsCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommandError
- */
-const de_CreateLoadBalancerTlsCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLoadBalancerTlsCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRelationalDatabaseCommand
  */
 export const de_CreateRelationalDatabaseCommand = async (
@@ -4723,7 +3501,7 @@ export const de_CreateRelationalDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<CreateRelationalDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRelationalDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4736,50 +3514,6 @@ export const de_CreateRelationalDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRelationalDatabaseCommandError
- */
-const de_CreateRelationalDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRelationalDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand
  */
 export const de_CreateRelationalDatabaseFromSnapshotCommand = async (
@@ -4787,7 +3521,7 @@ export const de_CreateRelationalDatabaseFromSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateRelationalDatabaseFromSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRelationalDatabaseFromSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4800,50 +3534,6 @@ export const de_CreateRelationalDatabaseFromSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommandError
- */
-const de_CreateRelationalDatabaseFromSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRelationalDatabaseFromSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommand
  */
 export const de_CreateRelationalDatabaseSnapshotCommand = async (
@@ -4851,7 +3541,7 @@ export const de_CreateRelationalDatabaseSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<CreateRelationalDatabaseSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRelationalDatabaseSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4864,50 +3554,6 @@ export const de_CreateRelationalDatabaseSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRelationalDatabaseSnapshotCommandError
- */
-const de_CreateRelationalDatabaseSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRelationalDatabaseSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAlarmCommand
  */
 export const de_DeleteAlarmCommand = async (
@@ -4915,7 +3561,7 @@ export const de_DeleteAlarmCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAlarmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAlarmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4928,47 +3574,6 @@ export const de_DeleteAlarmCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAlarmCommandError
- */
-const de_DeleteAlarmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAlarmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAutoSnapshotCommand
  */
 export const de_DeleteAutoSnapshotCommand = async (
@@ -4976,7 +3581,7 @@ export const de_DeleteAutoSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAutoSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAutoSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4989,47 +3594,6 @@ export const de_DeleteAutoSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteAutoSnapshotCommandError
- */
-const de_DeleteAutoSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAutoSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteBucketCommand
  */
 export const de_DeleteBucketCommand = async (
@@ -5037,7 +3601,7 @@ export const de_DeleteBucketCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBucketCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteBucketCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5050,44 +3614,6 @@ export const de_DeleteBucketCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteBucketCommandError
- */
-const de_DeleteBucketCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBucketCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteBucketAccessKeyCommand
  */
 export const de_DeleteBucketAccessKeyCommand = async (
@@ -5095,7 +3621,7 @@ export const de_DeleteBucketAccessKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBucketAccessKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteBucketAccessKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5108,44 +3634,6 @@ export const de_DeleteBucketAccessKeyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteBucketAccessKeyCommandError
- */
-const de_DeleteBucketAccessKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBucketAccessKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCertificateCommand
  */
 export const de_DeleteCertificateCommand = async (
@@ -5153,7 +3641,7 @@ export const de_DeleteCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5166,44 +3654,6 @@ export const de_DeleteCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteCertificateCommandError
- */
-const de_DeleteCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteContactMethodCommand
  */
 export const de_DeleteContactMethodCommand = async (
@@ -5211,7 +3661,7 @@ export const de_DeleteContactMethodCommand = async (
   context: __SerdeContext
 ): Promise<DeleteContactMethodCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteContactMethodCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5224,47 +3674,6 @@ export const de_DeleteContactMethodCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteContactMethodCommandError
- */
-const de_DeleteContactMethodCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContactMethodCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteContainerImageCommand
  */
 export const de_DeleteContainerImageCommand = async (
@@ -5272,7 +3681,7 @@ export const de_DeleteContainerImageCommand = async (
   context: __SerdeContext
 ): Promise<DeleteContainerImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteContainerImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5285,44 +3694,6 @@ export const de_DeleteContainerImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteContainerImageCommandError
- */
-const de_DeleteContainerImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContainerImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteContainerServiceCommand
  */
 export const de_DeleteContainerServiceCommand = async (
@@ -5330,7 +3701,7 @@ export const de_DeleteContainerServiceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteContainerServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteContainerServiceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5343,44 +3714,6 @@ export const de_DeleteContainerServiceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteContainerServiceCommandError
- */
-const de_DeleteContainerServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContainerServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDiskCommand
  */
 export const de_DeleteDiskCommand = async (
@@ -5388,7 +3721,7 @@ export const de_DeleteDiskCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDiskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDiskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5401,50 +3734,6 @@ export const de_DeleteDiskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDiskCommandError
- */
-const de_DeleteDiskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDiskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDiskSnapshotCommand
  */
 export const de_DeleteDiskSnapshotCommand = async (
@@ -5452,7 +3741,7 @@ export const de_DeleteDiskSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDiskSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDiskSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5465,50 +3754,6 @@ export const de_DeleteDiskSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDiskSnapshotCommandError
- */
-const de_DeleteDiskSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDiskSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDistributionCommand
  */
 export const de_DeleteDistributionCommand = async (
@@ -5516,7 +3761,7 @@ export const de_DeleteDistributionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDistributionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDistributionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5529,47 +3774,6 @@ export const de_DeleteDistributionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDistributionCommandError
- */
-const de_DeleteDistributionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDistributionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDomainCommand
  */
 export const de_DeleteDomainCommand = async (
@@ -5577,7 +3781,7 @@ export const de_DeleteDomainCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5590,50 +3794,6 @@ export const de_DeleteDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDomainCommandError
- */
-const de_DeleteDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDomainEntryCommand
  */
 export const de_DeleteDomainEntryCommand = async (
@@ -5641,7 +3801,7 @@ export const de_DeleteDomainEntryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDomainEntryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDomainEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5654,50 +3814,6 @@ export const de_DeleteDomainEntryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDomainEntryCommandError
- */
-const de_DeleteDomainEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDomainEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteInstanceCommand
  */
 export const de_DeleteInstanceCommand = async (
@@ -5705,7 +3821,7 @@ export const de_DeleteInstanceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5718,50 +3834,6 @@ export const de_DeleteInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteInstanceCommandError
- */
-const de_DeleteInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteInstanceSnapshotCommand
  */
 export const de_DeleteInstanceSnapshotCommand = async (
@@ -5769,7 +3841,7 @@ export const de_DeleteInstanceSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInstanceSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteInstanceSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5782,50 +3854,6 @@ export const de_DeleteInstanceSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteInstanceSnapshotCommandError
- */
-const de_DeleteInstanceSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInstanceSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteKeyPairCommand
  */
 export const de_DeleteKeyPairCommand = async (
@@ -5833,7 +3861,7 @@ export const de_DeleteKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<DeleteKeyPairCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteKeyPairCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5846,50 +3874,6 @@ export const de_DeleteKeyPairCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteKeyPairCommandError
- */
-const de_DeleteKeyPairCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteKeyPairCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteKnownHostKeysCommand
  */
 export const de_DeleteKnownHostKeysCommand = async (
@@ -5897,7 +3881,7 @@ export const de_DeleteKnownHostKeysCommand = async (
   context: __SerdeContext
 ): Promise<DeleteKnownHostKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteKnownHostKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5910,50 +3894,6 @@ export const de_DeleteKnownHostKeysCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteKnownHostKeysCommandError
- */
-const de_DeleteKnownHostKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteKnownHostKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteLoadBalancerCommand
  */
 export const de_DeleteLoadBalancerCommand = async (
@@ -5961,7 +3901,7 @@ export const de_DeleteLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLoadBalancerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5974,50 +3914,6 @@ export const de_DeleteLoadBalancerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteLoadBalancerCommandError
- */
-const de_DeleteLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommand
  */
 export const de_DeleteLoadBalancerTlsCertificateCommand = async (
@@ -6025,7 +3921,7 @@ export const de_DeleteLoadBalancerTlsCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerTlsCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLoadBalancerTlsCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6038,50 +3934,6 @@ export const de_DeleteLoadBalancerTlsCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteLoadBalancerTlsCertificateCommandError
- */
-const de_DeleteLoadBalancerTlsCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLoadBalancerTlsCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRelationalDatabaseCommand
  */
 export const de_DeleteRelationalDatabaseCommand = async (
@@ -6089,7 +3941,7 @@ export const de_DeleteRelationalDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRelationalDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRelationalDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6102,50 +3954,6 @@ export const de_DeleteRelationalDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRelationalDatabaseCommandError
- */
-const de_DeleteRelationalDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRelationalDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRelationalDatabaseSnapshotCommand
  */
 export const de_DeleteRelationalDatabaseSnapshotCommand = async (
@@ -6153,7 +3961,7 @@ export const de_DeleteRelationalDatabaseSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRelationalDatabaseSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRelationalDatabaseSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6166,50 +3974,6 @@ export const de_DeleteRelationalDatabaseSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRelationalDatabaseSnapshotCommandError
- */
-const de_DeleteRelationalDatabaseSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRelationalDatabaseSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetachCertificateFromDistributionCommand
  */
 export const de_DetachCertificateFromDistributionCommand = async (
@@ -6217,7 +3981,7 @@ export const de_DetachCertificateFromDistributionCommand = async (
   context: __SerdeContext
 ): Promise<DetachCertificateFromDistributionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachCertificateFromDistributionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6230,47 +3994,6 @@ export const de_DetachCertificateFromDistributionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DetachCertificateFromDistributionCommandError
- */
-const de_DetachCertificateFromDistributionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachCertificateFromDistributionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetachDiskCommand
  */
 export const de_DetachDiskCommand = async (
@@ -6278,7 +4001,7 @@ export const de_DetachDiskCommand = async (
   context: __SerdeContext
 ): Promise<DetachDiskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachDiskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6291,50 +4014,6 @@ export const de_DetachDiskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DetachDiskCommandError
- */
-const de_DetachDiskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachDiskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetachInstancesFromLoadBalancerCommand
  */
 export const de_DetachInstancesFromLoadBalancerCommand = async (
@@ -6342,7 +4021,7 @@ export const de_DetachInstancesFromLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<DetachInstancesFromLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachInstancesFromLoadBalancerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6355,50 +4034,6 @@ export const de_DetachInstancesFromLoadBalancerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DetachInstancesFromLoadBalancerCommandError
- */
-const de_DetachInstancesFromLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachInstancesFromLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetachStaticIpCommand
  */
 export const de_DetachStaticIpCommand = async (
@@ -6406,7 +4041,7 @@ export const de_DetachStaticIpCommand = async (
   context: __SerdeContext
 ): Promise<DetachStaticIpCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachStaticIpCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6419,50 +4054,6 @@ export const de_DetachStaticIpCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DetachStaticIpCommandError
- */
-const de_DetachStaticIpCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachStaticIpCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisableAddOnCommand
  */
 export const de_DisableAddOnCommand = async (
@@ -6470,7 +4061,7 @@ export const de_DisableAddOnCommand = async (
   context: __SerdeContext
 ): Promise<DisableAddOnCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisableAddOnCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6483,47 +4074,6 @@ export const de_DisableAddOnCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisableAddOnCommandError
- */
-const de_DisableAddOnCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisableAddOnCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DownloadDefaultKeyPairCommand
  */
 export const de_DownloadDefaultKeyPairCommand = async (
@@ -6531,7 +4081,7 @@ export const de_DownloadDefaultKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<DownloadDefaultKeyPairCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DownloadDefaultKeyPairCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6544,50 +4094,6 @@ export const de_DownloadDefaultKeyPairCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DownloadDefaultKeyPairCommandError
- */
-const de_DownloadDefaultKeyPairCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DownloadDefaultKeyPairCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1EnableAddOnCommand
  */
 export const de_EnableAddOnCommand = async (
@@ -6595,7 +4101,7 @@ export const de_EnableAddOnCommand = async (
   context: __SerdeContext
 ): Promise<EnableAddOnCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableAddOnCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6608,47 +4114,6 @@ export const de_EnableAddOnCommand = async (
 };
 
 /**
- * deserializeAws_json1_1EnableAddOnCommandError
- */
-const de_EnableAddOnCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableAddOnCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ExportSnapshotCommand
  */
 export const de_ExportSnapshotCommand = async (
@@ -6656,7 +4121,7 @@ export const de_ExportSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<ExportSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6669,50 +4134,6 @@ export const de_ExportSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ExportSnapshotCommandError
- */
-const de_ExportSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetActiveNamesCommand
  */
 export const de_GetActiveNamesCommand = async (
@@ -6720,7 +4141,7 @@ export const de_GetActiveNamesCommand = async (
   context: __SerdeContext
 ): Promise<GetActiveNamesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetActiveNamesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6733,50 +4154,6 @@ export const de_GetActiveNamesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetActiveNamesCommandError
- */
-const de_GetActiveNamesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetActiveNamesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAlarmsCommand
  */
 export const de_GetAlarmsCommand = async (
@@ -6784,7 +4161,7 @@ export const de_GetAlarmsCommand = async (
   context: __SerdeContext
 ): Promise<GetAlarmsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAlarmsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6797,47 +4174,6 @@ export const de_GetAlarmsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAlarmsCommandError
- */
-const de_GetAlarmsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAlarmsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAutoSnapshotsCommand
  */
 export const de_GetAutoSnapshotsCommand = async (
@@ -6845,7 +4181,7 @@ export const de_GetAutoSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<GetAutoSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAutoSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6858,47 +4194,6 @@ export const de_GetAutoSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAutoSnapshotsCommandError
- */
-const de_GetAutoSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAutoSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetBlueprintsCommand
  */
 export const de_GetBlueprintsCommand = async (
@@ -6906,7 +4201,7 @@ export const de_GetBlueprintsCommand = async (
   context: __SerdeContext
 ): Promise<GetBlueprintsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBlueprintsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6919,50 +4214,6 @@ export const de_GetBlueprintsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetBlueprintsCommandError
- */
-const de_GetBlueprintsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBlueprintsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetBucketAccessKeysCommand
  */
 export const de_GetBucketAccessKeysCommand = async (
@@ -6970,7 +4221,7 @@ export const de_GetBucketAccessKeysCommand = async (
   context: __SerdeContext
 ): Promise<GetBucketAccessKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBucketAccessKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6983,44 +4234,6 @@ export const de_GetBucketAccessKeysCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetBucketAccessKeysCommandError
- */
-const de_GetBucketAccessKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBucketAccessKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetBucketBundlesCommand
  */
 export const de_GetBucketBundlesCommand = async (
@@ -7028,7 +4241,7 @@ export const de_GetBucketBundlesCommand = async (
   context: __SerdeContext
 ): Promise<GetBucketBundlesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBucketBundlesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7041,41 +4254,6 @@ export const de_GetBucketBundlesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetBucketBundlesCommandError
- */
-const de_GetBucketBundlesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBucketBundlesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetBucketMetricDataCommand
  */
 export const de_GetBucketMetricDataCommand = async (
@@ -7083,7 +4261,7 @@ export const de_GetBucketMetricDataCommand = async (
   context: __SerdeContext
 ): Promise<GetBucketMetricDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBucketMetricDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7096,44 +4274,6 @@ export const de_GetBucketMetricDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetBucketMetricDataCommandError
- */
-const de_GetBucketMetricDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBucketMetricDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetBucketsCommand
  */
 export const de_GetBucketsCommand = async (
@@ -7141,7 +4281,7 @@ export const de_GetBucketsCommand = async (
   context: __SerdeContext
 ): Promise<GetBucketsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBucketsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7154,44 +4294,6 @@ export const de_GetBucketsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetBucketsCommandError
- */
-const de_GetBucketsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBucketsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetBundlesCommand
  */
 export const de_GetBundlesCommand = async (
@@ -7199,7 +4301,7 @@ export const de_GetBundlesCommand = async (
   context: __SerdeContext
 ): Promise<GetBundlesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetBundlesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7212,50 +4314,6 @@ export const de_GetBundlesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetBundlesCommandError
- */
-const de_GetBundlesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBundlesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCertificatesCommand
  */
 export const de_GetCertificatesCommand = async (
@@ -7263,7 +4321,7 @@ export const de_GetCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<GetCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCertificatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7276,44 +4334,6 @@ export const de_GetCertificatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCertificatesCommandError
- */
-const de_GetCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCloudFormationStackRecordsCommand
  */
 export const de_GetCloudFormationStackRecordsCommand = async (
@@ -7321,7 +4341,7 @@ export const de_GetCloudFormationStackRecordsCommand = async (
   context: __SerdeContext
 ): Promise<GetCloudFormationStackRecordsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCloudFormationStackRecordsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7334,50 +4354,6 @@ export const de_GetCloudFormationStackRecordsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCloudFormationStackRecordsCommandError
- */
-const de_GetCloudFormationStackRecordsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCloudFormationStackRecordsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContactMethodsCommand
  */
 export const de_GetContactMethodsCommand = async (
@@ -7385,7 +4361,7 @@ export const de_GetContactMethodsCommand = async (
   context: __SerdeContext
 ): Promise<GetContactMethodsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContactMethodsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7398,47 +4374,6 @@ export const de_GetContactMethodsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContactMethodsCommandError
- */
-const de_GetContactMethodsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContactMethodsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContainerAPIMetadataCommand
  */
 export const de_GetContainerAPIMetadataCommand = async (
@@ -7446,7 +4381,7 @@ export const de_GetContainerAPIMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetContainerAPIMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContainerAPIMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7459,38 +4394,6 @@ export const de_GetContainerAPIMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContainerAPIMetadataCommandError
- */
-const de_GetContainerAPIMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContainerAPIMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContainerImagesCommand
  */
 export const de_GetContainerImagesCommand = async (
@@ -7498,7 +4401,7 @@ export const de_GetContainerImagesCommand = async (
   context: __SerdeContext
 ): Promise<GetContainerImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContainerImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7511,44 +4414,6 @@ export const de_GetContainerImagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContainerImagesCommandError
- */
-const de_GetContainerImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContainerImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContainerLogCommand
  */
 export const de_GetContainerLogCommand = async (
@@ -7556,7 +4421,7 @@ export const de_GetContainerLogCommand = async (
   context: __SerdeContext
 ): Promise<GetContainerLogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContainerLogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7569,44 +4434,6 @@ export const de_GetContainerLogCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContainerLogCommandError
- */
-const de_GetContainerLogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContainerLogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContainerServiceDeploymentsCommand
  */
 export const de_GetContainerServiceDeploymentsCommand = async (
@@ -7614,7 +4441,7 @@ export const de_GetContainerServiceDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<GetContainerServiceDeploymentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContainerServiceDeploymentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7627,44 +4454,6 @@ export const de_GetContainerServiceDeploymentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContainerServiceDeploymentsCommandError
- */
-const de_GetContainerServiceDeploymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContainerServiceDeploymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContainerServiceMetricDataCommand
  */
 export const de_GetContainerServiceMetricDataCommand = async (
@@ -7672,7 +4461,7 @@ export const de_GetContainerServiceMetricDataCommand = async (
   context: __SerdeContext
 ): Promise<GetContainerServiceMetricDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContainerServiceMetricDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7685,44 +4474,6 @@ export const de_GetContainerServiceMetricDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContainerServiceMetricDataCommandError
- */
-const de_GetContainerServiceMetricDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContainerServiceMetricDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContainerServicePowersCommand
  */
 export const de_GetContainerServicePowersCommand = async (
@@ -7730,7 +4481,7 @@ export const de_GetContainerServicePowersCommand = async (
   context: __SerdeContext
 ): Promise<GetContainerServicePowersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContainerServicePowersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7743,44 +4494,6 @@ export const de_GetContainerServicePowersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContainerServicePowersCommandError
- */
-const de_GetContainerServicePowersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContainerServicePowersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetContainerServicesCommand
  */
 export const de_GetContainerServicesCommand = async (
@@ -7788,7 +4501,7 @@ export const de_GetContainerServicesCommand = async (
   context: __SerdeContext
 ): Promise<GetContainerServicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContainerServicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7801,44 +4514,6 @@ export const de_GetContainerServicesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetContainerServicesCommandError
- */
-const de_GetContainerServicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContainerServicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCostEstimateCommand
  */
 export const de_GetCostEstimateCommand = async (
@@ -7846,7 +4521,7 @@ export const de_GetCostEstimateCommand = async (
   context: __SerdeContext
 ): Promise<GetCostEstimateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCostEstimateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7859,44 +4534,6 @@ export const de_GetCostEstimateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCostEstimateCommandError
- */
-const de_GetCostEstimateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCostEstimateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDiskCommand
  */
 export const de_GetDiskCommand = async (
@@ -7904,7 +4541,7 @@ export const de_GetDiskCommand = async (
   context: __SerdeContext
 ): Promise<GetDiskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDiskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7917,50 +4554,6 @@ export const de_GetDiskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDiskCommandError
- */
-const de_GetDiskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDiskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDisksCommand
  */
 export const de_GetDisksCommand = async (
@@ -7968,7 +4561,7 @@ export const de_GetDisksCommand = async (
   context: __SerdeContext
 ): Promise<GetDisksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDisksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7981,50 +4574,6 @@ export const de_GetDisksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDisksCommandError
- */
-const de_GetDisksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDisksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDiskSnapshotCommand
  */
 export const de_GetDiskSnapshotCommand = async (
@@ -8032,7 +4581,7 @@ export const de_GetDiskSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<GetDiskSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDiskSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8045,50 +4594,6 @@ export const de_GetDiskSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDiskSnapshotCommandError
- */
-const de_GetDiskSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDiskSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDiskSnapshotsCommand
  */
 export const de_GetDiskSnapshotsCommand = async (
@@ -8096,7 +4601,7 @@ export const de_GetDiskSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<GetDiskSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDiskSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8109,50 +4614,6 @@ export const de_GetDiskSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDiskSnapshotsCommandError
- */
-const de_GetDiskSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDiskSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDistributionBundlesCommand
  */
 export const de_GetDistributionBundlesCommand = async (
@@ -8160,7 +4621,7 @@ export const de_GetDistributionBundlesCommand = async (
   context: __SerdeContext
 ): Promise<GetDistributionBundlesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDistributionBundlesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8173,47 +4634,6 @@ export const de_GetDistributionBundlesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDistributionBundlesCommandError
- */
-const de_GetDistributionBundlesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDistributionBundlesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDistributionLatestCacheResetCommand
  */
 export const de_GetDistributionLatestCacheResetCommand = async (
@@ -8221,7 +4641,7 @@ export const de_GetDistributionLatestCacheResetCommand = async (
   context: __SerdeContext
 ): Promise<GetDistributionLatestCacheResetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDistributionLatestCacheResetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8234,47 +4654,6 @@ export const de_GetDistributionLatestCacheResetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDistributionLatestCacheResetCommandError
- */
-const de_GetDistributionLatestCacheResetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDistributionLatestCacheResetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDistributionMetricDataCommand
  */
 export const de_GetDistributionMetricDataCommand = async (
@@ -8282,7 +4661,7 @@ export const de_GetDistributionMetricDataCommand = async (
   context: __SerdeContext
 ): Promise<GetDistributionMetricDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDistributionMetricDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8295,47 +4674,6 @@ export const de_GetDistributionMetricDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDistributionMetricDataCommandError
- */
-const de_GetDistributionMetricDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDistributionMetricDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDistributionsCommand
  */
 export const de_GetDistributionsCommand = async (
@@ -8343,7 +4681,7 @@ export const de_GetDistributionsCommand = async (
   context: __SerdeContext
 ): Promise<GetDistributionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDistributionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8356,47 +4694,6 @@ export const de_GetDistributionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDistributionsCommandError
- */
-const de_GetDistributionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDistributionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDomainCommand
  */
 export const de_GetDomainCommand = async (
@@ -8404,7 +4701,7 @@ export const de_GetDomainCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDomainCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8417,50 +4714,6 @@ export const de_GetDomainCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDomainCommandError
- */
-const de_GetDomainCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDomainsCommand
  */
 export const de_GetDomainsCommand = async (
@@ -8468,7 +4721,7 @@ export const de_GetDomainsCommand = async (
   context: __SerdeContext
 ): Promise<GetDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDomainsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8481,50 +4734,6 @@ export const de_GetDomainsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDomainsCommandError
- */
-const de_GetDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetExportSnapshotRecordsCommand
  */
 export const de_GetExportSnapshotRecordsCommand = async (
@@ -8532,7 +4741,7 @@ export const de_GetExportSnapshotRecordsCommand = async (
   context: __SerdeContext
 ): Promise<GetExportSnapshotRecordsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetExportSnapshotRecordsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8545,50 +4754,6 @@ export const de_GetExportSnapshotRecordsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetExportSnapshotRecordsCommandError
- */
-const de_GetExportSnapshotRecordsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetExportSnapshotRecordsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetInstanceCommand
  */
 export const de_GetInstanceCommand = async (
@@ -8596,7 +4761,7 @@ export const de_GetInstanceCommand = async (
   context: __SerdeContext
 ): Promise<GetInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8609,50 +4774,6 @@ export const de_GetInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetInstanceCommandError
- */
-const de_GetInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetInstanceAccessDetailsCommand
  */
 export const de_GetInstanceAccessDetailsCommand = async (
@@ -8660,7 +4781,7 @@ export const de_GetInstanceAccessDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetInstanceAccessDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstanceAccessDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8673,50 +4794,6 @@ export const de_GetInstanceAccessDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetInstanceAccessDetailsCommandError
- */
-const de_GetInstanceAccessDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceAccessDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetInstanceMetricDataCommand
  */
 export const de_GetInstanceMetricDataCommand = async (
@@ -8724,7 +4801,7 @@ export const de_GetInstanceMetricDataCommand = async (
   context: __SerdeContext
 ): Promise<GetInstanceMetricDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstanceMetricDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8737,50 +4814,6 @@ export const de_GetInstanceMetricDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetInstanceMetricDataCommandError
- */
-const de_GetInstanceMetricDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceMetricDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetInstancePortStatesCommand
  */
 export const de_GetInstancePortStatesCommand = async (
@@ -8788,7 +4821,7 @@ export const de_GetInstancePortStatesCommand = async (
   context: __SerdeContext
 ): Promise<GetInstancePortStatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstancePortStatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8801,50 +4834,6 @@ export const de_GetInstancePortStatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetInstancePortStatesCommandError
- */
-const de_GetInstancePortStatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstancePortStatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetInstancesCommand
  */
 export const de_GetInstancesCommand = async (
@@ -8852,7 +4841,7 @@ export const de_GetInstancesCommand = async (
   context: __SerdeContext
 ): Promise<GetInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8865,50 +4854,6 @@ export const de_GetInstancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetInstancesCommandError
- */
-const de_GetInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetInstanceSnapshotCommand
  */
 export const de_GetInstanceSnapshotCommand = async (
@@ -8916,7 +4861,7 @@ export const de_GetInstanceSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<GetInstanceSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstanceSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8929,50 +4874,6 @@ export const de_GetInstanceSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetInstanceSnapshotCommandError
- */
-const de_GetInstanceSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetInstanceSnapshotsCommand
  */
 export const de_GetInstanceSnapshotsCommand = async (
@@ -8980,7 +4881,7 @@ export const de_GetInstanceSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<GetInstanceSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstanceSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8993,50 +4894,6 @@ export const de_GetInstanceSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetInstanceSnapshotsCommandError
- */
-const de_GetInstanceSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetInstanceStateCommand
  */
 export const de_GetInstanceStateCommand = async (
@@ -9044,7 +4901,7 @@ export const de_GetInstanceStateCommand = async (
   context: __SerdeContext
 ): Promise<GetInstanceStateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstanceStateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9057,50 +4914,6 @@ export const de_GetInstanceStateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetInstanceStateCommandError
- */
-const de_GetInstanceStateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceStateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetKeyPairCommand
  */
 export const de_GetKeyPairCommand = async (
@@ -9108,7 +4921,7 @@ export const de_GetKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<GetKeyPairCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetKeyPairCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9121,50 +4934,6 @@ export const de_GetKeyPairCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetKeyPairCommandError
- */
-const de_GetKeyPairCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetKeyPairCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetKeyPairsCommand
  */
 export const de_GetKeyPairsCommand = async (
@@ -9172,7 +4941,7 @@ export const de_GetKeyPairsCommand = async (
   context: __SerdeContext
 ): Promise<GetKeyPairsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetKeyPairsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9185,50 +4954,6 @@ export const de_GetKeyPairsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetKeyPairsCommandError
- */
-const de_GetKeyPairsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetKeyPairsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLoadBalancerCommand
  */
 export const de_GetLoadBalancerCommand = async (
@@ -9236,7 +4961,7 @@ export const de_GetLoadBalancerCommand = async (
   context: __SerdeContext
 ): Promise<GetLoadBalancerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLoadBalancerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9249,50 +4974,6 @@ export const de_GetLoadBalancerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLoadBalancerCommandError
- */
-const de_GetLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLoadBalancerMetricDataCommand
  */
 export const de_GetLoadBalancerMetricDataCommand = async (
@@ -9300,7 +4981,7 @@ export const de_GetLoadBalancerMetricDataCommand = async (
   context: __SerdeContext
 ): Promise<GetLoadBalancerMetricDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLoadBalancerMetricDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9313,50 +4994,6 @@ export const de_GetLoadBalancerMetricDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLoadBalancerMetricDataCommandError
- */
-const de_GetLoadBalancerMetricDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLoadBalancerMetricDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLoadBalancersCommand
  */
 export const de_GetLoadBalancersCommand = async (
@@ -9364,7 +5001,7 @@ export const de_GetLoadBalancersCommand = async (
   context: __SerdeContext
 ): Promise<GetLoadBalancersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLoadBalancersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9377,50 +5014,6 @@ export const de_GetLoadBalancersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLoadBalancersCommandError
- */
-const de_GetLoadBalancersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLoadBalancersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommand
  */
 export const de_GetLoadBalancerTlsCertificatesCommand = async (
@@ -9428,7 +5021,7 @@ export const de_GetLoadBalancerTlsCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<GetLoadBalancerTlsCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLoadBalancerTlsCertificatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9441,50 +5034,6 @@ export const de_GetLoadBalancerTlsCertificatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLoadBalancerTlsCertificatesCommandError
- */
-const de_GetLoadBalancerTlsCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLoadBalancerTlsCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetLoadBalancerTlsPoliciesCommand
  */
 export const de_GetLoadBalancerTlsPoliciesCommand = async (
@@ -9492,7 +5041,7 @@ export const de_GetLoadBalancerTlsPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<GetLoadBalancerTlsPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLoadBalancerTlsPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9505,44 +5054,6 @@ export const de_GetLoadBalancerTlsPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetLoadBalancerTlsPoliciesCommandError
- */
-const de_GetLoadBalancerTlsPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLoadBalancerTlsPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetOperationCommand
  */
 export const de_GetOperationCommand = async (
@@ -9550,7 +5061,7 @@ export const de_GetOperationCommand = async (
   context: __SerdeContext
 ): Promise<GetOperationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetOperationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9563,50 +5074,6 @@ export const de_GetOperationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetOperationCommandError
- */
-const de_GetOperationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOperationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetOperationsCommand
  */
 export const de_GetOperationsCommand = async (
@@ -9614,7 +5081,7 @@ export const de_GetOperationsCommand = async (
   context: __SerdeContext
 ): Promise<GetOperationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetOperationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9627,50 +5094,6 @@ export const de_GetOperationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetOperationsCommandError
- */
-const de_GetOperationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOperationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetOperationsForResourceCommand
  */
 export const de_GetOperationsForResourceCommand = async (
@@ -9678,7 +5101,7 @@ export const de_GetOperationsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<GetOperationsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetOperationsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9691,50 +5114,6 @@ export const de_GetOperationsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetOperationsForResourceCommandError
- */
-const de_GetOperationsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOperationsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRegionsCommand
  */
 export const de_GetRegionsCommand = async (
@@ -9742,7 +5121,7 @@ export const de_GetRegionsCommand = async (
   context: __SerdeContext
 ): Promise<GetRegionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRegionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9755,50 +5134,6 @@ export const de_GetRegionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRegionsCommandError
- */
-const de_GetRegionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRegionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRelationalDatabaseCommand
  */
 export const de_GetRelationalDatabaseCommand = async (
@@ -9806,7 +5141,7 @@ export const de_GetRelationalDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<GetRelationalDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRelationalDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9819,50 +5154,6 @@ export const de_GetRelationalDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRelationalDatabaseCommandError
- */
-const de_GetRelationalDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRelationalDatabaseBlueprintsCommand
  */
 export const de_GetRelationalDatabaseBlueprintsCommand = async (
@@ -9870,7 +5161,7 @@ export const de_GetRelationalDatabaseBlueprintsCommand = async (
   context: __SerdeContext
 ): Promise<GetRelationalDatabaseBlueprintsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRelationalDatabaseBlueprintsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9883,50 +5174,6 @@ export const de_GetRelationalDatabaseBlueprintsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRelationalDatabaseBlueprintsCommandError
- */
-const de_GetRelationalDatabaseBlueprintsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabaseBlueprintsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRelationalDatabaseBundlesCommand
  */
 export const de_GetRelationalDatabaseBundlesCommand = async (
@@ -9934,7 +5181,7 @@ export const de_GetRelationalDatabaseBundlesCommand = async (
   context: __SerdeContext
 ): Promise<GetRelationalDatabaseBundlesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRelationalDatabaseBundlesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9947,50 +5194,6 @@ export const de_GetRelationalDatabaseBundlesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRelationalDatabaseBundlesCommandError
- */
-const de_GetRelationalDatabaseBundlesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabaseBundlesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRelationalDatabaseEventsCommand
  */
 export const de_GetRelationalDatabaseEventsCommand = async (
@@ -9998,7 +5201,7 @@ export const de_GetRelationalDatabaseEventsCommand = async (
   context: __SerdeContext
 ): Promise<GetRelationalDatabaseEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRelationalDatabaseEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10011,50 +5214,6 @@ export const de_GetRelationalDatabaseEventsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRelationalDatabaseEventsCommandError
- */
-const de_GetRelationalDatabaseEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabaseEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRelationalDatabaseLogEventsCommand
  */
 export const de_GetRelationalDatabaseLogEventsCommand = async (
@@ -10062,7 +5221,7 @@ export const de_GetRelationalDatabaseLogEventsCommand = async (
   context: __SerdeContext
 ): Promise<GetRelationalDatabaseLogEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRelationalDatabaseLogEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10075,50 +5234,6 @@ export const de_GetRelationalDatabaseLogEventsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRelationalDatabaseLogEventsCommandError
- */
-const de_GetRelationalDatabaseLogEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabaseLogEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommand
  */
 export const de_GetRelationalDatabaseLogStreamsCommand = async (
@@ -10126,7 +5241,7 @@ export const de_GetRelationalDatabaseLogStreamsCommand = async (
   context: __SerdeContext
 ): Promise<GetRelationalDatabaseLogStreamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRelationalDatabaseLogStreamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10139,50 +5254,6 @@ export const de_GetRelationalDatabaseLogStreamsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRelationalDatabaseLogStreamsCommandError
- */
-const de_GetRelationalDatabaseLogStreamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabaseLogStreamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordCommand
  */
 export const de_GetRelationalDatabaseMasterUserPasswordCommand = async (
@@ -10190,7 +5261,7 @@ export const de_GetRelationalDatabaseMasterUserPasswordCommand = async (
   context: __SerdeContext
 ): Promise<GetRelationalDatabaseMasterUserPasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRelationalDatabaseMasterUserPasswordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10203,50 +5274,6 @@ export const de_GetRelationalDatabaseMasterUserPasswordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordCommandError
- */
-const de_GetRelationalDatabaseMasterUserPasswordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabaseMasterUserPasswordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRelationalDatabaseMetricDataCommand
  */
 export const de_GetRelationalDatabaseMetricDataCommand = async (
@@ -10254,7 +5281,7 @@ export const de_GetRelationalDatabaseMetricDataCommand = async (
   context: __SerdeContext
 ): Promise<GetRelationalDatabaseMetricDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRelationalDatabaseMetricDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10267,50 +5294,6 @@ export const de_GetRelationalDatabaseMetricDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRelationalDatabaseMetricDataCommandError
- */
-const de_GetRelationalDatabaseMetricDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabaseMetricDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRelationalDatabaseParametersCommand
  */
 export const de_GetRelationalDatabaseParametersCommand = async (
@@ -10318,7 +5301,7 @@ export const de_GetRelationalDatabaseParametersCommand = async (
   context: __SerdeContext
 ): Promise<GetRelationalDatabaseParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRelationalDatabaseParametersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10331,50 +5314,6 @@ export const de_GetRelationalDatabaseParametersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRelationalDatabaseParametersCommandError
- */
-const de_GetRelationalDatabaseParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabaseParametersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRelationalDatabasesCommand
  */
 export const de_GetRelationalDatabasesCommand = async (
@@ -10382,7 +5321,7 @@ export const de_GetRelationalDatabasesCommand = async (
   context: __SerdeContext
 ): Promise<GetRelationalDatabasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRelationalDatabasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10395,50 +5334,6 @@ export const de_GetRelationalDatabasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRelationalDatabasesCommandError
- */
-const de_GetRelationalDatabasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRelationalDatabaseSnapshotCommand
  */
 export const de_GetRelationalDatabaseSnapshotCommand = async (
@@ -10446,7 +5341,7 @@ export const de_GetRelationalDatabaseSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<GetRelationalDatabaseSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRelationalDatabaseSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10459,50 +5354,6 @@ export const de_GetRelationalDatabaseSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRelationalDatabaseSnapshotCommandError
- */
-const de_GetRelationalDatabaseSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabaseSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRelationalDatabaseSnapshotsCommand
  */
 export const de_GetRelationalDatabaseSnapshotsCommand = async (
@@ -10510,7 +5361,7 @@ export const de_GetRelationalDatabaseSnapshotsCommand = async (
   context: __SerdeContext
 ): Promise<GetRelationalDatabaseSnapshotsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRelationalDatabaseSnapshotsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10523,50 +5374,6 @@ export const de_GetRelationalDatabaseSnapshotsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRelationalDatabaseSnapshotsCommandError
- */
-const de_GetRelationalDatabaseSnapshotsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRelationalDatabaseSnapshotsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSetupHistoryCommand
  */
 export const de_GetSetupHistoryCommand = async (
@@ -10574,7 +5381,7 @@ export const de_GetSetupHistoryCommand = async (
   context: __SerdeContext
 ): Promise<GetSetupHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSetupHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10587,44 +5394,6 @@ export const de_GetSetupHistoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSetupHistoryCommandError
- */
-const de_GetSetupHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSetupHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetStaticIpCommand
  */
 export const de_GetStaticIpCommand = async (
@@ -10632,7 +5401,7 @@ export const de_GetStaticIpCommand = async (
   context: __SerdeContext
 ): Promise<GetStaticIpCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetStaticIpCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10645,50 +5414,6 @@ export const de_GetStaticIpCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetStaticIpCommandError
- */
-const de_GetStaticIpCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStaticIpCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetStaticIpsCommand
  */
 export const de_GetStaticIpsCommand = async (
@@ -10696,7 +5421,7 @@ export const de_GetStaticIpsCommand = async (
   context: __SerdeContext
 ): Promise<GetStaticIpsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetStaticIpsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10709,50 +5434,6 @@ export const de_GetStaticIpsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetStaticIpsCommandError
- */
-const de_GetStaticIpsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStaticIpsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportKeyPairCommand
  */
 export const de_ImportKeyPairCommand = async (
@@ -10760,7 +5441,7 @@ export const de_ImportKeyPairCommand = async (
   context: __SerdeContext
 ): Promise<ImportKeyPairCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportKeyPairCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10773,50 +5454,6 @@ export const de_ImportKeyPairCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportKeyPairCommandError
- */
-const de_ImportKeyPairCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportKeyPairCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1IsVpcPeeredCommand
  */
 export const de_IsVpcPeeredCommand = async (
@@ -10824,7 +5461,7 @@ export const de_IsVpcPeeredCommand = async (
   context: __SerdeContext
 ): Promise<IsVpcPeeredCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_IsVpcPeeredCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10837,50 +5474,6 @@ export const de_IsVpcPeeredCommand = async (
 };
 
 /**
- * deserializeAws_json1_1IsVpcPeeredCommandError
- */
-const de_IsVpcPeeredCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<IsVpcPeeredCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1OpenInstancePublicPortsCommand
  */
 export const de_OpenInstancePublicPortsCommand = async (
@@ -10888,7 +5481,7 @@ export const de_OpenInstancePublicPortsCommand = async (
   context: __SerdeContext
 ): Promise<OpenInstancePublicPortsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_OpenInstancePublicPortsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10901,50 +5494,6 @@ export const de_OpenInstancePublicPortsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1OpenInstancePublicPortsCommandError
- */
-const de_OpenInstancePublicPortsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<OpenInstancePublicPortsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PeerVpcCommand
  */
 export const de_PeerVpcCommand = async (
@@ -10952,7 +5501,7 @@ export const de_PeerVpcCommand = async (
   context: __SerdeContext
 ): Promise<PeerVpcCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PeerVpcCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -10965,50 +5514,6 @@ export const de_PeerVpcCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PeerVpcCommandError
- */
-const de_PeerVpcCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PeerVpcCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutAlarmCommand
  */
 export const de_PutAlarmCommand = async (
@@ -11016,7 +5521,7 @@ export const de_PutAlarmCommand = async (
   context: __SerdeContext
 ): Promise<PutAlarmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAlarmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11029,47 +5534,6 @@ export const de_PutAlarmCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutAlarmCommandError
- */
-const de_PutAlarmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAlarmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutInstancePublicPortsCommand
  */
 export const de_PutInstancePublicPortsCommand = async (
@@ -11077,7 +5541,7 @@ export const de_PutInstancePublicPortsCommand = async (
   context: __SerdeContext
 ): Promise<PutInstancePublicPortsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutInstancePublicPortsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11090,50 +5554,6 @@ export const de_PutInstancePublicPortsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutInstancePublicPortsCommandError
- */
-const de_PutInstancePublicPortsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutInstancePublicPortsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RebootInstanceCommand
  */
 export const de_RebootInstanceCommand = async (
@@ -11141,7 +5561,7 @@ export const de_RebootInstanceCommand = async (
   context: __SerdeContext
 ): Promise<RebootInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RebootInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11154,50 +5574,6 @@ export const de_RebootInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RebootInstanceCommandError
- */
-const de_RebootInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RebootRelationalDatabaseCommand
  */
 export const de_RebootRelationalDatabaseCommand = async (
@@ -11205,7 +5581,7 @@ export const de_RebootRelationalDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<RebootRelationalDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RebootRelationalDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11218,50 +5594,6 @@ export const de_RebootRelationalDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RebootRelationalDatabaseCommandError
- */
-const de_RebootRelationalDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootRelationalDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1RegisterContainerImageCommand
  */
 export const de_RegisterContainerImageCommand = async (
@@ -11269,7 +5601,7 @@ export const de_RegisterContainerImageCommand = async (
   context: __SerdeContext
 ): Promise<RegisterContainerImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RegisterContainerImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11282,44 +5614,6 @@ export const de_RegisterContainerImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1RegisterContainerImageCommandError
- */
-const de_RegisterContainerImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterContainerImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ReleaseStaticIpCommand
  */
 export const de_ReleaseStaticIpCommand = async (
@@ -11327,7 +5621,7 @@ export const de_ReleaseStaticIpCommand = async (
   context: __SerdeContext
 ): Promise<ReleaseStaticIpCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ReleaseStaticIpCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11340,50 +5634,6 @@ export const de_ReleaseStaticIpCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ReleaseStaticIpCommandError
- */
-const de_ReleaseStaticIpCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReleaseStaticIpCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ResetDistributionCacheCommand
  */
 export const de_ResetDistributionCacheCommand = async (
@@ -11391,7 +5641,7 @@ export const de_ResetDistributionCacheCommand = async (
   context: __SerdeContext
 ): Promise<ResetDistributionCacheCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResetDistributionCacheCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11404,47 +5654,6 @@ export const de_ResetDistributionCacheCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ResetDistributionCacheCommandError
- */
-const de_ResetDistributionCacheCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetDistributionCacheCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SendContactMethodVerificationCommand
  */
 export const de_SendContactMethodVerificationCommand = async (
@@ -11452,7 +5661,7 @@ export const de_SendContactMethodVerificationCommand = async (
   context: __SerdeContext
 ): Promise<SendContactMethodVerificationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SendContactMethodVerificationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11465,47 +5674,6 @@ export const de_SendContactMethodVerificationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SendContactMethodVerificationCommandError
- */
-const de_SendContactMethodVerificationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SendContactMethodVerificationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetIpAddressTypeCommand
  */
 export const de_SetIpAddressTypeCommand = async (
@@ -11513,7 +5681,7 @@ export const de_SetIpAddressTypeCommand = async (
   context: __SerdeContext
 ): Promise<SetIpAddressTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetIpAddressTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11526,50 +5694,6 @@ export const de_SetIpAddressTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SetIpAddressTypeCommandError
- */
-const de_SetIpAddressTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetIpAddressTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetResourceAccessForBucketCommand
  */
 export const de_SetResourceAccessForBucketCommand = async (
@@ -11577,7 +5701,7 @@ export const de_SetResourceAccessForBucketCommand = async (
   context: __SerdeContext
 ): Promise<SetResourceAccessForBucketCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetResourceAccessForBucketCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11590,44 +5714,6 @@ export const de_SetResourceAccessForBucketCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SetResourceAccessForBucketCommandError
- */
-const de_SetResourceAccessForBucketCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetResourceAccessForBucketCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetupInstanceHttpsCommand
  */
 export const de_SetupInstanceHttpsCommand = async (
@@ -11635,7 +5721,7 @@ export const de_SetupInstanceHttpsCommand = async (
   context: __SerdeContext
 ): Promise<SetupInstanceHttpsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetupInstanceHttpsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11648,44 +5734,6 @@ export const de_SetupInstanceHttpsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SetupInstanceHttpsCommandError
- */
-const de_SetupInstanceHttpsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetupInstanceHttpsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartGUISessionCommand
  */
 export const de_StartGUISessionCommand = async (
@@ -11693,7 +5741,7 @@ export const de_StartGUISessionCommand = async (
   context: __SerdeContext
 ): Promise<StartGUISessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartGUISessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11706,44 +5754,6 @@ export const de_StartGUISessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartGUISessionCommandError
- */
-const de_StartGUISessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartGUISessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartInstanceCommand
  */
 export const de_StartInstanceCommand = async (
@@ -11751,7 +5761,7 @@ export const de_StartInstanceCommand = async (
   context: __SerdeContext
 ): Promise<StartInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11764,50 +5774,6 @@ export const de_StartInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartInstanceCommandError
- */
-const de_StartInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartRelationalDatabaseCommand
  */
 export const de_StartRelationalDatabaseCommand = async (
@@ -11815,7 +5781,7 @@ export const de_StartRelationalDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<StartRelationalDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartRelationalDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11828,50 +5794,6 @@ export const de_StartRelationalDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartRelationalDatabaseCommandError
- */
-const de_StartRelationalDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartRelationalDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopGUISessionCommand
  */
 export const de_StopGUISessionCommand = async (
@@ -11879,7 +5801,7 @@ export const de_StopGUISessionCommand = async (
   context: __SerdeContext
 ): Promise<StopGUISessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopGUISessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11892,44 +5814,6 @@ export const de_StopGUISessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopGUISessionCommandError
- */
-const de_StopGUISessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopGUISessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopInstanceCommand
  */
 export const de_StopInstanceCommand = async (
@@ -11937,7 +5821,7 @@ export const de_StopInstanceCommand = async (
   context: __SerdeContext
 ): Promise<StopInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11950,50 +5834,6 @@ export const de_StopInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopInstanceCommandError
- */
-const de_StopInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopRelationalDatabaseCommand
  */
 export const de_StopRelationalDatabaseCommand = async (
@@ -12001,7 +5841,7 @@ export const de_StopRelationalDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<StopRelationalDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopRelationalDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12014,50 +5854,6 @@ export const de_StopRelationalDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopRelationalDatabaseCommandError
- */
-const de_StopRelationalDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopRelationalDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -12065,7 +5861,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12078,50 +5874,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TestAlarmCommand
  */
 export const de_TestAlarmCommand = async (
@@ -12129,7 +5881,7 @@ export const de_TestAlarmCommand = async (
   context: __SerdeContext
 ): Promise<TestAlarmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TestAlarmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12142,47 +5894,6 @@ export const de_TestAlarmCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TestAlarmCommandError
- */
-const de_TestAlarmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestAlarmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UnpeerVpcCommand
  */
 export const de_UnpeerVpcCommand = async (
@@ -12190,7 +5901,7 @@ export const de_UnpeerVpcCommand = async (
   context: __SerdeContext
 ): Promise<UnpeerVpcCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UnpeerVpcCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12203,50 +5914,6 @@ export const de_UnpeerVpcCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UnpeerVpcCommandError
- */
-const de_UnpeerVpcCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UnpeerVpcCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -12254,7 +5921,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12267,50 +5934,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateBucketCommand
  */
 export const de_UpdateBucketCommand = async (
@@ -12318,7 +5941,7 @@ export const de_UpdateBucketCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBucketCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateBucketCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12331,44 +5954,6 @@ export const de_UpdateBucketCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateBucketCommandError
- */
-const de_UpdateBucketCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBucketCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateBucketBundleCommand
  */
 export const de_UpdateBucketBundleCommand = async (
@@ -12376,7 +5961,7 @@ export const de_UpdateBucketBundleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBucketBundleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateBucketBundleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12389,44 +5974,6 @@ export const de_UpdateBucketBundleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateBucketBundleCommandError
- */
-const de_UpdateBucketBundleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBucketBundleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateContainerServiceCommand
  */
 export const de_UpdateContainerServiceCommand = async (
@@ -12434,7 +5981,7 @@ export const de_UpdateContainerServiceCommand = async (
   context: __SerdeContext
 ): Promise<UpdateContainerServiceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateContainerServiceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12447,44 +5994,6 @@ export const de_UpdateContainerServiceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateContainerServiceCommandError
- */
-const de_UpdateContainerServiceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateContainerServiceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDistributionCommand
  */
 export const de_UpdateDistributionCommand = async (
@@ -12492,7 +6001,7 @@ export const de_UpdateDistributionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDistributionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDistributionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12505,47 +6014,6 @@ export const de_UpdateDistributionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDistributionCommandError
- */
-const de_UpdateDistributionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDistributionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDistributionBundleCommand
  */
 export const de_UpdateDistributionBundleCommand = async (
@@ -12553,7 +6021,7 @@ export const de_UpdateDistributionBundleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDistributionBundleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDistributionBundleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12566,47 +6034,6 @@ export const de_UpdateDistributionBundleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDistributionBundleCommandError
- */
-const de_UpdateDistributionBundleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDistributionBundleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDomainEntryCommand
  */
 export const de_UpdateDomainEntryCommand = async (
@@ -12614,7 +6041,7 @@ export const de_UpdateDomainEntryCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDomainEntryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDomainEntryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12627,50 +6054,6 @@ export const de_UpdateDomainEntryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDomainEntryCommandError
- */
-const de_UpdateDomainEntryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDomainEntryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateInstanceMetadataOptionsCommand
  */
 export const de_UpdateInstanceMetadataOptionsCommand = async (
@@ -12678,7 +6061,7 @@ export const de_UpdateInstanceMetadataOptionsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateInstanceMetadataOptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateInstanceMetadataOptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12691,50 +6074,6 @@ export const de_UpdateInstanceMetadataOptionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateInstanceMetadataOptionsCommandError
- */
-const de_UpdateInstanceMetadataOptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateInstanceMetadataOptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateLoadBalancerAttributeCommand
  */
 export const de_UpdateLoadBalancerAttributeCommand = async (
@@ -12742,7 +6081,7 @@ export const de_UpdateLoadBalancerAttributeCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLoadBalancerAttributeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateLoadBalancerAttributeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12755,50 +6094,6 @@ export const de_UpdateLoadBalancerAttributeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateLoadBalancerAttributeCommandError
- */
-const de_UpdateLoadBalancerAttributeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLoadBalancerAttributeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateRelationalDatabaseCommand
  */
 export const de_UpdateRelationalDatabaseCommand = async (
@@ -12806,7 +6101,7 @@ export const de_UpdateRelationalDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRelationalDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRelationalDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12819,50 +6114,6 @@ export const de_UpdateRelationalDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateRelationalDatabaseCommandError
- */
-const de_UpdateRelationalDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRelationalDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lightsail#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "AccountSetupInProgressException":
-    case "com.amazonaws.lightsail#AccountSetupInProgressException":
-      throw await de_AccountSetupInProgressExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.lightsail#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lightsail#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "OperationFailureException":
-    case "com.amazonaws.lightsail#OperationFailureException":
-      throw await de_OperationFailureExceptionRes(parsedOutput, context);
-    case "ServiceException":
-    case "com.amazonaws.lightsail#ServiceException":
-      throw await de_ServiceExceptionRes(parsedOutput, context);
-    case "UnauthenticatedException":
-    case "com.amazonaws.lightsail#UnauthenticatedException":
-      throw await de_UnauthenticatedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand
  */
 export const de_UpdateRelationalDatabaseParametersCommand = async (
@@ -12870,7 +6121,7 @@ export const de_UpdateRelationalDatabaseParametersCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRelationalDatabaseParametersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRelationalDatabaseParametersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -12883,12 +6134,9 @@ export const de_UpdateRelationalDatabaseParametersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateRelationalDatabaseParametersCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateRelationalDatabaseParametersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRelationalDatabaseParametersCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -12922,7 +6170,7 @@ const de_UpdateRelationalDatabaseParametersCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

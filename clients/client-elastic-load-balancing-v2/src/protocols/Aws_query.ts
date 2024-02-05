@@ -1064,7 +1064,7 @@ export const de_AddListenerCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<AddListenerCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddListenerCertificatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1077,12 +1077,869 @@ export const de_AddListenerCertificatesCommand = async (
 };
 
 /**
- * deserializeAws_queryAddListenerCertificatesCommandError
+ * deserializeAws_queryAddTagsCommand
  */
-const de_AddListenerCertificatesCommandError = async (
+export const de_AddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddListenerCertificatesCommandOutput> => {
+): Promise<AddTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AddTagsOutput(data.AddTagsResult, context);
+  const response: AddTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryAddTrustStoreRevocationsCommand
+ */
+export const de_AddTrustStoreRevocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddTrustStoreRevocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_AddTrustStoreRevocationsOutput(data.AddTrustStoreRevocationsResult, context);
+  const response: AddTrustStoreRevocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateListenerCommand
+ */
+export const de_CreateListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateListenerOutput(data.CreateListenerResult, context);
+  const response: CreateListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateLoadBalancerCommand
+ */
+export const de_CreateLoadBalancerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLoadBalancerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateLoadBalancerOutput(data.CreateLoadBalancerResult, context);
+  const response: CreateLoadBalancerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateRuleCommand
+ */
+export const de_CreateRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateRuleOutput(data.CreateRuleResult, context);
+  const response: CreateRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateTargetGroupCommand
+ */
+export const de_CreateTargetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTargetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateTargetGroupOutput(data.CreateTargetGroupResult, context);
+  const response: CreateTargetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryCreateTrustStoreCommand
+ */
+export const de_CreateTrustStoreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTrustStoreCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateTrustStoreOutput(data.CreateTrustStoreResult, context);
+  const response: CreateTrustStoreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteListenerCommand
+ */
+export const de_DeleteListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteListenerOutput(data.DeleteListenerResult, context);
+  const response: DeleteListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteLoadBalancerCommand
+ */
+export const de_DeleteLoadBalancerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLoadBalancerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteLoadBalancerOutput(data.DeleteLoadBalancerResult, context);
+  const response: DeleteLoadBalancerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteRuleCommand
+ */
+export const de_DeleteRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteRuleOutput(data.DeleteRuleResult, context);
+  const response: DeleteRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteTargetGroupCommand
+ */
+export const de_DeleteTargetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTargetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteTargetGroupOutput(data.DeleteTargetGroupResult, context);
+  const response: DeleteTargetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeleteTrustStoreCommand
+ */
+export const de_DeleteTrustStoreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTrustStoreCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteTrustStoreOutput(data.DeleteTrustStoreResult, context);
+  const response: DeleteTrustStoreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeregisterTargetsCommand
+ */
+export const de_DeregisterTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeregisterTargetsOutput(data.DeregisterTargetsResult, context);
+  const response: DeregisterTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeAccountLimitsCommand
+ */
+export const de_DescribeAccountLimitsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAccountLimitsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeAccountLimitsOutput(data.DescribeAccountLimitsResult, context);
+  const response: DescribeAccountLimitsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeListenerCertificatesCommand
+ */
+export const de_DescribeListenerCertificatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeListenerCertificatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeListenerCertificatesOutput(data.DescribeListenerCertificatesResult, context);
+  const response: DescribeListenerCertificatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeListenersCommand
+ */
+export const de_DescribeListenersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeListenersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeListenersOutput(data.DescribeListenersResult, context);
+  const response: DescribeListenersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeLoadBalancerAttributesCommand
+ */
+export const de_DescribeLoadBalancerAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLoadBalancerAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeLoadBalancerAttributesOutput(data.DescribeLoadBalancerAttributesResult, context);
+  const response: DescribeLoadBalancerAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeLoadBalancersCommand
+ */
+export const de_DescribeLoadBalancersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLoadBalancersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeLoadBalancersOutput(data.DescribeLoadBalancersResult, context);
+  const response: DescribeLoadBalancersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeRulesCommand
+ */
+export const de_DescribeRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeRulesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeRulesOutput(data.DescribeRulesResult, context);
+  const response: DescribeRulesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeSSLPoliciesCommand
+ */
+export const de_DescribeSSLPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSSLPoliciesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeSSLPoliciesOutput(data.DescribeSSLPoliciesResult, context);
+  const response: DescribeSSLPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTagsCommand
+ */
+export const de_DescribeTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTagsOutput(data.DescribeTagsResult, context);
+  const response: DescribeTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTargetGroupAttributesCommand
+ */
+export const de_DescribeTargetGroupAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTargetGroupAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTargetGroupAttributesOutput(data.DescribeTargetGroupAttributesResult, context);
+  const response: DescribeTargetGroupAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTargetGroupsCommand
+ */
+export const de_DescribeTargetGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTargetGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTargetGroupsOutput(data.DescribeTargetGroupsResult, context);
+  const response: DescribeTargetGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTargetHealthCommand
+ */
+export const de_DescribeTargetHealthCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTargetHealthCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTargetHealthOutput(data.DescribeTargetHealthResult, context);
+  const response: DescribeTargetHealthCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTrustStoreAssociationsCommand
+ */
+export const de_DescribeTrustStoreAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustStoreAssociationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTrustStoreAssociationsOutput(data.DescribeTrustStoreAssociationsResult, context);
+  const response: DescribeTrustStoreAssociationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTrustStoreRevocationsCommand
+ */
+export const de_DescribeTrustStoreRevocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustStoreRevocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTrustStoreRevocationsOutput(data.DescribeTrustStoreRevocationsResult, context);
+  const response: DescribeTrustStoreRevocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeTrustStoresCommand
+ */
+export const de_DescribeTrustStoresCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustStoresCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeTrustStoresOutput(data.DescribeTrustStoresResult, context);
+  const response: DescribeTrustStoresCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetTrustStoreCaCertificatesBundleCommand
+ */
+export const de_GetTrustStoreCaCertificatesBundleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTrustStoreCaCertificatesBundleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetTrustStoreCaCertificatesBundleOutput(data.GetTrustStoreCaCertificatesBundleResult, context);
+  const response: GetTrustStoreCaCertificatesBundleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryGetTrustStoreRevocationContentCommand
+ */
+export const de_GetTrustStoreRevocationContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTrustStoreRevocationContentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetTrustStoreRevocationContentOutput(data.GetTrustStoreRevocationContentResult, context);
+  const response: GetTrustStoreRevocationContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyListenerCommand
+ */
+export const de_ModifyListenerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyListenerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyListenerOutput(data.ModifyListenerResult, context);
+  const response: ModifyListenerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyLoadBalancerAttributesCommand
+ */
+export const de_ModifyLoadBalancerAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyLoadBalancerAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyLoadBalancerAttributesOutput(data.ModifyLoadBalancerAttributesResult, context);
+  const response: ModifyLoadBalancerAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyRuleCommand
+ */
+export const de_ModifyRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyRuleOutput(data.ModifyRuleResult, context);
+  const response: ModifyRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyTargetGroupCommand
+ */
+export const de_ModifyTargetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyTargetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyTargetGroupOutput(data.ModifyTargetGroupResult, context);
+  const response: ModifyTargetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyTargetGroupAttributesCommand
+ */
+export const de_ModifyTargetGroupAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyTargetGroupAttributesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyTargetGroupAttributesOutput(data.ModifyTargetGroupAttributesResult, context);
+  const response: ModifyTargetGroupAttributesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryModifyTrustStoreCommand
+ */
+export const de_ModifyTrustStoreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyTrustStoreCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyTrustStoreOutput(data.ModifyTrustStoreResult, context);
+  const response: ModifyTrustStoreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRegisterTargetsCommand
+ */
+export const de_RegisterTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RegisterTargetsOutput(data.RegisterTargetsResult, context);
+  const response: RegisterTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveListenerCertificatesCommand
+ */
+export const de_RemoveListenerCertificatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveListenerCertificatesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RemoveListenerCertificatesOutput(data.RemoveListenerCertificatesResult, context);
+  const response: RemoveListenerCertificatesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveTagsCommand
+ */
+export const de_RemoveTagsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTagsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RemoveTagsOutput(data.RemoveTagsResult, context);
+  const response: RemoveTagsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRemoveTrustStoreRevocationsCommand
+ */
+export const de_RemoveTrustStoreRevocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTrustStoreRevocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RemoveTrustStoreRevocationsOutput(data.RemoveTrustStoreRevocationsResult, context);
+  const response: RemoveTrustStoreRevocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySetIpAddressTypeCommand
+ */
+export const de_SetIpAddressTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetIpAddressTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SetIpAddressTypeOutput(data.SetIpAddressTypeResult, context);
+  const response: SetIpAddressTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySetRulePrioritiesCommand
+ */
+export const de_SetRulePrioritiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetRulePrioritiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SetRulePrioritiesOutput(data.SetRulePrioritiesResult, context);
+  const response: SetRulePrioritiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySetSecurityGroupsCommand
+ */
+export const de_SetSecurityGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetSecurityGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SetSecurityGroupsOutput(data.SetSecurityGroupsResult, context);
+  const response: SetSecurityGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySetSubnetsCommand
+ */
+export const de_SetSubnetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetSubnetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SetSubnetsOutput(data.SetSubnetsResult, context);
+  const response: SetSubnetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_queryCommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1098,55 +1955,9 @@ const de_AddListenerCertificatesCommandError = async (
     case "TooManyCertificates":
     case "com.amazonaws.elasticloadbalancingv2#TooManyCertificatesException":
       throw await de_TooManyCertificatesExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAddTagsCommand
- */
-export const de_AddTagsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AddTagsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_AddTagsOutput(data.AddTagsResult, context);
-  const response: AddTagsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAddTagsCommandError
- */
-const de_AddTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DuplicateTagKeys":
     case "com.amazonaws.elasticloadbalancingv2#DuplicateTagKeysException":
       throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "ListenerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     case "LoadBalancerNotFound":
     case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
       throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
@@ -1162,49 +1973,6 @@ const de_AddTagsCommandError = async (
     case "TrustStoreNotFound":
     case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
       throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryAddTrustStoreRevocationsCommand
- */
-export const de_AddTrustStoreRevocationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTrustStoreRevocationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_AddTrustStoreRevocationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_AddTrustStoreRevocationsOutput(data.AddTrustStoreRevocationsResult, context);
-  const response: AddTrustStoreRevocationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryAddTrustStoreRevocationsCommandError
- */
-const de_AddTrustStoreRevocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTrustStoreRevocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidRevocationContent":
     case "com.amazonaws.elasticloadbalancingv2#InvalidRevocationContentException":
       throw await de_InvalidRevocationContentExceptionRes(parsedOutput, context);
@@ -1214,58 +1982,9 @@ const de_AddTrustStoreRevocationsCommandError = async (
     case "TooManyTrustStoreRevocationEntries":
     case "com.amazonaws.elasticloadbalancingv2#TooManyTrustStoreRevocationEntriesException":
       throw await de_TooManyTrustStoreRevocationEntriesExceptionRes(parsedOutput, context);
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateListenerCommand
- */
-export const de_CreateListenerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateListenerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateListenerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateListenerOutput(data.CreateListenerResult, context);
-  const response: CreateListenerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateListenerCommandError
- */
-const de_CreateListenerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateListenerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ALPNPolicyNotFound":
     case "com.amazonaws.elasticloadbalancingv2#ALPNPolicyNotSupportedException":
       throw await de_ALPNPolicyNotSupportedExceptionRes(parsedOutput, context);
-    case "CertificateNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#CertificateNotFoundException":
-      throw await de_CertificateNotFoundExceptionRes(parsedOutput, context);
     case "DuplicateListener":
     case "com.amazonaws.elasticloadbalancingv2#DuplicateListenerException":
       throw await de_DuplicateListenerExceptionRes(parsedOutput, context);
@@ -1278,91 +1997,33 @@ const de_CreateListenerCommandError = async (
     case "InvalidLoadBalancerAction":
     case "com.amazonaws.elasticloadbalancingv2#InvalidLoadBalancerActionException":
       throw await de_InvalidLoadBalancerActionExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
-      throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
     case "SSLPolicyNotFound":
     case "com.amazonaws.elasticloadbalancingv2#SSLPolicyNotFoundException":
       throw await de_SSLPolicyNotFoundExceptionRes(parsedOutput, context);
     case "TargetGroupAssociationLimit":
     case "com.amazonaws.elasticloadbalancingv2#TargetGroupAssociationLimitException":
       throw await de_TargetGroupAssociationLimitExceptionRes(parsedOutput, context);
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
     case "TooManyActions":
     case "com.amazonaws.elasticloadbalancingv2#TooManyActionsException":
       throw await de_TooManyActionsExceptionRes(parsedOutput, context);
-    case "TooManyCertificates":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyCertificatesException":
-      throw await de_TooManyCertificatesExceptionRes(parsedOutput, context);
     case "TooManyListeners":
     case "com.amazonaws.elasticloadbalancingv2#TooManyListenersException":
       throw await de_TooManyListenersExceptionRes(parsedOutput, context);
     case "TooManyRegistrationsForTargetId":
     case "com.amazonaws.elasticloadbalancingv2#TooManyRegistrationsForTargetIdException":
       throw await de_TooManyRegistrationsForTargetIdExceptionRes(parsedOutput, context);
-    case "TooManyTags":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "TooManyTargets":
     case "com.amazonaws.elasticloadbalancingv2#TooManyTargetsException":
       throw await de_TooManyTargetsExceptionRes(parsedOutput, context);
     case "TooManyUniqueTargetGroupsPerLoadBalancer":
     case "com.amazonaws.elasticloadbalancingv2#TooManyUniqueTargetGroupsPerLoadBalancerException":
       throw await de_TooManyUniqueTargetGroupsPerLoadBalancerExceptionRes(parsedOutput, context);
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
     case "TrustStoreNotReady":
     case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotReadyException":
       throw await de_TrustStoreNotReadyExceptionRes(parsedOutput, context);
     case "UnsupportedProtocol":
     case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
       throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateLoadBalancerCommand
- */
-export const de_CreateLoadBalancerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLoadBalancerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateLoadBalancerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateLoadBalancerOutput(data.CreateLoadBalancerResult, context);
-  const response: CreateLoadBalancerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateLoadBalancerCommandError
- */
-const de_CreateLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AllocationIdNotFound":
     case "com.amazonaws.elasticloadbalancingv2#AllocationIdNotFoundException":
       throw await de_AllocationIdNotFoundExceptionRes(parsedOutput, context);
@@ -1372,12 +2033,6 @@ const de_CreateLoadBalancerCommandError = async (
     case "DuplicateLoadBalancerName":
     case "com.amazonaws.elasticloadbalancingv2#DuplicateLoadBalancerNameException":
       throw await de_DuplicateLoadBalancerNameExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeys":
-    case "com.amazonaws.elasticloadbalancingv2#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
     case "InvalidScheme":
     case "com.amazonaws.elasticloadbalancingv2#InvalidSchemeException":
       throw await de_InvalidSchemeExceptionRes(parsedOutput, context);
@@ -1399,2089 +2054,49 @@ const de_CreateLoadBalancerCommandError = async (
     case "TooManyLoadBalancers":
     case "com.amazonaws.elasticloadbalancingv2#TooManyLoadBalancersException":
       throw await de_TooManyLoadBalancersExceptionRes(parsedOutput, context);
-    case "TooManyTags":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateRuleCommand
- */
-export const de_CreateRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateRuleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateRuleOutput(data.CreateRuleResult, context);
-  const response: CreateRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateRuleCommandError
- */
-const de_CreateRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IncompatibleProtocols":
-    case "com.amazonaws.elasticloadbalancingv2#IncompatibleProtocolsException":
-      throw await de_IncompatibleProtocolsExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "InvalidLoadBalancerAction":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidLoadBalancerActionException":
-      throw await de_InvalidLoadBalancerActionExceptionRes(parsedOutput, context);
-    case "ListenerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
     case "PriorityInUse":
     case "com.amazonaws.elasticloadbalancingv2#PriorityInUseException":
       throw await de_PriorityInUseExceptionRes(parsedOutput, context);
-    case "TargetGroupAssociationLimit":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupAssociationLimitException":
-      throw await de_TargetGroupAssociationLimitExceptionRes(parsedOutput, context);
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyActions":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyActionsException":
-      throw await de_TooManyActionsExceptionRes(parsedOutput, context);
-    case "TooManyRegistrationsForTargetId":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyRegistrationsForTargetIdException":
-      throw await de_TooManyRegistrationsForTargetIdExceptionRes(parsedOutput, context);
     case "TooManyRules":
     case "com.amazonaws.elasticloadbalancingv2#TooManyRulesException":
       throw await de_TooManyRulesExceptionRes(parsedOutput, context);
-    case "TooManyTags":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "TooManyTargetGroups":
     case "com.amazonaws.elasticloadbalancingv2#TooManyTargetGroupsException":
       throw await de_TooManyTargetGroupsExceptionRes(parsedOutput, context);
-    case "TooManyTargets":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyTargetsException":
-      throw await de_TooManyTargetsExceptionRes(parsedOutput, context);
-    case "TooManyUniqueTargetGroupsPerLoadBalancer":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyUniqueTargetGroupsPerLoadBalancerException":
-      throw await de_TooManyUniqueTargetGroupsPerLoadBalancerExceptionRes(parsedOutput, context);
-    case "UnsupportedProtocol":
-    case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
-      throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateTargetGroupCommand
- */
-export const de_CreateTargetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTargetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateTargetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateTargetGroupOutput(data.CreateTargetGroupResult, context);
-  const response: CreateTargetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateTargetGroupCommandError
- */
-const de_CreateTargetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTargetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DuplicateTargetGroupName":
     case "com.amazonaws.elasticloadbalancingv2#DuplicateTargetGroupNameException":
       throw await de_DuplicateTargetGroupNameExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "TooManyTags":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "TooManyTargetGroups":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyTargetGroupsException":
-      throw await de_TooManyTargetGroupsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryCreateTrustStoreCommand
- */
-export const de_CreateTrustStoreCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrustStoreCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateTrustStoreCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateTrustStoreOutput(data.CreateTrustStoreResult, context);
-  const response: CreateTrustStoreCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryCreateTrustStoreCommandError
- */
-const de_CreateTrustStoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTrustStoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "CaCertificatesBundleNotFound":
     case "com.amazonaws.elasticloadbalancingv2#CaCertificatesBundleNotFoundException":
       throw await de_CaCertificatesBundleNotFoundExceptionRes(parsedOutput, context);
-    case "DuplicateTagKeys":
-    case "com.amazonaws.elasticloadbalancingv2#DuplicateTagKeysException":
-      throw await de_DuplicateTagKeysExceptionRes(parsedOutput, context);
     case "DuplicateTrustStoreName":
     case "com.amazonaws.elasticloadbalancingv2#DuplicateTrustStoreNameException":
       throw await de_DuplicateTrustStoreNameExceptionRes(parsedOutput, context);
     case "InvalidCaCertificatesBundle":
     case "com.amazonaws.elasticloadbalancingv2#InvalidCaCertificatesBundleException":
       throw await de_InvalidCaCertificatesBundleExceptionRes(parsedOutput, context);
-    case "TooManyTags":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     case "TooManyTrustStores":
     case "com.amazonaws.elasticloadbalancingv2#TooManyTrustStoresException":
       throw await de_TooManyTrustStoresExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteListenerCommand
- */
-export const de_DeleteListenerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteListenerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteListenerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteListenerOutput(data.DeleteListenerResult, context);
-  const response: DeleteListenerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteListenerCommandError
- */
-const de_DeleteListenerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteListenerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ListenerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.elasticloadbalancingv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteLoadBalancerCommand
- */
-export const de_DeleteLoadBalancerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLoadBalancerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteLoadBalancerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteLoadBalancerOutput(data.DeleteLoadBalancerResult, context);
-  const response: DeleteLoadBalancerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteLoadBalancerCommandError
- */
-const de_DeleteLoadBalancerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLoadBalancerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
-      throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
-    case "OperationNotPermitted":
-    case "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.elasticloadbalancingv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteRuleCommand
- */
-export const de_DeleteRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteRuleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteRuleOutput(data.DeleteRuleResult, context);
-  const response: DeleteRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteRuleCommandError
- */
-const de_DeleteRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermitted":
-    case "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "RuleNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
-      throw await de_RuleNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteTargetGroupCommand
- */
-export const de_DeleteTargetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTargetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteTargetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteTargetGroupOutput(data.DeleteTargetGroupResult, context);
-  const response: DeleteTargetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteTargetGroupCommandError
- */
-const de_DeleteTargetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTargetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUse":
-    case "com.amazonaws.elasticloadbalancingv2#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeleteTrustStoreCommand
- */
-export const de_DeleteTrustStoreCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTrustStoreCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteTrustStoreCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteTrustStoreOutput(data.DeleteTrustStoreResult, context);
-  const response: DeleteTrustStoreCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeleteTrustStoreCommandError
- */
-const de_DeleteTrustStoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTrustStoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "TrustStoreInUse":
     case "com.amazonaws.elasticloadbalancingv2#TrustStoreInUseException":
       throw await de_TrustStoreInUseExceptionRes(parsedOutput, context);
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDeregisterTargetsCommand
- */
-export const de_DeregisterTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterTargetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeregisterTargetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeregisterTargetsOutput(data.DeregisterTargetsResult, context);
-  const response: DeregisterTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDeregisterTargetsCommandError
- */
-const de_DeregisterTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidTarget":
     case "com.amazonaws.elasticloadbalancingv2#InvalidTargetException":
       throw await de_InvalidTargetExceptionRes(parsedOutput, context);
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeAccountLimitsCommand
- */
-export const de_DescribeAccountLimitsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountLimitsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeAccountLimitsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeAccountLimitsOutput(data.DescribeAccountLimitsResult, context);
-  const response: DescribeAccountLimitsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeAccountLimitsCommandError
- */
-const de_DescribeAccountLimitsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountLimitsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_queryDescribeListenerCertificatesCommand
- */
-export const de_DescribeListenerCertificatesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeListenerCertificatesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeListenerCertificatesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeListenerCertificatesOutput(data.DescribeListenerCertificatesResult, context);
-  const response: DescribeListenerCertificatesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeListenerCertificatesCommandError
- */
-const de_DescribeListenerCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeListenerCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ListenerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeListenersCommand
- */
-export const de_DescribeListenersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeListenersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeListenersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeListenersOutput(data.DescribeListenersResult, context);
-  const response: DescribeListenersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeListenersCommandError
- */
-const de_DescribeListenersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeListenersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ListenerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
-      throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedProtocol":
-    case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
-      throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeLoadBalancerAttributesCommand
- */
-export const de_DescribeLoadBalancerAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoadBalancerAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeLoadBalancerAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeLoadBalancerAttributesOutput(data.DescribeLoadBalancerAttributesResult, context);
-  const response: DescribeLoadBalancerAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeLoadBalancerAttributesCommandError
- */
-const de_DescribeLoadBalancerAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoadBalancerAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
-      throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeLoadBalancersCommand
- */
-export const de_DescribeLoadBalancersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoadBalancersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeLoadBalancersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeLoadBalancersOutput(data.DescribeLoadBalancersResult, context);
-  const response: DescribeLoadBalancersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeLoadBalancersCommandError
- */
-const de_DescribeLoadBalancersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeLoadBalancersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
-      throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeRulesCommand
- */
-export const de_DescribeRulesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRulesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeRulesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeRulesOutput(data.DescribeRulesResult, context);
-  const response: DescribeRulesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeRulesCommandError
- */
-const de_DescribeRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ListenerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    case "RuleNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
-      throw await de_RuleNotFoundExceptionRes(parsedOutput, context);
-    case "UnsupportedProtocol":
-    case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
-      throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeSSLPoliciesCommand
- */
-export const de_DescribeSSLPoliciesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSSLPoliciesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSSLPoliciesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeSSLPoliciesOutput(data.DescribeSSLPoliciesResult, context);
-  const response: DescribeSSLPoliciesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeSSLPoliciesCommandError
- */
-const de_DescribeSSLPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSSLPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "SSLPolicyNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#SSLPolicyNotFoundException":
-      throw await de_SSLPolicyNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeTagsCommand
- */
-export const de_DescribeTagsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTagsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTagsOutput(data.DescribeTagsResult, context);
-  const response: DescribeTagsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeTagsCommandError
- */
-const de_DescribeTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ListenerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
-      throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
-    case "RuleNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
-      throw await de_RuleNotFoundExceptionRes(parsedOutput, context);
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeTargetGroupAttributesCommand
- */
-export const de_DescribeTargetGroupAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTargetGroupAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTargetGroupAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTargetGroupAttributesOutput(data.DescribeTargetGroupAttributesResult, context);
-  const response: DescribeTargetGroupAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeTargetGroupAttributesCommandError
- */
-const de_DescribeTargetGroupAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTargetGroupAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeTargetGroupsCommand
- */
-export const de_DescribeTargetGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTargetGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTargetGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTargetGroupsOutput(data.DescribeTargetGroupsResult, context);
-  const response: DescribeTargetGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeTargetGroupsCommandError
- */
-const de_DescribeTargetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTargetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
-      throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeTargetHealthCommand
- */
-export const de_DescribeTargetHealthCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTargetHealthCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTargetHealthCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTargetHealthOutput(data.DescribeTargetHealthResult, context);
-  const response: DescribeTargetHealthCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeTargetHealthCommandError
- */
-const de_DescribeTargetHealthCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTargetHealthCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "HealthUnavailable":
     case "com.amazonaws.elasticloadbalancingv2#HealthUnavailableException":
       throw await de_HealthUnavailableExceptionRes(parsedOutput, context);
-    case "InvalidTarget":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidTargetException":
-      throw await de_InvalidTargetExceptionRes(parsedOutput, context);
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeTrustStoreAssociationsCommand
- */
-export const de_DescribeTrustStoreAssociationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustStoreAssociationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTrustStoreAssociationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTrustStoreAssociationsOutput(data.DescribeTrustStoreAssociationsResult, context);
-  const response: DescribeTrustStoreAssociationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeTrustStoreAssociationsCommandError
- */
-const de_DescribeTrustStoreAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustStoreAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeTrustStoreRevocationsCommand
- */
-export const de_DescribeTrustStoreRevocationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustStoreRevocationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTrustStoreRevocationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTrustStoreRevocationsOutput(data.DescribeTrustStoreRevocationsResult, context);
-  const response: DescribeTrustStoreRevocationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeTrustStoreRevocationsCommandError
- */
-const de_DescribeTrustStoreRevocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustStoreRevocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "RevocationIdNotFound":
     case "com.amazonaws.elasticloadbalancingv2#RevocationIdNotFoundException":
       throw await de_RevocationIdNotFoundExceptionRes(parsedOutput, context);
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryDescribeTrustStoresCommand
- */
-export const de_DescribeTrustStoresCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustStoresCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeTrustStoresCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeTrustStoresOutput(data.DescribeTrustStoresResult, context);
-  const response: DescribeTrustStoresCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryDescribeTrustStoresCommandError
- */
-const de_DescribeTrustStoresCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTrustStoresCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetTrustStoreCaCertificatesBundleCommand
- */
-export const de_GetTrustStoreCaCertificatesBundleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTrustStoreCaCertificatesBundleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetTrustStoreCaCertificatesBundleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetTrustStoreCaCertificatesBundleOutput(data.GetTrustStoreCaCertificatesBundleResult, context);
-  const response: GetTrustStoreCaCertificatesBundleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetTrustStoreCaCertificatesBundleCommandError
- */
-const de_GetTrustStoreCaCertificatesBundleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTrustStoreCaCertificatesBundleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryGetTrustStoreRevocationContentCommand
- */
-export const de_GetTrustStoreRevocationContentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTrustStoreRevocationContentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetTrustStoreRevocationContentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetTrustStoreRevocationContentOutput(data.GetTrustStoreRevocationContentResult, context);
-  const response: GetTrustStoreRevocationContentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryGetTrustStoreRevocationContentCommandError
- */
-const de_GetTrustStoreRevocationContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTrustStoreRevocationContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RevocationIdNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#RevocationIdNotFoundException":
-      throw await de_RevocationIdNotFoundExceptionRes(parsedOutput, context);
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyListenerCommand
- */
-export const de_ModifyListenerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyListenerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyListenerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyListenerOutput(data.ModifyListenerResult, context);
-  const response: ModifyListenerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyListenerCommandError
- */
-const de_ModifyListenerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyListenerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ALPNPolicyNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#ALPNPolicyNotSupportedException":
-      throw await de_ALPNPolicyNotSupportedExceptionRes(parsedOutput, context);
-    case "CertificateNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#CertificateNotFoundException":
-      throw await de_CertificateNotFoundExceptionRes(parsedOutput, context);
-    case "DuplicateListener":
-    case "com.amazonaws.elasticloadbalancingv2#DuplicateListenerException":
-      throw await de_DuplicateListenerExceptionRes(parsedOutput, context);
-    case "IncompatibleProtocols":
-    case "com.amazonaws.elasticloadbalancingv2#IncompatibleProtocolsException":
-      throw await de_IncompatibleProtocolsExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "InvalidLoadBalancerAction":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidLoadBalancerActionException":
-      throw await de_InvalidLoadBalancerActionExceptionRes(parsedOutput, context);
-    case "ListenerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    case "SSLPolicyNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#SSLPolicyNotFoundException":
-      throw await de_SSLPolicyNotFoundExceptionRes(parsedOutput, context);
-    case "TargetGroupAssociationLimit":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupAssociationLimitException":
-      throw await de_TargetGroupAssociationLimitExceptionRes(parsedOutput, context);
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyActions":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyActionsException":
-      throw await de_TooManyActionsExceptionRes(parsedOutput, context);
-    case "TooManyCertificates":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyCertificatesException":
-      throw await de_TooManyCertificatesExceptionRes(parsedOutput, context);
-    case "TooManyListeners":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyListenersException":
-      throw await de_TooManyListenersExceptionRes(parsedOutput, context);
-    case "TooManyRegistrationsForTargetId":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyRegistrationsForTargetIdException":
-      throw await de_TooManyRegistrationsForTargetIdExceptionRes(parsedOutput, context);
-    case "TooManyTargets":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyTargetsException":
-      throw await de_TooManyTargetsExceptionRes(parsedOutput, context);
-    case "TooManyUniqueTargetGroupsPerLoadBalancer":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyUniqueTargetGroupsPerLoadBalancerException":
-      throw await de_TooManyUniqueTargetGroupsPerLoadBalancerExceptionRes(parsedOutput, context);
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
-    case "TrustStoreNotReady":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotReadyException":
-      throw await de_TrustStoreNotReadyExceptionRes(parsedOutput, context);
-    case "UnsupportedProtocol":
-    case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
-      throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyLoadBalancerAttributesCommand
- */
-export const de_ModifyLoadBalancerAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyLoadBalancerAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyLoadBalancerAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyLoadBalancerAttributesOutput(data.ModifyLoadBalancerAttributesResult, context);
-  const response: ModifyLoadBalancerAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyLoadBalancerAttributesCommandError
- */
-const de_ModifyLoadBalancerAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyLoadBalancerAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
-      throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyRuleCommand
- */
-export const de_ModifyRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyRuleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyRuleOutput(data.ModifyRuleResult, context);
-  const response: ModifyRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyRuleCommandError
- */
-const de_ModifyRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IncompatibleProtocols":
-    case "com.amazonaws.elasticloadbalancingv2#IncompatibleProtocolsException":
-      throw await de_IncompatibleProtocolsExceptionRes(parsedOutput, context);
-    case "InvalidLoadBalancerAction":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidLoadBalancerActionException":
-      throw await de_InvalidLoadBalancerActionExceptionRes(parsedOutput, context);
-    case "OperationNotPermitted":
-    case "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "RuleNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
-      throw await de_RuleNotFoundExceptionRes(parsedOutput, context);
-    case "TargetGroupAssociationLimit":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupAssociationLimitException":
-      throw await de_TargetGroupAssociationLimitExceptionRes(parsedOutput, context);
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyActions":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyActionsException":
-      throw await de_TooManyActionsExceptionRes(parsedOutput, context);
-    case "TooManyRegistrationsForTargetId":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyRegistrationsForTargetIdException":
-      throw await de_TooManyRegistrationsForTargetIdExceptionRes(parsedOutput, context);
-    case "TooManyTargets":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyTargetsException":
-      throw await de_TooManyTargetsExceptionRes(parsedOutput, context);
-    case "TooManyUniqueTargetGroupsPerLoadBalancer":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyUniqueTargetGroupsPerLoadBalancerException":
-      throw await de_TooManyUniqueTargetGroupsPerLoadBalancerExceptionRes(parsedOutput, context);
-    case "UnsupportedProtocol":
-    case "com.amazonaws.elasticloadbalancingv2#UnsupportedProtocolException":
-      throw await de_UnsupportedProtocolExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyTargetGroupCommand
- */
-export const de_ModifyTargetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTargetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyTargetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyTargetGroupOutput(data.ModifyTargetGroupResult, context);
-  const response: ModifyTargetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyTargetGroupCommandError
- */
-const de_ModifyTargetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTargetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyTargetGroupAttributesCommand
- */
-export const de_ModifyTargetGroupAttributesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTargetGroupAttributesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyTargetGroupAttributesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyTargetGroupAttributesOutput(data.ModifyTargetGroupAttributesResult, context);
-  const response: ModifyTargetGroupAttributesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyTargetGroupAttributesCommandError
- */
-const de_ModifyTargetGroupAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTargetGroupAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryModifyTrustStoreCommand
- */
-export const de_ModifyTrustStoreCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTrustStoreCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyTrustStoreCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyTrustStoreOutput(data.ModifyTrustStoreResult, context);
-  const response: ModifyTrustStoreCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryModifyTrustStoreCommandError
- */
-const de_ModifyTrustStoreCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyTrustStoreCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CaCertificatesBundleNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#CaCertificatesBundleNotFoundException":
-      throw await de_CaCertificatesBundleNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidCaCertificatesBundle":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidCaCertificatesBundleException":
-      throw await de_InvalidCaCertificatesBundleExceptionRes(parsedOutput, context);
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRegisterTargetsCommand
- */
-export const de_RegisterTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterTargetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterTargetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RegisterTargetsOutput(data.RegisterTargetsResult, context);
-  const response: RegisterTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRegisterTargetsCommandError
- */
-const de_RegisterTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidTarget":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidTargetException":
-      throw await de_InvalidTargetExceptionRes(parsedOutput, context);
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyRegistrationsForTargetId":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyRegistrationsForTargetIdException":
-      throw await de_TooManyRegistrationsForTargetIdExceptionRes(parsedOutput, context);
-    case "TooManyTargets":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyTargetsException":
-      throw await de_TooManyTargetsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemoveListenerCertificatesCommand
- */
-export const de_RemoveListenerCertificatesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveListenerCertificatesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveListenerCertificatesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RemoveListenerCertificatesOutput(data.RemoveListenerCertificatesResult, context);
-  const response: RemoveListenerCertificatesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemoveListenerCertificatesCommandError
- */
-const de_RemoveListenerCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveListenerCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ListenerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    case "OperationNotPermitted":
-    case "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemoveTagsCommand
- */
-export const de_RemoveTagsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveTagsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RemoveTagsOutput(data.RemoveTagsResult, context);
-  const response: RemoveTagsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemoveTagsCommandError
- */
-const de_RemoveTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ListenerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException":
-      throw await de_ListenerNotFoundExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
-      throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
-    case "RuleNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
-      throw await de_RuleNotFoundExceptionRes(parsedOutput, context);
-    case "TargetGroupNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TargetGroupNotFoundException":
-      throw await de_TargetGroupNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTags":
-    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_queryRemoveTrustStoreRevocationsCommand
- */
-export const de_RemoveTrustStoreRevocationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTrustStoreRevocationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveTrustStoreRevocationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RemoveTrustStoreRevocationsOutput(data.RemoveTrustStoreRevocationsResult, context);
-  const response: RemoveTrustStoreRevocationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_queryRemoveTrustStoreRevocationsCommandError
- */
-const de_RemoveTrustStoreRevocationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTrustStoreRevocationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "RevocationIdNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#RevocationIdNotFoundException":
-      throw await de_RevocationIdNotFoundExceptionRes(parsedOutput, context);
-    case "TrustStoreNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException":
-      throw await de_TrustStoreNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySetIpAddressTypeCommand
- */
-export const de_SetIpAddressTypeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetIpAddressTypeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SetIpAddressTypeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SetIpAddressTypeOutput(data.SetIpAddressTypeResult, context);
-  const response: SetIpAddressTypeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySetIpAddressTypeCommandError
- */
-const de_SetIpAddressTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetIpAddressTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidSubnetException":
-      throw await de_InvalidSubnetExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
-      throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySetRulePrioritiesCommand
- */
-export const de_SetRulePrioritiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetRulePrioritiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SetRulePrioritiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SetRulePrioritiesOutput(data.SetRulePrioritiesResult, context);
-  const response: SetRulePrioritiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySetRulePrioritiesCommandError
- */
-const de_SetRulePrioritiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetRulePrioritiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermitted":
-    case "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "PriorityInUse":
-    case "com.amazonaws.elasticloadbalancingv2#PriorityInUseException":
-      throw await de_PriorityInUseExceptionRes(parsedOutput, context);
-    case "RuleNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#RuleNotFoundException":
-      throw await de_RuleNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySetSecurityGroupsCommand
- */
-export const de_SetSecurityGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetSecurityGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SetSecurityGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SetSecurityGroupsOutput(data.SetSecurityGroupsResult, context);
-  const response: SetSecurityGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySetSecurityGroupsCommandError
- */
-const de_SetSecurityGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetSecurityGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "InvalidSecurityGroup":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidSecurityGroupException":
-      throw await de_InvalidSecurityGroupExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
-      throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_querySetSubnetsCommand
- */
-export const de_SetSubnetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetSubnetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SetSubnetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SetSubnetsOutput(data.SetSubnetsResult, context);
-  const response: SetSubnetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_querySetSubnetsCommandError
- */
-const de_SetSubnetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetSubnetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AllocationIdNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#AllocationIdNotFoundException":
-      throw await de_AllocationIdNotFoundExceptionRes(parsedOutput, context);
-    case "AvailabilityZoneNotSupported":
-    case "com.amazonaws.elasticloadbalancingv2#AvailabilityZoneNotSupportedException":
-      throw await de_AvailabilityZoneNotSupportedExceptionRes(parsedOutput, context);
-    case "InvalidConfigurationRequest":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException":
-      throw await de_InvalidConfigurationRequestExceptionRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.elasticloadbalancingv2#InvalidSubnetException":
-      throw await de_InvalidSubnetExceptionRes(parsedOutput, context);
-    case "LoadBalancerNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException":
-      throw await de_LoadBalancerNotFoundExceptionRes(parsedOutput, context);
-    case "SubnetNotFound":
-    case "com.amazonaws.elasticloadbalancingv2#SubnetNotFoundException":
-      throw await de_SubnetNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

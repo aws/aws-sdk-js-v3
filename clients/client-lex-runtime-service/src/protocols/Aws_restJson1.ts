@@ -190,7 +190,7 @@ export const de_DeleteSessionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -207,44 +207,6 @@ export const de_DeleteSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteSessionCommandError
- */
-const de_DeleteSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.lexruntimeservice#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.lexruntimeservice#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.lexruntimeservice#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.lexruntimeservice#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lexruntimeservice#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSessionCommand
  */
 export const de_GetSessionCommand = async (
@@ -252,7 +214,7 @@ export const de_GetSessionCommand = async (
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -270,41 +232,6 @@ export const de_GetSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSessionCommandError
- */
-const de_GetSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadRequestException":
-    case "com.amazonaws.lexruntimeservice#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.lexruntimeservice#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.lexruntimeservice#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lexruntimeservice#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PostContentCommand
  */
 export const de_PostContentCommand = async (
@@ -312,7 +239,7 @@ export const de_PostContentCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<PostContentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PostContentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -356,62 +283,6 @@ export const de_PostContentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PostContentCommandError
- */
-const de_PostContentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PostContentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.lexruntimeservice#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.lexruntimeservice#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.lexruntimeservice#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DependencyFailedException":
-    case "com.amazonaws.lexruntimeservice#DependencyFailedException":
-      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.lexruntimeservice#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.lexruntimeservice#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "LoopDetectedException":
-    case "com.amazonaws.lexruntimeservice#LoopDetectedException":
-      throw await de_LoopDetectedExceptionRes(parsedOutput, context);
-    case "NotAcceptableException":
-    case "com.amazonaws.lexruntimeservice#NotAcceptableException":
-      throw await de_NotAcceptableExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lexruntimeservice#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "RequestTimeoutException":
-    case "com.amazonaws.lexruntimeservice#RequestTimeoutException":
-      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
-    case "UnsupportedMediaTypeException":
-    case "com.amazonaws.lexruntimeservice#UnsupportedMediaTypeException":
-      throw await de_UnsupportedMediaTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PostTextCommand
  */
 export const de_PostTextCommand = async (
@@ -419,7 +290,7 @@ export const de_PostTextCommand = async (
   context: __SerdeContext
 ): Promise<PostTextCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PostTextCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -446,53 +317,6 @@ export const de_PostTextCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PostTextCommandError
- */
-const de_PostTextCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PostTextCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.lexruntimeservice#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "BadRequestException":
-    case "com.amazonaws.lexruntimeservice#BadRequestException":
-      throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.lexruntimeservice#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DependencyFailedException":
-    case "com.amazonaws.lexruntimeservice#DependencyFailedException":
-      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
-    case "InternalFailureException":
-    case "com.amazonaws.lexruntimeservice#InternalFailureException":
-      throw await de_InternalFailureExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.lexruntimeservice#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "LoopDetectedException":
-    case "com.amazonaws.lexruntimeservice#LoopDetectedException":
-      throw await de_LoopDetectedExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.lexruntimeservice#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutSessionCommand
  */
 export const de_PutSessionCommand = async (
@@ -500,7 +324,7 @@ export const de_PutSessionCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<PutSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -532,49 +356,55 @@ export const de_PutSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutSessionCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_PutSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutSessionCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "BadGatewayException":
-    case "com.amazonaws.lexruntimeservice#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.lexruntimeservice#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexruntimeservice#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DependencyFailedException":
-    case "com.amazonaws.lexruntimeservice#DependencyFailedException":
-      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
     case "InternalFailureException":
     case "com.amazonaws.lexruntimeservice#InternalFailureException":
       throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.lexruntimeservice#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NotAcceptableException":
-    case "com.amazonaws.lexruntimeservice#NotAcceptableException":
-      throw await de_NotAcceptableExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.lexruntimeservice#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "BadGatewayException":
+    case "com.amazonaws.lexruntimeservice#BadGatewayException":
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
+    case "DependencyFailedException":
+    case "com.amazonaws.lexruntimeservice#DependencyFailedException":
+      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
+    case "LoopDetectedException":
+    case "com.amazonaws.lexruntimeservice#LoopDetectedException":
+      throw await de_LoopDetectedExceptionRes(parsedOutput, context);
+    case "NotAcceptableException":
+    case "com.amazonaws.lexruntimeservice#NotAcceptableException":
+      throw await de_NotAcceptableExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.lexruntimeservice#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "UnsupportedMediaTypeException":
+    case "com.amazonaws.lexruntimeservice#UnsupportedMediaTypeException":
+      throw await de_UnsupportedMediaTypeExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

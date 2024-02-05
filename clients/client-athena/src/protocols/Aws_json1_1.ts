@@ -1210,7 +1210,7 @@ export const de_BatchGetNamedQueryCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetNamedQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetNamedQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1223,35 +1223,6 @@ export const de_BatchGetNamedQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetNamedQueryCommandError
- */
-const de_BatchGetNamedQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetNamedQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetPreparedStatementCommand
  */
 export const de_BatchGetPreparedStatementCommand = async (
@@ -1259,7 +1230,7 @@ export const de_BatchGetPreparedStatementCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetPreparedStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetPreparedStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1272,35 +1243,6 @@ export const de_BatchGetPreparedStatementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetPreparedStatementCommandError
- */
-const de_BatchGetPreparedStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetPreparedStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetQueryExecutionCommand
  */
 export const de_BatchGetQueryExecutionCommand = async (
@@ -1308,7 +1250,7 @@ export const de_BatchGetQueryExecutionCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetQueryExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetQueryExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1321,35 +1263,6 @@ export const de_BatchGetQueryExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetQueryExecutionCommandError
- */
-const de_BatchGetQueryExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetQueryExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelCapacityReservationCommand
  */
 export const de_CancelCapacityReservationCommand = async (
@@ -1357,7 +1270,7 @@ export const de_CancelCapacityReservationCommand = async (
   context: __SerdeContext
 ): Promise<CancelCapacityReservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelCapacityReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1370,35 +1283,6 @@ export const de_CancelCapacityReservationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelCapacityReservationCommandError
- */
-const de_CancelCapacityReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelCapacityReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateCapacityReservationCommand
  */
 export const de_CreateCapacityReservationCommand = async (
@@ -1406,7 +1290,7 @@ export const de_CreateCapacityReservationCommand = async (
   context: __SerdeContext
 ): Promise<CreateCapacityReservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCapacityReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1419,35 +1303,6 @@ export const de_CreateCapacityReservationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCapacityReservationCommandError
- */
-const de_CreateCapacityReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCapacityReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDataCatalogCommand
  */
 export const de_CreateDataCatalogCommand = async (
@@ -1455,7 +1310,7 @@ export const de_CreateDataCatalogCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDataCatalogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1468,35 +1323,6 @@ export const de_CreateDataCatalogCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDataCatalogCommandError
- */
-const de_CreateDataCatalogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataCatalogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateNamedQueryCommand
  */
 export const de_CreateNamedQueryCommand = async (
@@ -1504,7 +1330,7 @@ export const de_CreateNamedQueryCommand = async (
   context: __SerdeContext
 ): Promise<CreateNamedQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNamedQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1517,35 +1343,6 @@ export const de_CreateNamedQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateNamedQueryCommandError
- */
-const de_CreateNamedQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNamedQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateNotebookCommand
  */
 export const de_CreateNotebookCommand = async (
@@ -1553,7 +1350,7 @@ export const de_CreateNotebookCommand = async (
   context: __SerdeContext
 ): Promise<CreateNotebookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNotebookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1566,38 +1363,6 @@ export const de_CreateNotebookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateNotebookCommandError
- */
-const de_CreateNotebookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNotebookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.athena#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePreparedStatementCommand
  */
 export const de_CreatePreparedStatementCommand = async (
@@ -1605,7 +1370,7 @@ export const de_CreatePreparedStatementCommand = async (
   context: __SerdeContext
 ): Promise<CreatePreparedStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePreparedStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1618,35 +1383,6 @@ export const de_CreatePreparedStatementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePreparedStatementCommandError
- */
-const de_CreatePreparedStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePreparedStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreatePresignedNotebookUrlCommand
  */
 export const de_CreatePresignedNotebookUrlCommand = async (
@@ -1654,7 +1390,7 @@ export const de_CreatePresignedNotebookUrlCommand = async (
   context: __SerdeContext
 ): Promise<CreatePresignedNotebookUrlCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePresignedNotebookUrlCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1667,38 +1403,6 @@ export const de_CreatePresignedNotebookUrlCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePresignedNotebookUrlCommandError
- */
-const de_CreatePresignedNotebookUrlCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePresignedNotebookUrlCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateWorkGroupCommand
  */
 export const de_CreateWorkGroupCommand = async (
@@ -1706,7 +1410,7 @@ export const de_CreateWorkGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateWorkGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateWorkGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1719,35 +1423,6 @@ export const de_CreateWorkGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateWorkGroupCommandError
- */
-const de_CreateWorkGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateWorkGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCapacityReservationCommand
  */
 export const de_DeleteCapacityReservationCommand = async (
@@ -1755,7 +1430,7 @@ export const de_DeleteCapacityReservationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCapacityReservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCapacityReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1768,35 +1443,6 @@ export const de_DeleteCapacityReservationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteCapacityReservationCommandError
- */
-const de_DeleteCapacityReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCapacityReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDataCatalogCommand
  */
 export const de_DeleteDataCatalogCommand = async (
@@ -1804,7 +1450,7 @@ export const de_DeleteDataCatalogCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDataCatalogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1817,35 +1463,6 @@ export const de_DeleteDataCatalogCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDataCatalogCommandError
- */
-const de_DeleteDataCatalogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataCatalogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteNamedQueryCommand
  */
 export const de_DeleteNamedQueryCommand = async (
@@ -1853,7 +1470,7 @@ export const de_DeleteNamedQueryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNamedQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNamedQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1866,35 +1483,6 @@ export const de_DeleteNamedQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteNamedQueryCommandError
- */
-const de_DeleteNamedQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNamedQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteNotebookCommand
  */
 export const de_DeleteNotebookCommand = async (
@@ -1902,7 +1490,7 @@ export const de_DeleteNotebookCommand = async (
   context: __SerdeContext
 ): Promise<DeleteNotebookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteNotebookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1915,38 +1503,6 @@ export const de_DeleteNotebookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteNotebookCommandError
- */
-const de_DeleteNotebookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNotebookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.athena#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeletePreparedStatementCommand
  */
 export const de_DeletePreparedStatementCommand = async (
@@ -1954,7 +1510,7 @@ export const de_DeletePreparedStatementCommand = async (
   context: __SerdeContext
 ): Promise<DeletePreparedStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePreparedStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1967,38 +1523,6 @@ export const de_DeletePreparedStatementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeletePreparedStatementCommandError
- */
-const de_DeletePreparedStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePreparedStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteWorkGroupCommand
  */
 export const de_DeleteWorkGroupCommand = async (
@@ -2006,7 +1530,7 @@ export const de_DeleteWorkGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteWorkGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteWorkGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2019,35 +1543,6 @@ export const de_DeleteWorkGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteWorkGroupCommandError
- */
-const de_DeleteWorkGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteWorkGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ExportNotebookCommand
  */
 export const de_ExportNotebookCommand = async (
@@ -2055,7 +1550,7 @@ export const de_ExportNotebookCommand = async (
   context: __SerdeContext
 ): Promise<ExportNotebookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportNotebookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2068,38 +1563,6 @@ export const de_ExportNotebookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ExportNotebookCommandError
- */
-const de_ExportNotebookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportNotebookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.athena#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCalculationExecutionCommand
  */
 export const de_GetCalculationExecutionCommand = async (
@@ -2107,7 +1570,7 @@ export const de_GetCalculationExecutionCommand = async (
   context: __SerdeContext
 ): Promise<GetCalculationExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCalculationExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2120,38 +1583,6 @@ export const de_GetCalculationExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCalculationExecutionCommandError
- */
-const de_GetCalculationExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCalculationExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCalculationExecutionCodeCommand
  */
 export const de_GetCalculationExecutionCodeCommand = async (
@@ -2159,7 +1590,7 @@ export const de_GetCalculationExecutionCodeCommand = async (
   context: __SerdeContext
 ): Promise<GetCalculationExecutionCodeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCalculationExecutionCodeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2172,38 +1603,6 @@ export const de_GetCalculationExecutionCodeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCalculationExecutionCodeCommandError
- */
-const de_GetCalculationExecutionCodeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCalculationExecutionCodeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCalculationExecutionStatusCommand
  */
 export const de_GetCalculationExecutionStatusCommand = async (
@@ -2211,7 +1610,7 @@ export const de_GetCalculationExecutionStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetCalculationExecutionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCalculationExecutionStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2224,38 +1623,6 @@ export const de_GetCalculationExecutionStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCalculationExecutionStatusCommandError
- */
-const de_GetCalculationExecutionStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCalculationExecutionStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCapacityAssignmentConfigurationCommand
  */
 export const de_GetCapacityAssignmentConfigurationCommand = async (
@@ -2263,7 +1630,7 @@ export const de_GetCapacityAssignmentConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetCapacityAssignmentConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCapacityAssignmentConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2276,35 +1643,6 @@ export const de_GetCapacityAssignmentConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCapacityAssignmentConfigurationCommandError
- */
-const de_GetCapacityAssignmentConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCapacityAssignmentConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCapacityReservationCommand
  */
 export const de_GetCapacityReservationCommand = async (
@@ -2312,7 +1650,7 @@ export const de_GetCapacityReservationCommand = async (
   context: __SerdeContext
 ): Promise<GetCapacityReservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCapacityReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2325,35 +1663,6 @@ export const de_GetCapacityReservationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCapacityReservationCommandError
- */
-const de_GetCapacityReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCapacityReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDatabaseCommand
  */
 export const de_GetDatabaseCommand = async (
@@ -2361,7 +1670,7 @@ export const de_GetDatabaseCommand = async (
   context: __SerdeContext
 ): Promise<GetDatabaseCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDatabaseCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2374,38 +1683,6 @@ export const de_GetDatabaseCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDatabaseCommandError
- */
-const de_GetDatabaseCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDatabaseCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MetadataException":
-    case "com.amazonaws.athena#MetadataException":
-      throw await de_MetadataExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDataCatalogCommand
  */
 export const de_GetDataCatalogCommand = async (
@@ -2413,7 +1690,7 @@ export const de_GetDataCatalogCommand = async (
   context: __SerdeContext
 ): Promise<GetDataCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDataCatalogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2426,35 +1703,6 @@ export const de_GetDataCatalogCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDataCatalogCommandError
- */
-const de_GetDataCatalogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataCatalogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetNamedQueryCommand
  */
 export const de_GetNamedQueryCommand = async (
@@ -2462,7 +1710,7 @@ export const de_GetNamedQueryCommand = async (
   context: __SerdeContext
 ): Promise<GetNamedQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetNamedQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2475,35 +1723,6 @@ export const de_GetNamedQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetNamedQueryCommandError
- */
-const de_GetNamedQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNamedQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetNotebookMetadataCommand
  */
 export const de_GetNotebookMetadataCommand = async (
@@ -2511,7 +1730,7 @@ export const de_GetNotebookMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetNotebookMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetNotebookMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2524,38 +1743,6 @@ export const de_GetNotebookMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetNotebookMetadataCommandError
- */
-const de_GetNotebookMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetNotebookMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.athena#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPreparedStatementCommand
  */
 export const de_GetPreparedStatementCommand = async (
@@ -2563,7 +1750,7 @@ export const de_GetPreparedStatementCommand = async (
   context: __SerdeContext
 ): Promise<GetPreparedStatementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPreparedStatementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2576,38 +1763,6 @@ export const de_GetPreparedStatementCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPreparedStatementCommandError
- */
-const de_GetPreparedStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPreparedStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetQueryExecutionCommand
  */
 export const de_GetQueryExecutionCommand = async (
@@ -2615,7 +1770,7 @@ export const de_GetQueryExecutionCommand = async (
   context: __SerdeContext
 ): Promise<GetQueryExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetQueryExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2628,35 +1783,6 @@ export const de_GetQueryExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetQueryExecutionCommandError
- */
-const de_GetQueryExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQueryExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetQueryResultsCommand
  */
 export const de_GetQueryResultsCommand = async (
@@ -2664,7 +1790,7 @@ export const de_GetQueryResultsCommand = async (
   context: __SerdeContext
 ): Promise<GetQueryResultsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetQueryResultsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2677,38 +1803,6 @@ export const de_GetQueryResultsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetQueryResultsCommandError
- */
-const de_GetQueryResultsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQueryResultsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.athena#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetQueryRuntimeStatisticsCommand
  */
 export const de_GetQueryRuntimeStatisticsCommand = async (
@@ -2716,7 +1810,7 @@ export const de_GetQueryRuntimeStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<GetQueryRuntimeStatisticsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetQueryRuntimeStatisticsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2729,35 +1823,6 @@ export const de_GetQueryRuntimeStatisticsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetQueryRuntimeStatisticsCommandError
- */
-const de_GetQueryRuntimeStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetQueryRuntimeStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSessionCommand
  */
 export const de_GetSessionCommand = async (
@@ -2765,7 +1830,7 @@ export const de_GetSessionCommand = async (
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2778,38 +1843,6 @@ export const de_GetSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSessionCommandError
- */
-const de_GetSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSessionStatusCommand
  */
 export const de_GetSessionStatusCommand = async (
@@ -2817,7 +1850,7 @@ export const de_GetSessionStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetSessionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSessionStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2830,38 +1863,6 @@ export const de_GetSessionStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSessionStatusCommandError
- */
-const de_GetSessionStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSessionStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetTableMetadataCommand
  */
 export const de_GetTableMetadataCommand = async (
@@ -2869,7 +1870,7 @@ export const de_GetTableMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetTableMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetTableMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2882,38 +1883,6 @@ export const de_GetTableMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetTableMetadataCommandError
- */
-const de_GetTableMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTableMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MetadataException":
-    case "com.amazonaws.athena#MetadataException":
-      throw await de_MetadataExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetWorkGroupCommand
  */
 export const de_GetWorkGroupCommand = async (
@@ -2921,7 +1890,7 @@ export const de_GetWorkGroupCommand = async (
   context: __SerdeContext
 ): Promise<GetWorkGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetWorkGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2934,35 +1903,6 @@ export const de_GetWorkGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetWorkGroupCommandError
- */
-const de_GetWorkGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetWorkGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportNotebookCommand
  */
 export const de_ImportNotebookCommand = async (
@@ -2970,7 +1910,7 @@ export const de_ImportNotebookCommand = async (
   context: __SerdeContext
 ): Promise<ImportNotebookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportNotebookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2983,38 +1923,6 @@ export const de_ImportNotebookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportNotebookCommandError
- */
-const de_ImportNotebookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportNotebookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.athena#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListApplicationDPUSizesCommand
  */
 export const de_ListApplicationDPUSizesCommand = async (
@@ -3022,7 +1930,7 @@ export const de_ListApplicationDPUSizesCommand = async (
   context: __SerdeContext
 ): Promise<ListApplicationDPUSizesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListApplicationDPUSizesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3035,38 +1943,6 @@ export const de_ListApplicationDPUSizesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListApplicationDPUSizesCommandError
- */
-const de_ListApplicationDPUSizesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationDPUSizesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.athena#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCalculationExecutionsCommand
  */
 export const de_ListCalculationExecutionsCommand = async (
@@ -3074,7 +1950,7 @@ export const de_ListCalculationExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListCalculationExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCalculationExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3087,38 +1963,6 @@ export const de_ListCalculationExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCalculationExecutionsCommandError
- */
-const de_ListCalculationExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCalculationExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCapacityReservationsCommand
  */
 export const de_ListCapacityReservationsCommand = async (
@@ -3126,7 +1970,7 @@ export const de_ListCapacityReservationsCommand = async (
   context: __SerdeContext
 ): Promise<ListCapacityReservationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCapacityReservationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3139,35 +1983,6 @@ export const de_ListCapacityReservationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCapacityReservationsCommandError
- */
-const de_ListCapacityReservationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCapacityReservationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDatabasesCommand
  */
 export const de_ListDatabasesCommand = async (
@@ -3175,7 +1990,7 @@ export const de_ListDatabasesCommand = async (
   context: __SerdeContext
 ): Promise<ListDatabasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDatabasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3188,38 +2003,6 @@ export const de_ListDatabasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDatabasesCommandError
- */
-const de_ListDatabasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatabasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MetadataException":
-    case "com.amazonaws.athena#MetadataException":
-      throw await de_MetadataExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDataCatalogsCommand
  */
 export const de_ListDataCatalogsCommand = async (
@@ -3227,7 +2010,7 @@ export const de_ListDataCatalogsCommand = async (
   context: __SerdeContext
 ): Promise<ListDataCatalogsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDataCatalogsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3240,35 +2023,6 @@ export const de_ListDataCatalogsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDataCatalogsCommandError
- */
-const de_ListDataCatalogsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataCatalogsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListEngineVersionsCommand
  */
 export const de_ListEngineVersionsCommand = async (
@@ -3276,7 +2030,7 @@ export const de_ListEngineVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListEngineVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEngineVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3289,35 +2043,6 @@ export const de_ListEngineVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEngineVersionsCommandError
- */
-const de_ListEngineVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEngineVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListExecutorsCommand
  */
 export const de_ListExecutorsCommand = async (
@@ -3325,7 +2050,7 @@ export const de_ListExecutorsCommand = async (
   context: __SerdeContext
 ): Promise<ListExecutorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListExecutorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3338,38 +2063,6 @@ export const de_ListExecutorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListExecutorsCommandError
- */
-const de_ListExecutorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListExecutorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListNamedQueriesCommand
  */
 export const de_ListNamedQueriesCommand = async (
@@ -3377,7 +2070,7 @@ export const de_ListNamedQueriesCommand = async (
   context: __SerdeContext
 ): Promise<ListNamedQueriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListNamedQueriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3390,35 +2083,6 @@ export const de_ListNamedQueriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListNamedQueriesCommandError
- */
-const de_ListNamedQueriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNamedQueriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListNotebookMetadataCommand
  */
 export const de_ListNotebookMetadataCommand = async (
@@ -3426,7 +2090,7 @@ export const de_ListNotebookMetadataCommand = async (
   context: __SerdeContext
 ): Promise<ListNotebookMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListNotebookMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3439,38 +2103,6 @@ export const de_ListNotebookMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListNotebookMetadataCommandError
- */
-const de_ListNotebookMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNotebookMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.athena#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListNotebookSessionsCommand
  */
 export const de_ListNotebookSessionsCommand = async (
@@ -3478,7 +2110,7 @@ export const de_ListNotebookSessionsCommand = async (
   context: __SerdeContext
 ): Promise<ListNotebookSessionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListNotebookSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3491,38 +2123,6 @@ export const de_ListNotebookSessionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListNotebookSessionsCommandError
- */
-const de_ListNotebookSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListNotebookSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPreparedStatementsCommand
  */
 export const de_ListPreparedStatementsCommand = async (
@@ -3530,7 +2130,7 @@ export const de_ListPreparedStatementsCommand = async (
   context: __SerdeContext
 ): Promise<ListPreparedStatementsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPreparedStatementsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3543,35 +2143,6 @@ export const de_ListPreparedStatementsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPreparedStatementsCommandError
- */
-const de_ListPreparedStatementsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPreparedStatementsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListQueryExecutionsCommand
  */
 export const de_ListQueryExecutionsCommand = async (
@@ -3579,7 +2150,7 @@ export const de_ListQueryExecutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListQueryExecutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListQueryExecutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3592,35 +2163,6 @@ export const de_ListQueryExecutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListQueryExecutionsCommandError
- */
-const de_ListQueryExecutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListQueryExecutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSessionsCommand
  */
 export const de_ListSessionsCommand = async (
@@ -3628,7 +2170,7 @@ export const de_ListSessionsCommand = async (
   context: __SerdeContext
 ): Promise<ListSessionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSessionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3641,38 +2183,6 @@ export const de_ListSessionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSessionsCommandError
- */
-const de_ListSessionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSessionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTableMetadataCommand
  */
 export const de_ListTableMetadataCommand = async (
@@ -3680,7 +2190,7 @@ export const de_ListTableMetadataCommand = async (
   context: __SerdeContext
 ): Promise<ListTableMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTableMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3693,38 +2203,6 @@ export const de_ListTableMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTableMetadataCommandError
- */
-const de_ListTableMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTableMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MetadataException":
-    case "com.amazonaws.athena#MetadataException":
-      throw await de_MetadataExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -3732,7 +2210,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3745,38 +2223,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListWorkGroupsCommand
  */
 export const de_ListWorkGroupsCommand = async (
@@ -3784,7 +2230,7 @@ export const de_ListWorkGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListWorkGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListWorkGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3797,35 +2243,6 @@ export const de_ListWorkGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListWorkGroupsCommandError
- */
-const de_ListWorkGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListWorkGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutCapacityAssignmentConfigurationCommand
  */
 export const de_PutCapacityAssignmentConfigurationCommand = async (
@@ -3833,7 +2250,7 @@ export const de_PutCapacityAssignmentConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutCapacityAssignmentConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutCapacityAssignmentConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3846,35 +2263,6 @@ export const de_PutCapacityAssignmentConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutCapacityAssignmentConfigurationCommandError
- */
-const de_PutCapacityAssignmentConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutCapacityAssignmentConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartCalculationExecutionCommand
  */
 export const de_StartCalculationExecutionCommand = async (
@@ -3882,7 +2270,7 @@ export const de_StartCalculationExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StartCalculationExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartCalculationExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3895,38 +2283,6 @@ export const de_StartCalculationExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartCalculationExecutionCommandError
- */
-const de_StartCalculationExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartCalculationExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartQueryExecutionCommand
  */
 export const de_StartQueryExecutionCommand = async (
@@ -3934,7 +2290,7 @@ export const de_StartQueryExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StartQueryExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartQueryExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3947,38 +2303,6 @@ export const de_StartQueryExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartQueryExecutionCommandError
- */
-const de_StartQueryExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartQueryExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.athena#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartSessionCommand
  */
 export const de_StartSessionCommand = async (
@@ -3986,7 +2310,7 @@ export const de_StartSessionCommand = async (
   context: __SerdeContext
 ): Promise<StartSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3999,44 +2323,6 @@ export const de_StartSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartSessionCommandError
- */
-const de_StartSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "SessionAlreadyExistsException":
-    case "com.amazonaws.athena#SessionAlreadyExistsException":
-      throw await de_SessionAlreadyExistsExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.athena#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopCalculationExecutionCommand
  */
 export const de_StopCalculationExecutionCommand = async (
@@ -4044,7 +2330,7 @@ export const de_StopCalculationExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StopCalculationExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopCalculationExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4057,38 +2343,6 @@ export const de_StopCalculationExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopCalculationExecutionCommandError
- */
-const de_StopCalculationExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopCalculationExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopQueryExecutionCommand
  */
 export const de_StopQueryExecutionCommand = async (
@@ -4096,7 +2350,7 @@ export const de_StopQueryExecutionCommand = async (
   context: __SerdeContext
 ): Promise<StopQueryExecutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopQueryExecutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4109,35 +2363,6 @@ export const de_StopQueryExecutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopQueryExecutionCommandError
- */
-const de_StopQueryExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopQueryExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -4145,7 +2370,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4158,38 +2383,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TerminateSessionCommand
  */
 export const de_TerminateSessionCommand = async (
@@ -4197,7 +2390,7 @@ export const de_TerminateSessionCommand = async (
   context: __SerdeContext
 ): Promise<TerminateSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TerminateSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4210,38 +2403,6 @@ export const de_TerminateSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TerminateSessionCommandError
- */
-const de_TerminateSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TerminateSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -4249,7 +2410,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4262,38 +2423,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.athena#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateCapacityReservationCommand
  */
 export const de_UpdateCapacityReservationCommand = async (
@@ -4301,7 +2430,7 @@ export const de_UpdateCapacityReservationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCapacityReservationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCapacityReservationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4314,35 +2443,6 @@ export const de_UpdateCapacityReservationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateCapacityReservationCommandError
- */
-const de_UpdateCapacityReservationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCapacityReservationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDataCatalogCommand
  */
 export const de_UpdateDataCatalogCommand = async (
@@ -4350,7 +2450,7 @@ export const de_UpdateDataCatalogCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDataCatalogCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDataCatalogCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4363,35 +2463,6 @@ export const de_UpdateDataCatalogCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDataCatalogCommandError
- */
-const de_UpdateDataCatalogCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDataCatalogCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateNamedQueryCommand
  */
 export const de_UpdateNamedQueryCommand = async (
@@ -4399,7 +2470,7 @@ export const de_UpdateNamedQueryCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNamedQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateNamedQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4412,35 +2483,6 @@ export const de_UpdateNamedQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateNamedQueryCommandError
- */
-const de_UpdateNamedQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNamedQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateNotebookCommand
  */
 export const de_UpdateNotebookCommand = async (
@@ -4448,7 +2490,7 @@ export const de_UpdateNotebookCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNotebookCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateNotebookCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4461,38 +2503,6 @@ export const de_UpdateNotebookCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateNotebookCommandError
- */
-const de_UpdateNotebookCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNotebookCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "TooManyRequestsException":
-    case "com.amazonaws.athena#TooManyRequestsException":
-      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateNotebookMetadataCommand
  */
 export const de_UpdateNotebookMetadataCommand = async (
@@ -4500,7 +2510,7 @@ export const de_UpdateNotebookMetadataCommand = async (
   context: __SerdeContext
 ): Promise<UpdateNotebookMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateNotebookMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4513,12 +2523,49 @@ export const de_UpdateNotebookMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateNotebookMetadataCommandError
+ * deserializeAws_json1_1UpdatePreparedStatementCommand
  */
-const de_UpdateNotebookMetadataCommandError = async (
+export const de_UpdatePreparedStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateNotebookMetadataCommandOutput> => {
+): Promise<UpdatePreparedStatementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdatePreparedStatementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateWorkGroupCommand
+ */
+export const de_UpdateWorkGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateWorkGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4534,114 +2581,22 @@ const de_UpdateNotebookMetadataCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.athena#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdatePreparedStatementCommand
- */
-export const de_UpdatePreparedStatementCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePreparedStatementCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdatePreparedStatementCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdatePreparedStatementCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdatePreparedStatementCommandError
- */
-const de_UpdatePreparedStatementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdatePreparedStatementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.athena#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "MetadataException":
+    case "com.amazonaws.athena#MetadataException":
+      throw await de_MetadataExceptionRes(parsedOutput, context);
+    case "SessionAlreadyExistsException":
+    case "com.amazonaws.athena#SessionAlreadyExistsException":
+      throw await de_SessionAlreadyExistsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateWorkGroupCommand
- */
-export const de_UpdateWorkGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateWorkGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateWorkGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateWorkGroupCommandError
- */
-const de_UpdateWorkGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateWorkGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.athena#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.athena#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -644,51 +644,13 @@ export const de_CancelOrderCommand = async (
   context: __SerdeContext
 ): Promise<CancelOrderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelOrderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelOrderCommandError
- */
-const de_CancelOrderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelOrderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.outposts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -699,7 +661,7 @@ export const de_CreateOrderCommand = async (
   context: __SerdeContext
 ): Promise<CreateOrderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateOrderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -713,47 +675,6 @@ export const de_CreateOrderCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateOrderCommandError
- */
-const de_CreateOrderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOrderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.outposts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.outposts#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateOutpostCommand
  */
 export const de_CreateOutpostCommand = async (
@@ -761,7 +682,7 @@ export const de_CreateOutpostCommand = async (
   context: __SerdeContext
 ): Promise<CreateOutpostCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateOutpostCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -775,47 +696,6 @@ export const de_CreateOutpostCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateOutpostCommandError
- */
-const de_CreateOutpostCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOutpostCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.outposts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.outposts#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateSiteCommand
  */
 export const de_CreateSiteCommand = async (
@@ -823,7 +703,7 @@ export const de_CreateSiteCommand = async (
   context: __SerdeContext
 ): Promise<CreateSiteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateSiteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -837,44 +717,6 @@ export const de_CreateSiteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateSiteCommandError
- */
-const de_CreateSiteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSiteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.outposts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.outposts#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteOutpostCommand
  */
 export const de_DeleteOutpostCommand = async (
@@ -882,51 +724,13 @@ export const de_DeleteOutpostCommand = async (
   context: __SerdeContext
 ): Promise<DeleteOutpostCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteOutpostCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteOutpostCommandError
- */
-const de_DeleteOutpostCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOutpostCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.outposts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -937,51 +741,13 @@ export const de_DeleteSiteCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSiteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSiteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteSiteCommandError
- */
-const de_DeleteSiteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSiteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.outposts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -992,7 +758,7 @@ export const de_GetCatalogItemCommand = async (
   context: __SerdeContext
 ): Promise<GetCatalogItemCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetCatalogItemCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1006,38 +772,6 @@ export const de_GetCatalogItemCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetCatalogItemCommandError
- */
-const de_GetCatalogItemCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCatalogItemCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetConnectionCommand
  */
 export const de_GetConnectionCommand = async (
@@ -1045,7 +779,7 @@ export const de_GetConnectionCommand = async (
   context: __SerdeContext
 ): Promise<GetConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1060,41 +794,6 @@ export const de_GetConnectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConnectionCommandError
- */
-const de_GetConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetOrderCommand
  */
 export const de_GetOrderCommand = async (
@@ -1102,7 +801,7 @@ export const de_GetOrderCommand = async (
   context: __SerdeContext
 ): Promise<GetOrderCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetOrderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1116,38 +815,6 @@ export const de_GetOrderCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetOrderCommandError
- */
-const de_GetOrderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOrderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetOutpostCommand
  */
 export const de_GetOutpostCommand = async (
@@ -1155,7 +822,7 @@ export const de_GetOutpostCommand = async (
   context: __SerdeContext
 ): Promise<GetOutpostCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetOutpostCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1169,41 +836,6 @@ export const de_GetOutpostCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetOutpostCommandError
- */
-const de_GetOutpostCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOutpostCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetOutpostInstanceTypesCommand
  */
 export const de_GetOutpostInstanceTypesCommand = async (
@@ -1211,7 +843,7 @@ export const de_GetOutpostInstanceTypesCommand = async (
   context: __SerdeContext
 ): Promise<GetOutpostInstanceTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetOutpostInstanceTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1228,41 +860,6 @@ export const de_GetOutpostInstanceTypesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetOutpostInstanceTypesCommandError
- */
-const de_GetOutpostInstanceTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOutpostInstanceTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSiteCommand
  */
 export const de_GetSiteCommand = async (
@@ -1270,7 +867,7 @@ export const de_GetSiteCommand = async (
   context: __SerdeContext
 ): Promise<GetSiteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSiteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1284,41 +881,6 @@ export const de_GetSiteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSiteCommandError
- */
-const de_GetSiteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSiteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSiteAddressCommand
  */
 export const de_GetSiteAddressCommand = async (
@@ -1326,7 +888,7 @@ export const de_GetSiteAddressCommand = async (
   context: __SerdeContext
 ): Promise<GetSiteAddressCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSiteAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1342,41 +904,6 @@ export const de_GetSiteAddressCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSiteAddressCommandError
- */
-const de_GetSiteAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSiteAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListAssetsCommand
  */
 export const de_ListAssetsCommand = async (
@@ -1384,7 +911,7 @@ export const de_ListAssetsCommand = async (
   context: __SerdeContext
 ): Promise<ListAssetsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListAssetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1399,41 +926,6 @@ export const de_ListAssetsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListAssetsCommandError
- */
-const de_ListAssetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAssetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListCatalogItemsCommand
  */
 export const de_ListCatalogItemsCommand = async (
@@ -1441,7 +933,7 @@ export const de_ListCatalogItemsCommand = async (
   context: __SerdeContext
 ): Promise<ListCatalogItemsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCatalogItemsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1456,38 +948,6 @@ export const de_ListCatalogItemsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCatalogItemsCommandError
- */
-const de_ListCatalogItemsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCatalogItemsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListOrdersCommand
  */
 export const de_ListOrdersCommand = async (
@@ -1495,7 +955,7 @@ export const de_ListOrdersCommand = async (
   context: __SerdeContext
 ): Promise<ListOrdersCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListOrdersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1510,41 +970,6 @@ export const de_ListOrdersCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListOrdersCommandError
- */
-const de_ListOrdersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOrdersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListOutpostsCommand
  */
 export const de_ListOutpostsCommand = async (
@@ -1552,7 +977,7 @@ export const de_ListOutpostsCommand = async (
   context: __SerdeContext
 ): Promise<ListOutpostsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListOutpostsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1567,38 +992,6 @@ export const de_ListOutpostsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListOutpostsCommandError
- */
-const de_ListOutpostsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOutpostsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSitesCommand
  */
 export const de_ListSitesCommand = async (
@@ -1606,7 +999,7 @@ export const de_ListSitesCommand = async (
   context: __SerdeContext
 ): Promise<ListSitesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSitesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1621,38 +1014,6 @@ export const de_ListSitesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSitesCommandError
- */
-const de_ListSitesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSitesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1660,7 +1021,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1674,38 +1035,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartConnectionCommand
  */
 export const de_StartConnectionCommand = async (
@@ -1713,7 +1042,7 @@ export const de_StartConnectionCommand = async (
   context: __SerdeContext
 ): Promise<StartConnectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1728,41 +1057,6 @@ export const de_StartConnectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartConnectionCommandError
- */
-const de_StartConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1770,45 +1064,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1819,45 +1081,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1868,7 +1098,7 @@ export const de_UpdateOutpostCommand = async (
   context: __SerdeContext
 ): Promise<UpdateOutpostCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateOutpostCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1882,44 +1112,6 @@ export const de_UpdateOutpostCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateOutpostCommandError
- */
-const de_UpdateOutpostCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateOutpostCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.outposts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSiteCommand
  */
 export const de_UpdateSiteCommand = async (
@@ -1927,7 +1119,7 @@ export const de_UpdateSiteCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSiteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSiteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1941,44 +1133,6 @@ export const de_UpdateSiteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSiteCommandError
- */
-const de_UpdateSiteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSiteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.outposts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSiteAddressCommand
  */
 export const de_UpdateSiteAddressCommand = async (
@@ -1986,7 +1140,7 @@ export const de_UpdateSiteAddressCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSiteAddressCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSiteAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2001,44 +1155,6 @@ export const de_UpdateSiteAddressCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSiteAddressCommandError
- */
-const de_UpdateSiteAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSiteAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.outposts#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.outposts#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.outposts#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.outposts#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.outposts#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommand
  */
 export const de_UpdateSiteRackPhysicalPropertiesCommand = async (
@@ -2046,7 +1162,7 @@ export const de_UpdateSiteRackPhysicalPropertiesCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSiteRackPhysicalPropertiesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateSiteRackPhysicalPropertiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2060,12 +1176,9 @@ export const de_UpdateSiteRackPhysicalPropertiesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateSiteRackPhysicalPropertiesCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateSiteRackPhysicalPropertiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSiteRackPhysicalPropertiesCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2087,13 +1200,16 @@ const de_UpdateSiteRackPhysicalPropertiesCommandError = async (
     case "ValidationException":
     case "com.amazonaws.outposts#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.outposts#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

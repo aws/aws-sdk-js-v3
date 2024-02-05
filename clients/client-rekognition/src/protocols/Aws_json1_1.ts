@@ -1440,7 +1440,7 @@ export const de_AssociateFacesCommand = async (
   context: __SerdeContext
 ): Promise<AssociateFacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateFacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1453,56 +1453,6 @@ export const de_AssociateFacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateFacesCommandError
- */
-const de_AssociateFacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateFacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.rekognition#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CompareFacesCommand
  */
 export const de_CompareFacesCommand = async (
@@ -1510,7 +1460,7 @@ export const de_CompareFacesCommand = async (
   context: __SerdeContext
 ): Promise<CompareFacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CompareFacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1523,53 +1473,6 @@ export const de_CompareFacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CompareFacesCommandError
- */
-const de_CompareFacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CompareFacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ImageTooLargeException":
-    case "com.amazonaws.rekognition#ImageTooLargeException":
-      throw await de_ImageTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidImageFormatException":
-    case "com.amazonaws.rekognition#InvalidImageFormatException":
-      throw await de_InvalidImageFormatExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CopyProjectVersionCommand
  */
 export const de_CopyProjectVersionCommand = async (
@@ -1577,7 +1480,7 @@ export const de_CopyProjectVersionCommand = async (
   context: __SerdeContext
 ): Promise<CopyProjectVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CopyProjectVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1590,56 +1493,6 @@ export const de_CopyProjectVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CopyProjectVersionCommandError
- */
-const de_CopyProjectVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CopyProjectVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateCollectionCommand
  */
 export const de_CreateCollectionCommand = async (
@@ -1647,7 +1500,7 @@ export const de_CreateCollectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCollectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1660,50 +1513,6 @@ export const de_CreateCollectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCollectionCommandError
- */
-const de_CreateCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.rekognition#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDatasetCommand
  */
 export const de_CreateDatasetCommand = async (
@@ -1711,7 +1520,7 @@ export const de_CreateDatasetCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDatasetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1724,56 +1533,6 @@ export const de_CreateDatasetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDatasetCommandError
- */
-const de_CreateDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.rekognition#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFaceLivenessSessionCommand
  */
 export const de_CreateFaceLivenessSessionCommand = async (
@@ -1781,7 +1540,7 @@ export const de_CreateFaceLivenessSessionCommand = async (
   context: __SerdeContext
 ): Promise<CreateFaceLivenessSessionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFaceLivenessSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1794,44 +1553,6 @@ export const de_CreateFaceLivenessSessionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFaceLivenessSessionCommandError
- */
-const de_CreateFaceLivenessSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFaceLivenessSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProjectCommand
  */
 export const de_CreateProjectCommand = async (
@@ -1839,7 +1560,7 @@ export const de_CreateProjectCommand = async (
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1852,50 +1573,6 @@ export const de_CreateProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProjectCommandError
- */
-const de_CreateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateProjectVersionCommand
  */
 export const de_CreateProjectVersionCommand = async (
@@ -1903,7 +1580,7 @@ export const de_CreateProjectVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateProjectVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateProjectVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1916,56 +1593,6 @@ export const de_CreateProjectVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateProjectVersionCommandError
- */
-const de_CreateProjectVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProjectVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateStreamProcessorCommand
  */
 export const de_CreateStreamProcessorCommand = async (
@@ -1973,7 +1600,7 @@ export const de_CreateStreamProcessorCommand = async (
   context: __SerdeContext
 ): Promise<CreateStreamProcessorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateStreamProcessorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1986,53 +1613,6 @@ export const de_CreateStreamProcessorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateStreamProcessorCommandError
- */
-const de_CreateStreamProcessorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateStreamProcessorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateUserCommand
  */
 export const de_CreateUserCommand = async (
@@ -2040,7 +1620,7 @@ export const de_CreateUserCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2053,56 +1633,6 @@ export const de_CreateUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateUserCommandError
- */
-const de_CreateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.rekognition#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCollectionCommand
  */
 export const de_DeleteCollectionCommand = async (
@@ -2110,7 +1640,7 @@ export const de_DeleteCollectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCollectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2123,47 +1653,6 @@ export const de_DeleteCollectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteCollectionCommandError
- */
-const de_DeleteCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDatasetCommand
  */
 export const de_DeleteDatasetCommand = async (
@@ -2171,7 +1660,7 @@ export const de_DeleteDatasetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDatasetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2184,53 +1673,6 @@ export const de_DeleteDatasetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDatasetCommandError
- */
-const de_DeleteDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteFacesCommand
  */
 export const de_DeleteFacesCommand = async (
@@ -2238,7 +1680,7 @@ export const de_DeleteFacesCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2251,47 +1693,6 @@ export const de_DeleteFacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteFacesCommandError
- */
-const de_DeleteFacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProjectCommand
  */
 export const de_DeleteProjectCommand = async (
@@ -2299,7 +1700,7 @@ export const de_DeleteProjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2312,50 +1713,6 @@ export const de_DeleteProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteProjectCommandError
- */
-const de_DeleteProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProjectPolicyCommand
  */
 export const de_DeleteProjectPolicyCommand = async (
@@ -2363,7 +1720,7 @@ export const de_DeleteProjectPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProjectPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProjectPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2376,50 +1733,6 @@ export const de_DeleteProjectPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteProjectPolicyCommandError
- */
-const de_DeleteProjectPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProjectPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPolicyRevisionIdException":
-    case "com.amazonaws.rekognition#InvalidPolicyRevisionIdException":
-      throw await de_InvalidPolicyRevisionIdExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteProjectVersionCommand
  */
 export const de_DeleteProjectVersionCommand = async (
@@ -2427,7 +1740,7 @@ export const de_DeleteProjectVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteProjectVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteProjectVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2440,50 +1753,6 @@ export const de_DeleteProjectVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteProjectVersionCommandError
- */
-const de_DeleteProjectVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProjectVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteStreamProcessorCommand
  */
 export const de_DeleteStreamProcessorCommand = async (
@@ -2491,7 +1760,7 @@ export const de_DeleteStreamProcessorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStreamProcessorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteStreamProcessorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2504,50 +1773,6 @@ export const de_DeleteStreamProcessorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteStreamProcessorCommandError
- */
-const de_DeleteStreamProcessorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStreamProcessorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteUserCommand
  */
 export const de_DeleteUserCommand = async (
@@ -2555,7 +1780,7 @@ export const de_DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2568,53 +1793,6 @@ export const de_DeleteUserCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteUserCommandError
- */
-const de_DeleteUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.rekognition#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeCollectionCommand
  */
 export const de_DescribeCollectionCommand = async (
@@ -2622,7 +1800,7 @@ export const de_DescribeCollectionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCollectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2635,47 +1813,6 @@ export const de_DescribeCollectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCollectionCommandError
- */
-const de_DescribeCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDatasetCommand
  */
 export const de_DescribeDatasetCommand = async (
@@ -2683,7 +1820,7 @@ export const de_DescribeDatasetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDatasetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2696,47 +1833,6 @@ export const de_DescribeDatasetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDatasetCommandError
- */
-const de_DescribeDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProjectsCommand
  */
 export const de_DescribeProjectsCommand = async (
@@ -2744,7 +1840,7 @@ export const de_DescribeProjectsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2757,47 +1853,6 @@ export const de_DescribeProjectsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProjectsCommandError
- */
-const de_DescribeProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeProjectVersionsCommand
  */
 export const de_DescribeProjectVersionsCommand = async (
@@ -2805,7 +1860,7 @@ export const de_DescribeProjectVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProjectVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeProjectVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2818,50 +1873,6 @@ export const de_DescribeProjectVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeProjectVersionsCommandError
- */
-const de_DescribeProjectVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProjectVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeStreamProcessorCommand
  */
 export const de_DescribeStreamProcessorCommand = async (
@@ -2869,7 +1880,7 @@ export const de_DescribeStreamProcessorCommand = async (
   context: __SerdeContext
 ): Promise<DescribeStreamProcessorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeStreamProcessorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2882,47 +1893,6 @@ export const de_DescribeStreamProcessorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeStreamProcessorCommandError
- */
-const de_DescribeStreamProcessorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeStreamProcessorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetectCustomLabelsCommand
  */
 export const de_DetectCustomLabelsCommand = async (
@@ -2930,7 +1900,7 @@ export const de_DetectCustomLabelsCommand = async (
   context: __SerdeContext
 ): Promise<DetectCustomLabelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetectCustomLabelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2943,62 +1913,6 @@ export const de_DetectCustomLabelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DetectCustomLabelsCommandError
- */
-const de_DetectCustomLabelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectCustomLabelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ImageTooLargeException":
-    case "com.amazonaws.rekognition#ImageTooLargeException":
-      throw await de_ImageTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidImageFormatException":
-    case "com.amazonaws.rekognition#InvalidImageFormatException":
-      throw await de_InvalidImageFormatExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.rekognition#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetectFacesCommand
  */
 export const de_DetectFacesCommand = async (
@@ -3006,7 +1920,7 @@ export const de_DetectFacesCommand = async (
   context: __SerdeContext
 ): Promise<DetectFacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetectFacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3019,53 +1933,6 @@ export const de_DetectFacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DetectFacesCommandError
- */
-const de_DetectFacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectFacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ImageTooLargeException":
-    case "com.amazonaws.rekognition#ImageTooLargeException":
-      throw await de_ImageTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidImageFormatException":
-    case "com.amazonaws.rekognition#InvalidImageFormatException":
-      throw await de_InvalidImageFormatExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetectLabelsCommand
  */
 export const de_DetectLabelsCommand = async (
@@ -3073,7 +1940,7 @@ export const de_DetectLabelsCommand = async (
   context: __SerdeContext
 ): Promise<DetectLabelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetectLabelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3086,53 +1953,6 @@ export const de_DetectLabelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DetectLabelsCommandError
- */
-const de_DetectLabelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectLabelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ImageTooLargeException":
-    case "com.amazonaws.rekognition#ImageTooLargeException":
-      throw await de_ImageTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidImageFormatException":
-    case "com.amazonaws.rekognition#InvalidImageFormatException":
-      throw await de_InvalidImageFormatExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetectModerationLabelsCommand
  */
 export const de_DetectModerationLabelsCommand = async (
@@ -3140,7 +1960,7 @@ export const de_DetectModerationLabelsCommand = async (
   context: __SerdeContext
 ): Promise<DetectModerationLabelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetectModerationLabelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3153,62 +1973,6 @@ export const de_DetectModerationLabelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DetectModerationLabelsCommandError
- */
-const de_DetectModerationLabelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectModerationLabelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "HumanLoopQuotaExceededException":
-    case "com.amazonaws.rekognition#HumanLoopQuotaExceededException":
-      throw await de_HumanLoopQuotaExceededExceptionRes(parsedOutput, context);
-    case "ImageTooLargeException":
-    case "com.amazonaws.rekognition#ImageTooLargeException":
-      throw await de_ImageTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidImageFormatException":
-    case "com.amazonaws.rekognition#InvalidImageFormatException":
-      throw await de_InvalidImageFormatExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.rekognition#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetectProtectiveEquipmentCommand
  */
 export const de_DetectProtectiveEquipmentCommand = async (
@@ -3216,7 +1980,7 @@ export const de_DetectProtectiveEquipmentCommand = async (
   context: __SerdeContext
 ): Promise<DetectProtectiveEquipmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetectProtectiveEquipmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3229,53 +1993,6 @@ export const de_DetectProtectiveEquipmentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DetectProtectiveEquipmentCommandError
- */
-const de_DetectProtectiveEquipmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectProtectiveEquipmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ImageTooLargeException":
-    case "com.amazonaws.rekognition#ImageTooLargeException":
-      throw await de_ImageTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidImageFormatException":
-    case "com.amazonaws.rekognition#InvalidImageFormatException":
-      throw await de_InvalidImageFormatExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DetectTextCommand
  */
 export const de_DetectTextCommand = async (
@@ -3283,7 +2000,7 @@ export const de_DetectTextCommand = async (
   context: __SerdeContext
 ): Promise<DetectTextCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetectTextCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3296,53 +2013,6 @@ export const de_DetectTextCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DetectTextCommandError
- */
-const de_DetectTextCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetectTextCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ImageTooLargeException":
-    case "com.amazonaws.rekognition#ImageTooLargeException":
-      throw await de_ImageTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidImageFormatException":
-    case "com.amazonaws.rekognition#InvalidImageFormatException":
-      throw await de_InvalidImageFormatExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateFacesCommand
  */
 export const de_DisassociateFacesCommand = async (
@@ -3350,7 +2020,7 @@ export const de_DisassociateFacesCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateFacesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateFacesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3363,12 +2033,909 @@ export const de_DisassociateFacesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateFacesCommandError
+ * deserializeAws_json1_1DistributeDatasetEntriesCommand
  */
-const de_DisassociateFacesCommandError = async (
+export const de_DistributeDatasetEntriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<DisassociateFacesCommandOutput> => {
+): Promise<DistributeDatasetEntriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DistributeDatasetEntriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetCelebrityInfoCommand
+ */
+export const de_GetCelebrityInfoCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCelebrityInfoCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetCelebrityInfoCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetCelebrityRecognitionCommand
+ */
+export const de_GetCelebrityRecognitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCelebrityRecognitionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetCelebrityRecognitionResponse(data, context);
+  const response: GetCelebrityRecognitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetContentModerationCommand
+ */
+export const de_GetContentModerationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContentModerationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetContentModerationResponse(data, context);
+  const response: GetContentModerationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetFaceDetectionCommand
+ */
+export const de_GetFaceDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFaceDetectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetFaceDetectionResponse(data, context);
+  const response: GetFaceDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetFaceLivenessSessionResultsCommand
+ */
+export const de_GetFaceLivenessSessionResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFaceLivenessSessionResultsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetFaceLivenessSessionResultsResponse(data, context);
+  const response: GetFaceLivenessSessionResultsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetFaceSearchCommand
+ */
+export const de_GetFaceSearchCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFaceSearchCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetFaceSearchResponse(data, context);
+  const response: GetFaceSearchCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetLabelDetectionCommand
+ */
+export const de_GetLabelDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLabelDetectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetLabelDetectionResponse(data, context);
+  const response: GetLabelDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetMediaAnalysisJobCommand
+ */
+export const de_GetMediaAnalysisJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMediaAnalysisJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetMediaAnalysisJobResponse(data, context);
+  const response: GetMediaAnalysisJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetPersonTrackingCommand
+ */
+export const de_GetPersonTrackingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPersonTrackingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetPersonTrackingResponse(data, context);
+  const response: GetPersonTrackingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetSegmentDetectionCommand
+ */
+export const de_GetSegmentDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSegmentDetectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetSegmentDetectionResponse(data, context);
+  const response: GetSegmentDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetTextDetectionCommand
+ */
+export const de_GetTextDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTextDetectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetTextDetectionResponse(data, context);
+  const response: GetTextDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1IndexFacesCommand
+ */
+export const de_IndexFacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<IndexFacesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_IndexFacesResponse(data, context);
+  const response: IndexFacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCollectionsCommand
+ */
+export const de_ListCollectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollectionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListCollectionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDatasetEntriesCommand
+ */
+export const de_ListDatasetEntriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasetEntriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListDatasetEntriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDatasetLabelsCommand
+ */
+export const de_ListDatasetLabelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDatasetLabelsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListDatasetLabelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListFacesCommand
+ */
+export const de_ListFacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFacesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListFacesResponse(data, context);
+  const response: ListFacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListMediaAnalysisJobsCommand
+ */
+export const de_ListMediaAnalysisJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMediaAnalysisJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListMediaAnalysisJobsResponse(data, context);
+  const response: ListMediaAnalysisJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListProjectPoliciesCommand
+ */
+export const de_ListProjectPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProjectPoliciesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListProjectPoliciesResponse(data, context);
+  const response: ListProjectPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListStreamProcessorsCommand
+ */
+export const de_ListStreamProcessorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStreamProcessorsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListStreamProcessorsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListUsersCommand
+ */
+export const de_ListUsersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUsersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListUsersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutProjectPolicyCommand
+ */
+export const de_PutProjectPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutProjectPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutProjectPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RecognizeCelebritiesCommand
+ */
+export const de_RecognizeCelebritiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RecognizeCelebritiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RecognizeCelebritiesResponse(data, context);
+  const response: RecognizeCelebritiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SearchFacesCommand
+ */
+export const de_SearchFacesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchFacesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SearchFacesResponse(data, context);
+  const response: SearchFacesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SearchFacesByImageCommand
+ */
+export const de_SearchFacesByImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchFacesByImageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SearchFacesByImageResponse(data, context);
+  const response: SearchFacesByImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SearchUsersCommand
+ */
+export const de_SearchUsersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchUsersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SearchUsersResponse(data, context);
+  const response: SearchUsersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SearchUsersByImageCommand
+ */
+export const de_SearchUsersByImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchUsersByImageCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SearchUsersByImageResponse(data, context);
+  const response: SearchUsersByImageCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartCelebrityRecognitionCommand
+ */
+export const de_StartCelebrityRecognitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCelebrityRecognitionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartCelebrityRecognitionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartContentModerationCommand
+ */
+export const de_StartContentModerationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartContentModerationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartContentModerationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartFaceDetectionCommand
+ */
+export const de_StartFaceDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartFaceDetectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartFaceDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartFaceSearchCommand
+ */
+export const de_StartFaceSearchCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartFaceSearchCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartFaceSearchCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartLabelDetectionCommand
+ */
+export const de_StartLabelDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartLabelDetectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartLabelDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMediaAnalysisJobCommand
+ */
+export const de_StartMediaAnalysisJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMediaAnalysisJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMediaAnalysisJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartPersonTrackingCommand
+ */
+export const de_StartPersonTrackingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartPersonTrackingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartPersonTrackingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartProjectVersionCommand
+ */
+export const de_StartProjectVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartProjectVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartProjectVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartSegmentDetectionCommand
+ */
+export const de_StartSegmentDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartSegmentDetectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartSegmentDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartStreamProcessorCommand
+ */
+export const de_StartStreamProcessorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartStreamProcessorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartStreamProcessorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartTextDetectionCommand
+ */
+export const de_StartTextDetectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTextDetectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartTextDetectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopProjectVersionCommand
+ */
+export const de_StopProjectVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopProjectVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopProjectVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopStreamProcessorCommand
+ */
+export const de_StopStreamProcessorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopStreamProcessorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopStreamProcessorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDatasetEntriesCommand
+ */
+export const de_UpdateDatasetEntriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDatasetEntriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDatasetEntriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateStreamProcessorCommand
+ */
+export const de_UpdateStreamProcessorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateStreamProcessorCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateStreamProcessorCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3396,2986 +2963,61 @@ const de_DisassociateFacesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.rekognition#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DistributeDatasetEntriesCommand
- */
-export const de_DistributeDatasetEntriesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DistributeDatasetEntriesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DistributeDatasetEntriesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DistributeDatasetEntriesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DistributeDatasetEntriesCommandError
- */
-const de_DistributeDatasetEntriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DistributeDatasetEntriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.rekognition#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetCelebrityInfoCommand
- */
-export const de_GetCelebrityInfoCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCelebrityInfoCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetCelebrityInfoCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetCelebrityInfoCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetCelebrityInfoCommandError
- */
-const de_GetCelebrityInfoCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCelebrityInfoCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetCelebrityRecognitionCommand
- */
-export const de_GetCelebrityRecognitionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCelebrityRecognitionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetCelebrityRecognitionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetCelebrityRecognitionResponse(data, context);
-  const response: GetCelebrityRecognitionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetCelebrityRecognitionCommandError
- */
-const de_GetCelebrityRecognitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCelebrityRecognitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetContentModerationCommand
- */
-export const de_GetContentModerationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContentModerationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetContentModerationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetContentModerationResponse(data, context);
-  const response: GetContentModerationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetContentModerationCommandError
- */
-const de_GetContentModerationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContentModerationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetFaceDetectionCommand
- */
-export const de_GetFaceDetectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFaceDetectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetFaceDetectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetFaceDetectionResponse(data, context);
-  const response: GetFaceDetectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetFaceDetectionCommandError
- */
-const de_GetFaceDetectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFaceDetectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetFaceLivenessSessionResultsCommand
- */
-export const de_GetFaceLivenessSessionResultsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFaceLivenessSessionResultsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetFaceLivenessSessionResultsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetFaceLivenessSessionResultsResponse(data, context);
-  const response: GetFaceLivenessSessionResultsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetFaceLivenessSessionResultsCommandError
- */
-const de_GetFaceLivenessSessionResultsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFaceLivenessSessionResultsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "SessionNotFoundException":
-    case "com.amazonaws.rekognition#SessionNotFoundException":
-      throw await de_SessionNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetFaceSearchCommand
- */
-export const de_GetFaceSearchCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFaceSearchCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetFaceSearchCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetFaceSearchResponse(data, context);
-  const response: GetFaceSearchCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetFaceSearchCommandError
- */
-const de_GetFaceSearchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFaceSearchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetLabelDetectionCommand
- */
-export const de_GetLabelDetectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLabelDetectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetLabelDetectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetLabelDetectionResponse(data, context);
-  const response: GetLabelDetectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetLabelDetectionCommandError
- */
-const de_GetLabelDetectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLabelDetectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetMediaAnalysisJobCommand
- */
-export const de_GetMediaAnalysisJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMediaAnalysisJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetMediaAnalysisJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetMediaAnalysisJobResponse(data, context);
-  const response: GetMediaAnalysisJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetMediaAnalysisJobCommandError
- */
-const de_GetMediaAnalysisJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMediaAnalysisJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetPersonTrackingCommand
- */
-export const de_GetPersonTrackingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPersonTrackingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetPersonTrackingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetPersonTrackingResponse(data, context);
-  const response: GetPersonTrackingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetPersonTrackingCommandError
- */
-const de_GetPersonTrackingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPersonTrackingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetSegmentDetectionCommand
- */
-export const de_GetSegmentDetectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSegmentDetectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetSegmentDetectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetSegmentDetectionResponse(data, context);
-  const response: GetSegmentDetectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetSegmentDetectionCommandError
- */
-const de_GetSegmentDetectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSegmentDetectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetTextDetectionCommand
- */
-export const de_GetTextDetectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTextDetectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetTextDetectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetTextDetectionResponse(data, context);
-  const response: GetTextDetectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetTextDetectionCommandError
- */
-const de_GetTextDetectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetTextDetectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1IndexFacesCommand
- */
-export const de_IndexFacesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<IndexFacesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_IndexFacesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_IndexFacesResponse(data, context);
-  const response: IndexFacesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1IndexFacesCommandError
- */
-const de_IndexFacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<IndexFacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ImageTooLargeException":
-    case "com.amazonaws.rekognition#ImageTooLargeException":
-      throw await de_ImageTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidImageFormatException":
-    case "com.amazonaws.rekognition#InvalidImageFormatException":
-      throw await de_InvalidImageFormatExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.rekognition#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.rekognition#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListCollectionsCommand
- */
-export const de_ListCollectionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCollectionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListCollectionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListCollectionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListCollectionsCommandError
- */
-const de_ListCollectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCollectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDatasetEntriesCommand
- */
-export const de_ListDatasetEntriesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetEntriesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDatasetEntriesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListDatasetEntriesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDatasetEntriesCommandError
- */
-const de_ListDatasetEntriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetEntriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.rekognition#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDatasetLabelsCommand
- */
-export const de_ListDatasetLabelsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetLabelsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDatasetLabelsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListDatasetLabelsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDatasetLabelsCommandError
- */
-const de_ListDatasetLabelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetLabelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceNotReadyException":
-    case "com.amazonaws.rekognition#ResourceNotReadyException":
-      throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListFacesCommand
- */
-export const de_ListFacesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFacesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListFacesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListFacesResponse(data, context);
-  const response: ListFacesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListFacesCommandError
- */
-const de_ListFacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListMediaAnalysisJobsCommand
- */
-export const de_ListMediaAnalysisJobsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMediaAnalysisJobsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListMediaAnalysisJobsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListMediaAnalysisJobsResponse(data, context);
-  const response: ListMediaAnalysisJobsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListMediaAnalysisJobsCommandError
- */
-const de_ListMediaAnalysisJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMediaAnalysisJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListProjectPoliciesCommand
- */
-export const de_ListProjectPoliciesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProjectPoliciesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListProjectPoliciesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListProjectPoliciesResponse(data, context);
-  const response: ListProjectPoliciesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListProjectPoliciesCommandError
- */
-const de_ListProjectPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProjectPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListStreamProcessorsCommand
- */
-export const de_ListStreamProcessorsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStreamProcessorsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListStreamProcessorsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListStreamProcessorsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListStreamProcessorsCommandError
- */
-const de_ListStreamProcessorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStreamProcessorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListUsersCommand
- */
-export const de_ListUsersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUsersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListUsersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListUsersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListUsersCommandError
- */
-const de_ListUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidPaginationTokenException":
-    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
-      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutProjectPolicyCommand
- */
-export const de_PutProjectPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutProjectPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutProjectPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutProjectPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutProjectPolicyCommandError
- */
-const de_PutProjectPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutProjectPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPolicyRevisionIdException":
-    case "com.amazonaws.rekognition#InvalidPolicyRevisionIdException":
-      throw await de_InvalidPolicyRevisionIdExceptionRes(parsedOutput, context);
+    case "ImageTooLargeException":
+    case "com.amazonaws.rekognition#ImageTooLargeException":
+      throw await de_ImageTooLargeExceptionRes(parsedOutput, context);
+    case "InvalidImageFormatException":
+    case "com.amazonaws.rekognition#InvalidImageFormatException":
+      throw await de_InvalidImageFormatExceptionRes(parsedOutput, context);
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
+      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
     case "LimitExceededException":
     case "com.amazonaws.rekognition#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocumentException":
-    case "com.amazonaws.rekognition#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.rekognition#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.rekognition#ResourceAlreadyExistsException":
       throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RecognizeCelebritiesCommand
- */
-export const de_RecognizeCelebritiesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RecognizeCelebritiesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RecognizeCelebritiesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RecognizeCelebritiesResponse(data, context);
-  const response: RecognizeCelebritiesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RecognizeCelebritiesCommandError
- */
-const de_RecognizeCelebritiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RecognizeCelebritiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ImageTooLargeException":
-    case "com.amazonaws.rekognition#ImageTooLargeException":
-      throw await de_ImageTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidImageFormatException":
-    case "com.amazonaws.rekognition#InvalidImageFormatException":
-      throw await de_InvalidImageFormatExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SearchFacesCommand
- */
-export const de_SearchFacesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchFacesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SearchFacesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SearchFacesResponse(data, context);
-  const response: SearchFacesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SearchFacesCommandError
- */
-const de_SearchFacesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchFacesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SearchFacesByImageCommand
- */
-export const de_SearchFacesByImageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchFacesByImageCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SearchFacesByImageCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SearchFacesByImageResponse(data, context);
-  const response: SearchFacesByImageCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SearchFacesByImageCommandError
- */
-const de_SearchFacesByImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchFacesByImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ImageTooLargeException":
-    case "com.amazonaws.rekognition#ImageTooLargeException":
-      throw await de_ImageTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidImageFormatException":
-    case "com.amazonaws.rekognition#InvalidImageFormatException":
-      throw await de_InvalidImageFormatExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SearchUsersCommand
- */
-export const de_SearchUsersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchUsersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SearchUsersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SearchUsersResponse(data, context);
-  const response: SearchUsersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SearchUsersCommandError
- */
-const de_SearchUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SearchUsersByImageCommand
- */
-export const de_SearchUsersByImageCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchUsersByImageCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SearchUsersByImageCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SearchUsersByImageResponse(data, context);
-  const response: SearchUsersByImageCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SearchUsersByImageCommandError
- */
-const de_SearchUsersByImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchUsersByImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ImageTooLargeException":
-    case "com.amazonaws.rekognition#ImageTooLargeException":
-      throw await de_ImageTooLargeExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidImageFormatException":
-    case "com.amazonaws.rekognition#InvalidImageFormatException":
-      throw await de_InvalidImageFormatExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartCelebrityRecognitionCommand
- */
-export const de_StartCelebrityRecognitionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartCelebrityRecognitionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartCelebrityRecognitionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartCelebrityRecognitionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartCelebrityRecognitionCommandError
- */
-const de_StartCelebrityRecognitionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartCelebrityRecognitionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "VideoTooLargeException":
-    case "com.amazonaws.rekognition#VideoTooLargeException":
-      throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartContentModerationCommand
- */
-export const de_StartContentModerationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartContentModerationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartContentModerationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartContentModerationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartContentModerationCommandError
- */
-const de_StartContentModerationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartContentModerationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "VideoTooLargeException":
-    case "com.amazonaws.rekognition#VideoTooLargeException":
-      throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartFaceDetectionCommand
- */
-export const de_StartFaceDetectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartFaceDetectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartFaceDetectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartFaceDetectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartFaceDetectionCommandError
- */
-const de_StartFaceDetectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartFaceDetectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "VideoTooLargeException":
-    case "com.amazonaws.rekognition#VideoTooLargeException":
-      throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartFaceSearchCommand
- */
-export const de_StartFaceSearchCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartFaceSearchCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartFaceSearchCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartFaceSearchCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartFaceSearchCommandError
- */
-const de_StartFaceSearchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartFaceSearchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "VideoTooLargeException":
-    case "com.amazonaws.rekognition#VideoTooLargeException":
-      throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartLabelDetectionCommand
- */
-export const de_StartLabelDetectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartLabelDetectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartLabelDetectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartLabelDetectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartLabelDetectionCommandError
- */
-const de_StartLabelDetectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartLabelDetectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "VideoTooLargeException":
-    case "com.amazonaws.rekognition#VideoTooLargeException":
-      throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartMediaAnalysisJobCommand
- */
-export const de_StartMediaAnalysisJobCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMediaAnalysisJobCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartMediaAnalysisJobCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartMediaAnalysisJobCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartMediaAnalysisJobCommandError
- */
-const de_StartMediaAnalysisJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMediaAnalysisJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidManifestException":
-    case "com.amazonaws.rekognition#InvalidManifestException":
-      throw await de_InvalidManifestExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidPolicyRevisionIdException":
+    case "com.amazonaws.rekognition#InvalidPolicyRevisionIdException":
+      throw await de_InvalidPolicyRevisionIdExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.rekognition#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
     case "ResourceNotReadyException":
     case "com.amazonaws.rekognition#ResourceNotReadyException":
       throw await de_ResourceNotReadyExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartPersonTrackingCommand
- */
-export const de_StartPersonTrackingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartPersonTrackingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartPersonTrackingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartPersonTrackingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartPersonTrackingCommandError
- */
-const de_StartPersonTrackingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartPersonTrackingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "HumanLoopQuotaExceededException":
+    case "com.amazonaws.rekognition#HumanLoopQuotaExceededException":
+      throw await de_HumanLoopQuotaExceededExceptionRes(parsedOutput, context);
+    case "SessionNotFoundException":
+    case "com.amazonaws.rekognition#SessionNotFoundException":
+      throw await de_SessionNotFoundExceptionRes(parsedOutput, context);
+    case "MalformedPolicyDocumentException":
+    case "com.amazonaws.rekognition#MalformedPolicyDocumentException":
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
     case "VideoTooLargeException":
     case "com.amazonaws.rekognition#VideoTooLargeException":
       throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
+    case "InvalidManifestException":
+    case "com.amazonaws.rekognition#InvalidManifestException":
+      throw await de_InvalidManifestExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartProjectVersionCommand
- */
-export const de_StartProjectVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartProjectVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartProjectVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartProjectVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartProjectVersionCommandError
- */
-const de_StartProjectVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartProjectVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartSegmentDetectionCommand
- */
-export const de_StartSegmentDetectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSegmentDetectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartSegmentDetectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartSegmentDetectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartSegmentDetectionCommandError
- */
-const de_StartSegmentDetectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSegmentDetectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "VideoTooLargeException":
-    case "com.amazonaws.rekognition#VideoTooLargeException":
-      throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartStreamProcessorCommand
- */
-export const de_StartStreamProcessorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartStreamProcessorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartStreamProcessorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartStreamProcessorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartStreamProcessorCommandError
- */
-const de_StartStreamProcessorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartStreamProcessorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartTextDetectionCommand
- */
-export const de_StartTextDetectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTextDetectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartTextDetectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartTextDetectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartTextDetectionCommandError
- */
-const de_StartTextDetectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartTextDetectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.rekognition#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidS3ObjectException":
-    case "com.amazonaws.rekognition#InvalidS3ObjectException":
-      throw await de_InvalidS3ObjectExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "VideoTooLargeException":
-    case "com.amazonaws.rekognition#VideoTooLargeException":
-      throw await de_VideoTooLargeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopProjectVersionCommand
- */
-export const de_StopProjectVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopProjectVersionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopProjectVersionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopProjectVersionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopProjectVersionCommandError
- */
-const de_StopProjectVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopProjectVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopStreamProcessorCommand
- */
-export const de_StopStreamProcessorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopStreamProcessorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopStreamProcessorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopStreamProcessorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopStreamProcessorCommandError
- */
-const de_StopStreamProcessorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopStreamProcessorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateDatasetEntriesCommand
- */
-export const de_UpdateDatasetEntriesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDatasetEntriesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDatasetEntriesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateDatasetEntriesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDatasetEntriesCommandError
- */
-const de_UpdateDatasetEntriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDatasetEntriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.rekognition#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateStreamProcessorCommand
- */
-export const de_UpdateStreamProcessorCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStreamProcessorCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateStreamProcessorCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateStreamProcessorCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateStreamProcessorCommandError
- */
-const de_UpdateStreamProcessorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateStreamProcessorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.rekognition#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.rekognition#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.rekognition#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ProvisionedThroughputExceededException":
-    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
-      throw await de_ProvisionedThroughputExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.rekognition#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.rekognition#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.rekognition#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

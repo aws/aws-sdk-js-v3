@@ -91,7 +91,7 @@ export const de_DescribeAgreementCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAgreementCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAgreementCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -104,44 +104,6 @@ export const de_DescribeAgreementCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DescribeAgreementCommandError
- */
-const de_DescribeAgreementCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAgreementCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.marketplaceagreement#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.marketplaceagreement#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.marketplaceagreement#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.marketplaceagreement#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.marketplaceagreement#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetAgreementTermsCommand
  */
 export const de_GetAgreementTermsCommand = async (
@@ -149,7 +111,7 @@ export const de_GetAgreementTermsCommand = async (
   context: __SerdeContext
 ): Promise<GetAgreementTermsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAgreementTermsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -162,12 +124,29 @@ export const de_GetAgreementTermsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetAgreementTermsCommandError
+ * deserializeAws_json1_0SearchAgreementsCommand
  */
-const de_GetAgreementTermsCommandError = async (
+export const de_SearchAgreementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<GetAgreementTermsCommandOutput> => {
+): Promise<SearchAgreementsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SearchAgreementsOutput(data, context);
+  const response: SearchAgreementsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_0CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -195,62 +174,7 @@ const de_GetAgreementTermsCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_0SearchAgreementsCommand
- */
-export const de_SearchAgreementsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchAgreementsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SearchAgreementsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_SearchAgreementsOutput(data, context);
-  const response: SearchAgreementsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_0SearchAgreementsCommandError
- */
-const de_SearchAgreementsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SearchAgreementsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.marketplaceagreement#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.marketplaceagreement#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.marketplaceagreement#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.marketplaceagreement#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

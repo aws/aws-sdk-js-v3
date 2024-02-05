@@ -1234,7 +1234,7 @@ export const de_AssociateFirewallRuleGroupCommand = async (
   context: __SerdeContext
 ): Promise<AssociateFirewallRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateFirewallRuleGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1247,50 +1247,6 @@ export const de_AssociateFirewallRuleGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateFirewallRuleGroupCommandError
- */
-const de_AssociateFirewallRuleGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateFirewallRuleGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.route53resolver#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand
  */
 export const de_AssociateResolverEndpointIpAddressCommand = async (
@@ -1298,7 +1254,7 @@ export const de_AssociateResolverEndpointIpAddressCommand = async (
   context: __SerdeContext
 ): Promise<AssociateResolverEndpointIpAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateResolverEndpointIpAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1311,50 +1267,6 @@ export const de_AssociateResolverEndpointIpAddressCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateResolverEndpointIpAddressCommandError
- */
-const de_AssociateResolverEndpointIpAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateResolverEndpointIpAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateResolverQueryLogConfigCommand
  */
 export const de_AssociateResolverQueryLogConfigCommand = async (
@@ -1362,7 +1274,7 @@ export const de_AssociateResolverQueryLogConfigCommand = async (
   context: __SerdeContext
 ): Promise<AssociateResolverQueryLogConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateResolverQueryLogConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1375,53 +1287,6 @@ export const de_AssociateResolverQueryLogConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateResolverQueryLogConfigCommandError
- */
-const de_AssociateResolverQueryLogConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateResolverQueryLogConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1AssociateResolverRuleCommand
  */
 export const de_AssociateResolverRuleCommand = async (
@@ -1429,7 +1294,7 @@ export const de_AssociateResolverRuleCommand = async (
   context: __SerdeContext
 ): Promise<AssociateResolverRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateResolverRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1442,53 +1307,6 @@ export const de_AssociateResolverRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateResolverRuleCommandError
- */
-const de_AssociateResolverRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateResolverRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.route53resolver#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFirewallDomainListCommand
  */
 export const de_CreateFirewallDomainListCommand = async (
@@ -1496,7 +1314,7 @@ export const de_CreateFirewallDomainListCommand = async (
   context: __SerdeContext
 ): Promise<CreateFirewallDomainListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFirewallDomainListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1509,44 +1327,6 @@ export const de_CreateFirewallDomainListCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFirewallDomainListCommandError
- */
-const de_CreateFirewallDomainListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFirewallDomainListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFirewallRuleCommand
  */
 export const de_CreateFirewallRuleCommand = async (
@@ -1554,7 +1334,7 @@ export const de_CreateFirewallRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateFirewallRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFirewallRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1567,47 +1347,6 @@ export const de_CreateFirewallRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFirewallRuleCommandError
- */
-const de_CreateFirewallRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFirewallRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFirewallRuleGroupCommand
  */
 export const de_CreateFirewallRuleGroupCommand = async (
@@ -1615,7 +1354,7 @@ export const de_CreateFirewallRuleGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateFirewallRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFirewallRuleGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1628,44 +1367,6 @@ export const de_CreateFirewallRuleGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFirewallRuleGroupCommandError
- */
-const de_CreateFirewallRuleGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFirewallRuleGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateOutpostResolverCommand
  */
 export const de_CreateOutpostResolverCommand = async (
@@ -1673,7 +1374,7 @@ export const de_CreateOutpostResolverCommand = async (
   context: __SerdeContext
 ): Promise<CreateOutpostResolverCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateOutpostResolverCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1686,47 +1387,6 @@ export const de_CreateOutpostResolverCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateOutpostResolverCommandError
- */
-const de_CreateOutpostResolverCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOutpostResolverCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.route53resolver#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateResolverEndpointCommand
  */
 export const de_CreateResolverEndpointCommand = async (
@@ -1734,7 +1394,7 @@ export const de_CreateResolverEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateResolverEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateResolverEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1747,53 +1407,6 @@ export const de_CreateResolverEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateResolverEndpointCommandError
- */
-const de_CreateResolverEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResolverEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateResolverQueryLogConfigCommand
  */
 export const de_CreateResolverQueryLogConfigCommand = async (
@@ -1801,7 +1414,7 @@ export const de_CreateResolverQueryLogConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateResolverQueryLogConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateResolverQueryLogConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1814,53 +1427,6 @@ export const de_CreateResolverQueryLogConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateResolverQueryLogConfigCommandError
- */
-const de_CreateResolverQueryLogConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResolverQueryLogConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateResolverRuleCommand
  */
 export const de_CreateResolverRuleCommand = async (
@@ -1868,7 +1434,7 @@ export const de_CreateResolverRuleCommand = async (
   context: __SerdeContext
 ): Promise<CreateResolverRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateResolverRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1881,56 +1447,6 @@ export const de_CreateResolverRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateResolverRuleCommandError
- */
-const de_CreateResolverRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResolverRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.route53resolver#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteFirewallDomainListCommand
  */
 export const de_DeleteFirewallDomainListCommand = async (
@@ -1938,7 +1454,7 @@ export const de_DeleteFirewallDomainListCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFirewallDomainListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFirewallDomainListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1951,44 +1467,6 @@ export const de_DeleteFirewallDomainListCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteFirewallDomainListCommandError
- */
-const de_DeleteFirewallDomainListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFirewallDomainListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.route53resolver#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteFirewallRuleCommand
  */
 export const de_DeleteFirewallRuleCommand = async (
@@ -1996,7 +1474,7 @@ export const de_DeleteFirewallRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFirewallRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFirewallRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2009,41 +1487,6 @@ export const de_DeleteFirewallRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteFirewallRuleCommandError
- */
-const de_DeleteFirewallRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFirewallRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteFirewallRuleGroupCommand
  */
 export const de_DeleteFirewallRuleGroupCommand = async (
@@ -2051,7 +1494,7 @@ export const de_DeleteFirewallRuleGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFirewallRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFirewallRuleGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2064,47 +1507,6 @@ export const de_DeleteFirewallRuleGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteFirewallRuleGroupCommandError
- */
-const de_DeleteFirewallRuleGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFirewallRuleGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.route53resolver#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteOutpostResolverCommand
  */
 export const de_DeleteOutpostResolverCommand = async (
@@ -2112,7 +1514,7 @@ export const de_DeleteOutpostResolverCommand = async (
   context: __SerdeContext
 ): Promise<DeleteOutpostResolverCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteOutpostResolverCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2125,47 +1527,6 @@ export const de_DeleteOutpostResolverCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteOutpostResolverCommandError
- */
-const de_DeleteOutpostResolverCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOutpostResolverCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.route53resolver#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteResolverEndpointCommand
  */
 export const de_DeleteResolverEndpointCommand = async (
@@ -2173,7 +1534,7 @@ export const de_DeleteResolverEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResolverEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResolverEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2186,44 +1547,6 @@ export const de_DeleteResolverEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteResolverEndpointCommandError
- */
-const de_DeleteResolverEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResolverEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteResolverQueryLogConfigCommand
  */
 export const de_DeleteResolverQueryLogConfigCommand = async (
@@ -2231,7 +1554,7 @@ export const de_DeleteResolverQueryLogConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResolverQueryLogConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResolverQueryLogConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2244,47 +1567,6 @@ export const de_DeleteResolverQueryLogConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteResolverQueryLogConfigCommandError
- */
-const de_DeleteResolverQueryLogConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResolverQueryLogConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteResolverRuleCommand
  */
 export const de_DeleteResolverRuleCommand = async (
@@ -2292,7 +1574,7 @@ export const de_DeleteResolverRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResolverRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResolverRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2305,44 +1587,6 @@ export const de_DeleteResolverRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteResolverRuleCommandError
- */
-const de_DeleteResolverRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResolverRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.route53resolver#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateFirewallRuleGroupCommand
  */
 export const de_DisassociateFirewallRuleGroupCommand = async (
@@ -2350,7 +1594,7 @@ export const de_DisassociateFirewallRuleGroupCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateFirewallRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateFirewallRuleGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2363,47 +1607,6 @@ export const de_DisassociateFirewallRuleGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateFirewallRuleGroupCommandError
- */
-const de_DisassociateFirewallRuleGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateFirewallRuleGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.route53resolver#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommand
  */
 export const de_DisassociateResolverEndpointIpAddressCommand = async (
@@ -2411,7 +1614,7 @@ export const de_DisassociateResolverEndpointIpAddressCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateResolverEndpointIpAddressCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateResolverEndpointIpAddressCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2424,47 +1627,6 @@ export const de_DisassociateResolverEndpointIpAddressCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateResolverEndpointIpAddressCommandError
- */
-const de_DisassociateResolverEndpointIpAddressCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateResolverEndpointIpAddressCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceExistsException":
-    case "com.amazonaws.route53resolver#ResourceExistsException":
-      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateResolverQueryLogConfigCommand
  */
 export const de_DisassociateResolverQueryLogConfigCommand = async (
@@ -2472,7 +1634,7 @@ export const de_DisassociateResolverQueryLogConfigCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateResolverQueryLogConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateResolverQueryLogConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2485,47 +1647,6 @@ export const de_DisassociateResolverQueryLogConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateResolverQueryLogConfigCommandError
- */
-const de_DisassociateResolverQueryLogConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateResolverQueryLogConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateResolverRuleCommand
  */
 export const de_DisassociateResolverRuleCommand = async (
@@ -2533,7 +1654,7 @@ export const de_DisassociateResolverRuleCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateResolverRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateResolverRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2546,41 +1667,6 @@ export const de_DisassociateResolverRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateResolverRuleCommandError
- */
-const de_DisassociateResolverRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateResolverRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetFirewallConfigCommand
  */
 export const de_GetFirewallConfigCommand = async (
@@ -2588,7 +1674,7 @@ export const de_GetFirewallConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetFirewallConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetFirewallConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2601,44 +1687,6 @@ export const de_GetFirewallConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetFirewallConfigCommandError
- */
-const de_GetFirewallConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFirewallConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetFirewallDomainListCommand
  */
 export const de_GetFirewallDomainListCommand = async (
@@ -2646,7 +1694,7 @@ export const de_GetFirewallDomainListCommand = async (
   context: __SerdeContext
 ): Promise<GetFirewallDomainListCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetFirewallDomainListCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2659,41 +1707,6 @@ export const de_GetFirewallDomainListCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetFirewallDomainListCommandError
- */
-const de_GetFirewallDomainListCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFirewallDomainListCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetFirewallRuleGroupCommand
  */
 export const de_GetFirewallRuleGroupCommand = async (
@@ -2701,7 +1714,7 @@ export const de_GetFirewallRuleGroupCommand = async (
   context: __SerdeContext
 ): Promise<GetFirewallRuleGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetFirewallRuleGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2714,41 +1727,6 @@ export const de_GetFirewallRuleGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetFirewallRuleGroupCommandError
- */
-const de_GetFirewallRuleGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFirewallRuleGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetFirewallRuleGroupAssociationCommand
  */
 export const de_GetFirewallRuleGroupAssociationCommand = async (
@@ -2756,7 +1734,7 @@ export const de_GetFirewallRuleGroupAssociationCommand = async (
   context: __SerdeContext
 ): Promise<GetFirewallRuleGroupAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetFirewallRuleGroupAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2769,41 +1747,6 @@ export const de_GetFirewallRuleGroupAssociationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetFirewallRuleGroupAssociationCommandError
- */
-const de_GetFirewallRuleGroupAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFirewallRuleGroupAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetFirewallRuleGroupPolicyCommand
  */
 export const de_GetFirewallRuleGroupPolicyCommand = async (
@@ -2811,7 +1754,7 @@ export const de_GetFirewallRuleGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetFirewallRuleGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetFirewallRuleGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2824,44 +1767,6 @@ export const de_GetFirewallRuleGroupPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetFirewallRuleGroupPolicyCommandError
- */
-const de_GetFirewallRuleGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetFirewallRuleGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetOutpostResolverCommand
  */
 export const de_GetOutpostResolverCommand = async (
@@ -2869,7 +1774,7 @@ export const de_GetOutpostResolverCommand = async (
   context: __SerdeContext
 ): Promise<GetOutpostResolverCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetOutpostResolverCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2882,44 +1787,6 @@ export const de_GetOutpostResolverCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetOutpostResolverCommandError
- */
-const de_GetOutpostResolverCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOutpostResolverCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResolverConfigCommand
  */
 export const de_GetResolverConfigCommand = async (
@@ -2927,7 +1794,7 @@ export const de_GetResolverConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetResolverConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResolverConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2940,47 +1807,6 @@ export const de_GetResolverConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResolverConfigCommandError
- */
-const de_GetResolverConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResolverConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResolverDnssecConfigCommand
  */
 export const de_GetResolverDnssecConfigCommand = async (
@@ -2988,7 +1814,7 @@ export const de_GetResolverDnssecConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetResolverDnssecConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResolverDnssecConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3001,47 +1827,6 @@ export const de_GetResolverDnssecConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResolverDnssecConfigCommandError
- */
-const de_GetResolverDnssecConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResolverDnssecConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResolverEndpointCommand
  */
 export const de_GetResolverEndpointCommand = async (
@@ -3049,7 +1834,7 @@ export const de_GetResolverEndpointCommand = async (
   context: __SerdeContext
 ): Promise<GetResolverEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResolverEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3062,41 +1847,6 @@ export const de_GetResolverEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResolverEndpointCommandError
- */
-const de_GetResolverEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResolverEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResolverQueryLogConfigCommand
  */
 export const de_GetResolverQueryLogConfigCommand = async (
@@ -3104,7 +1854,7 @@ export const de_GetResolverQueryLogConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetResolverQueryLogConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResolverQueryLogConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3117,47 +1867,6 @@ export const de_GetResolverQueryLogConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResolverQueryLogConfigCommandError
- */
-const de_GetResolverQueryLogConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResolverQueryLogConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommand
  */
 export const de_GetResolverQueryLogConfigAssociationCommand = async (
@@ -3165,7 +1874,7 @@ export const de_GetResolverQueryLogConfigAssociationCommand = async (
   context: __SerdeContext
 ): Promise<GetResolverQueryLogConfigAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResolverQueryLogConfigAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3178,47 +1887,6 @@ export const de_GetResolverQueryLogConfigAssociationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResolverQueryLogConfigAssociationCommandError
- */
-const de_GetResolverQueryLogConfigAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResolverQueryLogConfigAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommand
  */
 export const de_GetResolverQueryLogConfigPolicyCommand = async (
@@ -3226,7 +1894,7 @@ export const de_GetResolverQueryLogConfigPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetResolverQueryLogConfigPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResolverQueryLogConfigPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3239,44 +1907,6 @@ export const de_GetResolverQueryLogConfigPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResolverQueryLogConfigPolicyCommandError
- */
-const de_GetResolverQueryLogConfigPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResolverQueryLogConfigPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.route53resolver#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResolverRuleCommand
  */
 export const de_GetResolverRuleCommand = async (
@@ -3284,7 +1914,7 @@ export const de_GetResolverRuleCommand = async (
   context: __SerdeContext
 ): Promise<GetResolverRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResolverRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3297,41 +1927,6 @@ export const de_GetResolverRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResolverRuleCommandError
- */
-const de_GetResolverRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResolverRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResolverRuleAssociationCommand
  */
 export const de_GetResolverRuleAssociationCommand = async (
@@ -3339,7 +1934,7 @@ export const de_GetResolverRuleAssociationCommand = async (
   context: __SerdeContext
 ): Promise<GetResolverRuleAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResolverRuleAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3352,41 +1947,6 @@ export const de_GetResolverRuleAssociationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResolverRuleAssociationCommandError
- */
-const de_GetResolverRuleAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResolverRuleAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResolverRulePolicyCommand
  */
 export const de_GetResolverRulePolicyCommand = async (
@@ -3394,7 +1954,7 @@ export const de_GetResolverRulePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetResolverRulePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResolverRulePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3407,41 +1967,6 @@ export const de_GetResolverRulePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResolverRulePolicyCommandError
- */
-const de_GetResolverRulePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResolverRulePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.route53resolver#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportFirewallDomainsCommand
  */
 export const de_ImportFirewallDomainsCommand = async (
@@ -3449,7 +1974,7 @@ export const de_ImportFirewallDomainsCommand = async (
   context: __SerdeContext
 ): Promise<ImportFirewallDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportFirewallDomainsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3462,50 +1987,6 @@ export const de_ImportFirewallDomainsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportFirewallDomainsCommandError
- */
-const de_ImportFirewallDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportFirewallDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.route53resolver#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListFirewallConfigsCommand
  */
 export const de_ListFirewallConfigsCommand = async (
@@ -3513,7 +1994,7 @@ export const de_ListFirewallConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListFirewallConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFirewallConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3526,41 +2007,6 @@ export const de_ListFirewallConfigsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFirewallConfigsCommandError
- */
-const de_ListFirewallConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFirewallConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListFirewallDomainListsCommand
  */
 export const de_ListFirewallDomainListsCommand = async (
@@ -3568,7 +2014,7 @@ export const de_ListFirewallDomainListsCommand = async (
   context: __SerdeContext
 ): Promise<ListFirewallDomainListsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFirewallDomainListsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3581,41 +2027,6 @@ export const de_ListFirewallDomainListsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFirewallDomainListsCommandError
- */
-const de_ListFirewallDomainListsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFirewallDomainListsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListFirewallDomainsCommand
  */
 export const de_ListFirewallDomainsCommand = async (
@@ -3623,7 +2034,7 @@ export const de_ListFirewallDomainsCommand = async (
   context: __SerdeContext
 ): Promise<ListFirewallDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFirewallDomainsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3636,44 +2047,6 @@ export const de_ListFirewallDomainsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFirewallDomainsCommandError
- */
-const de_ListFirewallDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFirewallDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommand
  */
 export const de_ListFirewallRuleGroupAssociationsCommand = async (
@@ -3681,7 +2054,7 @@ export const de_ListFirewallRuleGroupAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListFirewallRuleGroupAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFirewallRuleGroupAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3694,41 +2067,6 @@ export const de_ListFirewallRuleGroupAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFirewallRuleGroupAssociationsCommandError
- */
-const de_ListFirewallRuleGroupAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFirewallRuleGroupAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListFirewallRuleGroupsCommand
  */
 export const de_ListFirewallRuleGroupsCommand = async (
@@ -3736,7 +2074,7 @@ export const de_ListFirewallRuleGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListFirewallRuleGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFirewallRuleGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3749,41 +2087,6 @@ export const de_ListFirewallRuleGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFirewallRuleGroupsCommandError
- */
-const de_ListFirewallRuleGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFirewallRuleGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListFirewallRulesCommand
  */
 export const de_ListFirewallRulesCommand = async (
@@ -3791,7 +2094,7 @@ export const de_ListFirewallRulesCommand = async (
   context: __SerdeContext
 ): Promise<ListFirewallRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFirewallRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3804,44 +2107,6 @@ export const de_ListFirewallRulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFirewallRulesCommandError
- */
-const de_ListFirewallRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFirewallRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListOutpostResolversCommand
  */
 export const de_ListOutpostResolversCommand = async (
@@ -3849,7 +2114,7 @@ export const de_ListOutpostResolversCommand = async (
   context: __SerdeContext
 ): Promise<ListOutpostResolversCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListOutpostResolversCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3862,44 +2127,6 @@ export const de_ListOutpostResolversCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListOutpostResolversCommandError
- */
-const de_ListOutpostResolversCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOutpostResolversCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResolverConfigsCommand
  */
 export const de_ListResolverConfigsCommand = async (
@@ -3907,7 +2134,7 @@ export const de_ListResolverConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListResolverConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResolverConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3920,50 +2147,6 @@ export const de_ListResolverConfigsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResolverConfigsCommandError
- */
-const de_ListResolverConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResolverConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResolverDnssecConfigsCommand
  */
 export const de_ListResolverDnssecConfigsCommand = async (
@@ -3971,7 +2154,7 @@ export const de_ListResolverDnssecConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListResolverDnssecConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResolverDnssecConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3984,47 +2167,6 @@ export const de_ListResolverDnssecConfigsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResolverDnssecConfigsCommandError
- */
-const de_ListResolverDnssecConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResolverDnssecConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResolverEndpointIpAddressesCommand
  */
 export const de_ListResolverEndpointIpAddressesCommand = async (
@@ -4032,7 +2174,7 @@ export const de_ListResolverEndpointIpAddressesCommand = async (
   context: __SerdeContext
 ): Promise<ListResolverEndpointIpAddressesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResolverEndpointIpAddressesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4045,44 +2187,6 @@ export const de_ListResolverEndpointIpAddressesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResolverEndpointIpAddressesCommandError
- */
-const de_ListResolverEndpointIpAddressesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResolverEndpointIpAddressesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResolverEndpointsCommand
  */
 export const de_ListResolverEndpointsCommand = async (
@@ -4090,7 +2194,7 @@ export const de_ListResolverEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<ListResolverEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResolverEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4103,44 +2207,6 @@ export const de_ListResolverEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResolverEndpointsCommandError
- */
-const de_ListResolverEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResolverEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommand
  */
 export const de_ListResolverQueryLogConfigAssociationsCommand = async (
@@ -4148,7 +2214,7 @@ export const de_ListResolverQueryLogConfigAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListResolverQueryLogConfigAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResolverQueryLogConfigAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4161,47 +2227,6 @@ export const de_ListResolverQueryLogConfigAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResolverQueryLogConfigAssociationsCommandError
- */
-const de_ListResolverQueryLogConfigAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResolverQueryLogConfigAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResolverQueryLogConfigsCommand
  */
 export const de_ListResolverQueryLogConfigsCommand = async (
@@ -4209,7 +2234,7 @@ export const de_ListResolverQueryLogConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListResolverQueryLogConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResolverQueryLogConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4222,47 +2247,6 @@ export const de_ListResolverQueryLogConfigsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResolverQueryLogConfigsCommandError
- */
-const de_ListResolverQueryLogConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResolverQueryLogConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResolverRuleAssociationsCommand
  */
 export const de_ListResolverRuleAssociationsCommand = async (
@@ -4270,7 +2254,7 @@ export const de_ListResolverRuleAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListResolverRuleAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResolverRuleAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4283,44 +2267,6 @@ export const de_ListResolverRuleAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResolverRuleAssociationsCommandError
- */
-const de_ListResolverRuleAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResolverRuleAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResolverRulesCommand
  */
 export const de_ListResolverRulesCommand = async (
@@ -4328,7 +2274,7 @@ export const de_ListResolverRulesCommand = async (
   context: __SerdeContext
 ): Promise<ListResolverRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResolverRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4341,44 +2287,6 @@ export const de_ListResolverRulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResolverRulesCommandError
- */
-const de_ListResolverRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResolverRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -4386,7 +2294,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4399,47 +2307,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.route53resolver#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutFirewallRuleGroupPolicyCommand
  */
 export const de_PutFirewallRuleGroupPolicyCommand = async (
@@ -4447,7 +2314,7 @@ export const de_PutFirewallRuleGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutFirewallRuleGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutFirewallRuleGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4460,44 +2327,6 @@ export const de_PutFirewallRuleGroupPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutFirewallRuleGroupPolicyCommandError
- */
-const de_PutFirewallRuleGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutFirewallRuleGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommand
  */
 export const de_PutResolverQueryLogConfigPolicyCommand = async (
@@ -4505,7 +2334,7 @@ export const de_PutResolverQueryLogConfigPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutResolverQueryLogConfigPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutResolverQueryLogConfigPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4518,47 +2347,6 @@ export const de_PutResolverQueryLogConfigPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutResolverQueryLogConfigPolicyCommandError
- */
-const de_PutResolverQueryLogConfigPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResolverQueryLogConfigPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPolicyDocument":
-    case "com.amazonaws.route53resolver#InvalidPolicyDocument":
-      throw await de_InvalidPolicyDocumentRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.route53resolver#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutResolverRulePolicyCommand
  */
 export const de_PutResolverRulePolicyCommand = async (
@@ -4566,7 +2354,7 @@ export const de_PutResolverRulePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutResolverRulePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutResolverRulePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4579,44 +2367,6 @@ export const de_PutResolverRulePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutResolverRulePolicyCommandError
- */
-const de_PutResolverRulePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResolverRulePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPolicyDocument":
-    case "com.amazonaws.route53resolver#InvalidPolicyDocument":
-      throw await de_InvalidPolicyDocumentRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.route53resolver#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -4624,7 +2374,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4637,50 +2387,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidTagException":
-    case "com.amazonaws.route53resolver#InvalidTagException":
-      throw await de_InvalidTagExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -4688,7 +2394,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4701,44 +2407,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateFirewallConfigCommand
  */
 export const de_UpdateFirewallConfigCommand = async (
@@ -4746,7 +2414,7 @@ export const de_UpdateFirewallConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFirewallConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFirewallConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4759,44 +2427,6 @@ export const de_UpdateFirewallConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateFirewallConfigCommandError
- */
-const de_UpdateFirewallConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFirewallConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateFirewallDomainsCommand
  */
 export const de_UpdateFirewallDomainsCommand = async (
@@ -4804,7 +2434,7 @@ export const de_UpdateFirewallDomainsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFirewallDomainsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFirewallDomainsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4817,50 +2447,6 @@ export const de_UpdateFirewallDomainsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateFirewallDomainsCommandError
- */
-const de_UpdateFirewallDomainsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFirewallDomainsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.route53resolver#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateFirewallRuleCommand
  */
 export const de_UpdateFirewallRuleCommand = async (
@@ -4868,7 +2454,7 @@ export const de_UpdateFirewallRuleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFirewallRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFirewallRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4881,47 +2467,6 @@ export const de_UpdateFirewallRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateFirewallRuleCommandError
- */
-const de_UpdateFirewallRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFirewallRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.route53resolver#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommand
  */
 export const de_UpdateFirewallRuleGroupAssociationCommand = async (
@@ -4929,7 +2474,7 @@ export const de_UpdateFirewallRuleGroupAssociationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFirewallRuleGroupAssociationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateFirewallRuleGroupAssociationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4942,47 +2487,6 @@ export const de_UpdateFirewallRuleGroupAssociationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateFirewallRuleGroupAssociationCommandError
- */
-const de_UpdateFirewallRuleGroupAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFirewallRuleGroupAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.route53resolver#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateOutpostResolverCommand
  */
 export const de_UpdateOutpostResolverCommand = async (
@@ -4990,7 +2494,7 @@ export const de_UpdateOutpostResolverCommand = async (
   context: __SerdeContext
 ): Promise<UpdateOutpostResolverCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateOutpostResolverCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5003,12 +2507,89 @@ export const de_UpdateOutpostResolverCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateOutpostResolverCommandError
+ * deserializeAws_json1_1UpdateResolverConfigCommand
  */
-const de_UpdateOutpostResolverCommandError = async (
+export const de_UpdateResolverConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<UpdateOutpostResolverCommandOutput> => {
+): Promise<UpdateResolverConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateResolverConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateResolverDnssecConfigCommand
+ */
+export const de_UpdateResolverDnssecConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResolverDnssecConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateResolverDnssecConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateResolverEndpointCommand
+ */
+export const de_UpdateResolverEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResolverEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateResolverEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateResolverRuleCommand
+ */
+export const de_UpdateResolverRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResolverRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateResolverRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5024,284 +2605,55 @@ const de_UpdateOutpostResolverCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
       throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.route53resolver#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.route53resolver#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.route53resolver#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.route53resolver#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.route53resolver#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.route53resolver#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceExistsException":
+    case "com.amazonaws.route53resolver#ResourceExistsException":
+      throw await de_ResourceExistsExceptionRes(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.route53resolver#ResourceUnavailableException":
+      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.route53resolver#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.route53resolver#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "UnknownResourceException":
+    case "com.amazonaws.route53resolver#UnknownResourceException":
+      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.route53resolver#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidPolicyDocument":
+    case "com.amazonaws.route53resolver#InvalidPolicyDocument":
+      throw await de_InvalidPolicyDocumentRes(parsedOutput, context);
+    case "InvalidTagException":
+    case "com.amazonaws.route53resolver#InvalidTagException":
+      throw await de_InvalidTagExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateResolverConfigCommand
- */
-export const de_UpdateResolverConfigCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResolverConfigCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateResolverConfigCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateResolverConfigCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateResolverConfigCommandError
- */
-const de_UpdateResolverConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResolverConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.route53resolver#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.route53resolver#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateResolverDnssecConfigCommand
- */
-export const de_UpdateResolverDnssecConfigCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResolverDnssecConfigCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateResolverDnssecConfigCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateResolverDnssecConfigCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateResolverDnssecConfigCommandError
- */
-const de_UpdateResolverDnssecConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResolverDnssecConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateResolverEndpointCommand
- */
-export const de_UpdateResolverEndpointCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResolverEndpointCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateResolverEndpointCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateResolverEndpointCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateResolverEndpointCommandError
- */
-const de_UpdateResolverEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResolverEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateResolverRuleCommand
- */
-export const de_UpdateResolverRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResolverRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateResolverRuleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateResolverRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateResolverRuleCommandError
- */
-const de_UpdateResolverRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResolverRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.route53resolver#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServiceErrorException":
-    case "com.amazonaws.route53resolver#InternalServiceErrorException":
-      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.route53resolver#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.route53resolver#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.route53resolver#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.route53resolver#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceUnavailableException":
-    case "com.amazonaws.route53resolver#ResourceUnavailableException":
-      throw await de_ResourceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.route53resolver#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -453,7 +453,7 @@ export const de_BatchCheckLayerAvailabilityCommand = async (
   context: __SerdeContext
 ): Promise<BatchCheckLayerAvailabilityCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchCheckLayerAvailabilityCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -466,44 +466,6 @@ export const de_BatchCheckLayerAvailabilityCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError
- */
-const de_BatchCheckLayerAvailabilityCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchCheckLayerAvailabilityCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RegistryNotFoundException":
-    case "com.amazonaws.ecrpublic#RegistryNotFoundException":
-      throw await de_RegistryNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDeleteImageCommand
  */
 export const de_BatchDeleteImageCommand = async (
@@ -511,7 +473,7 @@ export const de_BatchDeleteImageCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDeleteImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -524,41 +486,6 @@ export const de_BatchDeleteImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDeleteImageCommandError
- */
-const de_BatchDeleteImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CompleteLayerUploadCommand
  */
 export const de_CompleteLayerUploadCommand = async (
@@ -566,7 +493,7 @@ export const de_CompleteLayerUploadCommand = async (
   context: __SerdeContext
 ): Promise<CompleteLayerUploadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CompleteLayerUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -579,59 +506,6 @@ export const de_CompleteLayerUploadCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CompleteLayerUploadCommandError
- */
-const de_CompleteLayerUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CompleteLayerUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EmptyUploadException":
-    case "com.amazonaws.ecrpublic#EmptyUploadException":
-      throw await de_EmptyUploadExceptionRes(parsedOutput, context);
-    case "InvalidLayerException":
-    case "com.amazonaws.ecrpublic#InvalidLayerException":
-      throw await de_InvalidLayerExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LayerAlreadyExistsException":
-    case "com.amazonaws.ecrpublic#LayerAlreadyExistsException":
-      throw await de_LayerAlreadyExistsExceptionRes(parsedOutput, context);
-    case "LayerPartTooSmallException":
-    case "com.amazonaws.ecrpublic#LayerPartTooSmallException":
-      throw await de_LayerPartTooSmallExceptionRes(parsedOutput, context);
-    case "RegistryNotFoundException":
-    case "com.amazonaws.ecrpublic#RegistryNotFoundException":
-      throw await de_RegistryNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    case "UploadNotFoundException":
-    case "com.amazonaws.ecrpublic#UploadNotFoundException":
-      throw await de_UploadNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRepositoryCommand
  */
 export const de_CreateRepositoryCommand = async (
@@ -639,7 +513,7 @@ export const de_CreateRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<CreateRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRepositoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -652,50 +526,6 @@ export const de_CreateRepositoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRepositoryCommandError
- */
-const de_CreateRepositoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRepositoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTagParameterException":
-    case "com.amazonaws.ecrpublic#InvalidTagParameterException":
-      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.ecrpublic#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "RepositoryAlreadyExistsException":
-    case "com.amazonaws.ecrpublic#RepositoryAlreadyExistsException":
-      throw await de_RepositoryAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.ecrpublic#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRepositoryCommand
  */
 export const de_DeleteRepositoryCommand = async (
@@ -703,7 +533,7 @@ export const de_DeleteRepositoryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRepositoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRepositoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -716,44 +546,6 @@ export const de_DeleteRepositoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRepositoryCommandError
- */
-const de_DeleteRepositoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRepositoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotEmptyException":
-    case "com.amazonaws.ecrpublic#RepositoryNotEmptyException":
-      throw await de_RepositoryNotEmptyExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRepositoryPolicyCommand
  */
 export const de_DeleteRepositoryPolicyCommand = async (
@@ -761,7 +553,7 @@ export const de_DeleteRepositoryPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRepositoryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRepositoryPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -774,44 +566,6 @@ export const de_DeleteRepositoryPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRepositoryPolicyCommandError
- */
-const de_DeleteRepositoryPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRepositoryPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryPolicyNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryPolicyNotFoundException":
-      throw await de_RepositoryPolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeImagesCommand
  */
 export const de_DescribeImagesCommand = async (
@@ -819,7 +573,7 @@ export const de_DescribeImagesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImagesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImagesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -832,44 +586,6 @@ export const de_DescribeImagesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeImagesCommandError
- */
-const de_DescribeImagesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImagesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ImageNotFoundException":
-    case "com.amazonaws.ecrpublic#ImageNotFoundException":
-      throw await de_ImageNotFoundExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeImageTagsCommand
  */
 export const de_DescribeImageTagsCommand = async (
@@ -877,7 +593,7 @@ export const de_DescribeImageTagsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImageTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImageTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -890,41 +606,6 @@ export const de_DescribeImageTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeImageTagsCommandError
- */
-const de_DescribeImageTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImageTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRegistriesCommand
  */
 export const de_DescribeRegistriesCommand = async (
@@ -932,7 +613,7 @@ export const de_DescribeRegistriesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRegistriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRegistriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -945,38 +626,6 @@ export const de_DescribeRegistriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRegistriesCommandError
- */
-const de_DescribeRegistriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRegistriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRepositoriesCommand
  */
 export const de_DescribeRepositoriesCommand = async (
@@ -984,7 +633,7 @@ export const de_DescribeRepositoriesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRepositoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRepositoriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -997,41 +646,6 @@ export const de_DescribeRepositoriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRepositoriesCommandError
- */
-const de_DescribeRepositoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRepositoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAuthorizationTokenCommand
  */
 export const de_GetAuthorizationTokenCommand = async (
@@ -1039,7 +653,7 @@ export const de_GetAuthorizationTokenCommand = async (
   context: __SerdeContext
 ): Promise<GetAuthorizationTokenCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAuthorizationTokenCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1052,38 +666,6 @@ export const de_GetAuthorizationTokenCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAuthorizationTokenCommandError
- */
-const de_GetAuthorizationTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAuthorizationTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRegistryCatalogDataCommand
  */
 export const de_GetRegistryCatalogDataCommand = async (
@@ -1091,7 +673,7 @@ export const de_GetRegistryCatalogDataCommand = async (
   context: __SerdeContext
 ): Promise<GetRegistryCatalogDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRegistryCatalogDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1104,35 +686,6 @@ export const de_GetRegistryCatalogDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRegistryCatalogDataCommandError
- */
-const de_GetRegistryCatalogDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRegistryCatalogDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRepositoryCatalogDataCommand
  */
 export const de_GetRepositoryCatalogDataCommand = async (
@@ -1140,7 +693,7 @@ export const de_GetRepositoryCatalogDataCommand = async (
   context: __SerdeContext
 ): Promise<GetRepositoryCatalogDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRepositoryCatalogDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1153,44 +706,6 @@ export const de_GetRepositoryCatalogDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRepositoryCatalogDataCommandError
- */
-const de_GetRepositoryCatalogDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRepositoryCatalogDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryCatalogDataNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryCatalogDataNotFoundException":
-      throw await de_RepositoryCatalogDataNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetRepositoryPolicyCommand
  */
 export const de_GetRepositoryPolicyCommand = async (
@@ -1198,7 +713,7 @@ export const de_GetRepositoryPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetRepositoryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRepositoryPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1211,44 +726,6 @@ export const de_GetRepositoryPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetRepositoryPolicyCommandError
- */
-const de_GetRepositoryPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRepositoryPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryPolicyNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryPolicyNotFoundException":
-      throw await de_RepositoryPolicyNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1InitiateLayerUploadCommand
  */
 export const de_InitiateLayerUploadCommand = async (
@@ -1256,7 +733,7 @@ export const de_InitiateLayerUploadCommand = async (
   context: __SerdeContext
 ): Promise<InitiateLayerUploadCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_InitiateLayerUploadCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1269,44 +746,6 @@ export const de_InitiateLayerUploadCommand = async (
 };
 
 /**
- * deserializeAws_json1_1InitiateLayerUploadCommandError
- */
-const de_InitiateLayerUploadCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<InitiateLayerUploadCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RegistryNotFoundException":
-    case "com.amazonaws.ecrpublic#RegistryNotFoundException":
-      throw await de_RegistryNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -1314,7 +753,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1327,41 +766,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutImageCommand
  */
 export const de_PutImageCommand = async (
@@ -1369,7 +773,7 @@ export const de_PutImageCommand = async (
   context: __SerdeContext
 ): Promise<PutImageCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutImageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1382,62 +786,6 @@ export const de_PutImageCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutImageCommandError
- */
-const de_PutImageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutImageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ImageAlreadyExistsException":
-    case "com.amazonaws.ecrpublic#ImageAlreadyExistsException":
-      throw await de_ImageAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ImageDigestDoesNotMatchException":
-    case "com.amazonaws.ecrpublic#ImageDigestDoesNotMatchException":
-      throw await de_ImageDigestDoesNotMatchExceptionRes(parsedOutput, context);
-    case "ImageTagAlreadyExistsException":
-    case "com.amazonaws.ecrpublic#ImageTagAlreadyExistsException":
-      throw await de_ImageTagAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LayersNotFoundException":
-    case "com.amazonaws.ecrpublic#LayersNotFoundException":
-      throw await de_LayersNotFoundExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.ecrpublic#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ReferencedImagesNotFoundException":
-    case "com.amazonaws.ecrpublic#ReferencedImagesNotFoundException":
-      throw await de_ReferencedImagesNotFoundExceptionRes(parsedOutput, context);
-    case "RegistryNotFoundException":
-    case "com.amazonaws.ecrpublic#RegistryNotFoundException":
-      throw await de_RegistryNotFoundExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutRegistryCatalogDataCommand
  */
 export const de_PutRegistryCatalogDataCommand = async (
@@ -1445,7 +793,7 @@ export const de_PutRegistryCatalogDataCommand = async (
   context: __SerdeContext
 ): Promise<PutRegistryCatalogDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRegistryCatalogDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1458,38 +806,6 @@ export const de_PutRegistryCatalogDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutRegistryCatalogDataCommandError
- */
-const de_PutRegistryCatalogDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRegistryCatalogDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutRepositoryCatalogDataCommand
  */
 export const de_PutRepositoryCatalogDataCommand = async (
@@ -1497,7 +813,7 @@ export const de_PutRepositoryCatalogDataCommand = async (
   context: __SerdeContext
 ): Promise<PutRepositoryCatalogDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRepositoryCatalogDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1510,41 +826,6 @@ export const de_PutRepositoryCatalogDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutRepositoryCatalogDataCommandError
- */
-const de_PutRepositoryCatalogDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRepositoryCatalogDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1SetRepositoryPolicyCommand
  */
 export const de_SetRepositoryPolicyCommand = async (
@@ -1552,7 +833,7 @@ export const de_SetRepositoryPolicyCommand = async (
   context: __SerdeContext
 ): Promise<SetRepositoryPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetRepositoryPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1565,41 +846,6 @@ export const de_SetRepositoryPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1SetRepositoryPolicyCommandError
- */
-const de_SetRepositoryPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetRepositoryPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1607,7 +853,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1620,47 +866,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTagParameterException":
-    case "com.amazonaws.ecrpublic#InvalidTagParameterException":
-      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.ecrpublic#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -1668,7 +873,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1681,47 +886,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ecrpublic#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidTagParameterException":
-    case "com.amazonaws.ecrpublic#InvalidTagParameterException":
-      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
-    case "RepositoryNotFoundException":
-    case "com.amazonaws.ecrpublic#RepositoryNotFoundException":
-      throw await de_RepositoryNotFoundExceptionRes(parsedOutput, context);
-    case "ServerException":
-    case "com.amazonaws.ecrpublic#ServerException":
-      throw await de_ServerExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.ecrpublic#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "UnsupportedCommandException":
-    case "com.amazonaws.ecrpublic#UnsupportedCommandException":
-      throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UploadLayerPartCommand
  */
 export const de_UploadLayerPartCommand = async (
@@ -1729,7 +893,7 @@ export const de_UploadLayerPartCommand = async (
   context: __SerdeContext
 ): Promise<UploadLayerPartCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UploadLayerPartCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1742,27 +906,18 @@ export const de_UploadLayerPartCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UploadLayerPartCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UploadLayerPartCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UploadLayerPartCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "InvalidLayerPartException":
-    case "com.amazonaws.ecrpublic#InvalidLayerPartException":
-      throw await de_InvalidLayerPartExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecrpublic#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.ecrpublic#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "RegistryNotFoundException":
     case "com.amazonaws.ecrpublic#RegistryNotFoundException":
       throw await de_RegistryNotFoundExceptionRes(parsedOutput, context);
@@ -1775,16 +930,70 @@ const de_UploadLayerPartCommandError = async (
     case "UnsupportedCommandException":
     case "com.amazonaws.ecrpublic#UnsupportedCommandException":
       throw await de_UnsupportedCommandExceptionRes(parsedOutput, context);
+    case "EmptyUploadException":
+    case "com.amazonaws.ecrpublic#EmptyUploadException":
+      throw await de_EmptyUploadExceptionRes(parsedOutput, context);
+    case "InvalidLayerException":
+    case "com.amazonaws.ecrpublic#InvalidLayerException":
+      throw await de_InvalidLayerExceptionRes(parsedOutput, context);
+    case "LayerAlreadyExistsException":
+    case "com.amazonaws.ecrpublic#LayerAlreadyExistsException":
+      throw await de_LayerAlreadyExistsExceptionRes(parsedOutput, context);
+    case "LayerPartTooSmallException":
+    case "com.amazonaws.ecrpublic#LayerPartTooSmallException":
+      throw await de_LayerPartTooSmallExceptionRes(parsedOutput, context);
     case "UploadNotFoundException":
     case "com.amazonaws.ecrpublic#UploadNotFoundException":
       throw await de_UploadNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidTagParameterException":
+    case "com.amazonaws.ecrpublic#InvalidTagParameterException":
+      throw await de_InvalidTagParameterExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.ecrpublic#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "RepositoryAlreadyExistsException":
+    case "com.amazonaws.ecrpublic#RepositoryAlreadyExistsException":
+      throw await de_RepositoryAlreadyExistsExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.ecrpublic#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "RepositoryNotEmptyException":
+    case "com.amazonaws.ecrpublic#RepositoryNotEmptyException":
+      throw await de_RepositoryNotEmptyExceptionRes(parsedOutput, context);
+    case "RepositoryPolicyNotFoundException":
+    case "com.amazonaws.ecrpublic#RepositoryPolicyNotFoundException":
+      throw await de_RepositoryPolicyNotFoundExceptionRes(parsedOutput, context);
+    case "ImageNotFoundException":
+    case "com.amazonaws.ecrpublic#ImageNotFoundException":
+      throw await de_ImageNotFoundExceptionRes(parsedOutput, context);
+    case "RepositoryCatalogDataNotFoundException":
+    case "com.amazonaws.ecrpublic#RepositoryCatalogDataNotFoundException":
+      throw await de_RepositoryCatalogDataNotFoundExceptionRes(parsedOutput, context);
+    case "ImageAlreadyExistsException":
+    case "com.amazonaws.ecrpublic#ImageAlreadyExistsException":
+      throw await de_ImageAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ImageDigestDoesNotMatchException":
+    case "com.amazonaws.ecrpublic#ImageDigestDoesNotMatchException":
+      throw await de_ImageDigestDoesNotMatchExceptionRes(parsedOutput, context);
+    case "ImageTagAlreadyExistsException":
+    case "com.amazonaws.ecrpublic#ImageTagAlreadyExistsException":
+      throw await de_ImageTagAlreadyExistsExceptionRes(parsedOutput, context);
+    case "LayersNotFoundException":
+    case "com.amazonaws.ecrpublic#LayersNotFoundException":
+      throw await de_LayersNotFoundExceptionRes(parsedOutput, context);
+    case "ReferencedImagesNotFoundException":
+    case "com.amazonaws.ecrpublic#ReferencedImagesNotFoundException":
+      throw await de_ReferencedImagesNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidLayerPartException":
+    case "com.amazonaws.ecrpublic#InvalidLayerPartException":
+      throw await de_InvalidLayerPartExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

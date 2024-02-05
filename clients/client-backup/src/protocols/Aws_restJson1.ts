@@ -2244,51 +2244,13 @@ export const de_CancelLegalHoldCommand = async (
   context: __SerdeContext
 ): Promise<CancelLegalHoldCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CancelLegalHoldCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CancelLegalHoldCommandError
- */
-const de_CancelLegalHoldCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelLegalHoldCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.backup#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2299,7 +2261,7 @@ export const de_CreateBackupPlanCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateBackupPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2317,44 +2279,6 @@ export const de_CreateBackupPlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBackupPlanCommandError
- */
-const de_CreateBackupPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackupPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.backup#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateBackupSelectionCommand
  */
 export const de_CreateBackupSelectionCommand = async (
@@ -2362,7 +2286,7 @@ export const de_CreateBackupSelectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackupSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateBackupSelectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2378,44 +2302,6 @@ export const de_CreateBackupSelectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBackupSelectionCommandError
- */
-const de_CreateBackupSelectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackupSelectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.backup#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateBackupVaultCommand
  */
 export const de_CreateBackupVaultCommand = async (
@@ -2423,7 +2309,7 @@ export const de_CreateBackupVaultCommand = async (
   context: __SerdeContext
 ): Promise<CreateBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateBackupVaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2439,44 +2325,6 @@ export const de_CreateBackupVaultCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateBackupVaultCommandError
- */
-const de_CreateBackupVaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBackupVaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.backup#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateFrameworkCommand
  */
 export const de_CreateFrameworkCommand = async (
@@ -2484,7 +2332,7 @@ export const de_CreateFrameworkCommand = async (
   context: __SerdeContext
 ): Promise<CreateFrameworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateFrameworkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2499,44 +2347,6 @@ export const de_CreateFrameworkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateFrameworkCommandError
- */
-const de_CreateFrameworkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFrameworkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.backup#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateLegalHoldCommand
  */
 export const de_CreateLegalHoldCommand = async (
@@ -2544,7 +2354,7 @@ export const de_CreateLegalHoldCommand = async (
   context: __SerdeContext
 ): Promise<CreateLegalHoldCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateLegalHoldCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2564,41 +2374,6 @@ export const de_CreateLegalHoldCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateLegalHoldCommandError
- */
-const de_CreateLegalHoldCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLegalHoldCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateLogicallyAirGappedBackupVaultCommand
  */
 export const de_CreateLogicallyAirGappedBackupVaultCommand = async (
@@ -2606,7 +2381,7 @@ export const de_CreateLogicallyAirGappedBackupVaultCommand = async (
   context: __SerdeContext
 ): Promise<CreateLogicallyAirGappedBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateLogicallyAirGappedBackupVaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2623,47 +2398,6 @@ export const de_CreateLogicallyAirGappedBackupVaultCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateLogicallyAirGappedBackupVaultCommandError
- */
-const de_CreateLogicallyAirGappedBackupVaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLogicallyAirGappedBackupVaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.backup#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateReportPlanCommand
  */
 export const de_CreateReportPlanCommand = async (
@@ -2671,7 +2405,7 @@ export const de_CreateReportPlanCommand = async (
   context: __SerdeContext
 ): Promise<CreateReportPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateReportPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2687,44 +2421,6 @@ export const de_CreateReportPlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateReportPlanCommandError
- */
-const de_CreateReportPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReportPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.backup#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateRestoreTestingPlanCommand
  */
 export const de_CreateRestoreTestingPlanCommand = async (
@@ -2732,7 +2428,7 @@ export const de_CreateRestoreTestingPlanCommand = async (
   context: __SerdeContext
 ): Promise<CreateRestoreTestingPlanCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateRestoreTestingPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2748,47 +2444,6 @@ export const de_CreateRestoreTestingPlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateRestoreTestingPlanCommandError
- */
-const de_CreateRestoreTestingPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRestoreTestingPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.backup#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.backup#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateRestoreTestingSelectionCommand
  */
 export const de_CreateRestoreTestingSelectionCommand = async (
@@ -2796,7 +2451,7 @@ export const de_CreateRestoreTestingSelectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateRestoreTestingSelectionCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
-    return de_CreateRestoreTestingSelectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2813,47 +2468,6 @@ export const de_CreateRestoreTestingSelectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateRestoreTestingSelectionCommandError
- */
-const de_CreateRestoreTestingSelectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRestoreTestingSelectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.backup#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteBackupPlanCommand
  */
 export const de_DeleteBackupPlanCommand = async (
@@ -2861,7 +2475,7 @@ export const de_DeleteBackupPlanCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBackupPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2878,44 +2492,6 @@ export const de_DeleteBackupPlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteBackupPlanCommandError
- */
-const de_DeleteBackupPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackupPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteBackupSelectionCommand
  */
 export const de_DeleteBackupSelectionCommand = async (
@@ -2923,48 +2499,13 @@ export const de_DeleteBackupSelectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackupSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBackupSelectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteBackupSelectionCommandError
- */
-const de_DeleteBackupSelectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackupSelectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2975,51 +2516,13 @@ export const de_DeleteBackupVaultCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBackupVaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteBackupVaultCommandError
- */
-const de_DeleteBackupVaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackupVaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3030,48 +2533,13 @@ export const de_DeleteBackupVaultAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackupVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBackupVaultAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommandError
- */
-const de_DeleteBackupVaultAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackupVaultAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3082,51 +2550,13 @@ export const de_DeleteBackupVaultLockConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackupVaultLockConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBackupVaultLockConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteBackupVaultLockConfigurationCommandError
- */
-const de_DeleteBackupVaultLockConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackupVaultLockConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3137,48 +2567,13 @@ export const de_DeleteBackupVaultNotificationsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteBackupVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteBackupVaultNotificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteBackupVaultNotificationsCommandError
- */
-const de_DeleteBackupVaultNotificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBackupVaultNotificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3189,51 +2584,13 @@ export const de_DeleteFrameworkCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFrameworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteFrameworkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteFrameworkCommandError
- */
-const de_DeleteFrameworkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFrameworkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.backup#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3244,54 +2601,13 @@ export const de_DeleteRecoveryPointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRecoveryPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteRecoveryPointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRecoveryPointCommandError
- */
-const de_DeleteRecoveryPointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRecoveryPointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.backup#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3302,51 +2618,13 @@ export const de_DeleteReportPlanCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReportPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteReportPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteReportPlanCommandError
- */
-const de_DeleteReportPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReportPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.backup#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3357,42 +2635,13 @@ export const de_DeleteRestoreTestingPlanCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRestoreTestingPlanCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteRestoreTestingPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRestoreTestingPlanCommandError
- */
-const de_DeleteRestoreTestingPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRestoreTestingPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3403,42 +2652,13 @@ export const de_DeleteRestoreTestingSelectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRestoreTestingSelectionCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DeleteRestoreTestingSelectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteRestoreTestingSelectionCommandError
- */
-const de_DeleteRestoreTestingSelectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRestoreTestingSelectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3449,7 +2669,7 @@ export const de_DescribeBackupJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBackupJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeBackupJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3489,44 +2709,6 @@ export const de_DescribeBackupJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeBackupJobCommandError
- */
-const de_DescribeBackupJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBackupJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyFailureException":
-    case "com.amazonaws.backup#DependencyFailureException":
-      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeBackupVaultCommand
  */
 export const de_DescribeBackupVaultCommand = async (
@@ -3534,7 +2716,7 @@ export const de_DescribeBackupVaultCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeBackupVaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3558,41 +2740,6 @@ export const de_DescribeBackupVaultCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeBackupVaultCommandError
- */
-const de_DescribeBackupVaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBackupVaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeCopyJobCommand
  */
 export const de_DescribeCopyJobCommand = async (
@@ -3600,7 +2747,7 @@ export const de_DescribeCopyJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCopyJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeCopyJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3614,41 +2761,6 @@ export const de_DescribeCopyJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeCopyJobCommandError
- */
-const de_DescribeCopyJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCopyJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeFrameworkCommand
  */
 export const de_DescribeFrameworkCommand = async (
@@ -3656,7 +2768,7 @@ export const de_DescribeFrameworkCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFrameworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeFrameworkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3677,41 +2789,6 @@ export const de_DescribeFrameworkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeFrameworkCommandError
- */
-const de_DescribeFrameworkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFrameworkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeGlobalSettingsCommand
  */
 export const de_DescribeGlobalSettingsCommand = async (
@@ -3719,7 +2796,7 @@ export const de_DescribeGlobalSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeGlobalSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeGlobalSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3734,35 +2811,6 @@ export const de_DescribeGlobalSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeGlobalSettingsCommandError
- */
-const de_DescribeGlobalSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeGlobalSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeProtectedResourceCommand
  */
 export const de_DescribeProtectedResourceCommand = async (
@@ -3770,7 +2818,7 @@ export const de_DescribeProtectedResourceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeProtectedResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeProtectedResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3792,41 +2840,6 @@ export const de_DescribeProtectedResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeProtectedResourceCommandError
- */
-const de_DescribeProtectedResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProtectedResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeRecoveryPointCommand
  */
 export const de_DescribeRecoveryPointCommand = async (
@@ -3834,7 +2847,7 @@ export const de_DescribeRecoveryPointCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRecoveryPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeRecoveryPointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3871,41 +2884,6 @@ export const de_DescribeRecoveryPointCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeRecoveryPointCommandError
- */
-const de_DescribeRecoveryPointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRecoveryPointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeRegionSettingsCommand
  */
 export const de_DescribeRegionSettingsCommand = async (
@@ -3913,7 +2891,7 @@ export const de_DescribeRegionSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRegionSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeRegionSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3928,32 +2906,6 @@ export const de_DescribeRegionSettingsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeRegionSettingsCommandError
- */
-const de_DescribeRegionSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRegionSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeReportJobCommand
  */
 export const de_DescribeReportJobCommand = async (
@@ -3961,7 +2913,7 @@ export const de_DescribeReportJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeReportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -3975,38 +2927,6 @@ export const de_DescribeReportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeReportJobCommandError
- */
-const de_DescribeReportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeReportPlanCommand
  */
 export const de_DescribeReportPlanCommand = async (
@@ -4014,7 +2934,7 @@ export const de_DescribeReportPlanCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReportPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeReportPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4028,41 +2948,6 @@ export const de_DescribeReportPlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeReportPlanCommandError
- */
-const de_DescribeReportPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReportPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeRestoreJobCommand
  */
 export const de_DescribeRestoreJobCommand = async (
@@ -4070,7 +2955,7 @@ export const de_DescribeRestoreJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRestoreJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeRestoreJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4102,44 +2987,6 @@ export const de_DescribeRestoreJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeRestoreJobCommandError
- */
-const de_DescribeRestoreJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRestoreJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyFailureException":
-    case "com.amazonaws.backup#DependencyFailureException":
-      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DisassociateRecoveryPointCommand
  */
 export const de_DisassociateRecoveryPointCommand = async (
@@ -4147,54 +2994,13 @@ export const de_DisassociateRecoveryPointCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateRecoveryPointCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateRecoveryPointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateRecoveryPointCommandError
- */
-const de_DisassociateRecoveryPointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateRecoveryPointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.backup#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4205,51 +3011,13 @@ export const de_DisassociateRecoveryPointFromParentCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateRecoveryPointFromParentCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_DisassociateRecoveryPointFromParentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DisassociateRecoveryPointFromParentCommandError
- */
-const de_DisassociateRecoveryPointFromParentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateRecoveryPointFromParentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4260,7 +3028,7 @@ export const de_ExportBackupPlanTemplateCommand = async (
   context: __SerdeContext
 ): Promise<ExportBackupPlanTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ExportBackupPlanTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4274,41 +3042,6 @@ export const de_ExportBackupPlanTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ExportBackupPlanTemplateCommandError
- */
-const de_ExportBackupPlanTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportBackupPlanTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackupPlanCommand
  */
 export const de_GetBackupPlanCommand = async (
@@ -4316,7 +3049,7 @@ export const de_GetBackupPlanCommand = async (
   context: __SerdeContext
 ): Promise<GetBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackupPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4338,41 +3071,6 @@ export const de_GetBackupPlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackupPlanCommandError
- */
-const de_GetBackupPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackupPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackupPlanFromJSONCommand
  */
 export const de_GetBackupPlanFromJSONCommand = async (
@@ -4380,7 +3078,7 @@ export const de_GetBackupPlanFromJSONCommand = async (
   context: __SerdeContext
 ): Promise<GetBackupPlanFromJSONCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackupPlanFromJSONCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4394,44 +3092,6 @@ export const de_GetBackupPlanFromJSONCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackupPlanFromJSONCommandError
- */
-const de_GetBackupPlanFromJSONCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackupPlanFromJSONCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackupPlanFromTemplateCommand
  */
 export const de_GetBackupPlanFromTemplateCommand = async (
@@ -4439,7 +3099,7 @@ export const de_GetBackupPlanFromTemplateCommand = async (
   context: __SerdeContext
 ): Promise<GetBackupPlanFromTemplateCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackupPlanFromTemplateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4453,41 +3113,6 @@ export const de_GetBackupPlanFromTemplateCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackupPlanFromTemplateCommandError
- */
-const de_GetBackupPlanFromTemplateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackupPlanFromTemplateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackupSelectionCommand
  */
 export const de_GetBackupSelectionCommand = async (
@@ -4495,7 +3120,7 @@ export const de_GetBackupSelectionCommand = async (
   context: __SerdeContext
 ): Promise<GetBackupSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackupSelectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4513,41 +3138,6 @@ export const de_GetBackupSelectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackupSelectionCommandError
- */
-const de_GetBackupSelectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackupSelectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackupVaultAccessPolicyCommand
  */
 export const de_GetBackupVaultAccessPolicyCommand = async (
@@ -4555,7 +3145,7 @@ export const de_GetBackupVaultAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetBackupVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackupVaultAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4571,41 +3161,6 @@ export const de_GetBackupVaultAccessPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackupVaultAccessPolicyCommandError
- */
-const de_GetBackupVaultAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackupVaultAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetBackupVaultNotificationsCommand
  */
 export const de_GetBackupVaultNotificationsCommand = async (
@@ -4613,7 +3168,7 @@ export const de_GetBackupVaultNotificationsCommand = async (
   context: __SerdeContext
 ): Promise<GetBackupVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetBackupVaultNotificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4630,41 +3185,6 @@ export const de_GetBackupVaultNotificationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetBackupVaultNotificationsCommandError
- */
-const de_GetBackupVaultNotificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetBackupVaultNotificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetLegalHoldCommand
  */
 export const de_GetLegalHoldCommand = async (
@@ -4672,7 +3192,7 @@ export const de_GetLegalHoldCommand = async (
   context: __SerdeContext
 ): Promise<GetLegalHoldCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLegalHoldCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4695,41 +3215,6 @@ export const de_GetLegalHoldCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetLegalHoldCommandError
- */
-const de_GetLegalHoldCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLegalHoldCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommand
  */
 export const de_GetRecoveryPointRestoreMetadataCommand = async (
@@ -4737,7 +3222,7 @@ export const de_GetRecoveryPointRestoreMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRecoveryPointRestoreMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4754,41 +3239,6 @@ export const de_GetRecoveryPointRestoreMetadataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommandError
- */
-const de_GetRecoveryPointRestoreMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRecoveryPointRestoreMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRestoreJobMetadataCommand
  */
 export const de_GetRestoreJobMetadataCommand = async (
@@ -4796,7 +3246,7 @@ export const de_GetRestoreJobMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetRestoreJobMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRestoreJobMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4811,41 +3261,6 @@ export const de_GetRestoreJobMetadataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRestoreJobMetadataCommandError
- */
-const de_GetRestoreJobMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRestoreJobMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRestoreTestingInferredMetadataCommand
  */
 export const de_GetRestoreTestingInferredMetadataCommand = async (
@@ -4853,7 +3268,7 @@ export const de_GetRestoreTestingInferredMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetRestoreTestingInferredMetadataCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRestoreTestingInferredMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4867,41 +3282,6 @@ export const de_GetRestoreTestingInferredMetadataCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRestoreTestingInferredMetadataCommandError
- */
-const de_GetRestoreTestingInferredMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRestoreTestingInferredMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRestoreTestingPlanCommand
  */
 export const de_GetRestoreTestingPlanCommand = async (
@@ -4909,7 +3289,7 @@ export const de_GetRestoreTestingPlanCommand = async (
   context: __SerdeContext
 ): Promise<GetRestoreTestingPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRestoreTestingPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4923,35 +3303,6 @@ export const de_GetRestoreTestingPlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRestoreTestingPlanCommandError
- */
-const de_GetRestoreTestingPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRestoreTestingPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetRestoreTestingSelectionCommand
  */
 export const de_GetRestoreTestingSelectionCommand = async (
@@ -4959,7 +3310,7 @@ export const de_GetRestoreTestingSelectionCommand = async (
   context: __SerdeContext
 ): Promise<GetRestoreTestingSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetRestoreTestingSelectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -4973,35 +3324,6 @@ export const de_GetRestoreTestingSelectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetRestoreTestingSelectionCommandError
- */
-const de_GetRestoreTestingSelectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRestoreTestingSelectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSupportedResourceTypesCommand
  */
 export const de_GetSupportedResourceTypesCommand = async (
@@ -5009,7 +3331,7 @@ export const de_GetSupportedResourceTypesCommand = async (
   context: __SerdeContext
 ): Promise<GetSupportedResourceTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSupportedResourceTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5023,32 +3345,6 @@ export const de_GetSupportedResourceTypesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSupportedResourceTypesCommandError
- */
-const de_GetSupportedResourceTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSupportedResourceTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBackupJobsCommand
  */
 export const de_ListBackupJobsCommand = async (
@@ -5056,7 +3352,7 @@ export const de_ListBackupJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBackupJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5071,35 +3367,6 @@ export const de_ListBackupJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBackupJobsCommandError
- */
-const de_ListBackupJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBackupJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBackupJobSummariesCommand
  */
 export const de_ListBackupJobSummariesCommand = async (
@@ -5107,7 +3374,7 @@ export const de_ListBackupJobSummariesCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupJobSummariesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBackupJobSummariesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5123,35 +3390,6 @@ export const de_ListBackupJobSummariesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBackupJobSummariesCommandError
- */
-const de_ListBackupJobSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBackupJobSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBackupPlansCommand
  */
 export const de_ListBackupPlansCommand = async (
@@ -5159,7 +3397,7 @@ export const de_ListBackupPlansCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupPlansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBackupPlansCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5174,41 +3412,6 @@ export const de_ListBackupPlansCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBackupPlansCommandError
- */
-const de_ListBackupPlansCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBackupPlansCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBackupPlanTemplatesCommand
  */
 export const de_ListBackupPlanTemplatesCommand = async (
@@ -5216,7 +3419,7 @@ export const de_ListBackupPlanTemplatesCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupPlanTemplatesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBackupPlanTemplatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5231,41 +3434,6 @@ export const de_ListBackupPlanTemplatesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBackupPlanTemplatesCommandError
- */
-const de_ListBackupPlanTemplatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBackupPlanTemplatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBackupPlanVersionsCommand
  */
 export const de_ListBackupPlanVersionsCommand = async (
@@ -5273,7 +3441,7 @@ export const de_ListBackupPlanVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupPlanVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBackupPlanVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5288,41 +3456,6 @@ export const de_ListBackupPlanVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBackupPlanVersionsCommandError
- */
-const de_ListBackupPlanVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBackupPlanVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBackupSelectionsCommand
  */
 export const de_ListBackupSelectionsCommand = async (
@@ -5330,7 +3463,7 @@ export const de_ListBackupSelectionsCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupSelectionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBackupSelectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5345,41 +3478,6 @@ export const de_ListBackupSelectionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBackupSelectionsCommandError
- */
-const de_ListBackupSelectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBackupSelectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListBackupVaultsCommand
  */
 export const de_ListBackupVaultsCommand = async (
@@ -5387,7 +3485,7 @@ export const de_ListBackupVaultsCommand = async (
   context: __SerdeContext
 ): Promise<ListBackupVaultsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListBackupVaultsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5402,41 +3500,6 @@ export const de_ListBackupVaultsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListBackupVaultsCommandError
- */
-const de_ListBackupVaultsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBackupVaultsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListCopyJobsCommand
  */
 export const de_ListCopyJobsCommand = async (
@@ -5444,7 +3507,7 @@ export const de_ListCopyJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListCopyJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCopyJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5459,35 +3522,6 @@ export const de_ListCopyJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCopyJobsCommandError
- */
-const de_ListCopyJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCopyJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListCopyJobSummariesCommand
  */
 export const de_ListCopyJobSummariesCommand = async (
@@ -5495,7 +3529,7 @@ export const de_ListCopyJobSummariesCommand = async (
   context: __SerdeContext
 ): Promise<ListCopyJobSummariesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListCopyJobSummariesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5511,35 +3545,6 @@ export const de_ListCopyJobSummariesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListCopyJobSummariesCommandError
- */
-const de_ListCopyJobSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCopyJobSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListFrameworksCommand
  */
 export const de_ListFrameworksCommand = async (
@@ -5547,7 +3552,7 @@ export const de_ListFrameworksCommand = async (
   context: __SerdeContext
 ): Promise<ListFrameworksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListFrameworksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5562,35 +3567,6 @@ export const de_ListFrameworksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListFrameworksCommandError
- */
-const de_ListFrameworksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFrameworksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListLegalHoldsCommand
  */
 export const de_ListLegalHoldsCommand = async (
@@ -5598,7 +3574,7 @@ export const de_ListLegalHoldsCommand = async (
   context: __SerdeContext
 ): Promise<ListLegalHoldsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLegalHoldsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5613,35 +3589,6 @@ export const de_ListLegalHoldsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListLegalHoldsCommandError
- */
-const de_ListLegalHoldsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLegalHoldsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListProtectedResourcesCommand
  */
 export const de_ListProtectedResourcesCommand = async (
@@ -5649,7 +3596,7 @@ export const de_ListProtectedResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListProtectedResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProtectedResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5661,35 +3608,6 @@ export const de_ListProtectedResourcesCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListProtectedResourcesCommandError
- */
-const de_ListProtectedResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProtectedResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5700,7 +3618,7 @@ export const de_ListProtectedResourcesByBackupVaultCommand = async (
   context: __SerdeContext
 ): Promise<ListProtectedResourcesByBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListProtectedResourcesByBackupVaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5715,38 +3633,6 @@ export const de_ListProtectedResourcesByBackupVaultCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListProtectedResourcesByBackupVaultCommandError
- */
-const de_ListProtectedResourcesByBackupVaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProtectedResourcesByBackupVaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommand
  */
 export const de_ListRecoveryPointsByBackupVaultCommand = async (
@@ -5754,7 +3640,7 @@ export const de_ListRecoveryPointsByBackupVaultCommand = async (
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRecoveryPointsByBackupVaultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5769,41 +3655,6 @@ export const de_ListRecoveryPointsByBackupVaultCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommandError
- */
-const de_ListRecoveryPointsByBackupVaultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecoveryPointsByBackupVaultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommand
  */
 export const de_ListRecoveryPointsByLegalHoldCommand = async (
@@ -5811,7 +3662,7 @@ export const de_ListRecoveryPointsByLegalHoldCommand = async (
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByLegalHoldCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRecoveryPointsByLegalHoldCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5826,38 +3677,6 @@ export const de_ListRecoveryPointsByLegalHoldCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommandError
- */
-const de_ListRecoveryPointsByLegalHoldCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecoveryPointsByLegalHoldCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRecoveryPointsByResourceCommand
  */
 export const de_ListRecoveryPointsByResourceCommand = async (
@@ -5865,7 +3684,7 @@ export const de_ListRecoveryPointsByResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRecoveryPointsByResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5880,41 +3699,6 @@ export const de_ListRecoveryPointsByResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRecoveryPointsByResourceCommandError
- */
-const de_ListRecoveryPointsByResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecoveryPointsByResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListReportJobsCommand
  */
 export const de_ListReportJobsCommand = async (
@@ -5922,7 +3706,7 @@ export const de_ListReportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListReportJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListReportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5937,38 +3721,6 @@ export const de_ListReportJobsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListReportJobsCommandError
- */
-const de_ListReportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListReportPlansCommand
  */
 export const de_ListReportPlansCommand = async (
@@ -5976,7 +3728,7 @@ export const de_ListReportPlansCommand = async (
   context: __SerdeContext
 ): Promise<ListReportPlansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListReportPlansCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -5991,35 +3743,6 @@ export const de_ListReportPlansCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListReportPlansCommandError
- */
-const de_ListReportPlansCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReportPlansCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRestoreJobsCommand
  */
 export const de_ListRestoreJobsCommand = async (
@@ -6027,7 +3750,7 @@ export const de_ListRestoreJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListRestoreJobsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRestoreJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6039,41 +3762,6 @@ export const de_ListRestoreJobsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListRestoreJobsCommandError
- */
-const de_ListRestoreJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRestoreJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6084,7 +3772,7 @@ export const de_ListRestoreJobsByProtectedResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListRestoreJobsByProtectedResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRestoreJobsByProtectedResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6099,41 +3787,6 @@ export const de_ListRestoreJobsByProtectedResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRestoreJobsByProtectedResourceCommandError
- */
-const de_ListRestoreJobsByProtectedResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRestoreJobsByProtectedResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRestoreJobSummariesCommand
  */
 export const de_ListRestoreJobSummariesCommand = async (
@@ -6141,7 +3794,7 @@ export const de_ListRestoreJobSummariesCommand = async (
   context: __SerdeContext
 ): Promise<ListRestoreJobSummariesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRestoreJobSummariesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6157,35 +3810,6 @@ export const de_ListRestoreJobSummariesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRestoreJobSummariesCommandError
- */
-const de_ListRestoreJobSummariesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRestoreJobSummariesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRestoreTestingPlansCommand
  */
 export const de_ListRestoreTestingPlansCommand = async (
@@ -6193,7 +3817,7 @@ export const de_ListRestoreTestingPlansCommand = async (
   context: __SerdeContext
 ): Promise<ListRestoreTestingPlansCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRestoreTestingPlansCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6208,35 +3832,6 @@ export const de_ListRestoreTestingPlansCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRestoreTestingPlansCommandError
- */
-const de_ListRestoreTestingPlansCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRestoreTestingPlansCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListRestoreTestingSelectionsCommand
  */
 export const de_ListRestoreTestingSelectionsCommand = async (
@@ -6244,7 +3839,7 @@ export const de_ListRestoreTestingSelectionsCommand = async (
   context: __SerdeContext
 ): Promise<ListRestoreTestingSelectionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListRestoreTestingSelectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6259,38 +3854,6 @@ export const de_ListRestoreTestingSelectionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListRestoreTestingSelectionsCommandError
- */
-const de_ListRestoreTestingSelectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRestoreTestingSelectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsCommand
  */
 export const de_ListTagsCommand = async (
@@ -6298,7 +3861,7 @@ export const de_ListTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6313,41 +3876,6 @@ export const de_ListTagsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsCommandError
- */
-const de_ListTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutBackupVaultAccessPolicyCommand
  */
 export const de_PutBackupVaultAccessPolicyCommand = async (
@@ -6355,48 +3883,13 @@ export const de_PutBackupVaultAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutBackupVaultAccessPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutBackupVaultAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutBackupVaultAccessPolicyCommandError
- */
-const de_PutBackupVaultAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutBackupVaultAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6407,51 +3900,13 @@ export const de_PutBackupVaultLockConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<PutBackupVaultLockConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutBackupVaultLockConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutBackupVaultLockConfigurationCommandError
- */
-const de_PutBackupVaultLockConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutBackupVaultLockConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6462,48 +3917,13 @@ export const de_PutBackupVaultNotificationsCommand = async (
   context: __SerdeContext
 ): Promise<PutBackupVaultNotificationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutBackupVaultNotificationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutBackupVaultNotificationsCommandError
- */
-const de_PutBackupVaultNotificationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutBackupVaultNotificationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6514,51 +3934,13 @@ export const de_PutRestoreValidationResultCommand = async (
   context: __SerdeContext
 ): Promise<PutRestoreValidationResultCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
-    return de_PutRestoreValidationResultCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutRestoreValidationResultCommandError
- */
-const de_PutRestoreValidationResultCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRestoreValidationResultCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6569,7 +3951,7 @@ export const de_StartBackupJobCommand = async (
   context: __SerdeContext
 ): Promise<StartBackupJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartBackupJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6586,47 +3968,6 @@ export const de_StartBackupJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartBackupJobCommandError
- */
-const de_StartBackupJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartBackupJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartCopyJobCommand
  */
 export const de_StartCopyJobCommand = async (
@@ -6634,7 +3975,7 @@ export const de_StartCopyJobCommand = async (
   context: __SerdeContext
 ): Promise<StartCopyJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartCopyJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6650,47 +3991,6 @@ export const de_StartCopyJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartCopyJobCommandError
- */
-const de_StartCopyJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartCopyJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartReportJobCommand
  */
 export const de_StartReportJobCommand = async (
@@ -6698,7 +3998,7 @@ export const de_StartReportJobCommand = async (
   context: __SerdeContext
 ): Promise<StartReportJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartReportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6712,41 +4012,6 @@ export const de_StartReportJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartReportJobCommandError
- */
-const de_StartReportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StartRestoreJobCommand
  */
 export const de_StartRestoreJobCommand = async (
@@ -6754,7 +4019,7 @@ export const de_StartRestoreJobCommand = async (
   context: __SerdeContext
 ): Promise<StartRestoreJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartRestoreJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6768,44 +4033,6 @@ export const de_StartRestoreJobCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartRestoreJobCommandError
- */
-const de_StartRestoreJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartRestoreJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1StopBackupJobCommand
  */
 export const de_StopBackupJobCommand = async (
@@ -6813,51 +4040,13 @@ export const de_StopBackupJobCommand = async (
   context: __SerdeContext
 ): Promise<StopBackupJobCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StopBackupJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1StopBackupJobCommandError
- */
-const de_StopBackupJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopBackupJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6868,51 +4057,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6923,48 +4074,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6975,7 +4091,7 @@ export const de_UpdateBackupPlanCommand = async (
   context: __SerdeContext
 ): Promise<UpdateBackupPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateBackupPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -6993,41 +4109,6 @@ export const de_UpdateBackupPlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateBackupPlanCommandError
- */
-const de_UpdateBackupPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBackupPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateFrameworkCommand
  */
 export const de_UpdateFrameworkCommand = async (
@@ -7035,7 +4116,7 @@ export const de_UpdateFrameworkCommand = async (
   context: __SerdeContext
 ): Promise<UpdateFrameworkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateFrameworkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7051,50 +4132,6 @@ export const de_UpdateFrameworkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateFrameworkCommandError
- */
-const de_UpdateFrameworkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateFrameworkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlreadyExistsException":
-    case "com.amazonaws.backup#AlreadyExistsException":
-      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.backup#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.backup#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateGlobalSettingsCommand
  */
 export const de_UpdateGlobalSettingsCommand = async (
@@ -7102,48 +4139,13 @@ export const de_UpdateGlobalSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGlobalSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateGlobalSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateGlobalSettingsCommandError
- */
-const de_UpdateGlobalSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGlobalSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7154,7 +4156,7 @@ export const de_UpdateRecoveryPointLifecycleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRecoveryPointLifecycleCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRecoveryPointLifecycleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7171,44 +4173,6 @@ export const de_UpdateRecoveryPointLifecycleCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRecoveryPointLifecycleCommandError
- */
-const de_UpdateRecoveryPointLifecycleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRecoveryPointLifecycleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRequestException":
-    case "com.amazonaws.backup#InvalidRequestException":
-      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateRegionSettingsCommand
  */
 export const de_UpdateRegionSettingsCommand = async (
@@ -7216,45 +4180,13 @@ export const de_UpdateRegionSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRegionSettingsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRegionSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateRegionSettingsCommandError
- */
-const de_UpdateRegionSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRegionSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -7265,7 +4197,7 @@ export const de_UpdateReportPlanCommand = async (
   context: __SerdeContext
 ): Promise<UpdateReportPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateReportPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7281,44 +4213,6 @@ export const de_UpdateReportPlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateReportPlanCommandError
- */
-const de_UpdateReportPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateReportPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.backup#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateRestoreTestingPlanCommand
  */
 export const de_UpdateRestoreTestingPlanCommand = async (
@@ -7326,7 +4220,7 @@ export const de_UpdateRestoreTestingPlanCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRestoreTestingPlanCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRestoreTestingPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7343,44 +4237,6 @@ export const de_UpdateRestoreTestingPlanCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRestoreTestingPlanCommandError
- */
-const de_UpdateRestoreTestingPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRestoreTestingPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.backup#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.backup#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MissingParameterValueException":
-    case "com.amazonaws.backup#MissingParameterValueException":
-      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.backup#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.backup#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateRestoreTestingSelectionCommand
  */
 export const de_UpdateRestoreTestingSelectionCommand = async (
@@ -7388,7 +4244,7 @@ export const de_UpdateRestoreTestingSelectionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRestoreTestingSelectionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateRestoreTestingSelectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -7406,24 +4262,21 @@ export const de_UpdateRestoreTestingSelectionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateRestoreTestingSelectionCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateRestoreTestingSelectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRestoreTestingSelectionCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.backup#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidResourceStateException":
+    case "com.amazonaws.backup#InvalidResourceStateException":
+      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
       throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
@@ -7433,13 +4286,28 @@ const de_UpdateRestoreTestingSelectionCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "AlreadyExistsException":
+    case "com.amazonaws.backup#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.backup#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.backup#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "DependencyFailureException":
+    case "com.amazonaws.backup#DependencyFailureException":
+      throw await de_DependencyFailureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

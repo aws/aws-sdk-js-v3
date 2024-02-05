@@ -446,7 +446,7 @@ export const de_CreateBudgetCommand = async (
   context: __SerdeContext
 ): Promise<CreateBudgetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBudgetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -459,47 +459,6 @@ export const de_CreateBudgetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBudgetCommandError
- */
-const de_CreateBudgetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBudgetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "CreationLimitExceededException":
-    case "com.amazonaws.budgets#CreationLimitExceededException":
-      throw await de_CreationLimitExceededExceptionRes(parsedOutput, context);
-    case "DuplicateRecordException":
-    case "com.amazonaws.budgets#DuplicateRecordException":
-      throw await de_DuplicateRecordExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateBudgetActionCommand
  */
 export const de_CreateBudgetActionCommand = async (
@@ -507,7 +466,7 @@ export const de_CreateBudgetActionCommand = async (
   context: __SerdeContext
 ): Promise<CreateBudgetActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBudgetActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -520,50 +479,6 @@ export const de_CreateBudgetActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBudgetActionCommandError
- */
-const de_CreateBudgetActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBudgetActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "CreationLimitExceededException":
-    case "com.amazonaws.budgets#CreationLimitExceededException":
-      throw await de_CreationLimitExceededExceptionRes(parsedOutput, context);
-    case "DuplicateRecordException":
-    case "com.amazonaws.budgets#DuplicateRecordException":
-      throw await de_DuplicateRecordExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateNotificationCommand
  */
 export const de_CreateNotificationCommand = async (
@@ -571,7 +486,7 @@ export const de_CreateNotificationCommand = async (
   context: __SerdeContext
 ): Promise<CreateNotificationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateNotificationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -584,50 +499,6 @@ export const de_CreateNotificationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateNotificationCommandError
- */
-const de_CreateNotificationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateNotificationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "CreationLimitExceededException":
-    case "com.amazonaws.budgets#CreationLimitExceededException":
-      throw await de_CreationLimitExceededExceptionRes(parsedOutput, context);
-    case "DuplicateRecordException":
-    case "com.amazonaws.budgets#DuplicateRecordException":
-      throw await de_DuplicateRecordExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSubscriberCommand
  */
 export const de_CreateSubscriberCommand = async (
@@ -635,7 +506,7 @@ export const de_CreateSubscriberCommand = async (
   context: __SerdeContext
 ): Promise<CreateSubscriberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSubscriberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -648,12 +519,389 @@ export const de_CreateSubscriberCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSubscriberCommandError
+ * deserializeAws_json1_1DeleteBudgetCommand
  */
-const de_CreateSubscriberCommandError = async (
+export const de_DeleteBudgetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateSubscriberCommandOutput> => {
+): Promise<DeleteBudgetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteBudgetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteBudgetActionCommand
+ */
+export const de_DeleteBudgetActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBudgetActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteBudgetActionResponse(data, context);
+  const response: DeleteBudgetActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteNotificationCommand
+ */
+export const de_DeleteNotificationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteNotificationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteNotificationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteSubscriberCommand
+ */
+export const de_DeleteSubscriberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteSubscriberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteSubscriberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBudgetCommand
+ */
+export const de_DescribeBudgetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBudgetResponse(data, context);
+  const response: DescribeBudgetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBudgetActionCommand
+ */
+export const de_DescribeBudgetActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBudgetActionResponse(data, context);
+  const response: DescribeBudgetActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBudgetActionHistoriesCommand
+ */
+export const de_DescribeBudgetActionHistoriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetActionHistoriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBudgetActionHistoriesResponse(data, context);
+  const response: DescribeBudgetActionHistoriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBudgetActionsForAccountCommand
+ */
+export const de_DescribeBudgetActionsForAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetActionsForAccountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBudgetActionsForAccountResponse(data, context);
+  const response: DescribeBudgetActionsForAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBudgetActionsForBudgetCommand
+ */
+export const de_DescribeBudgetActionsForBudgetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetActionsForBudgetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBudgetActionsForBudgetResponse(data, context);
+  const response: DescribeBudgetActionsForBudgetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBudgetNotificationsForAccountCommand
+ */
+export const de_DescribeBudgetNotificationsForAccountCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetNotificationsForAccountCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBudgetNotificationsForAccountResponse(data, context);
+  const response: DescribeBudgetNotificationsForAccountCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand
+ */
+export const de_DescribeBudgetPerformanceHistoryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetPerformanceHistoryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBudgetPerformanceHistoryResponse(data, context);
+  const response: DescribeBudgetPerformanceHistoryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBudgetsCommand
+ */
+export const de_DescribeBudgetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBudgetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBudgetsResponse(data, context);
+  const response: DescribeBudgetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeNotificationsForBudgetCommand
+ */
+export const de_DescribeNotificationsForBudgetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNotificationsForBudgetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeNotificationsForBudgetResponse(data, context);
+  const response: DescribeNotificationsForBudgetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeSubscribersForNotificationCommand
+ */
+export const de_DescribeSubscribersForNotificationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSubscribersForNotificationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeSubscribersForNotificationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ExecuteBudgetActionCommand
+ */
+export const de_ExecuteBudgetActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteBudgetActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ExecuteBudgetActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateBudgetCommand
+ */
+export const de_UpdateBudgetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBudgetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateBudgetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateBudgetActionCommand
+ */
+export const de_UpdateBudgetActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateBudgetActionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateBudgetActionResponse(data, context);
+  const response: UpdateBudgetActionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateNotificationCommand
+ */
+export const de_UpdateNotificationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateNotificationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateNotificationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSubscriberCommand
+ */
+export const de_UpdateSubscriberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSubscriberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSubscriberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -675,1172 +923,28 @@ const de_CreateSubscriberCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.budgets#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.budgets#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteBudgetCommand
- */
-export const de_DeleteBudgetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBudgetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteBudgetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteBudgetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteBudgetCommandError
- */
-const de_DeleteBudgetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBudgetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteBudgetActionCommand
- */
-export const de_DeleteBudgetActionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBudgetActionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteBudgetActionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DeleteBudgetActionResponse(data, context);
-  const response: DeleteBudgetActionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteBudgetActionCommandError
- */
-const de_DeleteBudgetActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteBudgetActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.budgets#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "ResourceLockedException":
     case "com.amazonaws.budgets#ResourceLockedException":
       throw await de_ResourceLockedExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteNotificationCommand
- */
-export const de_DeleteNotificationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNotificationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteNotificationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteNotificationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteNotificationCommandError
- */
-const de_DeleteNotificationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteNotificationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteSubscriberCommand
- */
-export const de_DeleteSubscriberCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSubscriberCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteSubscriberCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteSubscriberCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteSubscriberCommandError
- */
-const de_DeleteSubscriberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSubscriberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetCommand
- */
-export const de_DescribeBudgetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBudgetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeBudgetResponse(data, context);
-  const response: DescribeBudgetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetCommandError
- */
-const de_DescribeBudgetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetActionCommand
- */
-export const de_DescribeBudgetActionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetActionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBudgetActionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeBudgetActionResponse(data, context);
-  const response: DescribeBudgetActionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetActionCommandError
- */
-const de_DescribeBudgetActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetActionHistoriesCommand
- */
-export const de_DescribeBudgetActionHistoriesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetActionHistoriesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBudgetActionHistoriesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeBudgetActionHistoriesResponse(data, context);
-  const response: DescribeBudgetActionHistoriesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetActionHistoriesCommandError
- */
-const de_DescribeBudgetActionHistoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetActionHistoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.budgets#InvalidNextTokenException":
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetActionsForAccountCommand
- */
-export const de_DescribeBudgetActionsForAccountCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetActionsForAccountCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBudgetActionsForAccountCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeBudgetActionsForAccountResponse(data, context);
-  const response: DescribeBudgetActionsForAccountCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetActionsForAccountCommandError
- */
-const de_DescribeBudgetActionsForAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetActionsForAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.budgets#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetActionsForBudgetCommand
- */
-export const de_DescribeBudgetActionsForBudgetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetActionsForBudgetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBudgetActionsForBudgetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeBudgetActionsForBudgetResponse(data, context);
-  const response: DescribeBudgetActionsForBudgetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetActionsForBudgetCommandError
- */
-const de_DescribeBudgetActionsForBudgetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetActionsForBudgetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.budgets#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetNotificationsForAccountCommand
- */
-export const de_DescribeBudgetNotificationsForAccountCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetNotificationsForAccountCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBudgetNotificationsForAccountCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeBudgetNotificationsForAccountResponse(data, context);
-  const response: DescribeBudgetNotificationsForAccountCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetNotificationsForAccountCommandError
- */
-const de_DescribeBudgetNotificationsForAccountCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetNotificationsForAccountCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ExpiredNextTokenException":
     case "com.amazonaws.budgets#ExpiredNextTokenException":
       throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.budgets#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand
- */
-export const de_DescribeBudgetPerformanceHistoryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetPerformanceHistoryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBudgetPerformanceHistoryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeBudgetPerformanceHistoryResponse(data, context);
-  const response: DescribeBudgetPerformanceHistoryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommandError
- */
-const de_DescribeBudgetPerformanceHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetPerformanceHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ExpiredNextTokenException":
-    case "com.amazonaws.budgets#ExpiredNextTokenException":
-      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.budgets#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetsCommand
- */
-export const de_DescribeBudgetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeBudgetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeBudgetsResponse(data, context);
-  const response: DescribeBudgetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeBudgetsCommandError
- */
-const de_DescribeBudgetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBudgetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ExpiredNextTokenException":
-    case "com.amazonaws.budgets#ExpiredNextTokenException":
-      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.budgets#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeNotificationsForBudgetCommand
- */
-export const de_DescribeNotificationsForBudgetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNotificationsForBudgetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeNotificationsForBudgetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeNotificationsForBudgetResponse(data, context);
-  const response: DescribeNotificationsForBudgetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeNotificationsForBudgetCommandError
- */
-const de_DescribeNotificationsForBudgetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeNotificationsForBudgetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ExpiredNextTokenException":
-    case "com.amazonaws.budgets#ExpiredNextTokenException":
-      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.budgets#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeSubscribersForNotificationCommand
- */
-export const de_DescribeSubscribersForNotificationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSubscribersForNotificationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeSubscribersForNotificationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DescribeSubscribersForNotificationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeSubscribersForNotificationCommandError
- */
-const de_DescribeSubscribersForNotificationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSubscribersForNotificationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ExpiredNextTokenException":
-    case "com.amazonaws.budgets#ExpiredNextTokenException":
-      throw await de_ExpiredNextTokenExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.budgets#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ExecuteBudgetActionCommand
- */
-export const de_ExecuteBudgetActionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteBudgetActionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ExecuteBudgetActionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ExecuteBudgetActionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ExecuteBudgetActionCommandError
- */
-const de_ExecuteBudgetActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExecuteBudgetActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceLockedException":
-    case "com.amazonaws.budgets#ResourceLockedException":
-      throw await de_ResourceLockedExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateBudgetCommand
- */
-export const de_UpdateBudgetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBudgetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateBudgetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateBudgetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateBudgetCommandError
- */
-const de_UpdateBudgetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBudgetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateBudgetActionCommand
- */
-export const de_UpdateBudgetActionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBudgetActionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateBudgetActionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateBudgetActionResponse(data, context);
-  const response: UpdateBudgetActionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateBudgetActionCommandError
- */
-const de_UpdateBudgetActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateBudgetActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ResourceLockedException":
-    case "com.amazonaws.budgets#ResourceLockedException":
-      throw await de_ResourceLockedExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateNotificationCommand
- */
-export const de_UpdateNotificationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNotificationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateNotificationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateNotificationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateNotificationCommandError
- */
-const de_UpdateNotificationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateNotificationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DuplicateRecordException":
-    case "com.amazonaws.budgets#DuplicateRecordException":
-      throw await de_DuplicateRecordExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSubscriberCommand
- */
-export const de_UpdateSubscriberCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSubscriberCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSubscriberCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateSubscriberCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSubscriberCommandError
- */
-const de_UpdateSubscriberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSubscriberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.budgets#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "DuplicateRecordException":
-    case "com.amazonaws.budgets#DuplicateRecordException":
-      throw await de_DuplicateRecordExceptionRes(parsedOutput, context);
-    case "InternalErrorException":
-    case "com.amazonaws.budgets#InternalErrorException":
-      throw await de_InternalErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.budgets#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "NotFoundException":
-    case "com.amazonaws.budgets#NotFoundException":
-      throw await de_NotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.budgets#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

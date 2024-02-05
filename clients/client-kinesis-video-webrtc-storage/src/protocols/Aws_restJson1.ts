@@ -55,7 +55,7 @@ export const de_JoinStorageSessionCommand = async (
   context: __SerdeContext
 ): Promise<JoinStorageSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_JoinStorageSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -65,12 +65,9 @@ export const de_JoinStorageSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1JoinStorageSessionCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_JoinStorageSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<JoinStorageSessionCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -95,7 +92,7 @@ const de_JoinStorageSessionCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

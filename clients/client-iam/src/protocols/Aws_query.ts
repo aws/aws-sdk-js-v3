@@ -3431,48 +3431,13 @@ export const de_AddClientIDToOpenIDConnectProviderCommand = async (
   context: __SerdeContext
 ): Promise<AddClientIDToOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddClientIDToOpenIDConnectProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddClientIDToOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError
- */
-const de_AddClientIDToOpenIDConnectProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddClientIDToOpenIDConnectProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3483,51 +3448,13 @@ export const de_AddRoleToInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<AddRoleToInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddRoleToInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddRoleToInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryAddRoleToInstanceProfileCommandError
- */
-const de_AddRoleToInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddRoleToInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnmodifiableEntity":
-    case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3538,45 +3465,13 @@ export const de_AddUserToGroupCommand = async (
   context: __SerdeContext
 ): Promise<AddUserToGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddUserToGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddUserToGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryAddUserToGroupCommandError
- */
-const de_AddUserToGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddUserToGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3587,51 +3482,13 @@ export const de_AttachGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<AttachGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AttachGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryAttachGroupPolicyCommandError
- */
-const de_AttachGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "PolicyNotAttachable":
-    case "com.amazonaws.iam#PolicyNotAttachableException":
-      throw await de_PolicyNotAttachableExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3642,54 +3499,13 @@ export const de_AttachRolePolicyCommand = async (
   context: __SerdeContext
 ): Promise<AttachRolePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachRolePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AttachRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryAttachRolePolicyCommandError
- */
-const de_AttachRolePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachRolePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "PolicyNotAttachable":
-    case "com.amazonaws.iam#PolicyNotAttachableException":
-      throw await de_PolicyNotAttachableExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnmodifiableEntity":
-    case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3700,51 +3516,13 @@ export const de_AttachUserPolicyCommand = async (
   context: __SerdeContext
 ): Promise<AttachUserPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AttachUserPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AttachUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryAttachUserPolicyCommandError
- */
-const de_AttachUserPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AttachUserPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "PolicyNotAttachable":
-    case "com.amazonaws.iam#PolicyNotAttachableException":
-      throw await de_PolicyNotAttachableExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3755,54 +3533,13 @@ export const de_ChangePasswordCommand = async (
   context: __SerdeContext
 ): Promise<ChangePasswordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ChangePasswordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ChangePasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryChangePasswordCommandError
- */
-const de_ChangePasswordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ChangePasswordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityTemporarilyUnmodifiable":
-    case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
-    case "InvalidUserType":
-    case "com.amazonaws.iam#InvalidUserTypeException":
-      throw await de_InvalidUserTypeExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "PasswordPolicyViolation":
-    case "com.amazonaws.iam#PasswordPolicyViolationException":
-      throw await de_PasswordPolicyViolationExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3813,7 +3550,7 @@ export const de_CreateAccessKeyCommand = async (
   context: __SerdeContext
 ): Promise<CreateAccessKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAccessKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3826,38 +3563,6 @@ export const de_CreateAccessKeyCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateAccessKeyCommandError
- */
-const de_CreateAccessKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAccessKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateAccountAliasCommand
  */
 export const de_CreateAccountAliasCommand = async (
@@ -3865,48 +3570,13 @@ export const de_CreateAccountAliasCommand = async (
   context: __SerdeContext
 ): Promise<CreateAccountAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAccountAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: CreateAccountAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryCreateAccountAliasCommandError
- */
-const de_CreateAccountAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAccountAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3917,7 +3587,7 @@ export const de_CreateGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3930,41 +3600,6 @@ export const de_CreateGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateGroupCommandError
- */
-const de_CreateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateInstanceProfileCommand
  */
 export const de_CreateInstanceProfileCommand = async (
@@ -3972,7 +3607,7 @@ export const de_CreateInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3985,44 +3620,6 @@ export const de_CreateInstanceProfileCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateInstanceProfileCommandError
- */
-const de_CreateInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateLoginProfileCommand
  */
 export const de_CreateLoginProfileCommand = async (
@@ -4030,7 +3627,7 @@ export const de_CreateLoginProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateLoginProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLoginProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4043,44 +3640,6 @@ export const de_CreateLoginProfileCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateLoginProfileCommandError
- */
-const de_CreateLoginProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLoginProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "PasswordPolicyViolation":
-    case "com.amazonaws.iam#PasswordPolicyViolationException":
-      throw await de_PasswordPolicyViolationExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateOpenIDConnectProviderCommand
  */
 export const de_CreateOpenIDConnectProviderCommand = async (
@@ -4088,7 +3647,7 @@ export const de_CreateOpenIDConnectProviderCommand = async (
   context: __SerdeContext
 ): Promise<CreateOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateOpenIDConnectProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4101,44 +3660,6 @@ export const de_CreateOpenIDConnectProviderCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateOpenIDConnectProviderCommandError
- */
-const de_CreateOpenIDConnectProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateOpenIDConnectProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreatePolicyCommand
  */
 export const de_CreatePolicyCommand = async (
@@ -4146,7 +3667,7 @@ export const de_CreatePolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreatePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4159,47 +3680,6 @@ export const de_CreatePolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryCreatePolicyCommandError
- */
-const de_CreatePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreatePolicyVersionCommand
  */
 export const de_CreatePolicyVersionCommand = async (
@@ -4207,7 +3687,7 @@ export const de_CreatePolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreatePolicyVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePolicyVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4220,44 +3700,6 @@ export const de_CreatePolicyVersionCommand = async (
 };
 
 /**
- * deserializeAws_queryCreatePolicyVersionCommandError
- */
-const de_CreatePolicyVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePolicyVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateRoleCommand
  */
 export const de_CreateRoleCommand = async (
@@ -4265,7 +3707,7 @@ export const de_CreateRoleCommand = async (
   context: __SerdeContext
 ): Promise<CreateRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4278,47 +3720,6 @@ export const de_CreateRoleCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateRoleCommandError
- */
-const de_CreateRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateSAMLProviderCommand
  */
 export const de_CreateSAMLProviderCommand = async (
@@ -4326,7 +3727,7 @@ export const de_CreateSAMLProviderCommand = async (
   context: __SerdeContext
 ): Promise<CreateSAMLProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSAMLProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4339,44 +3740,6 @@ export const de_CreateSAMLProviderCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateSAMLProviderCommandError
- */
-const de_CreateSAMLProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSAMLProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateServiceLinkedRoleCommand
  */
 export const de_CreateServiceLinkedRoleCommand = async (
@@ -4384,7 +3747,7 @@ export const de_CreateServiceLinkedRoleCommand = async (
   context: __SerdeContext
 ): Promise<CreateServiceLinkedRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateServiceLinkedRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4397,41 +3760,6 @@ export const de_CreateServiceLinkedRoleCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateServiceLinkedRoleCommandError
- */
-const de_CreateServiceLinkedRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServiceLinkedRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateServiceSpecificCredentialCommand
  */
 export const de_CreateServiceSpecificCredentialCommand = async (
@@ -4439,7 +3767,7 @@ export const de_CreateServiceSpecificCredentialCommand = async (
   context: __SerdeContext
 ): Promise<CreateServiceSpecificCredentialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateServiceSpecificCredentialCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4452,38 +3780,6 @@ export const de_CreateServiceSpecificCredentialCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateServiceSpecificCredentialCommandError
- */
-const de_CreateServiceSpecificCredentialCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateServiceSpecificCredentialCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "NotSupportedService":
-    case "com.amazonaws.iam#ServiceNotSupportedException":
-      throw await de_ServiceNotSupportedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateUserCommand
  */
 export const de_CreateUserCommand = async (
@@ -4491,7 +3787,7 @@ export const de_CreateUserCommand = async (
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4504,47 +3800,6 @@ export const de_CreateUserCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateUserCommandError
- */
-const de_CreateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryCreateVirtualMFADeviceCommand
  */
 export const de_CreateVirtualMFADeviceCommand = async (
@@ -4552,7 +3807,7 @@ export const de_CreateVirtualMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<CreateVirtualMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVirtualMFADeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4565,44 +3820,6 @@ export const de_CreateVirtualMFADeviceCommand = async (
 };
 
 /**
- * deserializeAws_queryCreateVirtualMFADeviceCommandError
- */
-const de_CreateVirtualMFADeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVirtualMFADeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeactivateMFADeviceCommand
  */
 export const de_DeactivateMFADeviceCommand = async (
@@ -4610,51 +3827,13 @@ export const de_DeactivateMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<DeactivateMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeactivateMFADeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeactivateMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeactivateMFADeviceCommandError
- */
-const de_DeactivateMFADeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeactivateMFADeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityTemporarilyUnmodifiable":
-    case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4665,45 +3844,13 @@ export const de_DeleteAccessKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccessKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAccessKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAccessKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteAccessKeyCommandError
- */
-const de_DeleteAccessKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccessKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4714,48 +3861,13 @@ export const de_DeleteAccountAliasCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccountAliasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAccountAliasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAccountAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteAccountAliasCommandError
- */
-const de_DeleteAccountAliasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccountAliasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4766,45 +3878,13 @@ export const de_DeleteAccountPasswordPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccountPasswordPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAccountPasswordPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAccountPasswordPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteAccountPasswordPolicyCommandError
- */
-const de_DeleteAccountPasswordPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccountPasswordPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4815,48 +3895,13 @@ export const de_DeleteGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteGroupCommandError
- */
-const de_DeleteGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeleteConflict":
-    case "com.amazonaws.iam#DeleteConflictException":
-      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4867,45 +3912,13 @@ export const de_DeleteGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteGroupPolicyCommandError
- */
-const de_DeleteGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4916,48 +3929,13 @@ export const de_DeleteInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteInstanceProfileCommandError
- */
-const de_DeleteInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeleteConflict":
-    case "com.amazonaws.iam#DeleteConflictException":
-      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4968,48 +3946,13 @@ export const de_DeleteLoginProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLoginProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLoginProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteLoginProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteLoginProfileCommandError
- */
-const de_DeleteLoginProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLoginProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityTemporarilyUnmodifiable":
-    case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5020,45 +3963,13 @@ export const de_DeleteOpenIDConnectProviderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteOpenIDConnectProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteOpenIDConnectProviderCommandError
- */
-const de_DeleteOpenIDConnectProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOpenIDConnectProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5069,51 +3980,13 @@ export const de_DeletePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeletePolicyCommandError
- */
-const de_DeletePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeleteConflict":
-    case "com.amazonaws.iam#DeleteConflictException":
-      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5124,51 +3997,13 @@ export const de_DeletePolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeletePolicyVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePolicyVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeletePolicyVersionCommandError
- */
-const de_DeletePolicyVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePolicyVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeleteConflict":
-    case "com.amazonaws.iam#DeleteConflictException":
-      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5179,54 +4014,13 @@ export const de_DeleteRoleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteRoleCommandError
- */
-const de_DeleteRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "DeleteConflict":
-    case "com.amazonaws.iam#DeleteConflictException":
-      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnmodifiableEntity":
-    case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5237,45 +4031,13 @@ export const de_DeleteRolePermissionsBoundaryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRolePermissionsBoundaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRolePermissionsBoundaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRolePermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteRolePermissionsBoundaryCommandError
- */
-const de_DeleteRolePermissionsBoundaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRolePermissionsBoundaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnmodifiableEntity":
-    case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5286,48 +4048,13 @@ export const de_DeleteRolePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRolePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRolePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteRolePolicyCommandError
- */
-const de_DeleteRolePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRolePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnmodifiableEntity":
-    case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5338,48 +4065,13 @@ export const de_DeleteSAMLProviderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSAMLProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSAMLProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteSAMLProviderCommandError
- */
-const de_DeleteSAMLProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSAMLProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5390,48 +4082,13 @@ export const de_DeleteServerCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteServerCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteServerCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteServerCertificateCommandError
- */
-const de_DeleteServerCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServerCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeleteConflict":
-    case "com.amazonaws.iam#DeleteConflictException":
-      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5442,7 +4099,7 @@ export const de_DeleteServiceLinkedRoleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteServiceLinkedRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteServiceLinkedRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5455,38 +4112,6 @@ export const de_DeleteServiceLinkedRoleCommand = async (
 };
 
 /**
- * deserializeAws_queryDeleteServiceLinkedRoleCommandError
- */
-const de_DeleteServiceLinkedRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServiceLinkedRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryDeleteServiceSpecificCredentialCommand
  */
 export const de_DeleteServiceSpecificCredentialCommand = async (
@@ -5494,39 +4119,13 @@ export const de_DeleteServiceSpecificCredentialCommand = async (
   context: __SerdeContext
 ): Promise<DeleteServiceSpecificCredentialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteServiceSpecificCredentialCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteServiceSpecificCredentialCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteServiceSpecificCredentialCommandError
- */
-const de_DeleteServiceSpecificCredentialCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteServiceSpecificCredentialCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5537,48 +4136,13 @@ export const de_DeleteSigningCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSigningCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSigningCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteSigningCertificateCommandError
- */
-const de_DeleteSigningCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSigningCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5589,39 +4153,13 @@ export const de_DeleteSSHPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSSHPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSSHPublicKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteSSHPublicKeyCommandError
- */
-const de_DeleteSSHPublicKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSSHPublicKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5632,51 +4170,13 @@ export const de_DeleteUserCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteUserCommandError
- */
-const de_DeleteUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "DeleteConflict":
-    case "com.amazonaws.iam#DeleteConflictException":
-      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5687,42 +4187,13 @@ export const de_DeleteUserPermissionsBoundaryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserPermissionsBoundaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserPermissionsBoundaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserPermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteUserPermissionsBoundaryCommandError
- */
-const de_DeleteUserPermissionsBoundaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserPermissionsBoundaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5733,45 +4204,13 @@ export const de_DeleteUserPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteUserPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteUserPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteUserPolicyCommandError
- */
-const de_DeleteUserPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5782,51 +4221,13 @@ export const de_DeleteVirtualMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVirtualMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVirtualMFADeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteVirtualMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDeleteVirtualMFADeviceCommandError
- */
-const de_DeleteVirtualMFADeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVirtualMFADeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "DeleteConflict":
-    case "com.amazonaws.iam#DeleteConflictException":
-      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5837,48 +4238,13 @@ export const de_DetachGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DetachGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DetachGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDetachGroupPolicyCommandError
- */
-const de_DetachGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5889,51 +4255,13 @@ export const de_DetachRolePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DetachRolePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachRolePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DetachRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDetachRolePolicyCommandError
- */
-const de_DetachRolePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachRolePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnmodifiableEntity":
-    case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5944,48 +4272,13 @@ export const de_DetachUserPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DetachUserPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DetachUserPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DetachUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryDetachUserPolicyCommandError
- */
-const de_DetachUserPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DetachUserPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5996,57 +4289,13 @@ export const de_EnableMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<EnableMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_EnableMFADeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: EnableMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryEnableMFADeviceCommandError
- */
-const de_EnableMFADeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableMFADeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityTemporarilyUnmodifiable":
-    case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
-    case "InvalidAuthenticationCode":
-    case "com.amazonaws.iam#InvalidAuthenticationCodeException":
-      throw await de_InvalidAuthenticationCodeExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -6057,7 +4306,7 @@ export const de_GenerateCredentialReportCommand = async (
   context: __SerdeContext
 ): Promise<GenerateCredentialReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GenerateCredentialReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6070,35 +4319,6 @@ export const de_GenerateCredentialReportCommand = async (
 };
 
 /**
- * deserializeAws_queryGenerateCredentialReportCommandError
- */
-const de_GenerateCredentialReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateCredentialReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGenerateOrganizationsAccessReportCommand
  */
 export const de_GenerateOrganizationsAccessReportCommand = async (
@@ -6106,7 +4326,7 @@ export const de_GenerateOrganizationsAccessReportCommand = async (
   context: __SerdeContext
 ): Promise<GenerateOrganizationsAccessReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GenerateOrganizationsAccessReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6119,32 +4339,6 @@ export const de_GenerateOrganizationsAccessReportCommand = async (
 };
 
 /**
- * deserializeAws_queryGenerateOrganizationsAccessReportCommandError
- */
-const de_GenerateOrganizationsAccessReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateOrganizationsAccessReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ReportGenerationLimitExceeded":
-    case "com.amazonaws.iam#ReportGenerationLimitExceededException":
-      throw await de_ReportGenerationLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGenerateServiceLastAccessedDetailsCommand
  */
 export const de_GenerateServiceLastAccessedDetailsCommand = async (
@@ -6152,7 +4346,7 @@ export const de_GenerateServiceLastAccessedDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GenerateServiceLastAccessedDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GenerateServiceLastAccessedDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6165,35 +4359,6 @@ export const de_GenerateServiceLastAccessedDetailsCommand = async (
 };
 
 /**
- * deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError
- */
-const de_GenerateServiceLastAccessedDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GenerateServiceLastAccessedDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetAccessKeyLastUsedCommand
  */
 export const de_GetAccessKeyLastUsedCommand = async (
@@ -6201,7 +4366,7 @@ export const de_GetAccessKeyLastUsedCommand = async (
   context: __SerdeContext
 ): Promise<GetAccessKeyLastUsedCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAccessKeyLastUsedCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6214,26 +4379,6 @@ export const de_GetAccessKeyLastUsedCommand = async (
 };
 
 /**
- * deserializeAws_queryGetAccessKeyLastUsedCommandError
- */
-const de_GetAccessKeyLastUsedCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccessKeyLastUsedCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryGetAccountAuthorizationDetailsCommand
  */
 export const de_GetAccountAuthorizationDetailsCommand = async (
@@ -6241,7 +4386,7 @@ export const de_GetAccountAuthorizationDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountAuthorizationDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAccountAuthorizationDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6254,32 +4399,6 @@ export const de_GetAccountAuthorizationDetailsCommand = async (
 };
 
 /**
- * deserializeAws_queryGetAccountAuthorizationDetailsCommandError
- */
-const de_GetAccountAuthorizationDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountAuthorizationDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetAccountPasswordPolicyCommand
  */
 export const de_GetAccountPasswordPolicyCommand = async (
@@ -6287,7 +4406,7 @@ export const de_GetAccountPasswordPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountPasswordPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAccountPasswordPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6300,35 +4419,6 @@ export const de_GetAccountPasswordPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryGetAccountPasswordPolicyCommandError
- */
-const de_GetAccountPasswordPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountPasswordPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetAccountSummaryCommand
  */
 export const de_GetAccountSummaryCommand = async (
@@ -6336,7 +4426,7 @@ export const de_GetAccountSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAccountSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6349,32 +4439,6 @@ export const de_GetAccountSummaryCommand = async (
 };
 
 /**
- * deserializeAws_queryGetAccountSummaryCommandError
- */
-const de_GetAccountSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetContextKeysForCustomPolicyCommand
  */
 export const de_GetContextKeysForCustomPolicyCommand = async (
@@ -6382,7 +4446,7 @@ export const de_GetContextKeysForCustomPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetContextKeysForCustomPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContextKeysForCustomPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6395,32 +4459,6 @@ export const de_GetContextKeysForCustomPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryGetContextKeysForCustomPolicyCommandError
- */
-const de_GetContextKeysForCustomPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContextKeysForCustomPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetContextKeysForPrincipalPolicyCommand
  */
 export const de_GetContextKeysForPrincipalPolicyCommand = async (
@@ -6428,7 +4466,7 @@ export const de_GetContextKeysForPrincipalPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetContextKeysForPrincipalPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetContextKeysForPrincipalPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6441,35 +4479,6 @@ export const de_GetContextKeysForPrincipalPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError
- */
-const de_GetContextKeysForPrincipalPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContextKeysForPrincipalPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetCredentialReportCommand
  */
 export const de_GetCredentialReportCommand = async (
@@ -6477,7 +4486,7 @@ export const de_GetCredentialReportCommand = async (
   context: __SerdeContext
 ): Promise<GetCredentialReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCredentialReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6490,41 +4499,6 @@ export const de_GetCredentialReportCommand = async (
 };
 
 /**
- * deserializeAws_queryGetCredentialReportCommandError
- */
-const de_GetCredentialReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCredentialReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ReportExpired":
-    case "com.amazonaws.iam#CredentialReportExpiredException":
-      throw await de_CredentialReportExpiredExceptionRes(parsedOutput, context);
-    case "ReportInProgress":
-    case "com.amazonaws.iam#CredentialReportNotReadyException":
-      throw await de_CredentialReportNotReadyExceptionRes(parsedOutput, context);
-    case "ReportNotPresent":
-    case "com.amazonaws.iam#CredentialReportNotPresentException":
-      throw await de_CredentialReportNotPresentExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetGroupCommand
  */
 export const de_GetGroupCommand = async (
@@ -6532,7 +4506,7 @@ export const de_GetGroupCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6545,35 +4519,6 @@ export const de_GetGroupCommand = async (
 };
 
 /**
- * deserializeAws_queryGetGroupCommandError
- */
-const de_GetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetGroupPolicyCommand
  */
 export const de_GetGroupPolicyCommand = async (
@@ -6581,7 +4526,7 @@ export const de_GetGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6594,35 +4539,6 @@ export const de_GetGroupPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryGetGroupPolicyCommandError
- */
-const de_GetGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetInstanceProfileCommand
  */
 export const de_GetInstanceProfileCommand = async (
@@ -6630,7 +4546,7 @@ export const de_GetInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<GetInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6643,35 +4559,6 @@ export const de_GetInstanceProfileCommand = async (
 };
 
 /**
- * deserializeAws_queryGetInstanceProfileCommandError
- */
-const de_GetInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetLoginProfileCommand
  */
 export const de_GetLoginProfileCommand = async (
@@ -6679,7 +4566,7 @@ export const de_GetLoginProfileCommand = async (
   context: __SerdeContext
 ): Promise<GetLoginProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetLoginProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6692,35 +4579,6 @@ export const de_GetLoginProfileCommand = async (
 };
 
 /**
- * deserializeAws_queryGetLoginProfileCommandError
- */
-const de_GetLoginProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLoginProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetMFADeviceCommand
  */
 export const de_GetMFADeviceCommand = async (
@@ -6728,7 +4586,7 @@ export const de_GetMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<GetMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetMFADeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6741,35 +4599,6 @@ export const de_GetMFADeviceCommand = async (
 };
 
 /**
- * deserializeAws_queryGetMFADeviceCommandError
- */
-const de_GetMFADeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMFADeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetOpenIDConnectProviderCommand
  */
 export const de_GetOpenIDConnectProviderCommand = async (
@@ -6777,7 +4606,7 @@ export const de_GetOpenIDConnectProviderCommand = async (
   context: __SerdeContext
 ): Promise<GetOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetOpenIDConnectProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6790,38 +4619,6 @@ export const de_GetOpenIDConnectProviderCommand = async (
 };
 
 /**
- * deserializeAws_queryGetOpenIDConnectProviderCommandError
- */
-const de_GetOpenIDConnectProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOpenIDConnectProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetOrganizationsAccessReportCommand
  */
 export const de_GetOrganizationsAccessReportCommand = async (
@@ -6829,7 +4626,7 @@ export const de_GetOrganizationsAccessReportCommand = async (
   context: __SerdeContext
 ): Promise<GetOrganizationsAccessReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetOrganizationsAccessReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6842,32 +4639,6 @@ export const de_GetOrganizationsAccessReportCommand = async (
 };
 
 /**
- * deserializeAws_queryGetOrganizationsAccessReportCommandError
- */
-const de_GetOrganizationsAccessReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOrganizationsAccessReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetPolicyCommand
  */
 export const de_GetPolicyCommand = async (
@@ -6875,7 +4646,7 @@ export const de_GetPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6888,38 +4659,6 @@ export const de_GetPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryGetPolicyCommandError
- */
-const de_GetPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetPolicyVersionCommand
  */
 export const de_GetPolicyVersionCommand = async (
@@ -6927,7 +4666,7 @@ export const de_GetPolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<GetPolicyVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPolicyVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6940,38 +4679,6 @@ export const de_GetPolicyVersionCommand = async (
 };
 
 /**
- * deserializeAws_queryGetPolicyVersionCommandError
- */
-const de_GetPolicyVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPolicyVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetRoleCommand
  */
 export const de_GetRoleCommand = async (
@@ -6979,7 +4686,7 @@ export const de_GetRoleCommand = async (
   context: __SerdeContext
 ): Promise<GetRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -6992,35 +4699,6 @@ export const de_GetRoleCommand = async (
 };
 
 /**
- * deserializeAws_queryGetRoleCommandError
- */
-const de_GetRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetRolePolicyCommand
  */
 export const de_GetRolePolicyCommand = async (
@@ -7028,7 +4706,7 @@ export const de_GetRolePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetRolePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetRolePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7041,35 +4719,6 @@ export const de_GetRolePolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryGetRolePolicyCommandError
- */
-const de_GetRolePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetRolePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetSAMLProviderCommand
  */
 export const de_GetSAMLProviderCommand = async (
@@ -7077,7 +4726,7 @@ export const de_GetSAMLProviderCommand = async (
   context: __SerdeContext
 ): Promise<GetSAMLProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSAMLProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7090,38 +4739,6 @@ export const de_GetSAMLProviderCommand = async (
 };
 
 /**
- * deserializeAws_queryGetSAMLProviderCommandError
- */
-const de_GetSAMLProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSAMLProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetServerCertificateCommand
  */
 export const de_GetServerCertificateCommand = async (
@@ -7129,7 +4746,7 @@ export const de_GetServerCertificateCommand = async (
   context: __SerdeContext
 ): Promise<GetServerCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetServerCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7142,35 +4759,6 @@ export const de_GetServerCertificateCommand = async (
 };
 
 /**
- * deserializeAws_queryGetServerCertificateCommandError
- */
-const de_GetServerCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServerCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetServiceLastAccessedDetailsCommand
  */
 export const de_GetServiceLastAccessedDetailsCommand = async (
@@ -7178,7 +4766,7 @@ export const de_GetServiceLastAccessedDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetServiceLastAccessedDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetServiceLastAccessedDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7191,35 +4779,6 @@ export const de_GetServiceLastAccessedDetailsCommand = async (
 };
 
 /**
- * deserializeAws_queryGetServiceLastAccessedDetailsCommandError
- */
-const de_GetServiceLastAccessedDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceLastAccessedDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand
  */
 export const de_GetServiceLastAccessedDetailsWithEntitiesCommand = async (
@@ -7227,7 +4786,7 @@ export const de_GetServiceLastAccessedDetailsWithEntitiesCommand = async (
   context: __SerdeContext
 ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetServiceLastAccessedDetailsWithEntitiesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7243,35 +4802,6 @@ export const de_GetServiceLastAccessedDetailsWithEntitiesCommand = async (
 };
 
 /**
- * deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError
- */
-const de_GetServiceLastAccessedDetailsWithEntitiesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand
  */
 export const de_GetServiceLinkedRoleDeletionStatusCommand = async (
@@ -7279,7 +4809,7 @@ export const de_GetServiceLinkedRoleDeletionStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetServiceLinkedRoleDeletionStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7292,38 +4822,6 @@ export const de_GetServiceLinkedRoleDeletionStatusCommand = async (
 };
 
 /**
- * deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError
- */
-const de_GetServiceLinkedRoleDeletionStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetSSHPublicKeyCommand
  */
 export const de_GetSSHPublicKeyCommand = async (
@@ -7331,7 +4829,7 @@ export const de_GetSSHPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<GetSSHPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSSHPublicKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7344,35 +4842,6 @@ export const de_GetSSHPublicKeyCommand = async (
 };
 
 /**
- * deserializeAws_queryGetSSHPublicKeyCommandError
- */
-const de_GetSSHPublicKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSSHPublicKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "UnrecognizedPublicKeyEncoding":
-    case "com.amazonaws.iam#UnrecognizedPublicKeyEncodingException":
-      throw await de_UnrecognizedPublicKeyEncodingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetUserCommand
  */
 export const de_GetUserCommand = async (
@@ -7380,7 +4849,7 @@ export const de_GetUserCommand = async (
   context: __SerdeContext
 ): Promise<GetUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7393,35 +4862,6 @@ export const de_GetUserCommand = async (
 };
 
 /**
- * deserializeAws_queryGetUserCommandError
- */
-const de_GetUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryGetUserPolicyCommand
  */
 export const de_GetUserPolicyCommand = async (
@@ -7429,7 +4869,7 @@ export const de_GetUserPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetUserPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetUserPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7442,35 +4882,6 @@ export const de_GetUserPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryGetUserPolicyCommandError
- */
-const de_GetUserPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetUserPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListAccessKeysCommand
  */
 export const de_ListAccessKeysCommand = async (
@@ -7478,7 +4889,7 @@ export const de_ListAccessKeysCommand = async (
   context: __SerdeContext
 ): Promise<ListAccessKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAccessKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7491,35 +4902,6 @@ export const de_ListAccessKeysCommand = async (
 };
 
 /**
- * deserializeAws_queryListAccessKeysCommandError
- */
-const de_ListAccessKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccessKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListAccountAliasesCommand
  */
 export const de_ListAccountAliasesCommand = async (
@@ -7527,7 +4909,7 @@ export const de_ListAccountAliasesCommand = async (
   context: __SerdeContext
 ): Promise<ListAccountAliasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAccountAliasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7540,32 +4922,6 @@ export const de_ListAccountAliasesCommand = async (
 };
 
 /**
- * deserializeAws_queryListAccountAliasesCommandError
- */
-const de_ListAccountAliasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccountAliasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListAttachedGroupPoliciesCommand
  */
 export const de_ListAttachedGroupPoliciesCommand = async (
@@ -7573,7 +4929,7 @@ export const de_ListAttachedGroupPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListAttachedGroupPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAttachedGroupPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7586,38 +4942,6 @@ export const de_ListAttachedGroupPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryListAttachedGroupPoliciesCommandError
- */
-const de_ListAttachedGroupPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAttachedGroupPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListAttachedRolePoliciesCommand
  */
 export const de_ListAttachedRolePoliciesCommand = async (
@@ -7625,7 +4949,7 @@ export const de_ListAttachedRolePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListAttachedRolePoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAttachedRolePoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7638,38 +4962,6 @@ export const de_ListAttachedRolePoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryListAttachedRolePoliciesCommandError
- */
-const de_ListAttachedRolePoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAttachedRolePoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListAttachedUserPoliciesCommand
  */
 export const de_ListAttachedUserPoliciesCommand = async (
@@ -7677,7 +4969,7 @@ export const de_ListAttachedUserPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListAttachedUserPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAttachedUserPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7690,38 +4982,6 @@ export const de_ListAttachedUserPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryListAttachedUserPoliciesCommandError
- */
-const de_ListAttachedUserPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAttachedUserPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListEntitiesForPolicyCommand
  */
 export const de_ListEntitiesForPolicyCommand = async (
@@ -7729,7 +4989,7 @@ export const de_ListEntitiesForPolicyCommand = async (
   context: __SerdeContext
 ): Promise<ListEntitiesForPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEntitiesForPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7742,38 +5002,6 @@ export const de_ListEntitiesForPolicyCommand = async (
 };
 
 /**
- * deserializeAws_queryListEntitiesForPolicyCommandError
- */
-const de_ListEntitiesForPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEntitiesForPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListGroupPoliciesCommand
  */
 export const de_ListGroupPoliciesCommand = async (
@@ -7781,7 +5009,7 @@ export const de_ListGroupPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGroupPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7794,35 +5022,6 @@ export const de_ListGroupPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryListGroupPoliciesCommandError
- */
-const de_ListGroupPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListGroupsCommand
  */
 export const de_ListGroupsCommand = async (
@@ -7830,7 +5029,7 @@ export const de_ListGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7843,32 +5042,6 @@ export const de_ListGroupsCommand = async (
 };
 
 /**
- * deserializeAws_queryListGroupsCommandError
- */
-const de_ListGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListGroupsForUserCommand
  */
 export const de_ListGroupsForUserCommand = async (
@@ -7876,7 +5049,7 @@ export const de_ListGroupsForUserCommand = async (
   context: __SerdeContext
 ): Promise<ListGroupsForUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListGroupsForUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7889,35 +5062,6 @@ export const de_ListGroupsForUserCommand = async (
 };
 
 /**
- * deserializeAws_queryListGroupsForUserCommandError
- */
-const de_ListGroupsForUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroupsForUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListInstanceProfilesCommand
  */
 export const de_ListInstanceProfilesCommand = async (
@@ -7925,7 +5069,7 @@ export const de_ListInstanceProfilesCommand = async (
   context: __SerdeContext
 ): Promise<ListInstanceProfilesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListInstanceProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7938,32 +5082,6 @@ export const de_ListInstanceProfilesCommand = async (
 };
 
 /**
- * deserializeAws_queryListInstanceProfilesCommandError
- */
-const de_ListInstanceProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInstanceProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListInstanceProfilesForRoleCommand
  */
 export const de_ListInstanceProfilesForRoleCommand = async (
@@ -7971,7 +5089,7 @@ export const de_ListInstanceProfilesForRoleCommand = async (
   context: __SerdeContext
 ): Promise<ListInstanceProfilesForRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListInstanceProfilesForRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -7984,35 +5102,6 @@ export const de_ListInstanceProfilesForRoleCommand = async (
 };
 
 /**
- * deserializeAws_queryListInstanceProfilesForRoleCommandError
- */
-const de_ListInstanceProfilesForRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInstanceProfilesForRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListInstanceProfileTagsCommand
  */
 export const de_ListInstanceProfileTagsCommand = async (
@@ -8020,7 +5109,7 @@ export const de_ListInstanceProfileTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListInstanceProfileTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListInstanceProfileTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8033,35 +5122,6 @@ export const de_ListInstanceProfileTagsCommand = async (
 };
 
 /**
- * deserializeAws_queryListInstanceProfileTagsCommandError
- */
-const de_ListInstanceProfileTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListInstanceProfileTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListMFADevicesCommand
  */
 export const de_ListMFADevicesCommand = async (
@@ -8069,7 +5129,7 @@ export const de_ListMFADevicesCommand = async (
   context: __SerdeContext
 ): Promise<ListMFADevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMFADevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8082,35 +5142,6 @@ export const de_ListMFADevicesCommand = async (
 };
 
 /**
- * deserializeAws_queryListMFADevicesCommandError
- */
-const de_ListMFADevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMFADevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListMFADeviceTagsCommand
  */
 export const de_ListMFADeviceTagsCommand = async (
@@ -8118,7 +5149,7 @@ export const de_ListMFADeviceTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListMFADeviceTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMFADeviceTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8131,38 +5162,6 @@ export const de_ListMFADeviceTagsCommand = async (
 };
 
 /**
- * deserializeAws_queryListMFADeviceTagsCommandError
- */
-const de_ListMFADeviceTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMFADeviceTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListOpenIDConnectProvidersCommand
  */
 export const de_ListOpenIDConnectProvidersCommand = async (
@@ -8170,7 +5169,7 @@ export const de_ListOpenIDConnectProvidersCommand = async (
   context: __SerdeContext
 ): Promise<ListOpenIDConnectProvidersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListOpenIDConnectProvidersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8183,32 +5182,6 @@ export const de_ListOpenIDConnectProvidersCommand = async (
 };
 
 /**
- * deserializeAws_queryListOpenIDConnectProvidersCommandError
- */
-const de_ListOpenIDConnectProvidersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOpenIDConnectProvidersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListOpenIDConnectProviderTagsCommand
  */
 export const de_ListOpenIDConnectProviderTagsCommand = async (
@@ -8216,7 +5189,7 @@ export const de_ListOpenIDConnectProviderTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListOpenIDConnectProviderTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListOpenIDConnectProviderTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8229,38 +5202,6 @@ export const de_ListOpenIDConnectProviderTagsCommand = async (
 };
 
 /**
- * deserializeAws_queryListOpenIDConnectProviderTagsCommandError
- */
-const de_ListOpenIDConnectProviderTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOpenIDConnectProviderTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListPoliciesCommand
  */
 export const de_ListPoliciesCommand = async (
@@ -8268,7 +5209,7 @@ export const de_ListPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8281,32 +5222,6 @@ export const de_ListPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryListPoliciesCommandError
- */
-const de_ListPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListPoliciesGrantingServiceAccessCommand
  */
 export const de_ListPoliciesGrantingServiceAccessCommand = async (
@@ -8314,7 +5229,7 @@ export const de_ListPoliciesGrantingServiceAccessCommand = async (
   context: __SerdeContext
 ): Promise<ListPoliciesGrantingServiceAccessCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPoliciesGrantingServiceAccessCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8327,35 +5242,6 @@ export const de_ListPoliciesGrantingServiceAccessCommand = async (
 };
 
 /**
- * deserializeAws_queryListPoliciesGrantingServiceAccessCommandError
- */
-const de_ListPoliciesGrantingServiceAccessCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPoliciesGrantingServiceAccessCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListPolicyTagsCommand
  */
 export const de_ListPolicyTagsCommand = async (
@@ -8363,7 +5249,7 @@ export const de_ListPolicyTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListPolicyTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPolicyTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8376,38 +5262,6 @@ export const de_ListPolicyTagsCommand = async (
 };
 
 /**
- * deserializeAws_queryListPolicyTagsCommandError
- */
-const de_ListPolicyTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPolicyTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListPolicyVersionsCommand
  */
 export const de_ListPolicyVersionsCommand = async (
@@ -8415,7 +5269,7 @@ export const de_ListPolicyVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListPolicyVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPolicyVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8428,38 +5282,6 @@ export const de_ListPolicyVersionsCommand = async (
 };
 
 /**
- * deserializeAws_queryListPolicyVersionsCommandError
- */
-const de_ListPolicyVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPolicyVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListRolePoliciesCommand
  */
 export const de_ListRolePoliciesCommand = async (
@@ -8467,7 +5289,7 @@ export const de_ListRolePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListRolePoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRolePoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8480,35 +5302,6 @@ export const de_ListRolePoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryListRolePoliciesCommandError
- */
-const de_ListRolePoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRolePoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListRolesCommand
  */
 export const de_ListRolesCommand = async (
@@ -8516,7 +5309,7 @@ export const de_ListRolesCommand = async (
   context: __SerdeContext
 ): Promise<ListRolesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRolesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8529,32 +5322,6 @@ export const de_ListRolesCommand = async (
 };
 
 /**
- * deserializeAws_queryListRolesCommandError
- */
-const de_ListRolesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRolesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListRoleTagsCommand
  */
 export const de_ListRoleTagsCommand = async (
@@ -8562,7 +5329,7 @@ export const de_ListRoleTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListRoleTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRoleTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8575,35 +5342,6 @@ export const de_ListRoleTagsCommand = async (
 };
 
 /**
- * deserializeAws_queryListRoleTagsCommandError
- */
-const de_ListRoleTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRoleTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListSAMLProvidersCommand
  */
 export const de_ListSAMLProvidersCommand = async (
@@ -8611,7 +5349,7 @@ export const de_ListSAMLProvidersCommand = async (
   context: __SerdeContext
 ): Promise<ListSAMLProvidersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSAMLProvidersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8624,32 +5362,6 @@ export const de_ListSAMLProvidersCommand = async (
 };
 
 /**
- * deserializeAws_queryListSAMLProvidersCommandError
- */
-const de_ListSAMLProvidersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSAMLProvidersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListSAMLProviderTagsCommand
  */
 export const de_ListSAMLProviderTagsCommand = async (
@@ -8657,7 +5369,7 @@ export const de_ListSAMLProviderTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListSAMLProviderTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSAMLProviderTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8670,38 +5382,6 @@ export const de_ListSAMLProviderTagsCommand = async (
 };
 
 /**
- * deserializeAws_queryListSAMLProviderTagsCommandError
- */
-const de_ListSAMLProviderTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSAMLProviderTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListServerCertificatesCommand
  */
 export const de_ListServerCertificatesCommand = async (
@@ -8709,7 +5389,7 @@ export const de_ListServerCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<ListServerCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListServerCertificatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8722,32 +5402,6 @@ export const de_ListServerCertificatesCommand = async (
 };
 
 /**
- * deserializeAws_queryListServerCertificatesCommandError
- */
-const de_ListServerCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServerCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListServerCertificateTagsCommand
  */
 export const de_ListServerCertificateTagsCommand = async (
@@ -8755,7 +5409,7 @@ export const de_ListServerCertificateTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListServerCertificateTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListServerCertificateTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8768,35 +5422,6 @@ export const de_ListServerCertificateTagsCommand = async (
 };
 
 /**
- * deserializeAws_queryListServerCertificateTagsCommandError
- */
-const de_ListServerCertificateTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServerCertificateTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListServiceSpecificCredentialsCommand
  */
 export const de_ListServiceSpecificCredentialsCommand = async (
@@ -8804,7 +5429,7 @@ export const de_ListServiceSpecificCredentialsCommand = async (
   context: __SerdeContext
 ): Promise<ListServiceSpecificCredentialsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListServiceSpecificCredentialsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8817,35 +5442,6 @@ export const de_ListServiceSpecificCredentialsCommand = async (
 };
 
 /**
- * deserializeAws_queryListServiceSpecificCredentialsCommandError
- */
-const de_ListServiceSpecificCredentialsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServiceSpecificCredentialsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "NotSupportedService":
-    case "com.amazonaws.iam#ServiceNotSupportedException":
-      throw await de_ServiceNotSupportedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListSigningCertificatesCommand
  */
 export const de_ListSigningCertificatesCommand = async (
@@ -8853,7 +5449,7 @@ export const de_ListSigningCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<ListSigningCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSigningCertificatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8866,35 +5462,6 @@ export const de_ListSigningCertificatesCommand = async (
 };
 
 /**
- * deserializeAws_queryListSigningCertificatesCommandError
- */
-const de_ListSigningCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSigningCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListSSHPublicKeysCommand
  */
 export const de_ListSSHPublicKeysCommand = async (
@@ -8902,7 +5469,7 @@ export const de_ListSSHPublicKeysCommand = async (
   context: __SerdeContext
 ): Promise<ListSSHPublicKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSSHPublicKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8915,32 +5482,6 @@ export const de_ListSSHPublicKeysCommand = async (
 };
 
 /**
- * deserializeAws_queryListSSHPublicKeysCommandError
- */
-const de_ListSSHPublicKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSSHPublicKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListUserPoliciesCommand
  */
 export const de_ListUserPoliciesCommand = async (
@@ -8948,7 +5489,7 @@ export const de_ListUserPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListUserPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUserPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -8961,35 +5502,6 @@ export const de_ListUserPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_queryListUserPoliciesCommandError
- */
-const de_ListUserPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUserPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListUsersCommand
  */
 export const de_ListUsersCommand = async (
@@ -8997,7 +5509,7 @@ export const de_ListUsersCommand = async (
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUsersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9010,32 +5522,6 @@ export const de_ListUsersCommand = async (
 };
 
 /**
- * deserializeAws_queryListUsersCommandError
- */
-const de_ListUsersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUsersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListUserTagsCommand
  */
 export const de_ListUserTagsCommand = async (
@@ -9043,7 +5529,7 @@ export const de_ListUserTagsCommand = async (
   context: __SerdeContext
 ): Promise<ListUserTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListUserTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9056,35 +5542,6 @@ export const de_ListUserTagsCommand = async (
 };
 
 /**
- * deserializeAws_queryListUserTagsCommandError
- */
-const de_ListUserTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUserTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryListVirtualMFADevicesCommand
  */
 export const de_ListVirtualMFADevicesCommand = async (
@@ -9092,7 +5549,7 @@ export const de_ListVirtualMFADevicesCommand = async (
   context: __SerdeContext
 ): Promise<ListVirtualMFADevicesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListVirtualMFADevicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9105,26 +5562,6 @@ export const de_ListVirtualMFADevicesCommand = async (
 };
 
 /**
- * deserializeAws_queryListVirtualMFADevicesCommandError
- */
-const de_ListVirtualMFADevicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVirtualMFADevicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody: parsedBody.Error,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_queryPutGroupPolicyCommand
  */
 export const de_PutGroupPolicyCommand = async (
@@ -9132,48 +5569,13 @@ export const de_PutGroupPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutGroupPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutGroupPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutGroupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryPutGroupPolicyCommandError
- */
-const de_PutGroupPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutGroupPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9184,51 +5586,13 @@ export const de_PutRolePermissionsBoundaryCommand = async (
   context: __SerdeContext
 ): Promise<PutRolePermissionsBoundaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRolePermissionsBoundaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutRolePermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryPutRolePermissionsBoundaryCommandError
- */
-const de_PutRolePermissionsBoundaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRolePermissionsBoundaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "PolicyNotAttachable":
-    case "com.amazonaws.iam#PolicyNotAttachableException":
-      throw await de_PolicyNotAttachableExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnmodifiableEntity":
-    case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9239,51 +5603,13 @@ export const de_PutRolePolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutRolePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRolePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryPutRolePolicyCommandError
- */
-const de_PutRolePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRolePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnmodifiableEntity":
-    case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9294,48 +5620,13 @@ export const de_PutUserPermissionsBoundaryCommand = async (
   context: __SerdeContext
 ): Promise<PutUserPermissionsBoundaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutUserPermissionsBoundaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutUserPermissionsBoundaryCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryPutUserPermissionsBoundaryCommandError
- */
-const de_PutUserPermissionsBoundaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutUserPermissionsBoundaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "PolicyNotAttachable":
-    case "com.amazonaws.iam#PolicyNotAttachableException":
-      throw await de_PolicyNotAttachableExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9346,48 +5637,13 @@ export const de_PutUserPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PutUserPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutUserPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutUserPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryPutUserPolicyCommandError
- */
-const de_PutUserPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutUserPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9398,45 +5654,13 @@ export const de_RemoveClientIDFromOpenIDConnectProviderCommand = async (
   context: __SerdeContext
 ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveClientIDFromOpenIDConnectProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RemoveClientIDFromOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError
- */
-const de_RemoveClientIDFromOpenIDConnectProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9447,48 +5671,13 @@ export const de_RemoveRoleFromInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<RemoveRoleFromInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveRoleFromInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RemoveRoleFromInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryRemoveRoleFromInstanceProfileCommandError
- */
-const de_RemoveRoleFromInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveRoleFromInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnmodifiableEntity":
-    case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9499,45 +5688,13 @@ export const de_RemoveUserFromGroupCommand = async (
   context: __SerdeContext
 ): Promise<RemoveUserFromGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_RemoveUserFromGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: RemoveUserFromGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryRemoveUserFromGroupCommandError
- */
-const de_RemoveUserFromGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveUserFromGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9548,7 +5705,7 @@ export const de_ResetServiceSpecificCredentialCommand = async (
   context: __SerdeContext
 ): Promise<ResetServiceSpecificCredentialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResetServiceSpecificCredentialCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9561,32 +5718,6 @@ export const de_ResetServiceSpecificCredentialCommand = async (
 };
 
 /**
- * deserializeAws_queryResetServiceSpecificCredentialCommandError
- */
-const de_ResetServiceSpecificCredentialCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResetServiceSpecificCredentialCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryResyncMFADeviceCommand
  */
 export const de_ResyncMFADeviceCommand = async (
@@ -9594,51 +5725,13 @@ export const de_ResyncMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<ResyncMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ResyncMFADeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: ResyncMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryResyncMFADeviceCommandError
- */
-const de_ResyncMFADeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ResyncMFADeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidAuthenticationCode":
-    case "com.amazonaws.iam#InvalidAuthenticationCodeException":
-      throw await de_InvalidAuthenticationCodeExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9649,48 +5742,13 @@ export const de_SetDefaultPolicyVersionCommand = async (
   context: __SerdeContext
 ): Promise<SetDefaultPolicyVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetDefaultPolicyVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetDefaultPolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_querySetDefaultPolicyVersionCommandError
- */
-const de_SetDefaultPolicyVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetDefaultPolicyVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9701,39 +5759,13 @@ export const de_SetSecurityTokenServicePreferencesCommand = async (
   context: __SerdeContext
 ): Promise<SetSecurityTokenServicePreferencesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SetSecurityTokenServicePreferencesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: SetSecurityTokenServicePreferencesCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_querySetSecurityTokenServicePreferencesCommandError
- */
-const de_SetSecurityTokenServicePreferencesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetSecurityTokenServicePreferencesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9744,7 +5776,7 @@ export const de_SimulateCustomPolicyCommand = async (
   context: __SerdeContext
 ): Promise<SimulateCustomPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SimulateCustomPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9757,35 +5789,6 @@ export const de_SimulateCustomPolicyCommand = async (
 };
 
 /**
- * deserializeAws_querySimulateCustomPolicyCommandError
- */
-const de_SimulateCustomPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimulateCustomPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "PolicyEvaluation":
-    case "com.amazonaws.iam#PolicyEvaluationException":
-      throw await de_PolicyEvaluationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_querySimulatePrincipalPolicyCommand
  */
 export const de_SimulatePrincipalPolicyCommand = async (
@@ -9793,7 +5796,7 @@ export const de_SimulatePrincipalPolicyCommand = async (
   context: __SerdeContext
 ): Promise<SimulatePrincipalPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_SimulatePrincipalPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -9806,38 +5809,6 @@ export const de_SimulatePrincipalPolicyCommand = async (
 };
 
 /**
- * deserializeAws_querySimulatePrincipalPolicyCommandError
- */
-const de_SimulatePrincipalPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SimulatePrincipalPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "PolicyEvaluation":
-    case "com.amazonaws.iam#PolicyEvaluationException":
-      throw await de_PolicyEvaluationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryTagInstanceProfileCommand
  */
 export const de_TagInstanceProfileCommand = async (
@@ -9845,51 +5816,13 @@ export const de_TagInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<TagInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryTagInstanceProfileCommandError
- */
-const de_TagInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9900,51 +5833,13 @@ export const de_TagMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<TagMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagMFADeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryTagMFADeviceCommandError
- */
-const de_TagMFADeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagMFADeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -9955,51 +5850,13 @@ export const de_TagOpenIDConnectProviderCommand = async (
   context: __SerdeContext
 ): Promise<TagOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagOpenIDConnectProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryTagOpenIDConnectProviderCommandError
- */
-const de_TagOpenIDConnectProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagOpenIDConnectProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10010,51 +5867,13 @@ export const de_TagPolicyCommand = async (
   context: __SerdeContext
 ): Promise<TagPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryTagPolicyCommandError
- */
-const de_TagPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10065,51 +5884,13 @@ export const de_TagRoleCommand = async (
   context: __SerdeContext
 ): Promise<TagRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryTagRoleCommandError
- */
-const de_TagRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10120,51 +5901,13 @@ export const de_TagSAMLProviderCommand = async (
   context: __SerdeContext
 ): Promise<TagSAMLProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagSAMLProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryTagSAMLProviderCommandError
- */
-const de_TagSAMLProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagSAMLProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10175,51 +5918,13 @@ export const de_TagServerCertificateCommand = async (
   context: __SerdeContext
 ): Promise<TagServerCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagServerCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryTagServerCertificateCommandError
- */
-const de_TagServerCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagServerCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10230,51 +5935,13 @@ export const de_TagUserCommand = async (
   context: __SerdeContext
 ): Promise<TagUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: TagUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryTagUserCommandError
- */
-const de_TagUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10285,48 +5952,13 @@ export const de_UntagInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<UntagInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUntagInstanceProfileCommandError
- */
-const de_UntagInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10337,48 +5969,13 @@ export const de_UntagMFADeviceCommand = async (
   context: __SerdeContext
 ): Promise<UntagMFADeviceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagMFADeviceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagMFADeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUntagMFADeviceCommandError
- */
-const de_UntagMFADeviceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagMFADeviceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10389,48 +5986,13 @@ export const de_UntagOpenIDConnectProviderCommand = async (
   context: __SerdeContext
 ): Promise<UntagOpenIDConnectProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagOpenIDConnectProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagOpenIDConnectProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUntagOpenIDConnectProviderCommandError
- */
-const de_UntagOpenIDConnectProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagOpenIDConnectProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10441,48 +6003,13 @@ export const de_UntagPolicyCommand = async (
   context: __SerdeContext
 ): Promise<UntagPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUntagPolicyCommandError
- */
-const de_UntagPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10493,45 +6020,13 @@ export const de_UntagRoleCommand = async (
   context: __SerdeContext
 ): Promise<UntagRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUntagRoleCommandError
- */
-const de_UntagRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10542,48 +6037,13 @@ export const de_UntagSAMLProviderCommand = async (
   context: __SerdeContext
 ): Promise<UntagSAMLProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagSAMLProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagSAMLProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUntagSAMLProviderCommandError
- */
-const de_UntagSAMLProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagSAMLProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10594,48 +6054,13 @@ export const de_UntagServerCertificateCommand = async (
   context: __SerdeContext
 ): Promise<UntagServerCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagServerCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUntagServerCertificateCommandError
- */
-const de_UntagServerCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagServerCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10646,45 +6071,13 @@ export const de_UntagUserCommand = async (
   context: __SerdeContext
 ): Promise<UntagUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UntagUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUntagUserCommandError
- */
-const de_UntagUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10695,45 +6088,13 @@ export const de_UpdateAccessKeyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccessKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAccessKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateAccessKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateAccessKeyCommandError
- */
-const de_UpdateAccessKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccessKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10744,48 +6105,13 @@ export const de_UpdateAccountPasswordPolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccountPasswordPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAccountPasswordPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateAccountPasswordPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateAccountPasswordPolicyCommandError
- */
-const de_UpdateAccountPasswordPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccountPasswordPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10796,51 +6122,13 @@ export const de_UpdateAssumeRolePolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAssumeRolePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAssumeRolePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateAssumeRolePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateAssumeRolePolicyCommandError
- */
-const de_UpdateAssumeRolePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAssumeRolePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedPolicyDocument":
-    case "com.amazonaws.iam#MalformedPolicyDocumentException":
-      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnmodifiableEntity":
-    case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10851,48 +6139,13 @@ export const de_UpdateGroupCommand = async (
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateGroupCommandError
- */
-const de_UpdateGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10903,51 +6156,13 @@ export const de_UpdateLoginProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLoginProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateLoginProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateLoginProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateLoginProfileCommandError
- */
-const de_UpdateLoginProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLoginProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityTemporarilyUnmodifiable":
-    case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "PasswordPolicyViolation":
-    case "com.amazonaws.iam#PasswordPolicyViolationException":
-      throw await de_PasswordPolicyViolationExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -10958,45 +6173,13 @@ export const de_UpdateOpenIDConnectProviderThumbprintCommand = async (
   context: __SerdeContext
 ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateOpenIDConnectProviderThumbprintCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateOpenIDConnectProviderThumbprintCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError
- */
-const de_UpdateOpenIDConnectProviderThumbprintCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -11007,7 +6190,7 @@ export const de_UpdateRoleCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRoleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRoleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11020,38 +6203,6 @@ export const de_UpdateRoleCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateRoleCommandError
- */
-const de_UpdateRoleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRoleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnmodifiableEntity":
-    case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateRoleDescriptionCommand
  */
 export const de_UpdateRoleDescriptionCommand = async (
@@ -11059,7 +6210,7 @@ export const de_UpdateRoleDescriptionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRoleDescriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRoleDescriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11072,38 +6223,6 @@ export const de_UpdateRoleDescriptionCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateRoleDescriptionCommandError
- */
-const de_UpdateRoleDescriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRoleDescriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnmodifiableEntity":
-    case "com.amazonaws.iam#UnmodifiableEntityException":
-      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateSAMLProviderCommand
  */
 export const de_UpdateSAMLProviderCommand = async (
@@ -11111,7 +6230,7 @@ export const de_UpdateSAMLProviderCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSAMLProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSAMLProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11124,41 +6243,6 @@ export const de_UpdateSAMLProviderCommand = async (
 };
 
 /**
- * deserializeAws_queryUpdateSAMLProviderCommandError
- */
-const de_UpdateSAMLProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSAMLProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUpdateServerCertificateCommand
  */
 export const de_UpdateServerCertificateCommand = async (
@@ -11166,48 +6250,13 @@ export const de_UpdateServerCertificateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateServerCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateServerCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateServerCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateServerCertificateCommandError
- */
-const de_UpdateServerCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServerCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -11218,39 +6267,13 @@ export const de_UpdateServiceSpecificCredentialCommand = async (
   context: __SerdeContext
 ): Promise<UpdateServiceSpecificCredentialCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateServiceSpecificCredentialCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateServiceSpecificCredentialCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateServiceSpecificCredentialCommandError
- */
-const de_UpdateServiceSpecificCredentialCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateServiceSpecificCredentialCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -11261,45 +6284,13 @@ export const de_UpdateSigningCertificateCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSigningCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSigningCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateSigningCertificateCommandError
- */
-const de_UpdateSigningCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSigningCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -11310,39 +6301,13 @@ export const de_UpdateSSHPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSSHPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSSHPublicKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateSSHPublicKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateSSHPublicKeyCommandError
- */
-const de_UpdateSSHPublicKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSSHPublicKeyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -11353,54 +6318,13 @@ export const de_UpdateUserCommand = async (
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateUserCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_queryUpdateUserCommandError
- */
-const de_UpdateUserCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "EntityTemporarilyUnmodifiable":
-    case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
-      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -11411,7 +6335,7 @@ export const de_UploadServerCertificateCommand = async (
   context: __SerdeContext
 ): Promise<UploadServerCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UploadServerCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11424,50 +6348,6 @@ export const de_UploadServerCertificateCommand = async (
 };
 
 /**
- * deserializeAws_queryUploadServerCertificateCommandError
- */
-const de_UploadServerCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UploadServerCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidInput":
-    case "com.amazonaws.iam#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "KeyPairMismatch":
-    case "com.amazonaws.iam#KeyPairMismatchException":
-      throw await de_KeyPairMismatchExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedCertificate":
-    case "com.amazonaws.iam#MalformedCertificateException":
-      throw await de_MalformedCertificateExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUploadSigningCertificateCommand
  */
 export const de_UploadSigningCertificateCommand = async (
@@ -11475,7 +6355,7 @@ export const de_UploadSigningCertificateCommand = async (
   context: __SerdeContext
 ): Promise<UploadSigningCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UploadSigningCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11488,53 +6368,6 @@ export const de_UploadSigningCertificateCommand = async (
 };
 
 /**
- * deserializeAws_queryUploadSigningCertificateCommandError
- */
-const de_UploadSigningCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UploadSigningCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModification":
-    case "com.amazonaws.iam#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "DuplicateCertificate":
-    case "com.amazonaws.iam#DuplicateCertificateException":
-      throw await de_DuplicateCertificateExceptionRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.iam#EntityAlreadyExistsException":
-      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
-    case "InvalidCertificate":
-    case "com.amazonaws.iam#InvalidCertificateException":
-      throw await de_InvalidCertificateExceptionRes(parsedOutput, context);
-    case "LimitExceeded":
-    case "com.amazonaws.iam#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "MalformedCertificate":
-    case "com.amazonaws.iam#MalformedCertificateException":
-      throw await de_MalformedCertificateExceptionRes(parsedOutput, context);
-    case "NoSuchEntity":
-    case "com.amazonaws.iam#NoSuchEntityException":
-      throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
-    case "ServiceFailure":
-    case "com.amazonaws.iam#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody: parsedBody.Error,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_queryUploadSSHPublicKeyCommand
  */
 export const de_UploadSSHPublicKeyCommand = async (
@@ -11542,7 +6375,7 @@ export const de_UploadSSHPublicKeyCommand = async (
   context: __SerdeContext
 ): Promise<UploadSSHPublicKeyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UploadSSHPublicKeyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -11555,40 +6388,103 @@ export const de_UploadSSHPublicKeyCommand = async (
 };
 
 /**
- * deserializeAws_queryUploadSSHPublicKeyCommandError
+ * deserialize_Aws_queryCommandError
  */
-const de_UploadSSHPublicKeyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UploadSSHPublicKeyCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "DuplicateSSHPublicKey":
-    case "com.amazonaws.iam#DuplicateSSHPublicKeyException":
-      throw await de_DuplicateSSHPublicKeyExceptionRes(parsedOutput, context);
-    case "InvalidPublicKey":
-    case "com.amazonaws.iam#InvalidPublicKeyException":
-      throw await de_InvalidPublicKeyExceptionRes(parsedOutput, context);
+    case "InvalidInput":
+    case "com.amazonaws.iam#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
     case "LimitExceeded":
     case "com.amazonaws.iam#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "NoSuchEntity":
     case "com.amazonaws.iam#NoSuchEntityException":
       throw await de_NoSuchEntityExceptionRes(parsedOutput, context);
+    case "ServiceFailure":
+    case "com.amazonaws.iam#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "EntityAlreadyExists":
+    case "com.amazonaws.iam#EntityAlreadyExistsException":
+      throw await de_EntityAlreadyExistsExceptionRes(parsedOutput, context);
+    case "UnmodifiableEntity":
+    case "com.amazonaws.iam#UnmodifiableEntityException":
+      throw await de_UnmodifiableEntityExceptionRes(parsedOutput, context);
+    case "PolicyNotAttachable":
+    case "com.amazonaws.iam#PolicyNotAttachableException":
+      throw await de_PolicyNotAttachableExceptionRes(parsedOutput, context);
+    case "EntityTemporarilyUnmodifiable":
+    case "com.amazonaws.iam#EntityTemporarilyUnmodifiableException":
+      throw await de_EntityTemporarilyUnmodifiableExceptionRes(parsedOutput, context);
+    case "InvalidUserType":
+    case "com.amazonaws.iam#InvalidUserTypeException":
+      throw await de_InvalidUserTypeExceptionRes(parsedOutput, context);
+    case "PasswordPolicyViolation":
+    case "com.amazonaws.iam#PasswordPolicyViolationException":
+      throw await de_PasswordPolicyViolationExceptionRes(parsedOutput, context);
+    case "ConcurrentModification":
+    case "com.amazonaws.iam#ConcurrentModificationException":
+      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "MalformedPolicyDocument":
+    case "com.amazonaws.iam#MalformedPolicyDocumentException":
+      throw await de_MalformedPolicyDocumentExceptionRes(parsedOutput, context);
+    case "NotSupportedService":
+    case "com.amazonaws.iam#ServiceNotSupportedException":
+      throw await de_ServiceNotSupportedExceptionRes(parsedOutput, context);
+    case "DeleteConflict":
+    case "com.amazonaws.iam#DeleteConflictException":
+      throw await de_DeleteConflictExceptionRes(parsedOutput, context);
+    case "InvalidAuthenticationCode":
+    case "com.amazonaws.iam#InvalidAuthenticationCodeException":
+      throw await de_InvalidAuthenticationCodeExceptionRes(parsedOutput, context);
+    case "ReportGenerationLimitExceeded":
+    case "com.amazonaws.iam#ReportGenerationLimitExceededException":
+      throw await de_ReportGenerationLimitExceededExceptionRes(parsedOutput, context);
+    case "ReportExpired":
+    case "com.amazonaws.iam#CredentialReportExpiredException":
+      throw await de_CredentialReportExpiredExceptionRes(parsedOutput, context);
+    case "ReportInProgress":
+    case "com.amazonaws.iam#CredentialReportNotReadyException":
+      throw await de_CredentialReportNotReadyExceptionRes(parsedOutput, context);
+    case "ReportNotPresent":
+    case "com.amazonaws.iam#CredentialReportNotPresentException":
+      throw await de_CredentialReportNotPresentExceptionRes(parsedOutput, context);
     case "UnrecognizedPublicKeyEncoding":
     case "com.amazonaws.iam#UnrecognizedPublicKeyEncodingException":
       throw await de_UnrecognizedPublicKeyEncodingExceptionRes(parsedOutput, context);
+    case "PolicyEvaluation":
+    case "com.amazonaws.iam#PolicyEvaluationException":
+      throw await de_PolicyEvaluationExceptionRes(parsedOutput, context);
+    case "KeyPairMismatch":
+    case "com.amazonaws.iam#KeyPairMismatchException":
+      throw await de_KeyPairMismatchExceptionRes(parsedOutput, context);
+    case "MalformedCertificate":
+    case "com.amazonaws.iam#MalformedCertificateException":
+      throw await de_MalformedCertificateExceptionRes(parsedOutput, context);
+    case "DuplicateCertificate":
+    case "com.amazonaws.iam#DuplicateCertificateException":
+      throw await de_DuplicateCertificateExceptionRes(parsedOutput, context);
+    case "InvalidCertificate":
+    case "com.amazonaws.iam#InvalidCertificateException":
+      throw await de_InvalidCertificateExceptionRes(parsedOutput, context);
+    case "DuplicateSSHPublicKey":
+    case "com.amazonaws.iam#DuplicateSSHPublicKeyException":
+      throw await de_DuplicateSSHPublicKeyExceptionRes(parsedOutput, context);
+    case "InvalidPublicKey":
+    case "com.amazonaws.iam#InvalidPublicKeyException":
+      throw await de_InvalidPublicKeyExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody: parsedBody.Error,
         errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -1010,7 +1010,7 @@ export const de_AcceptResourceShareInvitationCommand = async (
   context: __SerdeContext
 ): Promise<AcceptResourceShareInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AcceptResourceShareInvitationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1025,59 +1025,6 @@ export const de_AcceptResourceShareInvitationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AcceptResourceShareInvitationCommandError
- */
-const de_AcceptResourceShareInvitationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AcceptResourceShareInvitationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceShareInvitationAlreadyAcceptedException":
-    case "com.amazonaws.ram#ResourceShareInvitationAlreadyAcceptedException":
-      throw await de_ResourceShareInvitationAlreadyAcceptedExceptionRes(parsedOutput, context);
-    case "ResourceShareInvitationAlreadyRejectedException":
-    case "com.amazonaws.ram#ResourceShareInvitationAlreadyRejectedException":
-      throw await de_ResourceShareInvitationAlreadyRejectedExceptionRes(parsedOutput, context);
-    case "ResourceShareInvitationArnNotFoundException":
-    case "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException":
-      throw await de_ResourceShareInvitationArnNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceShareInvitationExpiredException":
-    case "com.amazonaws.ram#ResourceShareInvitationExpiredException":
-      throw await de_ResourceShareInvitationExpiredExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AssociateResourceShareCommand
  */
 export const de_AssociateResourceShareCommand = async (
@@ -1085,7 +1032,7 @@ export const de_AssociateResourceShareCommand = async (
   context: __SerdeContext
 ): Promise<AssociateResourceShareCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateResourceShareCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1100,62 +1047,6 @@ export const de_AssociateResourceShareCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssociateResourceShareCommandError
- */
-const de_AssociateResourceShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateResourceShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidStateTransitionException":
-    case "com.amazonaws.ram#InvalidStateTransitionException":
-      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceShareLimitExceededException":
-    case "com.amazonaws.ram#ResourceShareLimitExceededException":
-      throw await de_ResourceShareLimitExceededExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.ram#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1AssociateResourceSharePermissionCommand
  */
 export const de_AssociateResourceSharePermissionCommand = async (
@@ -1163,7 +1054,7 @@ export const de_AssociateResourceSharePermissionCommand = async (
   context: __SerdeContext
 ): Promise<AssociateResourceSharePermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_AssociateResourceSharePermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1178,50 +1069,6 @@ export const de_AssociateResourceSharePermissionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1AssociateResourceSharePermissionCommandError
- */
-const de_AssociateResourceSharePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateResourceSharePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreatePermissionCommand
  */
 export const de_CreatePermissionCommand = async (
@@ -1229,7 +1076,7 @@ export const de_CreatePermissionCommand = async (
   context: __SerdeContext
 ): Promise<CreatePermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreatePermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1244,59 +1091,6 @@ export const de_CreatePermissionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreatePermissionCommandError
- */
-const de_CreatePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPolicyException":
-    case "com.amazonaws.ram#InvalidPolicyException":
-      throw await de_InvalidPolicyExceptionRes(parsedOutput, context);
-    case "MalformedPolicyTemplateException":
-    case "com.amazonaws.ram#MalformedPolicyTemplateException":
-      throw await de_MalformedPolicyTemplateExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "PermissionAlreadyExistsException":
-    case "com.amazonaws.ram#PermissionAlreadyExistsException":
-      throw await de_PermissionAlreadyExistsExceptionRes(parsedOutput, context);
-    case "PermissionLimitExceededException":
-    case "com.amazonaws.ram#PermissionLimitExceededException":
-      throw await de_PermissionLimitExceededExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreatePermissionVersionCommand
  */
 export const de_CreatePermissionVersionCommand = async (
@@ -1304,7 +1098,7 @@ export const de_CreatePermissionVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreatePermissionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreatePermissionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1319,59 +1113,6 @@ export const de_CreatePermissionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreatePermissionVersionCommandError
- */
-const de_CreatePermissionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePermissionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidPolicyException":
-    case "com.amazonaws.ram#InvalidPolicyException":
-      throw await de_InvalidPolicyExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "MalformedPolicyTemplateException":
-    case "com.amazonaws.ram#MalformedPolicyTemplateException":
-      throw await de_MalformedPolicyTemplateExceptionRes(parsedOutput, context);
-    case "PermissionVersionsLimitExceededException":
-    case "com.amazonaws.ram#PermissionVersionsLimitExceededException":
-      throw await de_PermissionVersionsLimitExceededExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateResourceShareCommand
  */
 export const de_CreateResourceShareCommand = async (
@@ -1379,7 +1120,7 @@ export const de_CreateResourceShareCommand = async (
   context: __SerdeContext
 ): Promise<CreateResourceShareCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateResourceShareCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1394,65 +1135,6 @@ export const de_CreateResourceShareCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateResourceShareCommandError
- */
-const de_CreateResourceShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateResourceShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidStateTransitionException":
-    case "com.amazonaws.ram#InvalidStateTransitionException":
-      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceShareLimitExceededException":
-    case "com.amazonaws.ram#ResourceShareLimitExceededException":
-      throw await de_ResourceShareLimitExceededExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "TagLimitExceededException":
-    case "com.amazonaws.ram#TagLimitExceededException":
-      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
-    case "TagPolicyViolationException":
-    case "com.amazonaws.ram#TagPolicyViolationException":
-      throw await de_TagPolicyViolationExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeletePermissionCommand
  */
 export const de_DeletePermissionCommand = async (
@@ -1460,7 +1142,7 @@ export const de_DeletePermissionCommand = async (
   context: __SerdeContext
 ): Promise<DeletePermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeletePermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1473,50 +1155,6 @@ export const de_DeletePermissionCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeletePermissionCommandError
- */
-const de_DeletePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1527,7 +1165,7 @@ export const de_DeletePermissionVersionCommand = async (
   context: __SerdeContext
 ): Promise<DeletePermissionVersionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeletePermissionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1543,53 +1181,6 @@ export const de_DeletePermissionVersionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeletePermissionVersionCommandError
- */
-const de_DeletePermissionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePermissionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteResourceShareCommand
  */
 export const de_DeleteResourceShareCommand = async (
@@ -1597,7 +1188,7 @@ export const de_DeleteResourceShareCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourceShareCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteResourceShareCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1612,56 +1203,6 @@ export const de_DeleteResourceShareCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteResourceShareCommandError
- */
-const de_DeleteResourceShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourceShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidStateTransitionException":
-    case "com.amazonaws.ram#InvalidStateTransitionException":
-      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DisassociateResourceShareCommand
  */
 export const de_DisassociateResourceShareCommand = async (
@@ -1669,7 +1210,7 @@ export const de_DisassociateResourceShareCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateResourceShareCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateResourceShareCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1684,59 +1225,6 @@ export const de_DisassociateResourceShareCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DisassociateResourceShareCommandError
- */
-const de_DisassociateResourceShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateResourceShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidStateTransitionException":
-    case "com.amazonaws.ram#InvalidStateTransitionException":
-      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceShareLimitExceededException":
-    case "com.amazonaws.ram#ResourceShareLimitExceededException":
-      throw await de_ResourceShareLimitExceededExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DisassociateResourceSharePermissionCommand
  */
 export const de_DisassociateResourceSharePermissionCommand = async (
@@ -1744,7 +1232,7 @@ export const de_DisassociateResourceSharePermissionCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateResourceSharePermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DisassociateResourceSharePermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1759,53 +1247,6 @@ export const de_DisassociateResourceSharePermissionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DisassociateResourceSharePermissionCommandError
- */
-const de_DisassociateResourceSharePermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateResourceSharePermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidStateTransitionException":
-    case "com.amazonaws.ram#InvalidStateTransitionException":
-      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand
  */
 export const de_EnableSharingWithAwsOrganizationCommand = async (
@@ -1813,7 +1254,7 @@ export const de_EnableSharingWithAwsOrganizationCommand = async (
   context: __SerdeContext
 ): Promise<EnableSharingWithAwsOrganizationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_EnableSharingWithAwsOrganizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1827,38 +1268,6 @@ export const de_EnableSharingWithAwsOrganizationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1EnableSharingWithAwsOrganizationCommandError
- */
-const de_EnableSharingWithAwsOrganizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<EnableSharingWithAwsOrganizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetPermissionCommand
  */
 export const de_GetPermissionCommand = async (
@@ -1866,7 +1275,7 @@ export const de_GetPermissionCommand = async (
   context: __SerdeContext
 ): Promise<GetPermissionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetPermissionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1880,47 +1289,6 @@ export const de_GetPermissionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetPermissionCommandError
- */
-const de_GetPermissionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPermissionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetResourcePoliciesCommand
  */
 export const de_GetResourcePoliciesCommand = async (
@@ -1928,7 +1296,7 @@ export const de_GetResourcePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<GetResourcePoliciesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResourcePoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1943,47 +1311,6 @@ export const de_GetResourcePoliciesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetResourcePoliciesCommandError
- */
-const de_GetResourcePoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourcePoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "ResourceArnNotFoundException":
-    case "com.amazonaws.ram#ResourceArnNotFoundException":
-      throw await de_ResourceArnNotFoundExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetResourceShareAssociationsCommand
  */
 export const de_GetResourceShareAssociationsCommand = async (
@@ -1991,7 +1318,7 @@ export const de_GetResourceShareAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceShareAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResourceShareAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2006,50 +1333,6 @@ export const de_GetResourceShareAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetResourceShareAssociationsCommandError
- */
-const de_GetResourceShareAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceShareAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetResourceShareInvitationsCommand
  */
 export const de_GetResourceShareInvitationsCommand = async (
@@ -2057,7 +1340,7 @@ export const de_GetResourceShareInvitationsCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceShareInvitationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResourceShareInvitationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2072,53 +1355,6 @@ export const de_GetResourceShareInvitationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetResourceShareInvitationsCommandError
- */
-const de_GetResourceShareInvitationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceShareInvitationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidMaxResultsException":
-    case "com.amazonaws.ram#InvalidMaxResultsException":
-      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "ResourceShareInvitationArnNotFoundException":
-    case "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException":
-      throw await de_ResourceShareInvitationArnNotFoundExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetResourceSharesCommand
  */
 export const de_GetResourceSharesCommand = async (
@@ -2126,7 +1362,7 @@ export const de_GetResourceSharesCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceSharesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetResourceSharesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2141,47 +1377,6 @@ export const de_GetResourceSharesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetResourceSharesCommandError
- */
-const de_GetResourceSharesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceSharesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPendingInvitationResourcesCommand
  */
 export const de_ListPendingInvitationResourcesCommand = async (
@@ -2189,7 +1384,7 @@ export const de_ListPendingInvitationResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListPendingInvitationResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPendingInvitationResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2204,56 +1399,6 @@ export const de_ListPendingInvitationResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPendingInvitationResourcesCommandError
- */
-const de_ListPendingInvitationResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPendingInvitationResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.ram#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "ResourceShareInvitationAlreadyRejectedException":
-    case "com.amazonaws.ram#ResourceShareInvitationAlreadyRejectedException":
-      throw await de_ResourceShareInvitationAlreadyRejectedExceptionRes(parsedOutput, context);
-    case "ResourceShareInvitationArnNotFoundException":
-    case "com.amazonaws.ram#ResourceShareInvitationArnNotFoundException":
-      throw await de_ResourceShareInvitationArnNotFoundExceptionRes(parsedOutput, context);
-    case "ResourceShareInvitationExpiredException":
-    case "com.amazonaws.ram#ResourceShareInvitationExpiredException":
-      throw await de_ResourceShareInvitationExpiredExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPermissionAssociationsCommand
  */
 export const de_ListPermissionAssociationsCommand = async (
@@ -2261,7 +1406,7 @@ export const de_ListPermissionAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<ListPermissionAssociationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPermissionAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2276,44 +1421,6 @@ export const de_ListPermissionAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPermissionAssociationsCommandError
- */
-const de_ListPermissionAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPermissionAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPermissionsCommand
  */
 export const de_ListPermissionsCommand = async (
@@ -2321,7 +1428,7 @@ export const de_ListPermissionsCommand = async (
   context: __SerdeContext
 ): Promise<ListPermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2333,44 +1440,6 @@ export const de_ListPermissionsCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1ListPermissionsCommandError
- */
-const de_ListPermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2381,7 +1450,7 @@ export const de_ListPermissionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListPermissionVersionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPermissionVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2396,50 +1465,6 @@ export const de_ListPermissionVersionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPermissionVersionsCommandError
- */
-const de_ListPermissionVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPermissionVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListPrincipalsCommand
  */
 export const de_ListPrincipalsCommand = async (
@@ -2447,7 +1472,7 @@ export const de_ListPrincipalsCommand = async (
   context: __SerdeContext
 ): Promise<ListPrincipalsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListPrincipalsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2462,47 +1487,6 @@ export const de_ListPrincipalsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListPrincipalsCommandError
- */
-const de_ListPrincipalsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPrincipalsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListReplacePermissionAssociationsWorkCommand
  */
 export const de_ListReplacePermissionAssociationsWorkCommand = async (
@@ -2510,7 +1494,7 @@ export const de_ListReplacePermissionAssociationsWorkCommand = async (
   context: __SerdeContext
 ): Promise<ListReplacePermissionAssociationsWorkCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListReplacePermissionAssociationsWorkCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2525,41 +1509,6 @@ export const de_ListReplacePermissionAssociationsWorkCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListReplacePermissionAssociationsWorkCommandError
- */
-const de_ListReplacePermissionAssociationsWorkCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListReplacePermissionAssociationsWorkCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListResourcesCommand
  */
 export const de_ListResourcesCommand = async (
@@ -2567,7 +1516,7 @@ export const de_ListResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListResourcesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2582,50 +1531,6 @@ export const de_ListResourcesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListResourcesCommandError
- */
-const de_ListResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidResourceTypeException":
-    case "com.amazonaws.ram#InvalidResourceTypeException":
-      throw await de_InvalidResourceTypeExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListResourceSharePermissionsCommand
  */
 export const de_ListResourceSharePermissionsCommand = async (
@@ -2633,7 +1538,7 @@ export const de_ListResourceSharePermissionsCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceSharePermissionsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListResourceSharePermissionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2648,50 +1553,6 @@ export const de_ListResourceSharePermissionsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListResourceSharePermissionsCommandError
- */
-const de_ListResourceSharePermissionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceSharePermissionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListResourceTypesCommand
  */
 export const de_ListResourceTypesCommand = async (
@@ -2699,7 +1560,7 @@ export const de_ListResourceTypesCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceTypesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListResourceTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2714,41 +1575,6 @@ export const de_ListResourceTypesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListResourceTypesCommandError
- */
-const de_ListResourceTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.ram#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PromotePermissionCreatedFromPolicyCommand
  */
 export const de_PromotePermissionCreatedFromPolicyCommand = async (
@@ -2756,7 +1582,7 @@ export const de_PromotePermissionCreatedFromPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PromotePermissionCreatedFromPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PromotePermissionCreatedFromPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2771,50 +1597,6 @@ export const de_PromotePermissionCreatedFromPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PromotePermissionCreatedFromPolicyCommandError
- */
-const de_PromotePermissionCreatedFromPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PromotePermissionCreatedFromPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.ram#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand
  */
 export const de_PromoteResourceShareCreatedFromPolicyCommand = async (
@@ -2822,7 +1604,7 @@ export const de_PromoteResourceShareCreatedFromPolicyCommand = async (
   context: __SerdeContext
 ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PromoteResourceShareCreatedFromPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2836,59 +1618,6 @@ export const de_PromoteResourceShareCreatedFromPolicyCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommandError
- */
-const de_PromoteResourceShareCreatedFromPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidStateTransitionException":
-    case "com.amazonaws.ram#InvalidStateTransitionException":
-      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "MissingRequiredParameterException":
-    case "com.amazonaws.ram#MissingRequiredParameterException":
-      throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceShareLimitExceededException":
-    case "com.amazonaws.ram#ResourceShareLimitExceededException":
-      throw await de_ResourceShareLimitExceededExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    case "UnmatchedPolicyPermissionException":
-    case "com.amazonaws.ram#UnmatchedPolicyPermissionException":
-      throw await de_UnmatchedPolicyPermissionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RejectResourceShareInvitationCommand
  */
 export const de_RejectResourceShareInvitationCommand = async (
@@ -2896,7 +1625,7 @@ export const de_RejectResourceShareInvitationCommand = async (
   context: __SerdeContext
 ): Promise<RejectResourceShareInvitationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RejectResourceShareInvitationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2911,12 +1640,109 @@ export const de_RejectResourceShareInvitationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RejectResourceShareInvitationCommandError
+ * deserializeAws_restJson1ReplacePermissionAssociationsCommand
  */
-const de_RejectResourceShareInvitationCommandError = async (
+export const de_ReplacePermissionAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<RejectResourceShareInvitationCommandOutput> => {
+): Promise<ReplacePermissionAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    replacePermissionAssociationsWork: (_) => de_ReplacePermissionAssociationsWork(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SetDefaultPermissionVersionCommand
+ */
+export const de_SetDefaultPermissionVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetDefaultPermissionVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    returnValue: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateResourceShareCommand
+ */
+export const de_UpdateResourceShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateResourceShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    resourceShare: (_) => de_ResourceShare(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2953,339 +1779,67 @@ const de_RejectResourceShareInvitationCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.ram#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1ReplacePermissionAssociationsCommand
- */
-export const de_ReplacePermissionAssociationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReplacePermissionAssociationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ReplacePermissionAssociationsCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    clientToken: __expectString,
-    replacePermissionAssociationsWork: (_) => de_ReplacePermissionAssociationsWork(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1ReplacePermissionAssociationsCommandError
- */
-const de_ReplacePermissionAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReplacePermissionAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ram#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "InvalidStateTransitionException":
+    case "com.amazonaws.ram#InvalidStateTransitionException":
+      throw await de_InvalidStateTransitionExceptionRes(parsedOutput, context);
+    case "ResourceShareLimitExceededException":
+    case "com.amazonaws.ram#ResourceShareLimitExceededException":
+      throw await de_ResourceShareLimitExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ram#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "UnknownResourceException":
     case "com.amazonaws.ram#UnknownResourceException":
       throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1SetDefaultPermissionVersionCommand
- */
-export const de_SetDefaultPermissionVersionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetDefaultPermissionVersionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SetDefaultPermissionVersionCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    clientToken: __expectString,
-    returnValue: __expectBoolean,
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1SetDefaultPermissionVersionCommandError
- */
-const de_SetDefaultPermissionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SetDefaultPermissionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "ResourceArnNotFoundException":
-    case "com.amazonaws.ram#ResourceArnNotFoundException":
-      throw await de_ResourceArnNotFoundExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "InvalidPolicyException":
+    case "com.amazonaws.ram#InvalidPolicyException":
+      throw await de_InvalidPolicyExceptionRes(parsedOutput, context);
+    case "MalformedPolicyTemplateException":
+    case "com.amazonaws.ram#MalformedPolicyTemplateException":
+      throw await de_MalformedPolicyTemplateExceptionRes(parsedOutput, context);
+    case "PermissionAlreadyExistsException":
+    case "com.amazonaws.ram#PermissionAlreadyExistsException":
+      throw await de_PermissionAlreadyExistsExceptionRes(parsedOutput, context);
+    case "PermissionLimitExceededException":
+    case "com.amazonaws.ram#PermissionLimitExceededException":
+      throw await de_PermissionLimitExceededExceptionRes(parsedOutput, context);
+    case "PermissionVersionsLimitExceededException":
+    case "com.amazonaws.ram#PermissionVersionsLimitExceededException":
+      throw await de_PermissionVersionsLimitExceededExceptionRes(parsedOutput, context);
     case "TagLimitExceededException":
     case "com.amazonaws.ram#TagLimitExceededException":
       throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
     case "TagPolicyViolationException":
     case "com.amazonaws.ram#TagPolicyViolationException":
       throw await de_TagPolicyViolationExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  await collectBody(output.body, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1UpdateResourceShareCommand
- */
-export const de_UpdateResourceShareCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourceShareCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateResourceShareCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  const doc = take(data, {
-    clientToken: __expectString,
-    resourceShare: (_) => de_ResourceShare(_, context),
-  });
-  Object.assign(contents, doc);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1UpdateResourceShareCommandError
- */
-const de_UpdateResourceShareCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateResourceShareCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "IdempotentParameterMismatchException":
-    case "com.amazonaws.ram#IdempotentParameterMismatchException":
-      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
-    case "InvalidClientTokenException":
-    case "com.amazonaws.ram#InvalidClientTokenException":
-      throw await de_InvalidClientTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.ram#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "MalformedArnException":
-    case "com.amazonaws.ram#MalformedArnException":
-      throw await de_MalformedArnExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.ram#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "ResourceArnNotFoundException":
+    case "com.amazonaws.ram#ResourceArnNotFoundException":
+      throw await de_ResourceArnNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidMaxResultsException":
+    case "com.amazonaws.ram#InvalidMaxResultsException":
+      throw await de_InvalidMaxResultsExceptionRes(parsedOutput, context);
     case "MissingRequiredParameterException":
     case "com.amazonaws.ram#MissingRequiredParameterException":
       throw await de_MissingRequiredParameterExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.ram#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalException":
-    case "com.amazonaws.ram#ServerInternalException":
-      throw await de_ServerInternalExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.ram#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    case "UnknownResourceException":
-    case "com.amazonaws.ram#UnknownResourceException":
-      throw await de_UnknownResourceExceptionRes(parsedOutput, context);
+    case "InvalidResourceTypeException":
+    case "com.amazonaws.ram#InvalidResourceTypeException":
+      throw await de_InvalidResourceTypeExceptionRes(parsedOutput, context);
+    case "UnmatchedPolicyPermissionException":
+    case "com.amazonaws.ram#UnmatchedPolicyPermissionException":
+      throw await de_UnmatchedPolicyPermissionExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

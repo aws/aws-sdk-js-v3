@@ -1021,7 +1021,7 @@ export const de_AddTagsToOnPremisesInstancesCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsToOnPremisesInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsToOnPremisesInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: AddTagsToOnPremisesInstancesCommandOutput = {
@@ -1031,12 +1031,902 @@ export const de_AddTagsToOnPremisesInstancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddTagsToOnPremisesInstancesCommandError
+ * deserializeAws_json1_1BatchGetApplicationRevisionsCommand
  */
-const de_AddTagsToOnPremisesInstancesCommandError = async (
+export const de_BatchGetApplicationRevisionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AddTagsToOnPremisesInstancesCommandOutput> => {
+): Promise<BatchGetApplicationRevisionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetApplicationRevisionsOutput(data, context);
+  const response: BatchGetApplicationRevisionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetApplicationsCommand
+ */
+export const de_BatchGetApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetApplicationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetApplicationsOutput(data, context);
+  const response: BatchGetApplicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetDeploymentGroupsCommand
+ */
+export const de_BatchGetDeploymentGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetDeploymentGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetDeploymentGroupsOutput(data, context);
+  const response: BatchGetDeploymentGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetDeploymentInstancesCommand
+ */
+export const de_BatchGetDeploymentInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetDeploymentInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetDeploymentInstancesOutput(data, context);
+  const response: BatchGetDeploymentInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetDeploymentsCommand
+ */
+export const de_BatchGetDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetDeploymentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetDeploymentsOutput(data, context);
+  const response: BatchGetDeploymentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetDeploymentTargetsCommand
+ */
+export const de_BatchGetDeploymentTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetDeploymentTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetDeploymentTargetsOutput(data, context);
+  const response: BatchGetDeploymentTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchGetOnPremisesInstancesCommand
+ */
+export const de_BatchGetOnPremisesInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetOnPremisesInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetOnPremisesInstancesOutput(data, context);
+  const response: BatchGetOnPremisesInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ContinueDeploymentCommand
+ */
+export const de_ContinueDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ContinueDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: ContinueDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateApplicationCommand
+ */
+export const de_CreateApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDeploymentCommand
+ */
+export const de_CreateDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDeploymentConfigCommand
+ */
+export const de_CreateDeploymentConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDeploymentConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateDeploymentConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateDeploymentGroupCommand
+ */
+export const de_CreateDeploymentGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDeploymentGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateDeploymentGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteApplicationCommand
+ */
+export const de_DeleteApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDeploymentConfigCommand
+ */
+export const de_DeleteDeploymentConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeploymentConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteDeploymentConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDeploymentGroupCommand
+ */
+export const de_DeleteDeploymentGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDeploymentGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteDeploymentGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteGitHubAccountTokenCommand
+ */
+export const de_DeleteGitHubAccountTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteGitHubAccountTokenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteGitHubAccountTokenCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteResourcesByExternalIdCommand
+ */
+export const de_DeleteResourcesByExternalIdCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcesByExternalIdCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteResourcesByExternalIdCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeregisterOnPremisesInstanceCommand
+ */
+export const de_DeregisterOnPremisesInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterOnPremisesInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeregisterOnPremisesInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetApplicationCommand
+ */
+export const de_GetApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetApplicationOutput(data, context);
+  const response: GetApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetApplicationRevisionCommand
+ */
+export const de_GetApplicationRevisionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationRevisionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetApplicationRevisionOutput(data, context);
+  const response: GetApplicationRevisionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDeploymentCommand
+ */
+export const de_GetDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDeploymentOutput(data, context);
+  const response: GetDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDeploymentConfigCommand
+ */
+export const de_GetDeploymentConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeploymentConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDeploymentConfigOutput(data, context);
+  const response: GetDeploymentConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDeploymentGroupCommand
+ */
+export const de_GetDeploymentGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeploymentGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDeploymentGroupOutput(data, context);
+  const response: GetDeploymentGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDeploymentInstanceCommand
+ */
+export const de_GetDeploymentInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeploymentInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDeploymentInstanceOutput(data, context);
+  const response: GetDeploymentInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDeploymentTargetCommand
+ */
+export const de_GetDeploymentTargetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDeploymentTargetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDeploymentTargetOutput(data, context);
+  const response: GetDeploymentTargetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetOnPremisesInstanceCommand
+ */
+export const de_GetOnPremisesInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOnPremisesInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetOnPremisesInstanceOutput(data, context);
+  const response: GetOnPremisesInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationRevisionsCommand
+ */
+export const de_ListApplicationRevisionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationRevisionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListApplicationRevisionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationsCommand
+ */
+export const de_ListApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListApplicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDeploymentConfigsCommand
+ */
+export const de_ListDeploymentConfigsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeploymentConfigsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListDeploymentConfigsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDeploymentGroupsCommand
+ */
+export const de_ListDeploymentGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeploymentGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListDeploymentGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDeploymentInstancesCommand
+ */
+export const de_ListDeploymentInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeploymentInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListDeploymentInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDeploymentsCommand
+ */
+export const de_ListDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeploymentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListDeploymentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListDeploymentTargetsCommand
+ */
+export const de_ListDeploymentTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDeploymentTargetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListDeploymentTargetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListGitHubAccountTokenNamesCommand
+ */
+export const de_ListGitHubAccountTokenNamesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListGitHubAccountTokenNamesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListGitHubAccountTokenNamesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListOnPremisesInstancesCommand
+ */
+export const de_ListOnPremisesInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListOnPremisesInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListOnPremisesInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand
+ */
+export const de_PutLifecycleEventHookExecutionStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutLifecycleEventHookExecutionStatusCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutLifecycleEventHookExecutionStatusCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RegisterApplicationRevisionCommand
+ */
+export const de_RegisterApplicationRevisionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterApplicationRevisionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RegisterApplicationRevisionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RegisterOnPremisesInstanceCommand
+ */
+export const de_RegisterOnPremisesInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterOnPremisesInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RegisterOnPremisesInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand
+ */
+export const de_RemoveTagsFromOnPremisesInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: RemoveTagsFromOnPremisesInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand
+ */
+export const de_SkipWaitTimeForInstanceTerminationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: SkipWaitTimeForInstanceTerminationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopDeploymentCommand
+ */
+export const de_StopDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateApplicationCommand
+ */
+export const de_UpdateApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UpdateApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDeploymentGroupCommand
+ */
+export const de_UpdateDeploymentGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDeploymentGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDeploymentGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1064,49 +1954,6 @@ const de_AddTagsToOnPremisesInstancesCommandError = async (
     case "TagRequiredException":
     case "com.amazonaws.codedeploy#TagRequiredException":
       throw await de_TagRequiredExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1BatchGetApplicationRevisionsCommand
- */
-export const de_BatchGetApplicationRevisionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetApplicationRevisionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_BatchGetApplicationRevisionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_BatchGetApplicationRevisionsOutput(data, context);
-  const response: BatchGetApplicationRevisionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1BatchGetApplicationRevisionsCommandError
- */
-const de_BatchGetApplicationRevisionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetApplicationRevisionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ApplicationDoesNotExistException":
     case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
       throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
@@ -1125,171 +1972,15 @@ const de_BatchGetApplicationRevisionsCommandError = async (
     case "RevisionRequiredException":
     case "com.amazonaws.codedeploy#RevisionRequiredException":
       throw await de_RevisionRequiredExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1BatchGetApplicationsCommand
- */
-export const de_BatchGetApplicationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetApplicationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_BatchGetApplicationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_BatchGetApplicationsOutput(data, context);
-  const response: BatchGetApplicationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1BatchGetApplicationsCommandError
- */
-const de_BatchGetApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "BatchLimitExceededException":
-    case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      throw await de_BatchLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1BatchGetDeploymentGroupsCommand
- */
-export const de_BatchGetDeploymentGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetDeploymentGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_BatchGetDeploymentGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_BatchGetDeploymentGroupsOutput(data, context);
-  const response: BatchGetDeploymentGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1BatchGetDeploymentGroupsCommandError
- */
-const de_BatchGetDeploymentGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetDeploymentGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "BatchLimitExceededException":
-    case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      throw await de_BatchLimitExceededExceptionRes(parsedOutput, context);
     case "DeploymentConfigDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
       throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
       throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidDeploymentGroupNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
       throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1BatchGetDeploymentInstancesCommand
- */
-export const de_BatchGetDeploymentInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetDeploymentInstancesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_BatchGetDeploymentInstancesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_BatchGetDeploymentInstancesOutput(data, context);
-  const response: BatchGetDeploymentInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1BatchGetDeploymentInstancesCommandError
- */
-const de_BatchGetDeploymentInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetDeploymentInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BatchLimitExceededException":
-    case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      throw await de_BatchLimitExceededExceptionRes(parsedOutput, context);
     case "DeploymentDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
       throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
@@ -1305,110 +1996,6 @@ const de_BatchGetDeploymentInstancesCommandError = async (
     case "InvalidDeploymentIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
       throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
-    case "InvalidInstanceNameException":
-    case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1BatchGetDeploymentsCommand
- */
-export const de_BatchGetDeploymentsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetDeploymentsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_BatchGetDeploymentsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_BatchGetDeploymentsOutput(data, context);
-  const response: BatchGetDeploymentsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1BatchGetDeploymentsCommandError
- */
-const de_BatchGetDeploymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetDeploymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BatchLimitExceededException":
-    case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      throw await de_BatchLimitExceededExceptionRes(parsedOutput, context);
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1BatchGetDeploymentTargetsCommand
- */
-export const de_BatchGetDeploymentTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetDeploymentTargetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_BatchGetDeploymentTargetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_BatchGetDeploymentTargetsOutput(data, context);
-  const response: BatchGetDeploymentTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1BatchGetDeploymentTargetsCommandError
- */
-const de_BatchGetDeploymentTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetDeploymentTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeploymentDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "DeploymentNotStartedException":
     case "com.amazonaws.codedeploy#DeploymentNotStartedException":
       throw await de_DeploymentNotStartedExceptionRes(parsedOutput, context);
@@ -1424,119 +2011,15 @@ const de_BatchGetDeploymentTargetsCommandError = async (
     case "InstanceDoesNotExistException":
     case "com.amazonaws.codedeploy#InstanceDoesNotExistException":
       throw await de_InstanceDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "InvalidDeploymentTargetIdException":
     case "com.amazonaws.codedeploy#InvalidDeploymentTargetIdException":
       throw await de_InvalidDeploymentTargetIdExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1BatchGetOnPremisesInstancesCommand
- */
-export const de_BatchGetOnPremisesInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetOnPremisesInstancesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_BatchGetOnPremisesInstancesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_BatchGetOnPremisesInstancesOutput(data, context);
-  const response: BatchGetOnPremisesInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1BatchGetOnPremisesInstancesCommandError
- */
-const de_BatchGetOnPremisesInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetOnPremisesInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "BatchLimitExceededException":
-    case "com.amazonaws.codedeploy#BatchLimitExceededException":
-      throw await de_BatchLimitExceededExceptionRes(parsedOutput, context);
-    case "InstanceNameRequiredException":
-    case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      throw await de_InstanceNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidInstanceNameException":
-    case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ContinueDeploymentCommand
- */
-export const de_ContinueDeploymentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ContinueDeploymentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ContinueDeploymentCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: ContinueDeploymentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ContinueDeploymentCommandError
- */
-const de_ContinueDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ContinueDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DeploymentAlreadyCompletedException":
     case "com.amazonaws.codedeploy#DeploymentAlreadyCompletedException":
       throw await de_DeploymentAlreadyCompletedExceptionRes(parsedOutput, context);
-    case "DeploymentDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
     case "DeploymentIsNotInReadyStateException":
     case "com.amazonaws.codedeploy#DeploymentIsNotInReadyStateException":
       throw await de_DeploymentIsNotInReadyStateExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "InvalidDeploymentStatusException":
     case "com.amazonaws.codedeploy#InvalidDeploymentStatusException":
       throw await de_InvalidDeploymentStatusExceptionRes(parsedOutput, context);
@@ -1546,128 +2029,21 @@ const de_ContinueDeploymentCommandError = async (
     case "UnsupportedActionForDeploymentTypeException":
     case "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException":
       throw await de_UnsupportedActionForDeploymentTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateApplicationCommand
- */
-export const de_CreateApplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateApplicationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateApplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateApplicationCommandError
- */
-const de_CreateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ApplicationAlreadyExistsException":
     case "com.amazonaws.codedeploy#ApplicationAlreadyExistsException":
       throw await de_ApplicationAlreadyExistsExceptionRes(parsedOutput, context);
     case "ApplicationLimitExceededException":
     case "com.amazonaws.codedeploy#ApplicationLimitExceededException":
       throw await de_ApplicationLimitExceededExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    case "InvalidComputePlatformException":
-    case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      throw await de_InvalidComputePlatformExceptionRes(parsedOutput, context);
     case "InvalidTagsToAddException":
     case "com.amazonaws.codedeploy#InvalidTagsToAddException":
       throw await de_InvalidTagsToAddExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateDeploymentCommand
- */
-export const de_CreateDeploymentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeploymentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDeploymentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateDeploymentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateDeploymentCommandError
- */
-const de_CreateDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "AlarmsLimitExceededException":
     case "com.amazonaws.codedeploy#AlarmsLimitExceededException":
       throw await de_AlarmsLimitExceededExceptionRes(parsedOutput, context);
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "DeploymentConfigDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupDoesNotExistException":
     case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
       throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentGroupNameRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
     case "DeploymentLimitExceededException":
     case "com.amazonaws.codedeploy#DeploymentLimitExceededException":
       throw await de_DeploymentLimitExceededExceptionRes(parsedOutput, context);
@@ -1677,9 +2053,6 @@ const de_CreateDeploymentCommandError = async (
     case "InvalidAlarmConfigException":
     case "com.amazonaws.codedeploy#InvalidAlarmConfigException":
       throw await de_InvalidAlarmConfigExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidAutoRollbackConfigException":
     case "com.amazonaws.codedeploy#InvalidAutoRollbackConfigException":
       throw await de_InvalidAutoRollbackConfigExceptionRes(parsedOutput, context);
@@ -1689,9 +2062,6 @@ const de_CreateDeploymentCommandError = async (
     case "InvalidDeploymentConfigNameException":
     case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
       throw await de_InvalidDeploymentConfigNameExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentGroupNameException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
     case "InvalidFileExistsBehaviorException":
     case "com.amazonaws.codedeploy#InvalidFileExistsBehaviorException":
       throw await de_InvalidFileExistsBehaviorExceptionRes(parsedOutput, context);
@@ -1704,9 +2074,6 @@ const de_CreateDeploymentCommandError = async (
     case "InvalidLoadBalancerInfoException":
     case "com.amazonaws.codedeploy#InvalidLoadBalancerInfoException":
       throw await de_InvalidLoadBalancerInfoExceptionRes(parsedOutput, context);
-    case "InvalidRevisionException":
-    case "com.amazonaws.codedeploy#InvalidRevisionException":
-      throw await de_InvalidRevisionExceptionRes(parsedOutput, context);
     case "InvalidRoleException":
     case "com.amazonaws.codedeploy#InvalidRoleException":
       throw await de_InvalidRoleExceptionRes(parsedOutput, context);
@@ -1722,55 +2089,9 @@ const de_CreateDeploymentCommandError = async (
     case "RevisionDoesNotExistException":
     case "com.amazonaws.codedeploy#RevisionDoesNotExistException":
       throw await de_RevisionDoesNotExistExceptionRes(parsedOutput, context);
-    case "RevisionRequiredException":
-    case "com.amazonaws.codedeploy#RevisionRequiredException":
-      throw await de_RevisionRequiredExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.codedeploy#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateDeploymentConfigCommand
- */
-export const de_CreateDeploymentConfigCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeploymentConfigCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDeploymentConfigCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateDeploymentConfigCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateDeploymentConfigCommandError
- */
-const de_CreateDeploymentConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeploymentConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DeploymentConfigAlreadyExistsException":
     case "com.amazonaws.codedeploy#DeploymentConfigAlreadyExistsException":
       throw await de_DeploymentConfigAlreadyExistsExceptionRes(parsedOutput, context);
@@ -1780,109 +2101,24 @@ const de_CreateDeploymentConfigCommandError = async (
     case "DeploymentConfigNameRequiredException":
     case "com.amazonaws.codedeploy#DeploymentConfigNameRequiredException":
       throw await de_DeploymentConfigNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidComputePlatformException":
-    case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      throw await de_InvalidComputePlatformExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentConfigNameException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      throw await de_InvalidDeploymentConfigNameExceptionRes(parsedOutput, context);
     case "InvalidMinimumHealthyHostValueException":
     case "com.amazonaws.codedeploy#InvalidMinimumHealthyHostValueException":
       throw await de_InvalidMinimumHealthyHostValueExceptionRes(parsedOutput, context);
-    case "InvalidTrafficRoutingConfigurationException":
-    case "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException":
-      throw await de_InvalidTrafficRoutingConfigurationExceptionRes(parsedOutput, context);
     case "InvalidZonalDeploymentConfigurationException":
     case "com.amazonaws.codedeploy#InvalidZonalDeploymentConfigurationException":
       throw await de_InvalidZonalDeploymentConfigurationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateDeploymentGroupCommand
- */
-export const de_CreateDeploymentGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeploymentGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateDeploymentGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateDeploymentGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateDeploymentGroupCommandError
- */
-const de_CreateDeploymentGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeploymentGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlarmsLimitExceededException":
-    case "com.amazonaws.codedeploy#AlarmsLimitExceededException":
-      throw await de_AlarmsLimitExceededExceptionRes(parsedOutput, context);
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "DeploymentConfigDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
     case "DeploymentGroupAlreadyExistsException":
     case "com.amazonaws.codedeploy#DeploymentGroupAlreadyExistsException":
       throw await de_DeploymentGroupAlreadyExistsExceptionRes(parsedOutput, context);
     case "DeploymentGroupLimitExceededException":
     case "com.amazonaws.codedeploy#DeploymentGroupLimitExceededException":
       throw await de_DeploymentGroupLimitExceededExceptionRes(parsedOutput, context);
-    case "DeploymentGroupNameRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
     case "ECSServiceMappingLimitExceededException":
     case "com.amazonaws.codedeploy#ECSServiceMappingLimitExceededException":
       throw await de_ECSServiceMappingLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidAlarmConfigException":
-    case "com.amazonaws.codedeploy#InvalidAlarmConfigException":
-      throw await de_InvalidAlarmConfigExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    case "InvalidAutoRollbackConfigException":
-    case "com.amazonaws.codedeploy#InvalidAutoRollbackConfigException":
-      throw await de_InvalidAutoRollbackConfigExceptionRes(parsedOutput, context);
-    case "InvalidAutoScalingGroupException":
-    case "com.amazonaws.codedeploy#InvalidAutoScalingGroupException":
-      throw await de_InvalidAutoScalingGroupExceptionRes(parsedOutput, context);
     case "InvalidBlueGreenDeploymentConfigurationException":
     case "com.amazonaws.codedeploy#InvalidBlueGreenDeploymentConfigurationException":
       throw await de_InvalidBlueGreenDeploymentConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentConfigNameException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      throw await de_InvalidDeploymentConfigNameExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentGroupNameException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
     case "InvalidDeploymentStyleException":
     case "com.amazonaws.codedeploy#InvalidDeploymentStyleException":
       throw await de_InvalidDeploymentStyleExceptionRes(parsedOutput, context);
@@ -1898,27 +2134,12 @@ const de_CreateDeploymentGroupCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.codedeploy#InvalidInputException":
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidLoadBalancerInfoException":
-    case "com.amazonaws.codedeploy#InvalidLoadBalancerInfoException":
-      throw await de_InvalidLoadBalancerInfoExceptionRes(parsedOutput, context);
     case "InvalidOnPremisesTagCombinationException":
     case "com.amazonaws.codedeploy#InvalidOnPremisesTagCombinationException":
       throw await de_InvalidOnPremisesTagCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.codedeploy#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "InvalidTagException":
-    case "com.amazonaws.codedeploy#InvalidTagException":
-      throw await de_InvalidTagExceptionRes(parsedOutput, context);
-    case "InvalidTagsToAddException":
-    case "com.amazonaws.codedeploy#InvalidTagsToAddException":
-      throw await de_InvalidTagsToAddExceptionRes(parsedOutput, context);
     case "InvalidTargetGroupPairException":
     case "com.amazonaws.codedeploy#InvalidTargetGroupPairException":
       throw await de_InvalidTargetGroupPairExceptionRes(parsedOutput, context);
-    case "InvalidTrafficRoutingConfigurationException":
-    case "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException":
-      throw await de_InvalidTrafficRoutingConfigurationExceptionRes(parsedOutput, context);
     case "InvalidTriggerConfigException":
     case "com.amazonaws.codedeploy#InvalidTriggerConfigException":
       throw await de_InvalidTriggerConfigExceptionRes(parsedOutput, context);
@@ -1931,214 +2152,15 @@ const de_CreateDeploymentGroupCommandError = async (
     case "TagSetListLimitExceededException":
     case "com.amazonaws.codedeploy#TagSetListLimitExceededException":
       throw await de_TagSetListLimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codedeploy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "TriggerTargetsLimitExceededException":
     case "com.amazonaws.codedeploy#TriggerTargetsLimitExceededException":
       throw await de_TriggerTargetsLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteApplicationCommand
- */
-export const de_DeleteApplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteApplicationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteApplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteApplicationCommandError
- */
-const de_DeleteApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.codedeploy#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteDeploymentConfigCommand
- */
-export const de_DeleteDeploymentConfigCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeploymentConfigCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDeploymentConfigCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeleteDeploymentConfigCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDeploymentConfigCommandError
- */
-const de_DeleteDeploymentConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeploymentConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "DeploymentConfigInUseException":
     case "com.amazonaws.codedeploy#DeploymentConfigInUseException":
       throw await de_DeploymentConfigInUseExceptionRes(parsedOutput, context);
-    case "DeploymentConfigNameRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentConfigNameRequiredException":
-      throw await de_DeploymentConfigNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentConfigNameException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      throw await de_InvalidDeploymentConfigNameExceptionRes(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.codedeploy#InvalidOperationException":
       throw await de_InvalidOperationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteDeploymentGroupCommand
- */
-export const de_DeleteDeploymentGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeploymentGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteDeploymentGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteDeploymentGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDeploymentGroupCommandError
- */
-const de_DeleteDeploymentGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeploymentGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "DeploymentGroupNameRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentGroupNameException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.codedeploy#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteGitHubAccountTokenCommand
- */
-export const de_DeleteGitHubAccountTokenCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGitHubAccountTokenCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteGitHubAccountTokenCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteGitHubAccountTokenCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteGitHubAccountTokenCommandError
- */
-const de_DeleteGitHubAccountTokenCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteGitHubAccountTokenCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "GitHubAccountTokenDoesNotExistException":
     case "com.amazonaws.codedeploy#GitHubAccountTokenDoesNotExistException":
       throw await de_GitHubAccountTokenDoesNotExistExceptionRes(parsedOutput, context);
@@ -2154,614 +2176,9 @@ const de_DeleteGitHubAccountTokenCommandError = async (
     case "ResourceValidationException":
     case "com.amazonaws.codedeploy#ResourceValidationException":
       throw await de_ResourceValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteResourcesByExternalIdCommand
- */
-export const de_DeleteResourcesByExternalIdCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcesByExternalIdCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteResourcesByExternalIdCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteResourcesByExternalIdCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteResourcesByExternalIdCommandError
- */
-const de_DeleteResourcesByExternalIdCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourcesByExternalIdCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
- * deserializeAws_json1_1DeregisterOnPremisesInstanceCommand
- */
-export const de_DeregisterOnPremisesInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterOnPremisesInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeregisterOnPremisesInstanceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: DeregisterOnPremisesInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeregisterOnPremisesInstanceCommandError
- */
-const de_DeregisterOnPremisesInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeregisterOnPremisesInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InstanceNameRequiredException":
-    case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      throw await de_InstanceNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidInstanceNameException":
-    case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetApplicationCommand
- */
-export const de_GetApplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetApplicationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetApplicationOutput(data, context);
-  const response: GetApplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetApplicationCommandError
- */
-const de_GetApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetApplicationRevisionCommand
- */
-export const de_GetApplicationRevisionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApplicationRevisionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetApplicationRevisionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetApplicationRevisionOutput(data, context);
-  const response: GetApplicationRevisionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetApplicationRevisionCommandError
- */
-const de_GetApplicationRevisionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetApplicationRevisionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    case "InvalidRevisionException":
-    case "com.amazonaws.codedeploy#InvalidRevisionException":
-      throw await de_InvalidRevisionExceptionRes(parsedOutput, context);
-    case "RevisionDoesNotExistException":
-    case "com.amazonaws.codedeploy#RevisionDoesNotExistException":
-      throw await de_RevisionDoesNotExistExceptionRes(parsedOutput, context);
-    case "RevisionRequiredException":
-    case "com.amazonaws.codedeploy#RevisionRequiredException":
-      throw await de_RevisionRequiredExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetDeploymentCommand
- */
-export const de_GetDeploymentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetDeploymentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetDeploymentOutput(data, context);
-  const response: GetDeploymentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetDeploymentCommandError
- */
-const de_GetDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeploymentDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetDeploymentConfigCommand
- */
-export const de_GetDeploymentConfigCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentConfigCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetDeploymentConfigCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetDeploymentConfigOutput(data, context);
-  const response: GetDeploymentConfigCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetDeploymentConfigCommandError
- */
-const de_GetDeploymentConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeploymentConfigDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentConfigNameRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentConfigNameRequiredException":
-      throw await de_DeploymentConfigNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidComputePlatformException":
-    case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      throw await de_InvalidComputePlatformExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentConfigNameException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      throw await de_InvalidDeploymentConfigNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetDeploymentGroupCommand
- */
-export const de_GetDeploymentGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetDeploymentGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetDeploymentGroupOutput(data, context);
-  const response: GetDeploymentGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetDeploymentGroupCommandError
- */
-const de_GetDeploymentGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "DeploymentConfigDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentGroupDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentGroupNameRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentGroupNameException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetDeploymentInstanceCommand
- */
-export const de_GetDeploymentInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetDeploymentInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetDeploymentInstanceOutput(data, context);
-  const response: GetDeploymentInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetDeploymentInstanceCommandError
- */
-const de_GetDeploymentInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeploymentDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
-    case "InstanceDoesNotExistException":
-    case "com.amazonaws.codedeploy#InstanceDoesNotExistException":
-      throw await de_InstanceDoesNotExistExceptionRes(parsedOutput, context);
-    case "InstanceIdRequiredException":
-    case "com.amazonaws.codedeploy#InstanceIdRequiredException":
-      throw await de_InstanceIdRequiredExceptionRes(parsedOutput, context);
-    case "InvalidComputePlatformException":
-    case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      throw await de_InvalidComputePlatformExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
-    case "InvalidInstanceNameException":
-    case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetDeploymentTargetCommand
- */
-export const de_GetDeploymentTargetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentTargetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetDeploymentTargetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetDeploymentTargetOutput(data, context);
-  const response: GetDeploymentTargetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetDeploymentTargetCommandError
- */
-const de_GetDeploymentTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDeploymentTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeploymentDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
-    case "DeploymentNotStartedException":
-    case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      throw await de_DeploymentNotStartedExceptionRes(parsedOutput, context);
-    case "DeploymentTargetDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentTargetDoesNotExistException":
-      throw await de_DeploymentTargetDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentTargetIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentTargetIdRequiredException":
-      throw await de_DeploymentTargetIdRequiredExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentTargetIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentTargetIdException":
-      throw await de_InvalidDeploymentTargetIdExceptionRes(parsedOutput, context);
-    case "InvalidInstanceNameException":
-    case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetOnPremisesInstanceCommand
- */
-export const de_GetOnPremisesInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOnPremisesInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetOnPremisesInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetOnPremisesInstanceOutput(data, context);
-  const response: GetOnPremisesInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetOnPremisesInstanceCommandError
- */
-const de_GetOnPremisesInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOnPremisesInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InstanceNameRequiredException":
-    case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      throw await de_InstanceNameRequiredExceptionRes(parsedOutput, context);
-    case "InstanceNotRegisteredException":
-    case "com.amazonaws.codedeploy#InstanceNotRegisteredException":
-      throw await de_InstanceNotRegisteredExceptionRes(parsedOutput, context);
-    case "InvalidInstanceNameException":
-    case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListApplicationRevisionsCommand
- */
-export const de_ListApplicationRevisionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationRevisionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListApplicationRevisionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListApplicationRevisionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListApplicationRevisionsCommandError
- */
-const de_ListApplicationRevisionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationRevisionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
     case "BucketNameFilterRequiredException":
     case "com.amazonaws.codedeploy#BucketNameFilterRequiredException":
       throw await de_BucketNameFilterRequiredExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
     case "InvalidBucketNameFilterException":
     case "com.amazonaws.codedeploy#InvalidBucketNameFilterException":
       throw await de_InvalidBucketNameFilterExceptionRes(parsedOutput, context);
@@ -2780,211 +2197,6 @@ const de_ListApplicationRevisionsCommandError = async (
     case "InvalidSortOrderException":
     case "com.amazonaws.codedeploy#InvalidSortOrderException":
       throw await de_InvalidSortOrderExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListApplicationsCommand
- */
-export const de_ListApplicationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListApplicationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListApplicationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListApplicationsCommandError
- */
-const de_ListApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDeploymentConfigsCommand
- */
-export const de_ListDeploymentConfigsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentConfigsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDeploymentConfigsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListDeploymentConfigsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDeploymentConfigsCommandError
- */
-const de_ListDeploymentConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDeploymentGroupsCommand
- */
-export const de_ListDeploymentGroupsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentGroupsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDeploymentGroupsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListDeploymentGroupsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDeploymentGroupsCommandError
- */
-const de_ListDeploymentGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDeploymentInstancesCommand
- */
-export const de_ListDeploymentInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentInstancesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDeploymentInstancesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListDeploymentInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDeploymentInstancesCommandError
- */
-const de_ListDeploymentInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeploymentDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
-    case "DeploymentNotStartedException":
-    case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      throw await de_DeploymentNotStartedExceptionRes(parsedOutput, context);
-    case "InvalidComputePlatformException":
-    case "com.amazonaws.codedeploy#InvalidComputePlatformException":
-      throw await de_InvalidComputePlatformExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "InvalidDeploymentInstanceTypeException":
     case "com.amazonaws.codedeploy#InvalidDeploymentInstanceTypeException":
       throw await de_InvalidDeploymentInstanceTypeExceptionRes(parsedOutput, context);
@@ -2994,305 +2206,21 @@ const de_ListDeploymentInstancesCommandError = async (
     case "InvalidInstanceTypeException":
     case "com.amazonaws.codedeploy#InvalidInstanceTypeException":
       throw await de_InvalidInstanceTypeExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidTargetFilterNameException":
     case "com.amazonaws.codedeploy#InvalidTargetFilterNameException":
       throw await de_InvalidTargetFilterNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDeploymentsCommand
- */
-export const de_ListDeploymentsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDeploymentsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListDeploymentsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDeploymentsCommandError
- */
-const de_ListDeploymentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "DeploymentGroupDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentGroupNameRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentGroupNameException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentStatusException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentStatusException":
-      throw await de_InvalidDeploymentStatusExceptionRes(parsedOutput, context);
     case "InvalidExternalIdException":
     case "com.amazonaws.codedeploy#InvalidExternalIdException":
       throw await de_InvalidExternalIdExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codedeploy#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidTimeRangeException":
     case "com.amazonaws.codedeploy#InvalidTimeRangeException":
       throw await de_InvalidTimeRangeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListDeploymentTargetsCommand
- */
-export const de_ListDeploymentTargetsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentTargetsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListDeploymentTargetsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListDeploymentTargetsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListDeploymentTargetsCommandError
- */
-const de_ListDeploymentTargetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeploymentTargetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeploymentDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
-    case "DeploymentNotStartedException":
-    case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      throw await de_DeploymentNotStartedExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentInstanceTypeException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentInstanceTypeException":
-      throw await de_InvalidDeploymentInstanceTypeExceptionRes(parsedOutput, context);
-    case "InvalidInstanceStatusException":
-    case "com.amazonaws.codedeploy#InvalidInstanceStatusException":
-      throw await de_InvalidInstanceStatusExceptionRes(parsedOutput, context);
-    case "InvalidInstanceTypeException":
-    case "com.amazonaws.codedeploy#InvalidInstanceTypeException":
-      throw await de_InvalidInstanceTypeExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidTargetFilterNameException":
-    case "com.amazonaws.codedeploy#InvalidTargetFilterNameException":
-      throw await de_InvalidTargetFilterNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListGitHubAccountTokenNamesCommand
- */
-export const de_ListGitHubAccountTokenNamesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGitHubAccountTokenNamesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListGitHubAccountTokenNamesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListGitHubAccountTokenNamesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListGitHubAccountTokenNamesCommandError
- */
-const de_ListGitHubAccountTokenNamesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGitHubAccountTokenNamesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "OperationNotSupportedException":
-    case "com.amazonaws.codedeploy#OperationNotSupportedException":
-      throw await de_OperationNotSupportedExceptionRes(parsedOutput, context);
-    case "ResourceValidationException":
-    case "com.amazonaws.codedeploy#ResourceValidationException":
-      throw await de_ResourceValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListOnPremisesInstancesCommand
- */
-export const de_ListOnPremisesInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOnPremisesInstancesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListOnPremisesInstancesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListOnPremisesInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListOnPremisesInstancesCommandError
- */
-const de_ListOnPremisesInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListOnPremisesInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codedeploy#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
     case "InvalidRegistrationStatusException":
     case "com.amazonaws.codedeploy#InvalidRegistrationStatusException":
       throw await de_InvalidRegistrationStatusExceptionRes(parsedOutput, context);
     case "InvalidTagFilterException":
     case "com.amazonaws.codedeploy#InvalidTagFilterException":
       throw await de_InvalidTagFilterExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ArnNotSupportedException":
     case "com.amazonaws.codedeploy#ArnNotSupportedException":
       throw await de_ArnNotSupportedExceptionRes(parsedOutput, context);
@@ -3302,58 +2230,6 @@ const de_ListTagsForResourceCommandError = async (
     case "ResourceArnRequiredException":
     case "com.amazonaws.codedeploy#ResourceArnRequiredException":
       throw await de_ResourceArnRequiredExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommand
- */
-export const de_PutLifecycleEventHookExecutionStatusCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLifecycleEventHookExecutionStatusCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutLifecycleEventHookExecutionStatusCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutLifecycleEventHookExecutionStatusCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutLifecycleEventHookExecutionStatusCommandError
- */
-const de_PutLifecycleEventHookExecutionStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLifecycleEventHookExecutionStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeploymentDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
     case "InvalidLifecycleEventHookExecutionIdException":
     case "com.amazonaws.codedeploy#InvalidLifecycleEventHookExecutionIdException":
       throw await de_InvalidLifecycleEventHookExecutionIdExceptionRes(parsedOutput, context);
@@ -3363,107 +2239,6 @@ const de_PutLifecycleEventHookExecutionStatusCommandError = async (
     case "LifecycleEventAlreadyCompletedException":
     case "com.amazonaws.codedeploy#LifecycleEventAlreadyCompletedException":
       throw await de_LifecycleEventAlreadyCompletedExceptionRes(parsedOutput, context);
-    case "UnsupportedActionForDeploymentTypeException":
-    case "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException":
-      throw await de_UnsupportedActionForDeploymentTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RegisterApplicationRevisionCommand
- */
-export const de_RegisterApplicationRevisionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterApplicationRevisionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterApplicationRevisionCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RegisterApplicationRevisionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterApplicationRevisionCommandError
- */
-const de_RegisterApplicationRevisionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterApplicationRevisionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "DescriptionTooLongException":
-    case "com.amazonaws.codedeploy#DescriptionTooLongException":
-      throw await de_DescriptionTooLongExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    case "InvalidRevisionException":
-    case "com.amazonaws.codedeploy#InvalidRevisionException":
-      throw await de_InvalidRevisionExceptionRes(parsedOutput, context);
-    case "RevisionRequiredException":
-    case "com.amazonaws.codedeploy#RevisionRequiredException":
-      throw await de_RevisionRequiredExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RegisterOnPremisesInstanceCommand
- */
-export const de_RegisterOnPremisesInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterOnPremisesInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RegisterOnPremisesInstanceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RegisterOnPremisesInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RegisterOnPremisesInstanceCommandError
- */
-const de_RegisterOnPremisesInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterOnPremisesInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "IamArnRequiredException":
     case "com.amazonaws.codedeploy#IamArnRequiredException":
       throw await de_IamArnRequiredExceptionRes(parsedOutput, context);
@@ -3479,18 +2254,12 @@ const de_RegisterOnPremisesInstanceCommandError = async (
     case "InstanceNameAlreadyRegisteredException":
     case "com.amazonaws.codedeploy#InstanceNameAlreadyRegisteredException":
       throw await de_InstanceNameAlreadyRegisteredExceptionRes(parsedOutput, context);
-    case "InstanceNameRequiredException":
-    case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      throw await de_InstanceNameRequiredExceptionRes(parsedOutput, context);
     case "InvalidIamSessionArnException":
     case "com.amazonaws.codedeploy#InvalidIamSessionArnException":
       throw await de_InvalidIamSessionArnExceptionRes(parsedOutput, context);
     case "InvalidIamUserArnException":
     case "com.amazonaws.codedeploy#InvalidIamUserArnException":
       throw await de_InvalidIamUserArnExceptionRes(parsedOutput, context);
-    case "InvalidInstanceNameException":
-    case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
     case "MultipleIamArnsProvidedException":
     case "com.amazonaws.codedeploy#MultipleIamArnsProvidedException":
       throw await de_MultipleIamArnsProvidedExceptionRes(parsedOutput, context);
@@ -3500,509 +2269,7 @@ const de_RegisterOnPremisesInstanceCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand
- */
-export const de_RemoveTagsFromOnPremisesInstancesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveTagsFromOnPremisesInstancesCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: RemoveTagsFromOnPremisesInstancesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommandError
- */
-const de_RemoveTagsFromOnPremisesInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromOnPremisesInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InstanceLimitExceededException":
-    case "com.amazonaws.codedeploy#InstanceLimitExceededException":
-      throw await de_InstanceLimitExceededExceptionRes(parsedOutput, context);
-    case "InstanceNameRequiredException":
-    case "com.amazonaws.codedeploy#InstanceNameRequiredException":
-      throw await de_InstanceNameRequiredExceptionRes(parsedOutput, context);
-    case "InstanceNotRegisteredException":
-    case "com.amazonaws.codedeploy#InstanceNotRegisteredException":
-      throw await de_InstanceNotRegisteredExceptionRes(parsedOutput, context);
-    case "InvalidInstanceNameException":
-    case "com.amazonaws.codedeploy#InvalidInstanceNameException":
-      throw await de_InvalidInstanceNameExceptionRes(parsedOutput, context);
-    case "InvalidTagException":
-    case "com.amazonaws.codedeploy#InvalidTagException":
-      throw await de_InvalidTagExceptionRes(parsedOutput, context);
-    case "TagLimitExceededException":
-    case "com.amazonaws.codedeploy#TagLimitExceededException":
-      throw await de_TagLimitExceededExceptionRes(parsedOutput, context);
-    case "TagRequiredException":
-    case "com.amazonaws.codedeploy#TagRequiredException":
-      throw await de_TagRequiredExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommand
- */
-export const de_SkipWaitTimeForInstanceTerminationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SkipWaitTimeForInstanceTerminationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: SkipWaitTimeForInstanceTerminationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SkipWaitTimeForInstanceTerminationCommandError
- */
-const de_SkipWaitTimeForInstanceTerminationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SkipWaitTimeForInstanceTerminationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeploymentAlreadyCompletedException":
-    case "com.amazonaws.codedeploy#DeploymentAlreadyCompletedException":
-      throw await de_DeploymentAlreadyCompletedExceptionRes(parsedOutput, context);
-    case "DeploymentDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
-    case "DeploymentNotStartedException":
-    case "com.amazonaws.codedeploy#DeploymentNotStartedException":
-      throw await de_DeploymentNotStartedExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
-    case "UnsupportedActionForDeploymentTypeException":
-    case "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException":
-      throw await de_UnsupportedActionForDeploymentTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopDeploymentCommand
- */
-export const de_StopDeploymentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDeploymentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopDeploymentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopDeploymentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopDeploymentCommandError
- */
-const de_StopDeploymentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDeploymentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DeploymentAlreadyCompletedException":
-    case "com.amazonaws.codedeploy#DeploymentAlreadyCompletedException":
-      throw await de_DeploymentAlreadyCompletedExceptionRes(parsedOutput, context);
-    case "DeploymentDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentDoesNotExistException":
-      throw await de_DeploymentDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentGroupDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentIdRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentIdRequiredException":
-      throw await de_DeploymentIdRequiredExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentIdException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentIdException":
-      throw await de_InvalidDeploymentIdExceptionRes(parsedOutput, context);
-    case "UnsupportedActionForDeploymentTypeException":
-    case "com.amazonaws.codedeploy#UnsupportedActionForDeploymentTypeException":
-      throw await de_UnsupportedActionForDeploymentTypeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ArnNotSupportedException":
-    case "com.amazonaws.codedeploy#ArnNotSupportedException":
-      throw await de_ArnNotSupportedExceptionRes(parsedOutput, context);
-    case "DeploymentConfigDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentGroupDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.codedeploy#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidTagsToAddException":
-    case "com.amazonaws.codedeploy#InvalidTagsToAddException":
-      throw await de_InvalidTagsToAddExceptionRes(parsedOutput, context);
-    case "ResourceArnRequiredException":
-    case "com.amazonaws.codedeploy#ResourceArnRequiredException":
-      throw await de_ResourceArnRequiredExceptionRes(parsedOutput, context);
-    case "TagRequiredException":
-    case "com.amazonaws.codedeploy#TagRequiredException":
-      throw await de_TagRequiredExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ArnNotSupportedException":
-    case "com.amazonaws.codedeploy#ArnNotSupportedException":
-      throw await de_ArnNotSupportedExceptionRes(parsedOutput, context);
-    case "DeploymentConfigDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentGroupDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
-    case "InvalidArnException":
-    case "com.amazonaws.codedeploy#InvalidArnException":
-      throw await de_InvalidArnExceptionRes(parsedOutput, context);
-    case "InvalidTagsToAddException":
-    case "com.amazonaws.codedeploy#InvalidTagsToAddException":
-      throw await de_InvalidTagsToAddExceptionRes(parsedOutput, context);
-    case "ResourceArnRequiredException":
-    case "com.amazonaws.codedeploy#ResourceArnRequiredException":
-      throw await de_ResourceArnRequiredExceptionRes(parsedOutput, context);
-    case "TagRequiredException":
-    case "com.amazonaws.codedeploy#TagRequiredException":
-      throw await de_TagRequiredExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateApplicationCommand
- */
-export const de_UpdateApplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateApplicationCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: UpdateApplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateApplicationCommandError
- */
-const de_UpdateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ApplicationAlreadyExistsException":
-    case "com.amazonaws.codedeploy#ApplicationAlreadyExistsException":
-      throw await de_ApplicationAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateDeploymentGroupCommand
- */
-export const de_UpdateDeploymentGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDeploymentGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDeploymentGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateDeploymentGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDeploymentGroupCommandError
- */
-const de_UpdateDeploymentGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDeploymentGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AlarmsLimitExceededException":
-    case "com.amazonaws.codedeploy#AlarmsLimitExceededException":
-      throw await de_AlarmsLimitExceededExceptionRes(parsedOutput, context);
-    case "ApplicationDoesNotExistException":
-    case "com.amazonaws.codedeploy#ApplicationDoesNotExistException":
-      throw await de_ApplicationDoesNotExistExceptionRes(parsedOutput, context);
-    case "ApplicationNameRequiredException":
-    case "com.amazonaws.codedeploy#ApplicationNameRequiredException":
-      throw await de_ApplicationNameRequiredExceptionRes(parsedOutput, context);
-    case "DeploymentConfigDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentConfigDoesNotExistException":
-      throw await de_DeploymentConfigDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentGroupAlreadyExistsException":
-    case "com.amazonaws.codedeploy#DeploymentGroupAlreadyExistsException":
-      throw await de_DeploymentGroupAlreadyExistsExceptionRes(parsedOutput, context);
-    case "DeploymentGroupDoesNotExistException":
-    case "com.amazonaws.codedeploy#DeploymentGroupDoesNotExistException":
-      throw await de_DeploymentGroupDoesNotExistExceptionRes(parsedOutput, context);
-    case "DeploymentGroupNameRequiredException":
-    case "com.amazonaws.codedeploy#DeploymentGroupNameRequiredException":
-      throw await de_DeploymentGroupNameRequiredExceptionRes(parsedOutput, context);
-    case "ECSServiceMappingLimitExceededException":
-    case "com.amazonaws.codedeploy#ECSServiceMappingLimitExceededException":
-      throw await de_ECSServiceMappingLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidAlarmConfigException":
-    case "com.amazonaws.codedeploy#InvalidAlarmConfigException":
-      throw await de_InvalidAlarmConfigExceptionRes(parsedOutput, context);
-    case "InvalidApplicationNameException":
-    case "com.amazonaws.codedeploy#InvalidApplicationNameException":
-      throw await de_InvalidApplicationNameExceptionRes(parsedOutput, context);
-    case "InvalidAutoRollbackConfigException":
-    case "com.amazonaws.codedeploy#InvalidAutoRollbackConfigException":
-      throw await de_InvalidAutoRollbackConfigExceptionRes(parsedOutput, context);
-    case "InvalidAutoScalingGroupException":
-    case "com.amazonaws.codedeploy#InvalidAutoScalingGroupException":
-      throw await de_InvalidAutoScalingGroupExceptionRes(parsedOutput, context);
-    case "InvalidBlueGreenDeploymentConfigurationException":
-    case "com.amazonaws.codedeploy#InvalidBlueGreenDeploymentConfigurationException":
-      throw await de_InvalidBlueGreenDeploymentConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentConfigNameException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentConfigNameException":
-      throw await de_InvalidDeploymentConfigNameExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentGroupNameException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentGroupNameException":
-      throw await de_InvalidDeploymentGroupNameExceptionRes(parsedOutput, context);
-    case "InvalidDeploymentStyleException":
-    case "com.amazonaws.codedeploy#InvalidDeploymentStyleException":
-      throw await de_InvalidDeploymentStyleExceptionRes(parsedOutput, context);
-    case "InvalidEC2TagCombinationException":
-    case "com.amazonaws.codedeploy#InvalidEC2TagCombinationException":
-      throw await de_InvalidEC2TagCombinationExceptionRes(parsedOutput, context);
-    case "InvalidEC2TagException":
-    case "com.amazonaws.codedeploy#InvalidEC2TagException":
-      throw await de_InvalidEC2TagExceptionRes(parsedOutput, context);
-    case "InvalidECSServiceException":
-    case "com.amazonaws.codedeploy#InvalidECSServiceException":
-      throw await de_InvalidECSServiceExceptionRes(parsedOutput, context);
-    case "InvalidInputException":
-    case "com.amazonaws.codedeploy#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidLoadBalancerInfoException":
-    case "com.amazonaws.codedeploy#InvalidLoadBalancerInfoException":
-      throw await de_InvalidLoadBalancerInfoExceptionRes(parsedOutput, context);
-    case "InvalidOnPremisesTagCombinationException":
-    case "com.amazonaws.codedeploy#InvalidOnPremisesTagCombinationException":
-      throw await de_InvalidOnPremisesTagCombinationExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.codedeploy#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "InvalidTagException":
-    case "com.amazonaws.codedeploy#InvalidTagException":
-      throw await de_InvalidTagExceptionRes(parsedOutput, context);
-    case "InvalidTargetGroupPairException":
-    case "com.amazonaws.codedeploy#InvalidTargetGroupPairException":
-      throw await de_InvalidTargetGroupPairExceptionRes(parsedOutput, context);
-    case "InvalidTrafficRoutingConfigurationException":
-    case "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException":
-      throw await de_InvalidTrafficRoutingConfigurationExceptionRes(parsedOutput, context);
-    case "InvalidTriggerConfigException":
-    case "com.amazonaws.codedeploy#InvalidTriggerConfigException":
-      throw await de_InvalidTriggerConfigExceptionRes(parsedOutput, context);
-    case "LifecycleHookLimitExceededException":
-    case "com.amazonaws.codedeploy#LifecycleHookLimitExceededException":
-      throw await de_LifecycleHookLimitExceededExceptionRes(parsedOutput, context);
-    case "TagSetListLimitExceededException":
-    case "com.amazonaws.codedeploy#TagSetListLimitExceededException":
-      throw await de_TagSetListLimitExceededExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.codedeploy#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "TriggerTargetsLimitExceededException":
-    case "com.amazonaws.codedeploy#TriggerTargetsLimitExceededException":
-      throw await de_TriggerTargetsLimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

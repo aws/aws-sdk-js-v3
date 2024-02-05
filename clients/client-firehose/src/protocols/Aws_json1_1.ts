@@ -316,7 +316,7 @@ export const de_CreateDeliveryStreamCommand = async (
   context: __SerdeContext
 ): Promise<CreateDeliveryStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDeliveryStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -329,41 +329,6 @@ export const de_CreateDeliveryStreamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDeliveryStreamCommandError
- */
-const de_CreateDeliveryStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDeliveryStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidKMSResourceException":
-    case "com.amazonaws.firehose#InvalidKMSResourceException":
-      throw await de_InvalidKMSResourceExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.firehose#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.firehose#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDeliveryStreamCommand
  */
 export const de_DeleteDeliveryStreamCommand = async (
@@ -371,7 +336,7 @@ export const de_DeleteDeliveryStreamCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeliveryStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDeliveryStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -384,35 +349,6 @@ export const de_DeleteDeliveryStreamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDeliveryStreamCommandError
- */
-const de_DeleteDeliveryStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeliveryStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceInUseException":
-    case "com.amazonaws.firehose#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDeliveryStreamCommand
  */
 export const de_DescribeDeliveryStreamCommand = async (
@@ -420,7 +356,7 @@ export const de_DescribeDeliveryStreamCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDeliveryStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDeliveryStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -433,32 +369,6 @@ export const de_DescribeDeliveryStreamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDeliveryStreamCommandError
- */
-const de_DescribeDeliveryStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDeliveryStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDeliveryStreamsCommand
  */
 export const de_ListDeliveryStreamsCommand = async (
@@ -466,7 +376,7 @@ export const de_ListDeliveryStreamsCommand = async (
   context: __SerdeContext
 ): Promise<ListDeliveryStreamsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDeliveryStreamsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -479,26 +389,6 @@ export const de_ListDeliveryStreamsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDeliveryStreamsCommandError
- */
-const de_ListDeliveryStreamsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDeliveryStreamsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1ListTagsForDeliveryStreamCommand
  */
 export const de_ListTagsForDeliveryStreamCommand = async (
@@ -506,7 +396,7 @@ export const de_ListTagsForDeliveryStreamCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForDeliveryStreamCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForDeliveryStreamCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -519,38 +409,6 @@ export const de_ListTagsForDeliveryStreamCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForDeliveryStreamCommandError
- */
-const de_ListTagsForDeliveryStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForDeliveryStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.firehose#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutRecordCommand
  */
 export const de_PutRecordCommand = async (
@@ -558,7 +416,7 @@ export const de_PutRecordCommand = async (
   context: __SerdeContext
 ): Promise<PutRecordCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRecordCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -571,44 +429,6 @@ export const de_PutRecordCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutRecordCommandError
- */
-const de_PutRecordCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRecordCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidKMSResourceException":
-    case "com.amazonaws.firehose#InvalidKMSResourceException":
-      throw await de_InvalidKMSResourceExceptionRes(parsedOutput, context);
-    case "InvalidSourceException":
-    case "com.amazonaws.firehose#InvalidSourceException":
-      throw await de_InvalidSourceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.firehose#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutRecordBatchCommand
  */
 export const de_PutRecordBatchCommand = async (
@@ -616,7 +436,7 @@ export const de_PutRecordBatchCommand = async (
   context: __SerdeContext
 ): Promise<PutRecordBatchCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutRecordBatchCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -629,44 +449,6 @@ export const de_PutRecordBatchCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutRecordBatchCommandError
- */
-const de_PutRecordBatchCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRecordBatchCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "InvalidKMSResourceException":
-    case "com.amazonaws.firehose#InvalidKMSResourceException":
-      throw await de_InvalidKMSResourceExceptionRes(parsedOutput, context);
-    case "InvalidSourceException":
-    case "com.amazonaws.firehose#InvalidSourceException":
-      throw await de_InvalidSourceExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceUnavailableException":
-    case "com.amazonaws.firehose#ServiceUnavailableException":
-      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartDeliveryStreamEncryptionCommand
  */
 export const de_StartDeliveryStreamEncryptionCommand = async (
@@ -674,7 +456,7 @@ export const de_StartDeliveryStreamEncryptionCommand = async (
   context: __SerdeContext
 ): Promise<StartDeliveryStreamEncryptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartDeliveryStreamEncryptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -687,12 +469,89 @@ export const de_StartDeliveryStreamEncryptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError
+ * deserializeAws_json1_1StopDeliveryStreamEncryptionCommand
  */
-const de_StartDeliveryStreamEncryptionCommandError = async (
+export const de_StopDeliveryStreamEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<StartDeliveryStreamEncryptionCommandOutput> => {
+): Promise<StopDeliveryStreamEncryptionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopDeliveryStreamEncryptionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagDeliveryStreamCommand
+ */
+export const de_TagDeliveryStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagDeliveryStreamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagDeliveryStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagDeliveryStreamCommand
+ */
+export const de_UntagDeliveryStreamCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagDeliveryStreamCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagDeliveryStreamCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateDestinationCommand
+ */
+export const de_UpdateDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -714,233 +573,22 @@ const de_StartDeliveryStreamEncryptionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopDeliveryStreamEncryptionCommand
- */
-export const de_StopDeliveryStreamEncryptionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDeliveryStreamEncryptionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopDeliveryStreamEncryptionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopDeliveryStreamEncryptionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError
- */
-const de_StopDeliveryStreamEncryptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDeliveryStreamEncryptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.firehose#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.firehose#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagDeliveryStreamCommand
- */
-export const de_TagDeliveryStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagDeliveryStreamCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagDeliveryStreamCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagDeliveryStreamCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagDeliveryStreamCommandError
- */
-const de_TagDeliveryStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagDeliveryStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.firehose#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.firehose#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagDeliveryStreamCommand
- */
-export const de_UntagDeliveryStreamCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagDeliveryStreamCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagDeliveryStreamCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagDeliveryStreamCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagDeliveryStreamCommandError
- */
-const de_UntagDeliveryStreamCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagDeliveryStreamCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidArgumentException":
-    case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.firehose#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.firehose#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateDestinationCommand
- */
-export const de_UpdateDestinationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDestinationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateDestinationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateDestinationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateDestinationCommandError
- */
-const de_UpdateDestinationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDestinationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
+    case "InvalidSourceException":
+    case "com.amazonaws.firehose#InvalidSourceException":
+      throw await de_InvalidSourceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.firehose#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
     case "ConcurrentModificationException":
     case "com.amazonaws.firehose#ConcurrentModificationException":
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.firehose#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.firehose#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.firehose#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

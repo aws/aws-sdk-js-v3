@@ -156,7 +156,7 @@ export const de_CreateScalingPlanCommand = async (
   context: __SerdeContext
 ): Promise<CreateScalingPlanCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateScalingPlanCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -169,12 +169,109 @@ export const de_CreateScalingPlanCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateScalingPlanCommandError
+ * deserializeAws_json1_1DeleteScalingPlanCommand
  */
-const de_CreateScalingPlanCommandError = async (
+export const de_DeleteScalingPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateScalingPlanCommandOutput> => {
+): Promise<DeleteScalingPlanCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteScalingPlanCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeScalingPlanResourcesCommand
+ */
+export const de_DescribeScalingPlanResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeScalingPlanResourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeScalingPlanResourcesResponse(data, context);
+  const response: DescribeScalingPlanResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeScalingPlansCommand
+ */
+export const de_DescribeScalingPlansCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeScalingPlansCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeScalingPlansResponse(data, context);
+  const response: DescribeScalingPlansCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand
+ */
+export const de_GetScalingPlanResourceForecastDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetScalingPlanResourceForecastDataCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetScalingPlanResourceForecastDataResponse(data, context);
+  const response: GetScalingPlanResourceForecastDataCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateScalingPlanCommand
+ */
+export const de_UpdateScalingPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateScalingPlanCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateScalingPlanCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -193,282 +290,19 @@ const de_CreateScalingPlanCommandError = async (
     case "ValidationException":
     case "com.amazonaws.autoscalingplans#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteScalingPlanCommand
- */
-export const de_DeleteScalingPlanCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteScalingPlanCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteScalingPlanCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteScalingPlanCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteScalingPlanCommandError
- */
-const de_DeleteScalingPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteScalingPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscalingplans#ConcurrentUpdateException":
-      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.autoscalingplans#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "ObjectNotFoundException":
     case "com.amazonaws.autoscalingplans#ObjectNotFoundException":
       throw await de_ObjectNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.autoscalingplans#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeScalingPlanResourcesCommand
- */
-export const de_DescribeScalingPlanResourcesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScalingPlanResourcesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeScalingPlanResourcesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeScalingPlanResourcesResponse(data, context);
-  const response: DescribeScalingPlanResourcesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeScalingPlanResourcesCommandError
- */
-const de_DescribeScalingPlanResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScalingPlanResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscalingplans#ConcurrentUpdateException":
-      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.autoscalingplans#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
     case "InvalidNextTokenException":
     case "com.amazonaws.autoscalingplans#InvalidNextTokenException":
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.autoscalingplans#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeScalingPlansCommand
- */
-export const de_DescribeScalingPlansCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScalingPlansCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeScalingPlansCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeScalingPlansResponse(data, context);
-  const response: DescribeScalingPlansCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeScalingPlansCommandError
- */
-const de_DescribeScalingPlansCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeScalingPlansCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscalingplans#ConcurrentUpdateException":
-      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.autoscalingplans#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.autoscalingplans#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.autoscalingplans#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand
- */
-export const de_GetScalingPlanResourceForecastDataCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetScalingPlanResourceForecastDataCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetScalingPlanResourceForecastDataCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_GetScalingPlanResourceForecastDataResponse(data, context);
-  const response: GetScalingPlanResourceForecastDataCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetScalingPlanResourceForecastDataCommandError
- */
-const de_GetScalingPlanResourceForecastDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetScalingPlanResourceForecastDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceException":
-    case "com.amazonaws.autoscalingplans#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.autoscalingplans#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateScalingPlanCommand
- */
-export const de_UpdateScalingPlanCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateScalingPlanCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateScalingPlanCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateScalingPlanCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateScalingPlanCommandError
- */
-const de_UpdateScalingPlanCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateScalingPlanCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentUpdateException":
-    case "com.amazonaws.autoscalingplans#ConcurrentUpdateException":
-      throw await de_ConcurrentUpdateExceptionRes(parsedOutput, context);
-    case "InternalServiceException":
-    case "com.amazonaws.autoscalingplans#InternalServiceException":
-      throw await de_InternalServiceExceptionRes(parsedOutput, context);
-    case "ObjectNotFoundException":
-    case "com.amazonaws.autoscalingplans#ObjectNotFoundException":
-      throw await de_ObjectNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.autoscalingplans#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

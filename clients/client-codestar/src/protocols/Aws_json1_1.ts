@@ -334,7 +334,7 @@ export const de_AssociateTeamMemberCommand = async (
   context: __SerdeContext
 ): Promise<AssociateTeamMemberCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateTeamMemberCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -347,12 +347,349 @@ export const de_AssociateTeamMemberCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateTeamMemberCommandError
+ * deserializeAws_json1_1CreateProjectCommand
  */
-const de_AssociateTeamMemberCommandError = async (
+export const de_CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<AssociateTeamMemberCommandOutput> => {
+): Promise<CreateProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateUserProfileCommand
+ */
+export const de_CreateUserProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUserProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateUserProfileResult(data, context);
+  const response: CreateUserProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteProjectCommand
+ */
+export const de_DeleteProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteUserProfileCommand
+ */
+export const de_DeleteUserProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUserProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteUserProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeProjectCommand
+ */
+export const de_DescribeProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeProjectResult(data, context);
+  const response: DescribeProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeUserProfileCommand
+ */
+export const de_DescribeUserProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUserProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeUserProfileResult(data, context);
+  const response: DescribeUserProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DisassociateTeamMemberCommand
+ */
+export const de_DisassociateTeamMemberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateTeamMemberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisassociateTeamMemberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListProjectsCommand
+ */
+export const de_ListProjectsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProjectsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListProjectsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListResourcesCommand
+ */
+export const de_ListResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForProjectCommand
+ */
+export const de_ListTagsForProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTeamMembersCommand
+ */
+export const de_ListTeamMembersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTeamMembersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTeamMembersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListUserProfilesCommand
+ */
+export const de_ListUserProfilesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUserProfilesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListUserProfilesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagProjectCommand
+ */
+export const de_TagProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagProjectCommand
+ */
+export const de_UntagProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateProjectCommand
+ */
+export const de_UpdateProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateTeamMemberCommand
+ */
+export const de_UpdateTeamMemberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTeamMemberCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateTeamMemberCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateUserProfileCommand
+ */
+export const de_UpdateUserProfileCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateUserProfileResult(data, context);
+  const response: UpdateUserProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -380,912 +717,31 @@ const de_AssociateTeamMemberCommandError = async (
     case "ValidationException":
     case "com.amazonaws.codestar#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateProjectCommand
- */
-export const de_CreateProjectCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProjectCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateProjectCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: CreateProjectCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateProjectCommandError
- */
-const de_CreateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidServiceRoleException":
-    case "com.amazonaws.codestar#InvalidServiceRoleException":
-      throw await de_InvalidServiceRoleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codestar#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ProjectAlreadyExistsException":
     case "com.amazonaws.codestar#ProjectAlreadyExistsException":
       throw await de_ProjectAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ProjectConfigurationException":
-    case "com.amazonaws.codestar#ProjectConfigurationException":
-      throw await de_ProjectConfigurationExceptionRes(parsedOutput, context);
     case "ProjectCreationFailedException":
     case "com.amazonaws.codestar#ProjectCreationFailedException":
       throw await de_ProjectCreationFailedExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1CreateUserProfileCommand
- */
-export const de_CreateUserProfileCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserProfileCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_CreateUserProfileCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_CreateUserProfileResult(data, context);
-  const response: CreateUserProfileCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1CreateUserProfileCommandError
- */
-const de_CreateUserProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateUserProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "UserProfileAlreadyExistsException":
     case "com.amazonaws.codestar#UserProfileAlreadyExistsException":
       throw await de_UserProfileAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteProjectCommand
- */
-export const de_DeleteProjectCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteProjectCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteProjectCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteProjectCommandError
- */
-const de_DeleteProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidServiceRoleException":
-    case "com.amazonaws.codestar#InvalidServiceRoleException":
-      throw await de_InvalidServiceRoleExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteUserProfileCommand
- */
-export const de_DeleteUserProfileCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserProfileCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteUserProfileCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteUserProfileCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteUserProfileCommandError
- */
-const de_DeleteUserProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteUserProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeProjectCommand
- */
-export const de_DescribeProjectCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProjectCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeProjectCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeProjectResult(data, context);
-  const response: DescribeProjectCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeProjectCommandError
- */
-const de_DescribeProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidServiceRoleException":
-    case "com.amazonaws.codestar#InvalidServiceRoleException":
-      throw await de_InvalidServiceRoleExceptionRes(parsedOutput, context);
-    case "ProjectConfigurationException":
-    case "com.amazonaws.codestar#ProjectConfigurationException":
-      throw await de_ProjectConfigurationExceptionRes(parsedOutput, context);
-    case "ProjectNotFoundException":
-    case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeUserProfileCommand
- */
-export const de_DescribeUserProfileCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUserProfileCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeUserProfileCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeUserProfileResult(data, context);
-  const response: DescribeUserProfileCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeUserProfileCommandError
- */
-const de_DescribeUserProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeUserProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "UserProfileNotFoundException":
     case "com.amazonaws.codestar#UserProfileNotFoundException":
       throw await de_UserProfileNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DisassociateTeamMemberCommand
- */
-export const de_DisassociateTeamMemberCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateTeamMemberCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DisassociateTeamMemberCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DisassociateTeamMemberCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DisassociateTeamMemberCommandError
- */
-const de_DisassociateTeamMemberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateTeamMemberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidServiceRoleException":
-    case "com.amazonaws.codestar#InvalidServiceRoleException":
-      throw await de_InvalidServiceRoleExceptionRes(parsedOutput, context);
-    case "ProjectNotFoundException":
-    case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListProjectsCommand
- */
-export const de_ListProjectsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProjectsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListProjectsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListProjectsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListProjectsCommandError
- */
-const de_ListProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidNextTokenException":
     case "com.amazonaws.codestar#InvalidNextTokenException":
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListResourcesCommand
- */
-export const de_ListResourcesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourcesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListResourcesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListResourcesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListResourcesCommandError
- */
-const de_ListResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codestar#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ProjectNotFoundException":
-    case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForProjectCommand
- */
-export const de_ListTagsForProjectCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForProjectCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForProjectCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForProjectCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForProjectCommandError
- */
-const de_ListTagsForProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codestar#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ProjectNotFoundException":
-    case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTeamMembersCommand
- */
-export const de_ListTeamMembersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTeamMembersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTeamMembersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTeamMembersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTeamMembersCommandError
- */
-const de_ListTeamMembersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTeamMembersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codestar#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ProjectNotFoundException":
-    case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListUserProfilesCommand
- */
-export const de_ListUserProfilesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUserProfilesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListUserProfilesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListUserProfilesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListUserProfilesCommandError
- */
-const de_ListUserProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListUserProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.codestar#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagProjectCommand
- */
-export const de_TagProjectCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagProjectCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagProjectCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagProjectCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagProjectCommandError
- */
-const de_TagProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codestar#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProjectNotFoundException":
-    case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagProjectCommand
- */
-export const de_UntagProjectCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagProjectCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagProjectCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagProjectCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagProjectCommandError
- */
-const de_UntagProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codestar#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProjectNotFoundException":
-    case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateProjectCommand
- */
-export const de_UpdateProjectCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateProjectCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateProjectCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateProjectCommandError
- */
-const de_UpdateProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ProjectNotFoundException":
-    case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateTeamMemberCommand
- */
-export const de_UpdateTeamMemberCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTeamMemberCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateTeamMemberCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateTeamMemberCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateTeamMemberCommandError
- */
-const de_UpdateTeamMemberCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateTeamMemberCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConcurrentModificationException":
-    case "com.amazonaws.codestar#ConcurrentModificationException":
-      throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
-    case "InvalidServiceRoleException":
-    case "com.amazonaws.codestar#InvalidServiceRoleException":
-      throw await de_InvalidServiceRoleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.codestar#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ProjectConfigurationException":
-    case "com.amazonaws.codestar#ProjectConfigurationException":
-      throw await de_ProjectConfigurationExceptionRes(parsedOutput, context);
-    case "ProjectNotFoundException":
-    case "com.amazonaws.codestar#ProjectNotFoundException":
-      throw await de_ProjectNotFoundExceptionRes(parsedOutput, context);
     case "TeamMemberNotFoundException":
     case "com.amazonaws.codestar#TeamMemberNotFoundException":
       throw await de_TeamMemberNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateUserProfileCommand
- */
-export const de_UpdateUserProfileCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserProfileCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateUserProfileCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_UpdateUserProfileResult(data, context);
-  const response: UpdateUserProfileCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateUserProfileCommandError
- */
-const de_UpdateUserProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateUserProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "UserProfileNotFoundException":
-    case "com.amazonaws.codestar#UserProfileNotFoundException":
-      throw await de_UserProfileNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.codestar#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

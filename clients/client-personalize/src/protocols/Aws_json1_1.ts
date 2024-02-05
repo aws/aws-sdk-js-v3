@@ -1224,7 +1224,7 @@ export const de_CreateBatchInferenceJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateBatchInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBatchInferenceJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1237,47 +1237,6 @@ export const de_CreateBatchInferenceJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBatchInferenceJobCommandError
- */
-const de_CreateBatchInferenceJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBatchInferenceJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateBatchSegmentJobCommand
  */
 export const de_CreateBatchSegmentJobCommand = async (
@@ -1285,7 +1244,7 @@ export const de_CreateBatchSegmentJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateBatchSegmentJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateBatchSegmentJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1298,47 +1257,6 @@ export const de_CreateBatchSegmentJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateBatchSegmentJobCommandError
- */
-const de_CreateBatchSegmentJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateBatchSegmentJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateCampaignCommand
  */
 export const de_CreateCampaignCommand = async (
@@ -1346,7 +1264,7 @@ export const de_CreateCampaignCommand = async (
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1359,47 +1277,6 @@ export const de_CreateCampaignCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateCampaignCommandError
- */
-const de_CreateCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDatasetCommand
  */
 export const de_CreateDatasetCommand = async (
@@ -1407,7 +1284,7 @@ export const de_CreateDatasetCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDatasetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1420,47 +1297,6 @@ export const de_CreateDatasetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDatasetCommandError
- */
-const de_CreateDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDatasetExportJobCommand
  */
 export const de_CreateDatasetExportJobCommand = async (
@@ -1468,7 +1304,7 @@ export const de_CreateDatasetExportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatasetExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDatasetExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1481,47 +1317,6 @@ export const de_CreateDatasetExportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDatasetExportJobCommandError
- */
-const de_CreateDatasetExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatasetExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDatasetGroupCommand
  */
 export const de_CreateDatasetGroupCommand = async (
@@ -1529,7 +1324,7 @@ export const de_CreateDatasetGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatasetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDatasetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1542,41 +1337,6 @@ export const de_CreateDatasetGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDatasetGroupCommandError
- */
-const de_CreateDatasetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatasetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDatasetImportJobCommand
  */
 export const de_CreateDatasetImportJobCommand = async (
@@ -1584,7 +1344,7 @@ export const de_CreateDatasetImportJobCommand = async (
   context: __SerdeContext
 ): Promise<CreateDatasetImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDatasetImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1597,47 +1357,6 @@ export const de_CreateDatasetImportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDatasetImportJobCommandError
- */
-const de_CreateDatasetImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDatasetImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateEventTrackerCommand
  */
 export const de_CreateEventTrackerCommand = async (
@@ -1645,7 +1364,7 @@ export const de_CreateEventTrackerCommand = async (
   context: __SerdeContext
 ): Promise<CreateEventTrackerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEventTrackerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1658,47 +1377,6 @@ export const de_CreateEventTrackerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateEventTrackerCommandError
- */
-const de_CreateEventTrackerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventTrackerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFilterCommand
  */
 export const de_CreateFilterCommand = async (
@@ -1706,7 +1384,7 @@ export const de_CreateFilterCommand = async (
   context: __SerdeContext
 ): Promise<CreateFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1719,44 +1397,6 @@ export const de_CreateFilterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFilterCommandError
- */
-const de_CreateFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateMetricAttributionCommand
  */
 export const de_CreateMetricAttributionCommand = async (
@@ -1764,7 +1404,7 @@ export const de_CreateMetricAttributionCommand = async (
   context: __SerdeContext
 ): Promise<CreateMetricAttributionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateMetricAttributionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1777,44 +1417,6 @@ export const de_CreateMetricAttributionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateMetricAttributionCommandError
- */
-const de_CreateMetricAttributionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMetricAttributionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateRecommenderCommand
  */
 export const de_CreateRecommenderCommand = async (
@@ -1822,7 +1424,7 @@ export const de_CreateRecommenderCommand = async (
   context: __SerdeContext
 ): Promise<CreateRecommenderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateRecommenderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1835,47 +1437,6 @@ export const de_CreateRecommenderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateRecommenderCommandError
- */
-const de_CreateRecommenderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateRecommenderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSchemaCommand
  */
 export const de_CreateSchemaCommand = async (
@@ -1883,7 +1444,7 @@ export const de_CreateSchemaCommand = async (
   context: __SerdeContext
 ): Promise<CreateSchemaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1896,38 +1457,6 @@ export const de_CreateSchemaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSchemaCommandError
- */
-const de_CreateSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSolutionCommand
  */
 export const de_CreateSolutionCommand = async (
@@ -1935,7 +1464,7 @@ export const de_CreateSolutionCommand = async (
   context: __SerdeContext
 ): Promise<CreateSolutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSolutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1948,47 +1477,6 @@ export const de_CreateSolutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSolutionCommandError
- */
-const de_CreateSolutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSolutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateSolutionVersionCommand
  */
 export const de_CreateSolutionVersionCommand = async (
@@ -1996,7 +1484,7 @@ export const de_CreateSolutionVersionCommand = async (
   context: __SerdeContext
 ): Promise<CreateSolutionVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSolutionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2009,47 +1497,6 @@ export const de_CreateSolutionVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateSolutionVersionCommandError
- */
-const de_CreateSolutionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSolutionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCampaignCommand
  */
 export const de_DeleteCampaignCommand = async (
@@ -2057,45 +1504,13 @@ export const de_DeleteCampaignCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteCampaignCommandError
- */
-const de_DeleteCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2106,45 +1521,13 @@ export const de_DeleteDatasetCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDatasetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDatasetCommandError
- */
-const de_DeleteDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2155,45 +1538,13 @@ export const de_DeleteDatasetGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDatasetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDatasetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDatasetGroupCommandError
- */
-const de_DeleteDatasetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDatasetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2204,45 +1555,13 @@ export const de_DeleteEventTrackerCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEventTrackerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEventTrackerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteEventTrackerCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteEventTrackerCommandError
- */
-const de_DeleteEventTrackerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventTrackerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2253,45 +1572,13 @@ export const de_DeleteFilterCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteFilterCommandError
- */
-const de_DeleteFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2302,45 +1589,13 @@ export const de_DeleteMetricAttributionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMetricAttributionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMetricAttributionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteMetricAttributionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteMetricAttributionCommandError
- */
-const de_DeleteMetricAttributionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMetricAttributionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2351,45 +1606,13 @@ export const de_DeleteRecommenderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRecommenderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRecommenderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRecommenderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteRecommenderCommandError
- */
-const de_DeleteRecommenderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRecommenderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2400,45 +1623,13 @@ export const de_DeleteSchemaCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSchemaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteSchemaCommandError
- */
-const de_DeleteSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2449,45 +1640,13 @@ export const de_DeleteSolutionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSolutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSolutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteSolutionCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteSolutionCommandError
- */
-const de_DeleteSolutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSolutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2498,7 +1657,7 @@ export const de_DescribeAlgorithmCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAlgorithmCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAlgorithmCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2511,35 +1670,6 @@ export const de_DescribeAlgorithmCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAlgorithmCommandError
- */
-const de_DescribeAlgorithmCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAlgorithmCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeBatchInferenceJobCommand
  */
 export const de_DescribeBatchInferenceJobCommand = async (
@@ -2547,7 +1677,7 @@ export const de_DescribeBatchInferenceJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBatchInferenceJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeBatchInferenceJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2560,35 +1690,6 @@ export const de_DescribeBatchInferenceJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeBatchInferenceJobCommandError
- */
-const de_DescribeBatchInferenceJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBatchInferenceJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeBatchSegmentJobCommand
  */
 export const de_DescribeBatchSegmentJobCommand = async (
@@ -2596,7 +1697,7 @@ export const de_DescribeBatchSegmentJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBatchSegmentJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeBatchSegmentJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2609,35 +1710,6 @@ export const de_DescribeBatchSegmentJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeBatchSegmentJobCommandError
- */
-const de_DescribeBatchSegmentJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBatchSegmentJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeCampaignCommand
  */
 export const de_DescribeCampaignCommand = async (
@@ -2645,7 +1717,7 @@ export const de_DescribeCampaignCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2658,35 +1730,6 @@ export const de_DescribeCampaignCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCampaignCommandError
- */
-const de_DescribeCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDatasetCommand
  */
 export const de_DescribeDatasetCommand = async (
@@ -2694,7 +1737,7 @@ export const de_DescribeDatasetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDatasetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2707,35 +1750,6 @@ export const de_DescribeDatasetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDatasetCommandError
- */
-const de_DescribeDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDatasetExportJobCommand
  */
 export const de_DescribeDatasetExportJobCommand = async (
@@ -2743,7 +1757,7 @@ export const de_DescribeDatasetExportJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDatasetExportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDatasetExportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2756,35 +1770,6 @@ export const de_DescribeDatasetExportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDatasetExportJobCommandError
- */
-const de_DescribeDatasetExportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetExportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDatasetGroupCommand
  */
 export const de_DescribeDatasetGroupCommand = async (
@@ -2792,7 +1777,7 @@ export const de_DescribeDatasetGroupCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDatasetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDatasetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2805,35 +1790,6 @@ export const de_DescribeDatasetGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDatasetGroupCommandError
- */
-const de_DescribeDatasetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDatasetImportJobCommand
  */
 export const de_DescribeDatasetImportJobCommand = async (
@@ -2841,7 +1797,7 @@ export const de_DescribeDatasetImportJobCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDatasetImportJobCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDatasetImportJobCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2854,35 +1810,6 @@ export const de_DescribeDatasetImportJobCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDatasetImportJobCommandError
- */
-const de_DescribeDatasetImportJobCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDatasetImportJobCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEventTrackerCommand
  */
 export const de_DescribeEventTrackerCommand = async (
@@ -2890,7 +1817,7 @@ export const de_DescribeEventTrackerCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventTrackerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventTrackerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2903,35 +1830,6 @@ export const de_DescribeEventTrackerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEventTrackerCommandError
- */
-const de_DescribeEventTrackerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventTrackerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFeatureTransformationCommand
  */
 export const de_DescribeFeatureTransformationCommand = async (
@@ -2939,7 +1837,7 @@ export const de_DescribeFeatureTransformationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFeatureTransformationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFeatureTransformationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2952,35 +1850,6 @@ export const de_DescribeFeatureTransformationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFeatureTransformationCommandError
- */
-const de_DescribeFeatureTransformationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFeatureTransformationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFilterCommand
  */
 export const de_DescribeFilterCommand = async (
@@ -2988,7 +1857,7 @@ export const de_DescribeFilterCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFilterCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFilterCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3001,35 +1870,6 @@ export const de_DescribeFilterCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFilterCommandError
- */
-const de_DescribeFilterCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFilterCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMetricAttributionCommand
  */
 export const de_DescribeMetricAttributionCommand = async (
@@ -3037,7 +1877,7 @@ export const de_DescribeMetricAttributionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMetricAttributionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMetricAttributionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3050,35 +1890,6 @@ export const de_DescribeMetricAttributionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMetricAttributionCommandError
- */
-const de_DescribeMetricAttributionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMetricAttributionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRecipeCommand
  */
 export const de_DescribeRecipeCommand = async (
@@ -3086,7 +1897,7 @@ export const de_DescribeRecipeCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRecipeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRecipeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3099,35 +1910,6 @@ export const de_DescribeRecipeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRecipeCommandError
- */
-const de_DescribeRecipeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRecipeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRecommenderCommand
  */
 export const de_DescribeRecommenderCommand = async (
@@ -3135,7 +1917,7 @@ export const de_DescribeRecommenderCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRecommenderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRecommenderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3148,35 +1930,6 @@ export const de_DescribeRecommenderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRecommenderCommandError
- */
-const de_DescribeRecommenderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRecommenderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSchemaCommand
  */
 export const de_DescribeSchemaCommand = async (
@@ -3184,7 +1937,7 @@ export const de_DescribeSchemaCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSchemaCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSchemaCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3197,35 +1950,6 @@ export const de_DescribeSchemaCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSchemaCommandError
- */
-const de_DescribeSchemaCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSchemaCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSolutionCommand
  */
 export const de_DescribeSolutionCommand = async (
@@ -3233,7 +1957,7 @@ export const de_DescribeSolutionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSolutionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSolutionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3246,35 +1970,6 @@ export const de_DescribeSolutionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSolutionCommandError
- */
-const de_DescribeSolutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSolutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSolutionVersionCommand
  */
 export const de_DescribeSolutionVersionCommand = async (
@@ -3282,7 +1977,7 @@ export const de_DescribeSolutionVersionCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSolutionVersionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSolutionVersionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3295,35 +1990,6 @@ export const de_DescribeSolutionVersionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSolutionVersionCommandError
- */
-const de_DescribeSolutionVersionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSolutionVersionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetSolutionMetricsCommand
  */
 export const de_GetSolutionMetricsCommand = async (
@@ -3331,7 +1997,7 @@ export const de_GetSolutionMetricsCommand = async (
   context: __SerdeContext
 ): Promise<GetSolutionMetricsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSolutionMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3344,38 +2010,6 @@ export const de_GetSolutionMetricsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetSolutionMetricsCommandError
- */
-const de_GetSolutionMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSolutionMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListBatchInferenceJobsCommand
  */
 export const de_ListBatchInferenceJobsCommand = async (
@@ -3383,7 +2017,7 @@ export const de_ListBatchInferenceJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListBatchInferenceJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBatchInferenceJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3396,35 +2030,6 @@ export const de_ListBatchInferenceJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListBatchInferenceJobsCommandError
- */
-const de_ListBatchInferenceJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBatchInferenceJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListBatchSegmentJobsCommand
  */
 export const de_ListBatchSegmentJobsCommand = async (
@@ -3432,7 +2037,7 @@ export const de_ListBatchSegmentJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListBatchSegmentJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListBatchSegmentJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3445,35 +2050,6 @@ export const de_ListBatchSegmentJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListBatchSegmentJobsCommandError
- */
-const de_ListBatchSegmentJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListBatchSegmentJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListCampaignsCommand
  */
 export const de_ListCampaignsCommand = async (
@@ -3481,7 +2057,7 @@ export const de_ListCampaignsCommand = async (
   context: __SerdeContext
 ): Promise<ListCampaignsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCampaignsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3494,35 +2070,6 @@ export const de_ListCampaignsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListCampaignsCommandError
- */
-const de_ListCampaignsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCampaignsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDatasetExportJobsCommand
  */
 export const de_ListDatasetExportJobsCommand = async (
@@ -3530,7 +2077,7 @@ export const de_ListDatasetExportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListDatasetExportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDatasetExportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3543,35 +2090,6 @@ export const de_ListDatasetExportJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDatasetExportJobsCommandError
- */
-const de_ListDatasetExportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetExportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDatasetGroupsCommand
  */
 export const de_ListDatasetGroupsCommand = async (
@@ -3579,7 +2097,7 @@ export const de_ListDatasetGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListDatasetGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDatasetGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3592,32 +2110,6 @@ export const de_ListDatasetGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDatasetGroupsCommandError
- */
-const de_ListDatasetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDatasetImportJobsCommand
  */
 export const de_ListDatasetImportJobsCommand = async (
@@ -3625,7 +2117,7 @@ export const de_ListDatasetImportJobsCommand = async (
   context: __SerdeContext
 ): Promise<ListDatasetImportJobsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDatasetImportJobsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3638,35 +2130,6 @@ export const de_ListDatasetImportJobsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDatasetImportJobsCommandError
- */
-const de_ListDatasetImportJobsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetImportJobsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDatasetsCommand
  */
 export const de_ListDatasetsCommand = async (
@@ -3674,7 +2137,7 @@ export const de_ListDatasetsCommand = async (
   context: __SerdeContext
 ): Promise<ListDatasetsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDatasetsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3687,35 +2150,6 @@ export const de_ListDatasetsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDatasetsCommandError
- */
-const de_ListDatasetsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDatasetsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListEventTrackersCommand
  */
 export const de_ListEventTrackersCommand = async (
@@ -3723,7 +2157,7 @@ export const de_ListEventTrackersCommand = async (
   context: __SerdeContext
 ): Promise<ListEventTrackersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListEventTrackersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3736,35 +2170,6 @@ export const de_ListEventTrackersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListEventTrackersCommandError
- */
-const de_ListEventTrackersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEventTrackersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListFiltersCommand
  */
 export const de_ListFiltersCommand = async (
@@ -3772,7 +2177,7 @@ export const de_ListFiltersCommand = async (
   context: __SerdeContext
 ): Promise<ListFiltersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListFiltersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3785,35 +2190,6 @@ export const de_ListFiltersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListFiltersCommandError
- */
-const de_ListFiltersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListFiltersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMetricAttributionMetricsCommand
  */
 export const de_ListMetricAttributionMetricsCommand = async (
@@ -3821,7 +2197,7 @@ export const de_ListMetricAttributionMetricsCommand = async (
   context: __SerdeContext
 ): Promise<ListMetricAttributionMetricsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMetricAttributionMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3834,35 +2210,6 @@ export const de_ListMetricAttributionMetricsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMetricAttributionMetricsCommandError
- */
-const de_ListMetricAttributionMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMetricAttributionMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListMetricAttributionsCommand
  */
 export const de_ListMetricAttributionsCommand = async (
@@ -3870,7 +2217,7 @@ export const de_ListMetricAttributionsCommand = async (
   context: __SerdeContext
 ): Promise<ListMetricAttributionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListMetricAttributionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3883,35 +2230,6 @@ export const de_ListMetricAttributionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListMetricAttributionsCommandError
- */
-const de_ListMetricAttributionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMetricAttributionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRecipesCommand
  */
 export const de_ListRecipesCommand = async (
@@ -3919,7 +2237,7 @@ export const de_ListRecipesCommand = async (
   context: __SerdeContext
 ): Promise<ListRecipesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRecipesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3932,35 +2250,6 @@ export const de_ListRecipesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRecipesCommandError
- */
-const de_ListRecipesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecipesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListRecommendersCommand
  */
 export const de_ListRecommendersCommand = async (
@@ -3968,7 +2257,7 @@ export const de_ListRecommendersCommand = async (
   context: __SerdeContext
 ): Promise<ListRecommendersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListRecommendersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3981,35 +2270,6 @@ export const de_ListRecommendersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListRecommendersCommandError
- */
-const de_ListRecommendersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListRecommendersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSchemasCommand
  */
 export const de_ListSchemasCommand = async (
@@ -4017,7 +2277,7 @@ export const de_ListSchemasCommand = async (
   context: __SerdeContext
 ): Promise<ListSchemasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSchemasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4030,32 +2290,6 @@ export const de_ListSchemasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSchemasCommandError
- */
-const de_ListSchemasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSchemasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSolutionsCommand
  */
 export const de_ListSolutionsCommand = async (
@@ -4063,7 +2297,7 @@ export const de_ListSolutionsCommand = async (
   context: __SerdeContext
 ): Promise<ListSolutionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSolutionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4076,35 +2310,6 @@ export const de_ListSolutionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSolutionsCommandError
- */
-const de_ListSolutionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSolutionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListSolutionVersionsCommand
  */
 export const de_ListSolutionVersionsCommand = async (
@@ -4112,7 +2317,7 @@ export const de_ListSolutionVersionsCommand = async (
   context: __SerdeContext
 ): Promise<ListSolutionVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSolutionVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4125,38 +2330,6 @@ export const de_ListSolutionVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListSolutionVersionsCommandError
- */
-const de_ListSolutionVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSolutionVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.personalize#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -4164,7 +2337,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4177,38 +2350,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartRecommenderCommand
  */
 export const de_StartRecommenderCommand = async (
@@ -4216,7 +2357,7 @@ export const de_StartRecommenderCommand = async (
   context: __SerdeContext
 ): Promise<StartRecommenderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartRecommenderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4229,38 +2370,6 @@ export const de_StartRecommenderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartRecommenderCommandError
- */
-const de_StartRecommenderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartRecommenderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopRecommenderCommand
  */
 export const de_StopRecommenderCommand = async (
@@ -4268,7 +2377,7 @@ export const de_StopRecommenderCommand = async (
   context: __SerdeContext
 ): Promise<StopRecommenderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopRecommenderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4281,38 +2390,6 @@ export const de_StopRecommenderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopRecommenderCommandError
- */
-const de_StopRecommenderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopRecommenderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopSolutionVersionCreationCommand
  */
 export const de_StopSolutionVersionCreationCommand = async (
@@ -4320,45 +2397,13 @@ export const de_StopSolutionVersionCreationCommand = async (
   context: __SerdeContext
 ): Promise<StopSolutionVersionCreationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopSolutionVersionCreationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: StopSolutionVersionCreationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1StopSolutionVersionCreationCommandError
- */
-const de_StopSolutionVersionCreationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopSolutionVersionCreationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -4369,7 +2414,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4382,44 +2427,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.personalize#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.personalize#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -4427,7 +2434,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4440,41 +2447,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagKeysException":
-    case "com.amazonaws.personalize#TooManyTagKeysException":
-      throw await de_TooManyTagKeysExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateCampaignCommand
  */
 export const de_UpdateCampaignCommand = async (
@@ -4482,7 +2454,7 @@ export const de_UpdateCampaignCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCampaignCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCampaignCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4495,38 +2467,6 @@ export const de_UpdateCampaignCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateCampaignCommandError
- */
-const de_UpdateCampaignCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCampaignCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateDatasetCommand
  */
 export const de_UpdateDatasetCommand = async (
@@ -4534,7 +2474,7 @@ export const de_UpdateDatasetCommand = async (
   context: __SerdeContext
 ): Promise<UpdateDatasetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateDatasetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4547,38 +2487,6 @@ export const de_UpdateDatasetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateDatasetCommandError
- */
-const de_UpdateDatasetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateDatasetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateMetricAttributionCommand
  */
 export const de_UpdateMetricAttributionCommand = async (
@@ -4586,7 +2494,7 @@ export const de_UpdateMetricAttributionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMetricAttributionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateMetricAttributionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4599,41 +2507,6 @@ export const de_UpdateMetricAttributionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateMetricAttributionCommandError
- */
-const de_UpdateMetricAttributionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMetricAttributionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidInputException":
-    case "com.amazonaws.personalize#InvalidInputException":
-      throw await de_InvalidInputExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.personalize#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.personalize#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateRecommenderCommand
  */
 export const de_UpdateRecommenderCommand = async (
@@ -4641,7 +2514,7 @@ export const de_UpdateRecommenderCommand = async (
   context: __SerdeContext
 ): Promise<UpdateRecommenderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateRecommenderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4654,12 +2527,9 @@ export const de_UpdateRecommenderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateRecommenderCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateRecommenderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateRecommenderCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4669,19 +2539,34 @@ const de_UpdateRecommenderCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.personalize#InvalidInputException":
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.personalize#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceInUseException":
     case "com.amazonaws.personalize#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.personalize#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.personalize#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.personalize#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "TooManyTagKeysException":
+    case "com.amazonaws.personalize#TooManyTagKeysException":
+      throw await de_TooManyTagKeysExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

@@ -2029,7 +2029,7 @@ export const de_AddTagsToResourceCommand = async (
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AddTagsToResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2042,32 +2042,6 @@ export const de_AddTagsToResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AddTagsToResourceCommandError
- */
-const de_AddTagsToResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AddTagsToResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ApplyPendingMaintenanceActionCommand
  */
 export const de_ApplyPendingMaintenanceActionCommand = async (
@@ -2075,7 +2049,7 @@ export const de_ApplyPendingMaintenanceActionCommand = async (
   context: __SerdeContext
 ): Promise<ApplyPendingMaintenanceActionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ApplyPendingMaintenanceActionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2088,32 +2062,6 @@ export const de_ApplyPendingMaintenanceActionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ApplyPendingMaintenanceActionCommandError
- */
-const de_ApplyPendingMaintenanceActionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ApplyPendingMaintenanceActionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchStartRecommendationsCommand
  */
 export const de_BatchStartRecommendationsCommand = async (
@@ -2121,7 +2069,7 @@ export const de_BatchStartRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<BatchStartRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchStartRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2134,38 +2082,6 @@ export const de_BatchStartRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchStartRecommendationsCommandError
- */
-const de_BatchStartRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchStartRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CancelReplicationTaskAssessmentRunCommand
  */
 export const de_CancelReplicationTaskAssessmentRunCommand = async (
@@ -2173,7 +2089,7 @@ export const de_CancelReplicationTaskAssessmentRunCommand = async (
   context: __SerdeContext
 ): Promise<CancelReplicationTaskAssessmentRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CancelReplicationTaskAssessmentRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2186,38 +2102,6 @@ export const de_CancelReplicationTaskAssessmentRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CancelReplicationTaskAssessmentRunCommandError
- */
-const de_CancelReplicationTaskAssessmentRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelReplicationTaskAssessmentRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateDataProviderCommand
  */
 export const de_CreateDataProviderCommand = async (
@@ -2225,7 +2109,7 @@ export const de_CreateDataProviderCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateDataProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2238,38 +2122,6 @@ export const de_CreateDataProviderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateDataProviderCommandError
- */
-const de_CreateDataProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateEndpointCommand
  */
 export const de_CreateEndpointCommand = async (
@@ -2277,7 +2129,7 @@ export const de_CreateEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2290,50 +2142,6 @@ export const de_CreateEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateEndpointCommandError
- */
-const de_CreateEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateEventSubscriptionCommand
  */
 export const de_CreateEventSubscriptionCommand = async (
@@ -2341,7 +2149,7 @@ export const de_CreateEventSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<CreateEventSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateEventSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2354,59 +2162,6 @@ export const de_CreateEventSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateEventSubscriptionCommandError
- */
-const de_CreateEventSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEventSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "KMSAccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#KMSAccessDeniedFault":
-      throw await de_KMSAccessDeniedFaultRes(parsedOutput, context);
-    case "KMSDisabledFault":
-    case "com.amazonaws.databasemigrationservice#KMSDisabledFault":
-      throw await de_KMSDisabledFaultRes(parsedOutput, context);
-    case "KMSInvalidStateFault":
-    case "com.amazonaws.databasemigrationservice#KMSInvalidStateFault":
-      throw await de_KMSInvalidStateFaultRes(parsedOutput, context);
-    case "KMSNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#KMSNotFoundFault":
-      throw await de_KMSNotFoundFaultRes(parsedOutput, context);
-    case "KMSThrottlingFault":
-    case "com.amazonaws.databasemigrationservice#KMSThrottlingFault":
-      throw await de_KMSThrottlingFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    case "SNSInvalidTopicFault":
-    case "com.amazonaws.databasemigrationservice#SNSInvalidTopicFault":
-      throw await de_SNSInvalidTopicFaultRes(parsedOutput, context);
-    case "SNSNoAuthorizationFault":
-    case "com.amazonaws.databasemigrationservice#SNSNoAuthorizationFault":
-      throw await de_SNSNoAuthorizationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateFleetAdvisorCollectorCommand
  */
 export const de_CreateFleetAdvisorCollectorCommand = async (
@@ -2414,7 +2169,7 @@ export const de_CreateFleetAdvisorCollectorCommand = async (
   context: __SerdeContext
 ): Promise<CreateFleetAdvisorCollectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateFleetAdvisorCollectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2427,44 +2182,6 @@ export const de_CreateFleetAdvisorCollectorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateFleetAdvisorCollectorCommandError
- */
-const de_CreateFleetAdvisorCollectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateFleetAdvisorCollectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
-    case "S3ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
-      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateInstanceProfileCommand
  */
 export const de_CreateInstanceProfileCommand = async (
@@ -2472,7 +2189,7 @@ export const de_CreateInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2485,53 +2202,6 @@ export const de_CreateInstanceProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateInstanceProfileCommandError
- */
-const de_CreateInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
-    case "S3ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
-      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateMigrationProjectCommand
  */
 export const de_CreateMigrationProjectCommand = async (
@@ -2539,7 +2209,7 @@ export const de_CreateMigrationProjectCommand = async (
   context: __SerdeContext
 ): Promise<CreateMigrationProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateMigrationProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2552,47 +2222,6 @@ export const de_CreateMigrationProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateMigrationProjectCommandError
- */
-const de_CreateMigrationProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMigrationProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
-    case "S3ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
-      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateReplicationConfigCommand
  */
 export const de_CreateReplicationConfigCommand = async (
@@ -2600,7 +2229,7 @@ export const de_CreateReplicationConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateReplicationConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReplicationConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2613,53 +2242,6 @@ export const de_CreateReplicationConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateReplicationConfigCommandError
- */
-const de_CreateReplicationConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReplicationConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.databasemigrationservice#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.databasemigrationservice#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_ReplicationSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateReplicationInstanceCommand
  */
 export const de_CreateReplicationInstanceCommand = async (
@@ -2667,7 +2249,7 @@ export const de_CreateReplicationInstanceCommand = async (
   context: __SerdeContext
 ): Promise<CreateReplicationInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReplicationInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2680,59 +2262,6 @@ export const de_CreateReplicationInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateReplicationInstanceCommandError
- */
-const de_CreateReplicationInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReplicationInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InsufficientResourceCapacityFault":
-    case "com.amazonaws.databasemigrationservice#InsufficientResourceCapacityFault":
-      throw await de_InsufficientResourceCapacityFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.databasemigrationservice#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.databasemigrationservice#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_ReplicationSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    case "StorageQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#StorageQuotaExceededFault":
-      throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateReplicationSubnetGroupCommand
  */
 export const de_CreateReplicationSubnetGroupCommand = async (
@@ -2740,7 +2269,7 @@ export const de_CreateReplicationSubnetGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateReplicationSubnetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReplicationSubnetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2753,47 +2282,6 @@ export const de_CreateReplicationSubnetGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateReplicationSubnetGroupCommandError
- */
-const de_CreateReplicationSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReplicationSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.databasemigrationservice#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.databasemigrationservice#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_ReplicationSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateReplicationTaskCommand
  */
 export const de_CreateReplicationTaskCommand = async (
@@ -2801,7 +2289,7 @@ export const de_CreateReplicationTaskCommand = async (
   context: __SerdeContext
 ): Promise<CreateReplicationTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateReplicationTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2814,47 +2302,6 @@ export const de_CreateReplicationTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateReplicationTaskCommandError
- */
-const de_CreateReplicationTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateReplicationTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteCertificateCommand
  */
 export const de_DeleteCertificateCommand = async (
@@ -2862,7 +2309,7 @@ export const de_DeleteCertificateCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2875,35 +2322,6 @@ export const de_DeleteCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteCertificateCommandError
- */
-const de_DeleteCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteConnectionCommand
  */
 export const de_DeleteConnectionCommand = async (
@@ -2911,7 +2329,7 @@ export const de_DeleteConnectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConnectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2924,38 +2342,6 @@ export const de_DeleteConnectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteConnectionCommandError
- */
-const de_DeleteConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteDataProviderCommand
  */
 export const de_DeleteDataProviderCommand = async (
@@ -2963,7 +2349,7 @@ export const de_DeleteDataProviderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDataProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2976,38 +2362,6 @@ export const de_DeleteDataProviderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteDataProviderCommandError
- */
-const de_DeleteDataProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteEndpointCommand
  */
 export const de_DeleteEndpointCommand = async (
@@ -3015,7 +2369,7 @@ export const de_DeleteEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3028,35 +2382,6 @@ export const de_DeleteEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteEndpointCommandError
- */
-const de_DeleteEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteEventSubscriptionCommand
  */
 export const de_DeleteEventSubscriptionCommand = async (
@@ -3064,7 +2389,7 @@ export const de_DeleteEventSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEventSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEventSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3077,35 +2402,6 @@ export const de_DeleteEventSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteEventSubscriptionCommandError
- */
-const de_DeleteEventSubscriptionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEventSubscriptionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteFleetAdvisorCollectorCommand
  */
 export const de_DeleteFleetAdvisorCollectorCommand = async (
@@ -3113,42 +2409,13 @@ export const de_DeleteFleetAdvisorCollectorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFleetAdvisorCollectorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFleetAdvisorCollectorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteFleetAdvisorCollectorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteFleetAdvisorCollectorCommandError
- */
-const de_DeleteFleetAdvisorCollectorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFleetAdvisorCollectorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "CollectorNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#CollectorNotFoundFault":
-      throw await de_CollectorNotFoundFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -3159,7 +2426,7 @@ export const de_DeleteFleetAdvisorDatabasesCommand = async (
   context: __SerdeContext
 ): Promise<DeleteFleetAdvisorDatabasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteFleetAdvisorDatabasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3172,35 +2439,6 @@ export const de_DeleteFleetAdvisorDatabasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteFleetAdvisorDatabasesCommandError
- */
-const de_DeleteFleetAdvisorDatabasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteFleetAdvisorDatabasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidOperationFault":
-    case "com.amazonaws.databasemigrationservice#InvalidOperationFault":
-      throw await de_InvalidOperationFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteInstanceProfileCommand
  */
 export const de_DeleteInstanceProfileCommand = async (
@@ -3208,7 +2446,7 @@ export const de_DeleteInstanceProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteInstanceProfileCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteInstanceProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3221,38 +2459,6 @@ export const de_DeleteInstanceProfileCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteInstanceProfileCommandError
- */
-const de_DeleteInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteMigrationProjectCommand
  */
 export const de_DeleteMigrationProjectCommand = async (
@@ -3260,7 +2466,7 @@ export const de_DeleteMigrationProjectCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMigrationProjectCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteMigrationProjectCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3273,38 +2479,6 @@ export const de_DeleteMigrationProjectCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteMigrationProjectCommandError
- */
-const de_DeleteMigrationProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMigrationProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteReplicationConfigCommand
  */
 export const de_DeleteReplicationConfigCommand = async (
@@ -3312,7 +2486,7 @@ export const de_DeleteReplicationConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReplicationConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReplicationConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3325,38 +2499,6 @@ export const de_DeleteReplicationConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteReplicationConfigCommandError
- */
-const de_DeleteReplicationConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReplicationConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteReplicationInstanceCommand
  */
 export const de_DeleteReplicationInstanceCommand = async (
@@ -3364,7 +2506,7 @@ export const de_DeleteReplicationInstanceCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReplicationInstanceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReplicationInstanceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3377,35 +2519,6 @@ export const de_DeleteReplicationInstanceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteReplicationInstanceCommandError
- */
-const de_DeleteReplicationInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReplicationInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteReplicationSubnetGroupCommand
  */
 export const de_DeleteReplicationSubnetGroupCommand = async (
@@ -3413,7 +2526,7 @@ export const de_DeleteReplicationSubnetGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReplicationSubnetGroupCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReplicationSubnetGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3426,35 +2539,6 @@ export const de_DeleteReplicationSubnetGroupCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteReplicationSubnetGroupCommandError
- */
-const de_DeleteReplicationSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReplicationSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteReplicationTaskCommand
  */
 export const de_DeleteReplicationTaskCommand = async (
@@ -3462,7 +2546,7 @@ export const de_DeleteReplicationTaskCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReplicationTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReplicationTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3475,35 +2559,6 @@ export const de_DeleteReplicationTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteReplicationTaskCommandError
- */
-const de_DeleteReplicationTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReplicationTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand
  */
 export const de_DeleteReplicationTaskAssessmentRunCommand = async (
@@ -3511,7 +2566,7 @@ export const de_DeleteReplicationTaskAssessmentRunCommand = async (
   context: __SerdeContext
 ): Promise<DeleteReplicationTaskAssessmentRunCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteReplicationTaskAssessmentRunCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3524,38 +2579,6 @@ export const de_DeleteReplicationTaskAssessmentRunCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteReplicationTaskAssessmentRunCommandError
- */
-const de_DeleteReplicationTaskAssessmentRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteReplicationTaskAssessmentRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAccountAttributesCommand
  */
 export const de_DescribeAccountAttributesCommand = async (
@@ -3563,7 +2586,7 @@ export const de_DescribeAccountAttributesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAccountAttributesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAccountAttributesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3576,26 +2599,6 @@ export const de_DescribeAccountAttributesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAccountAttributesCommandError
- */
-const de_DescribeAccountAttributesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAccountAttributesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand
  */
 export const de_DescribeApplicableIndividualAssessmentsCommand = async (
@@ -3603,7 +2606,7 @@ export const de_DescribeApplicableIndividualAssessmentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeApplicableIndividualAssessmentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeApplicableIndividualAssessmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3616,38 +2619,6 @@ export const de_DescribeApplicableIndividualAssessmentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeApplicableIndividualAssessmentsCommandError
- */
-const de_DescribeApplicableIndividualAssessmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeApplicableIndividualAssessmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeCertificatesCommand
  */
 export const de_DescribeCertificatesCommand = async (
@@ -3655,7 +2626,7 @@ export const de_DescribeCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeCertificatesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeCertificatesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3668,32 +2639,6 @@ export const de_DescribeCertificatesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeCertificatesCommandError
- */
-const de_DescribeCertificatesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeCertificatesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConnectionsCommand
  */
 export const de_DescribeConnectionsCommand = async (
@@ -3701,7 +2646,7 @@ export const de_DescribeConnectionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConnectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConnectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3714,32 +2659,6 @@ export const de_DescribeConnectionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConnectionsCommandError
- */
-const de_DescribeConnectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConnectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConversionConfigurationCommand
  */
 export const de_DescribeConversionConfigurationCommand = async (
@@ -3747,7 +2666,7 @@ export const de_DescribeConversionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConversionConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConversionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3760,32 +2679,6 @@ export const de_DescribeConversionConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConversionConfigurationCommandError
- */
-const de_DescribeConversionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConversionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDataProvidersCommand
  */
 export const de_DescribeDataProvidersCommand = async (
@@ -3793,7 +2686,7 @@ export const de_DescribeDataProvidersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDataProvidersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDataProvidersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3806,35 +2699,6 @@ export const de_DescribeDataProvidersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDataProvidersCommandError
- */
-const de_DescribeDataProvidersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDataProvidersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEndpointsCommand
  */
 export const de_DescribeEndpointsCommand = async (
@@ -3842,7 +2706,7 @@ export const de_DescribeEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3855,32 +2719,6 @@ export const de_DescribeEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEndpointsCommandError
- */
-const de_DescribeEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeEndpointSettingsCommand
  */
 export const de_DescribeEndpointSettingsCommand = async (
@@ -3888,7 +2726,7 @@ export const de_DescribeEndpointSettingsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEndpointSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEndpointSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3901,26 +2739,6 @@ export const de_DescribeEndpointSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEndpointSettingsCommandError
- */
-const de_DescribeEndpointSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeEndpointTypesCommand
  */
 export const de_DescribeEndpointTypesCommand = async (
@@ -3928,7 +2746,7 @@ export const de_DescribeEndpointTypesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEndpointTypesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEndpointTypesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3941,26 +2759,6 @@ export const de_DescribeEndpointTypesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEndpointTypesCommandError
- */
-const de_DescribeEndpointTypesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEndpointTypesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeEngineVersionsCommand
  */
 export const de_DescribeEngineVersionsCommand = async (
@@ -3968,7 +2766,7 @@ export const de_DescribeEngineVersionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEngineVersionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEngineVersionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3981,26 +2779,6 @@ export const de_DescribeEngineVersionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEngineVersionsCommandError
- */
-const de_DescribeEngineVersionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEngineVersionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeEventCategoriesCommand
  */
 export const de_DescribeEventCategoriesCommand = async (
@@ -4008,7 +2786,7 @@ export const de_DescribeEventCategoriesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventCategoriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventCategoriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4021,26 +2799,6 @@ export const de_DescribeEventCategoriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEventCategoriesCommandError
- */
-const de_DescribeEventCategoriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventCategoriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeEventsCommand
  */
 export const de_DescribeEventsCommand = async (
@@ -4048,7 +2806,7 @@ export const de_DescribeEventsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4061,26 +2819,6 @@ export const de_DescribeEventsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEventsCommandError
- */
-const de_DescribeEventsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeEventSubscriptionsCommand
  */
 export const de_DescribeEventSubscriptionsCommand = async (
@@ -4088,7 +2826,7 @@ export const de_DescribeEventSubscriptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEventSubscriptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeEventSubscriptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4101,32 +2839,6 @@ export const de_DescribeEventSubscriptionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeEventSubscriptionsCommandError
- */
-const de_DescribeEventSubscriptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEventSubscriptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeExtensionPackAssociationsCommand
  */
 export const de_DescribeExtensionPackAssociationsCommand = async (
@@ -4134,7 +2846,7 @@ export const de_DescribeExtensionPackAssociationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExtensionPackAssociationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeExtensionPackAssociationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4147,26 +2859,6 @@ export const de_DescribeExtensionPackAssociationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeExtensionPackAssociationsCommandError
- */
-const de_DescribeExtensionPackAssociationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExtensionPackAssociationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetAdvisorCollectorsCommand
  */
 export const de_DescribeFleetAdvisorCollectorsCommand = async (
@@ -4174,7 +2866,7 @@ export const de_DescribeFleetAdvisorCollectorsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetAdvisorCollectorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetAdvisorCollectorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4187,32 +2879,6 @@ export const de_DescribeFleetAdvisorCollectorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetAdvisorCollectorsCommandError
- */
-const de_DescribeFleetAdvisorCollectorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetAdvisorCollectorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetAdvisorDatabasesCommand
  */
 export const de_DescribeFleetAdvisorDatabasesCommand = async (
@@ -4220,7 +2886,7 @@ export const de_DescribeFleetAdvisorDatabasesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetAdvisorDatabasesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetAdvisorDatabasesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4233,32 +2899,6 @@ export const de_DescribeFleetAdvisorDatabasesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetAdvisorDatabasesCommandError
- */
-const de_DescribeFleetAdvisorDatabasesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetAdvisorDatabasesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommand
  */
 export const de_DescribeFleetAdvisorLsaAnalysisCommand = async (
@@ -4266,7 +2906,7 @@ export const de_DescribeFleetAdvisorLsaAnalysisCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetAdvisorLsaAnalysisCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetAdvisorLsaAnalysisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4279,32 +2919,6 @@ export const de_DescribeFleetAdvisorLsaAnalysisCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetAdvisorLsaAnalysisCommandError
- */
-const de_DescribeFleetAdvisorLsaAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetAdvisorLsaAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommand
  */
 export const de_DescribeFleetAdvisorSchemaObjectSummaryCommand = async (
@@ -4312,7 +2926,7 @@ export const de_DescribeFleetAdvisorSchemaObjectSummaryCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetAdvisorSchemaObjectSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetAdvisorSchemaObjectSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4325,32 +2939,6 @@ export const de_DescribeFleetAdvisorSchemaObjectSummaryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetAdvisorSchemaObjectSummaryCommandError
- */
-const de_DescribeFleetAdvisorSchemaObjectSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetAdvisorSchemaObjectSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeFleetAdvisorSchemasCommand
  */
 export const de_DescribeFleetAdvisorSchemasCommand = async (
@@ -4358,7 +2946,7 @@ export const de_DescribeFleetAdvisorSchemasCommand = async (
   context: __SerdeContext
 ): Promise<DescribeFleetAdvisorSchemasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeFleetAdvisorSchemasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4371,32 +2959,6 @@ export const de_DescribeFleetAdvisorSchemasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeFleetAdvisorSchemasCommandError
- */
-const de_DescribeFleetAdvisorSchemasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeFleetAdvisorSchemasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeInstanceProfilesCommand
  */
 export const de_DescribeInstanceProfilesCommand = async (
@@ -4404,7 +2966,7 @@ export const de_DescribeInstanceProfilesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeInstanceProfilesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeInstanceProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4417,35 +2979,6 @@ export const de_DescribeInstanceProfilesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeInstanceProfilesCommandError
- */
-const de_DescribeInstanceProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeInstanceProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMetadataModelAssessmentsCommand
  */
 export const de_DescribeMetadataModelAssessmentsCommand = async (
@@ -4453,7 +2986,7 @@ export const de_DescribeMetadataModelAssessmentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMetadataModelAssessmentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMetadataModelAssessmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4466,32 +2999,6 @@ export const de_DescribeMetadataModelAssessmentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMetadataModelAssessmentsCommandError
- */
-const de_DescribeMetadataModelAssessmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMetadataModelAssessmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMetadataModelConversionsCommand
  */
 export const de_DescribeMetadataModelConversionsCommand = async (
@@ -4499,7 +3006,7 @@ export const de_DescribeMetadataModelConversionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMetadataModelConversionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMetadataModelConversionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4512,32 +3019,6 @@ export const de_DescribeMetadataModelConversionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMetadataModelConversionsCommandError
- */
-const de_DescribeMetadataModelConversionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMetadataModelConversionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMetadataModelExportsAsScriptCommand
  */
 export const de_DescribeMetadataModelExportsAsScriptCommand = async (
@@ -4545,7 +3026,7 @@ export const de_DescribeMetadataModelExportsAsScriptCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMetadataModelExportsAsScriptCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMetadataModelExportsAsScriptCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4558,32 +3039,6 @@ export const de_DescribeMetadataModelExportsAsScriptCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMetadataModelExportsAsScriptCommandError
- */
-const de_DescribeMetadataModelExportsAsScriptCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMetadataModelExportsAsScriptCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMetadataModelExportsToTargetCommand
  */
 export const de_DescribeMetadataModelExportsToTargetCommand = async (
@@ -4591,7 +3046,7 @@ export const de_DescribeMetadataModelExportsToTargetCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMetadataModelExportsToTargetCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMetadataModelExportsToTargetCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4604,32 +3059,6 @@ export const de_DescribeMetadataModelExportsToTargetCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMetadataModelExportsToTargetCommandError
- */
-const de_DescribeMetadataModelExportsToTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMetadataModelExportsToTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMetadataModelImportsCommand
  */
 export const de_DescribeMetadataModelImportsCommand = async (
@@ -4637,7 +3066,7 @@ export const de_DescribeMetadataModelImportsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMetadataModelImportsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMetadataModelImportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4650,32 +3079,6 @@ export const de_DescribeMetadataModelImportsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMetadataModelImportsCommandError
- */
-const de_DescribeMetadataModelImportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMetadataModelImportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeMigrationProjectsCommand
  */
 export const de_DescribeMigrationProjectsCommand = async (
@@ -4683,7 +3086,7 @@ export const de_DescribeMigrationProjectsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeMigrationProjectsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeMigrationProjectsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4696,35 +3099,6 @@ export const de_DescribeMigrationProjectsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeMigrationProjectsCommandError
- */
-const de_DescribeMigrationProjectsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeMigrationProjectsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeOrderableReplicationInstancesCommand
  */
 export const de_DescribeOrderableReplicationInstancesCommand = async (
@@ -4732,7 +3106,7 @@ export const de_DescribeOrderableReplicationInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOrderableReplicationInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeOrderableReplicationInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4745,26 +3119,6 @@ export const de_DescribeOrderableReplicationInstancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeOrderableReplicationInstancesCommandError
- */
-const de_DescribeOrderableReplicationInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrderableReplicationInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribePendingMaintenanceActionsCommand
  */
 export const de_DescribePendingMaintenanceActionsCommand = async (
@@ -4772,7 +3126,7 @@ export const de_DescribePendingMaintenanceActionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePendingMaintenanceActionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4785,32 +3139,6 @@ export const de_DescribePendingMaintenanceActionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePendingMaintenanceActionsCommandError
- */
-const de_DescribePendingMaintenanceActionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRecommendationLimitationsCommand
  */
 export const de_DescribeRecommendationLimitationsCommand = async (
@@ -4818,7 +3146,7 @@ export const de_DescribeRecommendationLimitationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRecommendationLimitationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRecommendationLimitationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4831,35 +3159,6 @@ export const de_DescribeRecommendationLimitationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRecommendationLimitationsCommandError
- */
-const de_DescribeRecommendationLimitationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRecommendationLimitationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRecommendationsCommand
  */
 export const de_DescribeRecommendationsCommand = async (
@@ -4867,7 +3166,7 @@ export const de_DescribeRecommendationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRecommendationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRecommendationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4880,35 +3179,6 @@ export const de_DescribeRecommendationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRecommendationsCommandError
- */
-const de_DescribeRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRefreshSchemasStatusCommand
  */
 export const de_DescribeRefreshSchemasStatusCommand = async (
@@ -4916,7 +3186,7 @@ export const de_DescribeRefreshSchemasStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRefreshSchemasStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRefreshSchemasStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4929,35 +3199,6 @@ export const de_DescribeRefreshSchemasStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRefreshSchemasStatusCommandError
- */
-const de_DescribeRefreshSchemasStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRefreshSchemasStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReplicationConfigsCommand
  */
 export const de_DescribeReplicationConfigsCommand = async (
@@ -4965,7 +3206,7 @@ export const de_DescribeReplicationConfigsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplicationConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReplicationConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4978,32 +3219,6 @@ export const de_DescribeReplicationConfigsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReplicationConfigsCommandError
- */
-const de_DescribeReplicationConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReplicationInstancesCommand
  */
 export const de_DescribeReplicationInstancesCommand = async (
@@ -5011,7 +3226,7 @@ export const de_DescribeReplicationInstancesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplicationInstancesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReplicationInstancesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5024,32 +3239,6 @@ export const de_DescribeReplicationInstancesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReplicationInstancesCommandError
- */
-const de_DescribeReplicationInstancesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationInstancesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand
  */
 export const de_DescribeReplicationInstanceTaskLogsCommand = async (
@@ -5057,7 +3246,7 @@ export const de_DescribeReplicationInstanceTaskLogsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReplicationInstanceTaskLogsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5070,35 +3259,6 @@ export const de_DescribeReplicationInstanceTaskLogsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommandError
- */
-const de_DescribeReplicationInstanceTaskLogsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationInstanceTaskLogsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReplicationsCommand
  */
 export const de_DescribeReplicationsCommand = async (
@@ -5106,7 +3266,7 @@ export const de_DescribeReplicationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5119,32 +3279,6 @@ export const de_DescribeReplicationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReplicationsCommandError
- */
-const de_DescribeReplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReplicationSubnetGroupsCommand
  */
 export const de_DescribeReplicationSubnetGroupsCommand = async (
@@ -5152,7 +3286,7 @@ export const de_DescribeReplicationSubnetGroupsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplicationSubnetGroupsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReplicationSubnetGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5165,32 +3299,6 @@ export const de_DescribeReplicationSubnetGroupsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReplicationSubnetGroupsCommandError
- */
-const de_DescribeReplicationSubnetGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationSubnetGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReplicationTableStatisticsCommand
  */
 export const de_DescribeReplicationTableStatisticsCommand = async (
@@ -5198,7 +3306,7 @@ export const de_DescribeReplicationTableStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplicationTableStatisticsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReplicationTableStatisticsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5211,35 +3319,6 @@ export const de_DescribeReplicationTableStatisticsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReplicationTableStatisticsCommandError
- */
-const de_DescribeReplicationTableStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationTableStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommand
  */
 export const de_DescribeReplicationTaskAssessmentResultsCommand = async (
@@ -5247,7 +3326,7 @@ export const de_DescribeReplicationTaskAssessmentResultsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReplicationTaskAssessmentResultsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5260,32 +3339,6 @@ export const de_DescribeReplicationTaskAssessmentResultsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsCommandError
- */
-const de_DescribeReplicationTaskAssessmentResultsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand
  */
 export const de_DescribeReplicationTaskAssessmentRunsCommand = async (
@@ -5293,7 +3346,7 @@ export const de_DescribeReplicationTaskAssessmentRunsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplicationTaskAssessmentRunsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReplicationTaskAssessmentRunsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5306,32 +3359,6 @@ export const de_DescribeReplicationTaskAssessmentRunsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommandError
- */
-const de_DescribeReplicationTaskAssessmentRunsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationTaskAssessmentRunsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsCommand
  */
 export const de_DescribeReplicationTaskIndividualAssessmentsCommand = async (
@@ -5339,7 +3366,7 @@ export const de_DescribeReplicationTaskIndividualAssessmentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplicationTaskIndividualAssessmentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReplicationTaskIndividualAssessmentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5352,32 +3379,6 @@ export const de_DescribeReplicationTaskIndividualAssessmentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsCommandError
- */
-const de_DescribeReplicationTaskIndividualAssessmentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationTaskIndividualAssessmentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeReplicationTasksCommand
  */
 export const de_DescribeReplicationTasksCommand = async (
@@ -5385,7 +3386,7 @@ export const de_DescribeReplicationTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeReplicationTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeReplicationTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5398,32 +3399,6 @@ export const de_DescribeReplicationTasksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeReplicationTasksCommandError
- */
-const de_DescribeReplicationTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeReplicationTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeSchemasCommand
  */
 export const de_DescribeSchemasCommand = async (
@@ -5431,7 +3406,7 @@ export const de_DescribeSchemasCommand = async (
   context: __SerdeContext
 ): Promise<DescribeSchemasCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeSchemasCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5444,35 +3419,6 @@ export const de_DescribeSchemasCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeSchemasCommandError
- */
-const de_DescribeSchemasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeSchemasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTableStatisticsCommand
  */
 export const de_DescribeTableStatisticsCommand = async (
@@ -5480,7 +3426,7 @@ export const de_DescribeTableStatisticsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTableStatisticsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTableStatisticsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5493,35 +3439,6 @@ export const de_DescribeTableStatisticsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTableStatisticsCommandError
- */
-const de_DescribeTableStatisticsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTableStatisticsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ExportMetadataModelAssessmentCommand
  */
 export const de_ExportMetadataModelAssessmentCommand = async (
@@ -5529,7 +3446,7 @@ export const de_ExportMetadataModelAssessmentCommand = async (
   context: __SerdeContext
 ): Promise<ExportMetadataModelAssessmentCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportMetadataModelAssessmentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5542,32 +3459,6 @@ export const de_ExportMetadataModelAssessmentCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ExportMetadataModelAssessmentCommandError
- */
-const de_ExportMetadataModelAssessmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportMetadataModelAssessmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ImportCertificateCommand
  */
 export const de_ImportCertificateCommand = async (
@@ -5575,7 +3466,7 @@ export const de_ImportCertificateCommand = async (
   context: __SerdeContext
 ): Promise<ImportCertificateCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ImportCertificateCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5588,38 +3479,6 @@ export const de_ImportCertificateCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ImportCertificateCommandError
- */
-const de_ImportCertificateCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ImportCertificateCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidCertificateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidCertificateFault":
-      throw await de_InvalidCertificateFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -5627,7 +3486,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5640,32 +3499,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyConversionConfigurationCommand
  */
 export const de_ModifyConversionConfigurationCommand = async (
@@ -5673,7 +3506,7 @@ export const de_ModifyConversionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<ModifyConversionConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyConversionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5686,35 +3519,6 @@ export const de_ModifyConversionConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyConversionConfigurationCommandError
- */
-const de_ModifyConversionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyConversionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyDataProviderCommand
  */
 export const de_ModifyDataProviderCommand = async (
@@ -5722,7 +3526,7 @@ export const de_ModifyDataProviderCommand = async (
   context: __SerdeContext
 ): Promise<ModifyDataProviderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyDataProviderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5735,38 +3539,6 @@ export const de_ModifyDataProviderCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyDataProviderCommandError
- */
-const de_ModifyDataProviderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyDataProviderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyEndpointCommand
  */
 export const de_ModifyEndpointCommand = async (
@@ -5774,7 +3546,7 @@ export const de_ModifyEndpointCommand = async (
   context: __SerdeContext
 ): Promise<ModifyEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5787,44 +3559,6 @@ export const de_ModifyEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyEndpointCommandError
- */
-const de_ModifyEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ModifyEventSubscriptionCommand
  */
 export const de_ModifyEventSubscriptionCommand = async (
@@ -5832,7 +3566,7 @@ export const de_ModifyEventSubscriptionCommand = async (
   context: __SerdeContext
 ): Promise<ModifyEventSubscriptionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ModifyEventSubscriptionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5845,18 +3579,593 @@ export const de_ModifyEventSubscriptionCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ModifyEventSubscriptionCommandError
+ * deserializeAws_json1_1ModifyInstanceProfileCommand
  */
-const de_ModifyEventSubscriptionCommandError = async (
+export const de_ModifyInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<ModifyEventSubscriptionCommandOutput> => {
+): Promise<ModifyInstanceProfileCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyInstanceProfileResponse(data, context);
+  const response: ModifyInstanceProfileCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ModifyMigrationProjectCommand
+ */
+export const de_ModifyMigrationProjectCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyMigrationProjectCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyMigrationProjectResponse(data, context);
+  const response: ModifyMigrationProjectCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ModifyReplicationConfigCommand
+ */
+export const de_ModifyReplicationConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyReplicationConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyReplicationConfigResponse(data, context);
+  const response: ModifyReplicationConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ModifyReplicationInstanceCommand
+ */
+export const de_ModifyReplicationInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyReplicationInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyReplicationInstanceResponse(data, context);
+  const response: ModifyReplicationInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ModifyReplicationSubnetGroupCommand
+ */
+export const de_ModifyReplicationSubnetGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyReplicationSubnetGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ModifyReplicationSubnetGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ModifyReplicationTaskCommand
+ */
+export const de_ModifyReplicationTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyReplicationTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ModifyReplicationTaskResponse(data, context);
+  const response: ModifyReplicationTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1MoveReplicationTaskCommand
+ */
+export const de_MoveReplicationTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MoveReplicationTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_MoveReplicationTaskResponse(data, context);
+  const response: MoveReplicationTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RebootReplicationInstanceCommand
+ */
+export const de_RebootReplicationInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RebootReplicationInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RebootReplicationInstanceResponse(data, context);
+  const response: RebootReplicationInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RefreshSchemasCommand
+ */
+export const de_RefreshSchemasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RefreshSchemasCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RefreshSchemasResponse(data, context);
+  const response: RefreshSchemasCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ReloadReplicationTablesCommand
+ */
+export const de_ReloadReplicationTablesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReloadReplicationTablesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ReloadReplicationTablesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ReloadTablesCommand
+ */
+export const de_ReloadTablesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ReloadTablesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ReloadTablesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RemoveTagsFromResourceCommand
+ */
+export const de_RemoveTagsFromResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTagsFromResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RemoveTagsFromResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand
+ */
+export const de_RunFleetAdvisorLsaAnalysisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RunFleetAdvisorLsaAnalysisCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: RunFleetAdvisorLsaAnalysisCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartExtensionPackAssociationCommand
+ */
+export const de_StartExtensionPackAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartExtensionPackAssociationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartExtensionPackAssociationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelAssessmentCommand
+ */
+export const de_StartMetadataModelAssessmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelAssessmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMetadataModelAssessmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelConversionCommand
+ */
+export const de_StartMetadataModelConversionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelConversionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMetadataModelConversionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelExportAsScriptCommand
+ */
+export const de_StartMetadataModelExportAsScriptCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelExportAsScriptCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMetadataModelExportAsScriptCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelExportToTargetCommand
+ */
+export const de_StartMetadataModelExportToTargetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelExportToTargetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMetadataModelExportToTargetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMetadataModelImportCommand
+ */
+export const de_StartMetadataModelImportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMetadataModelImportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartMetadataModelImportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartRecommendationsCommand
+ */
+export const de_StartRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: StartRecommendationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartReplicationCommand
+ */
+export const de_StartReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartReplicationResponse(data, context);
+  const response: StartReplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartReplicationTaskCommand
+ */
+export const de_StartReplicationTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReplicationTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartReplicationTaskResponse(data, context);
+  const response: StartReplicationTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartReplicationTaskAssessmentCommand
+ */
+export const de_StartReplicationTaskAssessmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReplicationTaskAssessmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartReplicationTaskAssessmentResponse(data, context);
+  const response: StartReplicationTaskAssessmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartReplicationTaskAssessmentRunCommand
+ */
+export const de_StartReplicationTaskAssessmentRunCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartReplicationTaskAssessmentRunCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartReplicationTaskAssessmentRunResponse(data, context);
+  const response: StartReplicationTaskAssessmentRunCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopReplicationCommand
+ */
+export const de_StopReplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopReplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopReplicationResponse(data, context);
+  const response: StopReplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopReplicationTaskCommand
+ */
+export const de_StopReplicationTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopReplicationTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StopReplicationTaskResponse(data, context);
+  const response: StopReplicationTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TestConnectionCommand
+ */
+export const de_TestConnectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestConnectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TestConnectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand
+ */
+export const de_UpdateSubscriptionsToEventBridgeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSubscriptionsToEventBridgeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateSubscriptionsToEventBridgeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ResourceNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
+      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
+    case "AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
+      throw await de_AccessDeniedFaultRes(parsedOutput, context);
+    case "InvalidResourceStateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
+      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
+    case "ResourceAlreadyExistsFault":
+    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
+      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
+    case "ResourceQuotaExceededFault":
+    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
+      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
+    case "KMSKeyNotAccessibleFault":
+    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
+      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
+    case "S3AccessDeniedFault":
+    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
+      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
     case "KMSAccessDeniedFault":
     case "com.amazonaws.databasemigrationservice#KMSAccessDeniedFault":
       throw await de_KMSAccessDeniedFaultRes(parsedOutput, context);
@@ -5872,1631 +4181,52 @@ const de_ModifyEventSubscriptionCommandError = async (
     case "KMSThrottlingFault":
     case "com.amazonaws.databasemigrationservice#KMSThrottlingFault":
       throw await de_KMSThrottlingFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
     case "SNSInvalidTopicFault":
     case "com.amazonaws.databasemigrationservice#SNSInvalidTopicFault":
       throw await de_SNSInvalidTopicFaultRes(parsedOutput, context);
     case "SNSNoAuthorizationFault":
     case "com.amazonaws.databasemigrationservice#SNSNoAuthorizationFault":
       throw await de_SNSNoAuthorizationFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ModifyInstanceProfileCommand
- */
-export const de_ModifyInstanceProfileCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyInstanceProfileCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyInstanceProfileCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyInstanceProfileResponse(data, context);
-  const response: ModifyInstanceProfileCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ModifyInstanceProfileCommandError
- */
-const de_ModifyInstanceProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyInstanceProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
     case "S3ResourceNotFoundFault":
     case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
       throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ModifyMigrationProjectCommand
- */
-export const de_ModifyMigrationProjectCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyMigrationProjectCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyMigrationProjectCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyMigrationProjectResponse(data, context);
-  const response: ModifyMigrationProjectCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ModifyMigrationProjectCommandError
- */
-const de_ModifyMigrationProjectCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyMigrationProjectCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
-    case "S3ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
-      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ModifyReplicationConfigCommand
- */
-export const de_ModifyReplicationConfigCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyReplicationConfigCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyReplicationConfigCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyReplicationConfigResponse(data, context);
-  const response: ModifyReplicationConfigCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ModifyReplicationConfigCommandError
- */
-const de_ModifyReplicationConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyReplicationConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
     case "InvalidSubnet":
     case "com.amazonaws.databasemigrationservice#InvalidSubnet":
       throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
     case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
     case "com.amazonaws.databasemigrationservice#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
       throw await de_ReplicationSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ModifyReplicationInstanceCommand
- */
-export const de_ModifyReplicationInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyReplicationInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyReplicationInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyReplicationInstanceResponse(data, context);
-  const response: ModifyReplicationInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ModifyReplicationInstanceCommandError
- */
-const de_ModifyReplicationInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyReplicationInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
     case "InsufficientResourceCapacityFault":
     case "com.amazonaws.databasemigrationservice#InsufficientResourceCapacityFault":
       throw await de_InsufficientResourceCapacityFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
     case "StorageQuotaExceededFault":
     case "com.amazonaws.databasemigrationservice#StorageQuotaExceededFault":
       throw await de_StorageQuotaExceededFaultRes(parsedOutput, context);
+    case "CollectorNotFoundFault":
+    case "com.amazonaws.databasemigrationservice#CollectorNotFoundFault":
+      throw await de_CollectorNotFoundFaultRes(parsedOutput, context);
+    case "InvalidOperationFault":
+    case "com.amazonaws.databasemigrationservice#InvalidOperationFault":
+      throw await de_InvalidOperationFaultRes(parsedOutput, context);
+    case "InvalidCertificateFault":
+    case "com.amazonaws.databasemigrationservice#InvalidCertificateFault":
+      throw await de_InvalidCertificateFaultRes(parsedOutput, context);
     case "UpgradeDependencyFailureFault":
     case "com.amazonaws.databasemigrationservice#UpgradeDependencyFailureFault":
       throw await de_UpgradeDependencyFailureFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ModifyReplicationSubnetGroupCommand
- */
-export const de_ModifyReplicationSubnetGroupCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyReplicationSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyReplicationSubnetGroupCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ModifyReplicationSubnetGroupCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ModifyReplicationSubnetGroupCommandError
- */
-const de_ModifyReplicationSubnetGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyReplicationSubnetGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidSubnet":
-    case "com.amazonaws.databasemigrationservice#InvalidSubnet":
-      throw await de_InvalidSubnetRes(parsedOutput, context);
-    case "ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-    case "com.amazonaws.databasemigrationservice#ReplicationSubnetGroupDoesNotCoverEnoughAZs":
-      throw await de_ReplicationSubnetGroupDoesNotCoverEnoughAZsRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
     case "SubnetAlreadyInUse":
     case "com.amazonaws.databasemigrationservice#SubnetAlreadyInUse":
       throw await de_SubnetAlreadyInUseRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ModifyReplicationTaskCommand
- */
-export const de_ModifyReplicationTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyReplicationTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ModifyReplicationTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ModifyReplicationTaskResponse(data, context);
-  const response: ModifyReplicationTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ModifyReplicationTaskCommandError
- */
-const de_ModifyReplicationTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ModifyReplicationTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1MoveReplicationTaskCommand
- */
-export const de_MoveReplicationTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MoveReplicationTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_MoveReplicationTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_MoveReplicationTaskResponse(data, context);
-  const response: MoveReplicationTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1MoveReplicationTaskCommandError
- */
-const de_MoveReplicationTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<MoveReplicationTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RebootReplicationInstanceCommand
- */
-export const de_RebootReplicationInstanceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootReplicationInstanceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RebootReplicationInstanceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RebootReplicationInstanceResponse(data, context);
-  const response: RebootReplicationInstanceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RebootReplicationInstanceCommandError
- */
-const de_RebootReplicationInstanceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RebootReplicationInstanceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RefreshSchemasCommand
- */
-export const de_RefreshSchemasCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RefreshSchemasCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RefreshSchemasCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_RefreshSchemasResponse(data, context);
-  const response: RefreshSchemasCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RefreshSchemasCommandError
- */
-const de_RefreshSchemasCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RefreshSchemasCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ReloadReplicationTablesCommand
- */
-export const de_ReloadReplicationTablesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReloadReplicationTablesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ReloadReplicationTablesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ReloadReplicationTablesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ReloadReplicationTablesCommandError
- */
-const de_ReloadReplicationTablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReloadReplicationTablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ReloadTablesCommand
- */
-export const de_ReloadTablesCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReloadTablesCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ReloadTablesCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ReloadTablesCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ReloadTablesCommandError
- */
-const de_ReloadTablesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReloadTablesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RemoveTagsFromResourceCommand
- */
-export const de_RemoveTagsFromResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RemoveTagsFromResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RemoveTagsFromResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RemoveTagsFromResourceCommandError
- */
-const de_RemoveTagsFromResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RemoveTagsFromResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1RunFleetAdvisorLsaAnalysisCommand
- */
-export const de_RunFleetAdvisorLsaAnalysisCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RunFleetAdvisorLsaAnalysisCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_RunFleetAdvisorLsaAnalysisCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: RunFleetAdvisorLsaAnalysisCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1RunFleetAdvisorLsaAnalysisCommandError
- */
-const de_RunFleetAdvisorLsaAnalysisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RunFleetAdvisorLsaAnalysisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartExtensionPackAssociationCommand
- */
-export const de_StartExtensionPackAssociationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartExtensionPackAssociationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartExtensionPackAssociationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartExtensionPackAssociationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartExtensionPackAssociationCommandError
- */
-const de_StartExtensionPackAssociationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartExtensionPackAssociationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
-    case "S3ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
-      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartMetadataModelAssessmentCommand
- */
-export const de_StartMetadataModelAssessmentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMetadataModelAssessmentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartMetadataModelAssessmentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartMetadataModelAssessmentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartMetadataModelAssessmentCommandError
- */
-const de_StartMetadataModelAssessmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMetadataModelAssessmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
-    case "S3ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
-      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartMetadataModelConversionCommand
- */
-export const de_StartMetadataModelConversionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMetadataModelConversionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartMetadataModelConversionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartMetadataModelConversionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartMetadataModelConversionCommandError
- */
-const de_StartMetadataModelConversionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMetadataModelConversionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
-    case "S3ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
-      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartMetadataModelExportAsScriptCommand
- */
-export const de_StartMetadataModelExportAsScriptCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMetadataModelExportAsScriptCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartMetadataModelExportAsScriptCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartMetadataModelExportAsScriptCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartMetadataModelExportAsScriptCommandError
- */
-const de_StartMetadataModelExportAsScriptCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMetadataModelExportAsScriptCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
-    case "S3ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
-      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartMetadataModelExportToTargetCommand
- */
-export const de_StartMetadataModelExportToTargetCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMetadataModelExportToTargetCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartMetadataModelExportToTargetCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartMetadataModelExportToTargetCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartMetadataModelExportToTargetCommandError
- */
-const de_StartMetadataModelExportToTargetCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMetadataModelExportToTargetCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
-    case "S3ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
-      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartMetadataModelImportCommand
- */
-export const de_StartMetadataModelImportCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMetadataModelImportCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartMetadataModelImportCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartMetadataModelImportCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartMetadataModelImportCommandError
- */
-const de_StartMetadataModelImportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartMetadataModelImportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
-    case "S3ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
-      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartRecommendationsCommand
- */
-export const de_StartRecommendationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartRecommendationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartRecommendationsCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: StartRecommendationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartRecommendationsCommandError
- */
-const de_StartRecommendationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartRecommendationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartReplicationCommand
- */
-export const de_StartReplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartReplicationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartReplicationResponse(data, context);
-  const response: StartReplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartReplicationCommandError
- */
-const de_StartReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartReplicationTaskCommand
- */
-export const de_StartReplicationTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReplicationTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartReplicationTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartReplicationTaskResponse(data, context);
-  const response: StartReplicationTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartReplicationTaskCommandError
- */
-const de_StartReplicationTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReplicationTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartReplicationTaskAssessmentCommand
- */
-export const de_StartReplicationTaskAssessmentCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReplicationTaskAssessmentCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartReplicationTaskAssessmentCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartReplicationTaskAssessmentResponse(data, context);
-  const response: StartReplicationTaskAssessmentCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartReplicationTaskAssessmentCommandError
- */
-const de_StartReplicationTaskAssessmentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReplicationTaskAssessmentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartReplicationTaskAssessmentRunCommand
- */
-export const de_StartReplicationTaskAssessmentRunCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReplicationTaskAssessmentRunCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartReplicationTaskAssessmentRunCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StartReplicationTaskAssessmentRunResponse(data, context);
-  const response: StartReplicationTaskAssessmentRunCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartReplicationTaskAssessmentRunCommandError
- */
-const de_StartReplicationTaskAssessmentRunCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartReplicationTaskAssessmentRunCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSAccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#KMSAccessDeniedFault":
-      throw await de_KMSAccessDeniedFaultRes(parsedOutput, context);
-    case "KMSDisabledFault":
-    case "com.amazonaws.databasemigrationservice#KMSDisabledFault":
-      throw await de_KMSDisabledFaultRes(parsedOutput, context);
     case "KMSFault":
     case "com.amazonaws.databasemigrationservice#KMSFault":
       throw await de_KMSFaultRes(parsedOutput, context);
-    case "KMSInvalidStateFault":
-    case "com.amazonaws.databasemigrationservice#KMSInvalidStateFault":
-      throw await de_KMSInvalidStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "KMSNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#KMSNotFoundFault":
-      throw await de_KMSNotFoundFaultRes(parsedOutput, context);
-    case "ResourceAlreadyExistsFault":
-    case "com.amazonaws.databasemigrationservice#ResourceAlreadyExistsFault":
-      throw await de_ResourceAlreadyExistsFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "S3AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#S3AccessDeniedFault":
-      throw await de_S3AccessDeniedFaultRes(parsedOutput, context);
-    case "S3ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#S3ResourceNotFoundFault":
-      throw await de_S3ResourceNotFoundFaultRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopReplicationCommand
- */
-export const de_StopReplicationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopReplicationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopReplicationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StopReplicationResponse(data, context);
-  const response: StopReplicationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopReplicationCommandError
- */
-const de_StopReplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopReplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopReplicationTaskCommand
- */
-export const de_StopReplicationTaskCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopReplicationTaskCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopReplicationTaskCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_StopReplicationTaskResponse(data, context);
-  const response: StopReplicationTaskCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopReplicationTaskCommandError
- */
-const de_StopReplicationTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopReplicationTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TestConnectionCommand
- */
-export const de_TestConnectionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestConnectionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TestConnectionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TestConnectionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TestConnectionCommandError
- */
-const de_TestConnectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TestConnectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    case "KMSKeyNotAccessibleFault":
-    case "com.amazonaws.databasemigrationservice#KMSKeyNotAccessibleFault":
-      throw await de_KMSKeyNotAccessibleFaultRes(parsedOutput, context);
-    case "ResourceNotFoundFault":
-    case "com.amazonaws.databasemigrationservice#ResourceNotFoundFault":
-      throw await de_ResourceNotFoundFaultRes(parsedOutput, context);
-    case "ResourceQuotaExceededFault":
-    case "com.amazonaws.databasemigrationservice#ResourceQuotaExceededFault":
-      throw await de_ResourceQuotaExceededFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UpdateSubscriptionsToEventBridgeCommand
- */
-export const de_UpdateSubscriptionsToEventBridgeCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSubscriptionsToEventBridgeCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UpdateSubscriptionsToEventBridgeCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UpdateSubscriptionsToEventBridgeCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UpdateSubscriptionsToEventBridgeCommandError
- */
-const de_UpdateSubscriptionsToEventBridgeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSubscriptionsToEventBridgeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedFault":
-    case "com.amazonaws.databasemigrationservice#AccessDeniedFault":
-      throw await de_AccessDeniedFaultRes(parsedOutput, context);
-    case "InvalidResourceStateFault":
-    case "com.amazonaws.databasemigrationservice#InvalidResourceStateFault":
-      throw await de_InvalidResourceStateFaultRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

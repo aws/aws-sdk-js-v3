@@ -370,7 +370,7 @@ export const de_CreateContainerCommand = async (
   context: __SerdeContext
 ): Promise<CreateContainerCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateContainerCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -383,12 +383,409 @@ export const de_CreateContainerCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateContainerCommandError
+ * deserializeAws_json1_1DeleteContainerCommand
  */
-const de_CreateContainerCommandError = async (
+export const de_DeleteContainerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<CreateContainerCommandOutput> => {
+): Promise<DeleteContainerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteContainerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteContainerPolicyCommand
+ */
+export const de_DeleteContainerPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteContainerPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteContainerPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteCorsPolicyCommand
+ */
+export const de_DeleteCorsPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCorsPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteCorsPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteLifecyclePolicyCommand
+ */
+export const de_DeleteLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLifecyclePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteLifecyclePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteMetricPolicyCommand
+ */
+export const de_DeleteMetricPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMetricPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteMetricPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeContainerCommand
+ */
+export const de_DescribeContainerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeContainerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeContainerOutput(data, context);
+  const response: DescribeContainerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetContainerPolicyCommand
+ */
+export const de_GetContainerPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContainerPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetContainerPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetCorsPolicyCommand
+ */
+export const de_GetCorsPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCorsPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetCorsPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetLifecyclePolicyCommand
+ */
+export const de_GetLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLifecyclePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetLifecyclePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetMetricPolicyCommand
+ */
+export const de_GetMetricPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetricPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetMetricPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListContainersCommand
+ */
+export const de_ListContainersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContainersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListContainersOutput(data, context);
+  const response: ListContainersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutContainerPolicyCommand
+ */
+export const de_PutContainerPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutContainerPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutContainerPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutCorsPolicyCommand
+ */
+export const de_PutCorsPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutCorsPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutCorsPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutLifecyclePolicyCommand
+ */
+export const de_PutLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutLifecyclePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutLifecyclePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutMetricPolicyCommand
+ */
+export const de_PutMetricPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutMetricPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutMetricPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartAccessLoggingCommand
+ */
+export const de_StartAccessLoggingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAccessLoggingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartAccessLoggingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopAccessLoggingCommand
+ */
+export const de_StopAccessLoggingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopAccessLoggingCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopAccessLoggingCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -404,1068 +801,22 @@ const de_CreateContainerCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.mediastore#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteContainerCommand
- */
-export const de_DeleteContainerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContainerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteContainerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteContainerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteContainerCommandError
- */
-const de_DeleteContainerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContainerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
     case "ContainerNotFoundException":
     case "com.amazonaws.mediastore#ContainerNotFoundException":
       throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteContainerPolicyCommand
- */
-export const de_DeleteContainerPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContainerPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteContainerPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteContainerPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteContainerPolicyCommandError
- */
-const de_DeleteContainerPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteContainerPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     case "PolicyNotFoundException":
     case "com.amazonaws.mediastore#PolicyNotFoundException":
       throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteCorsPolicyCommand
- */
-export const de_DeleteCorsPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCorsPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteCorsPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteCorsPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteCorsPolicyCommandError
- */
-const de_DeleteCorsPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCorsPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
     case "CorsPolicyNotFoundException":
     case "com.amazonaws.mediastore#CorsPolicyNotFoundException":
       throw await de_CorsPolicyNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteLifecyclePolicyCommand
- */
-export const de_DeleteLifecyclePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLifecyclePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteLifecyclePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteLifecyclePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteLifecyclePolicyCommandError
- */
-const de_DeleteLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "PolicyNotFoundException":
-    case "com.amazonaws.mediastore#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DeleteMetricPolicyCommand
- */
-export const de_DeleteMetricPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMetricPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DeleteMetricPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: DeleteMetricPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteMetricPolicyCommandError
- */
-const de_DeleteMetricPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMetricPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "PolicyNotFoundException":
-    case "com.amazonaws.mediastore#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1DescribeContainerCommand
- */
-export const de_DescribeContainerCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeContainerCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_DescribeContainerCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_DescribeContainerOutput(data, context);
-  const response: DescribeContainerCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1DescribeContainerCommandError
- */
-const de_DescribeContainerCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeContainerCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetContainerPolicyCommand
- */
-export const de_GetContainerPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContainerPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetContainerPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetContainerPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetContainerPolicyCommandError
- */
-const de_GetContainerPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetContainerPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "PolicyNotFoundException":
-    case "com.amazonaws.mediastore#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetCorsPolicyCommand
- */
-export const de_GetCorsPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCorsPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetCorsPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetCorsPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetCorsPolicyCommandError
- */
-const de_GetCorsPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCorsPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "CorsPolicyNotFoundException":
-    case "com.amazonaws.mediastore#CorsPolicyNotFoundException":
-      throw await de_CorsPolicyNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetLifecyclePolicyCommand
- */
-export const de_GetLifecyclePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLifecyclePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetLifecyclePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetLifecyclePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetLifecyclePolicyCommandError
- */
-const de_GetLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "PolicyNotFoundException":
-    case "com.amazonaws.mediastore#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1GetMetricPolicyCommand
- */
-export const de_GetMetricPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMetricPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_GetMetricPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: GetMetricPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1GetMetricPolicyCommandError
- */
-const de_GetMetricPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMetricPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    case "PolicyNotFoundException":
-    case "com.amazonaws.mediastore#PolicyNotFoundException":
-      throw await de_PolicyNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListContainersCommand
- */
-export const de_ListContainersCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContainersCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListContainersCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_ListContainersOutput(data, context);
-  const response: ListContainersCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListContainersCommandError
- */
-const de_ListContainersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContainersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommand
- */
-export const de_ListTagsForResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: ListTagsForResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutContainerPolicyCommand
- */
-export const de_PutContainerPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutContainerPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutContainerPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutContainerPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutContainerPolicyCommandError
- */
-const de_PutContainerPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutContainerPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutCorsPolicyCommand
- */
-export const de_PutCorsPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutCorsPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutCorsPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutCorsPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutCorsPolicyCommandError
- */
-const de_PutCorsPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutCorsPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutLifecyclePolicyCommand
- */
-export const de_PutLifecyclePolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLifecyclePolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutLifecyclePolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutLifecyclePolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutLifecyclePolicyCommandError
- */
-const de_PutLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutMetricPolicyCommand
- */
-export const de_PutMetricPolicyCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMetricPolicyCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutMetricPolicyCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutMetricPolicyCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutMetricPolicyCommandError
- */
-const de_PutMetricPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutMetricPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartAccessLoggingCommand
- */
-export const de_StartAccessLoggingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAccessLoggingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartAccessLoggingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartAccessLoggingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartAccessLoggingCommandError
- */
-const de_StartAccessLoggingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartAccessLoggingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopAccessLoggingCommand
- */
-export const de_StopAccessLoggingCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopAccessLoggingCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopAccessLoggingCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StopAccessLoggingCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopAccessLoggingCommandError
- */
-const de_StopAccessLoggingCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopAccessLoggingCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ContainerInUseException":
-    case "com.amazonaws.mediastore#ContainerInUseException":
-      throw await de_ContainerInUseExceptionRes(parsedOutput, context);
-    case "ContainerNotFoundException":
-    case "com.amazonaws.mediastore#ContainerNotFoundException":
-      throw await de_ContainerNotFoundExceptionRes(parsedOutput, context);
-    case "InternalServerError":
-    case "com.amazonaws.mediastore#InternalServerError":
-      throw await de_InternalServerErrorRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

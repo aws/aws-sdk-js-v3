@@ -273,42 +273,13 @@ export const de_DeleteLexiconCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLexiconCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteLexiconCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1DeleteLexiconCommandError
- */
-const de_DeleteLexiconCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLexiconCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LexiconNotFoundException":
-    case "com.amazonaws.polly#LexiconNotFoundException":
-      throw await de_LexiconNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.polly#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -319,7 +290,7 @@ export const de_DescribeVoicesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeVoicesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeVoicesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -334,35 +305,6 @@ export const de_DescribeVoicesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeVoicesCommandError
- */
-const de_DescribeVoicesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeVoicesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.polly#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.polly#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetLexiconCommand
  */
 export const de_GetLexiconCommand = async (
@@ -370,7 +312,7 @@ export const de_GetLexiconCommand = async (
   context: __SerdeContext
 ): Promise<GetLexiconCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetLexiconCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -385,35 +327,6 @@ export const de_GetLexiconCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetLexiconCommandError
- */
-const de_GetLexiconCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetLexiconCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LexiconNotFoundException":
-    case "com.amazonaws.polly#LexiconNotFoundException":
-      throw await de_LexiconNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.polly#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSpeechSynthesisTaskCommand
  */
 export const de_GetSpeechSynthesisTaskCommand = async (
@@ -421,7 +334,7 @@ export const de_GetSpeechSynthesisTaskCommand = async (
   context: __SerdeContext
 ): Promise<GetSpeechSynthesisTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSpeechSynthesisTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -435,38 +348,6 @@ export const de_GetSpeechSynthesisTaskCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSpeechSynthesisTaskCommandError
- */
-const de_GetSpeechSynthesisTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSpeechSynthesisTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidTaskIdException":
-    case "com.amazonaws.polly#InvalidTaskIdException":
-      throw await de_InvalidTaskIdExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.polly#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "SynthesisTaskNotFoundException":
-    case "com.amazonaws.polly#SynthesisTaskNotFoundException":
-      throw await de_SynthesisTaskNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListLexiconsCommand
  */
 export const de_ListLexiconsCommand = async (
@@ -474,7 +355,7 @@ export const de_ListLexiconsCommand = async (
   context: __SerdeContext
 ): Promise<ListLexiconsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListLexiconsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -489,35 +370,6 @@ export const de_ListLexiconsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListLexiconsCommandError
- */
-const de_ListLexiconsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLexiconsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.polly#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.polly#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSpeechSynthesisTasksCommand
  */
 export const de_ListSpeechSynthesisTasksCommand = async (
@@ -525,7 +377,7 @@ export const de_ListSpeechSynthesisTasksCommand = async (
   context: __SerdeContext
 ): Promise<ListSpeechSynthesisTasksCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSpeechSynthesisTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -540,35 +392,6 @@ export const de_ListSpeechSynthesisTasksCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSpeechSynthesisTasksCommandError
- */
-const de_ListSpeechSynthesisTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSpeechSynthesisTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.polly#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.polly#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutLexiconCommand
  */
 export const de_PutLexiconCommand = async (
@@ -576,57 +399,13 @@ export const de_PutLexiconCommand = async (
   context: __SerdeContext
 ): Promise<PutLexiconCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutLexiconCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1PutLexiconCommandError
- */
-const de_PutLexiconCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutLexiconCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLexiconException":
-    case "com.amazonaws.polly#InvalidLexiconException":
-      throw await de_InvalidLexiconExceptionRes(parsedOutput, context);
-    case "LexiconSizeExceededException":
-    case "com.amazonaws.polly#LexiconSizeExceededException":
-      throw await de_LexiconSizeExceededExceptionRes(parsedOutput, context);
-    case "MaxLexemeLengthExceededException":
-    case "com.amazonaws.polly#MaxLexemeLengthExceededException":
-      throw await de_MaxLexemeLengthExceededExceptionRes(parsedOutput, context);
-    case "MaxLexiconsNumberExceededException":
-    case "com.amazonaws.polly#MaxLexiconsNumberExceededException":
-      throw await de_MaxLexiconsNumberExceededExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.polly#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "UnsupportedPlsAlphabetException":
-    case "com.amazonaws.polly#UnsupportedPlsAlphabetException":
-      throw await de_UnsupportedPlsAlphabetExceptionRes(parsedOutput, context);
-    case "UnsupportedPlsLanguageException":
-    case "com.amazonaws.polly#UnsupportedPlsLanguageException":
-      throw await de_UnsupportedPlsLanguageExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -637,7 +416,7 @@ export const de_StartSpeechSynthesisTaskCommand = async (
   context: __SerdeContext
 ): Promise<StartSpeechSynthesisTaskCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartSpeechSynthesisTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -651,18 +430,69 @@ export const de_StartSpeechSynthesisTaskCommand = async (
 };
 
 /**
- * deserializeAws_restJson1StartSpeechSynthesisTaskCommandError
+ * deserializeAws_restJson1SynthesizeSpeechCommand
  */
-const de_StartSpeechSynthesisTaskCommandError = async (
+export const de_SynthesizeSpeechCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartSpeechSynthesisTaskCommandOutput> => {
+  context: __SerdeContext & __SdkStreamSerdeContext
+): Promise<SynthesizeSpeechCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_CT]: [, output.headers[_ct]],
+    [_RC]: [() => void 0 !== output.headers[_xar], () => __strictParseInt32(output.headers[_xar])],
+  });
+  const data: any = output.body;
+  context.sdkStreamMixin(data);
+  contents.AudioStream = data;
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "LexiconNotFoundException":
+    case "com.amazonaws.polly#LexiconNotFoundException":
+      throw await de_LexiconNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceFailureException":
+    case "com.amazonaws.polly#ServiceFailureException":
+      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.polly#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidTaskIdException":
+    case "com.amazonaws.polly#InvalidTaskIdException":
+      throw await de_InvalidTaskIdExceptionRes(parsedOutput, context);
+    case "SynthesisTaskNotFoundException":
+    case "com.amazonaws.polly#SynthesisTaskNotFoundException":
+      throw await de_SynthesisTaskNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidLexiconException":
+    case "com.amazonaws.polly#InvalidLexiconException":
+      throw await de_InvalidLexiconExceptionRes(parsedOutput, context);
+    case "LexiconSizeExceededException":
+    case "com.amazonaws.polly#LexiconSizeExceededException":
+      throw await de_LexiconSizeExceededExceptionRes(parsedOutput, context);
+    case "MaxLexemeLengthExceededException":
+    case "com.amazonaws.polly#MaxLexemeLengthExceededException":
+      throw await de_MaxLexemeLengthExceededExceptionRes(parsedOutput, context);
+    case "MaxLexiconsNumberExceededException":
+    case "com.amazonaws.polly#MaxLexiconsNumberExceededException":
+      throw await de_MaxLexiconsNumberExceededExceptionRes(parsedOutput, context);
+    case "UnsupportedPlsAlphabetException":
+    case "com.amazonaws.polly#UnsupportedPlsAlphabetException":
+      throw await de_UnsupportedPlsAlphabetExceptionRes(parsedOutput, context);
+    case "UnsupportedPlsLanguageException":
+    case "com.amazonaws.polly#UnsupportedPlsLanguageException":
+      throw await de_UnsupportedPlsLanguageExceptionRes(parsedOutput, context);
     case "EngineNotSupportedException":
     case "com.amazonaws.polly#EngineNotSupportedException":
       throw await de_EngineNotSupportedExceptionRes(parsedOutput, context);
@@ -684,15 +514,9 @@ const de_StartSpeechSynthesisTaskCommandError = async (
     case "LanguageNotSupportedException":
     case "com.amazonaws.polly#LanguageNotSupportedException":
       throw await de_LanguageNotSupportedExceptionRes(parsedOutput, context);
-    case "LexiconNotFoundException":
-    case "com.amazonaws.polly#LexiconNotFoundException":
-      throw await de_LexiconNotFoundExceptionRes(parsedOutput, context);
     case "MarksNotSupportedForFormatException":
     case "com.amazonaws.polly#MarksNotSupportedForFormatException":
       throw await de_MarksNotSupportedForFormatExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.polly#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
     case "SsmlMarksNotSupportedForTextTypeException":
     case "com.amazonaws.polly#SsmlMarksNotSupportedForTextTypeException":
       throw await de_SsmlMarksNotSupportedForTextTypeExceptionRes(parsedOutput, context);
@@ -705,78 +529,7 @@ const de_StartSpeechSynthesisTaskCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1SynthesizeSpeechCommand
- */
-export const de_SynthesizeSpeechCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext & __SdkStreamSerdeContext
-): Promise<SynthesizeSpeechCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_SynthesizeSpeechCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-    [_CT]: [, output.headers[_ct]],
-    [_RC]: [() => void 0 !== output.headers[_xar], () => __strictParseInt32(output.headers[_xar])],
-  });
-  const data: any = output.body;
-  context.sdkStreamMixin(data);
-  contents.AudioStream = data;
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1SynthesizeSpeechCommandError
- */
-const de_SynthesizeSpeechCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SynthesizeSpeechCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "EngineNotSupportedException":
-    case "com.amazonaws.polly#EngineNotSupportedException":
-      throw await de_EngineNotSupportedExceptionRes(parsedOutput, context);
-    case "InvalidSampleRateException":
-    case "com.amazonaws.polly#InvalidSampleRateException":
-      throw await de_InvalidSampleRateExceptionRes(parsedOutput, context);
-    case "InvalidSsmlException":
-    case "com.amazonaws.polly#InvalidSsmlException":
-      throw await de_InvalidSsmlExceptionRes(parsedOutput, context);
-    case "LanguageNotSupportedException":
-    case "com.amazonaws.polly#LanguageNotSupportedException":
-      throw await de_LanguageNotSupportedExceptionRes(parsedOutput, context);
-    case "LexiconNotFoundException":
-    case "com.amazonaws.polly#LexiconNotFoundException":
-      throw await de_LexiconNotFoundExceptionRes(parsedOutput, context);
-    case "MarksNotSupportedForFormatException":
-    case "com.amazonaws.polly#MarksNotSupportedForFormatException":
-      throw await de_MarksNotSupportedForFormatExceptionRes(parsedOutput, context);
-    case "ServiceFailureException":
-    case "com.amazonaws.polly#ServiceFailureException":
-      throw await de_ServiceFailureExceptionRes(parsedOutput, context);
-    case "SsmlMarksNotSupportedForTextTypeException":
-    case "com.amazonaws.polly#SsmlMarksNotSupportedForTextTypeException":
-      throw await de_SsmlMarksNotSupportedForTextTypeExceptionRes(parsedOutput, context);
-    case "TextLengthExceededException":
-    case "com.amazonaws.polly#TextLengthExceededException":
-      throw await de_TextLengthExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

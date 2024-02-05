@@ -1827,7 +1827,7 @@ export const de_BatchGetAggregateResourceConfigCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetAggregateResourceConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetAggregateResourceConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1840,35 +1840,6 @@ export const de_BatchGetAggregateResourceConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetAggregateResourceConfigCommandError
- */
-const de_BatchGetAggregateResourceConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetAggregateResourceConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchGetResourceConfigCommand
  */
 export const de_BatchGetResourceConfigCommand = async (
@@ -1876,7 +1847,7 @@ export const de_BatchGetResourceConfigCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetResourceConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetResourceConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1889,35 +1860,6 @@ export const de_BatchGetResourceConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchGetResourceConfigCommandError
- */
-const de_BatchGetResourceConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetResourceConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoAvailableConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
-      throw await de_NoAvailableConfigurationRecorderExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteAggregationAuthorizationCommand
  */
 export const de_DeleteAggregationAuthorizationCommand = async (
@@ -1925,39 +1867,13 @@ export const de_DeleteAggregationAuthorizationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAggregationAuthorizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAggregationAuthorizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteAggregationAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteAggregationAuthorizationCommandError
- */
-const de_DeleteAggregationAuthorizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAggregationAuthorizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -1968,42 +1884,13 @@ export const de_DeleteConfigRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConfigRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteConfigRuleCommandError
- */
-const de_DeleteConfigRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchConfigRuleException":
-      throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.configservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2014,39 +1901,13 @@ export const de_DeleteConfigurationAggregatorCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationAggregatorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConfigurationAggregatorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteConfigurationAggregatorCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteConfigurationAggregatorCommandError
- */
-const de_DeleteConfigurationAggregatorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationAggregatorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2057,39 +1918,13 @@ export const de_DeleteConfigurationRecorderCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigurationRecorderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConfigurationRecorderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteConfigurationRecorderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteConfigurationRecorderCommandError
- */
-const de_DeleteConfigurationRecorderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigurationRecorderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
-      throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2100,42 +1935,13 @@ export const de_DeleteConformancePackCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConformancePackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteConformancePackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteConformancePackCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteConformancePackCommandError
- */
-const de_DeleteConformancePackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConformancePackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchConformancePackException":
-    case "com.amazonaws.configservice#NoSuchConformancePackException":
-      throw await de_NoSuchConformancePackExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.configservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2146,42 +1952,13 @@ export const de_DeleteDeliveryChannelCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDeliveryChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteDeliveryChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteDeliveryChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteDeliveryChannelCommandError
- */
-const de_DeleteDeliveryChannelCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDeliveryChannelCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "LastDeliveryChannelDeleteFailedException":
-    case "com.amazonaws.configservice#LastDeliveryChannelDeleteFailedException":
-      throw await de_LastDeliveryChannelDeleteFailedExceptionRes(parsedOutput, context);
-    case "NoSuchDeliveryChannelException":
-    case "com.amazonaws.configservice#NoSuchDeliveryChannelException":
-      throw await de_NoSuchDeliveryChannelExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2192,7 +1969,7 @@ export const de_DeleteEvaluationResultsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEvaluationResultsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteEvaluationResultsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2205,35 +1982,6 @@ export const de_DeleteEvaluationResultsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteEvaluationResultsCommandError
- */
-const de_DeleteEvaluationResultsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEvaluationResultsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchConfigRuleException":
-      throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.configservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteOrganizationConfigRuleCommand
  */
 export const de_DeleteOrganizationConfigRuleCommand = async (
@@ -2241,45 +1989,13 @@ export const de_DeleteOrganizationConfigRuleCommand = async (
   context: __SerdeContext
 ): Promise<DeleteOrganizationConfigRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteOrganizationConfigRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteOrganizationConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteOrganizationConfigRuleCommandError
- */
-const de_DeleteOrganizationConfigRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOrganizationConfigRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchOrganizationConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchOrganizationConfigRuleException":
-      throw await de_NoSuchOrganizationConfigRuleExceptionRes(parsedOutput, context);
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
-      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.configservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2290,45 +2006,13 @@ export const de_DeleteOrganizationConformancePackCommand = async (
   context: __SerdeContext
 ): Promise<DeleteOrganizationConformancePackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteOrganizationConformancePackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteOrganizationConformancePackCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteOrganizationConformancePackCommandError
- */
-const de_DeleteOrganizationConformancePackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteOrganizationConformancePackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchOrganizationConformancePackException":
-    case "com.amazonaws.configservice#NoSuchOrganizationConformancePackException":
-      throw await de_NoSuchOrganizationConformancePackExceptionRes(parsedOutput, context);
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
-      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.configservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2339,39 +2023,13 @@ export const de_DeletePendingAggregationRequestCommand = async (
   context: __SerdeContext
 ): Promise<DeletePendingAggregationRequestCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePendingAggregationRequestCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeletePendingAggregationRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeletePendingAggregationRequestCommandError
- */
-const de_DeletePendingAggregationRequestCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePendingAggregationRequestCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2382,7 +2040,7 @@ export const de_DeleteRemediationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRemediationConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRemediationConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2395,41 +2053,6 @@ export const de_DeleteRemediationConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRemediationConfigurationCommandError
- */
-const de_DeleteRemediationConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRemediationConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPermissionsException":
-    case "com.amazonaws.configservice#InsufficientPermissionsException":
-      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchRemediationConfigurationException":
-    case "com.amazonaws.configservice#NoSuchRemediationConfigurationException":
-      throw await de_NoSuchRemediationConfigurationExceptionRes(parsedOutput, context);
-    case "RemediationInProgressException":
-    case "com.amazonaws.configservice#RemediationInProgressException":
-      throw await de_RemediationInProgressExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteRemediationExceptionsCommand
  */
 export const de_DeleteRemediationExceptionsCommand = async (
@@ -2437,7 +2060,7 @@ export const de_DeleteRemediationExceptionsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRemediationExceptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRemediationExceptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2450,32 +2073,6 @@ export const de_DeleteRemediationExceptionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteRemediationExceptionsCommandError
- */
-const de_DeleteRemediationExceptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRemediationExceptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchRemediationExceptionException":
-    case "com.amazonaws.configservice#NoSuchRemediationExceptionException":
-      throw await de_NoSuchRemediationExceptionExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteResourceConfigCommand
  */
 export const de_DeleteResourceConfigCommand = async (
@@ -2483,42 +2080,13 @@ export const de_DeleteResourceConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteResourceConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteResourceConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteResourceConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteResourceConfigCommandError
- */
-const de_DeleteResourceConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteResourceConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoRunningConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoRunningConfigurationRecorderException":
-      throw await de_NoRunningConfigurationRecorderExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2529,42 +2097,13 @@ export const de_DeleteRetentionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRetentionConfigurationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteRetentionConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: DeleteRetentionConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1DeleteRetentionConfigurationCommandError
- */
-const de_DeleteRetentionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteRetentionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchRetentionConfigurationException":
-    case "com.amazonaws.configservice#NoSuchRetentionConfigurationException":
-      throw await de_NoSuchRetentionConfigurationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2575,7 +2114,7 @@ export const de_DeleteStoredQueryCommand = async (
   context: __SerdeContext
 ): Promise<DeleteStoredQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteStoredQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2588,35 +2127,6 @@ export const de_DeleteStoredQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteStoredQueryCommandError
- */
-const de_DeleteStoredQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteStoredQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.configservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeliverConfigSnapshotCommand
  */
 export const de_DeliverConfigSnapshotCommand = async (
@@ -2624,7 +2134,7 @@ export const de_DeliverConfigSnapshotCommand = async (
   context: __SerdeContext
 ): Promise<DeliverConfigSnapshotCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeliverConfigSnapshotCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2637,38 +2147,6 @@ export const de_DeliverConfigSnapshotCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeliverConfigSnapshotCommandError
- */
-const de_DeliverConfigSnapshotCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeliverConfigSnapshotCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoAvailableConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
-      throw await de_NoAvailableConfigurationRecorderExceptionRes(parsedOutput, context);
-    case "NoRunningConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoRunningConfigurationRecorderException":
-      throw await de_NoRunningConfigurationRecorderExceptionRes(parsedOutput, context);
-    case "NoSuchDeliveryChannelException":
-    case "com.amazonaws.configservice#NoSuchDeliveryChannelException":
-      throw await de_NoSuchDeliveryChannelExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommand
  */
 export const de_DescribeAggregateComplianceByConfigRulesCommand = async (
@@ -2676,7 +2154,7 @@ export const de_DescribeAggregateComplianceByConfigRulesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAggregateComplianceByConfigRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2689,41 +2167,6 @@ export const de_DescribeAggregateComplianceByConfigRulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAggregateComplianceByConfigRulesCommandError
- */
-const de_DescribeAggregateComplianceByConfigRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAggregateComplianceByConfigRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommand
  */
 export const de_DescribeAggregateComplianceByConformancePacksCommand = async (
@@ -2731,7 +2174,7 @@ export const de_DescribeAggregateComplianceByConformancePacksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAggregateComplianceByConformancePacksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAggregateComplianceByConformancePacksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2744,41 +2187,6 @@ export const de_DescribeAggregateComplianceByConformancePacksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAggregateComplianceByConformancePacksCommandError
- */
-const de_DescribeAggregateComplianceByConformancePacksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAggregateComplianceByConformancePacksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAggregationAuthorizationsCommand
  */
 export const de_DescribeAggregationAuthorizationsCommand = async (
@@ -2786,7 +2194,7 @@ export const de_DescribeAggregationAuthorizationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAggregationAuthorizationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAggregationAuthorizationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2799,38 +2207,6 @@ export const de_DescribeAggregationAuthorizationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAggregationAuthorizationsCommandError
- */
-const de_DescribeAggregationAuthorizationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAggregationAuthorizationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeComplianceByConfigRuleCommand
  */
 export const de_DescribeComplianceByConfigRuleCommand = async (
@@ -2838,7 +2214,7 @@ export const de_DescribeComplianceByConfigRuleCommand = async (
   context: __SerdeContext
 ): Promise<DescribeComplianceByConfigRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeComplianceByConfigRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2851,38 +2227,6 @@ export const de_DescribeComplianceByConfigRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeComplianceByConfigRuleCommandError
- */
-const de_DescribeComplianceByConfigRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeComplianceByConfigRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchConfigRuleException":
-      throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeComplianceByResourceCommand
  */
 export const de_DescribeComplianceByResourceCommand = async (
@@ -2890,7 +2234,7 @@ export const de_DescribeComplianceByResourceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeComplianceByResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeComplianceByResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2903,35 +2247,6 @@ export const de_DescribeComplianceByResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeComplianceByResourceCommandError
- */
-const de_DescribeComplianceByResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeComplianceByResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommand
  */
 export const de_DescribeConfigRuleEvaluationStatusCommand = async (
@@ -2939,7 +2254,7 @@ export const de_DescribeConfigRuleEvaluationStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigRuleEvaluationStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConfigRuleEvaluationStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2952,38 +2267,6 @@ export const de_DescribeConfigRuleEvaluationStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConfigRuleEvaluationStatusCommandError
- */
-const de_DescribeConfigRuleEvaluationStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigRuleEvaluationStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchConfigRuleException":
-      throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConfigRulesCommand
  */
 export const de_DescribeConfigRulesCommand = async (
@@ -2991,7 +2274,7 @@ export const de_DescribeConfigRulesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConfigRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3004,38 +2287,6 @@ export const de_DescribeConfigRulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConfigRulesCommandError
- */
-const de_DescribeConfigRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchConfigRuleException":
-      throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConfigurationAggregatorsCommand
  */
 export const de_DescribeConfigurationAggregatorsCommand = async (
@@ -3043,7 +2294,7 @@ export const de_DescribeConfigurationAggregatorsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigurationAggregatorsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConfigurationAggregatorsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3056,41 +2307,6 @@ export const de_DescribeConfigurationAggregatorsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConfigurationAggregatorsCommandError
- */
-const de_DescribeConfigurationAggregatorsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigurationAggregatorsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommand
  */
 export const de_DescribeConfigurationAggregatorSourcesStatusCommand = async (
@@ -3098,7 +2314,7 @@ export const de_DescribeConfigurationAggregatorSourcesStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConfigurationAggregatorSourcesStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3111,41 +2327,6 @@ export const de_DescribeConfigurationAggregatorSourcesStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConfigurationAggregatorSourcesStatusCommandError
- */
-const de_DescribeConfigurationAggregatorSourcesStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigurationAggregatorSourcesStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConfigurationRecordersCommand
  */
 export const de_DescribeConfigurationRecordersCommand = async (
@@ -3153,7 +2334,7 @@ export const de_DescribeConfigurationRecordersCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigurationRecordersCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConfigurationRecordersCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3166,32 +2347,6 @@ export const de_DescribeConfigurationRecordersCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConfigurationRecordersCommandError
- */
-const de_DescribeConfigurationRecordersCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigurationRecordersCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
-      throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConfigurationRecorderStatusCommand
  */
 export const de_DescribeConfigurationRecorderStatusCommand = async (
@@ -3199,7 +2354,7 @@ export const de_DescribeConfigurationRecorderStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigurationRecorderStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConfigurationRecorderStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3212,32 +2367,6 @@ export const de_DescribeConfigurationRecorderStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConfigurationRecorderStatusCommandError
- */
-const de_DescribeConfigurationRecorderStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigurationRecorderStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
-      throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConformancePackComplianceCommand
  */
 export const de_DescribeConformancePackComplianceCommand = async (
@@ -3245,7 +2374,7 @@ export const de_DescribeConformancePackComplianceCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConformancePackComplianceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConformancePackComplianceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3258,44 +2387,6 @@ export const de_DescribeConformancePackComplianceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConformancePackComplianceCommandError
- */
-const de_DescribeConformancePackComplianceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConformancePackComplianceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchConfigRuleInConformancePackException":
-    case "com.amazonaws.configservice#NoSuchConfigRuleInConformancePackException":
-      throw await de_NoSuchConfigRuleInConformancePackExceptionRes(parsedOutput, context);
-    case "NoSuchConformancePackException":
-    case "com.amazonaws.configservice#NoSuchConformancePackException":
-      throw await de_NoSuchConformancePackExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConformancePacksCommand
  */
 export const de_DescribeConformancePacksCommand = async (
@@ -3303,7 +2394,7 @@ export const de_DescribeConformancePacksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConformancePacksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConformancePacksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3316,41 +2407,6 @@ export const de_DescribeConformancePacksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConformancePacksCommandError
- */
-const de_DescribeConformancePacksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConformancePacksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchConformancePackException":
-    case "com.amazonaws.configservice#NoSuchConformancePackException":
-      throw await de_NoSuchConformancePackExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConformancePackStatusCommand
  */
 export const de_DescribeConformancePackStatusCommand = async (
@@ -3358,7 +2414,7 @@ export const de_DescribeConformancePackStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConformancePackStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConformancePackStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3371,38 +2427,6 @@ export const de_DescribeConformancePackStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConformancePackStatusCommandError
- */
-const de_DescribeConformancePackStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConformancePackStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDeliveryChannelsCommand
  */
 export const de_DescribeDeliveryChannelsCommand = async (
@@ -3410,7 +2434,7 @@ export const de_DescribeDeliveryChannelsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDeliveryChannelsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDeliveryChannelsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3423,32 +2447,6 @@ export const de_DescribeDeliveryChannelsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDeliveryChannelsCommandError
- */
-const de_DescribeDeliveryChannelsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDeliveryChannelsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchDeliveryChannelException":
-    case "com.amazonaws.configservice#NoSuchDeliveryChannelException":
-      throw await de_NoSuchDeliveryChannelExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDeliveryChannelStatusCommand
  */
 export const de_DescribeDeliveryChannelStatusCommand = async (
@@ -3456,7 +2454,7 @@ export const de_DescribeDeliveryChannelStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDeliveryChannelStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDeliveryChannelStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3469,32 +2467,6 @@ export const de_DescribeDeliveryChannelStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDeliveryChannelStatusCommandError
- */
-const de_DescribeDeliveryChannelStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDeliveryChannelStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchDeliveryChannelException":
-    case "com.amazonaws.configservice#NoSuchDeliveryChannelException":
-      throw await de_NoSuchDeliveryChannelExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeOrganizationConfigRulesCommand
  */
 export const de_DescribeOrganizationConfigRulesCommand = async (
@@ -3502,7 +2474,7 @@ export const de_DescribeOrganizationConfigRulesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOrganizationConfigRulesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeOrganizationConfigRulesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3515,41 +2487,6 @@ export const de_DescribeOrganizationConfigRulesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeOrganizationConfigRulesCommandError
- */
-const de_DescribeOrganizationConfigRulesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationConfigRulesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchOrganizationConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchOrganizationConfigRuleException":
-      throw await de_NoSuchOrganizationConfigRuleExceptionRes(parsedOutput, context);
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
-      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommand
  */
 export const de_DescribeOrganizationConfigRuleStatusesCommand = async (
@@ -3557,7 +2494,7 @@ export const de_DescribeOrganizationConfigRuleStatusesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeOrganizationConfigRuleStatusesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3570,41 +2507,6 @@ export const de_DescribeOrganizationConfigRuleStatusesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeOrganizationConfigRuleStatusesCommandError
- */
-const de_DescribeOrganizationConfigRuleStatusesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchOrganizationConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchOrganizationConfigRuleException":
-      throw await de_NoSuchOrganizationConfigRuleExceptionRes(parsedOutput, context);
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
-      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeOrganizationConformancePacksCommand
  */
 export const de_DescribeOrganizationConformancePacksCommand = async (
@@ -3612,7 +2514,7 @@ export const de_DescribeOrganizationConformancePacksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOrganizationConformancePacksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeOrganizationConformancePacksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3625,41 +2527,6 @@ export const de_DescribeOrganizationConformancePacksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeOrganizationConformancePacksCommandError
- */
-const de_DescribeOrganizationConformancePacksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationConformancePacksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchOrganizationConformancePackException":
-    case "com.amazonaws.configservice#NoSuchOrganizationConformancePackException":
-      throw await de_NoSuchOrganizationConformancePackExceptionRes(parsedOutput, context);
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
-      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommand
  */
 export const de_DescribeOrganizationConformancePackStatusesCommand = async (
@@ -3667,7 +2534,7 @@ export const de_DescribeOrganizationConformancePackStatusesCommand = async (
   context: __SerdeContext
 ): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeOrganizationConformancePackStatusesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3680,41 +2547,6 @@ export const de_DescribeOrganizationConformancePackStatusesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeOrganizationConformancePackStatusesCommandError
- */
-const de_DescribeOrganizationConformancePackStatusesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeOrganizationConformancePackStatusesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchOrganizationConformancePackException":
-    case "com.amazonaws.configservice#NoSuchOrganizationConformancePackException":
-      throw await de_NoSuchOrganizationConformancePackExceptionRes(parsedOutput, context);
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
-      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribePendingAggregationRequestsCommand
  */
 export const de_DescribePendingAggregationRequestsCommand = async (
@@ -3722,7 +2554,7 @@ export const de_DescribePendingAggregationRequestsCommand = async (
   context: __SerdeContext
 ): Promise<DescribePendingAggregationRequestsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribePendingAggregationRequestsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3735,38 +2567,6 @@ export const de_DescribePendingAggregationRequestsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribePendingAggregationRequestsCommandError
- */
-const de_DescribePendingAggregationRequestsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribePendingAggregationRequestsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRemediationConfigurationsCommand
  */
 export const de_DescribeRemediationConfigurationsCommand = async (
@@ -3774,7 +2574,7 @@ export const de_DescribeRemediationConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRemediationConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRemediationConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3787,26 +2587,6 @@ export const de_DescribeRemediationConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRemediationConfigurationsCommandError
- */
-const de_DescribeRemediationConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRemediationConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1DescribeRemediationExceptionsCommand
  */
 export const de_DescribeRemediationExceptionsCommand = async (
@@ -3814,7 +2594,7 @@ export const de_DescribeRemediationExceptionsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRemediationExceptionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRemediationExceptionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3827,35 +2607,6 @@ export const de_DescribeRemediationExceptionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRemediationExceptionsCommandError
- */
-const de_DescribeRemediationExceptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRemediationExceptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRemediationExecutionStatusCommand
  */
 export const de_DescribeRemediationExecutionStatusCommand = async (
@@ -3863,7 +2614,7 @@ export const de_DescribeRemediationExecutionStatusCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRemediationExecutionStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRemediationExecutionStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3876,38 +2627,6 @@ export const de_DescribeRemediationExecutionStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRemediationExecutionStatusCommandError
- */
-const de_DescribeRemediationExecutionStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRemediationExecutionStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchRemediationConfigurationException":
-    case "com.amazonaws.configservice#NoSuchRemediationConfigurationException":
-      throw await de_NoSuchRemediationConfigurationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeRetentionConfigurationsCommand
  */
 export const de_DescribeRetentionConfigurationsCommand = async (
@@ -3915,7 +2634,7 @@ export const de_DescribeRetentionConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeRetentionConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeRetentionConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3928,38 +2647,6 @@ export const de_DescribeRetentionConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeRetentionConfigurationsCommandError
- */
-const de_DescribeRetentionConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeRetentionConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchRetentionConfigurationException":
-    case "com.amazonaws.configservice#NoSuchRetentionConfigurationException":
-      throw await de_NoSuchRetentionConfigurationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommand
  */
 export const de_GetAggregateComplianceDetailsByConfigRuleCommand = async (
@@ -3967,7 +2654,7 @@ export const de_GetAggregateComplianceDetailsByConfigRuleCommand = async (
   context: __SerdeContext
 ): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAggregateComplianceDetailsByConfigRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -3980,41 +2667,6 @@ export const de_GetAggregateComplianceDetailsByConfigRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAggregateComplianceDetailsByConfigRuleCommandError
- */
-const de_GetAggregateComplianceDetailsByConfigRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAggregateComplianceDetailsByConfigRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand
  */
 export const de_GetAggregateConfigRuleComplianceSummaryCommand = async (
@@ -4022,7 +2674,7 @@ export const de_GetAggregateConfigRuleComplianceSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAggregateConfigRuleComplianceSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4035,41 +2687,6 @@ export const de_GetAggregateConfigRuleComplianceSummaryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommandError
- */
-const de_GetAggregateConfigRuleComplianceSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAggregateConfigRuleComplianceSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommand
  */
 export const de_GetAggregateConformancePackComplianceSummaryCommand = async (
@@ -4077,7 +2694,7 @@ export const de_GetAggregateConformancePackComplianceSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetAggregateConformancePackComplianceSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAggregateConformancePackComplianceSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4090,41 +2707,6 @@ export const de_GetAggregateConformancePackComplianceSummaryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAggregateConformancePackComplianceSummaryCommandError
- */
-const de_GetAggregateConformancePackComplianceSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAggregateConformancePackComplianceSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommand
  */
 export const de_GetAggregateDiscoveredResourceCountsCommand = async (
@@ -4132,7 +2714,7 @@ export const de_GetAggregateDiscoveredResourceCountsCommand = async (
   context: __SerdeContext
 ): Promise<GetAggregateDiscoveredResourceCountsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAggregateDiscoveredResourceCountsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4145,41 +2727,6 @@ export const de_GetAggregateDiscoveredResourceCountsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAggregateDiscoveredResourceCountsCommandError
- */
-const de_GetAggregateDiscoveredResourceCountsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAggregateDiscoveredResourceCountsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetAggregateResourceConfigCommand
  */
 export const de_GetAggregateResourceConfigCommand = async (
@@ -4187,7 +2734,7 @@ export const de_GetAggregateResourceConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetAggregateResourceConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAggregateResourceConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4200,41 +2747,6 @@ export const de_GetAggregateResourceConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetAggregateResourceConfigCommandError
- */
-const de_GetAggregateResourceConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAggregateResourceConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    case "OversizedConfigurationItemException":
-    case "com.amazonaws.configservice#OversizedConfigurationItemException":
-      throw await de_OversizedConfigurationItemExceptionRes(parsedOutput, context);
-    case "ResourceNotDiscoveredException":
-    case "com.amazonaws.configservice#ResourceNotDiscoveredException":
-      throw await de_ResourceNotDiscoveredExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommand
  */
 export const de_GetComplianceDetailsByConfigRuleCommand = async (
@@ -4242,7 +2754,7 @@ export const de_GetComplianceDetailsByConfigRuleCommand = async (
   context: __SerdeContext
 ): Promise<GetComplianceDetailsByConfigRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetComplianceDetailsByConfigRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4255,38 +2767,6 @@ export const de_GetComplianceDetailsByConfigRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetComplianceDetailsByConfigRuleCommandError
- */
-const de_GetComplianceDetailsByConfigRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetComplianceDetailsByConfigRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchConfigRuleException":
-      throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetComplianceDetailsByResourceCommand
  */
 export const de_GetComplianceDetailsByResourceCommand = async (
@@ -4294,7 +2774,7 @@ export const de_GetComplianceDetailsByResourceCommand = async (
   context: __SerdeContext
 ): Promise<GetComplianceDetailsByResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetComplianceDetailsByResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4307,32 +2787,6 @@ export const de_GetComplianceDetailsByResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetComplianceDetailsByResourceCommandError
- */
-const de_GetComplianceDetailsByResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetComplianceDetailsByResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommand
  */
 export const de_GetComplianceSummaryByConfigRuleCommand = async (
@@ -4340,7 +2794,7 @@ export const de_GetComplianceSummaryByConfigRuleCommand = async (
   context: __SerdeContext
 ): Promise<GetComplianceSummaryByConfigRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetComplianceSummaryByConfigRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4353,26 +2807,6 @@ export const de_GetComplianceSummaryByConfigRuleCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetComplianceSummaryByConfigRuleCommandError
- */
-const de_GetComplianceSummaryByConfigRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetComplianceSummaryByConfigRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  const parsedBody = parsedOutput.body;
-  return throwDefaultError({
-    output,
-    parsedBody,
-    errorCode,
-  });
-};
-
-/**
  * deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommand
  */
 export const de_GetComplianceSummaryByResourceTypeCommand = async (
@@ -4380,7 +2814,7 @@ export const de_GetComplianceSummaryByResourceTypeCommand = async (
   context: __SerdeContext
 ): Promise<GetComplianceSummaryByResourceTypeCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetComplianceSummaryByResourceTypeCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4393,32 +2827,6 @@ export const de_GetComplianceSummaryByResourceTypeCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetComplianceSummaryByResourceTypeCommandError
- */
-const de_GetComplianceSummaryByResourceTypeCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetComplianceSummaryByResourceTypeCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetConformancePackComplianceDetailsCommand
  */
 export const de_GetConformancePackComplianceDetailsCommand = async (
@@ -4426,7 +2834,7 @@ export const de_GetConformancePackComplianceDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetConformancePackComplianceDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetConformancePackComplianceDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4439,44 +2847,6 @@ export const de_GetConformancePackComplianceDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetConformancePackComplianceDetailsCommandError
- */
-const de_GetConformancePackComplianceDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConformancePackComplianceDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchConfigRuleInConformancePackException":
-    case "com.amazonaws.configservice#NoSuchConfigRuleInConformancePackException":
-      throw await de_NoSuchConfigRuleInConformancePackExceptionRes(parsedOutput, context);
-    case "NoSuchConformancePackException":
-    case "com.amazonaws.configservice#NoSuchConformancePackException":
-      throw await de_NoSuchConformancePackExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetConformancePackComplianceSummaryCommand
  */
 export const de_GetConformancePackComplianceSummaryCommand = async (
@@ -4484,7 +2854,7 @@ export const de_GetConformancePackComplianceSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetConformancePackComplianceSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetConformancePackComplianceSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4497,38 +2867,6 @@ export const de_GetConformancePackComplianceSummaryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetConformancePackComplianceSummaryCommandError
- */
-const de_GetConformancePackComplianceSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConformancePackComplianceSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchConformancePackException":
-    case "com.amazonaws.configservice#NoSuchConformancePackException":
-      throw await de_NoSuchConformancePackExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetCustomRulePolicyCommand
  */
 export const de_GetCustomRulePolicyCommand = async (
@@ -4536,7 +2874,7 @@ export const de_GetCustomRulePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetCustomRulePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetCustomRulePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4549,32 +2887,6 @@ export const de_GetCustomRulePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetCustomRulePolicyCommandError
- */
-const de_GetCustomRulePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetCustomRulePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchConfigRuleException":
-      throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDiscoveredResourceCountsCommand
  */
 export const de_GetDiscoveredResourceCountsCommand = async (
@@ -4582,7 +2894,7 @@ export const de_GetDiscoveredResourceCountsCommand = async (
   context: __SerdeContext
 ): Promise<GetDiscoveredResourceCountsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDiscoveredResourceCountsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4595,38 +2907,6 @@ export const de_GetDiscoveredResourceCountsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDiscoveredResourceCountsCommandError
- */
-const de_GetDiscoveredResourceCountsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDiscoveredResourceCountsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommand
  */
 export const de_GetOrganizationConfigRuleDetailedStatusCommand = async (
@@ -4634,7 +2914,7 @@ export const de_GetOrganizationConfigRuleDetailedStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetOrganizationConfigRuleDetailedStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4647,41 +2927,6 @@ export const de_GetOrganizationConfigRuleDetailedStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetOrganizationConfigRuleDetailedStatusCommandError
- */
-const de_GetOrganizationConfigRuleDetailedStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOrganizationConfigRuleDetailedStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchOrganizationConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchOrganizationConfigRuleException":
-      throw await de_NoSuchOrganizationConfigRuleExceptionRes(parsedOutput, context);
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
-      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand
  */
 export const de_GetOrganizationConformancePackDetailedStatusCommand = async (
@@ -4689,7 +2934,7 @@ export const de_GetOrganizationConformancePackDetailedStatusCommand = async (
   context: __SerdeContext
 ): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetOrganizationConformancePackDetailedStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4702,41 +2947,6 @@ export const de_GetOrganizationConformancePackDetailedStatusCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommandError
- */
-const de_GetOrganizationConformancePackDetailedStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOrganizationConformancePackDetailedStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchOrganizationConformancePackException":
-    case "com.amazonaws.configservice#NoSuchOrganizationConformancePackException":
-      throw await de_NoSuchOrganizationConformancePackExceptionRes(parsedOutput, context);
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
-      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetOrganizationCustomRulePolicyCommand
  */
 export const de_GetOrganizationCustomRulePolicyCommand = async (
@@ -4744,7 +2954,7 @@ export const de_GetOrganizationCustomRulePolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetOrganizationCustomRulePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetOrganizationCustomRulePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4757,35 +2967,6 @@ export const de_GetOrganizationCustomRulePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetOrganizationCustomRulePolicyCommandError
- */
-const de_GetOrganizationCustomRulePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetOrganizationCustomRulePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchOrganizationConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchOrganizationConfigRuleException":
-      throw await de_NoSuchOrganizationConfigRuleExceptionRes(parsedOutput, context);
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
-      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourceConfigHistoryCommand
  */
 export const de_GetResourceConfigHistoryCommand = async (
@@ -4793,7 +2974,7 @@ export const de_GetResourceConfigHistoryCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceConfigHistoryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourceConfigHistoryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4806,47 +2987,6 @@ export const de_GetResourceConfigHistoryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourceConfigHistoryCommandError
- */
-const de_GetResourceConfigHistoryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceConfigHistoryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidTimeRangeException":
-    case "com.amazonaws.configservice#InvalidTimeRangeException":
-      throw await de_InvalidTimeRangeExceptionRes(parsedOutput, context);
-    case "NoAvailableConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
-      throw await de_NoAvailableConfigurationRecorderExceptionRes(parsedOutput, context);
-    case "ResourceNotDiscoveredException":
-    case "com.amazonaws.configservice#ResourceNotDiscoveredException":
-      throw await de_ResourceNotDiscoveredExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourceEvaluationSummaryCommand
  */
 export const de_GetResourceEvaluationSummaryCommand = async (
@@ -4854,7 +2994,7 @@ export const de_GetResourceEvaluationSummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceEvaluationSummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourceEvaluationSummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4867,32 +3007,6 @@ export const de_GetResourceEvaluationSummaryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourceEvaluationSummaryCommandError
- */
-const de_GetResourceEvaluationSummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceEvaluationSummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.configservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetStoredQueryCommand
  */
 export const de_GetStoredQueryCommand = async (
@@ -4900,7 +3014,7 @@ export const de_GetStoredQueryCommand = async (
   context: __SerdeContext
 ): Promise<GetStoredQueryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetStoredQueryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4913,35 +3027,6 @@ export const de_GetStoredQueryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetStoredQueryCommandError
- */
-const de_GetStoredQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetStoredQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.configservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAggregateDiscoveredResourcesCommand
  */
 export const de_ListAggregateDiscoveredResourcesCommand = async (
@@ -4949,7 +3034,7 @@ export const de_ListAggregateDiscoveredResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListAggregateDiscoveredResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAggregateDiscoveredResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -4962,41 +3047,6 @@ export const de_ListAggregateDiscoveredResourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAggregateDiscoveredResourcesCommandError
- */
-const de_ListAggregateDiscoveredResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAggregateDiscoveredResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListConformancePackComplianceScoresCommand
  */
 export const de_ListConformancePackComplianceScoresCommand = async (
@@ -5004,7 +3054,7 @@ export const de_ListConformancePackComplianceScoresCommand = async (
   context: __SerdeContext
 ): Promise<ListConformancePackComplianceScoresCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListConformancePackComplianceScoresCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5017,38 +3067,6 @@ export const de_ListConformancePackComplianceScoresCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListConformancePackComplianceScoresCommandError
- */
-const de_ListConformancePackComplianceScoresCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConformancePackComplianceScoresCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListDiscoveredResourcesCommand
  */
 export const de_ListDiscoveredResourcesCommand = async (
@@ -5056,7 +3074,7 @@ export const de_ListDiscoveredResourcesCommand = async (
   context: __SerdeContext
 ): Promise<ListDiscoveredResourcesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListDiscoveredResourcesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5069,41 +3087,6 @@ export const de_ListDiscoveredResourcesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListDiscoveredResourcesCommandError
- */
-const de_ListDiscoveredResourcesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDiscoveredResourcesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoAvailableConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
-      throw await de_NoAvailableConfigurationRecorderExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListResourceEvaluationsCommand
  */
 export const de_ListResourceEvaluationsCommand = async (
@@ -5111,7 +3094,7 @@ export const de_ListResourceEvaluationsCommand = async (
   context: __SerdeContext
 ): Promise<ListResourceEvaluationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListResourceEvaluationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5124,38 +3107,6 @@ export const de_ListResourceEvaluationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListResourceEvaluationsCommandError
- */
-const de_ListResourceEvaluationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListResourceEvaluationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidTimeRangeException":
-    case "com.amazonaws.configservice#InvalidTimeRangeException":
-      throw await de_InvalidTimeRangeExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListStoredQueriesCommand
  */
 export const de_ListStoredQueriesCommand = async (
@@ -5163,7 +3114,7 @@ export const de_ListStoredQueriesCommand = async (
   context: __SerdeContext
 ): Promise<ListStoredQueriesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListStoredQueriesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5176,35 +3127,6 @@ export const de_ListStoredQueriesCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListStoredQueriesCommandError
- */
-const de_ListStoredQueriesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListStoredQueriesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -5212,7 +3134,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5225,41 +3147,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.configservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutAggregationAuthorizationCommand
  */
 export const de_PutAggregationAuthorizationCommand = async (
@@ -5267,7 +3154,7 @@ export const de_PutAggregationAuthorizationCommand = async (
   context: __SerdeContext
 ): Promise<PutAggregationAuthorizationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutAggregationAuthorizationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5280,32 +3167,6 @@ export const de_PutAggregationAuthorizationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutAggregationAuthorizationCommandError
- */
-const de_PutAggregationAuthorizationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutAggregationAuthorizationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutConfigRuleCommand
  */
 export const de_PutConfigRuleCommand = async (
@@ -5313,51 +3174,13 @@ export const de_PutConfigRuleCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigRuleCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutConfigRuleCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutConfigRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutConfigRuleCommandError
- */
-const de_PutConfigRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPermissionsException":
-    case "com.amazonaws.configservice#InsufficientPermissionsException":
-      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MaxNumberOfConfigRulesExceededException":
-    case "com.amazonaws.configservice#MaxNumberOfConfigRulesExceededException":
-      throw await de_MaxNumberOfConfigRulesExceededExceptionRes(parsedOutput, context);
-    case "NoAvailableConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
-      throw await de_NoAvailableConfigurationRecorderExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.configservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5368,7 +3191,7 @@ export const de_PutConfigurationAggregatorCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationAggregatorCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutConfigurationAggregatorCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5381,47 +3204,6 @@ export const de_PutConfigurationAggregatorCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutConfigurationAggregatorCommandError
- */
-const de_PutConfigurationAggregatorCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationAggregatorCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.configservice#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.configservice#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoAvailableOrganizationException":
-    case "com.amazonaws.configservice#NoAvailableOrganizationException":
-      throw await de_NoAvailableOrganizationExceptionRes(parsedOutput, context);
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
-      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
-    case "OrganizationAllFeaturesNotEnabledException":
-    case "com.amazonaws.configservice#OrganizationAllFeaturesNotEnabledException":
-      throw await de_OrganizationAllFeaturesNotEnabledExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutConfigurationRecorderCommand
  */
 export const de_PutConfigurationRecorderCommand = async (
@@ -5429,51 +3211,13 @@ export const de_PutConfigurationRecorderCommand = async (
   context: __SerdeContext
 ): Promise<PutConfigurationRecorderCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutConfigurationRecorderCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutConfigurationRecorderCommandOutput = {
     $metadata: deserializeMetadata(output),
   };
   return response;
-};
-
-/**
- * deserializeAws_json1_1PutConfigurationRecorderCommandError
- */
-const de_PutConfigurationRecorderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConfigurationRecorderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidConfigurationRecorderNameException":
-    case "com.amazonaws.configservice#InvalidConfigurationRecorderNameException":
-      throw await de_InvalidConfigurationRecorderNameExceptionRes(parsedOutput, context);
-    case "InvalidRecordingGroupException":
-    case "com.amazonaws.configservice#InvalidRecordingGroupException":
-      throw await de_InvalidRecordingGroupExceptionRes(parsedOutput, context);
-    case "InvalidRoleException":
-    case "com.amazonaws.configservice#InvalidRoleException":
-      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
-    case "MaxNumberOfConfigurationRecordersExceededException":
-    case "com.amazonaws.configservice#MaxNumberOfConfigurationRecordersExceededException":
-      throw await de_MaxNumberOfConfigurationRecordersExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -5484,7 +3228,7 @@ export const de_PutConformancePackCommand = async (
   context: __SerdeContext
 ): Promise<PutConformancePackCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutConformancePackCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -5497,44 +3241,6 @@ export const de_PutConformancePackCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutConformancePackCommandError
- */
-const de_PutConformancePackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutConformancePackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConformancePackTemplateValidationException":
-    case "com.amazonaws.configservice#ConformancePackTemplateValidationException":
-      throw await de_ConformancePackTemplateValidationExceptionRes(parsedOutput, context);
-    case "InsufficientPermissionsException":
-    case "com.amazonaws.configservice#InsufficientPermissionsException":
-      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "MaxNumberOfConformancePacksExceededException":
-    case "com.amazonaws.configservice#MaxNumberOfConformancePacksExceededException":
-      throw await de_MaxNumberOfConformancePacksExceededExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.configservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1PutDeliveryChannelCommand
  */
 export const de_PutDeliveryChannelCommand = async (
@@ -5542,7 +3248,7 @@ export const de_PutDeliveryChannelCommand = async (
   context: __SerdeContext
 ): Promise<PutDeliveryChannelCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_PutDeliveryChannelCommandError(output, context);
+    return de_CommandError(output, context);
   }
   await collectBody(output.body, context);
   const response: PutDeliveryChannelCommandOutput = {
@@ -5552,18 +3258,468 @@ export const de_PutDeliveryChannelCommand = async (
 };
 
 /**
- * deserializeAws_json1_1PutDeliveryChannelCommandError
+ * deserializeAws_json1_1PutEvaluationsCommand
  */
-const de_PutDeliveryChannelCommandError = async (
+export const de_PutEvaluationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
-): Promise<PutDeliveryChannelCommandOutput> => {
+): Promise<PutEvaluationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PutEvaluationsResponse(data, context);
+  const response: PutEvaluationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutExternalEvaluationCommand
+ */
+export const de_PutExternalEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutExternalEvaluationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutExternalEvaluationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutOrganizationConfigRuleCommand
+ */
+export const de_PutOrganizationConfigRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutOrganizationConfigRuleCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutOrganizationConfigRuleCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutOrganizationConformancePackCommand
+ */
+export const de_PutOrganizationConformancePackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutOrganizationConformancePackCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutOrganizationConformancePackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutRemediationConfigurationsCommand
+ */
+export const de_PutRemediationConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRemediationConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutRemediationConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutRemediationExceptionsCommand
+ */
+export const de_PutRemediationExceptionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRemediationExceptionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PutRemediationExceptionsResponse(data, context);
+  const response: PutRemediationExceptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutResourceConfigCommand
+ */
+export const de_PutResourceConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourceConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutResourceConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutRetentionConfigurationCommand
+ */
+export const de_PutRetentionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRetentionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutRetentionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutStoredQueryCommand
+ */
+export const de_PutStoredQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutStoredQueryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutStoredQueryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SelectAggregateResourceConfigCommand
+ */
+export const de_SelectAggregateResourceConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SelectAggregateResourceConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SelectAggregateResourceConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SelectResourceConfigCommand
+ */
+export const de_SelectResourceConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SelectResourceConfigCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SelectResourceConfigCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartConfigRulesEvaluationCommand
+ */
+export const de_StartConfigRulesEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConfigRulesEvaluationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartConfigRulesEvaluationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartConfigurationRecorderCommand
+ */
+export const de_StartConfigurationRecorderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConfigurationRecorderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: StartConfigurationRecorderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartRemediationExecutionCommand
+ */
+export const de_StartRemediationExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartRemediationExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartRemediationExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartResourceEvaluationCommand
+ */
+export const de_StartResourceEvaluationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartResourceEvaluationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartResourceEvaluationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopConfigurationRecorderCommand
+ */
+export const de_StopConfigurationRecorderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopConfigurationRecorderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: StopConfigurationRecorderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserialize_Aws_json1_1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "NoSuchConfigurationAggregatorException":
+    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
+      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "NoAvailableConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
+      throw await de_NoAvailableConfigurationRecorderExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.configservice#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "NoSuchConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleException":
+      throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.configservice#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "NoSuchConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
+      throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
+    case "NoSuchConformancePackException":
+    case "com.amazonaws.configservice#NoSuchConformancePackException":
+      throw await de_NoSuchConformancePackExceptionRes(parsedOutput, context);
+    case "LastDeliveryChannelDeleteFailedException":
+    case "com.amazonaws.configservice#LastDeliveryChannelDeleteFailedException":
+      throw await de_LastDeliveryChannelDeleteFailedExceptionRes(parsedOutput, context);
+    case "NoSuchDeliveryChannelException":
+    case "com.amazonaws.configservice#NoSuchDeliveryChannelException":
+      throw await de_NoSuchDeliveryChannelExceptionRes(parsedOutput, context);
+    case "NoSuchOrganizationConfigRuleException":
+    case "com.amazonaws.configservice#NoSuchOrganizationConfigRuleException":
+      throw await de_NoSuchOrganizationConfigRuleExceptionRes(parsedOutput, context);
+    case "OrganizationAccessDeniedException":
+    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
+      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
+    case "NoSuchOrganizationConformancePackException":
+    case "com.amazonaws.configservice#NoSuchOrganizationConformancePackException":
+      throw await de_NoSuchOrganizationConformancePackExceptionRes(parsedOutput, context);
+    case "InsufficientPermissionsException":
+    case "com.amazonaws.configservice#InsufficientPermissionsException":
+      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
+    case "NoSuchRemediationConfigurationException":
+    case "com.amazonaws.configservice#NoSuchRemediationConfigurationException":
+      throw await de_NoSuchRemediationConfigurationExceptionRes(parsedOutput, context);
+    case "RemediationInProgressException":
+    case "com.amazonaws.configservice#RemediationInProgressException":
+      throw await de_RemediationInProgressExceptionRes(parsedOutput, context);
+    case "NoSuchRemediationExceptionException":
+    case "com.amazonaws.configservice#NoSuchRemediationExceptionException":
+      throw await de_NoSuchRemediationExceptionExceptionRes(parsedOutput, context);
+    case "NoRunningConfigurationRecorderException":
+    case "com.amazonaws.configservice#NoRunningConfigurationRecorderException":
+      throw await de_NoRunningConfigurationRecorderExceptionRes(parsedOutput, context);
+    case "NoSuchRetentionConfigurationException":
+    case "com.amazonaws.configservice#NoSuchRetentionConfigurationException":
+      throw await de_NoSuchRetentionConfigurationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.configservice#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "InvalidLimitException":
+    case "com.amazonaws.configservice#InvalidLimitException":
+      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.configservice#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "NoSuchConfigRuleInConformancePackException":
+    case "com.amazonaws.configservice#NoSuchConfigRuleInConformancePackException":
+      throw await de_NoSuchConfigRuleInConformancePackExceptionRes(parsedOutput, context);
+    case "OversizedConfigurationItemException":
+    case "com.amazonaws.configservice#OversizedConfigurationItemException":
+      throw await de_OversizedConfigurationItemExceptionRes(parsedOutput, context);
+    case "ResourceNotDiscoveredException":
+    case "com.amazonaws.configservice#ResourceNotDiscoveredException":
+      throw await de_ResourceNotDiscoveredExceptionRes(parsedOutput, context);
+    case "InvalidTimeRangeException":
+    case "com.amazonaws.configservice#InvalidTimeRangeException":
+      throw await de_InvalidTimeRangeExceptionRes(parsedOutput, context);
+    case "MaxNumberOfConfigRulesExceededException":
+    case "com.amazonaws.configservice#MaxNumberOfConfigRulesExceededException":
+      throw await de_MaxNumberOfConfigRulesExceededExceptionRes(parsedOutput, context);
+    case "InvalidRoleException":
+    case "com.amazonaws.configservice#InvalidRoleException":
+      throw await de_InvalidRoleExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.configservice#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "NoAvailableOrganizationException":
+    case "com.amazonaws.configservice#NoAvailableOrganizationException":
+      throw await de_NoAvailableOrganizationExceptionRes(parsedOutput, context);
+    case "OrganizationAllFeaturesNotEnabledException":
+    case "com.amazonaws.configservice#OrganizationAllFeaturesNotEnabledException":
+      throw await de_OrganizationAllFeaturesNotEnabledExceptionRes(parsedOutput, context);
+    case "InvalidConfigurationRecorderNameException":
+    case "com.amazonaws.configservice#InvalidConfigurationRecorderNameException":
+      throw await de_InvalidConfigurationRecorderNameExceptionRes(parsedOutput, context);
+    case "InvalidRecordingGroupException":
+    case "com.amazonaws.configservice#InvalidRecordingGroupException":
+      throw await de_InvalidRecordingGroupExceptionRes(parsedOutput, context);
+    case "MaxNumberOfConfigurationRecordersExceededException":
+    case "com.amazonaws.configservice#MaxNumberOfConfigurationRecordersExceededException":
+      throw await de_MaxNumberOfConfigurationRecordersExceededExceptionRes(parsedOutput, context);
+    case "ConformancePackTemplateValidationException":
+    case "com.amazonaws.configservice#ConformancePackTemplateValidationException":
+      throw await de_ConformancePackTemplateValidationExceptionRes(parsedOutput, context);
+    case "MaxNumberOfConformancePacksExceededException":
+    case "com.amazonaws.configservice#MaxNumberOfConformancePacksExceededException":
+      throw await de_MaxNumberOfConformancePacksExceededExceptionRes(parsedOutput, context);
     case "InsufficientDeliveryPolicyException":
     case "com.amazonaws.configservice#InsufficientDeliveryPolicyException":
       throw await de_InsufficientDeliveryPolicyExceptionRes(parsedOutput, context);
@@ -5582,952 +3738,49 @@ const de_PutDeliveryChannelCommandError = async (
     case "MaxNumberOfDeliveryChannelsExceededException":
     case "com.amazonaws.configservice#MaxNumberOfDeliveryChannelsExceededException":
       throw await de_MaxNumberOfDeliveryChannelsExceededExceptionRes(parsedOutput, context);
-    case "NoAvailableConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoAvailableConfigurationRecorderException":
-      throw await de_NoAvailableConfigurationRecorderExceptionRes(parsedOutput, context);
     case "NoSuchBucketException":
     case "com.amazonaws.configservice#NoSuchBucketException":
       throw await de_NoSuchBucketExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutEvaluationsCommand
- */
-export const de_PutEvaluationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEvaluationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutEvaluationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PutEvaluationsResponse(data, context);
-  const response: PutEvaluationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutEvaluationsCommandError
- */
-const de_PutEvaluationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutEvaluationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "InvalidResultTokenException":
     case "com.amazonaws.configservice#InvalidResultTokenException":
       throw await de_InvalidResultTokenExceptionRes(parsedOutput, context);
-    case "NoSuchConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchConfigRuleException":
-      throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutExternalEvaluationCommand
- */
-export const de_PutExternalEvaluationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutExternalEvaluationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutExternalEvaluationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutExternalEvaluationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutExternalEvaluationCommandError
- */
-const de_PutExternalEvaluationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutExternalEvaluationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchConfigRuleException":
-      throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutOrganizationConfigRuleCommand
- */
-export const de_PutOrganizationConfigRuleCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutOrganizationConfigRuleCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutOrganizationConfigRuleCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutOrganizationConfigRuleCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutOrganizationConfigRuleCommandError
- */
-const de_PutOrganizationConfigRuleCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutOrganizationConfigRuleCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPermissionsException":
-    case "com.amazonaws.configservice#InsufficientPermissionsException":
-      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MaxNumberOfOrganizationConfigRulesExceededException":
     case "com.amazonaws.configservice#MaxNumberOfOrganizationConfigRulesExceededException":
       throw await de_MaxNumberOfOrganizationConfigRulesExceededExceptionRes(parsedOutput, context);
-    case "NoAvailableOrganizationException":
-    case "com.amazonaws.configservice#NoAvailableOrganizationException":
-      throw await de_NoAvailableOrganizationExceptionRes(parsedOutput, context);
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
-      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
-    case "OrganizationAllFeaturesNotEnabledException":
-    case "com.amazonaws.configservice#OrganizationAllFeaturesNotEnabledException":
-      throw await de_OrganizationAllFeaturesNotEnabledExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.configservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutOrganizationConformancePackCommand
- */
-export const de_PutOrganizationConformancePackCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutOrganizationConformancePackCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutOrganizationConformancePackCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutOrganizationConformancePackCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutOrganizationConformancePackCommandError
- */
-const de_PutOrganizationConformancePackCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutOrganizationConformancePackCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPermissionsException":
-    case "com.amazonaws.configservice#InsufficientPermissionsException":
-      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
     case "MaxNumberOfOrganizationConformancePacksExceededException":
     case "com.amazonaws.configservice#MaxNumberOfOrganizationConformancePacksExceededException":
       throw await de_MaxNumberOfOrganizationConformancePacksExceededExceptionRes(parsedOutput, context);
-    case "NoAvailableOrganizationException":
-    case "com.amazonaws.configservice#NoAvailableOrganizationException":
-      throw await de_NoAvailableOrganizationExceptionRes(parsedOutput, context);
-    case "OrganizationAccessDeniedException":
-    case "com.amazonaws.configservice#OrganizationAccessDeniedException":
-      throw await de_OrganizationAccessDeniedExceptionRes(parsedOutput, context);
-    case "OrganizationAllFeaturesNotEnabledException":
-    case "com.amazonaws.configservice#OrganizationAllFeaturesNotEnabledException":
-      throw await de_OrganizationAllFeaturesNotEnabledExceptionRes(parsedOutput, context);
     case "OrganizationConformancePackTemplateValidationException":
     case "com.amazonaws.configservice#OrganizationConformancePackTemplateValidationException":
       throw await de_OrganizationConformancePackTemplateValidationExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.configservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutRemediationConfigurationsCommand
- */
-export const de_PutRemediationConfigurationsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRemediationConfigurationsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutRemediationConfigurationsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutRemediationConfigurationsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutRemediationConfigurationsCommandError
- */
-const de_PutRemediationConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRemediationConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPermissionsException":
-    case "com.amazonaws.configservice#InsufficientPermissionsException":
-      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutRemediationExceptionsCommand
- */
-export const de_PutRemediationExceptionsCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRemediationExceptionsCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutRemediationExceptionsCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = de_PutRemediationExceptionsResponse(data, context);
-  const response: PutRemediationExceptionsCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutRemediationExceptionsCommandError
- */
-const de_PutRemediationExceptionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRemediationExceptionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPermissionsException":
-    case "com.amazonaws.configservice#InsufficientPermissionsException":
-      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutResourceConfigCommand
- */
-export const de_PutResourceConfigCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourceConfigCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutResourceConfigCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: PutResourceConfigCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutResourceConfigCommandError
- */
-const de_PutResourceConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutResourceConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPermissionsException":
-    case "com.amazonaws.configservice#InsufficientPermissionsException":
-      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
     case "MaxActiveResourcesExceededException":
     case "com.amazonaws.configservice#MaxActiveResourcesExceededException":
       throw await de_MaxActiveResourcesExceededExceptionRes(parsedOutput, context);
-    case "NoRunningConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoRunningConfigurationRecorderException":
-      throw await de_NoRunningConfigurationRecorderExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutRetentionConfigurationCommand
- */
-export const de_PutRetentionConfigurationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRetentionConfigurationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutRetentionConfigurationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutRetentionConfigurationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutRetentionConfigurationCommandError
- */
-const de_PutRetentionConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutRetentionConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     case "MaxNumberOfRetentionConfigurationsExceededException":
     case "com.amazonaws.configservice#MaxNumberOfRetentionConfigurationsExceededException":
       throw await de_MaxNumberOfRetentionConfigurationsExceededExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1PutStoredQueryCommand
- */
-export const de_PutStoredQueryCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutStoredQueryCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_PutStoredQueryCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: PutStoredQueryCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1PutStoredQueryCommandError
- */
-const de_PutStoredQueryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutStoredQueryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "ResourceConcurrentModificationException":
     case "com.amazonaws.configservice#ResourceConcurrentModificationException":
       throw await de_ResourceConcurrentModificationExceptionRes(parsedOutput, context);
     case "TooManyTagsException":
     case "com.amazonaws.configservice#TooManyTagsException":
       throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SelectAggregateResourceConfigCommand
- */
-export const de_SelectAggregateResourceConfigCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SelectAggregateResourceConfigCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SelectAggregateResourceConfigCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: SelectAggregateResourceConfigCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SelectAggregateResourceConfigCommandError
- */
-const de_SelectAggregateResourceConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SelectAggregateResourceConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "InvalidExpressionException":
     case "com.amazonaws.configservice#InvalidExpressionException":
       throw await de_InvalidExpressionExceptionRes(parsedOutput, context);
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "NoSuchConfigurationAggregatorException":
-    case "com.amazonaws.configservice#NoSuchConfigurationAggregatorException":
-      throw await de_NoSuchConfigurationAggregatorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1SelectResourceConfigCommand
- */
-export const de_SelectResourceConfigCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SelectResourceConfigCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_SelectResourceConfigCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: SelectResourceConfigCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1SelectResourceConfigCommandError
- */
-const de_SelectResourceConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<SelectResourceConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidExpressionException":
-    case "com.amazonaws.configservice#InvalidExpressionException":
-      throw await de_InvalidExpressionExceptionRes(parsedOutput, context);
-    case "InvalidLimitException":
-    case "com.amazonaws.configservice#InvalidLimitException":
-      throw await de_InvalidLimitExceptionRes(parsedOutput, context);
-    case "InvalidNextTokenException":
-    case "com.amazonaws.configservice#InvalidNextTokenException":
-      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartConfigRulesEvaluationCommand
- */
-export const de_StartConfigRulesEvaluationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartConfigRulesEvaluationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartConfigRulesEvaluationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartConfigRulesEvaluationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartConfigRulesEvaluationCommandError
- */
-const de_StartConfigRulesEvaluationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartConfigRulesEvaluationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.configservice#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "NoSuchConfigRuleException":
-    case "com.amazonaws.configservice#NoSuchConfigRuleException":
-      throw await de_NoSuchConfigRuleExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.configservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartConfigurationRecorderCommand
- */
-export const de_StartConfigurationRecorderCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartConfigurationRecorderCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartConfigurationRecorderCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: StartConfigurationRecorderCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartConfigurationRecorderCommandError
- */
-const de_StartConfigurationRecorderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartConfigurationRecorderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "NoAvailableDeliveryChannelException":
     case "com.amazonaws.configservice#NoAvailableDeliveryChannelException":
       throw await de_NoAvailableDeliveryChannelExceptionRes(parsedOutput, context);
-    case "NoSuchConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
-      throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartRemediationExecutionCommand
- */
-export const de_StartRemediationExecutionCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartRemediationExecutionCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartRemediationExecutionCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartRemediationExecutionCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartRemediationExecutionCommandError
- */
-const de_StartRemediationExecutionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartRemediationExecutionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InsufficientPermissionsException":
-    case "com.amazonaws.configservice#InsufficientPermissionsException":
-      throw await de_InsufficientPermissionsExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "NoSuchRemediationConfigurationException":
-    case "com.amazonaws.configservice#NoSuchRemediationConfigurationException":
-      throw await de_NoSuchRemediationConfigurationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StartResourceEvaluationCommand
- */
-export const de_StartResourceEvaluationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartResourceEvaluationCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StartResourceEvaluationCommandError(output, context);
-  }
-  const data: any = await parseBody(output.body, context);
-  let contents: any = {};
-  contents = _json(data);
-  const response: StartResourceEvaluationCommandOutput = {
-    $metadata: deserializeMetadata(output),
-    ...contents,
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StartResourceEvaluationCommandError
- */
-const de_StartResourceEvaluationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartResourceEvaluationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
     case "IdempotentParameterMismatch":
     case "com.amazonaws.configservice#IdempotentParameterMismatch":
       throw await de_IdempotentParameterMismatchRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.configservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1StopConfigurationRecorderCommand
- */
-export const de_StopConfigurationRecorderCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopConfigurationRecorderCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_StopConfigurationRecorderCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: StopConfigurationRecorderCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1StopConfigurationRecorderCommandError
- */
-const de_StopConfigurationRecorderCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopConfigurationRecorderCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "NoSuchConfigurationRecorderException":
-    case "com.amazonaws.configservice#NoSuchConfigurationRecorderException":
-      throw await de_NoSuchConfigurationRecorderExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommand
- */
-export const de_TagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: TagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.configservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "TooManyTagsException":
-    case "com.amazonaws.configservice#TooManyTagsException":
-      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommand
- */
-export const de_UntagResourceCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
-  }
-  await collectBody(output.body, context);
-  const response: UntagResourceCommandOutput = {
-    $metadata: deserializeMetadata(output),
-  };
-  return response;
-};
-
-/**
- * deserializeAws_json1_1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ResourceNotFoundException":
-    case "com.amazonaws.configservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.configservice#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

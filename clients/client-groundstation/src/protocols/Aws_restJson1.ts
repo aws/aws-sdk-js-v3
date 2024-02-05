@@ -845,7 +845,7 @@ export const de_CancelContactCommand = async (
   context: __SerdeContext
 ): Promise<CancelContactCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CancelContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -859,38 +859,6 @@ export const de_CancelContactCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CancelContactCommandError
- */
-const de_CancelContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CancelContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateConfigCommand
  */
 export const de_CreateConfigCommand = async (
@@ -898,7 +866,7 @@ export const de_CreateConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -911,41 +879,6 @@ export const de_CreateConfigCommand = async (
   });
   Object.assign(contents, doc);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1CreateConfigCommandError
- */
-const de_CreateConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceLimitExceededException":
-    case "com.amazonaws.groundstation#ResourceLimitExceededException":
-      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -956,7 +889,7 @@ export const de_CreateDataflowEndpointGroupCommand = async (
   context: __SerdeContext
 ): Promise<CreateDataflowEndpointGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateDataflowEndpointGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -970,38 +903,6 @@ export const de_CreateDataflowEndpointGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateDataflowEndpointGroupCommandError
- */
-const de_CreateDataflowEndpointGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateDataflowEndpointGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateEphemerisCommand
  */
 export const de_CreateEphemerisCommand = async (
@@ -1009,7 +910,7 @@ export const de_CreateEphemerisCommand = async (
   context: __SerdeContext
 ): Promise<CreateEphemerisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateEphemerisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1023,38 +924,6 @@ export const de_CreateEphemerisCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateEphemerisCommandError
- */
-const de_CreateEphemerisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateEphemerisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1CreateMissionProfileCommand
  */
 export const de_CreateMissionProfileCommand = async (
@@ -1062,7 +931,7 @@ export const de_CreateMissionProfileCommand = async (
   context: __SerdeContext
 ): Promise<CreateMissionProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_CreateMissionProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1076,38 +945,6 @@ export const de_CreateMissionProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1CreateMissionProfileCommandError
- */
-const de_CreateMissionProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateMissionProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteConfigCommand
  */
 export const de_DeleteConfigCommand = async (
@@ -1115,7 +952,7 @@ export const de_DeleteConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1131,38 +968,6 @@ export const de_DeleteConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteConfigCommandError
- */
-const de_DeleteConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteDataflowEndpointGroupCommand
  */
 export const de_DeleteDataflowEndpointGroupCommand = async (
@@ -1170,7 +975,7 @@ export const de_DeleteDataflowEndpointGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteDataflowEndpointGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteDataflowEndpointGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1184,38 +989,6 @@ export const de_DeleteDataflowEndpointGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteDataflowEndpointGroupCommandError
- */
-const de_DeleteDataflowEndpointGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteDataflowEndpointGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteEphemerisCommand
  */
 export const de_DeleteEphemerisCommand = async (
@@ -1223,7 +996,7 @@ export const de_DeleteEphemerisCommand = async (
   context: __SerdeContext
 ): Promise<DeleteEphemerisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteEphemerisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1237,38 +1010,6 @@ export const de_DeleteEphemerisCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteEphemerisCommandError
- */
-const de_DeleteEphemerisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteEphemerisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DeleteMissionProfileCommand
  */
 export const de_DeleteMissionProfileCommand = async (
@@ -1276,7 +1017,7 @@ export const de_DeleteMissionProfileCommand = async (
   context: __SerdeContext
 ): Promise<DeleteMissionProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteMissionProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1290,38 +1031,6 @@ export const de_DeleteMissionProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteMissionProfileCommandError
- */
-const de_DeleteMissionProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteMissionProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeContactCommand
  */
 export const de_DescribeContactCommand = async (
@@ -1329,7 +1038,7 @@ export const de_DescribeContactCommand = async (
   context: __SerdeContext
 ): Promise<DescribeContactCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1356,38 +1065,6 @@ export const de_DescribeContactCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeContactCommandError
- */
-const de_DescribeContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1DescribeEphemerisCommand
  */
 export const de_DescribeEphemerisCommand = async (
@@ -1395,7 +1072,7 @@ export const de_DescribeEphemerisCommand = async (
   context: __SerdeContext
 ): Promise<DescribeEphemerisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DescribeEphemerisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1418,38 +1095,6 @@ export const de_DescribeEphemerisCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DescribeEphemerisCommandError
- */
-const de_DescribeEphemerisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeEphemerisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetAgentConfigurationCommand
  */
 export const de_GetAgentConfigurationCommand = async (
@@ -1457,7 +1102,7 @@ export const de_GetAgentConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<GetAgentConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetAgentConfigurationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1472,38 +1117,6 @@ export const de_GetAgentConfigurationCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetAgentConfigurationCommandError
- */
-const de_GetAgentConfigurationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAgentConfigurationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetConfigCommand
  */
 export const de_GetConfigCommand = async (
@@ -1511,7 +1124,7 @@ export const de_GetConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1530,38 +1143,6 @@ export const de_GetConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetConfigCommandError
- */
-const de_GetConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetDataflowEndpointGroupCommand
  */
 export const de_GetDataflowEndpointGroupCommand = async (
@@ -1569,7 +1150,7 @@ export const de_GetDataflowEndpointGroupCommand = async (
   context: __SerdeContext
 ): Promise<GetDataflowEndpointGroupCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetDataflowEndpointGroupCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1588,38 +1169,6 @@ export const de_GetDataflowEndpointGroupCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetDataflowEndpointGroupCommandError
- */
-const de_GetDataflowEndpointGroupCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDataflowEndpointGroupCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMinuteUsageCommand
  */
 export const de_GetMinuteUsageCommand = async (
@@ -1627,7 +1176,7 @@ export const de_GetMinuteUsageCommand = async (
   context: __SerdeContext
 ): Promise<GetMinuteUsageCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMinuteUsageCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1645,38 +1194,6 @@ export const de_GetMinuteUsageCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMinuteUsageCommandError
- */
-const de_GetMinuteUsageCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMinuteUsageCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetMissionProfileCommand
  */
 export const de_GetMissionProfileCommand = async (
@@ -1684,7 +1201,7 @@ export const de_GetMissionProfileCommand = async (
   context: __SerdeContext
 ): Promise<GetMissionProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetMissionProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1709,38 +1226,6 @@ export const de_GetMissionProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetMissionProfileCommandError
- */
-const de_GetMissionProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetMissionProfileCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSatelliteCommand
  */
 export const de_GetSatelliteCommand = async (
@@ -1748,7 +1233,7 @@ export const de_GetSatelliteCommand = async (
   context: __SerdeContext
 ): Promise<GetSatelliteCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSatelliteCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1766,38 +1251,6 @@ export const de_GetSatelliteCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSatelliteCommandError
- */
-const de_GetSatelliteCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSatelliteCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListConfigsCommand
  */
 export const de_ListConfigsCommand = async (
@@ -1805,7 +1258,7 @@ export const de_ListConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1820,38 +1273,6 @@ export const de_ListConfigsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListConfigsCommandError
- */
-const de_ListConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListContactsCommand
  */
 export const de_ListContactsCommand = async (
@@ -1859,7 +1280,7 @@ export const de_ListContactsCommand = async (
   context: __SerdeContext
 ): Promise<ListContactsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListContactsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1874,38 +1295,6 @@ export const de_ListContactsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListContactsCommandError
- */
-const de_ListContactsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListContactsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListDataflowEndpointGroupsCommand
  */
 export const de_ListDataflowEndpointGroupsCommand = async (
@@ -1913,7 +1302,7 @@ export const de_ListDataflowEndpointGroupsCommand = async (
   context: __SerdeContext
 ): Promise<ListDataflowEndpointGroupsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListDataflowEndpointGroupsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1928,38 +1317,6 @@ export const de_ListDataflowEndpointGroupsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListDataflowEndpointGroupsCommandError
- */
-const de_ListDataflowEndpointGroupsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListDataflowEndpointGroupsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListEphemeridesCommand
  */
 export const de_ListEphemeridesCommand = async (
@@ -1967,7 +1324,7 @@ export const de_ListEphemeridesCommand = async (
   context: __SerdeContext
 ): Promise<ListEphemeridesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListEphemeridesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -1982,38 +1339,6 @@ export const de_ListEphemeridesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListEphemeridesCommandError
- */
-const de_ListEphemeridesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListEphemeridesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListGroundStationsCommand
  */
 export const de_ListGroundStationsCommand = async (
@@ -2021,7 +1346,7 @@ export const de_ListGroundStationsCommand = async (
   context: __SerdeContext
 ): Promise<ListGroundStationsCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListGroundStationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2036,38 +1361,6 @@ export const de_ListGroundStationsCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListGroundStationsCommandError
- */
-const de_ListGroundStationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListGroundStationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListMissionProfilesCommand
  */
 export const de_ListMissionProfilesCommand = async (
@@ -2075,7 +1368,7 @@ export const de_ListMissionProfilesCommand = async (
   context: __SerdeContext
 ): Promise<ListMissionProfilesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListMissionProfilesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2090,38 +1383,6 @@ export const de_ListMissionProfilesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListMissionProfilesCommandError
- */
-const de_ListMissionProfilesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListMissionProfilesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListSatellitesCommand
  */
 export const de_ListSatellitesCommand = async (
@@ -2129,7 +1390,7 @@ export const de_ListSatellitesCommand = async (
   context: __SerdeContext
 ): Promise<ListSatellitesCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListSatellitesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2144,38 +1405,6 @@ export const de_ListSatellitesCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListSatellitesCommandError
- */
-const de_ListSatellitesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSatellitesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2183,7 +1412,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2197,38 +1426,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RegisterAgentCommand
  */
 export const de_RegisterAgentCommand = async (
@@ -2236,7 +1433,7 @@ export const de_RegisterAgentCommand = async (
   context: __SerdeContext
 ): Promise<RegisterAgentCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RegisterAgentCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2250,38 +1447,6 @@ export const de_RegisterAgentCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RegisterAgentCommandError
- */
-const de_RegisterAgentCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RegisterAgentCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1ReserveContactCommand
  */
 export const de_ReserveContactCommand = async (
@@ -2289,7 +1454,7 @@ export const de_ReserveContactCommand = async (
   context: __SerdeContext
 ): Promise<ReserveContactCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_ReserveContactCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2303,38 +1468,6 @@ export const de_ReserveContactCommand = async (
 };
 
 /**
- * deserializeAws_restJson1ReserveContactCommandError
- */
-const de_ReserveContactCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ReserveContactCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2342,45 +1475,13 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2391,45 +1492,13 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
   return contents;
-};
-
-/**
- * deserializeAws_restJson1UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
 };
 
 /**
@@ -2440,7 +1509,7 @@ export const de_UpdateAgentStatusCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAgentStatusCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateAgentStatusCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2454,38 +1523,6 @@ export const de_UpdateAgentStatusCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateAgentStatusCommandError
- */
-const de_UpdateAgentStatusCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAgentStatusCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateConfigCommand
  */
 export const de_UpdateConfigCommand = async (
@@ -2493,7 +1530,7 @@ export const de_UpdateConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateConfigCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2509,38 +1546,6 @@ export const de_UpdateConfigCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateConfigCommandError
- */
-const de_UpdateConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateEphemerisCommand
  */
 export const de_UpdateEphemerisCommand = async (
@@ -2548,7 +1553,7 @@ export const de_UpdateEphemerisCommand = async (
   context: __SerdeContext
 ): Promise<UpdateEphemerisCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateEphemerisCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2562,38 +1567,6 @@ export const de_UpdateEphemerisCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateEphemerisCommandError
- */
-const de_UpdateEphemerisCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateEphemerisCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "DependencyException":
-    case "com.amazonaws.groundstation#DependencyException":
-      throw await de_DependencyExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.groundstation#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.groundstation#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1UpdateMissionProfileCommand
  */
 export const de_UpdateMissionProfileCommand = async (
@@ -2601,7 +1574,7 @@ export const de_UpdateMissionProfileCommand = async (
   context: __SerdeContext
 ): Promise<UpdateMissionProfileCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_UpdateMissionProfileCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -2615,12 +1588,9 @@ export const de_UpdateMissionProfileCommand = async (
 };
 
 /**
- * deserializeAws_restJson1UpdateMissionProfileCommandError
+ * deserialize_Aws_restJson1CommandError
  */
-const de_UpdateMissionProfileCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateMissionProfileCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2636,13 +1606,16 @@ const de_UpdateMissionProfileCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.groundstation#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.groundstation#ResourceLimitExceededException":
+      throw await de_ResourceLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

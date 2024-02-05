@@ -229,7 +229,7 @@ export const de_DeleteSessionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_DeleteSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -246,47 +246,6 @@ export const de_DeleteSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1DeleteSessionCommandError
- */
-const de_DeleteSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lexruntimev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.lexruntimev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexruntimev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexruntimev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexruntimev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexruntimev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1GetSessionCommand
  */
 export const de_GetSessionCommand = async (
@@ -294,7 +253,7 @@ export const de_GetSessionCommand = async (
   context: __SerdeContext
 ): Promise<GetSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_GetSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -311,44 +270,6 @@ export const de_GetSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1GetSessionCommandError
- */
-const de_GetSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lexruntimev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexruntimev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexruntimev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexruntimev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexruntimev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1PutSessionCommand
  */
 export const de_PutSessionCommand = async (
@@ -356,7 +277,7 @@ export const de_PutSessionCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<PutSessionCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_PutSessionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -373,53 +294,6 @@ export const de_PutSessionCommand = async (
 };
 
 /**
- * deserializeAws_restJson1PutSessionCommandError
- */
-const de_PutSessionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<PutSessionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lexruntimev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadGatewayException":
-    case "com.amazonaws.lexruntimev2#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.lexruntimev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DependencyFailedException":
-    case "com.amazonaws.lexruntimev2#DependencyFailedException":
-      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexruntimev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexruntimev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexruntimev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexruntimev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RecognizeTextCommand
  */
 export const de_RecognizeTextCommand = async (
@@ -427,7 +301,7 @@ export const de_RecognizeTextCommand = async (
   context: __SerdeContext
 ): Promise<RecognizeTextCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RecognizeTextCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -446,53 +320,6 @@ export const de_RecognizeTextCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RecognizeTextCommandError
- */
-const de_RecognizeTextCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RecognizeTextCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lexruntimev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadGatewayException":
-    case "com.amazonaws.lexruntimev2#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.lexruntimev2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DependencyFailedException":
-    case "com.amazonaws.lexruntimev2#DependencyFailedException":
-      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexruntimev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.lexruntimev2#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexruntimev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexruntimev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_restJson1RecognizeUtteranceCommand
  */
 export const de_RecognizeUtteranceCommand = async (
@@ -500,7 +327,7 @@ export const de_RecognizeUtteranceCommand = async (
   context: __SerdeContext & __SdkStreamSerdeContext
 ): Promise<RecognizeUtteranceCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_RecognizeUtteranceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
@@ -521,12 +348,27 @@ export const de_RecognizeUtteranceCommand = async (
 };
 
 /**
- * deserializeAws_restJson1RecognizeUtteranceCommandError
+ * deserializeAws_restJson1StartConversationCommand
  */
-const de_RecognizeUtteranceCommandError = async (
+export const de_StartConversationCommand = async (
   output: __HttpResponse,
-  context: __SerdeContext
-): Promise<RecognizeUtteranceCommandOutput> => {
+  context: __SerdeContext & __EventStreamSerdeContext
+): Promise<StartConversationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = output.body;
+  contents.responseEventStream = de_StartConversationResponseEventStream(data, context);
+  return contents;
+};
+
+/**
+ * deserialize_Aws_restJson1CommandError
+ */
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -536,15 +378,9 @@ const de_RecognizeUtteranceCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.lexruntimev2#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "BadGatewayException":
-    case "com.amazonaws.lexruntimev2#BadGatewayException":
-      throw await de_BadGatewayExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.lexruntimev2#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "DependencyFailedException":
-    case "com.amazonaws.lexruntimev2#DependencyFailedException":
-      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.lexruntimev2#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -557,66 +393,19 @@ const de_RecognizeUtteranceCommandError = async (
     case "ValidationException":
     case "com.amazonaws.lexruntimev2#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "BadGatewayException":
+    case "com.amazonaws.lexruntimev2#BadGatewayException":
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
+    case "DependencyFailedException":
+    case "com.amazonaws.lexruntimev2#DependencyFailedException":
+      throw await de_DependencyFailedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
-  }
-};
-
-/**
- * deserializeAws_restJson1StartConversationCommand
- */
-export const de_StartConversationCommand = async (
-  output: __HttpResponse,
-  context: __SerdeContext & __EventStreamSerdeContext
-): Promise<StartConversationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 300) {
-    return de_StartConversationCommandError(output, context);
-  }
-  const contents: any = map({
-    $metadata: deserializeMetadata(output),
-  });
-  const data: any = output.body;
-  contents.responseEventStream = de_StartConversationResponseEventStream(data, context);
-  return contents;
-};
-
-/**
- * deserializeAws_restJson1StartConversationCommandError
- */
-const de_StartConversationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartConversationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AccessDeniedException":
-    case "com.amazonaws.lexruntimev2#AccessDeniedException":
-      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.lexruntimev2#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.lexruntimev2#ThrottlingException":
-      throw await de_ThrottlingExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.lexruntimev2#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
+      }) as never;
   }
 };
 

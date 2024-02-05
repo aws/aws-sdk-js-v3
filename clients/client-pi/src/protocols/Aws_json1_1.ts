@@ -274,7 +274,7 @@ export const de_CreatePerformanceAnalysisReportCommand = async (
   context: __SerdeContext
 ): Promise<CreatePerformanceAnalysisReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreatePerformanceAnalysisReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -287,38 +287,6 @@ export const de_CreatePerformanceAnalysisReportCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreatePerformanceAnalysisReportCommandError
- */
-const de_CreatePerformanceAnalysisReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreatePerformanceAnalysisReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.pi#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.pi#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.pi#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeletePerformanceAnalysisReportCommand
  */
 export const de_DeletePerformanceAnalysisReportCommand = async (
@@ -326,7 +294,7 @@ export const de_DeletePerformanceAnalysisReportCommand = async (
   context: __SerdeContext
 ): Promise<DeletePerformanceAnalysisReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeletePerformanceAnalysisReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -339,38 +307,6 @@ export const de_DeletePerformanceAnalysisReportCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeletePerformanceAnalysisReportCommandError
- */
-const de_DeletePerformanceAnalysisReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeletePerformanceAnalysisReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.pi#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.pi#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.pi#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeDimensionKeysCommand
  */
 export const de_DescribeDimensionKeysCommand = async (
@@ -378,7 +314,7 @@ export const de_DescribeDimensionKeysCommand = async (
   context: __SerdeContext
 ): Promise<DescribeDimensionKeysCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeDimensionKeysCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -391,38 +327,6 @@ export const de_DescribeDimensionKeysCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeDimensionKeysCommandError
- */
-const de_DescribeDimensionKeysCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeDimensionKeysCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.pi#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.pi#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.pi#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDimensionKeyDetailsCommand
  */
 export const de_GetDimensionKeyDetailsCommand = async (
@@ -430,7 +334,7 @@ export const de_GetDimensionKeyDetailsCommand = async (
   context: __SerdeContext
 ): Promise<GetDimensionKeyDetailsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDimensionKeyDetailsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -443,38 +347,6 @@ export const de_GetDimensionKeyDetailsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDimensionKeyDetailsCommandError
- */
-const de_GetDimensionKeyDetailsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDimensionKeyDetailsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.pi#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.pi#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.pi#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetPerformanceAnalysisReportCommand
  */
 export const de_GetPerformanceAnalysisReportCommand = async (
@@ -482,7 +354,7 @@ export const de_GetPerformanceAnalysisReportCommand = async (
   context: __SerdeContext
 ): Promise<GetPerformanceAnalysisReportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPerformanceAnalysisReportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -495,38 +367,6 @@ export const de_GetPerformanceAnalysisReportCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetPerformanceAnalysisReportCommandError
- */
-const de_GetPerformanceAnalysisReportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPerformanceAnalysisReportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.pi#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.pi#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.pi#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourceMetadataCommand
  */
 export const de_GetResourceMetadataCommand = async (
@@ -534,7 +374,7 @@ export const de_GetResourceMetadataCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceMetadataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourceMetadataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -547,38 +387,6 @@ export const de_GetResourceMetadataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourceMetadataCommandError
- */
-const de_GetResourceMetadataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceMetadataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.pi#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.pi#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.pi#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetResourceMetricsCommand
  */
 export const de_GetResourceMetricsCommand = async (
@@ -586,7 +394,7 @@ export const de_GetResourceMetricsCommand = async (
   context: __SerdeContext
 ): Promise<GetResourceMetricsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetResourceMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -599,38 +407,6 @@ export const de_GetResourceMetricsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetResourceMetricsCommandError
- */
-const de_GetResourceMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetResourceMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.pi#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.pi#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.pi#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAvailableResourceDimensionsCommand
  */
 export const de_ListAvailableResourceDimensionsCommand = async (
@@ -638,7 +414,7 @@ export const de_ListAvailableResourceDimensionsCommand = async (
   context: __SerdeContext
 ): Promise<ListAvailableResourceDimensionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAvailableResourceDimensionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -651,38 +427,6 @@ export const de_ListAvailableResourceDimensionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAvailableResourceDimensionsCommandError
- */
-const de_ListAvailableResourceDimensionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAvailableResourceDimensionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.pi#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.pi#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.pi#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListAvailableResourceMetricsCommand
  */
 export const de_ListAvailableResourceMetricsCommand = async (
@@ -690,7 +434,7 @@ export const de_ListAvailableResourceMetricsCommand = async (
   context: __SerdeContext
 ): Promise<ListAvailableResourceMetricsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAvailableResourceMetricsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -703,38 +447,6 @@ export const de_ListAvailableResourceMetricsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListAvailableResourceMetricsCommandError
- */
-const de_ListAvailableResourceMetricsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAvailableResourceMetricsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.pi#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.pi#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.pi#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListPerformanceAnalysisReportsCommand
  */
 export const de_ListPerformanceAnalysisReportsCommand = async (
@@ -742,7 +454,7 @@ export const de_ListPerformanceAnalysisReportsCommand = async (
   context: __SerdeContext
 ): Promise<ListPerformanceAnalysisReportsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListPerformanceAnalysisReportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -755,38 +467,6 @@ export const de_ListPerformanceAnalysisReportsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListPerformanceAnalysisReportsCommandError
- */
-const de_ListPerformanceAnalysisReportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListPerformanceAnalysisReportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.pi#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.pi#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.pi#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -794,7 +474,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -807,38 +487,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.pi#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.pi#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.pi#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -846,7 +494,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -859,38 +507,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServiceError":
-    case "com.amazonaws.pi#InternalServiceError":
-      throw await de_InternalServiceErrorRes(parsedOutput, context);
-    case "InvalidArgumentException":
-    case "com.amazonaws.pi#InvalidArgumentException":
-      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
-    case "NotAuthorizedException":
-    case "com.amazonaws.pi#NotAuthorizedException":
-      throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -898,7 +514,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -911,12 +527,9 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UntagResourceCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -938,7 +551,7 @@ const de_UntagResourceCommandError = async (
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

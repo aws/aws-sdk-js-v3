@@ -661,7 +661,7 @@ export const de_BatchGetCollectionCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetCollectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -674,35 +674,6 @@ export const de_BatchGetCollectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0BatchGetCollectionCommandError
- */
-const de_BatchGetCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0BatchGetEffectiveLifecyclePolicyCommand
  */
 export const de_BatchGetEffectiveLifecyclePolicyCommand = async (
@@ -710,7 +681,7 @@ export const de_BatchGetEffectiveLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetEffectiveLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetEffectiveLifecyclePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -723,35 +694,6 @@ export const de_BatchGetEffectiveLifecyclePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0BatchGetEffectiveLifecyclePolicyCommandError
- */
-const de_BatchGetEffectiveLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetEffectiveLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0BatchGetLifecyclePolicyCommand
  */
 export const de_BatchGetLifecyclePolicyCommand = async (
@@ -759,7 +701,7 @@ export const de_BatchGetLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetLifecyclePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -772,35 +714,6 @@ export const de_BatchGetLifecyclePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0BatchGetLifecyclePolicyCommandError
- */
-const de_BatchGetLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0BatchGetVpcEndpointCommand
  */
 export const de_BatchGetVpcEndpointCommand = async (
@@ -808,7 +721,7 @@ export const de_BatchGetVpcEndpointCommand = async (
   context: __SerdeContext
 ): Promise<BatchGetVpcEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchGetVpcEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -821,35 +734,6 @@ export const de_BatchGetVpcEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_0BatchGetVpcEndpointCommandError
- */
-const de_BatchGetVpcEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchGetVpcEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateAccessPolicyCommand
  */
 export const de_CreateAccessPolicyCommand = async (
@@ -857,7 +741,7 @@ export const de_CreateAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateAccessPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -870,41 +754,6 @@ export const de_CreateAccessPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateAccessPolicyCommandError
- */
-const de_CreateAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateCollectionCommand
  */
 export const de_CreateCollectionCommand = async (
@@ -912,7 +761,7 @@ export const de_CreateCollectionCommand = async (
   context: __SerdeContext
 ): Promise<CreateCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateCollectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -925,44 +774,6 @@ export const de_CreateCollectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateCollectionCommandError
- */
-const de_CreateCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "OcuLimitExceededException":
-    case "com.amazonaws.opensearchserverless#OcuLimitExceededException":
-      throw await de_OcuLimitExceededExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateLifecyclePolicyCommand
  */
 export const de_CreateLifecyclePolicyCommand = async (
@@ -970,7 +781,7 @@ export const de_CreateLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateLifecyclePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -983,41 +794,6 @@ export const de_CreateLifecyclePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateLifecyclePolicyCommandError
- */
-const de_CreateLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateSecurityConfigCommand
  */
 export const de_CreateSecurityConfigCommand = async (
@@ -1025,7 +801,7 @@ export const de_CreateSecurityConfigCommand = async (
   context: __SerdeContext
 ): Promise<CreateSecurityConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSecurityConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1038,41 +814,6 @@ export const de_CreateSecurityConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateSecurityConfigCommandError
- */
-const de_CreateSecurityConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSecurityConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateSecurityPolicyCommand
  */
 export const de_CreateSecurityPolicyCommand = async (
@@ -1080,7 +821,7 @@ export const de_CreateSecurityPolicyCommand = async (
   context: __SerdeContext
 ): Promise<CreateSecurityPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateSecurityPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1093,41 +834,6 @@ export const de_CreateSecurityPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateSecurityPolicyCommandError
- */
-const de_CreateSecurityPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateSecurityPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0CreateVpcEndpointCommand
  */
 export const de_CreateVpcEndpointCommand = async (
@@ -1135,7 +841,7 @@ export const de_CreateVpcEndpointCommand = async (
   context: __SerdeContext
 ): Promise<CreateVpcEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateVpcEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1148,41 +854,6 @@ export const de_CreateVpcEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_0CreateVpcEndpointCommandError
- */
-const de_CreateVpcEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateVpcEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteAccessPolicyCommand
  */
 export const de_DeleteAccessPolicyCommand = async (
@@ -1190,7 +861,7 @@ export const de_DeleteAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteAccessPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1203,41 +874,6 @@ export const de_DeleteAccessPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteAccessPolicyCommandError
- */
-const de_DeleteAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteCollectionCommand
  */
 export const de_DeleteCollectionCommand = async (
@@ -1245,7 +881,7 @@ export const de_DeleteCollectionCommand = async (
   context: __SerdeContext
 ): Promise<DeleteCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteCollectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1258,41 +894,6 @@ export const de_DeleteCollectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteCollectionCommandError
- */
-const de_DeleteCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteLifecyclePolicyCommand
  */
 export const de_DeleteLifecyclePolicyCommand = async (
@@ -1300,7 +901,7 @@ export const de_DeleteLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteLifecyclePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1313,41 +914,6 @@ export const de_DeleteLifecyclePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteLifecyclePolicyCommandError
- */
-const de_DeleteLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteSecurityConfigCommand
  */
 export const de_DeleteSecurityConfigCommand = async (
@@ -1355,7 +921,7 @@ export const de_DeleteSecurityConfigCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSecurityConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSecurityConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1368,41 +934,6 @@ export const de_DeleteSecurityConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteSecurityConfigCommandError
- */
-const de_DeleteSecurityConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSecurityConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteSecurityPolicyCommand
  */
 export const de_DeleteSecurityPolicyCommand = async (
@@ -1410,7 +941,7 @@ export const de_DeleteSecurityPolicyCommand = async (
   context: __SerdeContext
 ): Promise<DeleteSecurityPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteSecurityPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1423,41 +954,6 @@ export const de_DeleteSecurityPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteSecurityPolicyCommandError
- */
-const de_DeleteSecurityPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteSecurityPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0DeleteVpcEndpointCommand
  */
 export const de_DeleteVpcEndpointCommand = async (
@@ -1465,7 +961,7 @@ export const de_DeleteVpcEndpointCommand = async (
   context: __SerdeContext
 ): Promise<DeleteVpcEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteVpcEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1478,41 +974,6 @@ export const de_DeleteVpcEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_0DeleteVpcEndpointCommandError
- */
-const de_DeleteVpcEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteVpcEndpointCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetAccessPolicyCommand
  */
 export const de_GetAccessPolicyCommand = async (
@@ -1520,7 +981,7 @@ export const de_GetAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetAccessPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1533,38 +994,6 @@ export const de_GetAccessPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetAccessPolicyCommandError
- */
-const de_GetAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetAccountSettingsCommand
  */
 export const de_GetAccountSettingsCommand = async (
@@ -1572,7 +1001,7 @@ export const de_GetAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<GetAccountSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetAccountSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1585,35 +1014,6 @@ export const de_GetAccountSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetAccountSettingsCommandError
- */
-const de_GetAccountSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetAccountSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetPoliciesStatsCommand
  */
 export const de_GetPoliciesStatsCommand = async (
@@ -1621,7 +1021,7 @@ export const de_GetPoliciesStatsCommand = async (
   context: __SerdeContext
 ): Promise<GetPoliciesStatsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetPoliciesStatsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1634,32 +1034,6 @@ export const de_GetPoliciesStatsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetPoliciesStatsCommandError
- */
-const de_GetPoliciesStatsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetPoliciesStatsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetSecurityConfigCommand
  */
 export const de_GetSecurityConfigCommand = async (
@@ -1667,7 +1041,7 @@ export const de_GetSecurityConfigCommand = async (
   context: __SerdeContext
 ): Promise<GetSecurityConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSecurityConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1680,38 +1054,6 @@ export const de_GetSecurityConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetSecurityConfigCommandError
- */
-const de_GetSecurityConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSecurityConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0GetSecurityPolicyCommand
  */
 export const de_GetSecurityPolicyCommand = async (
@@ -1719,7 +1061,7 @@ export const de_GetSecurityPolicyCommand = async (
   context: __SerdeContext
 ): Promise<GetSecurityPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetSecurityPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1732,38 +1074,6 @@ export const de_GetSecurityPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0GetSecurityPolicyCommandError
- */
-const de_GetSecurityPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetSecurityPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListAccessPoliciesCommand
  */
 export const de_ListAccessPoliciesCommand = async (
@@ -1771,7 +1081,7 @@ export const de_ListAccessPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListAccessPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListAccessPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1784,35 +1094,6 @@ export const de_ListAccessPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListAccessPoliciesCommandError
- */
-const de_ListAccessPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListAccessPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListCollectionsCommand
  */
 export const de_ListCollectionsCommand = async (
@@ -1820,7 +1101,7 @@ export const de_ListCollectionsCommand = async (
   context: __SerdeContext
 ): Promise<ListCollectionsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListCollectionsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1833,35 +1114,6 @@ export const de_ListCollectionsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListCollectionsCommandError
- */
-const de_ListCollectionsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListCollectionsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListLifecyclePoliciesCommand
  */
 export const de_ListLifecyclePoliciesCommand = async (
@@ -1869,7 +1121,7 @@ export const de_ListLifecyclePoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListLifecyclePoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListLifecyclePoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1882,35 +1134,6 @@ export const de_ListLifecyclePoliciesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListLifecyclePoliciesCommandError
- */
-const de_ListLifecyclePoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListLifecyclePoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListSecurityConfigsCommand
  */
 export const de_ListSecurityConfigsCommand = async (
@@ -1918,7 +1141,7 @@ export const de_ListSecurityConfigsCommand = async (
   context: __SerdeContext
 ): Promise<ListSecurityConfigsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSecurityConfigsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1931,35 +1154,6 @@ export const de_ListSecurityConfigsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListSecurityConfigsCommandError
- */
-const de_ListSecurityConfigsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSecurityConfigsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListSecurityPoliciesCommand
  */
 export const de_ListSecurityPoliciesCommand = async (
@@ -1967,7 +1161,7 @@ export const de_ListSecurityPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<ListSecurityPoliciesCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListSecurityPoliciesCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1980,35 +1174,6 @@ export const de_ListSecurityPoliciesCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListSecurityPoliciesCommandError
- */
-const de_ListSecurityPoliciesCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListSecurityPoliciesCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -2016,7 +1181,7 @@ export const de_ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListTagsForResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2029,38 +1194,6 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListTagsForResourceCommandError
- */
-const de_ListTagsForResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListTagsForResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0ListVpcEndpointsCommand
  */
 export const de_ListVpcEndpointsCommand = async (
@@ -2068,7 +1201,7 @@ export const de_ListVpcEndpointsCommand = async (
   context: __SerdeContext
 ): Promise<ListVpcEndpointsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListVpcEndpointsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2081,35 +1214,6 @@ export const de_ListVpcEndpointsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0ListVpcEndpointsCommandError
- */
-const de_ListVpcEndpointsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListVpcEndpointsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -2117,7 +1221,7 @@ export const de_TagResourceCommand = async (
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_TagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2130,44 +1234,6 @@ export const de_TagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0TagResourceCommandError
- */
-const de_TagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<TagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -2175,7 +1241,7 @@ export const de_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UntagResourceCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2188,41 +1254,6 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UntagResourceCommandError
- */
-const de_UntagResourceCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UntagResourceCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateAccessPolicyCommand
  */
 export const de_UpdateAccessPolicyCommand = async (
@@ -2230,7 +1261,7 @@ export const de_UpdateAccessPolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccessPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAccessPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2243,41 +1274,6 @@ export const de_UpdateAccessPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateAccessPolicyCommandError
- */
-const de_UpdateAccessPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccessPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateAccountSettingsCommand
  */
 export const de_UpdateAccountSettingsCommand = async (
@@ -2285,7 +1281,7 @@ export const de_UpdateAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<UpdateAccountSettingsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateAccountSettingsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2298,35 +1294,6 @@ export const de_UpdateAccountSettingsCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateAccountSettingsCommandError
- */
-const de_UpdateAccountSettingsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateAccountSettingsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateCollectionCommand
  */
 export const de_UpdateCollectionCommand = async (
@@ -2334,7 +1301,7 @@ export const de_UpdateCollectionCommand = async (
   context: __SerdeContext
 ): Promise<UpdateCollectionCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateCollectionCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2347,38 +1314,6 @@ export const de_UpdateCollectionCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateCollectionCommandError
- */
-const de_UpdateCollectionCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateCollectionCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateLifecyclePolicyCommand
  */
 export const de_UpdateLifecyclePolicyCommand = async (
@@ -2386,7 +1321,7 @@ export const de_UpdateLifecyclePolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateLifecyclePolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateLifecyclePolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2399,44 +1334,6 @@ export const de_UpdateLifecyclePolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateLifecyclePolicyCommandError
- */
-const de_UpdateLifecyclePolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateLifecyclePolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateSecurityConfigCommand
  */
 export const de_UpdateSecurityConfigCommand = async (
@@ -2444,7 +1341,7 @@ export const de_UpdateSecurityConfigCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSecurityConfigCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSecurityConfigCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2457,41 +1354,6 @@ export const de_UpdateSecurityConfigCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateSecurityConfigCommandError
- */
-const de_UpdateSecurityConfigCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSecurityConfigCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateSecurityPolicyCommand
  */
 export const de_UpdateSecurityPolicyCommand = async (
@@ -2499,7 +1361,7 @@ export const de_UpdateSecurityPolicyCommand = async (
   context: __SerdeContext
 ): Promise<UpdateSecurityPolicyCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateSecurityPolicyCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2512,44 +1374,6 @@ export const de_UpdateSecurityPolicyCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateSecurityPolicyCommandError
- */
-const de_UpdateSecurityPolicyCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateSecurityPolicyCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
-    case "InternalServerException":
-    case "com.amazonaws.opensearchserverless#InternalServerException":
-      throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ValidationException":
-    case "com.amazonaws.opensearchserverless#ValidationException":
-      throw await de_ValidationExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_0UpdateVpcEndpointCommand
  */
 export const de_UpdateVpcEndpointCommand = async (
@@ -2557,7 +1381,7 @@ export const de_UpdateVpcEndpointCommand = async (
   context: __SerdeContext
 ): Promise<UpdateVpcEndpointCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateVpcEndpointCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2570,34 +1394,40 @@ export const de_UpdateVpcEndpointCommand = async (
 };
 
 /**
- * deserializeAws_json1_0UpdateVpcEndpointCommandError
+ * deserialize_Aws_json1_0CommandError
  */
-const de_UpdateVpcEndpointCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateVpcEndpointCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
-    case "ConflictException":
-    case "com.amazonaws.opensearchserverless#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.opensearchserverless#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.opensearchserverless#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.opensearchserverless#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.opensearchserverless#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "OcuLimitExceededException":
+    case "com.amazonaws.opensearchserverless#OcuLimitExceededException":
+      throw await de_OcuLimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.opensearchserverless#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 

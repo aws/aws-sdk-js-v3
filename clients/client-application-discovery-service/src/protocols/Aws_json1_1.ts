@@ -539,7 +539,7 @@ export const de_AssociateConfigurationItemsToApplicationCommand = async (
   context: __SerdeContext
 ): Promise<AssociateConfigurationItemsToApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_AssociateConfigurationItemsToApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -552,44 +552,6 @@ export const de_AssociateConfigurationItemsToApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1AssociateConfigurationItemsToApplicationCommandError
- */
-const de_AssociateConfigurationItemsToApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<AssociateConfigurationItemsToApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDeleteAgentsCommand
  */
 export const de_BatchDeleteAgentsCommand = async (
@@ -597,7 +559,7 @@ export const de_BatchDeleteAgentsCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteAgentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDeleteAgentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -610,41 +572,6 @@ export const de_BatchDeleteAgentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDeleteAgentsCommandError
- */
-const de_BatchDeleteAgentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteAgentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1BatchDeleteImportDataCommand
  */
 export const de_BatchDeleteImportDataCommand = async (
@@ -652,7 +579,7 @@ export const de_BatchDeleteImportDataCommand = async (
   context: __SerdeContext
 ): Promise<BatchDeleteImportDataCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_BatchDeleteImportDataCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -665,44 +592,6 @@ export const de_BatchDeleteImportDataCommand = async (
 };
 
 /**
- * deserializeAws_json1_1BatchDeleteImportDataCommandError
- */
-const de_BatchDeleteImportDataCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<BatchDeleteImportDataCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateApplicationCommand
  */
 export const de_CreateApplicationCommand = async (
@@ -710,7 +599,7 @@ export const de_CreateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -723,44 +612,6 @@ export const de_CreateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateApplicationCommandError
- */
-const de_CreateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1CreateTagsCommand
  */
 export const de_CreateTagsCommand = async (
@@ -768,7 +619,7 @@ export const de_CreateTagsCommand = async (
   context: __SerdeContext
 ): Promise<CreateTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_CreateTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -781,47 +632,6 @@ export const de_CreateTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1CreateTagsCommandError
- */
-const de_CreateTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<CreateTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteApplicationsCommand
  */
 export const de_DeleteApplicationsCommand = async (
@@ -829,7 +639,7 @@ export const de_DeleteApplicationsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteApplicationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteApplicationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -842,44 +652,6 @@ export const de_DeleteApplicationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteApplicationsCommandError
- */
-const de_DeleteApplicationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteApplicationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DeleteTagsCommand
  */
 export const de_DeleteTagsCommand = async (
@@ -887,7 +659,7 @@ export const de_DeleteTagsCommand = async (
   context: __SerdeContext
 ): Promise<DeleteTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DeleteTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -900,47 +672,6 @@ export const de_DeleteTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DeleteTagsCommandError
- */
-const de_DeleteTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DeleteTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeAgentsCommand
  */
 export const de_DescribeAgentsCommand = async (
@@ -948,7 +679,7 @@ export const de_DescribeAgentsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeAgentsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeAgentsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -961,44 +692,6 @@ export const de_DescribeAgentsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeAgentsCommandError
- */
-const de_DescribeAgentsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeAgentsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeBatchDeleteConfigurationTaskCommand
  */
 export const de_DescribeBatchDeleteConfigurationTaskCommand = async (
@@ -1006,7 +699,7 @@ export const de_DescribeBatchDeleteConfigurationTaskCommand = async (
   context: __SerdeContext
 ): Promise<DescribeBatchDeleteConfigurationTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeBatchDeleteConfigurationTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1019,41 +712,6 @@ export const de_DescribeBatchDeleteConfigurationTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeBatchDeleteConfigurationTaskCommandError
- */
-const de_DescribeBatchDeleteConfigurationTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeBatchDeleteConfigurationTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeConfigurationsCommand
  */
 export const de_DescribeConfigurationsCommand = async (
@@ -1061,7 +719,7 @@ export const de_DescribeConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1074,44 +732,6 @@ export const de_DescribeConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeConfigurationsCommandError
- */
-const de_DescribeConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeContinuousExportsCommand
  */
 export const de_DescribeContinuousExportsCommand = async (
@@ -1119,7 +739,7 @@ export const de_DescribeContinuousExportsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeContinuousExportsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeContinuousExportsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1132,50 +752,6 @@ export const de_DescribeContinuousExportsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeContinuousExportsCommandError
- */
-const de_DescribeContinuousExportsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeContinuousExportsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeExportConfigurationsCommand
  */
 export const de_DescribeExportConfigurationsCommand = async (
@@ -1183,7 +759,7 @@ export const de_DescribeExportConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExportConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeExportConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1196,47 +772,6 @@ export const de_DescribeExportConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeExportConfigurationsCommandError
- */
-const de_DescribeExportConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExportConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeExportTasksCommand
  */
 export const de_DescribeExportTasksCommand = async (
@@ -1244,7 +779,7 @@ export const de_DescribeExportTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeExportTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeExportTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1257,44 +792,6 @@ export const de_DescribeExportTasksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeExportTasksCommandError
- */
-const de_DescribeExportTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeExportTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeImportTasksCommand
  */
 export const de_DescribeImportTasksCommand = async (
@@ -1302,7 +799,7 @@ export const de_DescribeImportTasksCommand = async (
   context: __SerdeContext
 ): Promise<DescribeImportTasksCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeImportTasksCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1315,44 +812,6 @@ export const de_DescribeImportTasksCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeImportTasksCommandError
- */
-const de_DescribeImportTasksCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeImportTasksCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DescribeTagsCommand
  */
 export const de_DescribeTagsCommand = async (
@@ -1360,7 +819,7 @@ export const de_DescribeTagsCommand = async (
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DescribeTagsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1373,47 +832,6 @@ export const de_DescribeTagsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DescribeTagsCommandError
- */
-const de_DescribeTagsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DescribeTagsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommand
  */
 export const de_DisassociateConfigurationItemsFromApplicationCommand = async (
@@ -1421,7 +839,7 @@ export const de_DisassociateConfigurationItemsFromApplicationCommand = async (
   context: __SerdeContext
 ): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_DisassociateConfigurationItemsFromApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1434,44 +852,6 @@ export const de_DisassociateConfigurationItemsFromApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1DisassociateConfigurationItemsFromApplicationCommandError
- */
-const de_DisassociateConfigurationItemsFromApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<DisassociateConfigurationItemsFromApplicationCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ExportConfigurationsCommand
  */
 export const de_ExportConfigurationsCommand = async (
@@ -1479,7 +859,7 @@ export const de_ExportConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ExportConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ExportConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1492,47 +872,6 @@ export const de_ExportConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ExportConfigurationsCommandError
- */
-const de_ExportConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ExportConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1GetDiscoverySummaryCommand
  */
 export const de_GetDiscoverySummaryCommand = async (
@@ -1540,7 +879,7 @@ export const de_GetDiscoverySummaryCommand = async (
   context: __SerdeContext
 ): Promise<GetDiscoverySummaryCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_GetDiscoverySummaryCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1553,44 +892,6 @@ export const de_GetDiscoverySummaryCommand = async (
 };
 
 /**
- * deserializeAws_json1_1GetDiscoverySummaryCommandError
- */
-const de_GetDiscoverySummaryCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<GetDiscoverySummaryCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListConfigurationsCommand
  */
 export const de_ListConfigurationsCommand = async (
@@ -1598,7 +899,7 @@ export const de_ListConfigurationsCommand = async (
   context: __SerdeContext
 ): Promise<ListConfigurationsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListConfigurationsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1611,47 +912,6 @@ export const de_ListConfigurationsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListConfigurationsCommandError
- */
-const de_ListConfigurationsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListConfigurationsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1ListServerNeighborsCommand
  */
 export const de_ListServerNeighborsCommand = async (
@@ -1659,7 +919,7 @@ export const de_ListServerNeighborsCommand = async (
   context: __SerdeContext
 ): Promise<ListServerNeighborsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_ListServerNeighborsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1672,44 +932,6 @@ export const de_ListServerNeighborsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1ListServerNeighborsCommandError
- */
-const de_ListServerNeighborsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<ListServerNeighborsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartBatchDeleteConfigurationTaskCommand
  */
 export const de_StartBatchDeleteConfigurationTaskCommand = async (
@@ -1717,7 +939,7 @@ export const de_StartBatchDeleteConfigurationTaskCommand = async (
   context: __SerdeContext
 ): Promise<StartBatchDeleteConfigurationTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartBatchDeleteConfigurationTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1730,47 +952,6 @@ export const de_StartBatchDeleteConfigurationTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartBatchDeleteConfigurationTaskCommandError
- */
-const de_StartBatchDeleteConfigurationTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartBatchDeleteConfigurationTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "LimitExceededException":
-    case "com.amazonaws.applicationdiscoveryservice#LimitExceededException":
-      throw await de_LimitExceededExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartContinuousExportCommand
  */
 export const de_StartContinuousExportCommand = async (
@@ -1778,7 +959,7 @@ export const de_StartContinuousExportCommand = async (
   context: __SerdeContext
 ): Promise<StartContinuousExportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartContinuousExportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1791,53 +972,6 @@ export const de_StartContinuousExportCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartContinuousExportCommandError
- */
-const de_StartContinuousExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartContinuousExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "ConflictErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ConflictErrorException":
-      throw await de_ConflictErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.applicationdiscoveryservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartDataCollectionByAgentIdsCommand
  */
 export const de_StartDataCollectionByAgentIdsCommand = async (
@@ -1845,7 +979,7 @@ export const de_StartDataCollectionByAgentIdsCommand = async (
   context: __SerdeContext
 ): Promise<StartDataCollectionByAgentIdsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartDataCollectionByAgentIdsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1858,44 +992,6 @@ export const de_StartDataCollectionByAgentIdsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartDataCollectionByAgentIdsCommandError
- */
-const de_StartDataCollectionByAgentIdsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartDataCollectionByAgentIdsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartExportTaskCommand
  */
 export const de_StartExportTaskCommand = async (
@@ -1903,7 +999,7 @@ export const de_StartExportTaskCommand = async (
   context: __SerdeContext
 ): Promise<StartExportTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartExportTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1916,47 +1012,6 @@ export const de_StartExportTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartExportTaskCommandError
- */
-const de_StartExportTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartExportTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StartImportTaskCommand
  */
 export const de_StartImportTaskCommand = async (
@@ -1964,7 +1019,7 @@ export const de_StartImportTaskCommand = async (
   context: __SerdeContext
 ): Promise<StartImportTaskCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StartImportTaskCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -1977,47 +1032,6 @@ export const de_StartImportTaskCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StartImportTaskCommandError
- */
-const de_StartImportTaskCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StartImportTaskCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.applicationdiscoveryservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopContinuousExportCommand
  */
 export const de_StopContinuousExportCommand = async (
@@ -2025,7 +1039,7 @@ export const de_StopContinuousExportCommand = async (
   context: __SerdeContext
 ): Promise<StopContinuousExportCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopContinuousExportCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2038,53 +1052,6 @@ export const de_StopContinuousExportCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopContinuousExportCommandError
- */
-const de_StopContinuousExportCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopContinuousExportCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "OperationNotPermittedException":
-    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
-      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
-    case "ResourceInUseException":
-    case "com.amazonaws.applicationdiscoveryservice#ResourceInUseException":
-      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1StopDataCollectionByAgentIdsCommand
  */
 export const de_StopDataCollectionByAgentIdsCommand = async (
@@ -2092,7 +1059,7 @@ export const de_StopDataCollectionByAgentIdsCommand = async (
   context: __SerdeContext
 ): Promise<StopDataCollectionByAgentIdsCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_StopDataCollectionByAgentIdsCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2105,44 +1072,6 @@ export const de_StopDataCollectionByAgentIdsCommand = async (
 };
 
 /**
- * deserializeAws_json1_1StopDataCollectionByAgentIdsCommandError
- */
-const de_StopDataCollectionByAgentIdsCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<StopDataCollectionByAgentIdsCommandOutput> => {
-  const parsedOutput: any = {
-    ...output,
-    body: await parseErrorBody(output.body, context),
-  };
-  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
-  switch (errorCode) {
-    case "AuthorizationErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
-      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
-    case "HomeRegionNotSetException":
-    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
-      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
-    case "InvalidParameterException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
-      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
-    case "InvalidParameterValueException":
-    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
-      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
-    case "ServerInternalErrorException":
-    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
-      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
-    default:
-      const parsedBody = parsedOutput.body;
-      return throwDefaultError({
-        output,
-        parsedBody,
-        errorCode,
-      });
-  }
-};
-
-/**
  * deserializeAws_json1_1UpdateApplicationCommand
  */
 export const de_UpdateApplicationCommand = async (
@@ -2150,7 +1079,7 @@ export const de_UpdateApplicationCommand = async (
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
   if (output.statusCode >= 300) {
-    return de_UpdateApplicationCommandError(output, context);
+    return de_CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
@@ -2163,12 +1092,9 @@ export const de_UpdateApplicationCommand = async (
 };
 
 /**
- * deserializeAws_json1_1UpdateApplicationCommandError
+ * deserialize_Aws_json1_1CommandError
  */
-const de_UpdateApplicationCommandError = async (
-  output: __HttpResponse,
-  context: __SerdeContext
-): Promise<UpdateApplicationCommandOutput> => {
+const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2190,13 +1116,28 @@ const de_UpdateApplicationCommandError = async (
     case "ServerInternalErrorException":
     case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
       throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.applicationdiscoveryservice#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.applicationdiscoveryservice#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ConflictErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ConflictErrorException":
+      throw await de_ConflictErrorExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.applicationdiscoveryservice#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 
