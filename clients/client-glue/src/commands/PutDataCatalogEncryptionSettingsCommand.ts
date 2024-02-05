@@ -45,8 +45,9 @@ export interface PutDataCatalogEncryptionSettingsCommandOutput
  *   CatalogId: "STRING_VALUE",
  *   DataCatalogEncryptionSettings: { // DataCatalogEncryptionSettings
  *     EncryptionAtRest: { // EncryptionAtRest
- *       CatalogEncryptionMode: "DISABLED" || "SSE-KMS", // required
+ *       CatalogEncryptionMode: "DISABLED" || "SSE-KMS" || "SSE-KMS-WITH-SERVICE-ROLE", // required
  *       SseAwsKmsKeyId: "STRING_VALUE",
+ *       CatalogEncryptionServiceRole: "STRING_VALUE",
  *     },
  *     ConnectionPasswordEncryption: { // ConnectionPasswordEncryption
  *       ReturnConnectionPasswordEncrypted: true || false, // required
